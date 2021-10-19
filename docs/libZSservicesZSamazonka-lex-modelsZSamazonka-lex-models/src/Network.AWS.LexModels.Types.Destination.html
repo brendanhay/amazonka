@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679309791"><span id="local-6989586621679309792"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Destination"><span class="annot"><a href="Network.AWS.LexModels.Types.Destination.html#Destination"><span class="hs-identifier hs-var">Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destination%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679310072"><span id="local-6989586621679310073"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Destination"><span class="annot"><a href="Network.AWS.LexModels.Types.Destination.html#Destination"><span class="hs-identifier hs-var">Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destination%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDestination"><span class="annot"><span class="annottext">Destination -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.Destination.html#fromDestination"><span class="hs-identifier hs-var hs-var">fromDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309783"><span id="local-6989586621679309785"><span id="local-6989586621679309787"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310064"><span id="local-6989586621679310066"><span id="local-6989586621679310068"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; ShowS
 [Destination] -&gt; ShowS
 Destination -&gt; String
 (Int -&gt; Destination -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Destination -&gt; String
 showsPrec :: Int -&gt; Destination -&gt; ShowS
 $cshowsPrec :: Int -&gt; Destination -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679309774"><span id="local-6989586621679309776"><span id="local-6989586621679309778"><span id="local-6989586621679309780"><span class="annot"><span class="annottext">ReadPrec [Destination]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679310055"><span id="local-6989586621679310057"><span id="local-6989586621679310059"><span id="local-6989586621679310061"><span class="annot"><span class="annottext">ReadPrec [Destination]
 ReadPrec Destination
 Int -&gt; ReadS Destination
 ReadS [Destination]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Destination]
 readsPrec :: Int -&gt; ReadS Destination
 $creadsPrec :: Int -&gt; ReadS Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679309769"><span id="local-6989586621679309771"><span class="annot"><span class="annottext">Destination -&gt; Destination -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679310050"><span id="local-6989586621679310052"><span class="annot"><span class="annottext">Destination -&gt; Destination -&gt; Bool
 (Destination -&gt; Destination -&gt; Bool)
 -&gt; (Destination -&gt; Destination -&gt; Bool) -&gt; Eq Destination
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Destination -&gt; Destination -&gt; Bool
 == :: Destination -&gt; Destination -&gt; Bool
 $c== :: Destination -&gt; Destination -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679309753"><span id="local-6989586621679309755"><span id="local-6989586621679309757"><span id="local-6989586621679309759"><span id="local-6989586621679309761"><span id="local-6989586621679309763"><span id="local-6989586621679309765"><span class="annot"><span class="annottext">Eq Destination
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679310034"><span id="local-6989586621679310036"><span id="local-6989586621679310038"><span id="local-6989586621679310040"><span id="local-6989586621679310042"><span id="local-6989586621679310044"><span id="local-6989586621679310046"><span class="annot"><span class="annottext">Eq Destination
 Eq Destination
 -&gt; (Destination -&gt; Destination -&gt; Ordering)
 -&gt; (Destination -&gt; Destination -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Destination -&gt; Rep Destination x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679309745"><span id="local-6989586621679309747"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310026"><span id="local-6989586621679310028"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; Int
 Destination -&gt; Int
 (Int -&gt; Destination -&gt; Int)
 -&gt; (Destination -&gt; Int) -&gt; Hashable Destination
@@ -142,49 +142,49 @@ $chash :: Destination -&gt; Int
 hashWithSalt :: Int -&gt; Destination -&gt; Int
 $chashWithSalt :: Int -&gt; Destination -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679309742"><span class="annot"><span class="annottext">Destination -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679310023"><span class="annot"><span class="annottext">Destination -&gt; ()
 (Destination -&gt; ()) -&gt; NFData Destination
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Destination -&gt; ()
 $crnf :: Destination -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679309739"><span class="annot"><span class="annottext">Text -&gt; Either String Destination
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679310020"><span class="annot"><span class="annottext">Text -&gt; Either String Destination
 (Text -&gt; Either String Destination) -&gt; FromText Destination
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Destination
 $cfromText :: Text -&gt; Either String Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679309736"><span class="annot"><span class="annottext">Destination -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679310017"><span class="annot"><span class="annottext">Destination -&gt; Text
 (Destination -&gt; Text) -&gt; ToText Destination
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Destination -&gt; Text
 $ctoText :: Destination -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679309733"><span class="annot"><span class="annottext">Destination -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679310014"><span class="annot"><span class="annottext">Destination -&gt; ByteString
 (Destination -&gt; ByteString) -&gt; ToByteString Destination
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Destination -&gt; ByteString
 $ctoBS :: Destination -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679309730"><span class="annot"><span class="annottext">Destination -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679310011"><span class="annot"><span class="annottext">Destination -&gt; ByteStringBuilder
 (Destination -&gt; ByteStringBuilder) -&gt; ToLog Destination
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Destination -&gt; ByteStringBuilder
 $cbuild :: Destination -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679309727"><span class="annot"><span class="annottext">HeaderName -&gt; Destination -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679310008"><span class="annot"><span class="annottext">HeaderName -&gt; Destination -&gt; [Header]
 (HeaderName -&gt; Destination -&gt; [Header]) -&gt; ToHeader Destination
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Destination -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Destination -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679309724"><span class="annot"><span class="annottext">Destination -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679310005"><span class="annot"><span class="annottext">Destination -&gt; QueryString
 (Destination -&gt; QueryString) -&gt; ToQuery Destination
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Destination -&gt; QueryString
 $ctoQuery :: Destination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679309719"><span id="local-6989586621679309721"><span class="annot"><span class="annottext">Value -&gt; Parser [Destination]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679310000"><span id="local-6989586621679310002"><span class="annot"><span class="annottext">Value -&gt; Parser [Destination]
 Value -&gt; Parser Destination
 (Value -&gt; Parser Destination)
 -&gt; (Value -&gt; Parser [Destination]) -&gt; FromJSON Destination
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [Destination]
 parseJSON :: Value -&gt; Parser Destination
 $cparseJSON :: Value -&gt; Parser Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309714"><span id="local-6989586621679309716"><span class="annot"><span class="annottext">FromJSONKeyFunction [Destination]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679309995"><span id="local-6989586621679309997"><span class="annot"><span class="annottext">FromJSONKeyFunction [Destination]
 FromJSONKeyFunction Destination
 FromJSONKeyFunction Destination
 -&gt; FromJSONKeyFunction [Destination] -&gt; FromJSONKey Destination
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Destination]
 fromJSONKey :: FromJSONKeyFunction Destination
 $cfromJSONKey :: FromJSONKeyFunction Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309705"><span id="local-6989586621679309707"><span id="local-6989586621679309709"><span id="local-6989586621679309711"><span class="annot"><span class="annottext">[Destination] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679309986"><span id="local-6989586621679309988"><span id="local-6989586621679309990"><span id="local-6989586621679309992"><span class="annot"><span class="annottext">[Destination] -&gt; Encoding
 [Destination] -&gt; Value
 Destination -&gt; Encoding
 Destination -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: Destination -&gt; Encoding
 toJSON :: Destination -&gt; Value
 $ctoJSON :: Destination -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309700"><span id="local-6989586621679309702"><span class="annot"><span class="annottext">ToJSONKeyFunction [Destination]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679309981"><span id="local-6989586621679309983"><span class="annot"><span class="annottext">ToJSONKeyFunction [Destination]
 ToJSONKeyFunction Destination
 ToJSONKeyFunction Destination
 -&gt; ToJSONKeyFunction [Destination] -&gt; ToJSONKey Destination
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Destination]
 toJSONKey :: ToJSONKeyFunction Destination
 $ctoJSONKey :: ToJSONKeyFunction Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309697"><span class="annot"><span class="annottext">[Node] -&gt; Either String Destination
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679309978"><span class="annot"><span class="annottext">[Node] -&gt; Either String Destination
 ([Node] -&gt; Either String Destination) -&gt; FromXML Destination
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Destination
 $cparseXML :: [Node] -&gt; Either String Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309694"><span class="annot"><span class="annottext">Destination -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679309975"><span class="annot"><span class="annottext">Destination -&gt; XML
 (Destination -&gt; XML) -&gt; ToXML Destination
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Destination -&gt; XML

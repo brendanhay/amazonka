@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681120312"><span id="local-6989586621681120313"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubnetState"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetState.html#SubnetState"><span class="hs-identifier hs-var">SubnetState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetState%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetState.html#SubnetState%27"><span class="hs-identifier hs-var">SubnetState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681155158"><span id="local-6989586621681155159"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubnetState"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetState.html#SubnetState"><span class="hs-identifier hs-var">SubnetState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetState%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetState.html#SubnetState%27"><span class="hs-identifier hs-var">SubnetState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubnetState"><span class="annot"><span class="annottext">SubnetState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.SubnetState.html#fromSubnetState"><span class="hs-identifier hs-var hs-var">fromSubnetState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681120304"><span id="local-6989586621681120306"><span id="local-6989586621681120308"><span class="annot"><span class="annottext">Int -&gt; SubnetState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681155150"><span id="local-6989586621681155152"><span id="local-6989586621681155154"><span class="annot"><span class="annottext">Int -&gt; SubnetState -&gt; ShowS
 [SubnetState] -&gt; ShowS
 SubnetState -&gt; String
 (Int -&gt; SubnetState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SubnetState -&gt; String
 showsPrec :: Int -&gt; SubnetState -&gt; ShowS
 $cshowsPrec :: Int -&gt; SubnetState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681120295"><span id="local-6989586621681120297"><span id="local-6989586621681120299"><span id="local-6989586621681120301"><span class="annot"><span class="annottext">ReadPrec [SubnetState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681155141"><span id="local-6989586621681155143"><span id="local-6989586621681155145"><span id="local-6989586621681155147"><span class="annot"><span class="annottext">ReadPrec [SubnetState]
 ReadPrec SubnetState
 Int -&gt; ReadS SubnetState
 ReadS [SubnetState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SubnetState]
 readsPrec :: Int -&gt; ReadS SubnetState
 $creadsPrec :: Int -&gt; ReadS SubnetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681120290"><span id="local-6989586621681120292"><span class="annot"><span class="annottext">SubnetState -&gt; SubnetState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681155136"><span id="local-6989586621681155138"><span class="annot"><span class="annottext">SubnetState -&gt; SubnetState -&gt; Bool
 (SubnetState -&gt; SubnetState -&gt; Bool)
 -&gt; (SubnetState -&gt; SubnetState -&gt; Bool) -&gt; Eq SubnetState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: SubnetState -&gt; SubnetState -&gt; Bool
 == :: SubnetState -&gt; SubnetState -&gt; Bool
 $c== :: SubnetState -&gt; SubnetState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681120274"><span id="local-6989586621681120276"><span id="local-6989586621681120278"><span id="local-6989586621681120280"><span id="local-6989586621681120282"><span id="local-6989586621681120284"><span id="local-6989586621681120286"><span class="annot"><span class="annottext">Eq SubnetState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681155120"><span id="local-6989586621681155122"><span id="local-6989586621681155124"><span id="local-6989586621681155126"><span id="local-6989586621681155128"><span id="local-6989586621681155130"><span id="local-6989586621681155132"><span class="annot"><span class="annottext">Eq SubnetState
 Eq SubnetState
 -&gt; (SubnetState -&gt; SubnetState -&gt; Ordering)
 -&gt; (SubnetState -&gt; SubnetState -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SubnetState -&gt; Rep SubnetState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681120266"><span id="local-6989586621681120268"><span class="annot"><span class="annottext">Int -&gt; SubnetState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681155112"><span id="local-6989586621681155114"><span class="annot"><span class="annottext">Int -&gt; SubnetState -&gt; Int
 SubnetState -&gt; Int
 (Int -&gt; SubnetState -&gt; Int)
 -&gt; (SubnetState -&gt; Int) -&gt; Hashable SubnetState
@@ -143,49 +143,49 @@ $chash :: SubnetState -&gt; Int
 hashWithSalt :: Int -&gt; SubnetState -&gt; Int
 $chashWithSalt :: Int -&gt; SubnetState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681120263"><span class="annot"><span class="annottext">SubnetState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681155109"><span class="annot"><span class="annottext">SubnetState -&gt; ()
 (SubnetState -&gt; ()) -&gt; NFData SubnetState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SubnetState -&gt; ()
 $crnf :: SubnetState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681120260"><span class="annot"><span class="annottext">Text -&gt; Either String SubnetState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681155106"><span class="annot"><span class="annottext">Text -&gt; Either String SubnetState
 (Text -&gt; Either String SubnetState) -&gt; FromText SubnetState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SubnetState
 $cfromText :: Text -&gt; Either String SubnetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681120257"><span class="annot"><span class="annottext">SubnetState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681155103"><span class="annot"><span class="annottext">SubnetState -&gt; Text
 (SubnetState -&gt; Text) -&gt; ToText SubnetState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SubnetState -&gt; Text
 $ctoText :: SubnetState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681120254"><span class="annot"><span class="annottext">SubnetState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681155100"><span class="annot"><span class="annottext">SubnetState -&gt; ByteString
 (SubnetState -&gt; ByteString) -&gt; ToByteString SubnetState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SubnetState -&gt; ByteString
 $ctoBS :: SubnetState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681120251"><span class="annot"><span class="annottext">SubnetState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681155097"><span class="annot"><span class="annottext">SubnetState -&gt; ByteStringBuilder
 (SubnetState -&gt; ByteStringBuilder) -&gt; ToLog SubnetState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SubnetState -&gt; ByteStringBuilder
 $cbuild :: SubnetState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681120248"><span class="annot"><span class="annottext">HeaderName -&gt; SubnetState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681155094"><span class="annot"><span class="annottext">HeaderName -&gt; SubnetState -&gt; [Header]
 (HeaderName -&gt; SubnetState -&gt; [Header]) -&gt; ToHeader SubnetState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SubnetState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SubnetState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681120245"><span class="annot"><span class="annottext">SubnetState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681155091"><span class="annot"><span class="annottext">SubnetState -&gt; QueryString
 (SubnetState -&gt; QueryString) -&gt; ToQuery SubnetState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SubnetState -&gt; QueryString
 $ctoQuery :: SubnetState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681120240"><span id="local-6989586621681120242"><span class="annot"><span class="annottext">Value -&gt; Parser [SubnetState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681155086"><span id="local-6989586621681155088"><span class="annot"><span class="annottext">Value -&gt; Parser [SubnetState]
 Value -&gt; Parser SubnetState
 (Value -&gt; Parser SubnetState)
 -&gt; (Value -&gt; Parser [SubnetState]) -&gt; FromJSON SubnetState
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [SubnetState]
 parseJSON :: Value -&gt; Parser SubnetState
 $cparseJSON :: Value -&gt; Parser SubnetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681120235"><span id="local-6989586621681120237"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubnetState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681155081"><span id="local-6989586621681155083"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubnetState]
 FromJSONKeyFunction SubnetState
 FromJSONKeyFunction SubnetState
 -&gt; FromJSONKeyFunction [SubnetState] -&gt; FromJSONKey SubnetState
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SubnetState]
 fromJSONKey :: FromJSONKeyFunction SubnetState
 $cfromJSONKey :: FromJSONKeyFunction SubnetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681120226"><span id="local-6989586621681120228"><span id="local-6989586621681120230"><span id="local-6989586621681120232"><span class="annot"><span class="annottext">[SubnetState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681155072"><span id="local-6989586621681155074"><span id="local-6989586621681155076"><span id="local-6989586621681155078"><span class="annot"><span class="annottext">[SubnetState] -&gt; Encoding
 [SubnetState] -&gt; Value
 SubnetState -&gt; Encoding
 SubnetState -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: SubnetState -&gt; Encoding
 toJSON :: SubnetState -&gt; Value
 $ctoJSON :: SubnetState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681120221"><span id="local-6989586621681120223"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubnetState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681155067"><span id="local-6989586621681155069"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubnetState]
 ToJSONKeyFunction SubnetState
 ToJSONKeyFunction SubnetState
 -&gt; ToJSONKeyFunction [SubnetState] -&gt; ToJSONKey SubnetState
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SubnetState]
 toJSONKey :: ToJSONKeyFunction SubnetState
 $ctoJSONKey :: ToJSONKeyFunction SubnetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681120218"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubnetState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681155064"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubnetState
 ([Node] -&gt; Either String SubnetState) -&gt; FromXML SubnetState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SubnetState
 $cparseXML :: [Node] -&gt; Either String SubnetState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681120215"><span class="annot"><span class="annottext">SubnetState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681155061"><span class="annot"><span class="annottext">SubnetState -&gt; XML
 (SubnetState -&gt; XML) -&gt; ToXML SubnetState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SubnetState -&gt; XML

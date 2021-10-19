@@ -40,10 +40,10 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#newCreatePlacementGroup"><span class="hs-identifier">newCreatePlacementGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_tagSpecifications"><span class="hs-identifier">createPlacementGroup_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_dryRun"><span class="hs-identifier">createPlacementGroup_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_strategy"><span class="hs-identifier">createPlacementGroup_strategy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_groupName"><span class="hs-identifier">createPlacementGroup_groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_strategy"><span class="hs-identifier">createPlacementGroup_strategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_tagSpecifications"><span class="hs-identifier">createPlacementGroup_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_groupName"><span class="hs-identifier">createPlacementGroup_groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_dryRun"><span class="hs-identifier">createPlacementGroup_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_partitionCount"><span class="hs-identifier">createPlacementGroup_partitionCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -64,31 +64,31 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newCreatePlacementGroup' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621681256918"><span id="local-6989586621681256919"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlacementGroup"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-var">CreatePlacementGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlacementGroup%27"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-var">CreatePlacementGroup'</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to apply to the new placement group.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe [TagSpecification]
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AtagSpecifications%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The placement strategy.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Astrategy%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe PlacementStrategy
+</span><span id="line-67"></span><span id="local-6989586621681293030"><span id="local-6989586621681293031"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlacementGroup"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-var">CreatePlacementGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlacementGroup%27"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-var">CreatePlacementGroup'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The placement strategy.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Astrategy%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe PlacementStrategy
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3Astrategy%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var hs-var">strategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A name for the placement group. Must be unique within the scope of your</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- account for the Region.</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3AgroupName%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe Text
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The tags to apply to the new placement group.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe [TagSpecification]
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AtagSpecifications%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A name for the placement group. Must be unique within the scope of your</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- account for the Region.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AgroupName%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AgroupName%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The number of partitions. Valid only when __Strategy__ is set to</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @partition@.</span><span>
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3ApartitionCount%3ACreatePlacementGroup%27"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3ApartitionCount%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var hs-var">partitionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681256908"><span id="local-6989586621681256910"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; CreatePlacementGroup -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681293020"><span id="local-6989586621681293022"><span class="annot"><span class="annottext">CreatePlacementGroup -&gt; CreatePlacementGroup -&gt; Bool
 (CreatePlacementGroup -&gt; CreatePlacementGroup -&gt; Bool)
 -&gt; (CreatePlacementGroup -&gt; CreatePlacementGroup -&gt; Bool)
 -&gt; Eq CreatePlacementGroup
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePlacementGroup -&gt; CreatePlacementGroup -&gt; Bool
 == :: CreatePlacementGroup -&gt; CreatePlacementGroup -&gt; Bool
 $c== :: CreatePlacementGroup -&gt; CreatePlacementGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256899"><span id="local-6989586621681256901"><span id="local-6989586621681256903"><span id="local-6989586621681256905"><span class="annot"><span class="annottext">ReadPrec [CreatePlacementGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681293011"><span id="local-6989586621681293013"><span id="local-6989586621681293015"><span id="local-6989586621681293017"><span class="annot"><span class="annottext">ReadPrec [CreatePlacementGroup]
 ReadPrec CreatePlacementGroup
 Int -&gt; ReadS CreatePlacementGroup
 ReadS [CreatePlacementGroup]
@@ -117,7 +117,7 @@ readList :: ReadS [CreatePlacementGroup]
 $creadList :: ReadS [CreatePlacementGroup]
 readsPrec :: Int -&gt; ReadS CreatePlacementGroup
 $creadsPrec :: Int -&gt; ReadS CreatePlacementGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256892"><span id="local-6989586621681256894"><span id="local-6989586621681256896"><span class="annot"><span class="annottext">Int -&gt; CreatePlacementGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681293004"><span id="local-6989586621681293006"><span id="local-6989586621681293008"><span class="annot"><span class="annottext">Int -&gt; CreatePlacementGroup -&gt; ShowS
 [CreatePlacementGroup] -&gt; ShowS
 CreatePlacementGroup -&gt; String
 (Int -&gt; CreatePlacementGroup -&gt; ShowS)
@@ -151,19 +151,19 @@ $cfrom :: forall x. CreatePlacementGroup -&gt; Rep CreatePlacementGroup x
 </span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'tagSpecifications', 'createPlacementGroup_tagSpecifications' - The tags to apply to the new placement group.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'strategy', 'createPlacementGroup_strategy' - The placement strategy.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'dryRun', 'createPlacementGroup_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'tagSpecifications', 'createPlacementGroup_tagSpecifications' - The tags to apply to the new placement group.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'groupName', 'createPlacementGroup_groupName' - A name for the placement group. Must be unique within the scope of your</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- account for the Region.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'strategy', 'createPlacementGroup_strategy' - The placement strategy.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'groupName', 'createPlacementGroup_groupName' - A name for the placement group. Must be unique within the scope of your</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- account for the Region.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'dryRun', 'createPlacementGroup_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- 'partitionCount', 'createPlacementGroup_partitionCount' - The number of partitions. Valid only when __Strategy__ is set to</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- @partition@.</span><span>
@@ -171,39 +171,62 @@ $cfrom :: forall x. CreatePlacementGroup -&gt; Rep CreatePlacementGroup x
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span>
 </span><span id="line-114"></span><span id="newCreatePlacementGroup"><span class="annot"><span class="annottext">newCreatePlacementGroup :: CreatePlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#newCreatePlacementGroup"><span class="hs-identifier hs-var hs-var">newCreatePlacementGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">CreatePlacementGroup' :: Maybe [TagSpecification]
--&gt; Maybe Bool
--&gt; Maybe PlacementStrategy
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">CreatePlacementGroup' :: Maybe PlacementStrategy
+-&gt; Maybe [TagSpecification]
 -&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Int
 -&gt; CreatePlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreatePlacementGroup' :: Maybe [TagSpecification]
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AtagSpecifications%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:CreatePlacementGroup' :: Maybe Bool
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:strategy:CreatePlacementGroup' :: Maybe PlacementStrategy
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:strategy:CreatePlacementGroup' :: Maybe PlacementStrategy
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3Astrategy%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">strategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategy
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:CreatePlacementGroup' :: Maybe Text
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreatePlacementGroup' :: Maybe [TagSpecification]
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AtagSpecifications%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:CreatePlacementGroup' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AgroupName%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionCount:CreatePlacementGroup' :: Maybe Int
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:CreatePlacementGroup' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionCount:CreatePlacementGroup' :: Maybe Int
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3ApartitionCount%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">partitionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The tags to apply to the new placement group.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_tagSpecifications"><span class="hs-identifier hs-type">createPlacementGroup_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="createPlacementGroup_tagSpecifications"><span class="annot"><span class="annottext">createPlacementGroup_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The placement strategy.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_strategy"><span class="hs-identifier hs-type">createPlacementGroup_strategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createPlacementGroup_strategy"><span class="annot"><span class="annottext">createPlacementGroup_strategy :: (Maybe PlacementStrategy -&gt; f (Maybe PlacementStrategy))
+-&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_strategy"><span class="hs-identifier hs-var hs-var">createPlacementGroup_strategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroup -&gt; Maybe PlacementStrategy)
+-&gt; (CreatePlacementGroup
+    -&gt; Maybe PlacementStrategy -&gt; CreatePlacementGroup)
+-&gt; Lens
+     CreatePlacementGroup
+     CreatePlacementGroup
+     (Maybe PlacementStrategy)
+     (Maybe PlacementStrategy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292997"><span class="annot"><span class="annottext">Maybe PlacementStrategy
+strategy :: Maybe PlacementStrategy
+$sel:strategy:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe PlacementStrategy
+</span><a href="#local-6989586621681292997"><span class="hs-identifier hs-var hs-var">strategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategy
+</span><a href="#local-6989586621681292997"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681292996"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
+</span><a href="#local-6989586621681292996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681292995"><span class="annot"><span class="annottext">Maybe PlacementStrategy
+</span><a href="#local-6989586621681292995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
+</span><a href="#local-6989586621681292996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strategy:CreatePlacementGroup' :: Maybe PlacementStrategy
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3Astrategy%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">strategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategy
+</span><a href="#local-6989586621681292995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The tags to apply to the new placement group.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_tagSpecifications"><span class="hs-identifier hs-type">createPlacementGroup_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="createPlacementGroup_tagSpecifications"><span class="annot"><span class="annottext">createPlacementGroup_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
 -&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_tagSpecifications"><span class="hs-identifier hs-var hs-var">createPlacementGroup_tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroup -&gt; Maybe [TagSpecification])
 -&gt; (CreatePlacementGroup
@@ -214,16 +237,16 @@ forall a. Maybe a
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256885"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292994"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681256885"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681256885"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256884"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
-</span><a href="#local-6989586621681256884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256883"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681256883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
-</span><a href="#local-6989586621681256884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreatePlacementGroup' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681292994"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681292994"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681292993"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
+</span><a href="#local-6989586621681292993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681292992"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681292992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
+</span><a href="#local-6989586621681292993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreatePlacementGroup' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AtagSpecifications%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681256883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681292992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -249,117 +272,93 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TagSpecification]
   [TagSpecification]
   [TagSpecification]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_dryRun"><span class="hs-identifier hs-type">createPlacementGroup_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="createPlacementGroup_dryRun"><span class="annot"><span class="annottext">createPlacementGroup_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_dryRun"><span class="hs-identifier hs-var hs-var">createPlacementGroup_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroup -&gt; Maybe Bool)
--&gt; (CreatePlacementGroup -&gt; Maybe Bool -&gt; CreatePlacementGroup)
--&gt; Lens
-     CreatePlacementGroup CreatePlacementGroup (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256879"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621681256879"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681256879"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256878"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
-</span><a href="#local-6989586621681256878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256877"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681256877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
-</span><a href="#local-6989586621681256878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreatePlacementGroup' :: Maybe Bool
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681256877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The placement strategy.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_strategy"><span class="hs-identifier hs-type">createPlacementGroup_strategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="createPlacementGroup_strategy"><span class="annot"><span class="annottext">createPlacementGroup_strategy :: (Maybe PlacementStrategy -&gt; f (Maybe PlacementStrategy))
--&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_strategy"><span class="hs-identifier hs-var hs-var">createPlacementGroup_strategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroup -&gt; Maybe PlacementStrategy)
--&gt; (CreatePlacementGroup
-    -&gt; Maybe PlacementStrategy -&gt; CreatePlacementGroup)
--&gt; Lens
-     CreatePlacementGroup
-     CreatePlacementGroup
-     (Maybe PlacementStrategy)
-     (Maybe PlacementStrategy)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256876"><span class="annot"><span class="annottext">Maybe PlacementStrategy
-strategy :: Maybe PlacementStrategy
-$sel:strategy:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe PlacementStrategy
-</span><a href="#local-6989586621681256876"><span class="hs-identifier hs-var hs-var">strategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategy
-</span><a href="#local-6989586621681256876"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256875"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
-</span><a href="#local-6989586621681256875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256874"><span class="annot"><span class="annottext">Maybe PlacementStrategy
-</span><a href="#local-6989586621681256874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
-</span><a href="#local-6989586621681256875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:strategy:CreatePlacementGroup' :: Maybe PlacementStrategy
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3Astrategy%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">strategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategy
-</span><a href="#local-6989586621681256874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | A name for the placement group. Must be unique within the scope of your</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- account for the Region.</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_groupName"><span class="hs-identifier hs-type">createPlacementGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="createPlacementGroup_groupName"><span class="annot"><span class="annottext">createPlacementGroup_groupName :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | A name for the placement group. Must be unique within the scope of your</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- account for the Region.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Constraints: Up to 255 ASCII characters</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_groupName"><span class="hs-identifier hs-type">createPlacementGroup_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="createPlacementGroup_groupName"><span class="annot"><span class="annottext">createPlacementGroup_groupName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_groupName"><span class="hs-identifier hs-var hs-var">createPlacementGroup_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroup -&gt; Maybe Text)
 -&gt; (CreatePlacementGroup -&gt; Maybe Text -&gt; CreatePlacementGroup)
 -&gt; Lens
      CreatePlacementGroup CreatePlacementGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256873"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292988"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Text
-</span><a href="#local-6989586621681256873"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681256873"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256872"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
-</span><a href="#local-6989586621681256872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256871"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681256871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
-</span><a href="#local-6989586621681256872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:CreatePlacementGroup' :: Maybe Text
+</span><a href="#local-6989586621681292988"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681292988"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681292987"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
+</span><a href="#local-6989586621681292987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681292986"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681292986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
+</span><a href="#local-6989586621681292987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:CreatePlacementGroup' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AgroupName%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681256871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The number of partitions. Valid only when __Strategy__ is set to</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- @partition@.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_partitionCount"><span class="hs-identifier hs-type">createPlacementGroup_partitionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="createPlacementGroup_partitionCount"><span class="annot"><span class="annottext">createPlacementGroup_partitionCount :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621681292986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_dryRun"><span class="hs-identifier hs-type">createPlacementGroup_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="createPlacementGroup_dryRun"><span class="annot"><span class="annottext">createPlacementGroup_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_dryRun"><span class="hs-identifier hs-var hs-var">createPlacementGroup_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroup -&gt; Maybe Bool)
+-&gt; (CreatePlacementGroup -&gt; Maybe Bool -&gt; CreatePlacementGroup)
+-&gt; Lens
+     CreatePlacementGroup CreatePlacementGroup (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292985"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Bool
+</span><a href="#local-6989586621681292985"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681292985"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681292984"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
+</span><a href="#local-6989586621681292984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681292983"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681292983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
+</span><a href="#local-6989586621681292984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreatePlacementGroup' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AdryRun%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681292983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The number of partitions. Valid only when __Strategy__ is set to</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @partition@.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_partitionCount"><span class="hs-identifier hs-type">createPlacementGroup_partitionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="createPlacementGroup_partitionCount"><span class="annot"><span class="annottext">createPlacementGroup_partitionCount :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; CreatePlacementGroup -&gt; f CreatePlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroup_partitionCount"><span class="hs-identifier hs-var hs-var">createPlacementGroup_partitionCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroup -&gt; Maybe Int)
 -&gt; (CreatePlacementGroup -&gt; Maybe Int -&gt; CreatePlacementGroup)
 -&gt; Lens
      CreatePlacementGroup CreatePlacementGroup (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256870"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292982"><span class="annot"><span class="annottext">Maybe Int
 partitionCount :: Maybe Int
 $sel:partitionCount:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Int
-</span><a href="#local-6989586621681256870"><span class="hs-identifier hs-var hs-var">partitionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681256870"><span class="hs-identifier hs-var">partitionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256869"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
-</span><a href="#local-6989586621681256869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256868"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681256868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
-</span><a href="#local-6989586621681256869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionCount:CreatePlacementGroup' :: Maybe Int
+</span><a href="#local-6989586621681292982"><span class="hs-identifier hs-var hs-var">partitionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681292982"><span class="hs-identifier hs-var">partitionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681292981"><span class="annot"><span class="annottext">s :: CreatePlacementGroup
+</span><a href="#local-6989586621681292981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681292980"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681292980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroup
+</span><a href="#local-6989586621681292981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionCount:CreatePlacementGroup' :: Maybe Int
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3ApartitionCount%3ACreatePlacementGroup%27"><span class="hs-identifier hs-var">partitionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681256868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621681256864"><span class="annot"><span class="annottext">request :: CreatePlacementGroup -&gt; Request CreatePlacementGroup
+</span><a href="#local-6989586621681292980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681292976"><span class="annot"><span class="annottext">request :: CreatePlacementGroup -&gt; Request CreatePlacementGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePlacementGroup -&gt; Request CreatePlacementGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621681256860"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681292972"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePlacementGroup
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse CreatePlacementGroup)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; [Node]
  -&gt; Either String (AWSResponse CreatePlacementGroup))
@@ -378,22 +377,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681256857"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681256857"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681256856"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681256856"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681256855"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681256855"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe PlacementGroup -&gt; Int -&gt; CreatePlacementGroupResponse
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681292969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681292969"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681292968"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681292968"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681292967"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681292967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe PlacementGroup -&gt; Int -&gt; CreatePlacementGroupResponse
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-var">CreatePlacementGroupResponse'</span></a></span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PlacementGroup -&gt; Int -&gt; CreatePlacementGroupResponse)
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PlacementGroup -&gt; Int -&gt; CreatePlacementGroupResponse)
 -&gt; Either String (Maybe PlacementGroup)
 -&gt; Either String (Int -&gt; CreatePlacementGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681256855"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PlacementGroup)
+</span><a href="#local-6989586621681292967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PlacementGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;placementGroup&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreatePlacementGroupResponse)
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreatePlacementGroupResponse)
 -&gt; Either String Int -&gt; Either String CreatePlacementGroupResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -401,61 +400,66 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681256857"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681256847"><span id="local-6989586621681256849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span></span></span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681256844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span></span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621681256840"><span class="annot"><span class="annottext">toHeaders :: CreatePlacementGroup -&gt; ResponseHeaders
+</span><a href="#local-6989586621681292969"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681292959"><span id="local-6989586621681292961"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681292956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621681292952"><span class="annot"><span class="annottext">toHeaders :: CreatePlacementGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePlacementGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621681256835"><span class="annot"><span class="annottext">toPath :: CreatePlacementGroup -&gt; ByteString
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621681292947"><span class="annot"><span class="annottext">toPath :: CreatePlacementGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePlacementGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621681256831"><span class="annot"><span class="annottext">toQuery :: CreatePlacementGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256825"><span id="local-6989586621681256826"><span id="local-6989586621681256827"><span id="local-6989586621681256828"><span id="local-6989586621681256829"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup"><span class="hs-identifier hs-type">CreatePlacementGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621681292943"><span class="annot"><span class="annottext">toQuery :: CreatePlacementGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroup%27"><span class="hs-identifier hs-type">CreatePlacementGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292937"><span id="local-6989586621681292938"><span id="local-6989586621681292939"><span id="local-6989586621681292940"><span id="local-6989586621681292941"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [TagSpecification]
 Maybe Text
 Maybe PlacementStrategy
 partitionCount :: Maybe Int
-groupName :: Maybe Text
-strategy :: Maybe PlacementStrategy
 dryRun :: Maybe Bool
+groupName :: Maybe Text
 tagSpecifications :: Maybe [TagSpecification]
+strategy :: Maybe PlacementStrategy
 $sel:partitionCount:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Int
-$sel:groupName:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Text
-$sel:strategy:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe PlacementStrategy
 $sel:dryRun:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Bool
+$sel:groupName:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe Text
 $sel:tagSpecifications:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681256825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+$sel:strategy:CreatePlacementGroup' :: CreatePlacementGroup -&gt; Maybe PlacementStrategy
+</span><a href="#local-6989586621681292937"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-177"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-176"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CreatePlacementGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Version&quot;</span></span><span>
-</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Strategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PlacementStrategy -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategy
+</span><a href="#local-6989586621681292941"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -469,39 +473,34 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681256829"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681292940"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681256828"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Strategy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe PlacementStrategy -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategy
-</span><a href="#local-6989586621681256827"><span class="hs-identifier hs-var">strategy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681256826"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681292939"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681292938"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PartitionCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681256825"><span class="hs-identifier hs-var">partitionCount</span></a></span><span>
-</span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newCreatePlacementGroupResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621681256821"><span id="local-6989586621681256822"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlacementGroupResponse"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-var">CreatePlacementGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlacementGroupResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-var">CreatePlacementGroupResponse'</span></a></span></span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AplacementGroup%3ACreatePlacementGroupResponse%27"><span class="annot"><span class="annottext">CreatePlacementGroupResponse -&gt; Maybe PlacementGroup
+</span><a href="#local-6989586621681292937"><span class="hs-identifier hs-var">partitionCount</span></a></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newCreatePlacementGroupResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621681292933"><span id="local-6989586621681292934"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlacementGroupResponse"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-var">CreatePlacementGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlacementGroupResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-var">CreatePlacementGroupResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AplacementGroup%3ACreatePlacementGroupResponse%27"><span class="annot"><span class="annottext">CreatePlacementGroupResponse -&gt; Maybe PlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AplacementGroup%3ACreatePlacementGroupResponse%27"><span class="hs-identifier hs-var hs-var">placementGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroup.html#PlacementGroup"><span class="hs-identifier hs-type">PlacementGroup</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePlacementGroupResponse%27"><span class="annot"><span class="annottext">CreatePlacementGroupResponse -&gt; Int
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePlacementGroupResponse%27"><span class="annot"><span class="annottext">CreatePlacementGroupResponse -&gt; Int
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AhttpStatus%3ACreatePlacementGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681256815"><span id="local-6989586621681256817"><span class="annot"><span class="annottext">CreatePlacementGroupResponse
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681292927"><span id="local-6989586621681292929"><span class="annot"><span class="annottext">CreatePlacementGroupResponse
 -&gt; CreatePlacementGroupResponse -&gt; Bool
 (CreatePlacementGroupResponse
  -&gt; CreatePlacementGroupResponse -&gt; Bool)
@@ -517,7 +516,7 @@ $c/= :: CreatePlacementGroupResponse
 -&gt; CreatePlacementGroupResponse -&gt; Bool
 $c== :: CreatePlacementGroupResponse
 -&gt; CreatePlacementGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256807"><span id="local-6989586621681256809"><span id="local-6989586621681256811"><span id="local-6989586621681256813"><span class="annot"><span class="annottext">ReadPrec [CreatePlacementGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681292919"><span id="local-6989586621681292921"><span id="local-6989586621681292923"><span id="local-6989586621681292925"><span class="annot"><span class="annottext">ReadPrec [CreatePlacementGroupResponse]
 ReadPrec CreatePlacementGroupResponse
 Int -&gt; ReadS CreatePlacementGroupResponse
 ReadS [CreatePlacementGroupResponse]
@@ -537,7 +536,7 @@ readList :: ReadS [CreatePlacementGroupResponse]
 $creadList :: ReadS [CreatePlacementGroupResponse]
 readsPrec :: Int -&gt; ReadS CreatePlacementGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreatePlacementGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681256801"><span id="local-6989586621681256803"><span id="local-6989586621681256805"><span class="annot"><span class="annottext">Int -&gt; CreatePlacementGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681292913"><span id="local-6989586621681292915"><span id="local-6989586621681292917"><span class="annot"><span class="annottext">Int -&gt; CreatePlacementGroupResponse -&gt; ShowS
 [CreatePlacementGroupResponse] -&gt; ShowS
 CreatePlacementGroupResponse -&gt; String
 (Int -&gt; CreatePlacementGroupResponse -&gt; ShowS)
@@ -568,40 +567,40 @@ Rep CreatePlacementGroupResponse x -&gt; CreatePlacementGroupResponse
 $cfrom :: forall x.
 CreatePlacementGroupResponse -&gt; Rep CreatePlacementGroupResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'CreatePlacementGroupResponse' with all optional fields omitted.</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-203"></span><span class="hs-comment">--</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- 'placementGroup', 'createPlacementGroupResponse_placementGroup' - Undocumented member.</span><span>
-</span><span id="line-208"></span><span class="hs-comment">--</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'createPlacementGroupResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#newCreatePlacementGroupResponse"><span class="hs-identifier hs-type">newCreatePlacementGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span>
-</span><span id="line-214"></span><span id="newCreatePlacementGroupResponse"><span class="annot"><span class="annottext">newCreatePlacementGroupResponse :: Int -&gt; CreatePlacementGroupResponse
-</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#newCreatePlacementGroupResponse"><span class="hs-identifier hs-var hs-var">newCreatePlacementGroupResponse</span></a></span></span><span> </span><span id="local-6989586621681256798"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681256798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">CreatePlacementGroupResponse' :: Maybe PlacementGroup -&gt; Int -&gt; CreatePlacementGroupResponse
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'CreatePlacementGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'placementGroup', 'createPlacementGroupResponse_placementGroup' - Undocumented member.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'httpStatus', 'createPlacementGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#newCreatePlacementGroupResponse"><span class="hs-identifier hs-type">newCreatePlacementGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span>
+</span><span id="line-213"></span><span id="newCreatePlacementGroupResponse"><span class="annot"><span class="annottext">newCreatePlacementGroupResponse :: Int -&gt; CreatePlacementGroupResponse
+</span><a href="Network.AWS.EC2.CreatePlacementGroup.html#newCreatePlacementGroupResponse"><span class="hs-identifier hs-var hs-var">newCreatePlacementGroupResponse</span></a></span></span><span> </span><span id="local-6989586621681292910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681292910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="annottext">CreatePlacementGroupResponse' :: Maybe PlacementGroup -&gt; Int -&gt; CreatePlacementGroupResponse
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span>
-</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:placementGroup:CreatePlacementGroupResponse' :: Maybe PlacementGroup
+</span><span id="line-215"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:placementGroup:CreatePlacementGroupResponse' :: Maybe PlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AplacementGroup%3ACreatePlacementGroupResponse%27"><span class="hs-identifier hs-var">placementGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe PlacementGroup
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">Maybe PlacementGroup
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlacementGroupResponse' :: Int
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlacementGroupResponse' :: Int
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AhttpStatus%3ACreatePlacementGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681256798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-219"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroupResponse_placementGroup"><span class="hs-identifier hs-type">createPlacementGroupResponse_placementGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroup.html#PlacementGroup"><span class="hs-identifier hs-type">PlacementGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span id="createPlacementGroupResponse_placementGroup"><span class="annot"><span class="annottext">createPlacementGroupResponse_placementGroup :: (Maybe PlacementGroup -&gt; f (Maybe PlacementGroup))
+</span><a href="#local-6989586621681292910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroupResponse_placementGroup"><span class="hs-identifier hs-type">createPlacementGroupResponse_placementGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroup.html#PlacementGroup"><span class="hs-identifier hs-type">PlacementGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="createPlacementGroupResponse_placementGroup"><span class="annot"><span class="annottext">createPlacementGroupResponse_placementGroup :: (Maybe PlacementGroup -&gt; f (Maybe PlacementGroup))
 -&gt; CreatePlacementGroupResponse -&gt; f CreatePlacementGroupResponse
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroupResponse_placementGroup"><span class="hs-identifier hs-var hs-var">createPlacementGroupResponse_placementGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroupResponse -&gt; Maybe PlacementGroup)
 -&gt; (CreatePlacementGroupResponse
@@ -612,20 +611,20 @@ forall a. Maybe a
      (Maybe PlacementGroup)
      (Maybe PlacementGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256797"><span class="annot"><span class="annottext">Maybe PlacementGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292909"><span class="annot"><span class="annottext">Maybe PlacementGroup
 placementGroup :: Maybe PlacementGroup
 $sel:placementGroup:CreatePlacementGroupResponse' :: CreatePlacementGroupResponse -&gt; Maybe PlacementGroup
-</span><a href="#local-6989586621681256797"><span class="hs-identifier hs-var hs-var">placementGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementGroup
-</span><a href="#local-6989586621681256797"><span class="hs-identifier hs-var">placementGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256796"><span class="annot"><span class="annottext">s :: CreatePlacementGroupResponse
-</span><a href="#local-6989586621681256796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256795"><span class="annot"><span class="annottext">Maybe PlacementGroup
-</span><a href="#local-6989586621681256795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroupResponse
-</span><a href="#local-6989586621681256796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementGroup:CreatePlacementGroupResponse' :: Maybe PlacementGroup
+</span><a href="#local-6989586621681292909"><span class="hs-identifier hs-var hs-var">placementGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementGroup
+</span><a href="#local-6989586621681292909"><span class="hs-identifier hs-var">placementGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681292908"><span class="annot"><span class="annottext">s :: CreatePlacementGroupResponse
+</span><a href="#local-6989586621681292908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681292907"><span class="annot"><span class="annottext">Maybe PlacementGroup
+</span><a href="#local-6989586621681292907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroupResponse
+</span><a href="#local-6989586621681292908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placementGroup:CreatePlacementGroupResponse' :: Maybe PlacementGroup
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AplacementGroup%3ACreatePlacementGroupResponse%27"><span class="hs-identifier hs-var">placementGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementGroup
-</span><a href="#local-6989586621681256795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroupResponse_httpStatus"><span class="hs-identifier hs-type">createPlacementGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-227"></span><span id="createPlacementGroupResponse_httpStatus"><span class="annot"><span class="annottext">createPlacementGroupResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621681292907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroupResponse_httpStatus"><span class="hs-identifier hs-type">createPlacementGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="createPlacementGroupResponse_httpStatus"><span class="annot"><span class="annottext">createPlacementGroupResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; CreatePlacementGroupResponse -&gt; f CreatePlacementGroupResponse
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#createPlacementGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createPlacementGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePlacementGroupResponse -&gt; Int)
 -&gt; (CreatePlacementGroupResponse
@@ -633,16 +632,16 @@ $sel:placementGroup:CreatePlacementGroupResponse' :: CreatePlacementGroupRespons
 -&gt; Lens
      CreatePlacementGroupResponse CreatePlacementGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681256794"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681292906"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePlacementGroupResponse' :: CreatePlacementGroupResponse -&gt; Int
-</span><a href="#local-6989586621681256794"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681256794"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681256793"><span class="annot"><span class="annottext">s :: CreatePlacementGroupResponse
-</span><a href="#local-6989586621681256793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681256792"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681256792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroupResponse
-</span><a href="#local-6989586621681256793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlacementGroupResponse' :: Int
+</span><a href="#local-6989586621681292906"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681292906"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681292905"><span class="annot"><span class="annottext">s :: CreatePlacementGroupResponse
+</span><a href="#local-6989586621681292905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse%27"><span class="hs-identifier hs-type">CreatePlacementGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681292904"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681292904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlacementGroupResponse
+</span><a href="#local-6989586621681292905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlacementGroupResponse' :: Int
 </span><a href="Network.AWS.EC2.CreatePlacementGroup.html#%24sel%3AhttpStatus%3ACreatePlacementGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681256792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681256790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span></span><span>
-</span><span id="line-230"></span></pre></body></html>
+</span><a href="#local-6989586621681292904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681292902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreatePlacementGroup.html#CreatePlacementGroupResponse"><span class="hs-identifier hs-type">CreatePlacementGroupResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

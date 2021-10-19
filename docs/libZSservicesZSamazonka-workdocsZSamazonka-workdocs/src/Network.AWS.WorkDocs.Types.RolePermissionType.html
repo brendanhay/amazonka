@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679262923"><span id="local-6989586621679262924"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RolePermissionType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RolePermissionType.html#RolePermissionType"><span class="hs-identifier hs-var">RolePermissionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RolePermissionType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RolePermissionType.html#RolePermissionType%27"><span class="hs-identifier hs-var">RolePermissionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679263048"><span id="local-6989586621679263049"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RolePermissionType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RolePermissionType.html#RolePermissionType"><span class="hs-identifier hs-var">RolePermissionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RolePermissionType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.RolePermissionType.html#RolePermissionType%27"><span class="hs-identifier hs-var">RolePermissionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRolePermissionType"><span class="annot"><span class="annottext">RolePermissionType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.RolePermissionType.html#fromRolePermissionType"><span class="hs-identifier hs-var hs-var">fromRolePermissionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262915"><span id="local-6989586621679262917"><span id="local-6989586621679262919"><span class="annot"><span class="annottext">Int -&gt; RolePermissionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263040"><span id="local-6989586621679263042"><span id="local-6989586621679263044"><span class="annot"><span class="annottext">Int -&gt; RolePermissionType -&gt; ShowS
 [RolePermissionType] -&gt; ShowS
 RolePermissionType -&gt; String
 (Int -&gt; RolePermissionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RolePermissionType -&gt; String
 showsPrec :: Int -&gt; RolePermissionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RolePermissionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679262906"><span id="local-6989586621679262908"><span id="local-6989586621679262910"><span id="local-6989586621679262912"><span class="annot"><span class="annottext">ReadPrec [RolePermissionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679263031"><span id="local-6989586621679263033"><span id="local-6989586621679263035"><span id="local-6989586621679263037"><span class="annot"><span class="annottext">ReadPrec [RolePermissionType]
 ReadPrec RolePermissionType
 Int -&gt; ReadS RolePermissionType
 ReadS [RolePermissionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RolePermissionType]
 readsPrec :: Int -&gt; ReadS RolePermissionType
 $creadsPrec :: Int -&gt; ReadS RolePermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679262901"><span id="local-6989586621679262903"><span class="annot"><span class="annottext">RolePermissionType -&gt; RolePermissionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679263026"><span id="local-6989586621679263028"><span class="annot"><span class="annottext">RolePermissionType -&gt; RolePermissionType -&gt; Bool
 (RolePermissionType -&gt; RolePermissionType -&gt; Bool)
 -&gt; (RolePermissionType -&gt; RolePermissionType -&gt; Bool)
 -&gt; Eq RolePermissionType
@@ -82,7 +82,7 @@ $c/= :: RolePermissionType -&gt; RolePermissionType -&gt; Bool
 == :: RolePermissionType -&gt; RolePermissionType -&gt; Bool
 $c== :: RolePermissionType -&gt; RolePermissionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679262885"><span id="local-6989586621679262887"><span id="local-6989586621679262889"><span id="local-6989586621679262891"><span id="local-6989586621679262893"><span id="local-6989586621679262895"><span id="local-6989586621679262897"><span class="annot"><span class="annottext">Eq RolePermissionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679263010"><span id="local-6989586621679263012"><span id="local-6989586621679263014"><span id="local-6989586621679263016"><span id="local-6989586621679263018"><span id="local-6989586621679263020"><span id="local-6989586621679263022"><span class="annot"><span class="annottext">Eq RolePermissionType
 Eq RolePermissionType
 -&gt; (RolePermissionType -&gt; RolePermissionType -&gt; Ordering)
 -&gt; (RolePermissionType -&gt; RolePermissionType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. RolePermissionType -&gt; Rep RolePermissionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679262877"><span id="local-6989586621679262879"><span class="annot"><span class="annottext">Int -&gt; RolePermissionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263002"><span id="local-6989586621679263004"><span class="annot"><span class="annottext">Int -&gt; RolePermissionType -&gt; Int
 RolePermissionType -&gt; Int
 (Int -&gt; RolePermissionType -&gt; Int)
 -&gt; (RolePermissionType -&gt; Int) -&gt; Hashable RolePermissionType
@@ -143,53 +143,53 @@ $chash :: RolePermissionType -&gt; Int
 hashWithSalt :: Int -&gt; RolePermissionType -&gt; Int
 $chashWithSalt :: Int -&gt; RolePermissionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262874"><span class="annot"><span class="annottext">RolePermissionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679262999"><span class="annot"><span class="annottext">RolePermissionType -&gt; ()
 (RolePermissionType -&gt; ()) -&gt; NFData RolePermissionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RolePermissionType -&gt; ()
 $crnf :: RolePermissionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679262871"><span class="annot"><span class="annottext">Text -&gt; Either String RolePermissionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679262996"><span class="annot"><span class="annottext">Text -&gt; Either String RolePermissionType
 (Text -&gt; Either String RolePermissionType)
 -&gt; FromText RolePermissionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RolePermissionType
 $cfromText :: Text -&gt; Either String RolePermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679262868"><span class="annot"><span class="annottext">RolePermissionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679262993"><span class="annot"><span class="annottext">RolePermissionType -&gt; Text
 (RolePermissionType -&gt; Text) -&gt; ToText RolePermissionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RolePermissionType -&gt; Text
 $ctoText :: RolePermissionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679262865"><span class="annot"><span class="annottext">RolePermissionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679262990"><span class="annot"><span class="annottext">RolePermissionType -&gt; ByteString
 (RolePermissionType -&gt; ByteString)
 -&gt; ToByteString RolePermissionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RolePermissionType -&gt; ByteString
 $ctoBS :: RolePermissionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679262862"><span class="annot"><span class="annottext">RolePermissionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679262987"><span class="annot"><span class="annottext">RolePermissionType -&gt; ByteStringBuilder
 (RolePermissionType -&gt; ByteStringBuilder)
 -&gt; ToLog RolePermissionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RolePermissionType -&gt; ByteStringBuilder
 $cbuild :: RolePermissionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262859"><span class="annot"><span class="annottext">HeaderName -&gt; RolePermissionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679262984"><span class="annot"><span class="annottext">HeaderName -&gt; RolePermissionType -&gt; [Header]
 (HeaderName -&gt; RolePermissionType -&gt; [Header])
 -&gt; ToHeader RolePermissionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RolePermissionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RolePermissionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262856"><span class="annot"><span class="annottext">RolePermissionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679262981"><span class="annot"><span class="annottext">RolePermissionType -&gt; QueryString
 (RolePermissionType -&gt; QueryString) -&gt; ToQuery RolePermissionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RolePermissionType -&gt; QueryString
 $ctoQuery :: RolePermissionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262851"><span id="local-6989586621679262853"><span class="annot"><span class="annottext">Value -&gt; Parser [RolePermissionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679262976"><span id="local-6989586621679262978"><span class="annot"><span class="annottext">Value -&gt; Parser [RolePermissionType]
 Value -&gt; Parser RolePermissionType
 (Value -&gt; Parser RolePermissionType)
 -&gt; (Value -&gt; Parser [RolePermissionType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [RolePermissionType]
 parseJSON :: Value -&gt; Parser RolePermissionType
 $cparseJSON :: Value -&gt; Parser RolePermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262846"><span id="local-6989586621679262848"><span class="annot"><span class="annottext">FromJSONKeyFunction [RolePermissionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679262971"><span id="local-6989586621679262973"><span class="annot"><span class="annottext">FromJSONKeyFunction [RolePermissionType]
 FromJSONKeyFunction RolePermissionType
 FromJSONKeyFunction RolePermissionType
 -&gt; FromJSONKeyFunction [RolePermissionType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RolePermissionType]
 fromJSONKey :: FromJSONKeyFunction RolePermissionType
 $cfromJSONKey :: FromJSONKeyFunction RolePermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262837"><span id="local-6989586621679262839"><span id="local-6989586621679262841"><span id="local-6989586621679262843"><span class="annot"><span class="annottext">[RolePermissionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679262962"><span id="local-6989586621679262964"><span id="local-6989586621679262966"><span id="local-6989586621679262968"><span class="annot"><span class="annottext">[RolePermissionType] -&gt; Encoding
 [RolePermissionType] -&gt; Value
 RolePermissionType -&gt; Encoding
 RolePermissionType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: RolePermissionType -&gt; Encoding
 toJSON :: RolePermissionType -&gt; Value
 $ctoJSON :: RolePermissionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262832"><span id="local-6989586621679262834"><span class="annot"><span class="annottext">ToJSONKeyFunction [RolePermissionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679262957"><span id="local-6989586621679262959"><span class="annot"><span class="annottext">ToJSONKeyFunction [RolePermissionType]
 ToJSONKeyFunction RolePermissionType
 ToJSONKeyFunction RolePermissionType
 -&gt; ToJSONKeyFunction [RolePermissionType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RolePermissionType]
 toJSONKey :: ToJSONKeyFunction RolePermissionType
 $ctoJSONKey :: ToJSONKeyFunction RolePermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262829"><span class="annot"><span class="annottext">[Node] -&gt; Either String RolePermissionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679262954"><span class="annot"><span class="annottext">[Node] -&gt; Either String RolePermissionType
 ([Node] -&gt; Either String RolePermissionType)
 -&gt; FromXML RolePermissionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RolePermissionType
 $cparseXML :: [Node] -&gt; Either String RolePermissionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262826"><span class="annot"><span class="annottext">RolePermissionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679262951"><span class="annot"><span class="annottext">RolePermissionType -&gt; XML
 (RolePermissionType -&gt; XML) -&gt; ToXML RolePermissionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RolePermissionType -&gt; XML

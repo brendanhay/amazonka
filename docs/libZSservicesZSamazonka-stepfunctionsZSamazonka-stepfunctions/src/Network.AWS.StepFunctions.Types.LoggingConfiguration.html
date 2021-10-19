@@ -29,21 +29,21 @@
 </span><span id="line-29"></span><span class="hs-comment">-- options.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLoggingConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679225958"><span id="local-6989586621679225959"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingConfiguration"><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-var">LoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingConfiguration%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-var">LoggingConfiguration'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describes where your execution history events</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- set to @OFF@.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe [LogDestination]
-</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LogDestination.html#LogDestination"><span class="hs-identifier hs-type">LogDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Determines whether execution data is included in your log. When set to</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @false@, data is excluded.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe Bool
+</span><span id="line-32"></span><span id="local-6989586621679226002"><span id="local-6989586621679226003"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingConfiguration"><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-var">LoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingConfiguration%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-var">LoggingConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Determines whether execution data is included in your log. When set to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @false@, data is excluded.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe Bool
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">includeExecutionData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | An array of objects that describes where your execution history events</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- set to @OFF@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe [LogDestination]
+</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LogDestination.html#LogDestination"><span class="hs-identifier hs-type">LogDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Defines which category of execution history events are logged.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Alevel%3ALoggingConfiguration%27"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; Maybe LogLevel
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Alevel%3ALoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225950"><span id="local-6989586621679225952"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225994"><span id="local-6989586621679225996"><span class="annot"><span class="annottext">LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
 (LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool)
 -&gt; (LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool)
 -&gt; Eq LoggingConfiguration
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
 == :: LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
 $c== :: LoggingConfiguration -&gt; LoggingConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225941"><span id="local-6989586621679225943"><span id="local-6989586621679225945"><span id="local-6989586621679225947"><span class="annot"><span class="annottext">ReadPrec [LoggingConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225985"><span id="local-6989586621679225987"><span id="local-6989586621679225989"><span id="local-6989586621679225991"><span class="annot"><span class="annottext">ReadPrec [LoggingConfiguration]
 ReadPrec LoggingConfiguration
 Int -&gt; ReadS LoggingConfiguration
 ReadS [LoggingConfiguration]
@@ -72,7 +72,7 @@ readList :: ReadS [LoggingConfiguration]
 $creadList :: ReadS [LoggingConfiguration]
 readsPrec :: Int -&gt; ReadS LoggingConfiguration
 $creadsPrec :: Int -&gt; ReadS LoggingConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225934"><span id="local-6989586621679225936"><span id="local-6989586621679225938"><span class="annot"><span class="annottext">Int -&gt; LoggingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225978"><span id="local-6989586621679225980"><span id="local-6989586621679225982"><span class="annot"><span class="annottext">Int -&gt; LoggingConfiguration -&gt; ShowS
 [LoggingConfiguration] -&gt; ShowS
 LoggingConfiguration -&gt; String
 (Int -&gt; LoggingConfiguration -&gt; ShowS)
@@ -106,28 +106,28 @@ $cfrom :: forall x. LoggingConfiguration -&gt; Rep LoggingConfiguration x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'destinations', 'loggingConfiguration_destinations' - An array of objects that describes where your execution history events</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- set to @OFF@.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'includeExecutionData', 'loggingConfiguration_includeExecutionData' - Determines whether execution data is included in your log. When set to</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- @false@, data is excluded.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'includeExecutionData', 'loggingConfiguration_includeExecutionData' - Determines whether execution data is included in your log. When set to</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @false@, data is excluded.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'destinations', 'loggingConfiguration_destinations' - An array of objects that describes where your execution history events</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- set to @OFF@.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'level', 'loggingConfiguration_level' - Defines which category of execution history events are logged.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#newLoggingConfiguration"><span class="hs-identifier hs-type">newLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span>
 </span><span id="line-63"></span><span id="newLoggingConfiguration"><span class="annot"><span class="annottext">newLoggingConfiguration :: LoggingConfiguration
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#newLoggingConfiguration"><span class="hs-identifier hs-var hs-var">newLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">LoggingConfiguration' :: Maybe [LogDestination]
--&gt; Maybe Bool -&gt; Maybe LogLevel -&gt; LoggingConfiguration
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">LoggingConfiguration' :: Maybe Bool
+-&gt; Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinations:LoggingConfiguration' :: Maybe [LogDestination]
-</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeExecutionData:LoggingConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeExecutionData:LoggingConfiguration' :: Maybe Bool
-</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:LoggingConfiguration' :: Maybe [LogDestination]
+</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:level:LoggingConfiguration' :: Maybe LogLevel
@@ -136,11 +136,32 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | An array of objects that describes where your execution history events</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- set to @OFF@.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_destinations"><span class="hs-identifier hs-type">loggingConfiguration_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LogDestination.html#LogDestination"><span class="hs-identifier hs-type">LogDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="loggingConfiguration_destinations"><span class="annot"><span class="annottext">loggingConfiguration_destinations :: (Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
+</span><span id="line-71"></span><span class="hs-comment">-- | Determines whether execution data is included in your log. When set to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @false@, data is excluded.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_includeExecutionData"><span class="hs-identifier hs-type">loggingConfiguration_includeExecutionData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="loggingConfiguration_includeExecutionData"><span class="annot"><span class="annottext">loggingConfiguration_includeExecutionData :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LoggingConfiguration -&gt; f LoggingConfiguration
+</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_includeExecutionData"><span class="hs-identifier hs-var hs-var">loggingConfiguration_includeExecutionData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfiguration -&gt; Maybe Bool)
+-&gt; (LoggingConfiguration -&gt; Maybe Bool -&gt; LoggingConfiguration)
+-&gt; Lens
+     LoggingConfiguration LoggingConfiguration (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225969"><span class="annot"><span class="annottext">Maybe Bool
+includeExecutionData :: Maybe Bool
+$sel:includeExecutionData:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679225969"><span class="hs-identifier hs-var hs-var">includeExecutionData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225969"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225968"><span class="annot"><span class="annottext">s :: LoggingConfiguration
+</span><a href="#local-6989586621679225968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225967"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679225968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeExecutionData:LoggingConfiguration' :: Maybe Bool
+</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | An array of objects that describes where your execution history events</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- will be logged. Limited to size 1. Required, if your log level is not</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- set to @OFF@.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_destinations"><span class="hs-identifier hs-type">loggingConfiguration_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LogDestination.html#LogDestination"><span class="hs-identifier hs-type">LogDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="loggingConfiguration_destinations"><span class="annot"><span class="annottext">loggingConfiguration_destinations :: (Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
 -&gt; LoggingConfiguration -&gt; f LoggingConfiguration
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_destinations"><span class="hs-identifier hs-var hs-var">loggingConfiguration_destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfiguration -&gt; Maybe [LogDestination])
 -&gt; (LoggingConfiguration
@@ -151,16 +172,16 @@ forall a. Maybe a
      (Maybe [LogDestination])
      (Maybe [LogDestination])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225925"><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225965"><span class="annot"><span class="annottext">Maybe [LogDestination]
 destinations :: Maybe [LogDestination]
 $sel:destinations:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe [LogDestination]
-</span><a href="#local-6989586621679225925"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
-</span><a href="#local-6989586621679225925"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225924"><span class="annot"><span class="annottext">s :: LoggingConfiguration
-</span><a href="#local-6989586621679225924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225923"><span class="annot"><span class="annottext">Maybe [LogDestination]
-</span><a href="#local-6989586621679225923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679225924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:LoggingConfiguration' :: Maybe [LogDestination]
+</span><a href="#local-6989586621679225965"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><a href="#local-6989586621679225965"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225964"><span class="annot"><span class="annottext">s :: LoggingConfiguration
+</span><a href="#local-6989586621679225964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225963"><span class="annot"><span class="annottext">Maybe [LogDestination]
+</span><a href="#local-6989586621679225963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679225964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:LoggingConfiguration' :: Maybe [LogDestination]
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Adestinations%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
-</span><a href="#local-6989586621679225923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
+</span><a href="#local-6989586621679225963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
  -&gt; LoggingConfiguration -&gt; f LoggingConfiguration)
 -&gt; ((Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
     -&gt; Maybe [LogDestination] -&gt; f (Maybe [LogDestination]))
@@ -180,29 +201,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [LogDestination] [LogDestination] [LogDestination] [LogDestination]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Determines whether execution data is included in your log. When set to</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- @false@, data is excluded.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_includeExecutionData"><span class="hs-identifier hs-type">loggingConfiguration_includeExecutionData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="loggingConfiguration_includeExecutionData"><span class="annot"><span class="annottext">loggingConfiguration_includeExecutionData :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; LoggingConfiguration -&gt; f LoggingConfiguration
-</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_includeExecutionData"><span class="hs-identifier hs-var hs-var">loggingConfiguration_includeExecutionData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoggingConfiguration -&gt; Maybe Bool)
--&gt; (LoggingConfiguration -&gt; Maybe Bool -&gt; LoggingConfiguration)
--&gt; Lens
-     LoggingConfiguration LoggingConfiguration (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225918"><span class="annot"><span class="annottext">Maybe Bool
-includeExecutionData :: Maybe Bool
-$sel:includeExecutionData:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679225918"><span class="hs-identifier hs-var hs-var">includeExecutionData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225918"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225917"><span class="annot"><span class="annottext">s :: LoggingConfiguration
-</span><a href="#local-6989586621679225917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225916"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679225917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeExecutionData:LoggingConfiguration' :: Maybe Bool
-</span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3AincludeExecutionData%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Defines which category of execution history events are logged.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#loggingConfiguration_level"><span class="hs-identifier hs-type">loggingConfiguration_level</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LogLevel.html#LogLevel"><span class="hs-identifier hs-type">LogLevel</span></a></span><span class="hs-special">)</span><span>
@@ -216,19 +216,19 @@ $sel:includeExecutionData:LoggingConfiguration' :: LoggingConfiguration -&gt; Ma
      (Maybe LogLevel)
      (Maybe LogLevel)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225914"><span class="annot"><span class="annottext">Maybe LogLevel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225958"><span class="annot"><span class="annottext">Maybe LogLevel
 level :: Maybe LogLevel
 $sel:level:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe LogLevel
-</span><a href="#local-6989586621679225914"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
-</span><a href="#local-6989586621679225914"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225913"><span class="annot"><span class="annottext">s :: LoggingConfiguration
-</span><a href="#local-6989586621679225913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225912"><span class="annot"><span class="annottext">Maybe LogLevel
-</span><a href="#local-6989586621679225912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679225913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:level:LoggingConfiguration' :: Maybe LogLevel
+</span><a href="#local-6989586621679225958"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679225958"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225957"><span class="annot"><span class="annottext">s :: LoggingConfiguration
+</span><a href="#local-6989586621679225957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225956"><span class="annot"><span class="annottext">Maybe LogLevel
+</span><a href="#local-6989586621679225956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679225957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:level:LoggingConfiguration' :: Maybe LogLevel
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#%24sel%3Alevel%3ALoggingConfiguration%27"><span class="hs-identifier hs-var">level</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
-</span><a href="#local-6989586621679225912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225909"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679225907"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoggingConfiguration
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225953"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679225951"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoggingConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LoggingConfiguration)
@@ -238,18 +238,31 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LoggingConfiguration&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225904"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LogDestination]
--&gt; Maybe Bool -&gt; Maybe LogLevel -&gt; LoggingConfiguration
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225948"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration
 </span><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-var">LoggingConfiguration'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LogDestination]
- -&gt; Maybe Bool -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
--&gt; Parser (Maybe [LogDestination])
--&gt; Parser (Maybe Bool -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe [LogDestination]
+ -&gt; Maybe LogLevel
+ -&gt; LoggingConfiguration)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LogDestination]))
+</span><a href="#local-6989586621679225948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeExecutionData&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [LogDestination] -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
+-&gt; Parser (Maybe [LogDestination])
+-&gt; Parser (Maybe LogLevel -&gt; LoggingConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LogDestination]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LogDestination]))
@@ -258,68 +271,59 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe LogLevel -&gt; LoggingConfiguration)
--&gt; Parser (Maybe Bool)
--&gt; Parser (Maybe LogLevel -&gt; LoggingConfiguration)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;includeExecutionData&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LogLevel -&gt; LoggingConfiguration)
 -&gt; Parser (Maybe LogLevel) -&gt; Parser LoggingConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogLevel)
+</span><a href="#local-6989586621679225948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LogLevel)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;level&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225897"><span id="local-6989586621679225899"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225941"><span id="local-6989586621679225943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225886"><span id="local-6989586621679225888"><span id="local-6989586621679225890"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679225884"><span class="annot"><span class="annottext">toJSON :: LoggingConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225880"><span id="local-6989586621679225881"><span id="local-6989586621679225882"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225930"><span id="local-6989586621679225932"><span id="local-6989586621679225934"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679225928"><span class="annot"><span class="annottext">toJSON :: LoggingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.LoggingConfiguration.html#LoggingConfiguration%27"><span class="hs-identifier hs-type">LoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225924"><span id="local-6989586621679225925"><span id="local-6989586621679225926"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [LogDestination]
 Maybe LogLevel
 level :: Maybe LogLevel
-includeExecutionData :: Maybe Bool
 destinations :: Maybe [LogDestination]
+includeExecutionData :: Maybe Bool
 $sel:level:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe LogLevel
-$sel:includeExecutionData:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe Bool
 $sel:destinations:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe [LogDestination]
-</span><a href="#local-6989586621679225880"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:includeExecutionData:LoggingConfiguration' :: LoggingConfiguration -&gt; Maybe Bool
+</span><a href="#local-6989586621679225924"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeExecutionData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225926"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LogDestination] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([LogDestination] -&gt; Pair) -&gt; Maybe [LogDestination] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LogDestination]
-</span><a href="#local-6989586621679225882"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;includeExecutionData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225881"><span class="hs-identifier hs-var">includeExecutionData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225925"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;level&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogLevel -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LogLevel -&gt; Pair) -&gt; Maybe LogLevel -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogLevel
-</span><a href="#local-6989586621679225880"><span class="hs-identifier hs-var">level</span></a></span><span>
+</span><a href="#local-6989586621679225924"><span class="hs-identifier hs-var">level</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

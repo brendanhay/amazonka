@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents the auto scaling configuration for a global table.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTableAutoScalingDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679382002"><span id="local-6989586621679382003"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableAutoScalingDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-var">TableAutoScalingDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableAutoScalingDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-var">TableAutoScalingDescription'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the table.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="annot"><span class="annottext">TableAutoScalingDescription -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Represents replicas of the global table.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Areplicas%3ATableAutoScalingDescription%27"><span class="annot"><span class="annottext">TableAutoScalingDescription
+</span><span id="line-31"></span><span id="local-6989586621679382704"><span id="local-6989586621679382705"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableAutoScalingDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-var">TableAutoScalingDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableAutoScalingDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-var">TableAutoScalingDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the table:</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The table is being created.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The table is being updated.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The table is being deleted.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The table is ready for use.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="annot"><span class="annottext">TableAutoScalingDescription -&gt; Maybe TableStatus
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var hs-var">tableStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Represents replicas of the global table.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Areplicas%3ATableAutoScalingDescription%27"><span class="annot"><span class="annottext">TableAutoScalingDescription
 -&gt; Maybe [ReplicaAutoScalingDescription]
 </span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3Areplicas%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var hs-var">replicas</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription.html#ReplicaAutoScalingDescription"><span class="hs-identifier hs-type">ReplicaAutoScalingDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The current state of the table:</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @CREATING@ - The table is being created.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @UPDATING@ - The table is being updated.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @DELETING@ - The table is being deleted.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ - The table is ready for use.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="annot"><span class="annottext">TableAutoScalingDescription -&gt; Maybe TableStatus
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var hs-var">tableStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the table.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="annot"><span class="annottext">TableAutoScalingDescription -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381994"><span id="local-6989586621679381996"><span class="annot"><span class="annottext">TableAutoScalingDescription -&gt; TableAutoScalingDescription -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382696"><span id="local-6989586621679382698"><span class="annot"><span class="annottext">TableAutoScalingDescription -&gt; TableAutoScalingDescription -&gt; Bool
 (TableAutoScalingDescription
  -&gt; TableAutoScalingDescription -&gt; Bool)
 -&gt; (TableAutoScalingDescription
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TableAutoScalingDescription -&gt; TableAutoScalingDescription -&gt; Bool
 == :: TableAutoScalingDescription -&gt; TableAutoScalingDescription -&gt; Bool
 $c== :: TableAutoScalingDescription -&gt; TableAutoScalingDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381985"><span id="local-6989586621679381987"><span id="local-6989586621679381989"><span id="local-6989586621679381991"><span class="annot"><span class="annottext">ReadPrec [TableAutoScalingDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382687"><span id="local-6989586621679382689"><span id="local-6989586621679382691"><span id="local-6989586621679382693"><span class="annot"><span class="annottext">ReadPrec [TableAutoScalingDescription]
 ReadPrec TableAutoScalingDescription
 Int -&gt; ReadS TableAutoScalingDescription
 ReadS [TableAutoScalingDescription]
@@ -79,7 +79,7 @@ readList :: ReadS [TableAutoScalingDescription]
 $creadList :: ReadS [TableAutoScalingDescription]
 readsPrec :: Int -&gt; ReadS TableAutoScalingDescription
 $creadsPrec :: Int -&gt; ReadS TableAutoScalingDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381978"><span id="local-6989586621679381980"><span id="local-6989586621679381982"><span class="annot"><span class="annottext">Int -&gt; TableAutoScalingDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382680"><span id="local-6989586621679382682"><span id="local-6989586621679382684"><span class="annot"><span class="annottext">Int -&gt; TableAutoScalingDescription -&gt; ShowS
 [TableAutoScalingDescription] -&gt; ShowS
 TableAutoScalingDescription -&gt; String
 (Int -&gt; TableAutoScalingDescription -&gt; ShowS)
@@ -119,70 +119,78 @@ TableAutoScalingDescription -&gt; Rep TableAutoScalingDescription x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'tableName', 'tableAutoScalingDescription_tableName' - The name of the table.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'tableStatus', 'tableAutoScalingDescription_tableStatus' - The current state of the table:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'replicas', 'tableAutoScalingDescription_replicas' - Represents replicas of the global table.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   @CREATING@ - The table is being created.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'tableStatus', 'tableAutoScalingDescription_tableStatus' - The current state of the table:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- -   @UPDATING@ - The table is being updated.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- -   @CREATING@ - The table is being created.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- -   @DELETING@ - The table is being deleted.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- -   @UPDATING@ - The table is being updated.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- -   @ACTIVE@ - The table is ready for use.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- -   @DELETING@ - The table is being deleted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'replicas', 'tableAutoScalingDescription_replicas' - Represents replicas of the global table.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- -   @ACTIVE@ - The table is ready for use.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'tableName', 'tableAutoScalingDescription_tableName' - The name of the table.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#newTableAutoScalingDescription"><span class="hs-identifier hs-type">newTableAutoScalingDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span>
 </span><span id="line-72"></span><span id="newTableAutoScalingDescription"><span class="annot"><span class="annottext">newTableAutoScalingDescription :: TableAutoScalingDescription
 </span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#newTableAutoScalingDescription"><span class="hs-identifier hs-var hs-var">newTableAutoScalingDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">TableAutoScalingDescription' :: Maybe Text
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">TableAutoScalingDescription' :: Maybe TableStatus
 -&gt; Maybe [ReplicaAutoScalingDescription]
--&gt; Maybe TableStatus
+-&gt; Maybe Text
 -&gt; TableAutoScalingDescription
 </span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableName:TableAutoScalingDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableStatus:TableAutoScalingDescription' :: Maybe TableStatus
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe TableStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicas:TableAutoScalingDescription' :: Maybe [ReplicaAutoScalingDescription]
 </span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3Areplicas%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">replicas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableStatus:TableAutoScalingDescription' :: Maybe TableStatus
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableStatus
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:TableAutoScalingDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The name of the table.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableName"><span class="hs-identifier hs-type">tableAutoScalingDescription_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="tableAutoScalingDescription_tableName"><span class="annot"><span class="annottext">tableAutoScalingDescription_tableName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-80"></span><span class="hs-comment">-- | The current state of the table:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   @CREATING@ - The table is being created.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   @UPDATING@ - The table is being updated.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   @DELETING@ - The table is being deleted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @ACTIVE@ - The table is ready for use.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableStatus"><span class="hs-identifier hs-type">tableAutoScalingDescription_tableStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="tableAutoScalingDescription_tableStatus"><span class="annot"><span class="annottext">tableAutoScalingDescription_tableStatus :: (Maybe TableStatus -&gt; f (Maybe TableStatus))
 -&gt; TableAutoScalingDescription -&gt; f TableAutoScalingDescription
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableName"><span class="hs-identifier hs-var hs-var">tableAutoScalingDescription_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableAutoScalingDescription -&gt; Maybe Text)
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableStatus"><span class="hs-identifier hs-var hs-var">tableAutoScalingDescription_tableStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableAutoScalingDescription -&gt; Maybe TableStatus)
 -&gt; (TableAutoScalingDescription
-    -&gt; Maybe Text -&gt; TableAutoScalingDescription)
+    -&gt; Maybe TableStatus -&gt; TableAutoScalingDescription)
 -&gt; Lens
      TableAutoScalingDescription
      TableAutoScalingDescription
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe TableStatus)
+     (Maybe TableStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381969"><span class="annot"><span class="annottext">Maybe Text
-tableName :: Maybe Text
-$sel:tableName:TableAutoScalingDescription' :: TableAutoScalingDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679381969"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381969"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381968"><span class="annot"><span class="annottext">s :: TableAutoScalingDescription
-</span><a href="#local-6989586621679381968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381967"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableAutoScalingDescription
-</span><a href="#local-6989586621679381968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:TableAutoScalingDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | Represents replicas of the global table.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_replicas"><span class="hs-identifier hs-type">tableAutoScalingDescription_replicas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription.html#ReplicaAutoScalingDescription"><span class="hs-identifier hs-type">ReplicaAutoScalingDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="tableAutoScalingDescription_replicas"><span class="annot"><span class="annottext">tableAutoScalingDescription_replicas :: (Maybe [ReplicaAutoScalingDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382671"><span class="annot"><span class="annottext">Maybe TableStatus
+tableStatus :: Maybe TableStatus
+$sel:tableStatus:TableAutoScalingDescription' :: TableAutoScalingDescription -&gt; Maybe TableStatus
+</span><a href="#local-6989586621679382671"><span class="hs-identifier hs-var hs-var">tableStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableStatus
+</span><a href="#local-6989586621679382671"><span class="hs-identifier hs-var">tableStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382670"><span class="annot"><span class="annottext">s :: TableAutoScalingDescription
+</span><a href="#local-6989586621679382670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382669"><span class="annot"><span class="annottext">Maybe TableStatus
+</span><a href="#local-6989586621679382669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableAutoScalingDescription
+</span><a href="#local-6989586621679382670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableStatus:TableAutoScalingDescription' :: Maybe TableStatus
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableStatus
+</span><a href="#local-6989586621679382669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Represents replicas of the global table.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_replicas"><span class="hs-identifier hs-type">tableAutoScalingDescription_replicas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription.html#ReplicaAutoScalingDescription"><span class="hs-identifier hs-type">ReplicaAutoScalingDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="tableAutoScalingDescription_replicas"><span class="annot"><span class="annottext">tableAutoScalingDescription_replicas :: (Maybe [ReplicaAutoScalingDescription]
  -&gt; f (Maybe [ReplicaAutoScalingDescription]))
 -&gt; TableAutoScalingDescription -&gt; f TableAutoScalingDescription
 </span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_replicas"><span class="hs-identifier hs-var hs-var">tableAutoScalingDescription_replicas</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableAutoScalingDescription
@@ -196,17 +204,17 @@ $sel:tableName:TableAutoScalingDescription' :: TableAutoScalingDescription -&gt;
      (Maybe [ReplicaAutoScalingDescription])
      (Maybe [ReplicaAutoScalingDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381965"><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382667"><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
 replicas :: Maybe [ReplicaAutoScalingDescription]
 $sel:replicas:TableAutoScalingDescription' :: TableAutoScalingDescription
 -&gt; Maybe [ReplicaAutoScalingDescription]
-</span><a href="#local-6989586621679381965"><span class="hs-identifier hs-var hs-var">replicas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
-</span><a href="#local-6989586621679381965"><span class="hs-identifier hs-var">replicas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381964"><span class="annot"><span class="annottext">s :: TableAutoScalingDescription
-</span><a href="#local-6989586621679381964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381963"><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
-</span><a href="#local-6989586621679381963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableAutoScalingDescription
-</span><a href="#local-6989586621679381964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicas:TableAutoScalingDescription' :: Maybe [ReplicaAutoScalingDescription]
+</span><a href="#local-6989586621679382667"><span class="hs-identifier hs-var hs-var">replicas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
+</span><a href="#local-6989586621679382667"><span class="hs-identifier hs-var">replicas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382666"><span class="annot"><span class="annottext">s :: TableAutoScalingDescription
+</span><a href="#local-6989586621679382666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382665"><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
+</span><a href="#local-6989586621679382665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableAutoScalingDescription
+</span><a href="#local-6989586621679382666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicas:TableAutoScalingDescription' :: Maybe [ReplicaAutoScalingDescription]
 </span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3Areplicas%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">replicas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
-</span><a href="#local-6989586621679381963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicaAutoScalingDescription]
+</span><a href="#local-6989586621679382665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicaAutoScalingDescription]
   -&gt; f (Maybe [ReplicaAutoScalingDescription]))
  -&gt; TableAutoScalingDescription -&gt; f TableAutoScalingDescription)
 -&gt; ((Maybe [ReplicaAutoScalingDescription]
@@ -236,43 +244,35 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReplicaAutoScalingDescription]
   [ReplicaAutoScalingDescription]
   [ReplicaAutoScalingDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The current state of the table:</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -   @CREATING@ - The table is being created.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   @UPDATING@ - The table is being updated.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @DELETING@ - The table is being deleted.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- -   @ACTIVE@ - The table is ready for use.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableStatus"><span class="hs-identifier hs-type">tableAutoScalingDescription_tableStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="tableAutoScalingDescription_tableStatus"><span class="annot"><span class="annottext">tableAutoScalingDescription_tableStatus :: (Maybe TableStatus -&gt; f (Maybe TableStatus))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The name of the table.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableName"><span class="hs-identifier hs-type">tableAutoScalingDescription_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="tableAutoScalingDescription_tableName"><span class="annot"><span class="annottext">tableAutoScalingDescription_tableName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TableAutoScalingDescription -&gt; f TableAutoScalingDescription
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableStatus"><span class="hs-identifier hs-var hs-var">tableAutoScalingDescription_tableStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableAutoScalingDescription -&gt; Maybe TableStatus)
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#tableAutoScalingDescription_tableName"><span class="hs-identifier hs-var hs-var">tableAutoScalingDescription_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TableAutoScalingDescription -&gt; Maybe Text)
 -&gt; (TableAutoScalingDescription
-    -&gt; Maybe TableStatus -&gt; TableAutoScalingDescription)
+    -&gt; Maybe Text -&gt; TableAutoScalingDescription)
 -&gt; Lens
      TableAutoScalingDescription
      TableAutoScalingDescription
-     (Maybe TableStatus)
-     (Maybe TableStatus)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381958"><span class="annot"><span class="annottext">Maybe TableStatus
-tableStatus :: Maybe TableStatus
-$sel:tableStatus:TableAutoScalingDescription' :: TableAutoScalingDescription -&gt; Maybe TableStatus
-</span><a href="#local-6989586621679381958"><span class="hs-identifier hs-var hs-var">tableStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableStatus
-</span><a href="#local-6989586621679381958"><span class="hs-identifier hs-var">tableStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381957"><span class="annot"><span class="annottext">s :: TableAutoScalingDescription
-</span><a href="#local-6989586621679381957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381956"><span class="annot"><span class="annottext">Maybe TableStatus
-</span><a href="#local-6989586621679381956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableAutoScalingDescription
-</span><a href="#local-6989586621679381957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableStatus:TableAutoScalingDescription' :: Maybe TableStatus
-</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableStatus%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableStatus
-</span><a href="#local-6989586621679381956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382660"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:TableAutoScalingDescription' :: TableAutoScalingDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679382660"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382660"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382659"><span class="annot"><span class="annottext">s :: TableAutoScalingDescription
+</span><a href="#local-6989586621679382659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-type">TableAutoScalingDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableAutoScalingDescription
+</span><a href="#local-6989586621679382659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:TableAutoScalingDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#%24sel%3AtableName%3ATableAutoScalingDescription%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381953"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679381951"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableAutoScalingDescription
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382655"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679382653"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableAutoScalingDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TableAutoScalingDescription)
@@ -282,35 +282,35 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TableAutoScalingDescription&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381948"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382650"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe TableStatus
 -&gt; Maybe [ReplicaAutoScalingDescription]
--&gt; Maybe TableStatus
+-&gt; Maybe Text
 -&gt; TableAutoScalingDescription
 </span><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription%27"><span class="hs-identifier hs-var">TableAutoScalingDescription'</span></a></span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TableStatus
  -&gt; Maybe [ReplicaAutoScalingDescription]
- -&gt; Maybe TableStatus
+ -&gt; Maybe Text
  -&gt; TableAutoScalingDescription)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe TableStatus)
 -&gt; Parser
      (Maybe [ReplicaAutoScalingDescription]
-      -&gt; Maybe TableStatus -&gt; TableAutoScalingDescription)
+      -&gt; Maybe Text -&gt; TableAutoScalingDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679382650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TableStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TableStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [ReplicaAutoScalingDescription]
-   -&gt; Maybe TableStatus -&gt; TableAutoScalingDescription)
+   -&gt; Maybe Text -&gt; TableAutoScalingDescription)
 -&gt; Parser (Maybe [ReplicaAutoScalingDescription])
--&gt; Parser (Maybe TableStatus -&gt; TableAutoScalingDescription)
+-&gt; Parser (Maybe Text -&gt; TableAutoScalingDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ReplicaAutoScalingDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -321,17 +321,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicaAutoScalingDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TableStatus -&gt; TableAutoScalingDescription)
--&gt; Parser (Maybe TableStatus) -&gt; Parser TableAutoScalingDescription
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TableAutoScalingDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser TableAutoScalingDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TableStatus)
+</span><a href="#local-6989586621679382650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TableStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381941"><span id="local-6989586621679381943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382643"><span id="local-6989586621679382645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableAutoScalingDescription.html#TableAutoScalingDescription"><span class="hs-identifier hs-type">TableAutoScalingDescription</span></a></span></span><span>
 </span><span id="line-114"></span></pre></body></html>

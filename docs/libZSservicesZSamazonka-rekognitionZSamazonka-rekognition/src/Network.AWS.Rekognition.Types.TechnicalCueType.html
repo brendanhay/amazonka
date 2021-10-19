@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679333014"><span id="local-6989586621679333015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TechnicalCueType"><span class="annot"><a href="Network.AWS.Rekognition.Types.TechnicalCueType.html#TechnicalCueType"><span class="hs-identifier hs-var">TechnicalCueType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TechnicalCueType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TechnicalCueType.html#TechnicalCueType%27"><span class="hs-identifier hs-var">TechnicalCueType'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679333307"><span id="local-6989586621679333308"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TechnicalCueType"><span class="annot"><a href="Network.AWS.Rekognition.Types.TechnicalCueType.html#TechnicalCueType"><span class="hs-identifier hs-var">TechnicalCueType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TechnicalCueType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.TechnicalCueType.html#TechnicalCueType%27"><span class="hs-identifier hs-var">TechnicalCueType'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTechnicalCueType"><span class="annot"><span class="annottext">TechnicalCueType -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.TechnicalCueType.html#fromTechnicalCueType"><span class="hs-identifier hs-var hs-var">fromTechnicalCueType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333006"><span id="local-6989586621679333008"><span id="local-6989586621679333010"><span class="annot"><span class="annottext">Int -&gt; TechnicalCueType -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333299"><span id="local-6989586621679333301"><span id="local-6989586621679333303"><span class="annot"><span class="annottext">Int -&gt; TechnicalCueType -&gt; ShowS
 [TechnicalCueType] -&gt; ShowS
 TechnicalCueType -&gt; String
 (Int -&gt; TechnicalCueType -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: TechnicalCueType -&gt; String
 showsPrec :: Int -&gt; TechnicalCueType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TechnicalCueType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679332997"><span id="local-6989586621679332999"><span id="local-6989586621679333001"><span id="local-6989586621679333003"><span class="annot"><span class="annottext">ReadPrec [TechnicalCueType]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679333290"><span id="local-6989586621679333292"><span id="local-6989586621679333294"><span id="local-6989586621679333296"><span class="annot"><span class="annottext">ReadPrec [TechnicalCueType]
 ReadPrec TechnicalCueType
 Int -&gt; ReadS TechnicalCueType
 ReadS [TechnicalCueType]
@@ -77,7 +77,7 @@ $creadList :: ReadS [TechnicalCueType]
 readsPrec :: Int -&gt; ReadS TechnicalCueType
 $creadsPrec :: Int -&gt; ReadS TechnicalCueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679332992"><span id="local-6989586621679332994"><span class="annot"><span class="annottext">TechnicalCueType -&gt; TechnicalCueType -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679333285"><span id="local-6989586621679333287"><span class="annot"><span class="annottext">TechnicalCueType -&gt; TechnicalCueType -&gt; Bool
 (TechnicalCueType -&gt; TechnicalCueType -&gt; Bool)
 -&gt; (TechnicalCueType -&gt; TechnicalCueType -&gt; Bool)
 -&gt; Eq TechnicalCueType
@@ -87,7 +87,7 @@ $c/= :: TechnicalCueType -&gt; TechnicalCueType -&gt; Bool
 == :: TechnicalCueType -&gt; TechnicalCueType -&gt; Bool
 $c== :: TechnicalCueType -&gt; TechnicalCueType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679332976"><span id="local-6989586621679332978"><span id="local-6989586621679332980"><span id="local-6989586621679332982"><span id="local-6989586621679332984"><span id="local-6989586621679332986"><span id="local-6989586621679332988"><span class="annot"><span class="annottext">Eq TechnicalCueType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679333269"><span id="local-6989586621679333271"><span id="local-6989586621679333273"><span id="local-6989586621679333275"><span id="local-6989586621679333277"><span id="local-6989586621679333279"><span id="local-6989586621679333281"><span class="annot"><span class="annottext">Eq TechnicalCueType
 Eq TechnicalCueType
 -&gt; (TechnicalCueType -&gt; TechnicalCueType -&gt; Ordering)
 -&gt; (TechnicalCueType -&gt; TechnicalCueType -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. TechnicalCueType -&gt; Rep TechnicalCueType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332968"><span id="local-6989586621679332970"><span class="annot"><span class="annottext">Int -&gt; TechnicalCueType -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333261"><span id="local-6989586621679333263"><span class="annot"><span class="annottext">Int -&gt; TechnicalCueType -&gt; Int
 TechnicalCueType -&gt; Int
 (Int -&gt; TechnicalCueType -&gt; Int)
 -&gt; (TechnicalCueType -&gt; Int) -&gt; Hashable TechnicalCueType
@@ -148,51 +148,51 @@ $chash :: TechnicalCueType -&gt; Int
 hashWithSalt :: Int -&gt; TechnicalCueType -&gt; Int
 $chashWithSalt :: Int -&gt; TechnicalCueType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679332965"><span class="annot"><span class="annottext">TechnicalCueType -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679333258"><span class="annot"><span class="annottext">TechnicalCueType -&gt; ()
 (TechnicalCueType -&gt; ()) -&gt; NFData TechnicalCueType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TechnicalCueType -&gt; ()
 $crnf :: TechnicalCueType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679332962"><span class="annot"><span class="annottext">Text -&gt; Either String TechnicalCueType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679333255"><span class="annot"><span class="annottext">Text -&gt; Either String TechnicalCueType
 (Text -&gt; Either String TechnicalCueType)
 -&gt; FromText TechnicalCueType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TechnicalCueType
 $cfromText :: Text -&gt; Either String TechnicalCueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679332959"><span class="annot"><span class="annottext">TechnicalCueType -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679333252"><span class="annot"><span class="annottext">TechnicalCueType -&gt; Text
 (TechnicalCueType -&gt; Text) -&gt; ToText TechnicalCueType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TechnicalCueType -&gt; Text
 $ctoText :: TechnicalCueType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679332956"><span class="annot"><span class="annottext">TechnicalCueType -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679333249"><span class="annot"><span class="annottext">TechnicalCueType -&gt; ByteString
 (TechnicalCueType -&gt; ByteString) -&gt; ToByteString TechnicalCueType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TechnicalCueType -&gt; ByteString
 $ctoBS :: TechnicalCueType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679332953"><span class="annot"><span class="annottext">TechnicalCueType -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679333246"><span class="annot"><span class="annottext">TechnicalCueType -&gt; ByteStringBuilder
 (TechnicalCueType -&gt; ByteStringBuilder) -&gt; ToLog TechnicalCueType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TechnicalCueType -&gt; ByteStringBuilder
 $cbuild :: TechnicalCueType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332950"><span class="annot"><span class="annottext">HeaderName -&gt; TechnicalCueType -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679333243"><span class="annot"><span class="annottext">HeaderName -&gt; TechnicalCueType -&gt; [Header]
 (HeaderName -&gt; TechnicalCueType -&gt; [Header])
 -&gt; ToHeader TechnicalCueType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TechnicalCueType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TechnicalCueType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332947"><span class="annot"><span class="annottext">TechnicalCueType -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679333240"><span class="annot"><span class="annottext">TechnicalCueType -&gt; QueryString
 (TechnicalCueType -&gt; QueryString) -&gt; ToQuery TechnicalCueType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TechnicalCueType -&gt; QueryString
 $ctoQuery :: TechnicalCueType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332942"><span id="local-6989586621679332944"><span class="annot"><span class="annottext">Value -&gt; Parser [TechnicalCueType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679333235"><span id="local-6989586621679333237"><span class="annot"><span class="annottext">Value -&gt; Parser [TechnicalCueType]
 Value -&gt; Parser TechnicalCueType
 (Value -&gt; Parser TechnicalCueType)
 -&gt; (Value -&gt; Parser [TechnicalCueType])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [TechnicalCueType]
 parseJSON :: Value -&gt; Parser TechnicalCueType
 $cparseJSON :: Value -&gt; Parser TechnicalCueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679332937"><span id="local-6989586621679332939"><span class="annot"><span class="annottext">FromJSONKeyFunction [TechnicalCueType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679333230"><span id="local-6989586621679333232"><span class="annot"><span class="annottext">FromJSONKeyFunction [TechnicalCueType]
 FromJSONKeyFunction TechnicalCueType
 FromJSONKeyFunction TechnicalCueType
 -&gt; FromJSONKeyFunction [TechnicalCueType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TechnicalCueType]
 fromJSONKey :: FromJSONKeyFunction TechnicalCueType
 $cfromJSONKey :: FromJSONKeyFunction TechnicalCueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679332928"><span id="local-6989586621679332930"><span id="local-6989586621679332932"><span id="local-6989586621679332934"><span class="annot"><span class="annottext">[TechnicalCueType] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679333221"><span id="local-6989586621679333223"><span id="local-6989586621679333225"><span id="local-6989586621679333227"><span class="annot"><span class="annottext">[TechnicalCueType] -&gt; Encoding
 [TechnicalCueType] -&gt; Value
 TechnicalCueType -&gt; Encoding
 TechnicalCueType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: TechnicalCueType -&gt; Encoding
 toJSON :: TechnicalCueType -&gt; Value
 $ctoJSON :: TechnicalCueType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679332923"><span id="local-6989586621679332925"><span class="annot"><span class="annottext">ToJSONKeyFunction [TechnicalCueType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679333216"><span id="local-6989586621679333218"><span class="annot"><span class="annottext">ToJSONKeyFunction [TechnicalCueType]
 ToJSONKeyFunction TechnicalCueType
 ToJSONKeyFunction TechnicalCueType
 -&gt; ToJSONKeyFunction [TechnicalCueType]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TechnicalCueType]
 toJSONKey :: ToJSONKeyFunction TechnicalCueType
 $ctoJSONKey :: ToJSONKeyFunction TechnicalCueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679332920"><span class="annot"><span class="annottext">[Node] -&gt; Either String TechnicalCueType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679333213"><span class="annot"><span class="annottext">[Node] -&gt; Either String TechnicalCueType
 ([Node] -&gt; Either String TechnicalCueType)
 -&gt; FromXML TechnicalCueType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TechnicalCueType
 $cparseXML :: [Node] -&gt; Either String TechnicalCueType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679332917"><span class="annot"><span class="annottext">TechnicalCueType -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679333210"><span class="annot"><span class="annottext">TechnicalCueType -&gt; XML
 (TechnicalCueType -&gt; XML) -&gt; ToXML TechnicalCueType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TechnicalCueType -&gt; XML

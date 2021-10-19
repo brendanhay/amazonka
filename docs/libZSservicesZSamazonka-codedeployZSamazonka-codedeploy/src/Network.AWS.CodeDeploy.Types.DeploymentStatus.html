@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679306762"><span id="local-6989586621679306763"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentStatus"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-var">DeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentStatus%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentStatus.html#DeploymentStatus%27"><span class="hs-identifier hs-var">DeploymentStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679307045"><span id="local-6989586621679307046"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentStatus"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-var">DeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentStatus%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentStatus.html#DeploymentStatus%27"><span class="hs-identifier hs-var">DeploymentStatus'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentStatus"><span class="annot"><span class="annottext">DeploymentStatus -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.DeploymentStatus.html#fromDeploymentStatus"><span class="hs-identifier hs-var hs-var">fromDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306754"><span id="local-6989586621679306756"><span id="local-6989586621679306758"><span class="annot"><span class="annottext">Int -&gt; DeploymentStatus -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307037"><span id="local-6989586621679307039"><span id="local-6989586621679307041"><span class="annot"><span class="annottext">Int -&gt; DeploymentStatus -&gt; ShowS
 [DeploymentStatus] -&gt; ShowS
 DeploymentStatus -&gt; String
 (Int -&gt; DeploymentStatus -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: DeploymentStatus -&gt; String
 showsPrec :: Int -&gt; DeploymentStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeploymentStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679306745"><span id="local-6989586621679306747"><span id="local-6989586621679306749"><span id="local-6989586621679306751"><span class="annot"><span class="annottext">ReadPrec [DeploymentStatus]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679307028"><span id="local-6989586621679307030"><span id="local-6989586621679307032"><span id="local-6989586621679307034"><span class="annot"><span class="annottext">ReadPrec [DeploymentStatus]
 ReadPrec DeploymentStatus
 Int -&gt; ReadS DeploymentStatus
 ReadS [DeploymentStatus]
@@ -78,7 +78,7 @@ $creadList :: ReadS [DeploymentStatus]
 readsPrec :: Int -&gt; ReadS DeploymentStatus
 $creadsPrec :: Int -&gt; ReadS DeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306740"><span id="local-6989586621679306742"><span class="annot"><span class="annottext">DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679307023"><span id="local-6989586621679307025"><span class="annot"><span class="annottext">DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
 (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
 -&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
 -&gt; Eq DeploymentStatus
@@ -88,7 +88,7 @@ $c/= :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
 == :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
 $c== :: DeploymentStatus -&gt; DeploymentStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306724"><span id="local-6989586621679306726"><span id="local-6989586621679306728"><span id="local-6989586621679306730"><span id="local-6989586621679306732"><span id="local-6989586621679306734"><span id="local-6989586621679306736"><span class="annot"><span class="annottext">Eq DeploymentStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679307007"><span id="local-6989586621679307009"><span id="local-6989586621679307011"><span id="local-6989586621679307013"><span id="local-6989586621679307015"><span id="local-6989586621679307017"><span id="local-6989586621679307019"><span class="annot"><span class="annottext">Eq DeploymentStatus
 Eq DeploymentStatus
 -&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Ordering)
 -&gt; (DeploymentStatus -&gt; DeploymentStatus -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. DeploymentStatus -&gt; Rep DeploymentStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306716"><span id="local-6989586621679306718"><span class="annot"><span class="annottext">Int -&gt; DeploymentStatus -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306999"><span id="local-6989586621679307001"><span class="annot"><span class="annottext">Int -&gt; DeploymentStatus -&gt; Int
 DeploymentStatus -&gt; Int
 (Int -&gt; DeploymentStatus -&gt; Int)
 -&gt; (DeploymentStatus -&gt; Int) -&gt; Hashable DeploymentStatus
@@ -149,51 +149,51 @@ $chash :: DeploymentStatus -&gt; Int
 hashWithSalt :: Int -&gt; DeploymentStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DeploymentStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306713"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306996"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ()
 (DeploymentStatus -&gt; ()) -&gt; NFData DeploymentStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeploymentStatus -&gt; ()
 $crnf :: DeploymentStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306710"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentStatus
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306993"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentStatus
 (Text -&gt; Either String DeploymentStatus)
 -&gt; FromText DeploymentStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeploymentStatus
 $cfromText :: Text -&gt; Either String DeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306707"><span class="annot"><span class="annottext">DeploymentStatus -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306990"><span class="annot"><span class="annottext">DeploymentStatus -&gt; Text
 (DeploymentStatus -&gt; Text) -&gt; ToText DeploymentStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeploymentStatus -&gt; Text
 $ctoText :: DeploymentStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306704"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306987"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ByteString
 (DeploymentStatus -&gt; ByteString) -&gt; ToByteString DeploymentStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeploymentStatus -&gt; ByteString
 $ctoBS :: DeploymentStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306701"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306984"><span class="annot"><span class="annottext">DeploymentStatus -&gt; ByteStringBuilder
 (DeploymentStatus -&gt; ByteStringBuilder) -&gt; ToLog DeploymentStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeploymentStatus -&gt; ByteStringBuilder
 $cbuild :: DeploymentStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306698"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentStatus -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306981"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentStatus -&gt; [Header]
 (HeaderName -&gt; DeploymentStatus -&gt; [Header])
 -&gt; ToHeader DeploymentStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeploymentStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeploymentStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306695"><span class="annot"><span class="annottext">DeploymentStatus -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306978"><span class="annot"><span class="annottext">DeploymentStatus -&gt; QueryString
 (DeploymentStatus -&gt; QueryString) -&gt; ToQuery DeploymentStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeploymentStatus -&gt; QueryString
 $ctoQuery :: DeploymentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679306690"><span id="local-6989586621679306692"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679306973"><span id="local-6989586621679306975"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentStatus]
 Value -&gt; Parser DeploymentStatus
 (Value -&gt; Parser DeploymentStatus)
 -&gt; (Value -&gt; Parser [DeploymentStatus])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [DeploymentStatus]
 parseJSON :: Value -&gt; Parser DeploymentStatus
 $cparseJSON :: Value -&gt; Parser DeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679306685"><span id="local-6989586621679306687"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679306968"><span id="local-6989586621679306970"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentStatus]
 FromJSONKeyFunction DeploymentStatus
 FromJSONKeyFunction DeploymentStatus
 -&gt; FromJSONKeyFunction [DeploymentStatus]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeploymentStatus]
 fromJSONKey :: FromJSONKeyFunction DeploymentStatus
 $cfromJSONKey :: FromJSONKeyFunction DeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679306676"><span id="local-6989586621679306678"><span id="local-6989586621679306680"><span id="local-6989586621679306682"><span class="annot"><span class="annottext">[DeploymentStatus] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679306959"><span id="local-6989586621679306961"><span id="local-6989586621679306963"><span id="local-6989586621679306965"><span class="annot"><span class="annottext">[DeploymentStatus] -&gt; Encoding
 [DeploymentStatus] -&gt; Value
 DeploymentStatus -&gt; Encoding
 DeploymentStatus -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: DeploymentStatus -&gt; Encoding
 toJSON :: DeploymentStatus -&gt; Value
 $ctoJSON :: DeploymentStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679306671"><span id="local-6989586621679306673"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentStatus]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679306954"><span id="local-6989586621679306956"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentStatus]
 ToJSONKeyFunction DeploymentStatus
 ToJSONKeyFunction DeploymentStatus
 -&gt; ToJSONKeyFunction [DeploymentStatus]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeploymentStatus]
 toJSONKey :: ToJSONKeyFunction DeploymentStatus
 $ctoJSONKey :: ToJSONKeyFunction DeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679306668"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentStatus
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679306951"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentStatus
 ([Node] -&gt; Either String DeploymentStatus)
 -&gt; FromXML DeploymentStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeploymentStatus
 $cparseXML :: [Node] -&gt; Either String DeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679306665"><span class="annot"><span class="annottext">DeploymentStatus -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679306948"><span class="annot"><span class="annottext">DeploymentStatus -&gt; XML
 (DeploymentStatus -&gt; XML) -&gt; ToXML DeploymentStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeploymentStatus -&gt; XML

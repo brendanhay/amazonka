@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html&gt;</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDynamicPartitioningConfiguration' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679261650"><span id="local-6989586621679261651"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamicPartitioningConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-var">DynamicPartitioningConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamicPartitioningConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-var">DynamicPartitioningConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679275878"><span id="local-6989586621679275879"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamicPartitioningConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-var">DynamicPartitioningConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamicPartitioningConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-var">DynamicPartitioningConfiguration'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies that the dynamic partitioning is enabled for this Kinesis Data</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Firehose delivery stream.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aenabled%3ADynamicPartitioningConfiguration%27"><span class="annot"><span class="annottext">DynamicPartitioningConfiguration -&gt; Maybe Bool
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AretryOptions%3ADynamicPartitioningConfiguration%27"><span class="annot"><span class="annottext">DynamicPartitioningConfiguration -&gt; Maybe RetryOptions
 </span><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#%24sel%3AretryOptions%3ADynamicPartitioningConfiguration%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261643"><span id="local-6989586621679261645"><span class="annot"><span class="annottext">DynamicPartitioningConfiguration
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275871"><span id="local-6989586621679275873"><span class="annot"><span class="annottext">DynamicPartitioningConfiguration
 -&gt; DynamicPartitioningConfiguration -&gt; Bool
 (DynamicPartitioningConfiguration
  -&gt; DynamicPartitioningConfiguration -&gt; Bool)
@@ -57,7 +57,7 @@ $c/= :: DynamicPartitioningConfiguration
 -&gt; DynamicPartitioningConfiguration -&gt; Bool
 $c== :: DynamicPartitioningConfiguration
 -&gt; DynamicPartitioningConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261634"><span id="local-6989586621679261636"><span id="local-6989586621679261638"><span id="local-6989586621679261640"><span class="annot"><span class="annottext">ReadPrec [DynamicPartitioningConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275862"><span id="local-6989586621679275864"><span id="local-6989586621679275866"><span id="local-6989586621679275868"><span class="annot"><span class="annottext">ReadPrec [DynamicPartitioningConfiguration]
 ReadPrec DynamicPartitioningConfiguration
 Int -&gt; ReadS DynamicPartitioningConfiguration
 ReadS [DynamicPartitioningConfiguration]
@@ -77,7 +77,7 @@ readList :: ReadS [DynamicPartitioningConfiguration]
 $creadList :: ReadS [DynamicPartitioningConfiguration]
 readsPrec :: Int -&gt; ReadS DynamicPartitioningConfiguration
 $creadsPrec :: Int -&gt; ReadS DynamicPartitioningConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261627"><span id="local-6989586621679261629"><span id="local-6989586621679261631"><span class="annot"><span class="annottext">Int -&gt; DynamicPartitioningConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275855"><span id="local-6989586621679275857"><span id="local-6989586621679275859"><span class="annot"><span class="annottext">Int -&gt; DynamicPartitioningConfiguration -&gt; ShowS
 [DynamicPartitioningConfiguration] -&gt; ShowS
 DynamicPartitioningConfiguration -&gt; String
 (Int -&gt; DynamicPartitioningConfiguration -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261618"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275846"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:DynamicPartitioningConfiguration' :: DynamicPartitioningConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679261618"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261618"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261617"><span class="annot"><span class="annottext">s :: DynamicPartitioningConfiguration
-</span><a href="#local-6989586621679261617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261616"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamicPartitioningConfiguration
-</span><a href="#local-6989586621679261617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:DynamicPartitioningConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679275846"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275846"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275845"><span class="annot"><span class="annottext">s :: DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679275845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275844"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679275845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:DynamicPartitioningConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#%24sel%3Aenabled%3ADynamicPartitioningConfiguration%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- data to an Amazon S3 prefix.</span><span>
@@ -187,22 +187,22 @@ $sel:enabled:DynamicPartitioningConfiguration' :: DynamicPartitioningConfigurati
      (Maybe RetryOptions)
      (Maybe RetryOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261614"><span class="annot"><span class="annottext">Maybe RetryOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275842"><span class="annot"><span class="annottext">Maybe RetryOptions
 retryOptions :: Maybe RetryOptions
 $sel:retryOptions:DynamicPartitioningConfiguration' :: DynamicPartitioningConfiguration -&gt; Maybe RetryOptions
-</span><a href="#local-6989586621679261614"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryOptions
-</span><a href="#local-6989586621679261614"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261613"><span class="annot"><span class="annottext">s :: DynamicPartitioningConfiguration
-</span><a href="#local-6989586621679261613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261612"><span class="annot"><span class="annottext">Maybe RetryOptions
-</span><a href="#local-6989586621679261612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamicPartitioningConfiguration
-</span><a href="#local-6989586621679261613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:DynamicPartitioningConfiguration' :: Maybe RetryOptions
+</span><a href="#local-6989586621679275842"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetryOptions
+</span><a href="#local-6989586621679275842"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275841"><span class="annot"><span class="annottext">s :: DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679275841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275840"><span class="annot"><span class="annottext">Maybe RetryOptions
+</span><a href="#local-6989586621679275840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamicPartitioningConfiguration
+</span><a href="#local-6989586621679275841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:DynamicPartitioningConfiguration' :: Maybe RetryOptions
 </span><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#%24sel%3AretryOptions%3ADynamicPartitioningConfiguration%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetryOptions
-</span><a href="#local-6989586621679261612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679261609"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679275837"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679261607"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamicPartitioningConfiguration
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679275835"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamicPartitioningConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DynamicPartitioningConfiguration)
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DynamicPartitioningConfiguration&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261604"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275832"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe RetryOptions -&gt; DynamicPartitioningConfiguration
 </span><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-var">DynamicPartitioningConfiguration'</span></a></span><span>
@@ -223,7 +223,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe RetryOptions -&gt; DynamicPartitioningConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679275832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,29 +232,29 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DynamicPartitioningConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetryOptions)
+</span><a href="#local-6989586621679275832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RetryOptions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679261598"><span id="local-6989586621679261600"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679275826"><span id="local-6989586621679275828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679261595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679275823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261587"><span id="local-6989586621679261589"><span id="local-6989586621679261591"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679261585"><span class="annot"><span class="annottext">toJSON :: DynamicPartitioningConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261582"><span id="local-6989586621679261583"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275815"><span id="local-6989586621679275817"><span id="local-6989586621679275819"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679275813"><span class="annot"><span class="annottext">toJSON :: DynamicPartitioningConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DynamicPartitioningConfiguration.html#DynamicPartitioningConfiguration%27"><span class="hs-identifier hs-type">DynamicPartitioningConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275810"><span id="local-6989586621679275811"><span class="annot"><span class="annottext">Maybe Bool
 Maybe RetryOptions
 retryOptions :: Maybe RetryOptions
 enabled :: Maybe Bool
 $sel:retryOptions:DynamicPartitioningConfiguration' :: DynamicPartitioningConfiguration -&gt; Maybe RetryOptions
 $sel:enabled:DynamicPartitioningConfiguration' :: DynamicPartitioningConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679261582"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275810"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -266,14 +266,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261583"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275811"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetryOptions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RetryOptions -&gt; Pair) -&gt; Maybe RetryOptions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetryOptions
-</span><a href="#local-6989586621679261582"><span class="hs-identifier hs-var">retryOptions</span></a></span><span>
+</span><a href="#local-6989586621679275810"><span class="hs-identifier hs-var">retryOptions</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

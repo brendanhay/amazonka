@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- to \\\&quot;CURRENTLY_ACTIVE\\\&quot;, it will not switch back to the other</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- pipeline based on it recovering to a healthy state, it will only switch</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- if the active pipeline becomes unhealthy.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679903748"><span id="local-6989586621679903749"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PreferredChannelPipeline"><span class="annot"><a href="Network.AWS.MediaLive.Types.PreferredChannelPipeline.html#PreferredChannelPipeline"><span class="hs-identifier hs-var">PreferredChannelPipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PreferredChannelPipeline%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.PreferredChannelPipeline.html#PreferredChannelPipeline%27"><span class="hs-identifier hs-var">PreferredChannelPipeline'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679911243"><span id="local-6989586621679911244"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PreferredChannelPipeline"><span class="annot"><a href="Network.AWS.MediaLive.Types.PreferredChannelPipeline.html#PreferredChannelPipeline"><span class="hs-identifier hs-var">PreferredChannelPipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PreferredChannelPipeline%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.PreferredChannelPipeline.html#PreferredChannelPipeline%27"><span class="hs-identifier hs-var">PreferredChannelPipeline'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPreferredChannelPipeline"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.PreferredChannelPipeline.html#fromPreferredChannelPipeline"><span class="hs-identifier hs-var hs-var">fromPreferredChannelPipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679903740"><span id="local-6989586621679903742"><span id="local-6989586621679903744"><span class="annot"><span class="annottext">Int -&gt; PreferredChannelPipeline -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679911235"><span id="local-6989586621679911237"><span id="local-6989586621679911239"><span class="annot"><span class="annottext">Int -&gt; PreferredChannelPipeline -&gt; ShowS
 [PreferredChannelPipeline] -&gt; ShowS
 PreferredChannelPipeline -&gt; String
 (Int -&gt; PreferredChannelPipeline -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: PreferredChannelPipeline -&gt; String
 showsPrec :: Int -&gt; PreferredChannelPipeline -&gt; ShowS
 $cshowsPrec :: Int -&gt; PreferredChannelPipeline -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679903731"><span id="local-6989586621679903733"><span id="local-6989586621679903735"><span id="local-6989586621679903737"><span class="annot"><span class="annottext">ReadPrec [PreferredChannelPipeline]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679911226"><span id="local-6989586621679911228"><span id="local-6989586621679911230"><span id="local-6989586621679911232"><span class="annot"><span class="annottext">ReadPrec [PreferredChannelPipeline]
 ReadPrec PreferredChannelPipeline
 Int -&gt; ReadS PreferredChannelPipeline
 ReadS [PreferredChannelPipeline]
@@ -80,7 +80,7 @@ $creadList :: ReadS [PreferredChannelPipeline]
 readsPrec :: Int -&gt; ReadS PreferredChannelPipeline
 $creadsPrec :: Int -&gt; ReadS PreferredChannelPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679903726"><span id="local-6989586621679903728"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; PreferredChannelPipeline -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679911221"><span id="local-6989586621679911223"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; PreferredChannelPipeline -&gt; Bool
 (PreferredChannelPipeline -&gt; PreferredChannelPipeline -&gt; Bool)
 -&gt; (PreferredChannelPipeline -&gt; PreferredChannelPipeline -&gt; Bool)
 -&gt; Eq PreferredChannelPipeline
@@ -90,7 +90,7 @@ $c/= :: PreferredChannelPipeline -&gt; PreferredChannelPipeline -&gt; Bool
 == :: PreferredChannelPipeline -&gt; PreferredChannelPipeline -&gt; Bool
 $c== :: PreferredChannelPipeline -&gt; PreferredChannelPipeline -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679903710"><span id="local-6989586621679903712"><span id="local-6989586621679903714"><span id="local-6989586621679903716"><span id="local-6989586621679903718"><span id="local-6989586621679903720"><span id="local-6989586621679903722"><span class="annot"><span class="annottext">Eq PreferredChannelPipeline
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679911205"><span id="local-6989586621679911207"><span id="local-6989586621679911209"><span id="local-6989586621679911211"><span id="local-6989586621679911213"><span id="local-6989586621679911215"><span id="local-6989586621679911217"><span class="annot"><span class="annottext">Eq PreferredChannelPipeline
 Eq PreferredChannelPipeline
 -&gt; (PreferredChannelPipeline
     -&gt; PreferredChannelPipeline -&gt; Ordering)
@@ -155,7 +155,7 @@ PreferredChannelPipeline -&gt; Rep PreferredChannelPipeline x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679903702"><span id="local-6989586621679903704"><span class="annot"><span class="annottext">Int -&gt; PreferredChannelPipeline -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679911197"><span id="local-6989586621679911199"><span class="annot"><span class="annottext">Int -&gt; PreferredChannelPipeline -&gt; Int
 PreferredChannelPipeline -&gt; Int
 (Int -&gt; PreferredChannelPipeline -&gt; Int)
 -&gt; (PreferredChannelPipeline -&gt; Int)
@@ -166,55 +166,55 @@ $chash :: PreferredChannelPipeline -&gt; Int
 hashWithSalt :: Int -&gt; PreferredChannelPipeline -&gt; Int
 $chashWithSalt :: Int -&gt; PreferredChannelPipeline -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679903699"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679911194"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; ()
 (PreferredChannelPipeline -&gt; ()) -&gt; NFData PreferredChannelPipeline
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PreferredChannelPipeline -&gt; ()
 $crnf :: PreferredChannelPipeline -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679903696"><span class="annot"><span class="annottext">Text -&gt; Either String PreferredChannelPipeline
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679911191"><span class="annot"><span class="annottext">Text -&gt; Either String PreferredChannelPipeline
 (Text -&gt; Either String PreferredChannelPipeline)
 -&gt; FromText PreferredChannelPipeline
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PreferredChannelPipeline
 $cfromText :: Text -&gt; Either String PreferredChannelPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679903693"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679911188"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; Text
 (PreferredChannelPipeline -&gt; Text)
 -&gt; ToText PreferredChannelPipeline
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PreferredChannelPipeline -&gt; Text
 $ctoText :: PreferredChannelPipeline -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679903690"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679911185"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; ByteString
 (PreferredChannelPipeline -&gt; ByteString)
 -&gt; ToByteString PreferredChannelPipeline
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PreferredChannelPipeline -&gt; ByteString
 $ctoBS :: PreferredChannelPipeline -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679903687"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679911182"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; ByteStringBuilder
 (PreferredChannelPipeline -&gt; ByteStringBuilder)
 -&gt; ToLog PreferredChannelPipeline
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PreferredChannelPipeline -&gt; ByteStringBuilder
 $cbuild :: PreferredChannelPipeline -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679903684"><span class="annot"><span class="annottext">HeaderName -&gt; PreferredChannelPipeline -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679911179"><span class="annot"><span class="annottext">HeaderName -&gt; PreferredChannelPipeline -&gt; [Header]
 (HeaderName -&gt; PreferredChannelPipeline -&gt; [Header])
 -&gt; ToHeader PreferredChannelPipeline
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PreferredChannelPipeline -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PreferredChannelPipeline -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679903681"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679911176"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; QueryString
 (PreferredChannelPipeline -&gt; QueryString)
 -&gt; ToQuery PreferredChannelPipeline
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PreferredChannelPipeline -&gt; QueryString
 $ctoQuery :: PreferredChannelPipeline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679903676"><span id="local-6989586621679903678"><span class="annot"><span class="annottext">Value -&gt; Parser [PreferredChannelPipeline]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679911171"><span id="local-6989586621679911173"><span class="annot"><span class="annottext">Value -&gt; Parser [PreferredChannelPipeline]
 Value -&gt; Parser PreferredChannelPipeline
 (Value -&gt; Parser PreferredChannelPipeline)
 -&gt; (Value -&gt; Parser [PreferredChannelPipeline])
@@ -226,7 +226,7 @@ $cparseJSONList :: Value -&gt; Parser [PreferredChannelPipeline]
 parseJSON :: Value -&gt; Parser PreferredChannelPipeline
 $cparseJSON :: Value -&gt; Parser PreferredChannelPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679903671"><span id="local-6989586621679903673"><span class="annot"><span class="annottext">FromJSONKeyFunction [PreferredChannelPipeline]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679911166"><span id="local-6989586621679911168"><span class="annot"><span class="annottext">FromJSONKeyFunction [PreferredChannelPipeline]
 FromJSONKeyFunction PreferredChannelPipeline
 FromJSONKeyFunction PreferredChannelPipeline
 -&gt; FromJSONKeyFunction [PreferredChannelPipeline]
@@ -238,7 +238,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PreferredChannelPipeline]
 fromJSONKey :: FromJSONKeyFunction PreferredChannelPipeline
 $cfromJSONKey :: FromJSONKeyFunction PreferredChannelPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679903662"><span id="local-6989586621679903664"><span id="local-6989586621679903666"><span id="local-6989586621679903668"><span class="annot"><span class="annottext">[PreferredChannelPipeline] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679911157"><span id="local-6989586621679911159"><span id="local-6989586621679911161"><span id="local-6989586621679911163"><span class="annot"><span class="annottext">[PreferredChannelPipeline] -&gt; Encoding
 [PreferredChannelPipeline] -&gt; Value
 PreferredChannelPipeline -&gt; Encoding
 PreferredChannelPipeline -&gt; Value
@@ -262,7 +262,7 @@ $ctoEncoding :: PreferredChannelPipeline -&gt; Encoding
 toJSON :: PreferredChannelPipeline -&gt; Value
 $ctoJSON :: PreferredChannelPipeline -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679903657"><span id="local-6989586621679903659"><span class="annot"><span class="annottext">ToJSONKeyFunction [PreferredChannelPipeline]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679911152"><span id="local-6989586621679911154"><span class="annot"><span class="annottext">ToJSONKeyFunction [PreferredChannelPipeline]
 ToJSONKeyFunction PreferredChannelPipeline
 ToJSONKeyFunction PreferredChannelPipeline
 -&gt; ToJSONKeyFunction [PreferredChannelPipeline]
@@ -274,14 +274,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PreferredChannelPipeline]
 toJSONKey :: ToJSONKeyFunction PreferredChannelPipeline
 $ctoJSONKey :: ToJSONKeyFunction PreferredChannelPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679903654"><span class="annot"><span class="annottext">[Node] -&gt; Either String PreferredChannelPipeline
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679911149"><span class="annot"><span class="annottext">[Node] -&gt; Either String PreferredChannelPipeline
 ([Node] -&gt; Either String PreferredChannelPipeline)
 -&gt; FromXML PreferredChannelPipeline
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PreferredChannelPipeline
 $cparseXML :: [Node] -&gt; Either String PreferredChannelPipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679903651"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679911146"><span class="annot"><span class="annottext">PreferredChannelPipeline -&gt; XML
 (PreferredChannelPipeline -&gt; XML) -&gt; ToXML PreferredChannelPipeline
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PreferredChannelPipeline -&gt; XML

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Configuration for uploading output from the processing container.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProcessingOutputConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680331574"><span id="local-6989586621680331575"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessingOutputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-var">ProcessingOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingOutputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-var">ProcessingOutputConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680332975"><span id="local-6989586621680332976"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessingOutputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-var">ProcessingOutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingOutputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-var">ProcessingOutputConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt the processing job output.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aoutputs%3AProcessingOutputConfig%27"><span class="annot"><span class="annottext">ProcessingOutputConfig -&gt; [ProcessingOutput]
 </span><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#%24sel%3Aoutputs%3AProcessingOutputConfig%27"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutput.html#ProcessingOutput"><span class="hs-identifier hs-type">ProcessingOutput</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680331567"><span id="local-6989586621680331569"><span class="annot"><span class="annottext">ProcessingOutputConfig -&gt; ProcessingOutputConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680332968"><span id="local-6989586621680332970"><span class="annot"><span class="annottext">ProcessingOutputConfig -&gt; ProcessingOutputConfig -&gt; Bool
 (ProcessingOutputConfig -&gt; ProcessingOutputConfig -&gt; Bool)
 -&gt; (ProcessingOutputConfig -&gt; ProcessingOutputConfig -&gt; Bool)
 -&gt; Eq ProcessingOutputConfig
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProcessingOutputConfig -&gt; ProcessingOutputConfig -&gt; Bool
 == :: ProcessingOutputConfig -&gt; ProcessingOutputConfig -&gt; Bool
 $c== :: ProcessingOutputConfig -&gt; ProcessingOutputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680331558"><span id="local-6989586621680331560"><span id="local-6989586621680331562"><span id="local-6989586621680331564"><span class="annot"><span class="annottext">ReadPrec [ProcessingOutputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680332959"><span id="local-6989586621680332961"><span id="local-6989586621680332963"><span id="local-6989586621680332965"><span class="annot"><span class="annottext">ReadPrec [ProcessingOutputConfig]
 ReadPrec ProcessingOutputConfig
 Int -&gt; ReadS ProcessingOutputConfig
 ReadS [ProcessingOutputConfig]
@@ -68,7 +68,7 @@ readList :: ReadS [ProcessingOutputConfig]
 $creadList :: ReadS [ProcessingOutputConfig]
 readsPrec :: Int -&gt; ReadS ProcessingOutputConfig
 $creadsPrec :: Int -&gt; ReadS ProcessingOutputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680331551"><span id="local-6989586621680331553"><span id="local-6989586621680331555"><span class="annot"><span class="annottext">Int -&gt; ProcessingOutputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680332952"><span id="local-6989586621680332954"><span id="local-6989586621680332956"><span class="annot"><span class="annottext">Int -&gt; ProcessingOutputConfig -&gt; ShowS
 [ProcessingOutputConfig] -&gt; ShowS
 ProcessingOutputConfig -&gt; String
 (Int -&gt; ProcessingOutputConfig -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331542"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680332943"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:ProcessingOutputConfig' :: ProcessingOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680331542"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680331542"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680331541"><span class="annot"><span class="annottext">s :: ProcessingOutputConfig
-</span><a href="#local-6989586621680331541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680331540"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680331540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingOutputConfig
-</span><a href="#local-6989586621680331541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:ProcessingOutputConfig' :: Maybe Text
+</span><a href="#local-6989586621680332943"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680332943"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680332942"><span class="annot"><span class="annottext">s :: ProcessingOutputConfig
+</span><a href="#local-6989586621680332942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680332941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680332941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingOutputConfig
+</span><a href="#local-6989586621680332942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:ProcessingOutputConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#%24sel%3AkmsKeyId%3AProcessingOutputConfig%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680331540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680332941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | An array of outputs configuring the data to upload from the processing</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- container.</span><span>
@@ -166,16 +166,16 @@ $sel:kmsKeyId:ProcessingOutputConfig' :: ProcessingOutputConfig -&gt; Maybe Text
      [ProcessingOutput]
      [ProcessingOutput]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331538"><span class="annot"><span class="annottext">[ProcessingOutput]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680332939"><span class="annot"><span class="annottext">[ProcessingOutput]
 outputs :: [ProcessingOutput]
 $sel:outputs:ProcessingOutputConfig' :: ProcessingOutputConfig -&gt; [ProcessingOutput]
-</span><a href="#local-6989586621680331538"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ProcessingOutput]
-</span><a href="#local-6989586621680331538"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680331537"><span class="annot"><span class="annottext">s :: ProcessingOutputConfig
-</span><a href="#local-6989586621680331537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680331536"><span class="annot"><span class="annottext">[ProcessingOutput]
-</span><a href="#local-6989586621680331536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingOutputConfig
-</span><a href="#local-6989586621680331537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:ProcessingOutputConfig' :: [ProcessingOutput]
+</span><a href="#local-6989586621680332939"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ProcessingOutput]
+</span><a href="#local-6989586621680332939"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680332938"><span class="annot"><span class="annottext">s :: ProcessingOutputConfig
+</span><a href="#local-6989586621680332938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680332937"><span class="annot"><span class="annottext">[ProcessingOutput]
+</span><a href="#local-6989586621680332937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessingOutputConfig
+</span><a href="#local-6989586621680332938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:ProcessingOutputConfig' :: [ProcessingOutput]
 </span><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#%24sel%3Aoutputs%3AProcessingOutputConfig%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ProcessingOutput]
-</span><a href="#local-6989586621680331536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ProcessingOutput] -&gt; f [ProcessingOutput])
+</span><a href="#local-6989586621680332937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ProcessingOutput] -&gt; f [ProcessingOutput])
  -&gt; ProcessingOutputConfig -&gt; f ProcessingOutputConfig)
 -&gt; (([ProcessingOutput] -&gt; f [ProcessingOutput])
     -&gt; [ProcessingOutput] -&gt; f [ProcessingOutput])
@@ -185,11 +185,11 @@ $sel:outputs:ProcessingOutputConfig' :: ProcessingOutputConfig -&gt; [Processing
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ProcessingOutput] -&gt; f [ProcessingOutput])
 -&gt; [ProcessingOutput] -&gt; f [ProcessingOutput]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331531"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680331529"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProcessingOutputConfig
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680332932"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680332930"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProcessingOutputConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProcessingOutputConfig)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProcessingOutputConfig&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680331526"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680331526"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680332927"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680332927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; [ProcessingOutput] -&gt; ProcessingOutputConfig
 </span><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-var">ProcessingOutputConfig'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; [ProcessingOutput] -&gt; ProcessingOutputConfig)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ([ProcessingOutput] -&gt; ProcessingOutputConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680331526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680332927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,7 +216,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser [ProcessingOutput] -&gt; Parser ProcessingOutputConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680331526"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ProcessingOutput])
+</span><a href="#local-6989586621680332927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ProcessingOutput])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [ProcessingOutput])
@@ -227,19 +227,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331519"><span id="local-6989586621680331521"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680332920"><span id="local-6989586621680332922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331516"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680332917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680331508"><span id="local-6989586621680331510"><span id="local-6989586621680331512"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621680331506"><span class="annot"><span class="annottext">toJSON :: ProcessingOutputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680331503"><span id="local-6989586621680331504"><span class="annot"><span class="annottext">[ProcessingOutput]
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680332909"><span id="local-6989586621680332911"><span id="local-6989586621680332913"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig"><span class="hs-identifier hs-type">ProcessingOutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680332907"><span class="annot"><span class="annottext">toJSON :: ProcessingOutputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingOutputConfig.html#ProcessingOutputConfig%27"><span class="hs-identifier hs-type">ProcessingOutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680332904"><span id="local-6989586621680332905"><span class="annot"><span class="annottext">[ProcessingOutput]
 Maybe Text
 outputs :: [ProcessingOutput]
 kmsKeyId :: Maybe Text
 $sel:outputs:ProcessingOutputConfig' :: ProcessingOutputConfig -&gt; [ProcessingOutput]
 $sel:kmsKeyId:ProcessingOutputConfig' :: ProcessingOutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680331503"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680332904"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,14 +251,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680331504"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680332905"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ProcessingOutput] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ProcessingOutput]
-</span><a href="#local-6989586621680331503"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680332904"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

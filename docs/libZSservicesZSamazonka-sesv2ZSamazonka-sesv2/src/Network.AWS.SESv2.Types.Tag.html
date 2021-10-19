@@ -42,39 +42,40 @@
 </span><span id="line-42"></span><span class="hs-comment">-- -   For each associated resource, each tag key must be unique and it can</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--     have only one value.</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- -   The&#160;@aws:@&#160;prefix is reserved for use by AWS; you can&#8217;t use it in</span><span>
-</span><span id="line-46"></span><span class="hs-comment">--     any tag keys or values that you define. In addition, you can\'t edit</span><span>
-</span><span id="line-47"></span><span class="hs-comment">--     or remove tag keys or values that use this prefix. Tags that use</span><span>
-</span><span id="line-48"></span><span class="hs-comment">--     this prefix don&#8217;t count against the limit of 50 tags per resource.</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- -   You can associate tags with public or shared resources, but the tags</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--     are available only for your AWS account, not any other accounts that</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--     share the resource. In addition, the tags are available only for</span><span>
-</span><span id="line-53"></span><span class="hs-comment">--     resources that are located in the specified AWS Region for your AWS</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--     account.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newTag' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679331240"><span id="local-6989586621679331241"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One part of a key-value pair that defines a tag. The maximum length of a</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- tag key is 128 characters. The minimum length is 1 character.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Akey%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Text
+</span><span id="line-45"></span><span class="hs-comment">-- -   The&#160;@aws:@&#160;prefix is reserved for use by Amazon Web Services; you</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     can&#8217;t use it in any tag keys or values that you define. In addition,</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     you can\'t edit or remove tag keys or values that use this prefix.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     Tags that use this prefix don&#8217;t count against the limit of 50 tags</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     per resource.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   You can associate tags with public or shared resources, but the tags</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     are available only for your Amazon Web Services account, not any</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     other accounts that share the resource. In addition, the tags are</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     available only for resources that are located in the specified</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     Amazon Web Services Region for your Amazon Web Services account.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newTag' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679333756"><span id="local-6989586621679333757"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One part of a key-value pair that defines a tag. The maximum length of a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- tag key is 128 characters. The minimum length is 1 character.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Akey%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The optional part of a key-value pair that defines a tag. The maximum</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- length of a tag value is 256 characters. The minimum length is 0</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- characters. If you don\'t want a resource to have a specific tag value,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- don\'t specify a value for this&#160;parameter. If you don\'t specify a</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- value, Amazon SES sets the value to an empty string.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3Avalue%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Text
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The optional part of a key-value pair that defines a tag. The maximum</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- length of a tag value is 256 characters. The minimum length is 0</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- characters. If you don\'t want a resource to have a specific tag value,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- don\'t specify a value for this&#160;parameter. If you don\'t specify a</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- value, Amazon SES sets the value to an empty string.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Avalue%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331233"><span id="local-6989586621679331235"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333749"><span id="local-6989586621679333751"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
 (Tag -&gt; Tag -&gt; Bool) -&gt; (Tag -&gt; Tag -&gt; Bool) -&gt; Eq Tag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Tag -&gt; Tag -&gt; Bool
 $c/= :: Tag -&gt; Tag -&gt; Bool
 == :: Tag -&gt; Tag -&gt; Bool
 $c== :: Tag -&gt; Tag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331224"><span id="local-6989586621679331226"><span id="local-6989586621679331228"><span id="local-6989586621679331230"><span class="annot"><span class="annottext">ReadPrec [Tag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333740"><span id="local-6989586621679333742"><span id="local-6989586621679333744"><span id="local-6989586621679333746"><span class="annot"><span class="annottext">ReadPrec [Tag]
 ReadPrec Tag
 Int -&gt; ReadS Tag
 ReadS [Tag]
@@ -91,7 +92,7 @@ readList :: ReadS [Tag]
 $creadList :: ReadS [Tag]
 readsPrec :: Int -&gt; ReadS Tag
 $creadsPrec :: Int -&gt; ReadS Tag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331217"><span id="local-6989586621679331219"><span id="local-6989586621679331221"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333733"><span id="local-6989586621679333735"><span id="local-6989586621679333737"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
 [Tag] -&gt; ShowS
 Tag -&gt; String
 (Int -&gt; Tag -&gt; ShowS)
@@ -113,135 +114,135 @@ forall a.
 $cto :: forall x. Rep Tag x -&gt; Tag
 $cfrom :: forall x. Tag -&gt; Rep Tag x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'Tag' with all optional fields omitted.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'key', 'tag_key' - One part of a key-value pair that defines a tag. The maximum length of a</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- tag key is 128 characters. The minimum length is 1 character.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'value', 'tag_value' - The optional part of a key-value pair that defines a tag. The maximum</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- length of a tag value is 256 characters. The minimum length is 0</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- characters. If you don\'t want a resource to have a specific tag value,</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- don\'t specify a value for this&#160;parameter. If you don\'t specify a</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- value, Amazon SES sets the value to an empty string.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#newTag"><span class="hs-identifier hs-type">newTag</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
-</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
-</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
-</span><span id="line-92"></span><span id="newTag"><span class="annot"><span class="annottext">newTag :: Text -&gt; Text -&gt; Tag
-</span><a href="Network.AWS.SESv2.Types.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679331211"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331211"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679331210"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331210"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">Tag' :: Text -&gt; Text -&gt; Tag
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'Tag' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'key', 'tag_key' - One part of a key-value pair that defines a tag. The maximum length of a</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- tag key is 128 characters. The minimum length is 1 character.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'value', 'tag_value' - The optional part of a key-value pair that defines a tag. The maximum</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- length of a tag value is 256 characters. The minimum length is 0</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- characters. If you don\'t want a resource to have a specific tag value,</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- don\'t specify a value for this&#160;parameter. If you don\'t specify a</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- value, Amazon SES sets the value to an empty string.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#newTag"><span class="hs-identifier hs-type">newTag</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
+</span><span id="line-93"></span><span id="newTag"><span class="annot"><span class="annottext">newTag :: Text -&gt; Text -&gt; Tag
+</span><a href="Network.AWS.SESv2.Types.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679333727"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333727"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679333726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333726"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">Tag' :: Text -&gt; Text -&gt; Tag
 </span><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
 </span><a href="Network.AWS.SESv2.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331211"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
+</span><a href="#local-6989586621679333727"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
 </span><a href="Network.AWS.SESv2.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331210"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | One part of a key-value pair that defines a tag. The maximum length of a</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- tag key is 128 characters. The minimum length is 1 character.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#tag_key"><span class="hs-identifier hs-type">tag_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-98"></span><span id="tag_key"><span class="annot"><span class="annottext">tag_key :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
+</span><a href="#local-6989586621679333726"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | One part of a key-value pair that defines a tag. The maximum length of a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- tag key is 128 characters. The minimum length is 1 character.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#tag_key"><span class="hs-identifier hs-type">tag_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="tag_key"><span class="annot"><span class="annottext">tag_key :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
 </span><a href="Network.AWS.SESv2.Types.Tag.html#tag_key"><span class="hs-identifier hs-var hs-var">tag_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Tag -&gt; Text) -&gt; (Tag -&gt; Text -&gt; Tag) -&gt; Lens Tag Tag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331206"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333722"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679331206"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331206"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331205"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679331205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331204"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679331205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
+</span><a href="#local-6989586621679333722"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333722"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333721"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679333721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679333721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
 </span><a href="Network.AWS.SESv2.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The optional part of a key-value pair that defines a tag. The maximum</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- length of a tag value is 256 characters. The minimum length is 0</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- characters. If you don\'t want a resource to have a specific tag value,</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- don\'t specify a value for this&#160;parameter. If you don\'t specify a</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- value, Amazon SES sets the value to an empty string.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#tag_value"><span class="hs-identifier hs-type">tag_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-106"></span><span id="tag_value"><span class="annot"><span class="annottext">tag_value :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
+</span><a href="#local-6989586621679333720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The optional part of a key-value pair that defines a tag. The maximum</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- length of a tag value is 256 characters. The minimum length is 0</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- characters. If you don\'t want a resource to have a specific tag value,</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- don\'t specify a value for this&#160;parameter. If you don\'t specify a</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- value, Amazon SES sets the value to an empty string.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#tag_value"><span class="hs-identifier hs-type">tag_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="tag_value"><span class="annot"><span class="annottext">tag_value :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
 </span><a href="Network.AWS.SESv2.Types.Tag.html#tag_value"><span class="hs-identifier hs-var hs-var">tag_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Tag -&gt; Text) -&gt; (Tag -&gt; Text -&gt; Tag) -&gt; Lens Tag Tag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331202"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333718"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679331202"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331202"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331201"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679331201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331200"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679331201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
+</span><a href="#local-6989586621679333718"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333718"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333717"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679333717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679333716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679333717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Tag' :: Text
 </span><a href="Network.AWS.SESv2.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331197"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679331195"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Tag
+</span><a href="#local-6989586621679333716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333713"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679333711"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Tag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Tag) -&gt; Value -&gt; Parser Tag
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Tag) -&gt; Value -&gt; Parser Tag
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331192"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331192"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Tag
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333708"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Tag
 </span><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Tag) -&gt; Parser Text -&gt; Parser (Text -&gt; Tag)
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Tag) -&gt; Parser Text -&gt; Parser (Text -&gt; Tag)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679333708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; Tag) -&gt; Parser Text -&gt; Parser Tag
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679333708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331186"><span id="local-6989586621679331188"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331175"><span id="local-6989586621679331177"><span id="local-6989586621679331179"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679331173"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331170"><span id="local-6989586621679331171"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333702"><span id="local-6989586621679333704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333691"><span id="local-6989586621679333693"><span id="local-6989586621679333695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679333689"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333686"><span id="local-6989586621679333687"><span class="annot"><span class="annottext">Text
 value :: Text
 key :: Text
 $sel:value:Tag' :: Tag -&gt; Text
 $sel:key:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679331170"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679333686"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-125"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331171"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679333687"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679331170"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span></pre></body></html>
+</span><a href="#local-6989586621679333686"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span></pre></body></html>

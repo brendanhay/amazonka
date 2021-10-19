@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateSegment' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679646137"><span id="local-6989586621679646138"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSegment"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-var">UpdateSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSegment%27"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-var">UpdateSegment'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679646668"><span id="local-6989586621679646669"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSegment"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-var">UpdateSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSegment%27"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-var">UpdateSegment'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the segment.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AsegmentId%3AUpdateSegment%27"><span class="annot"><span class="annottext">UpdateSegment -&gt; Text
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AsegmentId%3AUpdateSegment%27"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AwriteSegmentRequest%3AUpdateSegment%27"><span class="annot"><span class="annottext">UpdateSegment -&gt; WriteSegmentRequest
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AwriteSegmentRequest%3AUpdateSegment%27"><span class="hs-identifier hs-var hs-var">writeSegmentRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.WriteSegmentRequest.html#WriteSegmentRequest"><span class="hs-identifier hs-type">WriteSegmentRequest</span></a></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646129"><span id="local-6989586621679646131"><span class="annot"><span class="annottext">UpdateSegment -&gt; UpdateSegment -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646660"><span id="local-6989586621679646662"><span class="annot"><span class="annottext">UpdateSegment -&gt; UpdateSegment -&gt; Bool
 (UpdateSegment -&gt; UpdateSegment -&gt; Bool)
 -&gt; (UpdateSegment -&gt; UpdateSegment -&gt; Bool) -&gt; Eq UpdateSegment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSegment -&gt; UpdateSegment -&gt; Bool
 == :: UpdateSegment -&gt; UpdateSegment -&gt; Bool
 $c== :: UpdateSegment -&gt; UpdateSegment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646120"><span id="local-6989586621679646122"><span id="local-6989586621679646124"><span id="local-6989586621679646126"><span class="annot"><span class="annottext">ReadPrec [UpdateSegment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646651"><span id="local-6989586621679646653"><span id="local-6989586621679646655"><span id="local-6989586621679646657"><span class="annot"><span class="annottext">ReadPrec [UpdateSegment]
 ReadPrec UpdateSegment
 Int -&gt; ReadS UpdateSegment
 ReadS [UpdateSegment]
@@ -90,7 +90,7 @@ readList :: ReadS [UpdateSegment]
 $creadList :: ReadS [UpdateSegment]
 readsPrec :: Int -&gt; ReadS UpdateSegment
 $creadsPrec :: Int -&gt; ReadS UpdateSegment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646113"><span id="local-6989586621679646115"><span id="local-6989586621679646117"><span class="annot"><span class="annottext">Int -&gt; UpdateSegment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646644"><span id="local-6989586621679646646"><span id="local-6989586621679646648"><span class="annot"><span class="annottext">Int -&gt; UpdateSegment -&gt; ShowS
 [UpdateSegment] -&gt; ShowS
 UpdateSegment -&gt; String
 (Int -&gt; UpdateSegment -&gt; ShowS)
@@ -140,23 +140,23 @@ $cfrom :: forall x. UpdateSegment -&gt; Rep UpdateSegment x
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span>
 </span><span id="line-86"></span><span id="newUpdateSegment"><span class="annot"><span class="annottext">newUpdateSegment :: Text -&gt; Text -&gt; WriteSegmentRequest -&gt; UpdateSegment
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#newUpdateSegment"><span class="hs-identifier hs-var hs-var">newUpdateSegment</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679646108"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646108"><span class="hs-identifier hs-var">pSegmentId_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679646107"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646107"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679646106"><span class="annot"><span class="annottext">WriteSegmentRequest
-</span><a href="#local-6989586621679646106"><span class="hs-identifier hs-var">pWriteSegmentRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679646639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646639"><span class="hs-identifier hs-var">pSegmentId_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679646638"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646638"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679646637"><span class="annot"><span class="annottext">WriteSegmentRequest
+</span><a href="#local-6989586621679646637"><span class="hs-identifier hs-var">pWriteSegmentRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">UpdateSegment' :: Text -&gt; Text -&gt; WriteSegmentRequest -&gt; UpdateSegment
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:segmentId:UpdateSegment' :: Text
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AsegmentId%3AUpdateSegment%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646108"><span class="hs-identifier hs-var">pSegmentId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679646639"><span class="hs-identifier hs-var">pSegmentId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:UpdateSegment' :: Text
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AapplicationId%3AUpdateSegment%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646107"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679646638"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:writeSegmentRequest:UpdateSegment' :: WriteSegmentRequest
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AwriteSegmentRequest%3AUpdateSegment%27"><span class="hs-identifier hs-var">writeSegmentRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WriteSegmentRequest
-</span><a href="#local-6989586621679646106"><span class="hs-identifier hs-var">pWriteSegmentRequest_</span></a></span><span>
+</span><a href="#local-6989586621679646637"><span class="hs-identifier hs-var">pWriteSegmentRequest_</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The unique identifier for the segment.</span><span>
@@ -166,16 +166,16 @@ $cfrom :: forall x. UpdateSegment -&gt; Rep UpdateSegment x
 -&gt; (UpdateSegment -&gt; Text -&gt; UpdateSegment)
 -&gt; Lens UpdateSegment UpdateSegment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646103"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646634"><span class="annot"><span class="annottext">Text
 segmentId :: Text
 $sel:segmentId:UpdateSegment' :: UpdateSegment -&gt; Text
-</span><a href="#local-6989586621679646103"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646103"><span class="hs-identifier hs-var">segmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646102"><span class="annot"><span class="annottext">s :: UpdateSegment
-</span><a href="#local-6989586621679646102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646101"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegment
-</span><a href="#local-6989586621679646102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentId:UpdateSegment' :: Text
+</span><a href="#local-6989586621679646634"><span class="hs-identifier hs-var hs-var">segmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646634"><span class="hs-identifier hs-var">segmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646633"><span class="annot"><span class="annottext">s :: UpdateSegment
+</span><a href="#local-6989586621679646633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegment
+</span><a href="#local-6989586621679646633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentId:UpdateSegment' :: Text
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AsegmentId%3AUpdateSegment%27"><span class="hs-identifier hs-var">segmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
@@ -185,16 +185,16 @@ $sel:segmentId:UpdateSegment' :: UpdateSegment -&gt; Text
 -&gt; (UpdateSegment -&gt; Text -&gt; UpdateSegment)
 -&gt; Lens UpdateSegment UpdateSegment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646100"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646631"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:UpdateSegment' :: UpdateSegment -&gt; Text
-</span><a href="#local-6989586621679646100"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646100"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646099"><span class="annot"><span class="annottext">s :: UpdateSegment
-</span><a href="#local-6989586621679646099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegment
-</span><a href="#local-6989586621679646099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:UpdateSegment' :: Text
+</span><a href="#local-6989586621679646631"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646631"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646630"><span class="annot"><span class="annottext">s :: UpdateSegment
+</span><a href="#local-6989586621679646630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679646629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegment
+</span><a href="#local-6989586621679646630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:UpdateSegment' :: Text
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AapplicationId%3AUpdateSegment%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#updateSegment_writeSegmentRequest"><span class="hs-identifier hs-type">updateSegment_writeSegmentRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.WriteSegmentRequest.html#WriteSegmentRequest"><span class="hs-identifier hs-type">WriteSegmentRequest</span></a></span><span>
@@ -205,27 +205,27 @@ $sel:applicationId:UpdateSegment' :: UpdateSegment -&gt; Text
 -&gt; Lens
      UpdateSegment UpdateSegment WriteSegmentRequest WriteSegmentRequest
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646097"><span class="annot"><span class="annottext">WriteSegmentRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646628"><span class="annot"><span class="annottext">WriteSegmentRequest
 writeSegmentRequest :: WriteSegmentRequest
 $sel:writeSegmentRequest:UpdateSegment' :: UpdateSegment -&gt; WriteSegmentRequest
-</span><a href="#local-6989586621679646097"><span class="hs-identifier hs-var hs-var">writeSegmentRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WriteSegmentRequest
-</span><a href="#local-6989586621679646097"><span class="hs-identifier hs-var">writeSegmentRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646096"><span class="annot"><span class="annottext">s :: UpdateSegment
-</span><a href="#local-6989586621679646096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646095"><span class="annot"><span class="annottext">WriteSegmentRequest
-</span><a href="#local-6989586621679646095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegment
-</span><a href="#local-6989586621679646096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:writeSegmentRequest:UpdateSegment' :: WriteSegmentRequest
+</span><a href="#local-6989586621679646628"><span class="hs-identifier hs-var hs-var">writeSegmentRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WriteSegmentRequest
+</span><a href="#local-6989586621679646628"><span class="hs-identifier hs-var">writeSegmentRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646627"><span class="annot"><span class="annottext">s :: UpdateSegment
+</span><a href="#local-6989586621679646627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646626"><span class="annot"><span class="annottext">WriteSegmentRequest
+</span><a href="#local-6989586621679646626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegment
+</span><a href="#local-6989586621679646627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:writeSegmentRequest:UpdateSegment' :: WriteSegmentRequest
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AwriteSegmentRequest%3AUpdateSegment%27"><span class="hs-identifier hs-var">writeSegmentRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WriteSegmentRequest
-</span><a href="#local-6989586621679646095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679646091"><span class="annot"><span class="annottext">request :: UpdateSegment -&gt; Request UpdateSegment
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679646622"><span class="annot"><span class="annottext">request :: UpdateSegment -&gt; Request UpdateSegment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSegment -&gt; Request UpdateSegment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679646087"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679646618"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateSegment
 -&gt; ClientResponse ClientBody
@@ -249,10 +249,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646084"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646084"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646083"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679646083"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646082"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679646082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646615"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646614"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679646614"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646613"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679646613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SegmentResponse -&gt; UpdateSegmentResponse
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-var">UpdateSegmentResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SegmentResponse -&gt; UpdateSegmentResponse)
@@ -264,7 +264,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646084"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646615"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (SegmentResponse -&gt; UpdateSegmentResponse)
 -&gt; Either String SegmentResponse
 -&gt; Either String UpdateSegmentResponse
@@ -272,15 +272,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String SegmentResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679646082"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646613"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646074"><span id="local-6989586621679646076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646605"><span id="local-6989586621679646607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679646067"><span class="annot"><span class="annottext">toHeaders :: UpdateSegment -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679646598"><span class="annot"><span class="annottext">toHeaders :: UpdateSegment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSegment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -299,9 +299,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646057"><span id="local-6989586621679646059"><span id="local-6989586621679646061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679646055"><span class="annot"><span class="annottext">toJSON :: UpdateSegment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646051"><span id="local-6989586621679646052"><span id="local-6989586621679646053"><span class="annot"><span class="annottext">Text
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646588"><span id="local-6989586621679646590"><span id="local-6989586621679646592"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679646586"><span class="annot"><span class="annottext">toJSON :: UpdateSegment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646582"><span id="local-6989586621679646583"><span id="local-6989586621679646584"><span class="annot"><span class="annottext">Text
 WriteSegmentRequest
 writeSegmentRequest :: WriteSegmentRequest
 applicationId :: Text
@@ -309,7 +309,7 @@ segmentId :: Text
 $sel:writeSegmentRequest:UpdateSegment' :: UpdateSegment -&gt; WriteSegmentRequest
 $sel:applicationId:UpdateSegment' :: UpdateSegment -&gt; Text
 $sel:segmentId:UpdateSegment' :: UpdateSegment -&gt; Text
-</span><a href="#local-6989586621679646051"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679646582"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -322,13 +322,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;WriteSegmentRequest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WriteSegmentRequest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WriteSegmentRequest
-</span><a href="#local-6989586621679646051"><span class="hs-identifier hs-var">writeSegmentRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646582"><span class="hs-identifier hs-var">writeSegmentRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679646045"><span class="annot"><span class="annottext">toPath :: UpdateSegment -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646041"><span id="local-6989586621679646042"><span id="local-6989586621679646043"><span class="annot"><span class="annottext">Text
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679646576"><span class="annot"><span class="annottext">toPath :: UpdateSegment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment%27"><span class="hs-identifier hs-type">UpdateSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646572"><span id="local-6989586621679646573"><span id="local-6989586621679646574"><span class="annot"><span class="annottext">Text
 WriteSegmentRequest
 writeSegmentRequest :: WriteSegmentRequest
 applicationId :: Text
@@ -336,7 +336,7 @@ segmentId :: Text
 $sel:writeSegmentRequest:UpdateSegment' :: UpdateSegment -&gt; WriteSegmentRequest
 $sel:applicationId:UpdateSegment' :: UpdateSegment -&gt; Text
 $sel:segmentId:UpdateSegment' :: UpdateSegment -&gt; Text
-</span><a href="#local-6989586621679646041"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679646572"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -345,17 +345,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646042"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679646573"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/segments/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679646043"><span class="hs-identifier hs-var">segmentId</span></a></span><span>
+</span><a href="#local-6989586621679646574"><span class="hs-identifier hs-var">segmentId</span></a></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegment"><span class="hs-identifier hs-type">UpdateSegment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679646037"><span class="annot"><span class="annottext">toQuery :: UpdateSegment -&gt; QueryString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679646568"><span class="annot"><span class="annottext">toQuery :: UpdateSegment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSegment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -363,14 +363,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newUpdateSegmentResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679646034"><span id="local-6989586621679646035"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSegmentResponse"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-var">UpdateSegmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSegmentResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-var">UpdateSegmentResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679646565"><span id="local-6989586621679646566"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSegmentResponse"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-var">UpdateSegmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSegmentResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-var">UpdateSegmentResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSegmentResponse%27"><span class="annot"><span class="annottext">UpdateSegmentResponse -&gt; Int
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AhttpStatus%3AUpdateSegmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AsegmentResponse%3AUpdateSegmentResponse%27"><span class="annot"><span class="annottext">UpdateSegmentResponse -&gt; SegmentResponse
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AsegmentResponse%3AUpdateSegmentResponse%27"><span class="hs-identifier hs-var hs-var">segmentResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentResponse.html#SegmentResponse"><span class="hs-identifier hs-type">SegmentResponse</span></a></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646028"><span id="local-6989586621679646030"><span class="annot"><span class="annottext">UpdateSegmentResponse -&gt; UpdateSegmentResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646559"><span id="local-6989586621679646561"><span class="annot"><span class="annottext">UpdateSegmentResponse -&gt; UpdateSegmentResponse -&gt; Bool
 (UpdateSegmentResponse -&gt; UpdateSegmentResponse -&gt; Bool)
 -&gt; (UpdateSegmentResponse -&gt; UpdateSegmentResponse -&gt; Bool)
 -&gt; Eq UpdateSegmentResponse
@@ -379,7 +379,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSegmentResponse -&gt; UpdateSegmentResponse -&gt; Bool
 == :: UpdateSegmentResponse -&gt; UpdateSegmentResponse -&gt; Bool
 $c== :: UpdateSegmentResponse -&gt; UpdateSegmentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646020"><span id="local-6989586621679646022"><span id="local-6989586621679646024"><span id="local-6989586621679646026"><span class="annot"><span class="annottext">ReadPrec [UpdateSegmentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646551"><span id="local-6989586621679646553"><span id="local-6989586621679646555"><span id="local-6989586621679646557"><span class="annot"><span class="annottext">ReadPrec [UpdateSegmentResponse]
 ReadPrec UpdateSegmentResponse
 Int -&gt; ReadS UpdateSegmentResponse
 ReadS [UpdateSegmentResponse]
@@ -399,7 +399,7 @@ readList :: ReadS [UpdateSegmentResponse]
 $creadList :: ReadS [UpdateSegmentResponse]
 readsPrec :: Int -&gt; ReadS UpdateSegmentResponse
 $creadsPrec :: Int -&gt; ReadS UpdateSegmentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646014"><span id="local-6989586621679646016"><span id="local-6989586621679646018"><span class="annot"><span class="annottext">Int -&gt; UpdateSegmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646545"><span id="local-6989586621679646547"><span id="local-6989586621679646549"><span class="annot"><span class="annottext">Int -&gt; UpdateSegmentResponse -&gt; ShowS
 [UpdateSegmentResponse] -&gt; ShowS
 UpdateSegmentResponse -&gt; String
 (Int -&gt; UpdateSegmentResponse -&gt; ShowS)
@@ -444,18 +444,18 @@ $cfrom :: forall x. UpdateSegmentResponse -&gt; Rep UpdateSegmentResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newUpdateSegmentResponse"><span class="annot"><span class="annottext">newUpdateSegmentResponse :: Int -&gt; SegmentResponse -&gt; UpdateSegmentResponse
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#newUpdateSegmentResponse"><span class="hs-identifier hs-var hs-var">newUpdateSegmentResponse</span></a></span></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679646011"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646011"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679646010"><span class="annot"><span class="annottext">SegmentResponse
-</span><a href="#local-6989586621679646010"><span class="hs-identifier hs-var">pSegmentResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679646542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679646541"><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679646541"><span class="hs-identifier hs-var">pSegmentResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">UpdateSegmentResponse' :: Int -&gt; SegmentResponse -&gt; UpdateSegmentResponse
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSegmentResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AhttpStatus%3AUpdateSegmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646011"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679646542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:segmentResponse:UpdateSegmentResponse' :: SegmentResponse
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AsegmentResponse%3AUpdateSegmentResponse%27"><span class="hs-identifier hs-var">segmentResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SegmentResponse
-</span><a href="#local-6989586621679646010"><span class="hs-identifier hs-var">pSegmentResponse_</span></a></span><span>
+</span><a href="#local-6989586621679646541"><span class="hs-identifier hs-var">pSegmentResponse_</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -465,16 +465,16 @@ $cfrom :: forall x. UpdateSegmentResponse -&gt; Rep UpdateSegmentResponse x
 -&gt; (UpdateSegmentResponse -&gt; Int -&gt; UpdateSegmentResponse)
 -&gt; Lens UpdateSegmentResponse UpdateSegmentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646009"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646540"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateSegmentResponse' :: UpdateSegmentResponse -&gt; Int
-</span><a href="#local-6989586621679646009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646008"><span class="annot"><span class="annottext">s :: UpdateSegmentResponse
-</span><a href="#local-6989586621679646008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegmentResponse
-</span><a href="#local-6989586621679646008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSegmentResponse' :: Int
+</span><a href="#local-6989586621679646540"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646540"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646539"><span class="annot"><span class="annottext">s :: UpdateSegmentResponse
+</span><a href="#local-6989586621679646539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646538"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegmentResponse
+</span><a href="#local-6989586621679646539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSegmentResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AhttpStatus%3AUpdateSegmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#updateSegmentResponse_segmentResponse"><span class="hs-identifier hs-type">updateSegmentResponse_segmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentResponse.html#SegmentResponse"><span class="hs-identifier hs-type">SegmentResponse</span></a></span><span>
@@ -489,16 +489,16 @@ $sel:httpStatus:UpdateSegmentResponse' :: UpdateSegmentResponse -&gt; Int
      SegmentResponse
      SegmentResponse
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646006"><span class="annot"><span class="annottext">SegmentResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646537"><span class="annot"><span class="annottext">SegmentResponse
 segmentResponse :: SegmentResponse
 $sel:segmentResponse:UpdateSegmentResponse' :: UpdateSegmentResponse -&gt; SegmentResponse
-</span><a href="#local-6989586621679646006"><span class="hs-identifier hs-var hs-var">segmentResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentResponse
-</span><a href="#local-6989586621679646006"><span class="hs-identifier hs-var">segmentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646005"><span class="annot"><span class="annottext">s :: UpdateSegmentResponse
-</span><a href="#local-6989586621679646005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646004"><span class="annot"><span class="annottext">SegmentResponse
-</span><a href="#local-6989586621679646004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegmentResponse
-</span><a href="#local-6989586621679646005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentResponse:UpdateSegmentResponse' :: SegmentResponse
+</span><a href="#local-6989586621679646537"><span class="hs-identifier hs-var hs-var">segmentResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679646537"><span class="hs-identifier hs-var">segmentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646536"><span class="annot"><span class="annottext">s :: UpdateSegmentResponse
+</span><a href="#local-6989586621679646536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse%27"><span class="hs-identifier hs-type">UpdateSegmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646535"><span class="annot"><span class="annottext">SegmentResponse
+</span><a href="#local-6989586621679646535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSegmentResponse
+</span><a href="#local-6989586621679646536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentResponse:UpdateSegmentResponse' :: SegmentResponse
 </span><a href="Network.AWS.Pinpoint.UpdateSegment.html#%24sel%3AsegmentResponse%3AUpdateSegmentResponse%27"><span class="hs-identifier hs-var">segmentResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SegmentResponse
-</span><a href="#local-6989586621679646004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.UpdateSegment.html#UpdateSegmentResponse"><span class="hs-identifier hs-type">UpdateSegmentResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

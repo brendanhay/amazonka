@@ -32,10 +32,10 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#newStartContinuousExportResponse"><span class="hs-identifier">newStartContinuousExportResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_s3Bucket"><span class="hs-identifier">startContinuousExportResponse_s3Bucket</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_startTime"><span class="hs-identifier">startContinuousExportResponse_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_startTime"><span class="hs-identifier">startContinuousExportResponse_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_schemaStorageConfig"><span class="hs-identifier">startContinuousExportResponse_schemaStorageConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_dataSource"><span class="hs-identifier">startContinuousExportResponse_dataSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_schemaStorageConfig"><span class="hs-identifier">startContinuousExportResponse_schemaStorageConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_s3Bucket"><span class="hs-identifier">startContinuousExportResponse_s3Bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_exportId"><span class="hs-identifier">startContinuousExportResponse_exportId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_httpStatus"><span class="hs-identifier">startContinuousExportResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
@@ -49,10 +49,10 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newStartContinuousExport' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679206599"><span id="local-6989586621679206600"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartContinuousExport"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-var">StartContinuousExport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartContinuousExport%27"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport%27"><span class="hs-identifier hs-var">StartContinuousExport'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679206806"><span id="local-6989586621679206807"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartContinuousExport"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-var">StartContinuousExport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartContinuousExport%27"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport%27"><span class="hs-identifier hs-var">StartContinuousExport'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206594"><span id="local-6989586621679206596"><span class="annot"><span class="annottext">StartContinuousExport -&gt; StartContinuousExport -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206801"><span id="local-6989586621679206803"><span class="annot"><span class="annottext">StartContinuousExport -&gt; StartContinuousExport -&gt; Bool
 (StartContinuousExport -&gt; StartContinuousExport -&gt; Bool)
 -&gt; (StartContinuousExport -&gt; StartContinuousExport -&gt; Bool)
 -&gt; Eq StartContinuousExport
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartContinuousExport -&gt; StartContinuousExport -&gt; Bool
 == :: StartContinuousExport -&gt; StartContinuousExport -&gt; Bool
 $c== :: StartContinuousExport -&gt; StartContinuousExport -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206585"><span id="local-6989586621679206587"><span id="local-6989586621679206589"><span id="local-6989586621679206591"><span class="annot"><span class="annottext">ReadPrec [StartContinuousExport]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206792"><span id="local-6989586621679206794"><span id="local-6989586621679206796"><span id="local-6989586621679206798"><span class="annot"><span class="annottext">ReadPrec [StartContinuousExport]
 ReadPrec StartContinuousExport
 Int -&gt; ReadS StartContinuousExport
 ReadS [StartContinuousExport]
@@ -81,7 +81,7 @@ readList :: ReadS [StartContinuousExport]
 $creadList :: ReadS [StartContinuousExport]
 readsPrec :: Int -&gt; ReadS StartContinuousExport
 $creadsPrec :: Int -&gt; ReadS StartContinuousExport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206578"><span id="local-6989586621679206580"><span id="local-6989586621679206582"><span class="annot"><span class="annottext">Int -&gt; StartContinuousExport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206785"><span id="local-6989586621679206787"><span id="local-6989586621679206789"><span class="annot"><span class="annottext">Int -&gt; StartContinuousExport -&gt; ShowS
 [StartContinuousExport] -&gt; ShowS
 StartContinuousExport -&gt; String
 (Int -&gt; StartContinuousExport -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. StartContinuousExport -&gt; Rep StartContinuousExport x
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679206570"><span class="annot"><span class="annottext">request :: StartContinuousExport -&gt; Request StartContinuousExport
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679206777"><span class="annot"><span class="annottext">request :: StartContinuousExport -&gt; Request StartContinuousExport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartContinuousExport -&gt; Request StartContinuousExport
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679206566"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679206773"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartContinuousExport
 -&gt; ClientResponse ClientBody
@@ -152,107 +152,105 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206563"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206562"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679206562"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206561"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe DataSource
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206770"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206770"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206769"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206769"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206768"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe (HashMap Text Text)
+-&gt; Maybe DataSource
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Int
 -&gt; StartContinuousExportResponse
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-var">StartContinuousExportResponse'</span></a></span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe DataSource
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe DataSource
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Int
  -&gt; StartContinuousExportResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
-     (Maybe POSIX
+     (Maybe (HashMap Text Text)
       -&gt; Maybe DataSource
-      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Int
       -&gt; StartContinuousExportResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679206768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe POSIX
+  (Maybe (HashMap Text Text)
    -&gt; Maybe DataSource
-   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Int
    -&gt; StartContinuousExportResponse)
--&gt; Either String (Maybe POSIX)
+-&gt; Either String (Maybe (HashMap Text Text))
 -&gt; Either
      String
      (Maybe DataSource
-      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Int
       -&gt; StartContinuousExportResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe DataSource
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; StartContinuousExportResponse)
--&gt; Either String (Maybe DataSource)
--&gt; Either
-     String
-     (Maybe (HashMap Text Text)
-      -&gt; Maybe Text -&gt; Int -&gt; StartContinuousExportResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataSource)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;dataSource&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe (HashMap Text Text)
-   -&gt; Maybe Text -&gt; Int -&gt; StartContinuousExportResponse)
--&gt; Either String (Maybe (HashMap Text Text))
--&gt; Either
-     String (Maybe Text -&gt; Int -&gt; StartContinuousExportResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679206768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;schemaStorageConfig&quot;</span></span><span>
-</span><span id="line-78"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+</span><span id="line-76"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
 -&gt; Maybe (HashMap Text Text)
 -&gt; Either String (Maybe (HashMap Text Text))
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-79"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DataSource
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; StartContinuousExportResponse)
+-&gt; Either String (Maybe DataSource)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartContinuousExportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DataSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StartContinuousExportResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; StartContinuousExportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StartContinuousExportResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; StartContinuousExportResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679206768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exportId&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,15 +262,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206563"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206770"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206552"><span id="local-6989586621679206554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206759"><span id="local-6989586621679206761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679206545"><span class="annot"><span class="annottext">toHeaders :: StartContinuousExport -&gt; ResponseHeaders
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679206752"><span class="annot"><span class="annottext">toHeaders :: StartContinuousExport -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartContinuousExport -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -299,8 +297,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206535"><span id="local-6989586621679206537"><span id="local-6989586621679206539"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679206533"><span class="annot"><span class="annottext">toJSON :: StartContinuousExport -&gt; Value
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206742"><span id="local-6989586621679206744"><span id="local-6989586621679206746"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679206740"><span class="annot"><span class="annottext">toJSON :: StartContinuousExport -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; StartContinuousExport -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -309,14 +307,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679206528"><span class="annot"><span class="annottext">toPath :: StartContinuousExport -&gt; ByteString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679206735"><span class="annot"><span class="annottext">toPath :: StartContinuousExport -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartContinuousExport -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExport"><span class="hs-identifier hs-type">StartContinuousExport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679206524"><span class="annot"><span class="annottext">toQuery :: StartContinuousExport -&gt; QueryString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679206731"><span class="annot"><span class="annottext">toQuery :: StartContinuousExport -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartContinuousExport -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -324,24 +322,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newStartContinuousExportResponse' smart constructor.</span><span>
-</span><span id="line-113"></span><span id="local-6989586621679206521"><span id="local-6989586621679206522"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartContinuousExportResponse"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-var">StartContinuousExportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartContinuousExportResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-var">StartContinuousExportResponse'</span></a></span></span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the s3 bucket where the export data parquet files are</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- stored.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The timestamp representing when the continuous export was started.</span><span>
-</span><span id="line-118"></span><span>    </span><span id="%24sel%3AstartTime%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe POSIX
+</span><span id="line-113"></span><span id="local-6989586621679206728"><span id="local-6989586621679206729"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartContinuousExportResponse"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-var">StartContinuousExportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartContinuousExportResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-var">StartContinuousExportResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp representing when the continuous export was started.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AstartTime%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AstartTime%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The type of data collector used to gather this data (currently only</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- offered for AGENT).</span><span>
-</span><span id="line-121"></span><span>    </span><span id="%24sel%3AdataSource%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe DataSource
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AdataSource%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | A dictionary which describes how the data is stored.</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     schema.</span><span>
-</span><span id="line-126"></span><span>    </span><span id="%24sel%3AschemaStorageConfig%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe (HashMap Text Text)
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | A dictionary which describes how the data is stored.</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     schema.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AschemaStorageConfig%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AschemaStorageConfig%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">schemaStorageConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The type of data collector used to gather this data (currently only</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- offered for AGENT).</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AdataSource%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe DataSource
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AdataSource%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The name of the s3 bucket where the export data parquet files are</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The unique ID assigned to this export.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AexportId%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AexportId%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -349,7 +347,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartContinuousExportResponse%27"><span class="annot"><span class="annottext">StartContinuousExportResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AhttpStatus%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206511"><span id="local-6989586621679206513"><span class="annot"><span class="annottext">StartContinuousExportResponse
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206718"><span id="local-6989586621679206720"><span class="annot"><span class="annottext">StartContinuousExportResponse
 -&gt; StartContinuousExportResponse -&gt; Bool
 (StartContinuousExportResponse
  -&gt; StartContinuousExportResponse -&gt; Bool)
@@ -365,7 +363,7 @@ $c/= :: StartContinuousExportResponse
 -&gt; StartContinuousExportResponse -&gt; Bool
 $c== :: StartContinuousExportResponse
 -&gt; StartContinuousExportResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206503"><span id="local-6989586621679206505"><span id="local-6989586621679206507"><span id="local-6989586621679206509"><span class="annot"><span class="annottext">ReadPrec [StartContinuousExportResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206710"><span id="local-6989586621679206712"><span id="local-6989586621679206714"><span id="local-6989586621679206716"><span class="annot"><span class="annottext">ReadPrec [StartContinuousExportResponse]
 ReadPrec StartContinuousExportResponse
 Int -&gt; ReadS StartContinuousExportResponse
 ReadS [StartContinuousExportResponse]
@@ -385,7 +383,7 @@ readList :: ReadS [StartContinuousExportResponse]
 $creadList :: ReadS [StartContinuousExportResponse]
 readsPrec :: Int -&gt; ReadS StartContinuousExportResponse
 $creadsPrec :: Int -&gt; ReadS StartContinuousExportResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206497"><span id="local-6989586621679206499"><span id="local-6989586621679206501"><span class="annot"><span class="annottext">Int -&gt; StartContinuousExportResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206704"><span id="local-6989586621679206706"><span id="local-6989586621679206708"><span class="annot"><span class="annottext">Int -&gt; StartContinuousExportResponse -&gt; ShowS
 [StartContinuousExportResponse] -&gt; ShowS
 StartContinuousExportResponse -&gt; String
 (Int -&gt; StartContinuousExportResponse -&gt; ShowS)
@@ -431,18 +429,18 @@ StartContinuousExportResponse
 </span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- 's3Bucket', 'startContinuousExportResponse_s3Bucket' - The name of the s3 bucket where the export data parquet files are</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- stored.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- 'startTime', 'startContinuousExportResponse_startTime' - The timestamp representing when the continuous export was started.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- 'dataSource', 'startContinuousExportResponse_dataSource' - The type of data collector used to gather this data (currently only</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- offered for AGENT).</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- 'schemaStorageConfig', 'startContinuousExportResponse_schemaStorageConfig' - A dictionary which describes how the data is stored.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'startTime', 'startContinuousExportResponse_startTime' - The timestamp representing when the continuous export was started.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'schemaStorageConfig', 'startContinuousExportResponse_schemaStorageConfig' - A dictionary which describes how the data is stored.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     schema.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'dataSource', 'startContinuousExportResponse_dataSource' - The type of data collector used to gather this data (currently only</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- offered for AGENT).</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--     schema.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 's3Bucket', 'startContinuousExportResponse_s3Bucket' - The name of the s3 bucket where the export data parquet files are</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- stored.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- 'exportId', 'startContinuousExportResponse_exportId' - The unique ID assigned to this export.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
@@ -452,31 +450,31 @@ StartContinuousExportResponse
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newStartContinuousExportResponse"><span class="annot"><span class="annottext">newStartContinuousExportResponse :: Int -&gt; StartContinuousExportResponse
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#newStartContinuousExportResponse"><span class="hs-identifier hs-var hs-var">newStartContinuousExportResponse</span></a></span></span><span> </span><span id="local-6989586621679206494"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">StartContinuousExportResponse' :: Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe DataSource
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#newStartContinuousExportResponse"><span class="hs-identifier hs-var hs-var">newStartContinuousExportResponse</span></a></span></span><span> </span><span id="local-6989586621679206701"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">StartContinuousExportResponse' :: Maybe POSIX
 -&gt; Maybe (HashMap Text Text)
+-&gt; Maybe DataSource
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Int
 -&gt; StartContinuousExportResponse
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Bucket:StartContinuousExportResponse' :: Maybe Text
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:StartContinuousExportResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AstartTime%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:StartContinuousExportResponse' :: Maybe POSIX
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AstartTime%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaStorageConfig:StartContinuousExportResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AschemaStorageConfig%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSource:StartContinuousExportResponse' :: Maybe DataSource
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AdataSource%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaStorageConfig:StartContinuousExportResponse' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AschemaStorageConfig%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:StartContinuousExportResponse' :: Maybe Text
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportId:StartContinuousExportResponse' :: Maybe Text
@@ -485,37 +483,12 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartContinuousExportResponse' :: Int
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AhttpStatus%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679206701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | The name of the s3 bucket where the export data parquet files are</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- stored.</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_s3Bucket"><span class="hs-identifier hs-type">startContinuousExportResponse_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="startContinuousExportResponse_s3Bucket"><span class="annot"><span class="annottext">startContinuousExportResponse_s3Bucket :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StartContinuousExportResponse -&gt; f StartContinuousExportResponse
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_s3Bucket"><span class="hs-identifier hs-var hs-var">startContinuousExportResponse_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartContinuousExportResponse -&gt; Maybe Text)
--&gt; (StartContinuousExportResponse
-    -&gt; Maybe Text -&gt; StartContinuousExportResponse)
--&gt; Lens
-     StartContinuousExportResponse
-     StartContinuousExportResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206491"><span class="annot"><span class="annottext">Maybe Text
-s3Bucket :: Maybe Text
-$sel:s3Bucket:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679206491"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206491"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206490"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
-</span><a href="#local-6989586621679206490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206489"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
-</span><a href="#local-6989586621679206490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:StartContinuousExportResponse' :: Maybe Text
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- | The timestamp representing when the continuous export was started.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_startTime"><span class="hs-identifier hs-type">startContinuousExportResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="startContinuousExportResponse_startTime"><span class="annot"><span class="annottext">startContinuousExportResponse_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-173"></span><span class="hs-comment">-- | The timestamp representing when the continuous export was started.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_startTime"><span class="hs-identifier hs-type">startContinuousExportResponse_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="startContinuousExportResponse_startTime"><span class="annot"><span class="annottext">startContinuousExportResponse_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StartContinuousExportResponse -&gt; f StartContinuousExportResponse
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_startTime"><span class="hs-identifier hs-var hs-var">startContinuousExportResponse_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartContinuousExportResponse -&gt; Maybe POSIX)
 -&gt; (StartContinuousExportResponse
@@ -526,16 +499,16 @@ $sel:s3Bucket:StartContinuousExportResponse' :: StartContinuousExportResponse -&
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206488"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206698"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679206488"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679206488"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206487"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
-</span><a href="#local-6989586621679206487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206486"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679206486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
-</span><a href="#local-6989586621679206487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:StartContinuousExportResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679206698"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206698"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206697"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
+</span><a href="#local-6989586621679206697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206696"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679206696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
+</span><a href="#local-6989586621679206697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:StartContinuousExportResponse' :: Maybe POSIX
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AstartTime%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679206486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679206696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StartContinuousExportResponse
  -&gt; f StartContinuousExportResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -552,38 +525,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | The type of data collector used to gather this data (currently only</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- offered for AGENT).</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_dataSource"><span class="hs-identifier hs-type">startContinuousExportResponse_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="startContinuousExportResponse_dataSource"><span class="annot"><span class="annottext">startContinuousExportResponse_dataSource :: (Maybe DataSource -&gt; f (Maybe DataSource))
--&gt; StartContinuousExportResponse -&gt; f StartContinuousExportResponse
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_dataSource"><span class="hs-identifier hs-var hs-var">startContinuousExportResponse_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartContinuousExportResponse -&gt; Maybe DataSource)
--&gt; (StartContinuousExportResponse
-    -&gt; Maybe DataSource -&gt; StartContinuousExportResponse)
--&gt; Lens
-     StartContinuousExportResponse
-     StartContinuousExportResponse
-     (Maybe DataSource)
-     (Maybe DataSource)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206482"><span class="annot"><span class="annottext">Maybe DataSource
-dataSource :: Maybe DataSource
-$sel:dataSource:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Maybe DataSource
-</span><a href="#local-6989586621679206482"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
-</span><a href="#local-6989586621679206482"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206481"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
-</span><a href="#local-6989586621679206481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206480"><span class="annot"><span class="annottext">Maybe DataSource
-</span><a href="#local-6989586621679206480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
-</span><a href="#local-6989586621679206481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:StartContinuousExportResponse' :: Maybe DataSource
-</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AdataSource%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
-</span><a href="#local-6989586621679206480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | A dictionary which describes how the data is stored.</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--     schema.</span><span>
-</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_schemaStorageConfig"><span class="hs-identifier hs-type">startContinuousExportResponse_schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span id="startContinuousExportResponse_schemaStorageConfig"><span class="annot"><span class="annottext">startContinuousExportResponse_schemaStorageConfig :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | A dictionary which describes how the data is stored.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     schema.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_schemaStorageConfig"><span class="hs-identifier hs-type">startContinuousExportResponse_schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="startContinuousExportResponse_schemaStorageConfig"><span class="annot"><span class="annottext">startContinuousExportResponse_schemaStorageConfig :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; StartContinuousExportResponse -&gt; f StartContinuousExportResponse
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_schemaStorageConfig"><span class="hs-identifier hs-var hs-var">startContinuousExportResponse_schemaStorageConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartContinuousExportResponse -&gt; Maybe (HashMap Text Text))
 -&gt; (StartContinuousExportResponse
@@ -594,16 +542,16 @@ $sel:dataSource:StartContinuousExportResponse' :: StartContinuousExportResponse 
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206479"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206692"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 schemaStorageConfig :: Maybe (HashMap Text Text)
 $sel:schemaStorageConfig:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679206479"><span class="hs-identifier hs-var hs-var">schemaStorageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679206479"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206478"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
-</span><a href="#local-6989586621679206478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206477"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679206477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
-</span><a href="#local-6989586621679206478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaStorageConfig:StartContinuousExportResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679206692"><span class="hs-identifier hs-var hs-var">schemaStorageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679206692"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206691"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
+</span><a href="#local-6989586621679206691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206690"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679206690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
+</span><a href="#local-6989586621679206691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaStorageConfig:StartContinuousExportResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AschemaStorageConfig%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679206477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679206690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; StartContinuousExportResponse
  -&gt; f StartContinuousExportResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -630,8 +578,58 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The type of data collector used to gather this data (currently only</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- offered for AGENT).</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_dataSource"><span class="hs-identifier hs-type">startContinuousExportResponse_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="startContinuousExportResponse_dataSource"><span class="annot"><span class="annottext">startContinuousExportResponse_dataSource :: (Maybe DataSource -&gt; f (Maybe DataSource))
+-&gt; StartContinuousExportResponse -&gt; f StartContinuousExportResponse
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_dataSource"><span class="hs-identifier hs-var hs-var">startContinuousExportResponse_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartContinuousExportResponse -&gt; Maybe DataSource)
+-&gt; (StartContinuousExportResponse
+    -&gt; Maybe DataSource -&gt; StartContinuousExportResponse)
+-&gt; Lens
+     StartContinuousExportResponse
+     StartContinuousExportResponse
+     (Maybe DataSource)
+     (Maybe DataSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206688"><span class="annot"><span class="annottext">Maybe DataSource
+dataSource :: Maybe DataSource
+$sel:dataSource:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Maybe DataSource
+</span><a href="#local-6989586621679206688"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679206688"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206687"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
+</span><a href="#local-6989586621679206687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206686"><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679206686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
+</span><a href="#local-6989586621679206687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:StartContinuousExportResponse' :: Maybe DataSource
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AdataSource%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679206686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The name of the s3 bucket where the export data parquet files are</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_s3Bucket"><span class="hs-identifier hs-type">startContinuousExportResponse_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="startContinuousExportResponse_s3Bucket"><span class="annot"><span class="annottext">startContinuousExportResponse_s3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartContinuousExportResponse -&gt; f StartContinuousExportResponse
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_s3Bucket"><span class="hs-identifier hs-var hs-var">startContinuousExportResponse_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartContinuousExportResponse -&gt; Maybe Text)
+-&gt; (StartContinuousExportResponse
+    -&gt; Maybe Text -&gt; StartContinuousExportResponse)
+-&gt; Lens
+     StartContinuousExportResponse
+     StartContinuousExportResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206685"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679206685"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206685"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206684"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
+</span><a href="#local-6989586621679206684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206683"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
+</span><a href="#local-6989586621679206684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:StartContinuousExportResponse' :: Maybe Text
+</span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3As3Bucket%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The unique ID assigned to this export.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_exportId"><span class="hs-identifier hs-type">startContinuousExportResponse_exportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -646,16 +644,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206475"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206682"><span class="annot"><span class="annottext">Maybe Text
 exportId :: Maybe Text
 $sel:exportId:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679206475"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206475"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206474"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
-</span><a href="#local-6989586621679206474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206473"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
-</span><a href="#local-6989586621679206474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:StartContinuousExportResponse' :: Maybe Text
+</span><a href="#local-6989586621679206682"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206682"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206681"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
+</span><a href="#local-6989586621679206681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206680"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
+</span><a href="#local-6989586621679206681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:StartContinuousExportResponse' :: Maybe Text
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AexportId%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#startContinuousExportResponse_httpStatus"><span class="hs-identifier hs-type">startContinuousExportResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -667,16 +665,16 @@ $sel:exportId:StartContinuousExportResponse' :: StartContinuousExportResponse -&
 -&gt; Lens
      StartContinuousExportResponse StartContinuousExportResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206472"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206679"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartContinuousExportResponse' :: StartContinuousExportResponse -&gt; Int
-</span><a href="#local-6989586621679206472"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206472"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206471"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
-</span><a href="#local-6989586621679206471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206470"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
-</span><a href="#local-6989586621679206471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartContinuousExportResponse' :: Int
+</span><a href="#local-6989586621679206679"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206679"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206678"><span class="annot"><span class="annottext">s :: StartContinuousExportResponse
+</span><a href="#local-6989586621679206678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse%27"><span class="hs-identifier hs-type">StartContinuousExportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartContinuousExportResponse
+</span><a href="#local-6989586621679206678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartContinuousExportResponse' :: Int
 </span><a href="Network.AWS.Discovery.StartContinuousExport.html#%24sel%3AhttpStatus%3AStartContinuousExportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartContinuousExport.html#StartContinuousExportResponse"><span class="hs-identifier hs-type">StartContinuousExportResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

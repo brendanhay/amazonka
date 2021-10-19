@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679331481"><span id="local-6989586621679331482"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamProcessorStatus"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorStatus.html#StreamProcessorStatus"><span class="hs-identifier hs-var">StreamProcessorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamProcessorStatus%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorStatus.html#StreamProcessorStatus%27"><span class="hs-identifier hs-var">StreamProcessorStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679331771"><span id="local-6989586621679331772"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamProcessorStatus"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorStatus.html#StreamProcessorStatus"><span class="hs-identifier hs-var">StreamProcessorStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamProcessorStatus%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.StreamProcessorStatus.html#StreamProcessorStatus%27"><span class="hs-identifier hs-var">StreamProcessorStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStreamProcessorStatus"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.StreamProcessorStatus.html#fromStreamProcessorStatus"><span class="hs-identifier hs-var hs-var">fromStreamProcessorStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331473"><span id="local-6989586621679331475"><span id="local-6989586621679331477"><span class="annot"><span class="annottext">Int -&gt; StreamProcessorStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331763"><span id="local-6989586621679331765"><span id="local-6989586621679331767"><span class="annot"><span class="annottext">Int -&gt; StreamProcessorStatus -&gt; ShowS
 [StreamProcessorStatus] -&gt; ShowS
 StreamProcessorStatus -&gt; String
 (Int -&gt; StreamProcessorStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: StreamProcessorStatus -&gt; String
 showsPrec :: Int -&gt; StreamProcessorStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StreamProcessorStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679331464"><span id="local-6989586621679331466"><span id="local-6989586621679331468"><span id="local-6989586621679331470"><span class="annot"><span class="annottext">ReadPrec [StreamProcessorStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679331754"><span id="local-6989586621679331756"><span id="local-6989586621679331758"><span id="local-6989586621679331760"><span class="annot"><span class="annottext">ReadPrec [StreamProcessorStatus]
 ReadPrec StreamProcessorStatus
 Int -&gt; ReadS StreamProcessorStatus
 ReadS [StreamProcessorStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [StreamProcessorStatus]
 readsPrec :: Int -&gt; ReadS StreamProcessorStatus
 $creadsPrec :: Int -&gt; ReadS StreamProcessorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679331459"><span id="local-6989586621679331461"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679331749"><span id="local-6989586621679331751"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool
 (StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool)
 -&gt; (StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool)
 -&gt; Eq StreamProcessorStatus
@@ -85,7 +85,7 @@ $c/= :: StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool
 == :: StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool
 $c== :: StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679331443"><span id="local-6989586621679331445"><span id="local-6989586621679331447"><span id="local-6989586621679331449"><span id="local-6989586621679331451"><span id="local-6989586621679331453"><span id="local-6989586621679331455"><span class="annot"><span class="annottext">Eq StreamProcessorStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679331733"><span id="local-6989586621679331735"><span id="local-6989586621679331737"><span id="local-6989586621679331739"><span id="local-6989586621679331741"><span id="local-6989586621679331743"><span id="local-6989586621679331745"><span class="annot"><span class="annottext">Eq StreamProcessorStatus
 Eq StreamProcessorStatus
 -&gt; (StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Ordering)
 -&gt; (StreamProcessorStatus -&gt; StreamProcessorStatus -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. StreamProcessorStatus -&gt; Rep StreamProcessorStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331435"><span id="local-6989586621679331437"><span class="annot"><span class="annottext">Int -&gt; StreamProcessorStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331725"><span id="local-6989586621679331727"><span class="annot"><span class="annottext">Int -&gt; StreamProcessorStatus -&gt; Int
 StreamProcessorStatus -&gt; Int
 (Int -&gt; StreamProcessorStatus -&gt; Int)
 -&gt; (StreamProcessorStatus -&gt; Int) -&gt; Hashable StreamProcessorStatus
@@ -153,54 +153,54 @@ $chash :: StreamProcessorStatus -&gt; Int
 hashWithSalt :: Int -&gt; StreamProcessorStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StreamProcessorStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679331432"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679331722"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; ()
 (StreamProcessorStatus -&gt; ()) -&gt; NFData StreamProcessorStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StreamProcessorStatus -&gt; ()
 $crnf :: StreamProcessorStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679331429"><span class="annot"><span class="annottext">Text -&gt; Either String StreamProcessorStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679331719"><span class="annot"><span class="annottext">Text -&gt; Either String StreamProcessorStatus
 (Text -&gt; Either String StreamProcessorStatus)
 -&gt; FromText StreamProcessorStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StreamProcessorStatus
 $cfromText :: Text -&gt; Either String StreamProcessorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679331426"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679331716"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; Text
 (StreamProcessorStatus -&gt; Text) -&gt; ToText StreamProcessorStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StreamProcessorStatus -&gt; Text
 $ctoText :: StreamProcessorStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679331423"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679331713"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; ByteString
 (StreamProcessorStatus -&gt; ByteString)
 -&gt; ToByteString StreamProcessorStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StreamProcessorStatus -&gt; ByteString
 $ctoBS :: StreamProcessorStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679331420"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679331710"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; ByteStringBuilder
 (StreamProcessorStatus -&gt; ByteStringBuilder)
 -&gt; ToLog StreamProcessorStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StreamProcessorStatus -&gt; ByteStringBuilder
 $cbuild :: StreamProcessorStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679331417"><span class="annot"><span class="annottext">HeaderName -&gt; StreamProcessorStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679331707"><span class="annot"><span class="annottext">HeaderName -&gt; StreamProcessorStatus -&gt; [Header]
 (HeaderName -&gt; StreamProcessorStatus -&gt; [Header])
 -&gt; ToHeader StreamProcessorStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StreamProcessorStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StreamProcessorStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679331414"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679331704"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; QueryString
 (StreamProcessorStatus -&gt; QueryString)
 -&gt; ToQuery StreamProcessorStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StreamProcessorStatus -&gt; QueryString
 $ctoQuery :: StreamProcessorStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679331409"><span id="local-6989586621679331411"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamProcessorStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679331699"><span id="local-6989586621679331701"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamProcessorStatus]
 Value -&gt; Parser StreamProcessorStatus
 (Value -&gt; Parser StreamProcessorStatus)
 -&gt; (Value -&gt; Parser [StreamProcessorStatus])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [StreamProcessorStatus]
 parseJSON :: Value -&gt; Parser StreamProcessorStatus
 $cparseJSON :: Value -&gt; Parser StreamProcessorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679331404"><span id="local-6989586621679331406"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamProcessorStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679331694"><span id="local-6989586621679331696"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamProcessorStatus]
 FromJSONKeyFunction StreamProcessorStatus
 FromJSONKeyFunction StreamProcessorStatus
 -&gt; FromJSONKeyFunction [StreamProcessorStatus]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StreamProcessorStatus]
 fromJSONKey :: FromJSONKeyFunction StreamProcessorStatus
 $cfromJSONKey :: FromJSONKeyFunction StreamProcessorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679331395"><span id="local-6989586621679331397"><span id="local-6989586621679331399"><span id="local-6989586621679331401"><span class="annot"><span class="annottext">[StreamProcessorStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679331685"><span id="local-6989586621679331687"><span id="local-6989586621679331689"><span id="local-6989586621679331691"><span class="annot"><span class="annottext">[StreamProcessorStatus] -&gt; Encoding
 [StreamProcessorStatus] -&gt; Value
 StreamProcessorStatus -&gt; Encoding
 StreamProcessorStatus -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: StreamProcessorStatus -&gt; Encoding
 toJSON :: StreamProcessorStatus -&gt; Value
 $ctoJSON :: StreamProcessorStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679331390"><span id="local-6989586621679331392"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamProcessorStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679331680"><span id="local-6989586621679331682"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamProcessorStatus]
 ToJSONKeyFunction StreamProcessorStatus
 ToJSONKeyFunction StreamProcessorStatus
 -&gt; ToJSONKeyFunction [StreamProcessorStatus]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StreamProcessorStatus]
 toJSONKey :: ToJSONKeyFunction StreamProcessorStatus
 $ctoJSONKey :: ToJSONKeyFunction StreamProcessorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679331387"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamProcessorStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679331677"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamProcessorStatus
 ([Node] -&gt; Either String StreamProcessorStatus)
 -&gt; FromXML StreamProcessorStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StreamProcessorStatus
 $cparseXML :: [Node] -&gt; Either String StreamProcessorStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679331384"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679331674"><span class="annot"><span class="annottext">StreamProcessorStatus -&gt; XML
 (StreamProcessorStatus -&gt; XML) -&gt; ToXML StreamProcessorStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StreamProcessorStatus -&gt; XML

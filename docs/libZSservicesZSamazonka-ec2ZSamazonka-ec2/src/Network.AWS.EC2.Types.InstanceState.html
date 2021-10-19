@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the current state of an instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceState' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681083868"><span id="local-6989586621681083869"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceState"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-var">InstanceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-var">InstanceState'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681118220"><span id="local-6989586621681118221"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceState"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-var">InstanceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-var">InstanceState'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the instance.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AInstanceState%27"><span class="annot"><span class="annottext">InstanceState -&gt; InstanceStateName
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#%24sel%3Aname%3AInstanceState%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStateName.html#InstanceStateName"><span class="hs-identifier hs-type">InstanceStateName</span></a></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Acode%3AInstanceState%27"><span class="annot"><span class="annottext">InstanceState -&gt; Int
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#%24sel%3Acode%3AInstanceState%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681083861"><span id="local-6989586621681083863"><span class="annot"><span class="annottext">InstanceState -&gt; InstanceState -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681118213"><span id="local-6989586621681118215"><span class="annot"><span class="annottext">InstanceState -&gt; InstanceState -&gt; Bool
 (InstanceState -&gt; InstanceState -&gt; Bool)
 -&gt; (InstanceState -&gt; InstanceState -&gt; Bool) -&gt; Eq InstanceState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceState -&gt; InstanceState -&gt; Bool
 == :: InstanceState -&gt; InstanceState -&gt; Bool
 $c== :: InstanceState -&gt; InstanceState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681083852"><span id="local-6989586621681083854"><span id="local-6989586621681083856"><span id="local-6989586621681083858"><span class="annot"><span class="annottext">ReadPrec [InstanceState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681118204"><span id="local-6989586621681118206"><span id="local-6989586621681118208"><span id="local-6989586621681118210"><span class="annot"><span class="annottext">ReadPrec [InstanceState]
 ReadPrec InstanceState
 Int -&gt; ReadS InstanceState
 ReadS [InstanceState]
@@ -89,7 +89,7 @@ readList :: ReadS [InstanceState]
 $creadList :: ReadS [InstanceState]
 readsPrec :: Int -&gt; ReadS InstanceState
 $creadsPrec :: Int -&gt; ReadS InstanceState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681083845"><span id="local-6989586621681083847"><span id="local-6989586621681083849"><span class="annot"><span class="annottext">Int -&gt; InstanceState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681118197"><span id="local-6989586621681118199"><span id="local-6989586621681118201"><span class="annot"><span class="annottext">Int -&gt; InstanceState -&gt; ShowS
 [InstanceState] -&gt; ShowS
 InstanceState -&gt; String
 (Int -&gt; InstanceState -&gt; ShowS)
@@ -158,15 +158,15 @@ $cfrom :: forall x. InstanceState -&gt; Rep InstanceState x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span>
 </span><span id="line-106"></span><span id="newInstanceState"><span class="annot"><span class="annottext">newInstanceState :: InstanceStateName -&gt; Int -&gt; InstanceState
-</span><a href="Network.AWS.EC2.Types.InstanceState.html#newInstanceState"><span class="hs-identifier hs-var hs-var">newInstanceState</span></a></span></span><span> </span><span id="local-6989586621681083839"><span class="annot"><span class="annottext">InstanceStateName
-</span><a href="#local-6989586621681083839"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621681083838"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681083838"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.Types.InstanceState.html#newInstanceState"><span class="hs-identifier hs-var hs-var">newInstanceState</span></a></span></span><span> </span><span id="local-6989586621681118191"><span class="annot"><span class="annottext">InstanceStateName
+</span><a href="#local-6989586621681118191"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621681118190"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681118190"><span class="hs-identifier hs-var">pCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">InstanceState' :: InstanceStateName -&gt; Int -&gt; InstanceState
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceState' :: InstanceStateName
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#%24sel%3Aname%3AInstanceState%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceStateName
-</span><a href="#local-6989586621681083839"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:code:InstanceState' :: Int
+</span><a href="#local-6989586621681118191"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:code:InstanceState' :: Int
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#%24sel%3Acode%3AInstanceState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681083838"><span class="hs-identifier hs-var">pCode_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621681118190"><span class="hs-identifier hs-var">pCode_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The current state of the instance.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#instanceState_name"><span class="hs-identifier hs-type">instanceState_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStateName.html#InstanceStateName"><span class="hs-identifier hs-type">InstanceStateName</span></a></span><span>
@@ -177,16 +177,16 @@ $cfrom :: forall x. InstanceState -&gt; Rep InstanceState x
 -&gt; Lens
      InstanceState InstanceState InstanceStateName InstanceStateName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681083834"><span class="annot"><span class="annottext">InstanceStateName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118186"><span class="annot"><span class="annottext">InstanceStateName
 name :: InstanceStateName
 $sel:name:InstanceState' :: InstanceState -&gt; InstanceStateName
-</span><a href="#local-6989586621681083834"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStateName
-</span><a href="#local-6989586621681083834"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681083833"><span class="annot"><span class="annottext">s :: InstanceState
-</span><a href="#local-6989586621681083833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681083832"><span class="annot"><span class="annottext">InstanceStateName
-</span><a href="#local-6989586621681083832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceState
-</span><a href="#local-6989586621681083833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceState' :: InstanceStateName
+</span><a href="#local-6989586621681118186"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStateName
+</span><a href="#local-6989586621681118186"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118185"><span class="annot"><span class="annottext">s :: InstanceState
+</span><a href="#local-6989586621681118185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118184"><span class="annot"><span class="annottext">InstanceStateName
+</span><a href="#local-6989586621681118184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceState
+</span><a href="#local-6989586621681118185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceState' :: InstanceStateName
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#%24sel%3Aname%3AInstanceState%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InstanceStateName
-</span><a href="#local-6989586621681083832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681118184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The state of the instance as a 16-bit unsigned integer.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
@@ -220,21 +220,21 @@ $sel:name:InstanceState' :: InstanceState -&gt; InstanceStateName
 -&gt; (InstanceState -&gt; Int -&gt; InstanceState)
 -&gt; Lens InstanceState InstanceState Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681083830"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681118182"><span class="annot"><span class="annottext">Int
 code :: Int
 $sel:code:InstanceState' :: InstanceState -&gt; Int
-</span><a href="#local-6989586621681083830"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681083830"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681083829"><span class="annot"><span class="annottext">s :: InstanceState
-</span><a href="#local-6989586621681083829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681083828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681083828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceState
-</span><a href="#local-6989586621681083829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceState' :: Int
+</span><a href="#local-6989586621681118182"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681118182"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681118181"><span class="annot"><span class="annottext">s :: InstanceState
+</span><a href="#local-6989586621681118181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-type">InstanceState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681118180"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681118180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceState
+</span><a href="#local-6989586621681118181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:InstanceState' :: Int
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#%24sel%3Acode%3AInstanceState%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681083828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681118180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621681083825"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681083823"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681083823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621681118177"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681118175"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681118175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">InstanceStateName -&gt; Int -&gt; InstanceState
 </span><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState%27"><span class="hs-identifier hs-var">InstanceState'</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">(InstanceStateName -&gt; Int -&gt; InstanceState)
@@ -242,19 +242,19 @@ $sel:code:InstanceState' :: InstanceState -&gt; Int
 -&gt; Either String (Int -&gt; InstanceState)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681083823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InstanceStateName
+</span><a href="#local-6989586621681118175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InstanceStateName
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Int -&gt; InstanceState)
 -&gt; Either String Int -&gt; Either String InstanceState
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681083823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621681118175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681083817"><span id="local-6989586621681083819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681118169"><span id="local-6989586621681118171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681083814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681118166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceState.html#InstanceState"><span class="hs-identifier hs-type">InstanceState</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

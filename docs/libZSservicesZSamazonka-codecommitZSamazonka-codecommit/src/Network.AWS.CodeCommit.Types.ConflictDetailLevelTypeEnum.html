@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679348178"><span id="local-6989586621679348179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConflictDetailLevelTypeEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum.html#ConflictDetailLevelTypeEnum"><span class="hs-identifier hs-var">ConflictDetailLevelTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictDetailLevelTypeEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum.html#ConflictDetailLevelTypeEnum%27"><span class="hs-identifier hs-var">ConflictDetailLevelTypeEnum'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679348448"><span id="local-6989586621679348449"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConflictDetailLevelTypeEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum.html#ConflictDetailLevelTypeEnum"><span class="hs-identifier hs-var">ConflictDetailLevelTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictDetailLevelTypeEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum.html#ConflictDetailLevelTypeEnum%27"><span class="hs-identifier hs-var">ConflictDetailLevelTypeEnum'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConflictDetailLevelTypeEnum"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; Text
 </span><a href="Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum.html#fromConflictDetailLevelTypeEnum"><span class="hs-identifier hs-var hs-var">fromConflictDetailLevelTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348170"><span id="local-6989586621679348172"><span id="local-6989586621679348174"><span class="annot"><span class="annottext">Int -&gt; ConflictDetailLevelTypeEnum -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348440"><span id="local-6989586621679348442"><span id="local-6989586621679348444"><span class="annot"><span class="annottext">Int -&gt; ConflictDetailLevelTypeEnum -&gt; ShowS
 [ConflictDetailLevelTypeEnum] -&gt; ShowS
 ConflictDetailLevelTypeEnum -&gt; String
 (Int -&gt; ConflictDetailLevelTypeEnum -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ConflictDetailLevelTypeEnum -&gt; String
 showsPrec :: Int -&gt; ConflictDetailLevelTypeEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConflictDetailLevelTypeEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679348161"><span id="local-6989586621679348163"><span id="local-6989586621679348165"><span id="local-6989586621679348167"><span class="annot"><span class="annottext">ReadPrec [ConflictDetailLevelTypeEnum]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679348431"><span id="local-6989586621679348433"><span id="local-6989586621679348435"><span id="local-6989586621679348437"><span class="annot"><span class="annottext">ReadPrec [ConflictDetailLevelTypeEnum]
 ReadPrec ConflictDetailLevelTypeEnum
 Int -&gt; ReadS ConflictDetailLevelTypeEnum
 ReadS [ConflictDetailLevelTypeEnum]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ConflictDetailLevelTypeEnum]
 readsPrec :: Int -&gt; ReadS ConflictDetailLevelTypeEnum
 $creadsPrec :: Int -&gt; ReadS ConflictDetailLevelTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679348156"><span id="local-6989586621679348158"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ConflictDetailLevelTypeEnum -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679348426"><span id="local-6989586621679348428"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ConflictDetailLevelTypeEnum -&gt; Bool
 (ConflictDetailLevelTypeEnum
  -&gt; ConflictDetailLevelTypeEnum -&gt; Bool)
 -&gt; (ConflictDetailLevelTypeEnum
@@ -84,7 +84,7 @@ $c/= :: ConflictDetailLevelTypeEnum -&gt; ConflictDetailLevelTypeEnum -&gt; Bool
 == :: ConflictDetailLevelTypeEnum -&gt; ConflictDetailLevelTypeEnum -&gt; Bool
 $c== :: ConflictDetailLevelTypeEnum -&gt; ConflictDetailLevelTypeEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679348140"><span id="local-6989586621679348142"><span id="local-6989586621679348144"><span id="local-6989586621679348146"><span id="local-6989586621679348148"><span id="local-6989586621679348150"><span id="local-6989586621679348152"><span class="annot"><span class="annottext">Eq ConflictDetailLevelTypeEnum
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679348410"><span id="local-6989586621679348412"><span id="local-6989586621679348414"><span id="local-6989586621679348416"><span id="local-6989586621679348418"><span id="local-6989586621679348420"><span id="local-6989586621679348422"><span class="annot"><span class="annottext">Eq ConflictDetailLevelTypeEnum
 Eq ConflictDetailLevelTypeEnum
 -&gt; (ConflictDetailLevelTypeEnum
     -&gt; ConflictDetailLevelTypeEnum -&gt; Ordering)
@@ -156,7 +156,7 @@ ConflictDetailLevelTypeEnum -&gt; Rep ConflictDetailLevelTypeEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348132"><span id="local-6989586621679348134"><span class="annot"><span class="annottext">Int -&gt; ConflictDetailLevelTypeEnum -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348402"><span id="local-6989586621679348404"><span class="annot"><span class="annottext">Int -&gt; ConflictDetailLevelTypeEnum -&gt; Int
 ConflictDetailLevelTypeEnum -&gt; Int
 (Int -&gt; ConflictDetailLevelTypeEnum -&gt; Int)
 -&gt; (ConflictDetailLevelTypeEnum -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: ConflictDetailLevelTypeEnum -&gt; Int
 hashWithSalt :: Int -&gt; ConflictDetailLevelTypeEnum -&gt; Int
 $chashWithSalt :: Int -&gt; ConflictDetailLevelTypeEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679348129"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679348399"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ()
 (ConflictDetailLevelTypeEnum -&gt; ())
 -&gt; NFData ConflictDetailLevelTypeEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConflictDetailLevelTypeEnum -&gt; ()
 $crnf :: ConflictDetailLevelTypeEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679348126"><span class="annot"><span class="annottext">Text -&gt; Either String ConflictDetailLevelTypeEnum
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679348396"><span class="annot"><span class="annottext">Text -&gt; Either String ConflictDetailLevelTypeEnum
 (Text -&gt; Either String ConflictDetailLevelTypeEnum)
 -&gt; FromText ConflictDetailLevelTypeEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConflictDetailLevelTypeEnum
 $cfromText :: Text -&gt; Either String ConflictDetailLevelTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679348123"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679348393"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; Text
 (ConflictDetailLevelTypeEnum -&gt; Text)
 -&gt; ToText ConflictDetailLevelTypeEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConflictDetailLevelTypeEnum -&gt; Text
 $ctoText :: ConflictDetailLevelTypeEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348120"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348390"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ByteString
 (ConflictDetailLevelTypeEnum -&gt; ByteString)
 -&gt; ToByteString ConflictDetailLevelTypeEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConflictDetailLevelTypeEnum -&gt; ByteString
 $ctoBS :: ConflictDetailLevelTypeEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348117"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348387"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; ByteStringBuilder
 (ConflictDetailLevelTypeEnum -&gt; ByteStringBuilder)
 -&gt; ToLog ConflictDetailLevelTypeEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConflictDetailLevelTypeEnum -&gt; ByteStringBuilder
 $cbuild :: ConflictDetailLevelTypeEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348114"><span class="annot"><span class="annottext">HeaderName -&gt; ConflictDetailLevelTypeEnum -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348384"><span class="annot"><span class="annottext">HeaderName -&gt; ConflictDetailLevelTypeEnum -&gt; [Header]
 (HeaderName -&gt; ConflictDetailLevelTypeEnum -&gt; [Header])
 -&gt; ToHeader ConflictDetailLevelTypeEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConflictDetailLevelTypeEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConflictDetailLevelTypeEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348111"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348381"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; QueryString
 (ConflictDetailLevelTypeEnum -&gt; QueryString)
 -&gt; ToQuery ConflictDetailLevelTypeEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConflictDetailLevelTypeEnum -&gt; QueryString
 $ctoQuery :: ConflictDetailLevelTypeEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348106"><span id="local-6989586621679348108"><span class="annot"><span class="annottext">Value -&gt; Parser [ConflictDetailLevelTypeEnum]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348376"><span id="local-6989586621679348378"><span class="annot"><span class="annottext">Value -&gt; Parser [ConflictDetailLevelTypeEnum]
 Value -&gt; Parser ConflictDetailLevelTypeEnum
 (Value -&gt; Parser ConflictDetailLevelTypeEnum)
 -&gt; (Value -&gt; Parser [ConflictDetailLevelTypeEnum])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [ConflictDetailLevelTypeEnum]
 parseJSON :: Value -&gt; Parser ConflictDetailLevelTypeEnum
 $cparseJSON :: Value -&gt; Parser ConflictDetailLevelTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348101"><span id="local-6989586621679348103"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConflictDetailLevelTypeEnum]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348371"><span id="local-6989586621679348373"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConflictDetailLevelTypeEnum]
 FromJSONKeyFunction ConflictDetailLevelTypeEnum
 FromJSONKeyFunction ConflictDetailLevelTypeEnum
 -&gt; FromJSONKeyFunction [ConflictDetailLevelTypeEnum]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConflictDetailLevelTypeEnum]
 fromJSONKey :: FromJSONKeyFunction ConflictDetailLevelTypeEnum
 $cfromJSONKey :: FromJSONKeyFunction ConflictDetailLevelTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348092"><span id="local-6989586621679348094"><span id="local-6989586621679348096"><span id="local-6989586621679348098"><span class="annot"><span class="annottext">[ConflictDetailLevelTypeEnum] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348362"><span id="local-6989586621679348364"><span id="local-6989586621679348366"><span id="local-6989586621679348368"><span class="annot"><span class="annottext">[ConflictDetailLevelTypeEnum] -&gt; Encoding
 [ConflictDetailLevelTypeEnum] -&gt; Value
 ConflictDetailLevelTypeEnum -&gt; Encoding
 ConflictDetailLevelTypeEnum -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: ConflictDetailLevelTypeEnum -&gt; Encoding
 toJSON :: ConflictDetailLevelTypeEnum -&gt; Value
 $ctoJSON :: ConflictDetailLevelTypeEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348087"><span id="local-6989586621679348089"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConflictDetailLevelTypeEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348357"><span id="local-6989586621679348359"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConflictDetailLevelTypeEnum]
 ToJSONKeyFunction ConflictDetailLevelTypeEnum
 ToJSONKeyFunction ConflictDetailLevelTypeEnum
 -&gt; ToJSONKeyFunction [ConflictDetailLevelTypeEnum]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConflictDetailLevelTypeEnum]
 toJSONKey :: ToJSONKeyFunction ConflictDetailLevelTypeEnum
 $ctoJSONKey :: ToJSONKeyFunction ConflictDetailLevelTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348084"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConflictDetailLevelTypeEnum
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348354"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConflictDetailLevelTypeEnum
 ([Node] -&gt; Either String ConflictDetailLevelTypeEnum)
 -&gt; FromXML ConflictDetailLevelTypeEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConflictDetailLevelTypeEnum
 $cparseXML :: [Node] -&gt; Either String ConflictDetailLevelTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348081"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348351"><span class="annot"><span class="annottext">ConflictDetailLevelTypeEnum -&gt; XML
 (ConflictDetailLevelTypeEnum -&gt; XML)
 -&gt; ToXML ConflictDetailLevelTypeEnum
 forall a. (a -&gt; XML) -&gt; ToXML a

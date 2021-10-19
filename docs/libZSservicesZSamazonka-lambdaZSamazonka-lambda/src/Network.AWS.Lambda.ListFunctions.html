@@ -39,17 +39,17 @@
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_masterRegion"><span class="hs-identifier">listFunctions_masterRegion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_functionVersion"><span class="hs-identifier">listFunctions_functionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_marker"><span class="hs-identifier">listFunctions_marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_maxItems"><span class="hs-identifier">listFunctions_maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_marker"><span class="hs-identifier">listFunctions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_functionVersion"><span class="hs-identifier">listFunctions_functionVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier">ListFunctionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#newListFunctionsResponse"><span class="hs-identifier">newListFunctionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_functions"><span class="hs-identifier">listFunctionsResponse_functions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_nextMarker"><span class="hs-identifier">listFunctionsResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_nextMarker"><span class="hs-identifier">listFunctionsResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_functions"><span class="hs-identifier">listFunctionsResponse_functions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_httpStatus"><span class="hs-identifier">listFunctionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span class="hs-keyword">where</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newListFunctions' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679300229"><span id="local-6989586621679300230"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFunctions"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-var">ListFunctions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFunctions%27"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-var">ListFunctions'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679305156"><span id="local-6989586621679305157"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFunctions"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-var">ListFunctions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFunctions%27"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-var">ListFunctions'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For Lambda\@Edge functions, the Amazon Web Services Region of the master</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- function. For example, @us-east-1@ filters the list of functions to only</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- include Lambda\@Edge functions replicated from a master function in US</span><span>
@@ -70,21 +70,21 @@
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @ALL@.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AmasterRegion%3AListFunctions%27"><span class="annot"><span class="annottext">ListFunctions -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AmasterRegion%3AListFunctions%27"><span class="hs-identifier hs-var hs-var">masterRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Set to @ALL@ to include entries for all published versions of each</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- function.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AfunctionVersion%3AListFunctions%27"><span class="annot"><span class="annottext">ListFunctions -&gt; Maybe FunctionVersion
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AfunctionVersion%3AListFunctions%27"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion"><span class="hs-identifier hs-type">FunctionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Amarker%3AListFunctions%27"><span class="annot"><span class="annottext">ListFunctions -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Amarker%3AListFunctions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The maximum number of functions to return in the response. Note that</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @ListFunctions@ returns a maximum of 50 items in each response, even if</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- you set the number higher.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AmaxItems%3AListFunctions%27"><span class="annot"><span class="annottext">ListFunctions -&gt; Maybe Natural
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AmaxItems%3AListFunctions%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- retrieve the next page of results.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Amarker%3AListFunctions%27"><span class="annot"><span class="annottext">ListFunctions -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Amarker%3AListFunctions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Set to @ALL@ to include entries for all published versions of each</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AfunctionVersion%3AListFunctions%27"><span class="annot"><span class="annottext">ListFunctions -&gt; Maybe FunctionVersion
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AfunctionVersion%3AListFunctions%27"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion"><span class="hs-identifier hs-type">FunctionVersion</span></a></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300220"><span id="local-6989586621679300222"><span class="annot"><span class="annottext">ListFunctions -&gt; ListFunctions -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305147"><span id="local-6989586621679305149"><span class="annot"><span class="annottext">ListFunctions -&gt; ListFunctions -&gt; Bool
 (ListFunctions -&gt; ListFunctions -&gt; Bool)
 -&gt; (ListFunctions -&gt; ListFunctions -&gt; Bool) -&gt; Eq ListFunctions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFunctions -&gt; ListFunctions -&gt; Bool
 == :: ListFunctions -&gt; ListFunctions -&gt; Bool
 $c== :: ListFunctions -&gt; ListFunctions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300211"><span id="local-6989586621679300213"><span id="local-6989586621679300215"><span id="local-6989586621679300217"><span class="annot"><span class="annottext">ReadPrec [ListFunctions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305138"><span id="local-6989586621679305140"><span id="local-6989586621679305142"><span id="local-6989586621679305144"><span class="annot"><span class="annottext">ReadPrec [ListFunctions]
 ReadPrec ListFunctions
 Int -&gt; ReadS ListFunctions
 ReadS [ListFunctions]
@@ -112,7 +112,7 @@ readList :: ReadS [ListFunctions]
 $creadList :: ReadS [ListFunctions]
 readsPrec :: Int -&gt; ReadS ListFunctions
 $creadsPrec :: Int -&gt; ReadS ListFunctions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300204"><span id="local-6989586621679300206"><span id="local-6989586621679300208"><span class="annot"><span class="annottext">Int -&gt; ListFunctions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305131"><span id="local-6989586621679305133"><span id="local-6989586621679305135"><span class="annot"><span class="annottext">Int -&gt; ListFunctions -&gt; ShowS
 [ListFunctions] -&gt; ShowS
 ListFunctions -&gt; String
 (Int -&gt; ListFunctions -&gt; ShowS)
@@ -152,39 +152,39 @@ $cfrom :: forall x. ListFunctions -&gt; Rep ListFunctions x
 </span><span id="line-96"></span><span class="hs-comment">-- East (N. Virginia). If specified, you must set @FunctionVersion@ to</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- @ALL@.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'functionVersion', 'listFunctions_functionVersion' - Set to @ALL@ to include entries for all published versions of each</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'marker', 'listFunctions_marker' - Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- 'maxItems', 'listFunctions_maxItems' - The maximum number of functions to return in the response. Note that</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- @ListFunctions@ returns a maximum of 50 items in each response, even if</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- you set the number higher.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'marker', 'listFunctions_marker' - Specify the pagination token that\'s returned by a previous request to</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'functionVersion', 'listFunctions_functionVersion' - Set to @ALL@ to include entries for all published versions of each</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- function.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#newListFunctions"><span class="hs-identifier hs-type">newListFunctions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span>
 </span><span id="line-110"></span><span id="newListFunctions"><span class="annot"><span class="annottext">newListFunctions :: ListFunctions
 </span><a href="Network.AWS.Lambda.ListFunctions.html#newListFunctions"><span class="hs-identifier hs-var hs-var">newListFunctions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">ListFunctions' :: Maybe Text
--&gt; Maybe FunctionVersion
--&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe FunctionVersion
 -&gt; ListFunctions
 </span><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:masterRegion:ListFunctions' :: Maybe Text
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AmasterRegion%3AListFunctions%27"><span class="hs-identifier hs-var">masterRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionVersion:ListFunctions' :: Maybe FunctionVersion
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AfunctionVersion%3AListFunctions%27"><span class="hs-identifier hs-var">functionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListFunctions' :: Maybe Text
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Amarker%3AListFunctions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListFunctions' :: Maybe Natural
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AmaxItems%3AListFunctions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListFunctions' :: Maybe Text
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Amarker%3AListFunctions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionVersion:ListFunctions' :: Maybe FunctionVersion
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AfunctionVersion%3AListFunctions%27"><span class="hs-identifier hs-var">functionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
@@ -200,40 +200,35 @@ forall a. Maybe a
 -&gt; (ListFunctions -&gt; Maybe Text -&gt; ListFunctions)
 -&gt; Lens ListFunctions ListFunctions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300198"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305125"><span class="annot"><span class="annottext">Maybe Text
 masterRegion :: Maybe Text
 $sel:masterRegion:ListFunctions' :: ListFunctions -&gt; Maybe Text
-</span><a href="#local-6989586621679300198"><span class="hs-identifier hs-var hs-var">masterRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300198"><span class="hs-identifier hs-var">masterRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300197"><span class="annot"><span class="annottext">s :: ListFunctions
-</span><a href="#local-6989586621679300197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300196"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
-</span><a href="#local-6989586621679300197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterRegion:ListFunctions' :: Maybe Text
+</span><a href="#local-6989586621679305125"><span class="hs-identifier hs-var hs-var">masterRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305125"><span class="hs-identifier hs-var">masterRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305124"><span class="annot"><span class="annottext">s :: ListFunctions
+</span><a href="#local-6989586621679305124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
+</span><a href="#local-6989586621679305124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterRegion:ListFunctions' :: Maybe Text
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AmasterRegion%3AListFunctions%27"><span class="hs-identifier hs-var">masterRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Set to @ALL@ to include entries for all published versions of each</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- function.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_functionVersion"><span class="hs-identifier hs-type">listFunctions_functionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion"><span class="hs-identifier hs-type">FunctionVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="listFunctions_functionVersion"><span class="annot"><span class="annottext">listFunctions_functionVersion :: (Maybe FunctionVersion -&gt; f (Maybe FunctionVersion))
--&gt; ListFunctions -&gt; f ListFunctions
-</span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_functionVersion"><span class="hs-identifier hs-var hs-var">listFunctions_functionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctions -&gt; Maybe FunctionVersion)
--&gt; (ListFunctions -&gt; Maybe FunctionVersion -&gt; ListFunctions)
--&gt; Lens
-     ListFunctions
-     ListFunctions
-     (Maybe FunctionVersion)
-     (Maybe FunctionVersion)
+</span><span id="line-126"></span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_marker"><span class="hs-identifier hs-type">listFunctions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listFunctions_marker"><span class="annot"><span class="annottext">listFunctions_marker :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListFunctions -&gt; f ListFunctions
+</span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_marker"><span class="hs-identifier hs-var hs-var">listFunctions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctions -&gt; Maybe Text)
+-&gt; (ListFunctions -&gt; Maybe Text -&gt; ListFunctions)
+-&gt; Lens ListFunctions ListFunctions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300195"><span class="annot"><span class="annottext">Maybe FunctionVersion
-functionVersion :: Maybe FunctionVersion
-$sel:functionVersion:ListFunctions' :: ListFunctions -&gt; Maybe FunctionVersion
-</span><a href="#local-6989586621679300195"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
-</span><a href="#local-6989586621679300195"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300194"><span class="annot"><span class="annottext">s :: ListFunctions
-</span><a href="#local-6989586621679300194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300193"><span class="annot"><span class="annottext">Maybe FunctionVersion
-</span><a href="#local-6989586621679300193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
-</span><a href="#local-6989586621679300194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionVersion:ListFunctions' :: Maybe FunctionVersion
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AfunctionVersion%3AListFunctions%27"><span class="hs-identifier hs-var">functionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
-</span><a href="#local-6989586621679300193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305122"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListFunctions' :: ListFunctions -&gt; Maybe Text
+</span><a href="#local-6989586621679305122"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305122"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305121"><span class="annot"><span class="annottext">s :: ListFunctions
+</span><a href="#local-6989586621679305121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305120"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
+</span><a href="#local-6989586621679305121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListFunctions' :: Maybe Text
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Amarker%3AListFunctions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of functions to return in the response. Note that</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- @ListFunctions@ returns a maximum of 50 items in each response, even if</span><span>
@@ -245,47 +240,52 @@ $sel:functionVersion:ListFunctions' :: ListFunctions -&gt; Maybe FunctionVersion
 -&gt; (ListFunctions -&gt; Maybe Natural -&gt; ListFunctions)
 -&gt; Lens ListFunctions ListFunctions (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300192"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305119"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListFunctions' :: ListFunctions -&gt; Maybe Natural
-</span><a href="#local-6989586621679300192"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679300192"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300191"><span class="annot"><span class="annottext">s :: ListFunctions
-</span><a href="#local-6989586621679300191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300190"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679300190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
-</span><a href="#local-6989586621679300191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListFunctions' :: Maybe Natural
+</span><a href="#local-6989586621679305119"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305119"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305118"><span class="annot"><span class="annottext">s :: ListFunctions
+</span><a href="#local-6989586621679305118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305117"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679305117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
+</span><a href="#local-6989586621679305118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListFunctions' :: Maybe Natural
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AmaxItems%3AListFunctions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679300190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- retrieve the next page of results.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_marker"><span class="hs-identifier hs-type">listFunctions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="listFunctions_marker"><span class="annot"><span class="annottext">listFunctions_marker :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListFunctions -&gt; f ListFunctions
-</span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_marker"><span class="hs-identifier hs-var hs-var">listFunctions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctions -&gt; Maybe Text)
--&gt; (ListFunctions -&gt; Maybe Text -&gt; ListFunctions)
--&gt; Lens ListFunctions ListFunctions (Maybe Text) (Maybe Text)
+</span><span id="line-137"></span><span class="hs-comment">-- | Set to @ALL@ to include entries for all published versions of each</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_functionVersion"><span class="hs-identifier hs-type">listFunctions_functionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionVersion.html#FunctionVersion"><span class="hs-identifier hs-type">FunctionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listFunctions_functionVersion"><span class="annot"><span class="annottext">listFunctions_functionVersion :: (Maybe FunctionVersion -&gt; f (Maybe FunctionVersion))
+-&gt; ListFunctions -&gt; f ListFunctions
+</span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctions_functionVersion"><span class="hs-identifier hs-var hs-var">listFunctions_functionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctions -&gt; Maybe FunctionVersion)
+-&gt; (ListFunctions -&gt; Maybe FunctionVersion -&gt; ListFunctions)
+-&gt; Lens
+     ListFunctions
+     ListFunctions
+     (Maybe FunctionVersion)
+     (Maybe FunctionVersion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300189"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:ListFunctions' :: ListFunctions -&gt; Maybe Text
-</span><a href="#local-6989586621679300189"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300189"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300188"><span class="annot"><span class="annottext">s :: ListFunctions
-</span><a href="#local-6989586621679300188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300187"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
-</span><a href="#local-6989586621679300188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListFunctions' :: Maybe Text
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Amarker%3AListFunctions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305116"><span class="annot"><span class="annottext">Maybe FunctionVersion
+functionVersion :: Maybe FunctionVersion
+$sel:functionVersion:ListFunctions' :: ListFunctions -&gt; Maybe FunctionVersion
+</span><a href="#local-6989586621679305116"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
+</span><a href="#local-6989586621679305116"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305115"><span class="annot"><span class="annottext">s :: ListFunctions
+</span><a href="#local-6989586621679305115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305114"><span class="annot"><span class="annottext">Maybe FunctionVersion
+</span><a href="#local-6989586621679305114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctions
+</span><a href="#local-6989586621679305115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionVersion:ListFunctions' :: Maybe FunctionVersion
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AfunctionVersion%3AListFunctions%27"><span class="hs-identifier hs-var">functionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
+</span><a href="#local-6989586621679305114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679300183"><span class="annot"><span class="annottext">page :: ListFunctions -&gt; AWSResponse ListFunctions -&gt; Maybe ListFunctions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679300181"><span class="annot"><span class="annottext">ListFunctions
-</span><a href="#local-6989586621679300181"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679300180"><span class="annot"><span class="annottext">AWSResponse ListFunctions
-</span><a href="#local-6989586621679300180"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679305110"><span class="annot"><span class="annottext">page :: ListFunctions -&gt; AWSResponse ListFunctions -&gt; Maybe ListFunctions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679305108"><span class="annot"><span class="annottext">ListFunctions
+</span><a href="#local-6989586621679305108"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679305107"><span class="annot"><span class="annottext">AWSResponse ListFunctions
+</span><a href="#local-6989586621679305107"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-145"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFunctions
 ListFunctionsResponse
-</span><a href="#local-6989586621679300180"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305107"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">ListFunctionsResponse
 -&gt; Getting (First Text) ListFunctionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -314,7 +314,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-151"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFunctions
 ListFunctionsResponse
-</span><a href="#local-6989586621679300180"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305107"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">ListFunctionsResponse
 -&gt; Getting
      (First [FunctionConfiguration])
@@ -363,7 +363,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ListFunctions
-</span><a href="#local-6989586621679300181"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679305108"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">ListFunctions -&gt; (ListFunctions -&gt; ListFunctions) -&gt; ListFunctions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -376,7 +376,7 @@ Lens ListFunctions ListFunctions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFunctions
 ListFunctionsResponse
-</span><a href="#local-6989586621679300180"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679305107"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ListFunctionsResponse
 -&gt; Getting (First Text) ListFunctionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -400,12 +400,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679300170"><span class="annot"><span class="annottext">request :: ListFunctions -&gt; Request ListFunctions
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679305097"><span class="annot"><span class="annottext">request :: ListFunctions -&gt; Request ListFunctions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListFunctions -&gt; Request ListFunctions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679300166"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679305093"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListFunctions
 -&gt; ClientResponse ClientBody
@@ -429,20 +429,33 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300163"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300163"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300162"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679300162"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300161"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300161"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
--&gt; Maybe Text -&gt; Int -&gt; ListFunctionsResponse
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305090"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305090"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679305089"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679305089"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679305088"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [FunctionConfiguration] -&gt; Int -&gt; ListFunctionsResponse
 </span><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-var">ListFunctionsResponse'</span></a></span><span>
-</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [FunctionConfiguration]
- -&gt; Maybe Text -&gt; Int -&gt; ListFunctionsResponse)
--&gt; Either String (Maybe [FunctionConfiguration])
--&gt; Either String (Maybe Text -&gt; Int -&gt; ListFunctionsResponse)
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [FunctionConfiguration] -&gt; Int -&gt; ListFunctionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [FunctionConfiguration] -&gt; Int -&gt; ListFunctionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [FunctionConfiguration] -&gt; Int -&gt; ListFunctionsResponse)
+-&gt; Either String (Maybe [FunctionConfiguration])
+-&gt; Either String (Int -&gt; ListFunctionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [FunctionConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -453,15 +466,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListFunctionsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListFunctionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListFunctionsResponse)
 -&gt; Either String Int -&gt; Either String ListFunctionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -470,15 +474,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300163"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305090"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300152"><span id="local-6989586621679300154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305079"><span id="local-6989586621679305081"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305076"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679300145"><span class="annot"><span class="annottext">toHeaders :: ListFunctions -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679305072"><span class="annot"><span class="annottext">toHeaders :: ListFunctions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListFunctions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -486,26 +490,26 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679300140"><span class="annot"><span class="annottext">toPath :: ListFunctions -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679305067"><span class="annot"><span class="annottext">toPath :: ListFunctions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListFunctions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2015-03-31/functions/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions"><span class="hs-identifier hs-type">ListFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679300136"><span class="annot"><span class="annottext">toQuery :: ListFunctions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300131"><span id="local-6989586621679300132"><span id="local-6989586621679300133"><span id="local-6989586621679300134"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679305063"><span class="annot"><span class="annottext">toQuery :: ListFunctions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctions%27"><span class="hs-identifier hs-type">ListFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305058"><span id="local-6989586621679305059"><span id="local-6989586621679305060"><span id="local-6989586621679305061"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe FunctionVersion
-marker :: Maybe Text
-maxItems :: Maybe Natural
 functionVersion :: Maybe FunctionVersion
+maxItems :: Maybe Natural
+marker :: Maybe Text
 masterRegion :: Maybe Text
-$sel:marker:ListFunctions' :: ListFunctions -&gt; Maybe Text
-$sel:maxItems:ListFunctions' :: ListFunctions -&gt; Maybe Natural
 $sel:functionVersion:ListFunctions' :: ListFunctions -&gt; Maybe FunctionVersion
+$sel:maxItems:ListFunctions' :: ListFunctions -&gt; Maybe Natural
+$sel:marker:ListFunctions' :: ListFunctions -&gt; Maybe Text
 $sel:masterRegion:ListFunctions' :: ListFunctions -&gt; Maybe Text
-</span><a href="#local-6989586621679300131"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305058"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -513,39 +517,39 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;MasterRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300134"><span class="hs-identifier hs-var">masterRegion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305061"><span class="hs-identifier hs-var">masterRegion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;FunctionVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe FunctionVersion -&gt; QueryString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
-</span><a href="#local-6989586621679300133"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305060"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679300132"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305059"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;FunctionVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe FunctionVersion -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300131"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionVersion
+</span><a href="#local-6989586621679305058"><span class="hs-identifier hs-var">functionVersion</span></a></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | A list of Lambda functions.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">--</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- /See:/ 'newListFunctionsResponse' smart constructor.</span><span>
-</span><span id="line-198"></span><span id="local-6989586621679300128"><span id="local-6989586621679300129"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFunctionsResponse"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-var">ListFunctionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFunctionsResponse%27"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-var">ListFunctionsResponse'</span></a></span></span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Lambda functions.</span><span>
-</span><span id="line-200"></span><span>    </span><span id="%24sel%3Afunctions%3AListFunctionsResponse%27"><span class="annot"><span class="annottext">ListFunctionsResponse -&gt; Maybe [FunctionConfiguration]
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Afunctions%3AListFunctionsResponse%27"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier hs-type">FunctionConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
-</span><span id="line-202"></span><span>    </span><span id="%24sel%3AnextMarker%3AListFunctionsResponse%27"><span class="annot"><span class="annottext">ListFunctionsResponse -&gt; Maybe Text
+</span><span id="line-198"></span><span id="local-6989586621679305055"><span id="local-6989586621679305056"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFunctionsResponse"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-var">ListFunctionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFunctionsResponse%27"><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-var">ListFunctionsResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3AnextMarker%3AListFunctionsResponse%27"><span class="annot"><span class="annottext">ListFunctionsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AnextMarker%3AListFunctionsResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | A list of Lambda functions.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3Afunctions%3AListFunctionsResponse%27"><span class="annot"><span class="annottext">ListFunctionsResponse -&gt; Maybe [FunctionConfiguration]
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Afunctions%3AListFunctionsResponse%27"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier hs-type">FunctionConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFunctionsResponse%27"><span class="annot"><span class="annottext">ListFunctionsResponse -&gt; Int
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AhttpStatus%3AListFunctionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-205"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300121"><span id="local-6989586621679300123"><span class="annot"><span class="annottext">ListFunctionsResponse -&gt; ListFunctionsResponse -&gt; Bool
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305048"><span id="local-6989586621679305050"><span class="annot"><span class="annottext">ListFunctionsResponse -&gt; ListFunctionsResponse -&gt; Bool
 (ListFunctionsResponse -&gt; ListFunctionsResponse -&gt; Bool)
 -&gt; (ListFunctionsResponse -&gt; ListFunctionsResponse -&gt; Bool)
 -&gt; Eq ListFunctionsResponse
@@ -554,7 +558,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFunctionsResponse -&gt; ListFunctionsResponse -&gt; Bool
 == :: ListFunctionsResponse -&gt; ListFunctionsResponse -&gt; Bool
 $c== :: ListFunctionsResponse -&gt; ListFunctionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300115"><span id="local-6989586621679300117"><span id="local-6989586621679300119"><span class="annot"><span class="annottext">Int -&gt; ListFunctionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305042"><span id="local-6989586621679305044"><span id="local-6989586621679305046"><span class="annot"><span class="annottext">Int -&gt; ListFunctionsResponse -&gt; ShowS
 [ListFunctionsResponse] -&gt; ShowS
 ListFunctionsResponse -&gt; String
 (Int -&gt; ListFunctionsResponse -&gt; ShowS)
@@ -588,9 +592,9 @@ $cfrom :: forall x. ListFunctionsResponse -&gt; Rep ListFunctionsResponse x
 </span><span id="line-213"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- 'functions', 'listFunctionsResponse_functions' - A list of Lambda functions.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'nextMarker', 'listFunctionsResponse_nextMarker' - The pagination token that\'s included if more results are available.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- 'nextMarker', 'listFunctionsResponse_nextMarker' - The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'functions', 'listFunctionsResponse_functions' - A list of Lambda functions.</span><span>
 </span><span id="line-219"></span><span class="hs-comment">--</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'listFunctionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#newListFunctionsResponse"><span class="hs-identifier hs-type">newListFunctionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -598,27 +602,47 @@ $cfrom :: forall x. ListFunctionsResponse -&gt; Rep ListFunctionsResponse x
 </span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span>
 </span><span id="line-225"></span><span id="newListFunctionsResponse"><span class="annot"><span class="annottext">newListFunctionsResponse :: Int -&gt; ListFunctionsResponse
-</span><a href="Network.AWS.Lambda.ListFunctions.html#newListFunctionsResponse"><span class="hs-identifier hs-var hs-var">newListFunctionsResponse</span></a></span></span><span> </span><span id="local-6989586621679300112"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">ListFunctionsResponse' :: Maybe [FunctionConfiguration]
--&gt; Maybe Text -&gt; Int -&gt; ListFunctionsResponse
+</span><a href="Network.AWS.Lambda.ListFunctions.html#newListFunctionsResponse"><span class="hs-identifier hs-var hs-var">newListFunctionsResponse</span></a></span></span><span> </span><span id="local-6989586621679305039"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305039"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">ListFunctionsResponse' :: Maybe Text
+-&gt; Maybe [FunctionConfiguration] -&gt; Int -&gt; ListFunctionsResponse
 </span><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span>
-</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functions:ListFunctionsResponse' :: Maybe [FunctionConfiguration]
+</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListFunctionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AnextMarker%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:functions:ListFunctionsResponse' :: Maybe [FunctionConfiguration]
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Afunctions%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">functions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextMarker:ListFunctionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AnextMarker%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFunctionsResponse' :: Int
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFunctionsResponse' :: Int
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AhttpStatus%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- | A list of Lambda functions.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_functions"><span class="hs-identifier hs-type">listFunctionsResponse_functions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier hs-type">FunctionConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="listFunctionsResponse_functions"><span class="annot"><span class="annottext">listFunctionsResponse_functions :: (Maybe [FunctionConfiguration]
+</span><a href="#local-6989586621679305039"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_nextMarker"><span class="hs-identifier hs-type">listFunctionsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="listFunctionsResponse_nextMarker"><span class="annot"><span class="annottext">listFunctionsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFunctionsResponse -&gt; f ListFunctionsResponse
+</span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listFunctionsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsResponse -&gt; Maybe Text)
+-&gt; (ListFunctionsResponse -&gt; Maybe Text -&gt; ListFunctionsResponse)
+-&gt; Lens' ListFunctionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305038"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListFunctionsResponse' :: ListFunctionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679305038"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305038"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305037"><span class="annot"><span class="annottext">s :: ListFunctionsResponse
+</span><a href="#local-6989586621679305037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305036"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsResponse
+</span><a href="#local-6989586621679305037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListFunctionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AnextMarker%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | A list of Lambda functions.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_functions"><span class="hs-identifier hs-type">listFunctionsResponse_functions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionConfiguration.html#FunctionConfiguration"><span class="hs-identifier hs-type">FunctionConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="listFunctionsResponse_functions"><span class="annot"><span class="annottext">listFunctionsResponse_functions :: (Maybe [FunctionConfiguration]
  -&gt; f (Maybe [FunctionConfiguration]))
 -&gt; ListFunctionsResponse -&gt; f ListFunctionsResponse
 </span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_functions"><span class="hs-identifier hs-var hs-var">listFunctionsResponse_functions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsResponse -&gt; Maybe [FunctionConfiguration])
@@ -626,16 +650,16 @@ forall a. Maybe a
     -&gt; Maybe [FunctionConfiguration] -&gt; ListFunctionsResponse)
 -&gt; Lens' ListFunctionsResponse (Maybe [FunctionConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300111"><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305035"><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
 functions :: Maybe [FunctionConfiguration]
 $sel:functions:ListFunctionsResponse' :: ListFunctionsResponse -&gt; Maybe [FunctionConfiguration]
-</span><a href="#local-6989586621679300111"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
-</span><a href="#local-6989586621679300111"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300110"><span class="annot"><span class="annottext">s :: ListFunctionsResponse
-</span><a href="#local-6989586621679300110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300109"><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
-</span><a href="#local-6989586621679300109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsResponse
-</span><a href="#local-6989586621679300110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functions:ListFunctionsResponse' :: Maybe [FunctionConfiguration]
+</span><a href="#local-6989586621679305035"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
+</span><a href="#local-6989586621679305035"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305034"><span class="annot"><span class="annottext">s :: ListFunctionsResponse
+</span><a href="#local-6989586621679305034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305033"><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
+</span><a href="#local-6989586621679305033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsResponse
+</span><a href="#local-6989586621679305034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functions:ListFunctionsResponse' :: Maybe [FunctionConfiguration]
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3Afunctions%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">functions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FunctionConfiguration]
-</span><a href="#local-6989586621679300109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FunctionConfiguration]
+</span><a href="#local-6989586621679305033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FunctionConfiguration]
   -&gt; f (Maybe [FunctionConfiguration]))
  -&gt; ListFunctionsResponse -&gt; f ListFunctionsResponse)
 -&gt; ((Maybe [FunctionConfiguration]
@@ -665,45 +689,26 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [FunctionConfiguration]
   [FunctionConfiguration]
   [FunctionConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The pagination token that\'s included if more results are available.</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_nextMarker"><span class="hs-identifier hs-type">listFunctionsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span id="listFunctionsResponse_nextMarker"><span class="annot"><span class="annottext">listFunctionsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListFunctionsResponse -&gt; f ListFunctionsResponse
-</span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listFunctionsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsResponse -&gt; Maybe Text)
--&gt; (ListFunctionsResponse -&gt; Maybe Text -&gt; ListFunctionsResponse)
--&gt; Lens' ListFunctionsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300106"><span class="annot"><span class="annottext">Maybe Text
-nextMarker :: Maybe Text
-$sel:nextMarker:ListFunctionsResponse' :: ListFunctionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679300106"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300106"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300105"><span class="annot"><span class="annottext">s :: ListFunctionsResponse
-</span><a href="#local-6989586621679300105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300104"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsResponse
-</span><a href="#local-6989586621679300105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListFunctionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AnextMarker%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_httpStatus"><span class="hs-identifier hs-type">listFunctionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-242"></span><span id="listFunctionsResponse_httpStatus"><span class="annot"><span class="annottext">listFunctionsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListFunctionsResponse -&gt; f ListFunctionsResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_httpStatus"><span class="hs-identifier hs-type">listFunctionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-243"></span><span id="listFunctionsResponse_httpStatus"><span class="annot"><span class="annottext">listFunctionsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListFunctionsResponse -&gt; f ListFunctionsResponse
 </span><a href="Network.AWS.Lambda.ListFunctions.html#listFunctionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listFunctionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFunctionsResponse -&gt; Int)
 -&gt; (ListFunctionsResponse -&gt; Int -&gt; ListFunctionsResponse)
 -&gt; Lens ListFunctionsResponse ListFunctionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300103"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305030"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListFunctionsResponse' :: ListFunctionsResponse -&gt; Int
-</span><a href="#local-6989586621679300103"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300103"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300102"><span class="annot"><span class="annottext">s :: ListFunctionsResponse
-</span><a href="#local-6989586621679300102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300101"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsResponse
-</span><a href="#local-6989586621679300102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFunctionsResponse' :: Int
+</span><a href="#local-6989586621679305030"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305030"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305029"><span class="annot"><span class="annottext">s :: ListFunctionsResponse
+</span><a href="#local-6989586621679305029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse%27"><span class="hs-identifier hs-type">ListFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679305028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFunctionsResponse
+</span><a href="#local-6989586621679305029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFunctionsResponse' :: Int
 </span><a href="Network.AWS.Lambda.ListFunctions.html#%24sel%3AhttpStatus%3AListFunctionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span></span><span>
-</span><span id="line-245"></span></pre></body></html>
+</span><a href="#local-6989586621679305028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListFunctions.html#ListFunctionsResponse"><span class="hs-identifier hs-type">ListFunctionsResponse</span></a></span></span><span>
+</span><span id="line-246"></span></pre></body></html>

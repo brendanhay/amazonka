@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object that contains details about the action of a contact list.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newContactListDestination' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679322971"><span id="local-6989586621679322972"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactListDestination"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-var">ContactListDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactListDestination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-var">ContactListDestination'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679325270"><span id="local-6989586621679325271"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactListDestination"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-var">ContactListDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactListDestination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-var">ContactListDestination'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the contact list.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcontactListName%3AContactListDestination%27"><span class="annot"><span class="annottext">ContactListDestination -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#%24sel%3AcontactListName%3AContactListDestination%27"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | &gt;The type of action that you want to perform on the addresses.</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Acceptable values:</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | &gt;The type of action to perform on the addresses. The following are the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- possible values:</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   PUT: add the addresses to the contact list. If the record already</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--     exists, it will override it with the new value.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AcontactListImportAction%3AContactListDestination%27"><span class="annot"><span class="annottext">ContactListDestination -&gt; ContactListImportAction
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#%24sel%3AcontactListImportAction%3AContactListDestination%27"><span class="hs-identifier hs-var hs-var">contactListImportAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListImportAction.html#ContactListImportAction"><span class="hs-identifier hs-type">ContactListImportAction</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322964"><span id="local-6989586621679322966"><span class="annot"><span class="annottext">ContactListDestination -&gt; ContactListDestination -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325263"><span id="local-6989586621679325265"><span class="annot"><span class="annottext">ContactListDestination -&gt; ContactListDestination -&gt; Bool
 (ContactListDestination -&gt; ContactListDestination -&gt; Bool)
 -&gt; (ContactListDestination -&gt; ContactListDestination -&gt; Bool)
 -&gt; Eq ContactListDestination
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContactListDestination -&gt; ContactListDestination -&gt; Bool
 == :: ContactListDestination -&gt; ContactListDestination -&gt; Bool
 $c== :: ContactListDestination -&gt; ContactListDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322955"><span id="local-6989586621679322957"><span id="local-6989586621679322959"><span id="local-6989586621679322961"><span class="annot"><span class="annottext">ReadPrec [ContactListDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325254"><span id="local-6989586621679325256"><span id="local-6989586621679325258"><span id="local-6989586621679325260"><span class="annot"><span class="annottext">ReadPrec [ContactListDestination]
 ReadPrec ContactListDestination
 Int -&gt; ReadS ContactListDestination
 ReadS [ContactListDestination]
@@ -70,7 +70,7 @@ readList :: ReadS [ContactListDestination]
 $creadList :: ReadS [ContactListDestination]
 readsPrec :: Int -&gt; ReadS ContactListDestination
 $creadsPrec :: Int -&gt; ReadS ContactListDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322948"><span id="local-6989586621679322950"><span id="local-6989586621679322952"><span class="annot"><span class="annottext">Int -&gt; ContactListDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325247"><span id="local-6989586621679325249"><span id="local-6989586621679325251"><span class="annot"><span class="annottext">Int -&gt; ContactListDestination -&gt; ShowS
 [ContactListDestination] -&gt; ShowS
 ContactListDestination -&gt; String
 (Int -&gt; ContactListDestination -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. ContactListDestination -&gt; Rep ContactListDestination x
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'contactListName', 'contactListDestination_contactListName' - The name of the contact list.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'contactListImportAction', 'contactListDestination_contactListImportAction' - &gt;The type of action that you want to perform on the addresses.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- Acceptable values:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'contactListImportAction', 'contactListDestination_contactListImportAction' - &gt;The type of action to perform on the addresses. The following are the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- possible values:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- -   PUT: add the addresses to the contact list. If the record already</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--     exists, it will override it with the new value.</span><span>
@@ -122,19 +122,19 @@ $cfrom :: forall x. ContactListDestination -&gt; Rep ContactListDestination x
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span><span>
 </span><span id="line-67"></span><span id="newContactListDestination"><span class="annot"><span class="annottext">newContactListDestination :: Text -&gt; ContactListImportAction -&gt; ContactListDestination
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#newContactListDestination"><span class="hs-identifier hs-var hs-var">newContactListDestination</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679322942"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322942"><span class="hs-identifier hs-var">pContactListName_</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679322941"><span class="annot"><span class="annottext">ContactListImportAction
-</span><a href="#local-6989586621679322941"><span class="hs-identifier hs-var">pContactListImportAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679325241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325241"><span class="hs-identifier hs-var">pContactListName_</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679325240"><span class="annot"><span class="annottext">ContactListImportAction
+</span><a href="#local-6989586621679325240"><span class="hs-identifier hs-var">pContactListImportAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">ContactListDestination' :: Text -&gt; ContactListImportAction -&gt; ContactListDestination
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contactListName:ContactListDestination' :: Text
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#%24sel%3AcontactListName%3AContactListDestination%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322942"><span class="hs-identifier hs-var">pContactListName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679325241"><span class="hs-identifier hs-var">pContactListName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:contactListImportAction:ContactListDestination' :: ContactListImportAction
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#%24sel%3AcontactListImportAction%3AContactListDestination%27"><span class="hs-identifier hs-var">contactListImportAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactListImportAction
-</span><a href="#local-6989586621679322941"><span class="hs-identifier hs-var">pContactListImportAction_</span></a></span><span>
+</span><a href="#local-6989586621679325240"><span class="hs-identifier hs-var">pContactListImportAction_</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The name of the contact list.</span><span>
@@ -145,19 +145,19 @@ $cfrom :: forall x. ContactListDestination -&gt; Rep ContactListDestination x
 -&gt; (ContactListDestination -&gt; Text -&gt; ContactListDestination)
 -&gt; Lens ContactListDestination ContactListDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322937"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325236"><span class="annot"><span class="annottext">Text
 contactListName :: Text
 $sel:contactListName:ContactListDestination' :: ContactListDestination -&gt; Text
-</span><a href="#local-6989586621679322937"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322937"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322936"><span class="annot"><span class="annottext">s :: ContactListDestination
-</span><a href="#local-6989586621679322936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322935"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactListDestination
-</span><a href="#local-6989586621679322936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListName:ContactListDestination' :: Text
+</span><a href="#local-6989586621679325236"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325236"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325235"><span class="annot"><span class="annottext">s :: ContactListDestination
+</span><a href="#local-6989586621679325235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679325234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactListDestination
+</span><a href="#local-6989586621679325235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListName:ContactListDestination' :: Text
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#%24sel%3AcontactListName%3AContactListDestination%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | &gt;The type of action that you want to perform on the addresses.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- Acceptable values:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | &gt;The type of action to perform on the addresses. The following are the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- possible values:</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- -   PUT: add the addresses to the contact list. If the record already</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--     exists, it will override it with the new value.</span><span>
@@ -175,19 +175,19 @@ $sel:contactListName:ContactListDestination' :: ContactListDestination -&gt; Tex
      ContactListImportAction
      ContactListImportAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322933"><span class="annot"><span class="annottext">ContactListImportAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325232"><span class="annot"><span class="annottext">ContactListImportAction
 contactListImportAction :: ContactListImportAction
 $sel:contactListImportAction:ContactListDestination' :: ContactListDestination -&gt; ContactListImportAction
-</span><a href="#local-6989586621679322933"><span class="hs-identifier hs-var hs-var">contactListImportAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactListImportAction
-</span><a href="#local-6989586621679322933"><span class="hs-identifier hs-var">contactListImportAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322932"><span class="annot"><span class="annottext">s :: ContactListDestination
-</span><a href="#local-6989586621679322932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322931"><span class="annot"><span class="annottext">ContactListImportAction
-</span><a href="#local-6989586621679322931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactListDestination
-</span><a href="#local-6989586621679322932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListImportAction:ContactListDestination' :: ContactListImportAction
+</span><a href="#local-6989586621679325232"><span class="hs-identifier hs-var hs-var">contactListImportAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactListImportAction
+</span><a href="#local-6989586621679325232"><span class="hs-identifier hs-var">contactListImportAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325231"><span class="annot"><span class="annottext">s :: ContactListDestination
+</span><a href="#local-6989586621679325231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325230"><span class="annot"><span class="annottext">ContactListImportAction
+</span><a href="#local-6989586621679325230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactListDestination
+</span><a href="#local-6989586621679325231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListImportAction:ContactListDestination' :: ContactListImportAction
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#%24sel%3AcontactListImportAction%3AContactListDestination%27"><span class="hs-identifier hs-var">contactListImportAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactListImportAction
-</span><a href="#local-6989586621679322931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322928"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679322926"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactListDestination
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679325225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactListDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContactListDestination)
@@ -197,8 +197,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContactListDestination&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322923"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325222"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679325222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ContactListImportAction -&gt; ContactListDestination
 </span><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-var">ContactListDestination'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; ContactListImportAction -&gt; ContactListDestination)
@@ -206,7 +206,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ContactListImportAction -&gt; ContactListDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679325222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactListName&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,25 +214,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ContactListImportAction -&gt; Parser ContactListDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContactListImportAction
+</span><a href="#local-6989586621679325222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ContactListImportAction
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactListImportAction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322917"><span id="local-6989586621679322919"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325216"><span id="local-6989586621679325218"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322906"><span id="local-6989586621679322908"><span id="local-6989586621679322910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679322904"><span class="annot"><span class="annottext">toJSON :: ContactListDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322901"><span id="local-6989586621679322902"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325205"><span id="local-6989586621679325207"><span id="local-6989586621679325209"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679325203"><span class="annot"><span class="annottext">toJSON :: ContactListDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination%27"><span class="hs-identifier hs-type">ContactListDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325200"><span id="local-6989586621679325201"><span class="annot"><span class="annottext">Text
 ContactListImportAction
 contactListImportAction :: ContactListImportAction
 contactListName :: Text
 $sel:contactListImportAction:ContactListDestination' :: ContactListDestination -&gt; ContactListImportAction
 $sel:contactListName:ContactListDestination' :: ContactListDestination -&gt; Text
-</span><a href="#local-6989586621679322901"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679325200"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,7 +245,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContactListName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322902"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679325201"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -254,7 +254,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-112"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ContactListImportAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContactListImportAction
-</span><a href="#local-6989586621679322901"><span class="hs-identifier hs-var">contactListImportAction</span></a></span><span>
+</span><a href="#local-6989586621679325200"><span class="hs-identifier hs-var">contactListImportAction</span></a></span><span>
 </span><span id="line-113"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>

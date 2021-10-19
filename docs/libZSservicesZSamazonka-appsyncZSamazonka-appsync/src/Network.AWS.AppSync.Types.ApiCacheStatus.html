@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679246913"><span id="local-6989586621679246914"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiCacheStatus"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheStatus.html#ApiCacheStatus"><span class="hs-identifier hs-var">ApiCacheStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCacheStatus%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheStatus.html#ApiCacheStatus%27"><span class="hs-identifier hs-var">ApiCacheStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679246988"><span id="local-6989586621679246989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiCacheStatus"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheStatus.html#ApiCacheStatus"><span class="hs-identifier hs-var">ApiCacheStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiCacheStatus%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiCacheStatus.html#ApiCacheStatus%27"><span class="hs-identifier hs-var">ApiCacheStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApiCacheStatus"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.ApiCacheStatus.html#fromApiCacheStatus"><span class="hs-identifier hs-var hs-var">fromApiCacheStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246905"><span id="local-6989586621679246907"><span id="local-6989586621679246909"><span class="annot"><span class="annottext">Int -&gt; ApiCacheStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246980"><span id="local-6989586621679246982"><span id="local-6989586621679246984"><span class="annot"><span class="annottext">Int -&gt; ApiCacheStatus -&gt; ShowS
 [ApiCacheStatus] -&gt; ShowS
 ApiCacheStatus -&gt; String
 (Int -&gt; ApiCacheStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ApiCacheStatus -&gt; String
 showsPrec :: Int -&gt; ApiCacheStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApiCacheStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679246896"><span id="local-6989586621679246898"><span id="local-6989586621679246900"><span id="local-6989586621679246902"><span class="annot"><span class="annottext">ReadPrec [ApiCacheStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679246971"><span id="local-6989586621679246973"><span id="local-6989586621679246975"><span id="local-6989586621679246977"><span class="annot"><span class="annottext">ReadPrec [ApiCacheStatus]
 ReadPrec ApiCacheStatus
 Int -&gt; ReadS ApiCacheStatus
 ReadS [ApiCacheStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ApiCacheStatus]
 readsPrec :: Int -&gt; ReadS ApiCacheStatus
 $creadsPrec :: Int -&gt; ReadS ApiCacheStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679246891"><span id="local-6989586621679246893"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679246966"><span id="local-6989586621679246968"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool
 (ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool)
 -&gt; (ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool) -&gt; Eq ApiCacheStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool
 == :: ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool
 $c== :: ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679246875"><span id="local-6989586621679246877"><span id="local-6989586621679246879"><span id="local-6989586621679246881"><span id="local-6989586621679246883"><span id="local-6989586621679246885"><span id="local-6989586621679246887"><span class="annot"><span class="annottext">Eq ApiCacheStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679246950"><span id="local-6989586621679246952"><span id="local-6989586621679246954"><span id="local-6989586621679246956"><span id="local-6989586621679246958"><span id="local-6989586621679246960"><span id="local-6989586621679246962"><span class="annot"><span class="annottext">Eq ApiCacheStatus
 Eq ApiCacheStatus
 -&gt; (ApiCacheStatus -&gt; ApiCacheStatus -&gt; Ordering)
 -&gt; (ApiCacheStatus -&gt; ApiCacheStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ApiCacheStatus -&gt; Rep ApiCacheStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246867"><span id="local-6989586621679246869"><span class="annot"><span class="annottext">Int -&gt; ApiCacheStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246942"><span id="local-6989586621679246944"><span class="annot"><span class="annottext">Int -&gt; ApiCacheStatus -&gt; Int
 ApiCacheStatus -&gt; Int
 (Int -&gt; ApiCacheStatus -&gt; Int)
 -&gt; (ApiCacheStatus -&gt; Int) -&gt; Hashable ApiCacheStatus
@@ -145,50 +145,50 @@ $chash :: ApiCacheStatus -&gt; Int
 hashWithSalt :: Int -&gt; ApiCacheStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ApiCacheStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246864"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246939"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ()
 (ApiCacheStatus -&gt; ()) -&gt; NFData ApiCacheStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApiCacheStatus -&gt; ()
 $crnf :: ApiCacheStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246861"><span class="annot"><span class="annottext">Text -&gt; Either String ApiCacheStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246936"><span class="annot"><span class="annottext">Text -&gt; Either String ApiCacheStatus
 (Text -&gt; Either String ApiCacheStatus) -&gt; FromText ApiCacheStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApiCacheStatus
 $cfromText :: Text -&gt; Either String ApiCacheStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246858"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246933"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; Text
 (ApiCacheStatus -&gt; Text) -&gt; ToText ApiCacheStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApiCacheStatus -&gt; Text
 $ctoText :: ApiCacheStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246855"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246930"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ByteString
 (ApiCacheStatus -&gt; ByteString) -&gt; ToByteString ApiCacheStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApiCacheStatus -&gt; ByteString
 $ctoBS :: ApiCacheStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246852"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246927"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; ByteStringBuilder
 (ApiCacheStatus -&gt; ByteStringBuilder) -&gt; ToLog ApiCacheStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApiCacheStatus -&gt; ByteStringBuilder
 $cbuild :: ApiCacheStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246849"><span class="annot"><span class="annottext">HeaderName -&gt; ApiCacheStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246924"><span class="annot"><span class="annottext">HeaderName -&gt; ApiCacheStatus -&gt; [Header]
 (HeaderName -&gt; ApiCacheStatus -&gt; [Header])
 -&gt; ToHeader ApiCacheStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApiCacheStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApiCacheStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246846"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246921"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; QueryString
 (ApiCacheStatus -&gt; QueryString) -&gt; ToQuery ApiCacheStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApiCacheStatus -&gt; QueryString
 $ctoQuery :: ApiCacheStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246841"><span id="local-6989586621679246843"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiCacheStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246916"><span id="local-6989586621679246918"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiCacheStatus]
 Value -&gt; Parser ApiCacheStatus
 (Value -&gt; Parser ApiCacheStatus)
 -&gt; (Value -&gt; Parser [ApiCacheStatus]) -&gt; FromJSON ApiCacheStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ApiCacheStatus]
 parseJSON :: Value -&gt; Parser ApiCacheStatus
 $cparseJSON :: Value -&gt; Parser ApiCacheStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246836"><span id="local-6989586621679246838"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiCacheStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246911"><span id="local-6989586621679246913"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiCacheStatus]
 FromJSONKeyFunction ApiCacheStatus
 FromJSONKeyFunction ApiCacheStatus
 -&gt; FromJSONKeyFunction [ApiCacheStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApiCacheStatus]
 fromJSONKey :: FromJSONKeyFunction ApiCacheStatus
 $cfromJSONKey :: FromJSONKeyFunction ApiCacheStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246827"><span id="local-6989586621679246829"><span id="local-6989586621679246831"><span id="local-6989586621679246833"><span class="annot"><span class="annottext">[ApiCacheStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246902"><span id="local-6989586621679246904"><span id="local-6989586621679246906"><span id="local-6989586621679246908"><span class="annot"><span class="annottext">[ApiCacheStatus] -&gt; Encoding
 [ApiCacheStatus] -&gt; Value
 ApiCacheStatus -&gt; Encoding
 ApiCacheStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ApiCacheStatus -&gt; Encoding
 toJSON :: ApiCacheStatus -&gt; Value
 $ctoJSON :: ApiCacheStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679246822"><span id="local-6989586621679246824"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiCacheStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679246897"><span id="local-6989586621679246899"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiCacheStatus]
 ToJSONKeyFunction ApiCacheStatus
 ToJSONKeyFunction ApiCacheStatus
 -&gt; ToJSONKeyFunction [ApiCacheStatus] -&gt; ToJSONKey ApiCacheStatus
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApiCacheStatus]
 toJSONKey :: ToJSONKeyFunction ApiCacheStatus
 $ctoJSONKey :: ToJSONKeyFunction ApiCacheStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679246819"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiCacheStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679246894"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiCacheStatus
 ([Node] -&gt; Either String ApiCacheStatus) -&gt; FromXML ApiCacheStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApiCacheStatus
 $cparseXML :: [Node] -&gt; Either String ApiCacheStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679246816"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679246891"><span class="annot"><span class="annottext">ApiCacheStatus -&gt; XML
 (ApiCacheStatus -&gt; XML) -&gt; ToXML ApiCacheStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApiCacheStatus -&gt; XML

@@ -48,10 +48,10 @@
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#newUploadLayerPartResponse"><span class="hs-identifier">newUploadLayerPartResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_uploadId"><span class="hs-identifier">uploadLayerPartResponse_uploadId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_registryId"><span class="hs-identifier">uploadLayerPartResponse_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_registryId"><span class="hs-identifier">uploadLayerPartResponse_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_lastByteReceived"><span class="hs-identifier">uploadLayerPartResponse_lastByteReceived</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_repositoryName"><span class="hs-identifier">uploadLayerPartResponse_repositoryName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_lastByteReceived"><span class="hs-identifier">uploadLayerPartResponse_lastByteReceived</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_uploadId"><span class="hs-identifier">uploadLayerPartResponse_uploadId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_httpStatus"><span class="hs-identifier">uploadLayerPartResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span class="hs-keyword">where</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newUploadLayerPart' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679245018"><span id="local-6989586621679245019"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadLayerPart"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-var">UploadLayerPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadLayerPart%27"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-var">UploadLayerPart'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679245188"><span id="local-6989586621679245189"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadLayerPart"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-var">UploadLayerPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadLayerPart%27"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-var">UploadLayerPart'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry to which</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- you are uploading layer parts. If you do not specify a registry, the</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- default registry is assumed.</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AlayerPartBlob%3AUploadLayerPart%27"><span class="annot"><span class="annottext">UploadLayerPart -&gt; Base64
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlayerPartBlob%3AUploadLayerPart%27"><span class="hs-identifier hs-var hs-var">layerPartBlob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245007"><span id="local-6989586621679245009"><span class="annot"><span class="annottext">UploadLayerPart -&gt; UploadLayerPart -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245177"><span id="local-6989586621679245179"><span class="annot"><span class="annottext">UploadLayerPart -&gt; UploadLayerPart -&gt; Bool
 (UploadLayerPart -&gt; UploadLayerPart -&gt; Bool)
 -&gt; (UploadLayerPart -&gt; UploadLayerPart -&gt; Bool)
 -&gt; Eq UploadLayerPart
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UploadLayerPart -&gt; UploadLayerPart -&gt; Bool
 == :: UploadLayerPart -&gt; UploadLayerPart -&gt; Bool
 $c== :: UploadLayerPart -&gt; UploadLayerPart -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244998"><span id="local-6989586621679245000"><span id="local-6989586621679245002"><span id="local-6989586621679245004"><span class="annot"><span class="annottext">ReadPrec [UploadLayerPart]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245168"><span id="local-6989586621679245170"><span id="local-6989586621679245172"><span id="local-6989586621679245174"><span class="annot"><span class="annottext">ReadPrec [UploadLayerPart]
 ReadPrec UploadLayerPart
 Int -&gt; ReadS UploadLayerPart
 ReadS [UploadLayerPart]
@@ -118,7 +118,7 @@ readList :: ReadS [UploadLayerPart]
 $creadList :: ReadS [UploadLayerPart]
 readsPrec :: Int -&gt; ReadS UploadLayerPart
 $creadsPrec :: Int -&gt; ReadS UploadLayerPart
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244991"><span id="local-6989586621679244993"><span id="local-6989586621679244995"><span class="annot"><span class="annottext">Int -&gt; UploadLayerPart -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245161"><span id="local-6989586621679245163"><span id="local-6989586621679245165"><span class="annot"><span class="annottext">Int -&gt; UploadLayerPart -&gt; ShowS
 [UploadLayerPart] -&gt; ShowS
 UploadLayerPart -&gt; String
 (Int -&gt; UploadLayerPart -&gt; ShowS)
@@ -186,16 +186,16 @@ $cfrom :: forall x. UploadLayerPart -&gt; Rep UploadLayerPart x
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span>
 </span><span id="line-128"></span><span id="newUploadLayerPart"><span class="annot"><span class="annottext">newUploadLayerPart :: Text -&gt; Text -&gt; Natural -&gt; Natural -&gt; ByteString -&gt; UploadLayerPart
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#newUploadLayerPart"><span class="hs-identifier hs-var hs-var">newUploadLayerPart</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679244986"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244986"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679244985"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244985"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679244984"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244984"><span class="hs-identifier hs-var">pPartFirstByte_</span></a></span></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679244983"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244983"><span class="hs-identifier hs-var">pPartLastByte_</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679244982"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679244982"><span class="hs-identifier hs-var">pLayerPartBlob_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679245156"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245156"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679245155"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245155"><span class="hs-identifier hs-var">pUploadId_</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679245154"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245154"><span class="hs-identifier hs-var">pPartFirstByte_</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679245153"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245153"><span class="hs-identifier hs-var">pPartLastByte_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679245152"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679245152"><span class="hs-identifier hs-var">pLayerPartBlob_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">UploadLayerPart' :: Maybe Text
 -&gt; Text -&gt; Text -&gt; Natural -&gt; Natural -&gt; Base64 -&gt; UploadLayerPart
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:repositoryName:UploadLayerPart' :: Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ArepositoryName%3AUploadLayerPart%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244986"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245156"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:uploadId:UploadLayerPart' :: Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPart%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244985"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245155"><span class="hs-identifier hs-var">pUploadId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:partFirstByte:UploadLayerPart' :: Natural
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ApartFirstByte%3AUploadLayerPart%27"><span class="hs-identifier hs-var">partFirstByte</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244984"><span class="hs-identifier hs-var">pPartFirstByte_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245154"><span class="hs-identifier hs-var">pPartFirstByte_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:partLastByte:UploadLayerPart' :: Natural
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ApartLastByte%3AUploadLayerPart%27"><span class="hs-identifier hs-var">partLastByte</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244983"><span class="hs-identifier hs-var">pPartLastByte_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245153"><span class="hs-identifier hs-var">pPartLastByte_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:layerPartBlob:UploadLayerPart' :: Base64
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlayerPartBlob%3AUploadLayerPart%27"><span class="hs-identifier hs-var">layerPartBlob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -224,7 +224,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679244982"><span class="hs-identifier hs-var">pLayerPartBlob_</span></a></span><span>
+</span><a href="#local-6989586621679245152"><span class="hs-identifier hs-var">pLayerPartBlob_</span></a></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry to which</span><span>
@@ -237,16 +237,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (UploadLayerPart -&gt; Maybe Text -&gt; UploadLayerPart)
 -&gt; Lens UploadLayerPart UploadLayerPart (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244977"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245147"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:UploadLayerPart' :: UploadLayerPart -&gt; Maybe Text
-</span><a href="#local-6989586621679244977"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244977"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244976"><span class="annot"><span class="annottext">s :: UploadLayerPart
-</span><a href="#local-6989586621679244976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244975"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
-</span><a href="#local-6989586621679244976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:UploadLayerPart' :: Maybe Text
+</span><a href="#local-6989586621679245147"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245147"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245146"><span class="annot"><span class="annottext">s :: UploadLayerPart
+</span><a href="#local-6989586621679245146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245145"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
+</span><a href="#local-6989586621679245146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:UploadLayerPart' :: Maybe Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AregistryId%3AUploadLayerPart%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The name of the repository to which you are uploading layer parts.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPart_repositoryName"><span class="hs-identifier hs-type">uploadLayerPart_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -255,16 +255,16 @@ $sel:registryId:UploadLayerPart' :: UploadLayerPart -&gt; Maybe Text
 -&gt; (UploadLayerPart -&gt; Text -&gt; UploadLayerPart)
 -&gt; Lens UploadLayerPart UploadLayerPart Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244974"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245144"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:UploadLayerPart' :: UploadLayerPart -&gt; Text
-</span><a href="#local-6989586621679244974"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244974"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244973"><span class="annot"><span class="annottext">s :: UploadLayerPart
-</span><a href="#local-6989586621679244973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244972"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
-</span><a href="#local-6989586621679244973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:UploadLayerPart' :: Text
+</span><a href="#local-6989586621679245144"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245144"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245143"><span class="annot"><span class="annottext">s :: UploadLayerPart
+</span><a href="#local-6989586621679245143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245142"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
+</span><a href="#local-6989586621679245143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:UploadLayerPart' :: Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ArepositoryName%3AUploadLayerPart%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The upload ID from a previous InitiateLayerUpload operation to associate</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- with the layer part upload.</span><span>
@@ -274,16 +274,16 @@ $sel:repositoryName:UploadLayerPart' :: UploadLayerPart -&gt; Text
 -&gt; (UploadLayerPart -&gt; Text -&gt; UploadLayerPart)
 -&gt; Lens UploadLayerPart UploadLayerPart Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244971"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245141"><span class="annot"><span class="annottext">Text
 uploadId :: Text
 $sel:uploadId:UploadLayerPart' :: UploadLayerPart -&gt; Text
-</span><a href="#local-6989586621679244971"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244971"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244970"><span class="annot"><span class="annottext">s :: UploadLayerPart
-</span><a href="#local-6989586621679244970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
-</span><a href="#local-6989586621679244970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:UploadLayerPart' :: Text
+</span><a href="#local-6989586621679245141"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245141"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245140"><span class="annot"><span class="annottext">s :: UploadLayerPart
+</span><a href="#local-6989586621679245140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679245139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
+</span><a href="#local-6989586621679245140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:UploadLayerPart' :: Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPart%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The position of the first byte of the layer part witin the overall image</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- layer.</span><span>
@@ -293,16 +293,16 @@ $sel:uploadId:UploadLayerPart' :: UploadLayerPart -&gt; Text
 -&gt; (UploadLayerPart -&gt; Natural -&gt; UploadLayerPart)
 -&gt; Lens UploadLayerPart UploadLayerPart Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244968"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245138"><span class="annot"><span class="annottext">Natural
 partFirstByte :: Natural
 $sel:partFirstByte:UploadLayerPart' :: UploadLayerPart -&gt; Natural
-</span><a href="#local-6989586621679244968"><span class="hs-identifier hs-var hs-var">partFirstByte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244968"><span class="hs-identifier hs-var">partFirstByte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244967"><span class="annot"><span class="annottext">s :: UploadLayerPart
-</span><a href="#local-6989586621679244967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244966"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
-</span><a href="#local-6989586621679244967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partFirstByte:UploadLayerPart' :: Natural
+</span><a href="#local-6989586621679245138"><span class="hs-identifier hs-var hs-var">partFirstByte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245138"><span class="hs-identifier hs-var">partFirstByte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245137"><span class="annot"><span class="annottext">s :: UploadLayerPart
+</span><a href="#local-6989586621679245137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245136"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
+</span><a href="#local-6989586621679245137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partFirstByte:UploadLayerPart' :: Natural
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ApartFirstByte%3AUploadLayerPart%27"><span class="hs-identifier hs-var">partFirstByte</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The position of the last byte of the layer part within the overall image</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- layer.</span><span>
@@ -312,16 +312,16 @@ $sel:partFirstByte:UploadLayerPart' :: UploadLayerPart -&gt; Natural
 -&gt; (UploadLayerPart -&gt; Natural -&gt; UploadLayerPart)
 -&gt; Lens UploadLayerPart UploadLayerPart Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244965"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245135"><span class="annot"><span class="annottext">Natural
 partLastByte :: Natural
 $sel:partLastByte:UploadLayerPart' :: UploadLayerPart -&gt; Natural
-</span><a href="#local-6989586621679244965"><span class="hs-identifier hs-var hs-var">partLastByte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244965"><span class="hs-identifier hs-var">partLastByte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244964"><span class="annot"><span class="annottext">s :: UploadLayerPart
-</span><a href="#local-6989586621679244964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244963"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
-</span><a href="#local-6989586621679244964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partLastByte:UploadLayerPart' :: Natural
+</span><a href="#local-6989586621679245135"><span class="hs-identifier hs-var hs-var">partLastByte</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245135"><span class="hs-identifier hs-var">partLastByte</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245134"><span class="annot"><span class="annottext">s :: UploadLayerPart
+</span><a href="#local-6989586621679245134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245133"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679245133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
+</span><a href="#local-6989586621679245134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partLastByte:UploadLayerPart' :: Natural
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ApartLastByte%3AUploadLayerPart%27"><span class="hs-identifier hs-var">partLastByte</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The base64-encoded layer part payload.--</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -335,16 +335,16 @@ $sel:partLastByte:UploadLayerPart' :: UploadLayerPart -&gt; Natural
 -&gt; (UploadLayerPart -&gt; Base64 -&gt; UploadLayerPart)
 -&gt; Lens UploadLayerPart UploadLayerPart Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244962"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245132"><span class="annot"><span class="annottext">Base64
 layerPartBlob :: Base64
 $sel:layerPartBlob:UploadLayerPart' :: UploadLayerPart -&gt; Base64
-</span><a href="#local-6989586621679244962"><span class="hs-identifier hs-var hs-var">layerPartBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679244962"><span class="hs-identifier hs-var">layerPartBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244961"><span class="annot"><span class="annottext">s :: UploadLayerPart
-</span><a href="#local-6989586621679244961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244960"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679244960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
-</span><a href="#local-6989586621679244961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerPartBlob:UploadLayerPart' :: Base64
+</span><a href="#local-6989586621679245132"><span class="hs-identifier hs-var hs-var">layerPartBlob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679245132"><span class="hs-identifier hs-var">layerPartBlob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245131"><span class="annot"><span class="annottext">s :: UploadLayerPart
+</span><a href="#local-6989586621679245131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245130"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679245130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPart
+</span><a href="#local-6989586621679245131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerPartBlob:UploadLayerPart' :: Base64
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlayerPartBlob%3AUploadLayerPart%27"><span class="hs-identifier hs-var">layerPartBlob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679244960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; UploadLayerPart -&gt; f UploadLayerPart)
+</span><a href="#local-6989586621679245130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; UploadLayerPart -&gt; f UploadLayerPart)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; UploadLayerPart
@@ -358,12 +358,12 @@ Iso' Base64 ByteString
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679244955"><span class="annot"><span class="annottext">request :: UploadLayerPart -&gt; Request UploadLayerPart
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679245125"><span class="annot"><span class="annottext">request :: UploadLayerPart -&gt; Request UploadLayerPart
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UploadLayerPart -&gt; Request UploadLayerPart
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679244951"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679245121"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UploadLayerPart
 -&gt; ClientResponse ClientBody
@@ -387,68 +387,66 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244948"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244948"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244947"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679244947"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244946"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245118"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245118"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245117"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679245117"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245116"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; UploadLayerPartResponse
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-var">UploadLayerPartResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; UploadLayerPartResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; UploadLayerPartResponse)
+     (Maybe Natural
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UploadLayerPartResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;uploadId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; UploadLayerPartResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; UploadLayerPartResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679245116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; UploadLayerPartResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Natural -&gt; Int -&gt; UploadLayerPartResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Natural -&gt; Int -&gt; UploadLayerPartResponse)
+  (Maybe Natural
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UploadLayerPartResponse)
 -&gt; Either String (Maybe Natural)
--&gt; Either String (Int -&gt; UploadLayerPartResponse)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UploadLayerPartResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679245116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastByteReceived&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UploadLayerPartResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UploadLayerPartResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UploadLayerPartResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UploadLayerPartResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;uploadId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UploadLayerPartResponse)
 -&gt; Either String Int -&gt; Either String UploadLayerPartResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -457,15 +455,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244948"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245118"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244938"><span id="local-6989586621679244940"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245108"><span id="local-6989586621679245110"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679244931"><span class="annot"><span class="annottext">toHeaders :: UploadLayerPart -&gt; ResponseHeaders
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679245101"><span class="annot"><span class="annottext">toHeaders :: UploadLayerPart -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UploadLayerPart -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -492,9 +490,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244921"><span id="local-6989586621679244923"><span id="local-6989586621679244925"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679244919"><span class="annot"><span class="annottext">toJSON :: UploadLayerPart -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244912"><span id="local-6989586621679244913"><span id="local-6989586621679244914"><span id="local-6989586621679244915"><span id="local-6989586621679244916"><span id="local-6989586621679244917"><span class="annot"><span class="annottext">Natural
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245091"><span id="local-6989586621679245093"><span id="local-6989586621679245095"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679245089"><span class="annot"><span class="annottext">toJSON :: UploadLayerPart -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart%27"><span class="hs-identifier hs-type">UploadLayerPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245082"><span id="local-6989586621679245083"><span id="local-6989586621679245084"><span id="local-6989586621679245085"><span id="local-6989586621679245086"><span id="local-6989586621679245087"><span class="annot"><span class="annottext">Natural
 Maybe Text
 Text
 Base64
@@ -510,7 +508,7 @@ $sel:partFirstByte:UploadLayerPart' :: UploadLayerPart -&gt; Natural
 $sel:uploadId:UploadLayerPart' :: UploadLayerPart -&gt; Text
 $sel:repositoryName:UploadLayerPart' :: UploadLayerPart -&gt; Text
 $sel:registryId:UploadLayerPart' :: UploadLayerPart -&gt; Maybe Text
-</span><a href="#local-6989586621679244912"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679245082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -522,7 +520,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244917"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245087"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -530,28 +528,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244916"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245086"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;uploadId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244915"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245085"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;partFirstByte&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244914"><span class="hs-identifier hs-var">partFirstByte</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245084"><span class="hs-identifier hs-var">partFirstByte</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;partLastByte&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679244913"><span class="hs-identifier hs-var">partLastByte</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679245083"><span class="hs-identifier hs-var">partLastByte</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -559,19 +557,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;layerPartBlob&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679244912"><span class="hs-identifier hs-var">layerPartBlob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245082"><span class="hs-identifier hs-var">layerPartBlob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679244906"><span class="annot"><span class="annottext">toPath :: UploadLayerPart -&gt; ByteString
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679245076"><span class="annot"><span class="annottext">toPath :: UploadLayerPart -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UploadLayerPart -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPart"><span class="hs-identifier hs-type">UploadLayerPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679244902"><span class="annot"><span class="annottext">toQuery :: UploadLayerPart -&gt; QueryString
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679245072"><span class="annot"><span class="annottext">toQuery :: UploadLayerPart -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UploadLayerPart -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -579,24 +577,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newUploadLayerPartResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621679244899"><span id="local-6989586621679244900"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadLayerPartResponse"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-var">UploadLayerPartResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadLayerPartResponse%27"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-var">UploadLayerPartResponse'</span></a></span></span><span>
-</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The upload ID associated with the request.</span><span>
-</span><span id="line-235"></span><span>    </span><span id="%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
-</span><span id="line-237"></span><span>    </span><span id="%24sel%3AregistryId%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Maybe Text
+</span><span id="line-233"></span><span id="local-6989586621679245069"><span id="local-6989586621679245070"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadLayerPartResponse"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-var">UploadLayerPartResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadLayerPartResponse%27"><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-var">UploadLayerPartResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AregistryId%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AregistryId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The integer value of the last byte received in the request.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Maybe Natural
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var hs-var">lastByteReceived</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
 </span><span id="line-239"></span><span>    </span><span id="%24sel%3ArepositoryName%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ArepositoryName%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The integer value of the last byte received in the request.</span><span>
-</span><span id="line-241"></span><span>    </span><span id="%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Maybe Natural
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var hs-var">lastByteReceived</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The upload ID associated with the request.</span><span>
+</span><span id="line-241"></span><span>    </span><span id="%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-243"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUploadLayerPartResponse%27"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; Int
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AhttpStatus%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244890"><span id="local-6989586621679244892"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; UploadLayerPartResponse -&gt; Bool
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245060"><span id="local-6989586621679245062"><span class="annot"><span class="annottext">UploadLayerPartResponse -&gt; UploadLayerPartResponse -&gt; Bool
 (UploadLayerPartResponse -&gt; UploadLayerPartResponse -&gt; Bool)
 -&gt; (UploadLayerPartResponse -&gt; UploadLayerPartResponse -&gt; Bool)
 -&gt; Eq UploadLayerPartResponse
@@ -605,7 +603,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UploadLayerPartResponse -&gt; UploadLayerPartResponse -&gt; Bool
 == :: UploadLayerPartResponse -&gt; UploadLayerPartResponse -&gt; Bool
 $c== :: UploadLayerPartResponse -&gt; UploadLayerPartResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244882"><span id="local-6989586621679244884"><span id="local-6989586621679244886"><span id="local-6989586621679244888"><span class="annot"><span class="annottext">ReadPrec [UploadLayerPartResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245052"><span id="local-6989586621679245054"><span id="local-6989586621679245056"><span id="local-6989586621679245058"><span class="annot"><span class="annottext">ReadPrec [UploadLayerPartResponse]
 ReadPrec UploadLayerPartResponse
 Int -&gt; ReadS UploadLayerPartResponse
 ReadS [UploadLayerPartResponse]
@@ -625,7 +623,7 @@ readList :: ReadS [UploadLayerPartResponse]
 $creadList :: ReadS [UploadLayerPartResponse]
 readsPrec :: Int -&gt; ReadS UploadLayerPartResponse
 $creadsPrec :: Int -&gt; ReadS UploadLayerPartResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244876"><span id="local-6989586621679244878"><span id="local-6989586621679244880"><span class="annot"><span class="annottext">Int -&gt; UploadLayerPartResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245046"><span id="local-6989586621679245048"><span id="local-6989586621679245050"><span class="annot"><span class="annottext">Int -&gt; UploadLayerPartResponse -&gt; ShowS
 [UploadLayerPartResponse] -&gt; ShowS
 UploadLayerPartResponse -&gt; String
 (Int -&gt; UploadLayerPartResponse -&gt; ShowS)
@@ -661,13 +659,13 @@ $cfrom :: forall x. UploadLayerPartResponse -&gt; Rep UploadLayerPartResponse x
 </span><span id="line-252"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- 'uploadId', 'uploadLayerPartResponse_uploadId' - The upload ID associated with the request.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'registryId', 'uploadLayerPartResponse_registryId' - The registry ID associated with the request.</span><span>
 </span><span id="line-256"></span><span class="hs-comment">--</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- 'registryId', 'uploadLayerPartResponse_registryId' - The registry ID associated with the request.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- 'lastByteReceived', 'uploadLayerPartResponse_lastByteReceived' - The integer value of the last byte received in the request.</span><span>
 </span><span id="line-258"></span><span class="hs-comment">--</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- 'repositoryName', 'uploadLayerPartResponse_repositoryName' - The repository name associated with the request.</span><span>
 </span><span id="line-260"></span><span class="hs-comment">--</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- 'lastByteReceived', 'uploadLayerPartResponse_lastByteReceived' - The integer value of the last byte received in the request.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'uploadId', 'uploadLayerPartResponse_uploadId' - The upload ID associated with the request.</span><span>
 </span><span id="line-262"></span><span class="hs-comment">--</span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- 'httpStatus', 'uploadLayerPartResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-264"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#newUploadLayerPartResponse"><span class="hs-identifier hs-type">newUploadLayerPartResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -675,64 +673,40 @@ $cfrom :: forall x. UploadLayerPartResponse -&gt; Rep UploadLayerPartResponse x
 </span><span id="line-266"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span>
 </span><span id="line-268"></span><span id="newUploadLayerPartResponse"><span class="annot"><span class="annottext">newUploadLayerPartResponse :: Int -&gt; UploadLayerPartResponse
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#newUploadLayerPartResponse"><span class="hs-identifier hs-var hs-var">newUploadLayerPartResponse</span></a></span></span><span> </span><span id="local-6989586621679244873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#newUploadLayerPartResponse"><span class="hs-identifier hs-var hs-var">newUploadLayerPartResponse</span></a></span></span><span> </span><span id="local-6989586621679245043"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-269"></span><span>  </span><span class="annot"><span class="annottext">UploadLayerPartResponse' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; UploadLayerPartResponse
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span>
-</span><span id="line-270"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uploadId:UploadLayerPartResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:UploadLayerPartResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AregistryId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryId:UploadLayerPartResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AregistryId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastByteReceived:UploadLayerPartResponse' :: Maybe Natural
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">lastByteReceived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:UploadLayerPartResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ArepositoryName%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastByteReceived:UploadLayerPartResponse' :: Maybe Natural
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">lastByteReceived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadId:UploadLayerPartResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UploadLayerPartResponse' :: Int
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AhttpStatus%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679245043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- | The upload ID associated with the request.</span><span>
-</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_uploadId"><span class="hs-identifier hs-type">uploadLayerPartResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-280"></span><span id="uploadLayerPartResponse_uploadId"><span class="annot"><span class="annottext">uploadLayerPartResponse_uploadId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UploadLayerPartResponse -&gt; f UploadLayerPartResponse
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_uploadId"><span class="hs-identifier hs-var hs-var">uploadLayerPartResponse_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadLayerPartResponse -&gt; Maybe Text)
--&gt; (UploadLayerPartResponse
-    -&gt; Maybe Text -&gt; UploadLayerPartResponse)
--&gt; Lens
-     UploadLayerPartResponse
-     UploadLayerPartResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244872"><span class="annot"><span class="annottext">Maybe Text
-uploadId :: Maybe Text
-$sel:uploadId:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679244872"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244872"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244871"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
-</span><a href="#local-6989586621679244871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244870"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
-</span><a href="#local-6989586621679244871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:UploadLayerPartResponse' :: Maybe Text
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
-</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_registryId"><span class="hs-identifier hs-type">uploadLayerPartResponse_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-284"></span><span id="uploadLayerPartResponse_registryId"><span class="annot"><span class="annottext">uploadLayerPartResponse_registryId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-278"></span><span class="hs-comment">-- | The registry ID associated with the request.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_registryId"><span class="hs-identifier hs-type">uploadLayerPartResponse_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="uploadLayerPartResponse_registryId"><span class="annot"><span class="annottext">uploadLayerPartResponse_registryId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UploadLayerPartResponse -&gt; f UploadLayerPartResponse
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_registryId"><span class="hs-identifier hs-var hs-var">uploadLayerPartResponse_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadLayerPartResponse -&gt; Maybe Text)
 -&gt; (UploadLayerPartResponse
@@ -743,16 +717,40 @@ $sel:uploadId:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe Te
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244869"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245042"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679244869"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244869"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244868"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
-</span><a href="#local-6989586621679244868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244867"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
-</span><a href="#local-6989586621679244868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:UploadLayerPartResponse' :: Maybe Text
+</span><a href="#local-6989586621679245042"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245042"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245041"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
+</span><a href="#local-6989586621679245041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
+</span><a href="#local-6989586621679245041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:UploadLayerPartResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AregistryId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The integer value of the last byte received in the request.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_lastByteReceived"><span class="hs-identifier hs-type">uploadLayerPartResponse_lastByteReceived</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="uploadLayerPartResponse_lastByteReceived"><span class="annot"><span class="annottext">uploadLayerPartResponse_lastByteReceived :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UploadLayerPartResponse -&gt; f UploadLayerPartResponse
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_lastByteReceived"><span class="hs-identifier hs-var hs-var">uploadLayerPartResponse_lastByteReceived</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadLayerPartResponse -&gt; Maybe Natural)
+-&gt; (UploadLayerPartResponse
+    -&gt; Maybe Natural -&gt; UploadLayerPartResponse)
+-&gt; Lens
+     UploadLayerPartResponse
+     UploadLayerPartResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245039"><span class="annot"><span class="annottext">Maybe Natural
+lastByteReceived :: Maybe Natural
+$sel:lastByteReceived:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var hs-var">lastByteReceived</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var">lastByteReceived</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245038"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
+</span><a href="#local-6989586621679245038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245037"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
+</span><a href="#local-6989586621679245038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastByteReceived:UploadLayerPartResponse' :: Maybe Natural
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">lastByteReceived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- | The repository name associated with the request.</span><span>
 </span><span id="line-287"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_repositoryName"><span class="hs-identifier hs-type">uploadLayerPartResponse_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -767,40 +765,40 @@ $sel:registryId:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244866"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245036"><span class="annot"><span class="annottext">Maybe Text
 repositoryName :: Maybe Text
 $sel:repositoryName:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679244866"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244866"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244865"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
-</span><a href="#local-6989586621679244865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244864"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
-</span><a href="#local-6989586621679244865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:UploadLayerPartResponse' :: Maybe Text
+</span><a href="#local-6989586621679245036"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245036"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245035"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
+</span><a href="#local-6989586621679245035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245034"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
+</span><a href="#local-6989586621679245035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:UploadLayerPartResponse' :: Maybe Text
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3ArepositoryName%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- | The integer value of the last byte received in the request.</span><span>
-</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_lastByteReceived"><span class="hs-identifier hs-type">uploadLayerPartResponse_lastByteReceived</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-292"></span><span id="uploadLayerPartResponse_lastByteReceived"><span class="annot"><span class="annottext">uploadLayerPartResponse_lastByteReceived :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-290"></span><span class="hs-comment">-- | The upload ID associated with the request.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_uploadId"><span class="hs-identifier hs-type">uploadLayerPartResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="uploadLayerPartResponse_uploadId"><span class="annot"><span class="annottext">uploadLayerPartResponse_uploadId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UploadLayerPartResponse -&gt; f UploadLayerPartResponse
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_lastByteReceived"><span class="hs-identifier hs-var hs-var">uploadLayerPartResponse_lastByteReceived</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadLayerPartResponse -&gt; Maybe Natural)
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_uploadId"><span class="hs-identifier hs-var hs-var">uploadLayerPartResponse_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UploadLayerPartResponse -&gt; Maybe Text)
 -&gt; (UploadLayerPartResponse
-    -&gt; Maybe Natural -&gt; UploadLayerPartResponse)
+    -&gt; Maybe Text -&gt; UploadLayerPartResponse)
 -&gt; Lens
      UploadLayerPartResponse
      UploadLayerPartResponse
-     (Maybe Natural)
-     (Maybe Natural)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244863"><span class="annot"><span class="annottext">Maybe Natural
-lastByteReceived :: Maybe Natural
-$sel:lastByteReceived:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679244863"><span class="hs-identifier hs-var hs-var">lastByteReceived</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679244863"><span class="hs-identifier hs-var">lastByteReceived</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244862"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
-</span><a href="#local-6989586621679244862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244861"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679244861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
-</span><a href="#local-6989586621679244862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastByteReceived:UploadLayerPartResponse' :: Maybe Natural
-</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AlastByteReceived%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">lastByteReceived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679244861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245033"><span class="annot"><span class="annottext">Maybe Text
+uploadId :: Maybe Text
+$sel:uploadId:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679245033"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245033"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245032"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
+</span><a href="#local-6989586621679245032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
+</span><a href="#local-6989586621679245032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:UploadLayerPartResponse' :: Maybe Text
+</span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AuploadId%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-295"></span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#uploadLayerPartResponse_httpStatus"><span class="hs-identifier hs-type">uploadLayerPartResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -810,16 +808,16 @@ $sel:lastByteReceived:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; 
 -&gt; (UploadLayerPartResponse -&gt; Int -&gt; UploadLayerPartResponse)
 -&gt; Lens UploadLayerPartResponse UploadLayerPartResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244860"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245030"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UploadLayerPartResponse' :: UploadLayerPartResponse -&gt; Int
-</span><a href="#local-6989586621679244860"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244860"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244859"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
-</span><a href="#local-6989586621679244859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244858"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
-</span><a href="#local-6989586621679244859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UploadLayerPartResponse' :: Int
+</span><a href="#local-6989586621679245030"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245030"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245029"><span class="annot"><span class="annottext">s :: UploadLayerPartResponse
+</span><a href="#local-6989586621679245029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse%27"><span class="hs-identifier hs-type">UploadLayerPartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadLayerPartResponse
+</span><a href="#local-6989586621679245029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UploadLayerPartResponse' :: Int
 </span><a href="Network.AWS.ECR.UploadLayerPart.html#%24sel%3AhttpStatus%3AUploadLayerPartResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
-</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.UploadLayerPart.html#UploadLayerPartResponse"><span class="hs-identifier hs-type">UploadLayerPartResponse</span></a></span></span><span>
 </span><span id="line-299"></span></pre></body></html>

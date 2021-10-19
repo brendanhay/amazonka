@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the content of the lexicon.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLexiconDescription' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679171373"><span id="local-6989586621679171374"></span></span><span class="hs-keyword">data</span><span> </span><span id="LexiconDescription"><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-var">LexiconDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LexiconDescription%27"><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-var">LexiconDescription'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the lexicon.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3ALexiconDescription%27"><span class="annot"><span class="annottext">LexiconDescription -&gt; Maybe Text
-</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aname%3ALexiconDescription%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Provides lexicon metadata.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aattributes%3ALexiconDescription%27"><span class="annot"><span class="annottext">LexiconDescription -&gt; Maybe LexiconAttributes
-</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aattributes%3ALexiconDescription%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconAttributes.html#LexiconAttributes"><span class="hs-identifier hs-type">LexiconAttributes</span></a></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679171417"><span id="local-6989586621679171418"></span></span><span class="hs-keyword">data</span><span> </span><span id="LexiconDescription"><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-var">LexiconDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LexiconDescription%27"><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-var">LexiconDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides lexicon metadata.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aattributes%3ALexiconDescription%27"><span class="annot"><span class="annottext">LexiconDescription -&gt; Maybe LexiconAttributes
+</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aattributes%3ALexiconDescription%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconAttributes.html#LexiconAttributes"><span class="hs-identifier hs-type">LexiconAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Name of the lexicon.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3ALexiconDescription%27"><span class="annot"><span class="annottext">LexiconDescription -&gt; Maybe Text
+</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aname%3ALexiconDescription%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171366"><span id="local-6989586621679171368"><span class="annot"><span class="annottext">LexiconDescription -&gt; LexiconDescription -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171410"><span id="local-6989586621679171412"><span class="annot"><span class="annottext">LexiconDescription -&gt; LexiconDescription -&gt; Bool
 (LexiconDescription -&gt; LexiconDescription -&gt; Bool)
 -&gt; (LexiconDescription -&gt; LexiconDescription -&gt; Bool)
 -&gt; Eq LexiconDescription
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LexiconDescription -&gt; LexiconDescription -&gt; Bool
 == :: LexiconDescription -&gt; LexiconDescription -&gt; Bool
 $c== :: LexiconDescription -&gt; LexiconDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171357"><span id="local-6989586621679171359"><span id="local-6989586621679171361"><span id="local-6989586621679171363"><span class="annot"><span class="annottext">ReadPrec [LexiconDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171401"><span id="local-6989586621679171403"><span id="local-6989586621679171405"><span id="local-6989586621679171407"><span class="annot"><span class="annottext">ReadPrec [LexiconDescription]
 ReadPrec LexiconDescription
 Int -&gt; ReadS LexiconDescription
 ReadS [LexiconDescription]
@@ -64,7 +64,7 @@ readList :: ReadS [LexiconDescription]
 $creadList :: ReadS [LexiconDescription]
 readsPrec :: Int -&gt; ReadS LexiconDescription
 $creadsPrec :: Int -&gt; ReadS LexiconDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171350"><span id="local-6989586621679171352"><span id="local-6989586621679171354"><span class="annot"><span class="annottext">Int -&gt; LexiconDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171394"><span id="local-6989586621679171396"><span id="local-6989586621679171398"><span class="annot"><span class="annottext">Int -&gt; LexiconDescription -&gt; ShowS
 [LexiconDescription] -&gt; ShowS
 LexiconDescription -&gt; String
 (Int -&gt; LexiconDescription -&gt; ShowS)
@@ -98,48 +98,28 @@ $cfrom :: forall x. LexiconDescription -&gt; Rep LexiconDescription x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'name', 'lexiconDescription_name' - Name of the lexicon.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'attributes', 'lexiconDescription_attributes' - Provides lexicon metadata.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'attributes', 'lexiconDescription_attributes' - Provides lexicon metadata.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'lexiconDescription_name' - Name of the lexicon.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#newLexiconDescription"><span class="hs-identifier hs-type">newLexiconDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span>
 </span><span id="line-51"></span><span id="newLexiconDescription"><span class="annot"><span class="annottext">newLexiconDescription :: LexiconDescription
 </span><a href="Network.AWS.Polly.Types.LexiconDescription.html#newLexiconDescription"><span class="hs-identifier hs-var hs-var">newLexiconDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">LexiconDescription' :: Maybe Text -&gt; Maybe LexiconAttributes -&gt; LexiconDescription
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">LexiconDescription' :: Maybe LexiconAttributes -&gt; Maybe Text -&gt; LexiconDescription
 </span><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:LexiconDescription' :: Maybe Text
-</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aname%3ALexiconDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:LexiconDescription' :: Maybe LexiconAttributes
+</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aattributes%3ALexiconDescription%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LexiconAttributes
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:LexiconDescription' :: Maybe LexiconAttributes
-</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aattributes%3ALexiconDescription%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LexiconAttributes
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:LexiconDescription' :: Maybe Text
+</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aname%3ALexiconDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | Name of the lexicon.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#lexiconDescription_name"><span class="hs-identifier hs-type">lexiconDescription_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="lexiconDescription_name"><span class="annot"><span class="annottext">lexiconDescription_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LexiconDescription -&gt; f LexiconDescription
-</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#lexiconDescription_name"><span class="hs-identifier hs-var hs-var">lexiconDescription_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LexiconDescription -&gt; Maybe Text)
--&gt; (LexiconDescription -&gt; Maybe Text -&gt; LexiconDescription)
--&gt; Lens
-     LexiconDescription LexiconDescription (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171341"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:LexiconDescription' :: LexiconDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679171341"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171341"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171340"><span class="annot"><span class="annottext">s :: LexiconDescription
-</span><a href="#local-6989586621679171340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171339"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexiconDescription
-</span><a href="#local-6989586621679171340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LexiconDescription' :: Maybe Text
-</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aname%3ALexiconDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679171339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Provides lexicon metadata.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#lexiconDescription_attributes"><span class="hs-identifier hs-type">lexiconDescription_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconAttributes.html#LexiconAttributes"><span class="hs-identifier hs-type">LexiconAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="lexiconDescription_attributes"><span class="annot"><span class="annottext">lexiconDescription_attributes :: (Maybe LexiconAttributes -&gt; f (Maybe LexiconAttributes))
+</span><span id="line-57"></span><span class="hs-comment">-- | Provides lexicon metadata.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#lexiconDescription_attributes"><span class="hs-identifier hs-type">lexiconDescription_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconAttributes.html#LexiconAttributes"><span class="hs-identifier hs-type">LexiconAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="lexiconDescription_attributes"><span class="annot"><span class="annottext">lexiconDescription_attributes :: (Maybe LexiconAttributes -&gt; f (Maybe LexiconAttributes))
 -&gt; LexiconDescription -&gt; f LexiconDescription
 </span><a href="Network.AWS.Polly.Types.LexiconDescription.html#lexiconDescription_attributes"><span class="hs-identifier hs-var hs-var">lexiconDescription_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LexiconDescription -&gt; Maybe LexiconAttributes)
 -&gt; (LexiconDescription
@@ -150,19 +130,39 @@ $sel:name:LexiconDescription' :: LexiconDescription -&gt; Maybe Text
      (Maybe LexiconAttributes)
      (Maybe LexiconAttributes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171337"><span class="annot"><span class="annottext">Maybe LexiconAttributes
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171385"><span class="annot"><span class="annottext">Maybe LexiconAttributes
 attributes :: Maybe LexiconAttributes
 $sel:attributes:LexiconDescription' :: LexiconDescription -&gt; Maybe LexiconAttributes
-</span><a href="#local-6989586621679171337"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexiconAttributes
-</span><a href="#local-6989586621679171337"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171336"><span class="annot"><span class="annottext">s :: LexiconDescription
-</span><a href="#local-6989586621679171336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171335"><span class="annot"><span class="annottext">Maybe LexiconAttributes
-</span><a href="#local-6989586621679171335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexiconDescription
-</span><a href="#local-6989586621679171336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:LexiconDescription' :: Maybe LexiconAttributes
+</span><a href="#local-6989586621679171385"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LexiconAttributes
+</span><a href="#local-6989586621679171385"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171384"><span class="annot"><span class="annottext">s :: LexiconDescription
+</span><a href="#local-6989586621679171384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171383"><span class="annot"><span class="annottext">Maybe LexiconAttributes
+</span><a href="#local-6989586621679171383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexiconDescription
+</span><a href="#local-6989586621679171384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:LexiconDescription' :: Maybe LexiconAttributes
 </span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aattributes%3ALexiconDescription%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LexiconAttributes
-</span><a href="#local-6989586621679171335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679171383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Name of the lexicon.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#lexiconDescription_name"><span class="hs-identifier hs-type">lexiconDescription_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="lexiconDescription_name"><span class="annot"><span class="annottext">lexiconDescription_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LexiconDescription -&gt; f LexiconDescription
+</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#lexiconDescription_name"><span class="hs-identifier hs-var hs-var">lexiconDescription_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LexiconDescription -&gt; Maybe Text)
+-&gt; (LexiconDescription -&gt; Maybe Text -&gt; LexiconDescription)
+-&gt; Lens
+     LexiconDescription LexiconDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171381"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:LexiconDescription' :: LexiconDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679171381"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171381"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171380"><span class="annot"><span class="annottext">s :: LexiconDescription
+</span><a href="#local-6989586621679171380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-type">LexiconDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171379"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexiconDescription
+</span><a href="#local-6989586621679171380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LexiconDescription' :: Maybe Text
+</span><a href="Network.AWS.Polly.Types.LexiconDescription.html#%24sel%3Aname%3ALexiconDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679171330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LexiconDescription
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171376"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679171374"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LexiconDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LexiconDescription)
@@ -172,30 +172,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LexiconDescription&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171327"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe LexiconAttributes -&gt; LexiconDescription
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171371"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe LexiconAttributes -&gt; Maybe Text -&gt; LexiconDescription
 </span><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription%27"><span class="hs-identifier hs-var">LexiconDescription'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe LexiconAttributes -&gt; LexiconDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe LexiconAttributes -&gt; LexiconDescription)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LexiconAttributes -&gt; Maybe Text -&gt; LexiconDescription)
+-&gt; Parser (Maybe LexiconAttributes)
+-&gt; Parser (Maybe Text -&gt; LexiconDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LexiconAttributes -&gt; LexiconDescription)
--&gt; Parser (Maybe LexiconAttributes) -&gt; Parser LexiconDescription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679171327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LexiconAttributes)
+</span><a href="#local-6989586621679171371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LexiconAttributes)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LexiconDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser LexiconDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171321"><span id="local-6989586621679171323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171365"><span id="local-6989586621679171367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LexiconDescription.html#LexiconDescription"><span class="hs-identifier hs-type">LexiconDescription</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

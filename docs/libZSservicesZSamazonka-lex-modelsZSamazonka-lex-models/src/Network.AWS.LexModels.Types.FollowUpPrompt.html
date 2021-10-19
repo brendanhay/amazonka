@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- the user to find out whether the user wants to order drinks.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFollowUpPrompt' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679316318"><span id="local-6989586621679316319"></span></span><span class="hs-keyword">data</span><span> </span><span id="FollowUpPrompt"><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-var">FollowUpPrompt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FollowUpPrompt%27"><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-var">FollowUpPrompt'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679316613"><span id="local-6989586621679316614"></span></span><span class="hs-keyword">data</span><span> </span><span id="FollowUpPrompt"><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-var">FollowUpPrompt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FollowUpPrompt%27"><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-var">FollowUpPrompt'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Prompts for information from the user.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprompt%3AFollowUpPrompt%27"><span class="annot"><span class="annottext">FollowUpPrompt -&gt; Prompt
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#%24sel%3Aprompt%3AFollowUpPrompt%27"><span class="hs-identifier hs-var hs-var">prompt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3ArejectionStatement%3AFollowUpPrompt%27"><span class="annot"><span class="annottext">FollowUpPrompt -&gt; Statement
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#%24sel%3ArejectionStatement%3AFollowUpPrompt%27"><span class="hs-identifier hs-var hs-var">rejectionStatement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316311"><span id="local-6989586621679316313"><span class="annot"><span class="annottext">FollowUpPrompt -&gt; FollowUpPrompt -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316606"><span id="local-6989586621679316608"><span class="annot"><span class="annottext">FollowUpPrompt -&gt; FollowUpPrompt -&gt; Bool
 (FollowUpPrompt -&gt; FollowUpPrompt -&gt; Bool)
 -&gt; (FollowUpPrompt -&gt; FollowUpPrompt -&gt; Bool) -&gt; Eq FollowUpPrompt
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FollowUpPrompt -&gt; FollowUpPrompt -&gt; Bool
 == :: FollowUpPrompt -&gt; FollowUpPrompt -&gt; Bool
 $c== :: FollowUpPrompt -&gt; FollowUpPrompt -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316302"><span id="local-6989586621679316304"><span id="local-6989586621679316306"><span id="local-6989586621679316308"><span class="annot"><span class="annottext">ReadPrec [FollowUpPrompt]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316597"><span id="local-6989586621679316599"><span id="local-6989586621679316601"><span id="local-6989586621679316603"><span class="annot"><span class="annottext">ReadPrec [FollowUpPrompt]
 ReadPrec FollowUpPrompt
 Int -&gt; ReadS FollowUpPrompt
 ReadS [FollowUpPrompt]
@@ -68,7 +68,7 @@ readList :: ReadS [FollowUpPrompt]
 $creadList :: ReadS [FollowUpPrompt]
 readsPrec :: Int -&gt; ReadS FollowUpPrompt
 $creadsPrec :: Int -&gt; ReadS FollowUpPrompt
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316295"><span id="local-6989586621679316297"><span id="local-6989586621679316299"><span class="annot"><span class="annottext">Int -&gt; FollowUpPrompt -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316590"><span id="local-6989586621679316592"><span id="local-6989586621679316594"><span class="annot"><span class="annottext">Int -&gt; FollowUpPrompt -&gt; ShowS
 [FollowUpPrompt] -&gt; ShowS
 FollowUpPrompt -&gt; String
 (Int -&gt; FollowUpPrompt -&gt; ShowS)
@@ -114,17 +114,17 @@ $cfrom :: forall x. FollowUpPrompt -&gt; Rep FollowUpPrompt x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span><span>
 </span><span id="line-62"></span><span id="newFollowUpPrompt"><span class="annot"><span class="annottext">newFollowUpPrompt :: Prompt -&gt; Statement -&gt; FollowUpPrompt
-</span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#newFollowUpPrompt"><span class="hs-identifier hs-var hs-var">newFollowUpPrompt</span></a></span></span><span> </span><span id="local-6989586621679316289"><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679316289"><span class="hs-identifier hs-var">pPrompt_</span></a></span></span><span> </span><span id="local-6989586621679316288"><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316288"><span class="hs-identifier hs-var">pRejectionStatement_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#newFollowUpPrompt"><span class="hs-identifier hs-var hs-var">newFollowUpPrompt</span></a></span></span><span> </span><span id="local-6989586621679316584"><span class="annot"><span class="annottext">Prompt
+</span><a href="#local-6989586621679316584"><span class="hs-identifier hs-var">pPrompt_</span></a></span></span><span> </span><span id="local-6989586621679316583"><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679316583"><span class="hs-identifier hs-var">pRejectionStatement_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">FollowUpPrompt' :: Prompt -&gt; Statement -&gt; FollowUpPrompt
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prompt:FollowUpPrompt' :: Prompt
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#%24sel%3Aprompt%3AFollowUpPrompt%27"><span class="hs-identifier hs-var">prompt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679316289"><span class="hs-identifier hs-var">pPrompt_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316584"><span class="hs-identifier hs-var">pPrompt_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:rejectionStatement:FollowUpPrompt' :: Statement
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#%24sel%3ArejectionStatement%3AFollowUpPrompt%27"><span class="hs-identifier hs-var">rejectionStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316288"><span class="hs-identifier hs-var">pRejectionStatement_</span></a></span><span>
+</span><a href="#local-6989586621679316583"><span class="hs-identifier hs-var">pRejectionStatement_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Prompts for information from the user.</span><span>
@@ -134,16 +134,16 @@ $cfrom :: forall x. FollowUpPrompt -&gt; Rep FollowUpPrompt x
 -&gt; (FollowUpPrompt -&gt; Prompt -&gt; FollowUpPrompt)
 -&gt; Lens FollowUpPrompt FollowUpPrompt Prompt Prompt
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316284"><span class="annot"><span class="annottext">Prompt
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316579"><span class="annot"><span class="annottext">Prompt
 prompt :: Prompt
 $sel:prompt:FollowUpPrompt' :: FollowUpPrompt -&gt; Prompt
-</span><a href="#local-6989586621679316284"><span class="hs-identifier hs-var hs-var">prompt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679316284"><span class="hs-identifier hs-var">prompt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316283"><span class="annot"><span class="annottext">s :: FollowUpPrompt
-</span><a href="#local-6989586621679316283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316282"><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679316282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FollowUpPrompt
-</span><a href="#local-6989586621679316283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prompt:FollowUpPrompt' :: Prompt
+</span><a href="#local-6989586621679316579"><span class="hs-identifier hs-var hs-var">prompt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Prompt
+</span><a href="#local-6989586621679316579"><span class="hs-identifier hs-var">prompt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316578"><span class="annot"><span class="annottext">s :: FollowUpPrompt
+</span><a href="#local-6989586621679316578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316577"><span class="annot"><span class="annottext">Prompt
+</span><a href="#local-6989586621679316577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FollowUpPrompt
+</span><a href="#local-6989586621679316578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prompt:FollowUpPrompt' :: Prompt
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#%24sel%3Aprompt%3AFollowUpPrompt%27"><span class="hs-identifier hs-var">prompt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679316282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | If the user answers \&quot;no\&quot; to the question defined in the @prompt@</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- field, Amazon Lex responds with this statement to acknowledge that the</span><span>
@@ -154,19 +154,19 @@ $sel:prompt:FollowUpPrompt' :: FollowUpPrompt -&gt; Prompt
 -&gt; (FollowUpPrompt -&gt; Statement -&gt; FollowUpPrompt)
 -&gt; Lens FollowUpPrompt FollowUpPrompt Statement Statement
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316280"><span class="annot"><span class="annottext">Statement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316575"><span class="annot"><span class="annottext">Statement
 rejectionStatement :: Statement
 $sel:rejectionStatement:FollowUpPrompt' :: FollowUpPrompt -&gt; Statement
-</span><a href="#local-6989586621679316280"><span class="hs-identifier hs-var hs-var">rejectionStatement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316280"><span class="hs-identifier hs-var">rejectionStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316279"><span class="annot"><span class="annottext">s :: FollowUpPrompt
-</span><a href="#local-6989586621679316279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316278"><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FollowUpPrompt
-</span><a href="#local-6989586621679316279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectionStatement:FollowUpPrompt' :: Statement
+</span><a href="#local-6989586621679316575"><span class="hs-identifier hs-var hs-var">rejectionStatement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679316575"><span class="hs-identifier hs-var">rejectionStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316574"><span class="annot"><span class="annottext">s :: FollowUpPrompt
+</span><a href="#local-6989586621679316574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316573"><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679316573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FollowUpPrompt
+</span><a href="#local-6989586621679316574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectionStatement:FollowUpPrompt' :: Statement
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#%24sel%3ArejectionStatement%3AFollowUpPrompt%27"><span class="hs-identifier hs-var">rejectionStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679316273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FollowUpPrompt
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316570"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679316568"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FollowUpPrompt
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FollowUpPrompt)
@@ -176,15 +176,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FollowUpPrompt&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316270"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316565"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Prompt -&gt; Statement -&gt; FollowUpPrompt
 </span><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-var">FollowUpPrompt'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Prompt -&gt; Statement -&gt; FollowUpPrompt)
 -&gt; Parser Prompt -&gt; Parser (Statement -&gt; FollowUpPrompt)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Prompt
+</span><a href="#local-6989586621679316565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Prompt
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;prompt&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,25 +192,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Statement -&gt; Parser FollowUpPrompt
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Statement
+</span><a href="#local-6989586621679316565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Statement
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rejectionStatement&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316264"><span id="local-6989586621679316266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316559"><span id="local-6989586621679316561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316253"><span id="local-6989586621679316255"><span id="local-6989586621679316257"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679316251"><span class="annot"><span class="annottext">toJSON :: FollowUpPrompt -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316248"><span id="local-6989586621679316249"><span class="annot"><span class="annottext">Prompt
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316548"><span id="local-6989586621679316550"><span id="local-6989586621679316552"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt"><span class="hs-identifier hs-type">FollowUpPrompt</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679316546"><span class="annot"><span class="annottext">toJSON :: FollowUpPrompt -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FollowUpPrompt.html#FollowUpPrompt%27"><span class="hs-identifier hs-type">FollowUpPrompt'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316543"><span id="local-6989586621679316544"><span class="annot"><span class="annottext">Prompt
 Statement
 rejectionStatement :: Statement
 prompt :: Prompt
 $sel:rejectionStatement:FollowUpPrompt' :: FollowUpPrompt -&gt; Statement
 $sel:prompt:FollowUpPrompt' :: FollowUpPrompt -&gt; Prompt
-</span><a href="#local-6989586621679316248"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316543"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -222,7 +222,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;prompt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Prompt -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Prompt
-</span><a href="#local-6989586621679316249"><span class="hs-identifier hs-var">prompt</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316544"><span class="hs-identifier hs-var">prompt</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -230,7 +230,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;rejectionStatement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Statement -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679316248"><span class="hs-identifier hs-var">rejectionStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316543"><span class="hs-identifier hs-var">rejectionStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

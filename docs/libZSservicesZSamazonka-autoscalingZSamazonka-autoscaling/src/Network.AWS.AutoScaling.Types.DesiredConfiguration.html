@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-comment">-- @LaunchTemplate@ or a @MixedInstancesPolicy@.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDesiredConfiguration' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679329155"><span id="local-6989586621679329156"></span></span><span class="hs-keyword">data</span><span> </span><span id="DesiredConfiguration"><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-var">DesiredConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DesiredConfiguration%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-var">DesiredConfiguration'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AlaunchTemplate%3ADesiredConfiguration%27"><span class="annot"><span class="annottext">DesiredConfiguration -&gt; Maybe LaunchTemplateSpecification
-</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AlaunchTemplate%3ADesiredConfiguration%27"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="annot"><span class="annottext">DesiredConfiguration -&gt; Maybe MixedInstancesPolicy
-</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="hs-identifier hs-var hs-var">mixedInstancesPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679329811"><span id="local-6989586621679329812"></span></span><span class="hs-keyword">data</span><span> </span><span id="DesiredConfiguration"><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-var">DesiredConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DesiredConfiguration%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-var">DesiredConfiguration'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="annot"><span class="annottext">DesiredConfiguration -&gt; Maybe MixedInstancesPolicy
+</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="hs-identifier hs-var hs-var">mixedInstancesPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlaunchTemplate%3ADesiredConfiguration%27"><span class="annot"><span class="annottext">DesiredConfiguration -&gt; Maybe LaunchTemplateSpecification
+</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AlaunchTemplate%3ADesiredConfiguration%27"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329148"><span id="local-6989586621679329150"><span class="annot"><span class="annottext">DesiredConfiguration -&gt; DesiredConfiguration -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329804"><span id="local-6989586621679329806"><span class="annot"><span class="annottext">DesiredConfiguration -&gt; DesiredConfiguration -&gt; Bool
 (DesiredConfiguration -&gt; DesiredConfiguration -&gt; Bool)
 -&gt; (DesiredConfiguration -&gt; DesiredConfiguration -&gt; Bool)
 -&gt; Eq DesiredConfiguration
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DesiredConfiguration -&gt; DesiredConfiguration -&gt; Bool
 == :: DesiredConfiguration -&gt; DesiredConfiguration -&gt; Bool
 $c== :: DesiredConfiguration -&gt; DesiredConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329139"><span id="local-6989586621679329141"><span id="local-6989586621679329143"><span id="local-6989586621679329145"><span class="annot"><span class="annottext">ReadPrec [DesiredConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329795"><span id="local-6989586621679329797"><span id="local-6989586621679329799"><span id="local-6989586621679329801"><span class="annot"><span class="annottext">ReadPrec [DesiredConfiguration]
 ReadPrec DesiredConfiguration
 Int -&gt; ReadS DesiredConfiguration
 ReadS [DesiredConfiguration]
@@ -66,7 +66,7 @@ readList :: ReadS [DesiredConfiguration]
 $creadList :: ReadS [DesiredConfiguration]
 readsPrec :: Int -&gt; ReadS DesiredConfiguration
 $creadsPrec :: Int -&gt; ReadS DesiredConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329132"><span id="local-6989586621679329134"><span id="local-6989586621679329136"><span class="annot"><span class="annottext">Int -&gt; DesiredConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329788"><span id="local-6989586621679329790"><span id="local-6989586621679329792"><span class="annot"><span class="annottext">Int -&gt; DesiredConfiguration -&gt; ShowS
 [DesiredConfiguration] -&gt; ShowS
 DesiredConfiguration -&gt; String
 (Int -&gt; DesiredConfiguration -&gt; ShowS)
@@ -100,30 +100,54 @@ $cfrom :: forall x. DesiredConfiguration -&gt; Rep DesiredConfiguration x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'launchTemplate', 'desiredConfiguration_launchTemplate' - Undocumented member.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'mixedInstancesPolicy', 'desiredConfiguration_mixedInstancesPolicy' - Undocumented member.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'mixedInstancesPolicy', 'desiredConfiguration_mixedInstancesPolicy' - Undocumented member.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'launchTemplate', 'desiredConfiguration_launchTemplate' - Undocumented member.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#newDesiredConfiguration"><span class="hs-identifier hs-type">newDesiredConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span>
 </span><span id="line-53"></span><span id="newDesiredConfiguration"><span class="annot"><span class="annottext">newDesiredConfiguration :: DesiredConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#newDesiredConfiguration"><span class="hs-identifier hs-var hs-var">newDesiredConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">DesiredConfiguration' :: Maybe LaunchTemplateSpecification
--&gt; Maybe MixedInstancesPolicy -&gt; DesiredConfiguration
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">DesiredConfiguration' :: Maybe MixedInstancesPolicy
+-&gt; Maybe LaunchTemplateSpecification -&gt; DesiredConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplate:DesiredConfiguration' :: Maybe LaunchTemplateSpecification
-</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AlaunchTemplate%3ADesiredConfiguration%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mixedInstancesPolicy:DesiredConfiguration' :: Maybe MixedInstancesPolicy
+</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:mixedInstancesPolicy:DesiredConfiguration' :: Maybe MixedInstancesPolicy
-</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplate:DesiredConfiguration' :: Maybe LaunchTemplateSpecification
+</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AlaunchTemplate%3ADesiredConfiguration%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#desiredConfiguration_launchTemplate"><span class="hs-identifier hs-type">desiredConfiguration_launchTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="desiredConfiguration_launchTemplate"><span class="annot"><span class="annottext">desiredConfiguration_launchTemplate :: (Maybe LaunchTemplateSpecification
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#desiredConfiguration_mixedInstancesPolicy"><span class="hs-identifier hs-type">desiredConfiguration_mixedInstancesPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="desiredConfiguration_mixedInstancesPolicy"><span class="annot"><span class="annottext">desiredConfiguration_mixedInstancesPolicy :: (Maybe MixedInstancesPolicy -&gt; f (Maybe MixedInstancesPolicy))
+-&gt; DesiredConfiguration -&gt; f DesiredConfiguration
+</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#desiredConfiguration_mixedInstancesPolicy"><span class="hs-identifier hs-var hs-var">desiredConfiguration_mixedInstancesPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DesiredConfiguration -&gt; Maybe MixedInstancesPolicy)
+-&gt; (DesiredConfiguration
+    -&gt; Maybe MixedInstancesPolicy -&gt; DesiredConfiguration)
+-&gt; Lens
+     DesiredConfiguration
+     DesiredConfiguration
+     (Maybe MixedInstancesPolicy)
+     (Maybe MixedInstancesPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329779"><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
+mixedInstancesPolicy :: Maybe MixedInstancesPolicy
+$sel:mixedInstancesPolicy:DesiredConfiguration' :: DesiredConfiguration -&gt; Maybe MixedInstancesPolicy
+</span><a href="#local-6989586621679329779"><span class="hs-identifier hs-var hs-var">mixedInstancesPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
+</span><a href="#local-6989586621679329779"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329778"><span class="annot"><span class="annottext">s :: DesiredConfiguration
+</span><a href="#local-6989586621679329778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329777"><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
+</span><a href="#local-6989586621679329777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DesiredConfiguration
+</span><a href="#local-6989586621679329778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mixedInstancesPolicy:DesiredConfiguration' :: Maybe MixedInstancesPolicy
+</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
+</span><a href="#local-6989586621679329777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#desiredConfiguration_launchTemplate"><span class="hs-identifier hs-type">desiredConfiguration_launchTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplateSpecification.html#LaunchTemplateSpecification"><span class="hs-identifier hs-type">LaunchTemplateSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="desiredConfiguration_launchTemplate"><span class="annot"><span class="annottext">desiredConfiguration_launchTemplate :: (Maybe LaunchTemplateSpecification
  -&gt; f (Maybe LaunchTemplateSpecification))
 -&gt; DesiredConfiguration -&gt; f DesiredConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#desiredConfiguration_launchTemplate"><span class="hs-identifier hs-var hs-var">desiredConfiguration_launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DesiredConfiguration -&gt; Maybe LaunchTemplateSpecification)
@@ -135,94 +159,71 @@ forall a. Maybe a
      (Maybe LaunchTemplateSpecification)
      (Maybe LaunchTemplateSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329123"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329775"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
 launchTemplate :: Maybe LaunchTemplateSpecification
 $sel:launchTemplate:DesiredConfiguration' :: DesiredConfiguration -&gt; Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679329123"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679329123"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329122"><span class="annot"><span class="annottext">s :: DesiredConfiguration
-</span><a href="#local-6989586621679329122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329121"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679329121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DesiredConfiguration
-</span><a href="#local-6989586621679329122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:DesiredConfiguration' :: Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679329775"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679329775"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329774"><span class="annot"><span class="annottext">s :: DesiredConfiguration
+</span><a href="#local-6989586621679329774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329773"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679329773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DesiredConfiguration
+</span><a href="#local-6989586621679329774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:DesiredConfiguration' :: Maybe LaunchTemplateSpecification
 </span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AlaunchTemplate%3ADesiredConfiguration%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679329121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#desiredConfiguration_mixedInstancesPolicy"><span class="hs-identifier hs-type">desiredConfiguration_mixedInstancesPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="desiredConfiguration_mixedInstancesPolicy"><span class="annot"><span class="annottext">desiredConfiguration_mixedInstancesPolicy :: (Maybe MixedInstancesPolicy -&gt; f (Maybe MixedInstancesPolicy))
--&gt; DesiredConfiguration -&gt; f DesiredConfiguration
-</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#desiredConfiguration_mixedInstancesPolicy"><span class="hs-identifier hs-var hs-var">desiredConfiguration_mixedInstancesPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DesiredConfiguration -&gt; Maybe MixedInstancesPolicy)
--&gt; (DesiredConfiguration
-    -&gt; Maybe MixedInstancesPolicy -&gt; DesiredConfiguration)
--&gt; Lens
-     DesiredConfiguration
-     DesiredConfiguration
-     (Maybe MixedInstancesPolicy)
-     (Maybe MixedInstancesPolicy)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329119"><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
-mixedInstancesPolicy :: Maybe MixedInstancesPolicy
-$sel:mixedInstancesPolicy:DesiredConfiguration' :: DesiredConfiguration -&gt; Maybe MixedInstancesPolicy
-</span><a href="#local-6989586621679329119"><span class="hs-identifier hs-var hs-var">mixedInstancesPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
-</span><a href="#local-6989586621679329119"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329118"><span class="annot"><span class="annottext">s :: DesiredConfiguration
-</span><a href="#local-6989586621679329118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329117"><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
-</span><a href="#local-6989586621679329117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DesiredConfiguration
-</span><a href="#local-6989586621679329118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mixedInstancesPolicy:DesiredConfiguration' :: Maybe MixedInstancesPolicy
-</span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#%24sel%3AmixedInstancesPolicy%3ADesiredConfiguration%27"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
-</span><a href="#local-6989586621679329117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679329114"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DesiredConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679329112"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329112"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
--&gt; Maybe MixedInstancesPolicy -&gt; DesiredConfiguration
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679329770"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DesiredConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679329768"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679329768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
+-&gt; Maybe LaunchTemplateSpecification -&gt; DesiredConfiguration
 </span><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-var">DesiredConfiguration'</span></a></span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe LaunchTemplateSpecification
- -&gt; Maybe MixedInstancesPolicy -&gt; DesiredConfiguration)
--&gt; Either String (Maybe LaunchTemplateSpecification)
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe MixedInstancesPolicy
+ -&gt; Maybe LaunchTemplateSpecification -&gt; DesiredConfiguration)
+-&gt; Either String (Maybe MixedInstancesPolicy)
 -&gt; Either
-     String (Maybe MixedInstancesPolicy -&gt; DesiredConfiguration)
+     String (Maybe LaunchTemplateSpecification -&gt; DesiredConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LaunchTemplateSpecification)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LaunchTemplate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe MixedInstancesPolicy -&gt; DesiredConfiguration)
--&gt; Either String (Maybe MixedInstancesPolicy)
--&gt; Either String DesiredConfiguration
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MixedInstancesPolicy)
+</span><a href="#local-6989586621679329768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MixedInstancesPolicy)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MixedInstancesPolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe LaunchTemplateSpecification -&gt; DesiredConfiguration)
+-&gt; Either String (Maybe LaunchTemplateSpecification)
+-&gt; Either String DesiredConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679329768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LaunchTemplateSpecification)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LaunchTemplate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329106"><span id="local-6989586621679329108"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329762"><span id="local-6989586621679329764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration"><span class="hs-identifier hs-type">DesiredConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679329099"><span class="annot"><span class="annottext">toQuery :: DesiredConfiguration -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329096"><span id="local-6989586621679329097"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679329755"><span class="annot"><span class="annottext">toQuery :: DesiredConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.DesiredConfiguration.html#DesiredConfiguration%27"><span class="hs-identifier hs-type">DesiredConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329752"><span id="local-6989586621679329753"><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
 Maybe MixedInstancesPolicy
-mixedInstancesPolicy :: Maybe MixedInstancesPolicy
 launchTemplate :: Maybe LaunchTemplateSpecification
-$sel:mixedInstancesPolicy:DesiredConfiguration' :: DesiredConfiguration -&gt; Maybe MixedInstancesPolicy
+mixedInstancesPolicy :: Maybe MixedInstancesPolicy
 $sel:launchTemplate:DesiredConfiguration' :: DesiredConfiguration -&gt; Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679329096"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:mixedInstancesPolicy:DesiredConfiguration' :: DesiredConfiguration -&gt; Maybe MixedInstancesPolicy
+</span><a href="#local-6989586621679329752"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;LaunchTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LaunchTemplateSpecification -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
-</span><a href="#local-6989586621679329097"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MixedInstancesPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe MixedInstancesPolicy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe MixedInstancesPolicy
-</span><a href="#local-6989586621679329096"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span>
+</span><a href="#local-6989586621679329753"><span class="hs-identifier hs-var">mixedInstancesPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LaunchTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LaunchTemplateSpecification -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateSpecification
+</span><a href="#local-6989586621679329752"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span></pre></body></html>

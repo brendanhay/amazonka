@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- video has video_insertion=true and drop_frame_timecode=true; otherwise,</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679999313"><span id="local-6989586621679999314"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SccDestinationFramerate"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SccDestinationFramerate.html#SccDestinationFramerate"><span class="hs-identifier hs-var">SccDestinationFramerate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SccDestinationFramerate%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SccDestinationFramerate.html#SccDestinationFramerate%27"><span class="hs-identifier hs-var">SccDestinationFramerate'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621680004237"><span id="local-6989586621680004238"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SccDestinationFramerate"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SccDestinationFramerate.html#SccDestinationFramerate"><span class="hs-identifier hs-var">SccDestinationFramerate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SccDestinationFramerate%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SccDestinationFramerate.html#SccDestinationFramerate%27"><span class="hs-identifier hs-var">SccDestinationFramerate'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSccDestinationFramerate"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.SccDestinationFramerate.html#fromSccDestinationFramerate"><span class="hs-identifier hs-var hs-var">fromSccDestinationFramerate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999305"><span id="local-6989586621679999307"><span id="local-6989586621679999309"><span class="annot"><span class="annottext">Int -&gt; SccDestinationFramerate -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004229"><span id="local-6989586621680004231"><span id="local-6989586621680004233"><span class="annot"><span class="annottext">Int -&gt; SccDestinationFramerate -&gt; ShowS
 [SccDestinationFramerate] -&gt; ShowS
 SccDestinationFramerate -&gt; String
 (Int -&gt; SccDestinationFramerate -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: SccDestinationFramerate -&gt; String
 showsPrec :: Int -&gt; SccDestinationFramerate -&gt; ShowS
 $cshowsPrec :: Int -&gt; SccDestinationFramerate -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679999296"><span id="local-6989586621679999298"><span id="local-6989586621679999300"><span id="local-6989586621679999302"><span class="annot"><span class="annottext">ReadPrec [SccDestinationFramerate]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680004220"><span id="local-6989586621680004222"><span id="local-6989586621680004224"><span id="local-6989586621680004226"><span class="annot"><span class="annottext">ReadPrec [SccDestinationFramerate]
 ReadPrec SccDestinationFramerate
 Int -&gt; ReadS SccDestinationFramerate
 ReadS [SccDestinationFramerate]
@@ -81,7 +81,7 @@ $creadList :: ReadS [SccDestinationFramerate]
 readsPrec :: Int -&gt; ReadS SccDestinationFramerate
 $creadsPrec :: Int -&gt; ReadS SccDestinationFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679999291"><span id="local-6989586621679999293"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680004215"><span id="local-6989586621680004217"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool
 (SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool)
 -&gt; (SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool)
 -&gt; Eq SccDestinationFramerate
@@ -91,7 +91,7 @@ $c/= :: SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool
 == :: SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool
 $c== :: SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679999275"><span id="local-6989586621679999277"><span id="local-6989586621679999279"><span id="local-6989586621679999281"><span id="local-6989586621679999283"><span id="local-6989586621679999285"><span id="local-6989586621679999287"><span class="annot"><span class="annottext">Eq SccDestinationFramerate
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680004199"><span id="local-6989586621680004201"><span id="local-6989586621680004203"><span id="local-6989586621680004205"><span id="local-6989586621680004207"><span id="local-6989586621680004209"><span id="local-6989586621680004211"><span class="annot"><span class="annottext">Eq SccDestinationFramerate
 Eq SccDestinationFramerate
 -&gt; (SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Ordering)
 -&gt; (SccDestinationFramerate -&gt; SccDestinationFramerate -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. SccDestinationFramerate -&gt; Rep SccDestinationFramerate x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999267"><span id="local-6989586621679999269"><span class="annot"><span class="annottext">Int -&gt; SccDestinationFramerate -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004191"><span id="local-6989586621680004193"><span class="annot"><span class="annottext">Int -&gt; SccDestinationFramerate -&gt; Int
 SccDestinationFramerate -&gt; Int
 (Int -&gt; SccDestinationFramerate -&gt; Int)
 -&gt; (SccDestinationFramerate -&gt; Int)
@@ -162,54 +162,54 @@ $chash :: SccDestinationFramerate -&gt; Int
 hashWithSalt :: Int -&gt; SccDestinationFramerate -&gt; Int
 $chashWithSalt :: Int -&gt; SccDestinationFramerate -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679999264"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680004188"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; ()
 (SccDestinationFramerate -&gt; ()) -&gt; NFData SccDestinationFramerate
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SccDestinationFramerate -&gt; ()
 $crnf :: SccDestinationFramerate -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679999261"><span class="annot"><span class="annottext">Text -&gt; Either String SccDestinationFramerate
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680004185"><span class="annot"><span class="annottext">Text -&gt; Either String SccDestinationFramerate
 (Text -&gt; Either String SccDestinationFramerate)
 -&gt; FromText SccDestinationFramerate
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SccDestinationFramerate
 $cfromText :: Text -&gt; Either String SccDestinationFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679999258"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680004182"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; Text
 (SccDestinationFramerate -&gt; Text) -&gt; ToText SccDestinationFramerate
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SccDestinationFramerate -&gt; Text
 $ctoText :: SccDestinationFramerate -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679999255"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680004179"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; ByteString
 (SccDestinationFramerate -&gt; ByteString)
 -&gt; ToByteString SccDestinationFramerate
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SccDestinationFramerate -&gt; ByteString
 $ctoBS :: SccDestinationFramerate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679999252"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680004176"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; ByteStringBuilder
 (SccDestinationFramerate -&gt; ByteStringBuilder)
 -&gt; ToLog SccDestinationFramerate
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SccDestinationFramerate -&gt; ByteStringBuilder
 $cbuild :: SccDestinationFramerate -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679999249"><span class="annot"><span class="annottext">HeaderName -&gt; SccDestinationFramerate -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680004173"><span class="annot"><span class="annottext">HeaderName -&gt; SccDestinationFramerate -&gt; [Header]
 (HeaderName -&gt; SccDestinationFramerate -&gt; [Header])
 -&gt; ToHeader SccDestinationFramerate
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SccDestinationFramerate -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SccDestinationFramerate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679999246"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680004170"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; QueryString
 (SccDestinationFramerate -&gt; QueryString)
 -&gt; ToQuery SccDestinationFramerate
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SccDestinationFramerate -&gt; QueryString
 $ctoQuery :: SccDestinationFramerate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679999241"><span id="local-6989586621679999243"><span class="annot"><span class="annottext">Value -&gt; Parser [SccDestinationFramerate]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680004165"><span id="local-6989586621680004167"><span class="annot"><span class="annottext">Value -&gt; Parser [SccDestinationFramerate]
 Value -&gt; Parser SccDestinationFramerate
 (Value -&gt; Parser SccDestinationFramerate)
 -&gt; (Value -&gt; Parser [SccDestinationFramerate])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [SccDestinationFramerate]
 parseJSON :: Value -&gt; Parser SccDestinationFramerate
 $cparseJSON :: Value -&gt; Parser SccDestinationFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679999236"><span id="local-6989586621679999238"><span class="annot"><span class="annottext">FromJSONKeyFunction [SccDestinationFramerate]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680004160"><span id="local-6989586621680004162"><span class="annot"><span class="annottext">FromJSONKeyFunction [SccDestinationFramerate]
 FromJSONKeyFunction SccDestinationFramerate
 FromJSONKeyFunction SccDestinationFramerate
 -&gt; FromJSONKeyFunction [SccDestinationFramerate]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SccDestinationFramerate]
 fromJSONKey :: FromJSONKeyFunction SccDestinationFramerate
 $cfromJSONKey :: FromJSONKeyFunction SccDestinationFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679999227"><span id="local-6989586621679999229"><span id="local-6989586621679999231"><span id="local-6989586621679999233"><span class="annot"><span class="annottext">[SccDestinationFramerate] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680004151"><span id="local-6989586621680004153"><span id="local-6989586621680004155"><span id="local-6989586621680004157"><span class="annot"><span class="annottext">[SccDestinationFramerate] -&gt; Encoding
 [SccDestinationFramerate] -&gt; Value
 SccDestinationFramerate -&gt; Encoding
 SccDestinationFramerate -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: SccDestinationFramerate -&gt; Encoding
 toJSON :: SccDestinationFramerate -&gt; Value
 $ctoJSON :: SccDestinationFramerate -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679999222"><span id="local-6989586621679999224"><span class="annot"><span class="annottext">ToJSONKeyFunction [SccDestinationFramerate]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680004146"><span id="local-6989586621680004148"><span class="annot"><span class="annottext">ToJSONKeyFunction [SccDestinationFramerate]
 ToJSONKeyFunction SccDestinationFramerate
 ToJSONKeyFunction SccDestinationFramerate
 -&gt; ToJSONKeyFunction [SccDestinationFramerate]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SccDestinationFramerate]
 toJSONKey :: ToJSONKeyFunction SccDestinationFramerate
 $ctoJSONKey :: ToJSONKeyFunction SccDestinationFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679999219"><span class="annot"><span class="annottext">[Node] -&gt; Either String SccDestinationFramerate
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680004143"><span class="annot"><span class="annottext">[Node] -&gt; Either String SccDestinationFramerate
 ([Node] -&gt; Either String SccDestinationFramerate)
 -&gt; FromXML SccDestinationFramerate
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SccDestinationFramerate
 $cparseXML :: [Node] -&gt; Either String SccDestinationFramerate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679999216"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680004140"><span class="annot"><span class="annottext">SccDestinationFramerate -&gt; XML
 (SccDestinationFramerate -&gt; XML) -&gt; ToXML SccDestinationFramerate
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SccDestinationFramerate -&gt; XML

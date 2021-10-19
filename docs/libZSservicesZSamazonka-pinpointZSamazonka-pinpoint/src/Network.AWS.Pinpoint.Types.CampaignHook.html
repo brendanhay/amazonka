@@ -28,30 +28,30 @@
 </span><span id="line-28"></span><span class="hs-comment">-- segment for a campaign.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCampaignHook' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679604044"><span id="local-6989586621679604045"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignHook"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-var">CampaignHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignHook%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-var">CampaignHook'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Possible values are:</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   FILTER - Invoke the function to customize the segment that\'s used</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--     by a campaign.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   DELIVERY - (Deprecated) Previously, invoked the function to send a</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     campaign through a custom channel. This functionality is not</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     supported anymore. To send a campaign through a custom channel, use</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     the CustomDeliveryConfiguration and CampaignCustomMessage objects of</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     the campaign.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Amode%3ACampaignHook%27"><span class="annot"><span class="annottext">CampaignHook -&gt; Maybe Mode
-</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3Amode%3ACampaignHook%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Amazon Pinpoint invokes to customize a segment for a campaign.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlambdaFunctionName%3ACampaignHook%27"><span class="annot"><span class="annottext">CampaignHook -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679604511"><span id="local-6989586621679604512"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignHook"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-var">CampaignHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignHook%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-var">CampaignHook'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Amazon Pinpoint invokes to customize a segment for a campaign.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlambdaFunctionName%3ACampaignHook%27"><span class="annot"><span class="annottext">CampaignHook -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3AlambdaFunctionName%3ACampaignHook%27"><span class="hs-identifier hs-var hs-var">lambdaFunctionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   FILTER - Invoke the function to customize the segment that\'s used</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     by a campaign.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   DELIVERY - (Deprecated) Previously, invoked the function to send a</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     campaign through a custom channel. This functionality is not</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     supported anymore. To send a campaign through a custom channel, use</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     the CustomDeliveryConfiguration and CampaignCustomMessage objects of</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     the campaign.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Amode%3ACampaignHook%27"><span class="annot"><span class="annottext">CampaignHook -&gt; Maybe Mode
+</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3Amode%3ACampaignHook%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- over HTTPS.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AwebUrl%3ACampaignHook%27"><span class="annot"><span class="annottext">CampaignHook -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3AwebUrl%3ACampaignHook%27"><span class="hs-identifier hs-var hs-var">webUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679604036"><span id="local-6989586621679604038"><span class="annot"><span class="annottext">CampaignHook -&gt; CampaignHook -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679604503"><span id="local-6989586621679604505"><span class="annot"><span class="annottext">CampaignHook -&gt; CampaignHook -&gt; Bool
 (CampaignHook -&gt; CampaignHook -&gt; Bool)
 -&gt; (CampaignHook -&gt; CampaignHook -&gt; Bool) -&gt; Eq CampaignHook
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CampaignHook -&gt; CampaignHook -&gt; Bool
 == :: CampaignHook -&gt; CampaignHook -&gt; Bool
 $c== :: CampaignHook -&gt; CampaignHook -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604027"><span id="local-6989586621679604029"><span id="local-6989586621679604031"><span id="local-6989586621679604033"><span class="annot"><span class="annottext">ReadPrec [CampaignHook]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604494"><span id="local-6989586621679604496"><span id="local-6989586621679604498"><span id="local-6989586621679604500"><span class="annot"><span class="annottext">ReadPrec [CampaignHook]
 ReadPrec CampaignHook
 Int -&gt; ReadS CampaignHook
 ReadS [CampaignHook]
@@ -79,7 +79,7 @@ readList :: ReadS [CampaignHook]
 $creadList :: ReadS [CampaignHook]
 readsPrec :: Int -&gt; ReadS CampaignHook
 $creadsPrec :: Int -&gt; ReadS CampaignHook
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604020"><span id="local-6989586621679604022"><span id="local-6989586621679604024"><span class="annot"><span class="annottext">Int -&gt; CampaignHook -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604487"><span id="local-6989586621679604489"><span id="local-6989586621679604491"><span class="annot"><span class="annottext">Int -&gt; CampaignHook -&gt; ShowS
 [CampaignHook] -&gt; ShowS
 CampaignHook -&gt; String
 (Int -&gt; CampaignHook -&gt; ShowS)
@@ -113,20 +113,20 @@ $cfrom :: forall x. CampaignHook -&gt; Rep CampaignHook x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'mode', 'campaignHook_mode' - The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'lambdaFunctionName', 'campaignHook_lambdaFunctionName' - The name or Amazon Resource Name (ARN) of the AWS Lambda function that</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Amazon Pinpoint invokes to customize a segment for a campaign.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- -   FILTER - Invoke the function to customize the segment that\'s used</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--     by a campaign.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'mode', 'campaignHook_mode' - The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Possible values are:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- -   DELIVERY - (Deprecated) Previously, invoked the function to send a</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--     campaign through a custom channel. This functionality is not</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--     supported anymore. To send a campaign through a custom channel, use</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--     the CustomDeliveryConfiguration and CampaignCustomMessage objects of</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--     the campaign.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'lambdaFunctionName', 'campaignHook_lambdaFunctionName' - The name or Amazon Resource Name (ARN) of the AWS Lambda function that</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Amazon Pinpoint invokes to customize a segment for a campaign.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- -   FILTER - Invoke the function to customize the segment that\'s used</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--     by a campaign.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   DELIVERY - (Deprecated) Previously, invoked the function to send a</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--     campaign through a custom channel. This functionality is not</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--     supported anymore. To send a campaign through a custom channel, use</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     the CustomDeliveryConfiguration and CampaignCustomMessage objects of</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     the campaign.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'webUrl', 'campaignHook_webUrl' - The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- over HTTPS.</span><span>
@@ -134,14 +134,14 @@ $cfrom :: forall x. CampaignHook -&gt; Rep CampaignHook x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span>
 </span><span id="line-80"></span><span id="newCampaignHook"><span class="annot"><span class="annottext">newCampaignHook :: CampaignHook
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#newCampaignHook"><span class="hs-identifier hs-var hs-var">newCampaignHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">CampaignHook' :: Maybe Mode -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignHook
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">CampaignHook' :: Maybe Text -&gt; Maybe Mode -&gt; Maybe Text -&gt; CampaignHook
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mode:CampaignHook' :: Maybe Mode
-</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3Amode%3ACampaignHook%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mode
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lambdaFunctionName:CampaignHook' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3AlambdaFunctionName%3ACampaignHook%27"><span class="hs-identifier hs-var">lambdaFunctionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaFunctionName:CampaignHook' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3AlambdaFunctionName%3ACampaignHook%27"><span class="hs-identifier hs-var">lambdaFunctionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:mode:CampaignHook' :: Maybe Mode
+</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3Amode%3ACampaignHook%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:webUrl:CampaignHook' :: Maybe Text
@@ -150,52 +150,52 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- Possible values are:</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -   FILTER - Invoke the function to customize the segment that\'s used</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--     by a campaign.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- -   DELIVERY - (Deprecated) Previously, invoked the function to send a</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--     campaign through a custom channel. This functionality is not</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--     supported anymore. To send a campaign through a custom channel, use</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--     the CustomDeliveryConfiguration and CampaignCustomMessage objects of</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--     the campaign.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#campaignHook_mode"><span class="hs-identifier hs-type">campaignHook_mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="campaignHook_mode"><span class="annot"><span class="annottext">campaignHook_mode :: (Maybe Mode -&gt; f (Maybe Mode)) -&gt; CampaignHook -&gt; f CampaignHook
-</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#campaignHook_mode"><span class="hs-identifier hs-var hs-var">campaignHook_mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignHook -&gt; Maybe Mode)
--&gt; (CampaignHook -&gt; Maybe Mode -&gt; CampaignHook)
--&gt; Lens CampaignHook CampaignHook (Maybe Mode) (Maybe Mode)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604011"><span class="annot"><span class="annottext">Maybe Mode
-mode :: Maybe Mode
-$sel:mode:CampaignHook' :: CampaignHook -&gt; Maybe Mode
-</span><a href="#local-6989586621679604011"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mode
-</span><a href="#local-6989586621679604011"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604010"><span class="annot"><span class="annottext">s :: CampaignHook
-</span><a href="#local-6989586621679604010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604009"><span class="annot"><span class="annottext">Maybe Mode
-</span><a href="#local-6989586621679604009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignHook
-</span><a href="#local-6989586621679604010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:CampaignHook' :: Maybe Mode
-</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3Amode%3ACampaignHook%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mode
-</span><a href="#local-6989586621679604009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- Amazon Pinpoint invokes to customize a segment for a campaign.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#campaignHook_lambdaFunctionName"><span class="hs-identifier hs-type">campaignHook_lambdaFunctionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="campaignHook_lambdaFunctionName"><span class="annot"><span class="annottext">campaignHook_lambdaFunctionName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CampaignHook -&gt; f CampaignHook
+</span><span id="line-87"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Amazon Pinpoint invokes to customize a segment for a campaign.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#campaignHook_lambdaFunctionName"><span class="hs-identifier hs-type">campaignHook_lambdaFunctionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="campaignHook_lambdaFunctionName"><span class="annot"><span class="annottext">campaignHook_lambdaFunctionName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CampaignHook -&gt; f CampaignHook
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#campaignHook_lambdaFunctionName"><span class="hs-identifier hs-var hs-var">campaignHook_lambdaFunctionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignHook -&gt; Maybe Text)
 -&gt; (CampaignHook -&gt; Maybe Text -&gt; CampaignHook)
 -&gt; Lens CampaignHook CampaignHook (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604007"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604478"><span class="annot"><span class="annottext">Maybe Text
 lambdaFunctionName :: Maybe Text
 $sel:lambdaFunctionName:CampaignHook' :: CampaignHook -&gt; Maybe Text
-</span><a href="#local-6989586621679604007"><span class="hs-identifier hs-var hs-var">lambdaFunctionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679604007"><span class="hs-identifier hs-var">lambdaFunctionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604006"><span class="annot"><span class="annottext">s :: CampaignHook
-</span><a href="#local-6989586621679604006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604005"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679604005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignHook
-</span><a href="#local-6989586621679604006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionName:CampaignHook' :: Maybe Text
+</span><a href="#local-6989586621679604478"><span class="hs-identifier hs-var hs-var">lambdaFunctionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604478"><span class="hs-identifier hs-var">lambdaFunctionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604477"><span class="annot"><span class="annottext">s :: CampaignHook
+</span><a href="#local-6989586621679604477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignHook
+</span><a href="#local-6989586621679604477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaFunctionName:CampaignHook' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3AlambdaFunctionName%3ACampaignHook%27"><span class="hs-identifier hs-var">lambdaFunctionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679604005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679604476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   FILTER - Invoke the function to customize the segment that\'s used</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     by a campaign.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   DELIVERY - (Deprecated) Previously, invoked the function to send a</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     campaign through a custom channel. This functionality is not</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     supported anymore. To send a campaign through a custom channel, use</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--     the CustomDeliveryConfiguration and CampaignCustomMessage objects of</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     the campaign.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#campaignHook_mode"><span class="hs-identifier hs-type">campaignHook_mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="campaignHook_mode"><span class="annot"><span class="annottext">campaignHook_mode :: (Maybe Mode -&gt; f (Maybe Mode)) -&gt; CampaignHook -&gt; f CampaignHook
+</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#campaignHook_mode"><span class="hs-identifier hs-var hs-var">campaignHook_mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CampaignHook -&gt; Maybe Mode)
+-&gt; (CampaignHook -&gt; Maybe Mode -&gt; CampaignHook)
+-&gt; Lens CampaignHook CampaignHook (Maybe Mode) (Maybe Mode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604474"><span class="annot"><span class="annottext">Maybe Mode
+mode :: Maybe Mode
+$sel:mode:CampaignHook' :: CampaignHook -&gt; Maybe Mode
+</span><a href="#local-6989586621679604474"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mode
+</span><a href="#local-6989586621679604474"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604473"><span class="annot"><span class="annottext">s :: CampaignHook
+</span><a href="#local-6989586621679604473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604472"><span class="annot"><span class="annottext">Maybe Mode
+</span><a href="#local-6989586621679604472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignHook
+</span><a href="#local-6989586621679604473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:CampaignHook' :: Maybe Mode
+</span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3Amode%3ACampaignHook%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mode
+</span><a href="#local-6989586621679604472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- over HTTPS.</span><span>
@@ -205,19 +205,19 @@ $sel:lambdaFunctionName:CampaignHook' :: CampaignHook -&gt; Maybe Text
 -&gt; (CampaignHook -&gt; Maybe Text -&gt; CampaignHook)
 -&gt; Lens CampaignHook CampaignHook (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604003"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604470"><span class="annot"><span class="annottext">Maybe Text
 webUrl :: Maybe Text
 $sel:webUrl:CampaignHook' :: CampaignHook -&gt; Maybe Text
-</span><a href="#local-6989586621679604003"><span class="hs-identifier hs-var hs-var">webUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679604003"><span class="hs-identifier hs-var">webUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604002"><span class="annot"><span class="annottext">s :: CampaignHook
-</span><a href="#local-6989586621679604002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604001"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679604001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignHook
-</span><a href="#local-6989586621679604002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webUrl:CampaignHook' :: Maybe Text
+</span><a href="#local-6989586621679604470"><span class="hs-identifier hs-var hs-var">webUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604470"><span class="hs-identifier hs-var">webUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604469"><span class="annot"><span class="annottext">s :: CampaignHook
+</span><a href="#local-6989586621679604469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignHook
+</span><a href="#local-6989586621679604469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webUrl:CampaignHook' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#%24sel%3AwebUrl%3ACampaignHook%27"><span class="hs-identifier hs-var">webUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679604001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679604468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603998"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679603996"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignHook
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604465"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679604463"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignHook
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CampaignHook) -&gt; Value -&gt; Parser CampaignHook
@@ -225,79 +225,79 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CampaignHook&quot;</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603993"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Mode -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignHook
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679604460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Mode -&gt; Maybe Text -&gt; CampaignHook
 </span><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-var">CampaignHook'</span></a></span><span>
-</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Mode -&gt; Maybe Text -&gt; Maybe Text -&gt; CampaignHook)
--&gt; Parser (Maybe Mode)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; CampaignHook)
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Mode -&gt; Maybe Text -&gt; CampaignHook)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Mode -&gt; Maybe Text -&gt; CampaignHook)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mode)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; CampaignHook)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; CampaignHook)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679604460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LambdaFunctionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Mode -&gt; Maybe Text -&gt; CampaignHook)
+-&gt; Parser (Maybe Mode) -&gt; Parser (Maybe Text -&gt; CampaignHook)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CampaignHook)
 -&gt; Parser (Maybe Text) -&gt; Parser CampaignHook
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679604460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WebUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603987"><span id="local-6989586621679603989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604454"><span id="local-6989586621679604456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603976"><span id="local-6989586621679603978"><span id="local-6989586621679603980"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679603974"><span class="annot"><span class="annottext">toJSON :: CampaignHook -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603970"><span id="local-6989586621679603971"><span id="local-6989586621679603972"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604443"><span id="local-6989586621679604445"><span id="local-6989586621679604447"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook"><span class="hs-identifier hs-type">CampaignHook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679604441"><span class="annot"><span class="annottext">toJSON :: CampaignHook -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignHook.html#CampaignHook%27"><span class="hs-identifier hs-type">CampaignHook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604437"><span id="local-6989586621679604438"><span id="local-6989586621679604439"><span class="annot"><span class="annottext">Maybe Text
 Maybe Mode
 webUrl :: Maybe Text
-lambdaFunctionName :: Maybe Text
 mode :: Maybe Mode
+lambdaFunctionName :: Maybe Text
 $sel:webUrl:CampaignHook' :: CampaignHook -&gt; Maybe Text
-$sel:lambdaFunctionName:CampaignHook' :: CampaignHook -&gt; Maybe Text
 $sel:mode:CampaignHook' :: CampaignHook -&gt; Maybe Mode
-</span><a href="#local-6989586621679603970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:lambdaFunctionName:CampaignHook' :: CampaignHook -&gt; Maybe Text
+</span><a href="#local-6989586621679604437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LambdaFunctionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604439"><span class="hs-identifier hs-var">lambdaFunctionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mode -&gt; Pair) -&gt; Maybe Mode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mode
-</span><a href="#local-6989586621679603972"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LambdaFunctionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603971"><span class="hs-identifier hs-var">lambdaFunctionName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679604438"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WebUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603970"><span class="hs-identifier hs-var">webUrl</span></a></span><span>
+</span><a href="#local-6989586621679604437"><span class="hs-identifier hs-var">webUrl</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span></pre></body></html>

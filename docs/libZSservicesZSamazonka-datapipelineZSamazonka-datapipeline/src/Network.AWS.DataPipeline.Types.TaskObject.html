@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- runner.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTaskObject' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679176401"><span id="local-6989586621679176402"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskObject"><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-var">TaskObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskObject%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-var">TaskObject'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679176545"><span id="local-6989586621679176546"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskObject"><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-var">TaskObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskObject%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-var">TaskObject'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the pipeline that provided the task.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApipelineId%3ATaskObject%27"><span class="annot"><span class="annottext">TaskObject -&gt; Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3ApipelineId%3ATaskObject%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Connection information for the location where the task runner will</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- publish the output of the task.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aobjects%3ATaskObject%27"><span class="annot"><span class="annottext">TaskObject -&gt; Maybe (HashMap Text PipelineObject)
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3Aobjects%3ATaskObject%27"><span class="hs-identifier hs-var hs-var">objects</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- value to track how many times a task is attempted.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AattemptId%3ATaskObject%27"><span class="annot"><span class="annottext">TaskObject -&gt; Maybe Text
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AattemptId%3ATaskObject%27"><span class="hs-identifier hs-var hs-var">attemptId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An internal identifier for the task. This ID is passed to the</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- SetTaskStatus and ReportTaskProgress actions.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AtaskId%3ATaskObject%27"><span class="annot"><span class="annottext">TaskObject -&gt; Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AtaskId%3ATaskObject%27"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- value to track how many times a task is attempted.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AattemptId%3ATaskObject%27"><span class="annot"><span class="annottext">TaskObject -&gt; Maybe Text
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AattemptId%3ATaskObject%27"><span class="hs-identifier hs-var hs-var">attemptId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Connection information for the location where the task runner will</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- publish the output of the task.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aobjects%3ATaskObject%27"><span class="annot"><span class="annottext">TaskObject -&gt; Maybe (HashMap Text PipelineObject)
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3Aobjects%3ATaskObject%27"><span class="hs-identifier hs-var hs-var">objects</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176392"><span id="local-6989586621679176394"><span class="annot"><span class="annottext">TaskObject -&gt; TaskObject -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176536"><span id="local-6989586621679176538"><span class="annot"><span class="annottext">TaskObject -&gt; TaskObject -&gt; Bool
 (TaskObject -&gt; TaskObject -&gt; Bool)
 -&gt; (TaskObject -&gt; TaskObject -&gt; Bool) -&gt; Eq TaskObject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TaskObject -&gt; TaskObject -&gt; Bool
 == :: TaskObject -&gt; TaskObject -&gt; Bool
 $c== :: TaskObject -&gt; TaskObject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176383"><span id="local-6989586621679176385"><span id="local-6989586621679176387"><span id="local-6989586621679176389"><span class="annot"><span class="annottext">ReadPrec [TaskObject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176527"><span id="local-6989586621679176529"><span id="local-6989586621679176531"><span id="local-6989586621679176533"><span class="annot"><span class="annottext">ReadPrec [TaskObject]
 ReadPrec TaskObject
 Int -&gt; ReadS TaskObject
 ReadS [TaskObject]
@@ -73,7 +73,7 @@ readList :: ReadS [TaskObject]
 $creadList :: ReadS [TaskObject]
 readsPrec :: Int -&gt; ReadS TaskObject
 $creadsPrec :: Int -&gt; ReadS TaskObject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176376"><span id="local-6989586621679176378"><span id="local-6989586621679176380"><span class="annot"><span class="annottext">Int -&gt; TaskObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176520"><span id="local-6989586621679176522"><span id="local-6989586621679176524"><span class="annot"><span class="annottext">Int -&gt; TaskObject -&gt; ShowS
 [TaskObject] -&gt; ShowS
 TaskObject -&gt; String
 (Int -&gt; TaskObject -&gt; ShowS)
@@ -108,38 +108,38 @@ $cfrom :: forall x. TaskObject -&gt; Rep TaskObject x
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'pipelineId', 'taskObject_pipelineId' - The ID of the pipeline that provided the task.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'objects', 'taskObject_objects' - Connection information for the location where the task runner will</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- publish the output of the task.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'attemptId', 'taskObject_attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- value to track how many times a task is attempted.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'taskId', 'taskObject_taskId' - An internal identifier for the task. This ID is passed to the</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- SetTaskStatus and ReportTaskProgress actions.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'attemptId', 'taskObject_attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- value to track how many times a task is attempted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'objects', 'taskObject_objects' - Connection information for the location where the task runner will</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- publish the output of the task.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#newTaskObject"><span class="hs-identifier hs-type">newTaskObject</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span>
 </span><span id="line-66"></span><span id="newTaskObject"><span class="annot"><span class="annottext">newTaskObject :: TaskObject
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#newTaskObject"><span class="hs-identifier hs-var hs-var">newTaskObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">TaskObject' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe (HashMap Text PipelineObject)
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; TaskObject
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineId:TaskObject' :: Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3ApipelineId%3ATaskObject%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:objects:TaskObject' :: Maybe (HashMap Text PipelineObject)
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3Aobjects%3ATaskObject%27"><span class="hs-identifier hs-var">objects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:attemptId:TaskObject' :: Maybe Text
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AattemptId%3ATaskObject%27"><span class="hs-identifier hs-var">attemptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskId:TaskObject' :: Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AtaskId%3ATaskObject%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:attemptId:TaskObject' :: Maybe Text
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AattemptId%3ATaskObject%27"><span class="hs-identifier hs-var">attemptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:objects:TaskObject' :: Maybe (HashMap Text PipelineObject)
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3Aobjects%3ATaskObject%27"><span class="hs-identifier hs-var">objects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
@@ -151,21 +151,59 @@ forall a. Maybe a
 -&gt; (TaskObject -&gt; Maybe Text -&gt; TaskObject)
 -&gt; Lens TaskObject TaskObject (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176367"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176511"><span class="annot"><span class="annottext">Maybe Text
 pipelineId :: Maybe Text
 $sel:pipelineId:TaskObject' :: TaskObject -&gt; Maybe Text
-</span><a href="#local-6989586621679176367"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176367"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176366"><span class="annot"><span class="annottext">s :: TaskObject
-</span><a href="#local-6989586621679176366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176365"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
-</span><a href="#local-6989586621679176366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:TaskObject' :: Maybe Text
+</span><a href="#local-6989586621679176511"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176511"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176510"><span class="annot"><span class="annottext">s :: TaskObject
+</span><a href="#local-6989586621679176510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
+</span><a href="#local-6989586621679176510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:TaskObject' :: Maybe Text
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3ApipelineId%3ATaskObject%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | Connection information for the location where the task runner will</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- publish the output of the task.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_objects"><span class="hs-identifier hs-type">taskObject_objects</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="taskObject_objects"><span class="annot"><span class="annottext">taskObject_objects :: (Maybe (HashMap Text PipelineObject)
+</span><span id="line-78"></span><span class="hs-comment">-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- value to track how many times a task is attempted.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_attemptId"><span class="hs-identifier hs-type">taskObject_attemptId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="taskObject_attemptId"><span class="annot"><span class="annottext">taskObject_attemptId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TaskObject -&gt; f TaskObject
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_attemptId"><span class="hs-identifier hs-var hs-var">taskObject_attemptId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskObject -&gt; Maybe Text)
+-&gt; (TaskObject -&gt; Maybe Text -&gt; TaskObject)
+-&gt; Lens TaskObject TaskObject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176507"><span class="annot"><span class="annottext">Maybe Text
+attemptId :: Maybe Text
+$sel:attemptId:TaskObject' :: TaskObject -&gt; Maybe Text
+</span><a href="#local-6989586621679176507"><span class="hs-identifier hs-var hs-var">attemptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176507"><span class="hs-identifier hs-var">attemptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176506"><span class="annot"><span class="annottext">s :: TaskObject
+</span><a href="#local-6989586621679176506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176505"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
+</span><a href="#local-6989586621679176506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attemptId:TaskObject' :: Maybe Text
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AattemptId%3ATaskObject%27"><span class="hs-identifier hs-var">attemptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | An internal identifier for the task. This ID is passed to the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- SetTaskStatus and ReportTaskProgress actions.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_taskId"><span class="hs-identifier hs-type">taskObject_taskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="taskObject_taskId"><span class="annot"><span class="annottext">taskObject_taskId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TaskObject -&gt; f TaskObject
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_taskId"><span class="hs-identifier hs-var hs-var">taskObject_taskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskObject -&gt; Maybe Text)
+-&gt; (TaskObject -&gt; Maybe Text -&gt; TaskObject)
+-&gt; Lens TaskObject TaskObject (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176503"><span class="annot"><span class="annottext">Maybe Text
+taskId :: Maybe Text
+$sel:taskId:TaskObject' :: TaskObject -&gt; Maybe Text
+</span><a href="#local-6989586621679176503"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176503"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176502"><span class="annot"><span class="annottext">s :: TaskObject
+</span><a href="#local-6989586621679176502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
+</span><a href="#local-6989586621679176502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:TaskObject' :: Maybe Text
+</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AtaskId%3ATaskObject%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Connection information for the location where the task runner will</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- publish the output of the task.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_objects"><span class="hs-identifier hs-type">taskObject_objects</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.PipelineObject.html#PipelineObject"><span class="hs-identifier hs-type">PipelineObject</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="taskObject_objects"><span class="annot"><span class="annottext">taskObject_objects :: (Maybe (HashMap Text PipelineObject)
  -&gt; f (Maybe (HashMap Text PipelineObject)))
 -&gt; TaskObject -&gt; f TaskObject
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_objects"><span class="hs-identifier hs-var hs-var">taskObject_objects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskObject -&gt; Maybe (HashMap Text PipelineObject))
@@ -177,16 +215,16 @@ $sel:pipelineId:TaskObject' :: TaskObject -&gt; Maybe Text
      (Maybe (HashMap Text PipelineObject))
      (Maybe (HashMap Text PipelineObject))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176363"><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176499"><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
 objects :: Maybe (HashMap Text PipelineObject)
 $sel:objects:TaskObject' :: TaskObject -&gt; Maybe (HashMap Text PipelineObject)
-</span><a href="#local-6989586621679176363"><span class="hs-identifier hs-var hs-var">objects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
-</span><a href="#local-6989586621679176363"><span class="hs-identifier hs-var">objects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176362"><span class="annot"><span class="annottext">s :: TaskObject
-</span><a href="#local-6989586621679176362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176361"><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
-</span><a href="#local-6989586621679176361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
-</span><a href="#local-6989586621679176362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objects:TaskObject' :: Maybe (HashMap Text PipelineObject)
+</span><a href="#local-6989586621679176499"><span class="hs-identifier hs-var hs-var">objects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
+</span><a href="#local-6989586621679176499"><span class="hs-identifier hs-var">objects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176498"><span class="annot"><span class="annottext">s :: TaskObject
+</span><a href="#local-6989586621679176498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176497"><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
+</span><a href="#local-6989586621679176497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
+</span><a href="#local-6989586621679176498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objects:TaskObject' :: Maybe (HashMap Text PipelineObject)
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3Aobjects%3ATaskObject%27"><span class="hs-identifier hs-var">objects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
-</span><a href="#local-6989586621679176361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text PipelineObject)
+</span><a href="#local-6989586621679176497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text PipelineObject)
   -&gt; f (Maybe (HashMap Text PipelineObject)))
  -&gt; TaskObject -&gt; f TaskObject)
 -&gt; ((Maybe (HashMap Text PipelineObject)
@@ -216,49 +254,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text PipelineObject)
   (HashMap Text PipelineObject)
   (HashMap Text PipelineObject)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | An internal identifier for the task. This ID is passed to the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- SetTaskStatus and ReportTaskProgress actions.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_taskId"><span class="hs-identifier hs-type">taskObject_taskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="taskObject_taskId"><span class="annot"><span class="annottext">taskObject_taskId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TaskObject -&gt; f TaskObject
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_taskId"><span class="hs-identifier hs-var hs-var">taskObject_taskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskObject -&gt; Maybe Text)
--&gt; (TaskObject -&gt; Maybe Text -&gt; TaskObject)
--&gt; Lens TaskObject TaskObject (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176356"><span class="annot"><span class="annottext">Maybe Text
-taskId :: Maybe Text
-$sel:taskId:TaskObject' :: TaskObject -&gt; Maybe Text
-</span><a href="#local-6989586621679176356"><span class="hs-identifier hs-var hs-var">taskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176356"><span class="hs-identifier hs-var">taskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176355"><span class="annot"><span class="annottext">s :: TaskObject
-</span><a href="#local-6989586621679176355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176354"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
-</span><a href="#local-6989586621679176355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskId:TaskObject' :: Maybe Text
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AtaskId%3ATaskObject%27"><span class="hs-identifier hs-var">taskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- value to track how many times a task is attempted.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_attemptId"><span class="hs-identifier hs-type">taskObject_attemptId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="taskObject_attemptId"><span class="annot"><span class="annottext">taskObject_attemptId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TaskObject -&gt; f TaskObject
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#taskObject_attemptId"><span class="hs-identifier hs-var hs-var">taskObject_attemptId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskObject -&gt; Maybe Text)
--&gt; (TaskObject -&gt; Maybe Text -&gt; TaskObject)
--&gt; Lens TaskObject TaskObject (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176352"><span class="annot"><span class="annottext">Maybe Text
-attemptId :: Maybe Text
-$sel:attemptId:TaskObject' :: TaskObject -&gt; Maybe Text
-</span><a href="#local-6989586621679176352"><span class="hs-identifier hs-var hs-var">attemptId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176352"><span class="hs-identifier hs-var">attemptId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176351"><span class="annot"><span class="annottext">s :: TaskObject
-</span><a href="#local-6989586621679176351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-type">TaskObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176350"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskObject
-</span><a href="#local-6989586621679176351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attemptId:TaskObject' :: Maybe Text
-</span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#%24sel%3AattemptId%3ATaskObject%27"><span class="hs-identifier hs-var">attemptId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176347"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679176345"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaskObject
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176491"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679176489"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaskObject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TaskObject) -&gt; Value -&gt; Parser TaskObject
@@ -266,37 +266,57 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TaskObject&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176342"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176342"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176486"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe (HashMap Text PipelineObject)
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; TaskObject
 </span><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject%27"><span class="hs-identifier hs-var">TaskObject'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe (HashMap Text PipelineObject)
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; TaskObject)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe (HashMap Text PipelineObject)
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; TaskObject)
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text PipelineObject) -&gt; TaskObject)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679176486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pipelineId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text PipelineObject)
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; TaskObject)
--&gt; Parser (Maybe (HashMap Text PipelineObject))
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; TaskObject)
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text PipelineObject) -&gt; TaskObject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe (HashMap Text PipelineObject) -&gt; TaskObject)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attemptId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe (HashMap Text PipelineObject) -&gt; TaskObject)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text PipelineObject) -&gt; TaskObject)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text PipelineObject) -&gt; TaskObject)
+-&gt; Parser (Maybe (HashMap Text PipelineObject))
+-&gt; Parser TaskObject
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text PipelineObject)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -307,25 +327,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PipelineObject)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; TaskObject)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; TaskObject)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TaskObject)
--&gt; Parser (Maybe Text) -&gt; Parser TaskObject
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;attemptId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176335"><span id="local-6989586621679176337"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176479"><span id="local-6989586621679176481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.TaskObject.html#TaskObject"><span class="hs-identifier hs-type">TaskObject</span></a></span></span><span>
 </span><span id="line-108"></span></pre></body></html>

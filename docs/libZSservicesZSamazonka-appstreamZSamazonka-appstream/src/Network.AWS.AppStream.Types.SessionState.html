@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | Possible values for the state of a streaming session.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679288640"><span id="local-6989586621679288641"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SessionState"><span class="annot"><a href="Network.AWS.AppStream.Types.SessionState.html#SessionState"><span class="hs-identifier hs-var">SessionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SessionState%27"><span class="annot"><a href="Network.AWS.AppStream.Types.SessionState.html#SessionState%27"><span class="hs-identifier hs-var">SessionState'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679288890"><span id="local-6989586621679288891"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SessionState"><span class="annot"><a href="Network.AWS.AppStream.Types.SessionState.html#SessionState"><span class="hs-identifier hs-var">SessionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SessionState%27"><span class="annot"><a href="Network.AWS.AppStream.Types.SessionState.html#SessionState%27"><span class="hs-identifier hs-var">SessionState'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSessionState"><span class="annot"><span class="annottext">SessionState -&gt; Text
 </span><a href="Network.AWS.AppStream.Types.SessionState.html#fromSessionState"><span class="hs-identifier hs-var hs-var">fromSessionState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288632"><span id="local-6989586621679288634"><span id="local-6989586621679288636"><span class="annot"><span class="annottext">Int -&gt; SessionState -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288882"><span id="local-6989586621679288884"><span id="local-6989586621679288886"><span class="annot"><span class="annottext">Int -&gt; SessionState -&gt; ShowS
 [SessionState] -&gt; ShowS
 SessionState -&gt; String
 (Int -&gt; SessionState -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SessionState -&gt; String
 showsPrec :: Int -&gt; SessionState -&gt; ShowS
 $cshowsPrec :: Int -&gt; SessionState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679288623"><span id="local-6989586621679288625"><span id="local-6989586621679288627"><span id="local-6989586621679288629"><span class="annot"><span class="annottext">ReadPrec [SessionState]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679288873"><span id="local-6989586621679288875"><span id="local-6989586621679288877"><span id="local-6989586621679288879"><span class="annot"><span class="annottext">ReadPrec [SessionState]
 ReadPrec SessionState
 Int -&gt; ReadS SessionState
 ReadS [SessionState]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SessionState]
 readsPrec :: Int -&gt; ReadS SessionState
 $creadsPrec :: Int -&gt; ReadS SessionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679288618"><span id="local-6989586621679288620"><span class="annot"><span class="annottext">SessionState -&gt; SessionState -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679288868"><span id="local-6989586621679288870"><span class="annot"><span class="annottext">SessionState -&gt; SessionState -&gt; Bool
 (SessionState -&gt; SessionState -&gt; Bool)
 -&gt; (SessionState -&gt; SessionState -&gt; Bool) -&gt; Eq SessionState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: SessionState -&gt; SessionState -&gt; Bool
 == :: SessionState -&gt; SessionState -&gt; Bool
 $c== :: SessionState -&gt; SessionState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679288602"><span id="local-6989586621679288604"><span id="local-6989586621679288606"><span id="local-6989586621679288608"><span id="local-6989586621679288610"><span id="local-6989586621679288612"><span id="local-6989586621679288614"><span class="annot"><span class="annottext">Eq SessionState
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679288852"><span id="local-6989586621679288854"><span id="local-6989586621679288856"><span id="local-6989586621679288858"><span id="local-6989586621679288860"><span id="local-6989586621679288862"><span id="local-6989586621679288864"><span class="annot"><span class="annottext">Eq SessionState
 Eq SessionState
 -&gt; (SessionState -&gt; SessionState -&gt; Ordering)
 -&gt; (SessionState -&gt; SessionState -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. SessionState -&gt; Rep SessionState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288594"><span id="local-6989586621679288596"><span class="annot"><span class="annottext">Int -&gt; SessionState -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679288844"><span id="local-6989586621679288846"><span class="annot"><span class="annottext">Int -&gt; SessionState -&gt; Int
 SessionState -&gt; Int
 (Int -&gt; SessionState -&gt; Int)
 -&gt; (SessionState -&gt; Int) -&gt; Hashable SessionState
@@ -144,49 +144,49 @@ $chash :: SessionState -&gt; Int
 hashWithSalt :: Int -&gt; SessionState -&gt; Int
 $chashWithSalt :: Int -&gt; SessionState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679288591"><span class="annot"><span class="annottext">SessionState -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679288841"><span class="annot"><span class="annottext">SessionState -&gt; ()
 (SessionState -&gt; ()) -&gt; NFData SessionState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SessionState -&gt; ()
 $crnf :: SessionState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679288588"><span class="annot"><span class="annottext">Text -&gt; Either String SessionState
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679288838"><span class="annot"><span class="annottext">Text -&gt; Either String SessionState
 (Text -&gt; Either String SessionState) -&gt; FromText SessionState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SessionState
 $cfromText :: Text -&gt; Either String SessionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679288585"><span class="annot"><span class="annottext">SessionState -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679288835"><span class="annot"><span class="annottext">SessionState -&gt; Text
 (SessionState -&gt; Text) -&gt; ToText SessionState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SessionState -&gt; Text
 $ctoText :: SessionState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679288582"><span class="annot"><span class="annottext">SessionState -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679288832"><span class="annot"><span class="annottext">SessionState -&gt; ByteString
 (SessionState -&gt; ByteString) -&gt; ToByteString SessionState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SessionState -&gt; ByteString
 $ctoBS :: SessionState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679288579"><span class="annot"><span class="annottext">SessionState -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679288829"><span class="annot"><span class="annottext">SessionState -&gt; ByteStringBuilder
 (SessionState -&gt; ByteStringBuilder) -&gt; ToLog SessionState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SessionState -&gt; ByteStringBuilder
 $cbuild :: SessionState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679288576"><span class="annot"><span class="annottext">HeaderName -&gt; SessionState -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679288826"><span class="annot"><span class="annottext">HeaderName -&gt; SessionState -&gt; [Header]
 (HeaderName -&gt; SessionState -&gt; [Header]) -&gt; ToHeader SessionState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SessionState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SessionState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679288573"><span class="annot"><span class="annottext">SessionState -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679288823"><span class="annot"><span class="annottext">SessionState -&gt; QueryString
 (SessionState -&gt; QueryString) -&gt; ToQuery SessionState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SessionState -&gt; QueryString
 $ctoQuery :: SessionState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679288568"><span id="local-6989586621679288570"><span class="annot"><span class="annottext">Value -&gt; Parser [SessionState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679288818"><span id="local-6989586621679288820"><span class="annot"><span class="annottext">Value -&gt; Parser [SessionState]
 Value -&gt; Parser SessionState
 (Value -&gt; Parser SessionState)
 -&gt; (Value -&gt; Parser [SessionState]) -&gt; FromJSON SessionState
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [SessionState]
 parseJSON :: Value -&gt; Parser SessionState
 $cparseJSON :: Value -&gt; Parser SessionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679288563"><span id="local-6989586621679288565"><span class="annot"><span class="annottext">FromJSONKeyFunction [SessionState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679288813"><span id="local-6989586621679288815"><span class="annot"><span class="annottext">FromJSONKeyFunction [SessionState]
 FromJSONKeyFunction SessionState
 FromJSONKeyFunction SessionState
 -&gt; FromJSONKeyFunction [SessionState] -&gt; FromJSONKey SessionState
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SessionState]
 fromJSONKey :: FromJSONKeyFunction SessionState
 $cfromJSONKey :: FromJSONKeyFunction SessionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679288554"><span id="local-6989586621679288556"><span id="local-6989586621679288558"><span id="local-6989586621679288560"><span class="annot"><span class="annottext">[SessionState] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679288804"><span id="local-6989586621679288806"><span id="local-6989586621679288808"><span id="local-6989586621679288810"><span class="annot"><span class="annottext">[SessionState] -&gt; Encoding
 [SessionState] -&gt; Value
 SessionState -&gt; Encoding
 SessionState -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: SessionState -&gt; Encoding
 toJSON :: SessionState -&gt; Value
 $ctoJSON :: SessionState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679288549"><span id="local-6989586621679288551"><span class="annot"><span class="annottext">ToJSONKeyFunction [SessionState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679288799"><span id="local-6989586621679288801"><span class="annot"><span class="annottext">ToJSONKeyFunction [SessionState]
 ToJSONKeyFunction SessionState
 ToJSONKeyFunction SessionState
 -&gt; ToJSONKeyFunction [SessionState] -&gt; ToJSONKey SessionState
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SessionState]
 toJSONKey :: ToJSONKeyFunction SessionState
 $ctoJSONKey :: ToJSONKeyFunction SessionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679288546"><span class="annot"><span class="annottext">[Node] -&gt; Either String SessionState
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679288796"><span class="annot"><span class="annottext">[Node] -&gt; Either String SessionState
 ([Node] -&gt; Either String SessionState) -&gt; FromXML SessionState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SessionState
 $cparseXML :: [Node] -&gt; Either String SessionState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679288543"><span class="annot"><span class="annottext">SessionState -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679288793"><span class="annot"><span class="annottext">SessionState -&gt; XML
 (SessionState -&gt; XML) -&gt; ToXML SessionState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SessionState -&gt; XML

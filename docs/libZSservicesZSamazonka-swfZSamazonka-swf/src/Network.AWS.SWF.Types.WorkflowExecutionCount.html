@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newWorkflowExecutionCount' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679353223"><span id="local-6989586621679353224"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionCount"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-var">WorkflowExecutionCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionCount%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-var">WorkflowExecutionCount'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679353301"><span id="local-6989586621679353302"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkflowExecutionCount"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-var">WorkflowExecutionCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionCount%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-var">WorkflowExecutionCount'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If set to true, indicates that the actual count was more than the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- maximum supported by this API and the count returned is the truncated</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- value.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Acount%3AWorkflowExecutionCount%27"><span class="annot"><span class="annottext">WorkflowExecutionCount -&gt; Natural
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#%24sel%3Acount%3AWorkflowExecutionCount%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353216"><span id="local-6989586621679353218"><span class="annot"><span class="annottext">WorkflowExecutionCount -&gt; WorkflowExecutionCount -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353294"><span id="local-6989586621679353296"><span class="annot"><span class="annottext">WorkflowExecutionCount -&gt; WorkflowExecutionCount -&gt; Bool
 (WorkflowExecutionCount -&gt; WorkflowExecutionCount -&gt; Bool)
 -&gt; (WorkflowExecutionCount -&gt; WorkflowExecutionCount -&gt; Bool)
 -&gt; Eq WorkflowExecutionCount
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkflowExecutionCount -&gt; WorkflowExecutionCount -&gt; Bool
 == :: WorkflowExecutionCount -&gt; WorkflowExecutionCount -&gt; Bool
 $c== :: WorkflowExecutionCount -&gt; WorkflowExecutionCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353207"><span id="local-6989586621679353209"><span id="local-6989586621679353211"><span id="local-6989586621679353213"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353285"><span id="local-6989586621679353287"><span id="local-6989586621679353289"><span id="local-6989586621679353291"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionCount]
 ReadPrec WorkflowExecutionCount
 Int -&gt; ReadS WorkflowExecutionCount
 ReadS [WorkflowExecutionCount]
@@ -66,7 +66,7 @@ readList :: ReadS [WorkflowExecutionCount]
 $creadList :: ReadS [WorkflowExecutionCount]
 readsPrec :: Int -&gt; ReadS WorkflowExecutionCount
 $creadsPrec :: Int -&gt; ReadS WorkflowExecutionCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353200"><span id="local-6989586621679353202"><span id="local-6989586621679353204"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353278"><span id="local-6989586621679353280"><span id="local-6989586621679353282"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionCount -&gt; ShowS
 [WorkflowExecutionCount] -&gt; ShowS
 WorkflowExecutionCount -&gt; String
 (Int -&gt; WorkflowExecutionCount -&gt; ShowS)
@@ -111,8 +111,8 @@ $cfrom :: forall x. WorkflowExecutionCount -&gt; Rep WorkflowExecutionCount x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span><span>
 </span><span id="line-57"></span><span id="newWorkflowExecutionCount"><span class="annot"><span class="annottext">newWorkflowExecutionCount :: Natural -&gt; WorkflowExecutionCount
-</span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#newWorkflowExecutionCount"><span class="hs-identifier hs-var hs-var">newWorkflowExecutionCount</span></a></span></span><span> </span><span id="local-6989586621679353194"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679353194"><span class="hs-identifier hs-var">pCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#newWorkflowExecutionCount"><span class="hs-identifier hs-var hs-var">newWorkflowExecutionCount</span></a></span></span><span> </span><span id="local-6989586621679353272"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679353272"><span class="hs-identifier hs-var">pCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">WorkflowExecutionCount' :: Maybe Bool -&gt; Natural -&gt; WorkflowExecutionCount
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:truncated:WorkflowExecutionCount' :: Maybe Bool
@@ -122,7 +122,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:WorkflowExecutionCount' :: Natural
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#%24sel%3Acount%3AWorkflowExecutionCount%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679353194"><span class="hs-identifier hs-var">pCount_</span></a></span><span>
+</span><a href="#local-6989586621679353272"><span class="hs-identifier hs-var">pCount_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | If set to true, indicates that the actual count was more than the</span><span>
@@ -139,16 +139,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353190"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353268"><span class="annot"><span class="annottext">Maybe Bool
 truncated :: Maybe Bool
 $sel:truncated:WorkflowExecutionCount' :: WorkflowExecutionCount -&gt; Maybe Bool
-</span><a href="#local-6989586621679353190"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679353190"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353189"><span class="annot"><span class="annottext">s :: WorkflowExecutionCount
-</span><a href="#local-6989586621679353189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353188"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679353188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionCount
-</span><a href="#local-6989586621679353189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:WorkflowExecutionCount' :: Maybe Bool
+</span><a href="#local-6989586621679353268"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679353268"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353267"><span class="annot"><span class="annottext">s :: WorkflowExecutionCount
+</span><a href="#local-6989586621679353267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353266"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679353266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionCount
+</span><a href="#local-6989586621679353267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:WorkflowExecutionCount' :: Maybe Bool
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#%24sel%3Atruncated%3AWorkflowExecutionCount%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679353188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The number of workflow executions.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#workflowExecutionCount_count"><span class="hs-identifier hs-type">workflowExecutionCount_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -159,19 +159,19 @@ $sel:truncated:WorkflowExecutionCount' :: WorkflowExecutionCount -&gt; Maybe Boo
 -&gt; Lens
      WorkflowExecutionCount WorkflowExecutionCount Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353186"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353264"><span class="annot"><span class="annottext">Natural
 count :: Natural
 $sel:count:WorkflowExecutionCount' :: WorkflowExecutionCount -&gt; Natural
-</span><a href="#local-6989586621679353186"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679353186"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353185"><span class="annot"><span class="annottext">s :: WorkflowExecutionCount
-</span><a href="#local-6989586621679353185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353184"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679353184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionCount
-</span><a href="#local-6989586621679353185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:WorkflowExecutionCount' :: Natural
+</span><a href="#local-6989586621679353264"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679353264"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353263"><span class="annot"><span class="annottext">s :: WorkflowExecutionCount
+</span><a href="#local-6989586621679353263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-type">WorkflowExecutionCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353262"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679353262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecutionCount
+</span><a href="#local-6989586621679353263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:WorkflowExecutionCount' :: Natural
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#%24sel%3Acount%3AWorkflowExecutionCount%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679353184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353181"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679353179"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionCount
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679353257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WorkflowExecutionCount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WorkflowExecutionCount)
@@ -181,8 +181,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WorkflowExecutionCount&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353176"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353254"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Natural -&gt; WorkflowExecutionCount
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount%27"><span class="hs-identifier hs-var">WorkflowExecutionCount'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Natural -&gt; WorkflowExecutionCount)
@@ -190,7 +190,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Natural -&gt; WorkflowExecutionCount)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679353254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;truncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -198,13 +198,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser WorkflowExecutionCount
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679353254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353169"><span id="local-6989586621679353171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353247"><span id="local-6989586621679353249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCount.html#WorkflowExecutionCount"><span class="hs-identifier hs-type">WorkflowExecutionCount</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

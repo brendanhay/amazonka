@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679497430"><span id="local-6989586621679497431"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortByOrder"><span class="annot"><a href="Network.AWS.Redshift.Types.SortByOrder.html#SortByOrder"><span class="hs-identifier hs-var">SortByOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortByOrder%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SortByOrder.html#SortByOrder%27"><span class="hs-identifier hs-var">SortByOrder'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679498086"><span id="local-6989586621679498087"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortByOrder"><span class="annot"><a href="Network.AWS.Redshift.Types.SortByOrder.html#SortByOrder"><span class="hs-identifier hs-var">SortByOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortByOrder%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SortByOrder.html#SortByOrder%27"><span class="hs-identifier hs-var">SortByOrder'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSortByOrder"><span class="annot"><span class="annottext">SortByOrder -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.SortByOrder.html#fromSortByOrder"><span class="hs-identifier hs-var hs-var">fromSortByOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679497422"><span id="local-6989586621679497424"><span id="local-6989586621679497426"><span class="annot"><span class="annottext">Int -&gt; SortByOrder -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679498078"><span id="local-6989586621679498080"><span id="local-6989586621679498082"><span class="annot"><span class="annottext">Int -&gt; SortByOrder -&gt; ShowS
 [SortByOrder] -&gt; ShowS
 SortByOrder -&gt; String
 (Int -&gt; SortByOrder -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SortByOrder -&gt; String
 showsPrec :: Int -&gt; SortByOrder -&gt; ShowS
 $cshowsPrec :: Int -&gt; SortByOrder -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679497413"><span id="local-6989586621679497415"><span id="local-6989586621679497417"><span id="local-6989586621679497419"><span class="annot"><span class="annottext">ReadPrec [SortByOrder]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679498069"><span id="local-6989586621679498071"><span id="local-6989586621679498073"><span id="local-6989586621679498075"><span class="annot"><span class="annottext">ReadPrec [SortByOrder]
 ReadPrec SortByOrder
 Int -&gt; ReadS SortByOrder
 ReadS [SortByOrder]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SortByOrder]
 readsPrec :: Int -&gt; ReadS SortByOrder
 $creadsPrec :: Int -&gt; ReadS SortByOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679497408"><span id="local-6989586621679497410"><span class="annot"><span class="annottext">SortByOrder -&gt; SortByOrder -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679498064"><span id="local-6989586621679498066"><span class="annot"><span class="annottext">SortByOrder -&gt; SortByOrder -&gt; Bool
 (SortByOrder -&gt; SortByOrder -&gt; Bool)
 -&gt; (SortByOrder -&gt; SortByOrder -&gt; Bool) -&gt; Eq SortByOrder
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: SortByOrder -&gt; SortByOrder -&gt; Bool
 == :: SortByOrder -&gt; SortByOrder -&gt; Bool
 $c== :: SortByOrder -&gt; SortByOrder -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679497392"><span id="local-6989586621679497394"><span id="local-6989586621679497396"><span id="local-6989586621679497398"><span id="local-6989586621679497400"><span id="local-6989586621679497402"><span id="local-6989586621679497404"><span class="annot"><span class="annottext">Eq SortByOrder
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679498048"><span id="local-6989586621679498050"><span id="local-6989586621679498052"><span id="local-6989586621679498054"><span id="local-6989586621679498056"><span id="local-6989586621679498058"><span id="local-6989586621679498060"><span class="annot"><span class="annottext">Eq SortByOrder
 Eq SortByOrder
 -&gt; (SortByOrder -&gt; SortByOrder -&gt; Ordering)
 -&gt; (SortByOrder -&gt; SortByOrder -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SortByOrder -&gt; Rep SortByOrder x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679497384"><span id="local-6989586621679497386"><span class="annot"><span class="annottext">Int -&gt; SortByOrder -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679498040"><span id="local-6989586621679498042"><span class="annot"><span class="annottext">Int -&gt; SortByOrder -&gt; Int
 SortByOrder -&gt; Int
 (Int -&gt; SortByOrder -&gt; Int)
 -&gt; (SortByOrder -&gt; Int) -&gt; Hashable SortByOrder
@@ -143,49 +143,49 @@ $chash :: SortByOrder -&gt; Int
 hashWithSalt :: Int -&gt; SortByOrder -&gt; Int
 $chashWithSalt :: Int -&gt; SortByOrder -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679497381"><span class="annot"><span class="annottext">SortByOrder -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679498037"><span class="annot"><span class="annottext">SortByOrder -&gt; ()
 (SortByOrder -&gt; ()) -&gt; NFData SortByOrder
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SortByOrder -&gt; ()
 $crnf :: SortByOrder -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679497378"><span class="annot"><span class="annottext">Text -&gt; Either String SortByOrder
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679498034"><span class="annot"><span class="annottext">Text -&gt; Either String SortByOrder
 (Text -&gt; Either String SortByOrder) -&gt; FromText SortByOrder
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SortByOrder
 $cfromText :: Text -&gt; Either String SortByOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679497375"><span class="annot"><span class="annottext">SortByOrder -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679498031"><span class="annot"><span class="annottext">SortByOrder -&gt; Text
 (SortByOrder -&gt; Text) -&gt; ToText SortByOrder
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SortByOrder -&gt; Text
 $ctoText :: SortByOrder -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679497372"><span class="annot"><span class="annottext">SortByOrder -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679498028"><span class="annot"><span class="annottext">SortByOrder -&gt; ByteString
 (SortByOrder -&gt; ByteString) -&gt; ToByteString SortByOrder
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SortByOrder -&gt; ByteString
 $ctoBS :: SortByOrder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679497369"><span class="annot"><span class="annottext">SortByOrder -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679498025"><span class="annot"><span class="annottext">SortByOrder -&gt; ByteStringBuilder
 (SortByOrder -&gt; ByteStringBuilder) -&gt; ToLog SortByOrder
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SortByOrder -&gt; ByteStringBuilder
 $cbuild :: SortByOrder -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679497366"><span class="annot"><span class="annottext">HeaderName -&gt; SortByOrder -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679498022"><span class="annot"><span class="annottext">HeaderName -&gt; SortByOrder -&gt; [Header]
 (HeaderName -&gt; SortByOrder -&gt; [Header]) -&gt; ToHeader SortByOrder
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SortByOrder -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SortByOrder -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679497363"><span class="annot"><span class="annottext">SortByOrder -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679498019"><span class="annot"><span class="annottext">SortByOrder -&gt; QueryString
 (SortByOrder -&gt; QueryString) -&gt; ToQuery SortByOrder
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SortByOrder -&gt; QueryString
 $ctoQuery :: SortByOrder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679497358"><span id="local-6989586621679497360"><span class="annot"><span class="annottext">Value -&gt; Parser [SortByOrder]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679498014"><span id="local-6989586621679498016"><span class="annot"><span class="annottext">Value -&gt; Parser [SortByOrder]
 Value -&gt; Parser SortByOrder
 (Value -&gt; Parser SortByOrder)
 -&gt; (Value -&gt; Parser [SortByOrder]) -&gt; FromJSON SortByOrder
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [SortByOrder]
 parseJSON :: Value -&gt; Parser SortByOrder
 $cparseJSON :: Value -&gt; Parser SortByOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679497353"><span id="local-6989586621679497355"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortByOrder]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679498009"><span id="local-6989586621679498011"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortByOrder]
 FromJSONKeyFunction SortByOrder
 FromJSONKeyFunction SortByOrder
 -&gt; FromJSONKeyFunction [SortByOrder] -&gt; FromJSONKey SortByOrder
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SortByOrder]
 fromJSONKey :: FromJSONKeyFunction SortByOrder
 $cfromJSONKey :: FromJSONKeyFunction SortByOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679497344"><span id="local-6989586621679497346"><span id="local-6989586621679497348"><span id="local-6989586621679497350"><span class="annot"><span class="annottext">[SortByOrder] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679498000"><span id="local-6989586621679498002"><span id="local-6989586621679498004"><span id="local-6989586621679498006"><span class="annot"><span class="annottext">[SortByOrder] -&gt; Encoding
 [SortByOrder] -&gt; Value
 SortByOrder -&gt; Encoding
 SortByOrder -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: SortByOrder -&gt; Encoding
 toJSON :: SortByOrder -&gt; Value
 $ctoJSON :: SortByOrder -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679497339"><span id="local-6989586621679497341"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortByOrder]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679497995"><span id="local-6989586621679497997"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortByOrder]
 ToJSONKeyFunction SortByOrder
 ToJSONKeyFunction SortByOrder
 -&gt; ToJSONKeyFunction [SortByOrder] -&gt; ToJSONKey SortByOrder
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SortByOrder]
 toJSONKey :: ToJSONKeyFunction SortByOrder
 $ctoJSONKey :: ToJSONKeyFunction SortByOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679497336"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortByOrder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679497992"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortByOrder
 ([Node] -&gt; Either String SortByOrder) -&gt; FromXML SortByOrder
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SortByOrder
 $cparseXML :: [Node] -&gt; Either String SortByOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679497333"><span class="annot"><span class="annottext">SortByOrder -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679497989"><span class="annot"><span class="annottext">SortByOrder -&gt; XML
 (SortByOrder -&gt; XML) -&gt; ToXML SortByOrder
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SortByOrder -&gt; XML

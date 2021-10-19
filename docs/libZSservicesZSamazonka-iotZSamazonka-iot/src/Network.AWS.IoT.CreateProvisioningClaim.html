@@ -38,10 +38,10 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#newCreateProvisioningClaimResponse"><span class="hs-identifier">newCreateProvisioningClaimResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_expiration"><span class="hs-identifier">createProvisioningClaimResponse_expiration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_keyPair"><span class="hs-identifier">createProvisioningClaimResponse_keyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_keyPair"><span class="hs-identifier">createProvisioningClaimResponse_keyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificatePem"><span class="hs-identifier">createProvisioningClaimResponse_certificatePem</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificateId"><span class="hs-identifier">createProvisioningClaimResponse_certificateId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificatePem"><span class="hs-identifier">createProvisioningClaimResponse_certificatePem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_expiration"><span class="hs-identifier">createProvisioningClaimResponse_expiration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_httpStatus"><span class="hs-identifier">createProvisioningClaimResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCreateProvisioningClaim' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679848956"><span id="local-6989586621679848957"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProvisioningClaim"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-var">CreateProvisioningClaim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProvisioningClaim%27"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-var">CreateProvisioningClaim'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679849951"><span id="local-6989586621679849952"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProvisioningClaim"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-var">CreateProvisioningClaim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProvisioningClaim%27"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-var">CreateProvisioningClaim'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the provisioning template to use.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AtemplateName%3ACreateProvisioningClaim%27"><span class="annot"><span class="annottext">CreateProvisioningClaim -&gt; Text
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AtemplateName%3ACreateProvisioningClaim%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848950"><span id="local-6989586621679848952"><span class="annot"><span class="annottext">CreateProvisioningClaim -&gt; CreateProvisioningClaim -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849945"><span id="local-6989586621679849947"><span class="annot"><span class="annottext">CreateProvisioningClaim -&gt; CreateProvisioningClaim -&gt; Bool
 (CreateProvisioningClaim -&gt; CreateProvisioningClaim -&gt; Bool)
 -&gt; (CreateProvisioningClaim -&gt; CreateProvisioningClaim -&gt; Bool)
 -&gt; Eq CreateProvisioningClaim
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateProvisioningClaim -&gt; CreateProvisioningClaim -&gt; Bool
 == :: CreateProvisioningClaim -&gt; CreateProvisioningClaim -&gt; Bool
 $c== :: CreateProvisioningClaim -&gt; CreateProvisioningClaim -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848941"><span id="local-6989586621679848943"><span id="local-6989586621679848945"><span id="local-6989586621679848947"><span class="annot"><span class="annottext">ReadPrec [CreateProvisioningClaim]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849936"><span id="local-6989586621679849938"><span id="local-6989586621679849940"><span id="local-6989586621679849942"><span class="annot"><span class="annottext">ReadPrec [CreateProvisioningClaim]
 ReadPrec CreateProvisioningClaim
 Int -&gt; ReadS CreateProvisioningClaim
 ReadS [CreateProvisioningClaim]
@@ -88,7 +88,7 @@ readList :: ReadS [CreateProvisioningClaim]
 $creadList :: ReadS [CreateProvisioningClaim]
 readsPrec :: Int -&gt; ReadS CreateProvisioningClaim
 $creadsPrec :: Int -&gt; ReadS CreateProvisioningClaim
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848934"><span id="local-6989586621679848936"><span id="local-6989586621679848938"><span class="annot"><span class="annottext">Int -&gt; CreateProvisioningClaim -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849929"><span id="local-6989586621679849931"><span id="local-6989586621679849933"><span class="annot"><span class="annottext">Int -&gt; CreateProvisioningClaim -&gt; ShowS
 [CreateProvisioningClaim] -&gt; ShowS
 CreateProvisioningClaim -&gt; String
 (Int -&gt; CreateProvisioningClaim -&gt; ShowS)
@@ -130,14 +130,14 @@ $cfrom :: forall x. CreateProvisioningClaim -&gt; Rep CreateProvisioningClaim x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span>
 </span><span id="line-76"></span><span id="newCreateProvisioningClaim"><span class="annot"><span class="annottext">newCreateProvisioningClaim :: Text -&gt; CreateProvisioningClaim
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#newCreateProvisioningClaim"><span class="hs-identifier hs-var hs-var">newCreateProvisioningClaim</span></a></span></span><span> </span><span id="local-6989586621679848929"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848929"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#newCreateProvisioningClaim"><span class="hs-identifier hs-var hs-var">newCreateProvisioningClaim</span></a></span></span><span> </span><span id="local-6989586621679849924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849924"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">CreateProvisioningClaim' :: Text -&gt; CreateProvisioningClaim
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-type">CreateProvisioningClaim'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateName:CreateProvisioningClaim' :: Text
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AtemplateName%3ACreateProvisioningClaim%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848929"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
+</span><a href="#local-6989586621679849924"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the provisioning template to use.</span><span>
@@ -148,28 +148,28 @@ $cfrom :: forall x. CreateProvisioningClaim -&gt; Rep CreateProvisioningClaim x
 -&gt; (CreateProvisioningClaim -&gt; Text -&gt; CreateProvisioningClaim)
 -&gt; Lens CreateProvisioningClaim CreateProvisioningClaim Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-type">CreateProvisioningClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848926"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-type">CreateProvisioningClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849921"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:CreateProvisioningClaim' :: CreateProvisioningClaim -&gt; Text
-</span><a href="#local-6989586621679848926"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848926"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848925"><span class="annot"><span class="annottext">s :: CreateProvisioningClaim
-</span><a href="#local-6989586621679848925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-type">CreateProvisioningClaim'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848924"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaim
-</span><a href="#local-6989586621679848925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:CreateProvisioningClaim' :: Text
+</span><a href="#local-6989586621679849921"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849921"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849920"><span class="annot"><span class="annottext">s :: CreateProvisioningClaim
+</span><a href="#local-6989586621679849920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-type">CreateProvisioningClaim'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849919"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaim
+</span><a href="#local-6989586621679849920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:CreateProvisioningClaim' :: Text
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AtemplateName%3ACreateProvisioningClaim%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679848920"><span class="annot"><span class="annottext">request :: CreateProvisioningClaim -&gt; Request CreateProvisioningClaim
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679849915"><span class="annot"><span class="annottext">request :: CreateProvisioningClaim -&gt; Request CreateProvisioningClaim
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateProvisioningClaim -&gt; Request CreateProvisioningClaim
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679848916"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679849911"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateProvisioningClaim
 -&gt; ClientResponse ClientBody
@@ -195,78 +195,78 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679848913"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848913"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679848912"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679848912"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679848911"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848911"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe KeyPair
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679849908"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849908"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679849907"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679849907"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679849906"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849906"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe KeyPair
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Int
 -&gt; CreateProvisioningClaimResponse
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">CreateProvisioningClaimResponse'</span></a></span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe KeyPair
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KeyPair
  -&gt; Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Int
  -&gt; CreateProvisioningClaimResponse)
--&gt; Either String (Maybe POSIX)
--&gt; Either
-     String
-     (Maybe KeyPair
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; CreateProvisioningClaimResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;expiration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe KeyPair
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; CreateProvisioningClaimResponse)
 -&gt; Either String (Maybe KeyPair)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text -&gt; Int -&gt; CreateProvisioningClaimResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KeyPair)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; CreateProvisioningClaimResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849906"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KeyPair)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyPair&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; CreateProvisioningClaimResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Int -&gt; CreateProvisioningClaimResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849906"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;certificatePem&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe Text -&gt; Int -&gt; CreateProvisioningClaimResponse)
+   -&gt; Maybe POSIX -&gt; Int -&gt; CreateProvisioningClaimResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; CreateProvisioningClaimResponse)
+     String (Maybe POSIX -&gt; Int -&gt; CreateProvisioningClaimResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679849906"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; CreateProvisioningClaimResponse)
--&gt; Either String (Maybe Text)
+  String (Maybe POSIX -&gt; Int -&gt; CreateProvisioningClaimResponse)
+-&gt; Either String (Maybe POSIX)
 -&gt; Either String (Int -&gt; CreateProvisioningClaimResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679848911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679849906"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;certificatePem&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;expiration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateProvisioningClaimResponse)
 -&gt; Either String Int
 -&gt; Either String CreateProvisioningClaimResponse
@@ -276,23 +276,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848913"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849908"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848903"><span id="local-6989586621679848905"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849898"><span id="local-6989586621679849900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679848896"><span class="annot"><span class="annottext">toHeaders :: CreateProvisioningClaim -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679849891"><span class="annot"><span class="annottext">toHeaders :: CreateProvisioningClaim -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProvisioningClaim -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679848887"><span id="local-6989586621679848889"><span id="local-6989586621679848891"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679848885"><span class="annot"><span class="annottext">toJSON :: CreateProvisioningClaim -&gt; Value
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849882"><span id="local-6989586621679849884"><span id="local-6989586621679849886"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679849880"><span class="annot"><span class="annottext">toJSON :: CreateProvisioningClaim -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; CreateProvisioningClaim -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -301,11 +301,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679848880"><span class="annot"><span class="annottext">toPath :: CreateProvisioningClaim -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-type">CreateProvisioningClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848878"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679849875"><span class="annot"><span class="annottext">toPath :: CreateProvisioningClaim -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim%27"><span class="hs-identifier hs-type">CreateProvisioningClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849873"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:CreateProvisioningClaim' :: CreateProvisioningClaim -&gt; Text
-</span><a href="#local-6989586621679848878"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679849873"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -314,13 +314,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679848878"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679849873"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/provisioning-claim&quot;</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaim"><span class="hs-identifier hs-type">CreateProvisioningClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679848874"><span class="annot"><span class="annottext">toQuery :: CreateProvisioningClaim -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679849869"><span class="annot"><span class="annottext">toQuery :: CreateProvisioningClaim -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProvisioningClaim -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -328,24 +328,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newCreateProvisioningClaimResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679848871"><span id="local-6989586621679848872"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProvisioningClaimResponse"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-var">CreateProvisioningClaimResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProvisioningClaimResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">CreateProvisioningClaimResponse'</span></a></span></span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The provisioning claim expiration time.</span><span>
-</span><span id="line-126"></span><span>    </span><span id="%24sel%3Aexpiration%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3Aexpiration%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The provisioning claim key pair.</span><span>
-</span><span id="line-128"></span><span>    </span><span id="%24sel%3AkeyPair%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Maybe KeyPair
+</span><span id="line-124"></span><span id="local-6989586621679849866"><span id="local-6989586621679849867"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProvisioningClaimResponse"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-var">CreateProvisioningClaimResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProvisioningClaimResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">CreateProvisioningClaimResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The provisioning claim key pair.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AkeyPair%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Maybe KeyPair
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AkeyPair%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var hs-var">keyPair</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The provisioning claim certificate.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The ID of the certificate.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AcertificateId%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificateId%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The provisioning claim certificate.</span><span>
-</span><span id="line-132"></span><span>    </span><span id="%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The provisioning claim expiration time.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Aexpiration%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3Aexpiration%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProvisioningClaimResponse%27"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse -&gt; Int
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AhttpStatus%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679848862"><span id="local-6989586621679848864"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849857"><span id="local-6989586621679849859"><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
 -&gt; CreateProvisioningClaimResponse -&gt; Bool
 (CreateProvisioningClaimResponse
  -&gt; CreateProvisioningClaimResponse -&gt; Bool)
@@ -361,7 +361,7 @@ $c/= :: CreateProvisioningClaimResponse
 -&gt; CreateProvisioningClaimResponse -&gt; Bool
 $c== :: CreateProvisioningClaimResponse
 -&gt; CreateProvisioningClaimResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679848856"><span id="local-6989586621679848858"><span id="local-6989586621679848860"><span class="annot"><span class="annottext">Int -&gt; CreateProvisioningClaimResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849851"><span id="local-6989586621679849853"><span id="local-6989586621679849855"><span class="annot"><span class="annottext">Int -&gt; CreateProvisioningClaimResponse -&gt; ShowS
 [CreateProvisioningClaimResponse] -&gt; ShowS
 CreateProvisioningClaimResponse -&gt; String
 (Int -&gt; CreateProvisioningClaimResponse -&gt; ShowS)
@@ -407,13 +407,13 @@ CreateProvisioningClaimResponse
 </span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- 'expiration', 'createProvisioningClaimResponse_expiration' - The provisioning claim expiration time.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'keyPair', 'createProvisioningClaimResponse_keyPair' - The provisioning claim key pair.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- 'keyPair', 'createProvisioningClaimResponse_keyPair' - The provisioning claim key pair.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'certificatePem', 'createProvisioningClaimResponse_certificatePem' - The provisioning claim certificate.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- 'certificateId', 'createProvisioningClaimResponse_certificateId' - The ID of the certificate.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- 'certificatePem', 'createProvisioningClaimResponse_certificatePem' - The provisioning claim certificate.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'expiration', 'createProvisioningClaimResponse_expiration' - The provisioning claim expiration time.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'createProvisioningClaimResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#newCreateProvisioningClaimResponse"><span class="hs-identifier hs-type">newCreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -421,40 +421,115 @@ CreateProvisioningClaimResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newCreateProvisioningClaimResponse"><span class="annot"><span class="annottext">newCreateProvisioningClaimResponse :: Int -&gt; CreateProvisioningClaimResponse
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#newCreateProvisioningClaimResponse"><span class="hs-identifier hs-var hs-var">newCreateProvisioningClaimResponse</span></a></span></span><span> </span><span id="local-6989586621679848853"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse' :: Maybe POSIX
--&gt; Maybe KeyPair
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#newCreateProvisioningClaimResponse"><span class="hs-identifier hs-var hs-var">newCreateProvisioningClaimResponse</span></a></span></span><span> </span><span id="local-6989586621679849848"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849848"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse' :: Maybe KeyPair
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Int
 -&gt; CreateProvisioningClaimResponse
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expiration:CreateProvisioningClaimResponse' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3Aexpiration%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">expiration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyPair:CreateProvisioningClaimResponse' :: Maybe KeyPair
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AkeyPair%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">keyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe KeyPair
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPair:CreateProvisioningClaimResponse' :: Maybe KeyPair
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AkeyPair%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">keyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPair
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificatePem:CreateProvisioningClaimResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateId:CreateProvisioningClaimResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificateId%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificatePem:CreateProvisioningClaimResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:expiration:CreateProvisioningClaimResponse' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3Aexpiration%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">expiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProvisioningClaimResponse' :: Int
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AhttpStatus%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848853"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679849848"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The provisioning claim expiration time.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_expiration"><span class="hs-identifier hs-type">createProvisioningClaimResponse_expiration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="createProvisioningClaimResponse_expiration"><span class="annot"><span class="annottext">createProvisioningClaimResponse_expiration :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-169"></span><span class="hs-comment">-- | The provisioning claim key pair.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_keyPair"><span class="hs-identifier hs-type">createProvisioningClaimResponse_keyPair</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="createProvisioningClaimResponse_keyPair"><span class="annot"><span class="annottext">createProvisioningClaimResponse_keyPair :: (Maybe KeyPair -&gt; f (Maybe KeyPair))
+-&gt; CreateProvisioningClaimResponse
+-&gt; f CreateProvisioningClaimResponse
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_keyPair"><span class="hs-identifier hs-var hs-var">createProvisioningClaimResponse_keyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisioningClaimResponse -&gt; Maybe KeyPair)
+-&gt; (CreateProvisioningClaimResponse
+    -&gt; Maybe KeyPair -&gt; CreateProvisioningClaimResponse)
+-&gt; Lens
+     CreateProvisioningClaimResponse
+     CreateProvisioningClaimResponse
+     (Maybe KeyPair)
+     (Maybe KeyPair)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849847"><span class="annot"><span class="annottext">Maybe KeyPair
+keyPair :: Maybe KeyPair
+$sel:keyPair:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Maybe KeyPair
+</span><a href="#local-6989586621679849847"><span class="hs-identifier hs-var hs-var">keyPair</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPair
+</span><a href="#local-6989586621679849847"><span class="hs-identifier hs-var">keyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849846"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849845"><span class="annot"><span class="annottext">Maybe KeyPair
+</span><a href="#local-6989586621679849845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPair:CreateProvisioningClaimResponse' :: Maybe KeyPair
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AkeyPair%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">keyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPair
+</span><a href="#local-6989586621679849845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The provisioning claim certificate.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificatePem"><span class="hs-identifier hs-type">createProvisioningClaimResponse_certificatePem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createProvisioningClaimResponse_certificatePem"><span class="annot"><span class="annottext">createProvisioningClaimResponse_certificatePem :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisioningClaimResponse
+-&gt; f CreateProvisioningClaimResponse
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificatePem"><span class="hs-identifier hs-var hs-var">createProvisioningClaimResponse_certificatePem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisioningClaimResponse -&gt; Maybe Text)
+-&gt; (CreateProvisioningClaimResponse
+    -&gt; Maybe Text -&gt; CreateProvisioningClaimResponse)
+-&gt; Lens
+     CreateProvisioningClaimResponse
+     CreateProvisioningClaimResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849844"><span class="annot"><span class="annottext">Maybe Text
+certificatePem :: Maybe Text
+$sel:certificatePem:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849844"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849844"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849843"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:CreateProvisioningClaimResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The ID of the certificate.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificateId"><span class="hs-identifier hs-type">createProvisioningClaimResponse_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createProvisioningClaimResponse_certificateId"><span class="annot"><span class="annottext">createProvisioningClaimResponse_certificateId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProvisioningClaimResponse
+-&gt; f CreateProvisioningClaimResponse
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificateId"><span class="hs-identifier hs-var hs-var">createProvisioningClaimResponse_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisioningClaimResponse -&gt; Maybe Text)
+-&gt; (CreateProvisioningClaimResponse
+    -&gt; Maybe Text -&gt; CreateProvisioningClaimResponse)
+-&gt; Lens
+     CreateProvisioningClaimResponse
+     CreateProvisioningClaimResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849841"><span class="annot"><span class="annottext">Maybe Text
+certificateId :: Maybe Text
+$sel:certificateId:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849841"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849841"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849840"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849839"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:CreateProvisioningClaimResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificateId%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The provisioning claim expiration time.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_expiration"><span class="hs-identifier hs-type">createProvisioningClaimResponse_expiration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="createProvisioningClaimResponse_expiration"><span class="annot"><span class="annottext">createProvisioningClaimResponse_expiration :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; CreateProvisioningClaimResponse
 -&gt; f CreateProvisioningClaimResponse
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_expiration"><span class="hs-identifier hs-var hs-var">createProvisioningClaimResponse_expiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisioningClaimResponse -&gt; Maybe POSIX)
@@ -466,16 +541,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848852"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849838"><span class="annot"><span class="annottext">Maybe POSIX
 expiration :: Maybe POSIX
 $sel:expiration:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679848852"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679848852"><span class="hs-identifier hs-var">expiration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848851"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848850"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679848850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiration:CreateProvisioningClaimResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679849838"><span class="hs-identifier hs-var hs-var">expiration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679849838"><span class="hs-identifier hs-var">expiration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849837"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849836"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679849836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expiration:CreateProvisioningClaimResponse' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3Aexpiration%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">expiration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679848850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679849836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CreateProvisioningClaimResponse
  -&gt; f CreateProvisioningClaimResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -492,81 +567,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | The provisioning claim key pair.</span><span>
-</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_keyPair"><span class="hs-identifier hs-type">createProvisioningClaimResponse_keyPair</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span id="createProvisioningClaimResponse_keyPair"><span class="annot"><span class="annottext">createProvisioningClaimResponse_keyPair :: (Maybe KeyPair -&gt; f (Maybe KeyPair))
--&gt; CreateProvisioningClaimResponse
--&gt; f CreateProvisioningClaimResponse
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_keyPair"><span class="hs-identifier hs-var hs-var">createProvisioningClaimResponse_keyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisioningClaimResponse -&gt; Maybe KeyPair)
--&gt; (CreateProvisioningClaimResponse
-    -&gt; Maybe KeyPair -&gt; CreateProvisioningClaimResponse)
--&gt; Lens
-     CreateProvisioningClaimResponse
-     CreateProvisioningClaimResponse
-     (Maybe KeyPair)
-     (Maybe KeyPair)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848846"><span class="annot"><span class="annottext">Maybe KeyPair
-keyPair :: Maybe KeyPair
-$sel:keyPair:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Maybe KeyPair
-</span><a href="#local-6989586621679848846"><span class="hs-identifier hs-var hs-var">keyPair</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPair
-</span><a href="#local-6989586621679848846"><span class="hs-identifier hs-var">keyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848845"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848844"><span class="annot"><span class="annottext">Maybe KeyPair
-</span><a href="#local-6989586621679848844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPair:CreateProvisioningClaimResponse' :: Maybe KeyPair
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AkeyPair%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">keyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPair
-</span><a href="#local-6989586621679848844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- | The ID of the certificate.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificateId"><span class="hs-identifier hs-type">createProvisioningClaimResponse_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="createProvisioningClaimResponse_certificateId"><span class="annot"><span class="annottext">createProvisioningClaimResponse_certificateId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateProvisioningClaimResponse
--&gt; f CreateProvisioningClaimResponse
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificateId"><span class="hs-identifier hs-var hs-var">createProvisioningClaimResponse_certificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisioningClaimResponse -&gt; Maybe Text)
--&gt; (CreateProvisioningClaimResponse
-    -&gt; Maybe Text -&gt; CreateProvisioningClaimResponse)
--&gt; Lens
-     CreateProvisioningClaimResponse
-     CreateProvisioningClaimResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848843"><span class="annot"><span class="annottext">Maybe Text
-certificateId :: Maybe Text
-$sel:certificateId:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679848843"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848843"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848842"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848841"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:CreateProvisioningClaimResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificateId%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The provisioning claim certificate.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificatePem"><span class="hs-identifier hs-type">createProvisioningClaimResponse_certificatePem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="createProvisioningClaimResponse_certificatePem"><span class="annot"><span class="annottext">createProvisioningClaimResponse_certificatePem :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateProvisioningClaimResponse
--&gt; f CreateProvisioningClaimResponse
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_certificatePem"><span class="hs-identifier hs-var hs-var">createProvisioningClaimResponse_certificatePem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProvisioningClaimResponse -&gt; Maybe Text)
--&gt; (CreateProvisioningClaimResponse
-    -&gt; Maybe Text -&gt; CreateProvisioningClaimResponse)
--&gt; Lens
-     CreateProvisioningClaimResponse
-     CreateProvisioningClaimResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848840"><span class="annot"><span class="annottext">Maybe Text
-certificatePem :: Maybe Text
-$sel:certificatePem:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679848840"><span class="hs-identifier hs-var hs-var">certificatePem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848840"><span class="hs-identifier hs-var">certificatePem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848839"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848838"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificatePem:CreateProvisioningClaimResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AcertificatePem%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">certificatePem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679848838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#createProvisioningClaimResponse_httpStatus"><span class="hs-identifier hs-type">createProvisioningClaimResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -582,18 +582,18 @@ $sel:certificatePem:CreateProvisioningClaimResponse' :: CreateProvisioningClaimR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679848837"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849832"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateProvisioningClaimResponse' :: CreateProvisioningClaimResponse -&gt; Int
-</span><a href="#local-6989586621679848837"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848837"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679848836"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679848835"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
-</span><a href="#local-6989586621679848836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProvisioningClaimResponse' :: Int
+</span><a href="#local-6989586621679849832"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849832"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849831"><span class="annot"><span class="annottext">s :: CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse%27"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProvisioningClaimResponse
+</span><a href="#local-6989586621679849831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProvisioningClaimResponse' :: Int
 </span><a href="Network.AWS.IoT.CreateProvisioningClaim.html#%24sel%3AhttpStatus%3ACreateProvisioningClaimResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679848835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679848833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679849828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateProvisioningClaim.html#CreateProvisioningClaimResponse"><span class="hs-identifier hs-type">CreateProvisioningClaimResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

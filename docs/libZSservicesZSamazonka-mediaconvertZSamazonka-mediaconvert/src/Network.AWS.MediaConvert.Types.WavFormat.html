@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- is likely to exceed 4 GB in file size, or if you otherwise need the</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- extended support of the RF64 format, set your output WAV file format to</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- RF64.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680010303"><span id="local-6989586621680010304"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WavFormat"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-var">WavFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WavFormat%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat%27"><span class="hs-identifier hs-var">WavFormat'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680015237"><span id="local-6989586621680015238"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WavFormat"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat"><span class="hs-identifier hs-var">WavFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WavFormat%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.WavFormat.html#WavFormat%27"><span class="hs-identifier hs-var">WavFormat'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWavFormat"><span class="annot"><span class="annottext">WavFormat -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.WavFormat.html#fromWavFormat"><span class="hs-identifier hs-var hs-var">fromWavFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680010295"><span id="local-6989586621680010297"><span id="local-6989586621680010299"><span class="annot"><span class="annottext">Int -&gt; WavFormat -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015229"><span id="local-6989586621680015231"><span id="local-6989586621680015233"><span class="annot"><span class="annottext">Int -&gt; WavFormat -&gt; ShowS
 [WavFormat] -&gt; ShowS
 WavFormat -&gt; String
 (Int -&gt; WavFormat -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: WavFormat -&gt; String
 showsPrec :: Int -&gt; WavFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; WavFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680010286"><span id="local-6989586621680010288"><span id="local-6989586621680010290"><span id="local-6989586621680010292"><span class="annot"><span class="annottext">ReadPrec [WavFormat]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680015220"><span id="local-6989586621680015222"><span id="local-6989586621680015224"><span id="local-6989586621680015226"><span class="annot"><span class="annottext">ReadPrec [WavFormat]
 ReadPrec WavFormat
 Int -&gt; ReadS WavFormat
 ReadS [WavFormat]
@@ -76,7 +76,7 @@ $creadList :: ReadS [WavFormat]
 readsPrec :: Int -&gt; ReadS WavFormat
 $creadsPrec :: Int -&gt; ReadS WavFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680010281"><span id="local-6989586621680010283"><span class="annot"><span class="annottext">WavFormat -&gt; WavFormat -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680015215"><span id="local-6989586621680015217"><span class="annot"><span class="annottext">WavFormat -&gt; WavFormat -&gt; Bool
 (WavFormat -&gt; WavFormat -&gt; Bool)
 -&gt; (WavFormat -&gt; WavFormat -&gt; Bool) -&gt; Eq WavFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: WavFormat -&gt; WavFormat -&gt; Bool
 == :: WavFormat -&gt; WavFormat -&gt; Bool
 $c== :: WavFormat -&gt; WavFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680010265"><span id="local-6989586621680010267"><span id="local-6989586621680010269"><span id="local-6989586621680010271"><span id="local-6989586621680010273"><span id="local-6989586621680010275"><span id="local-6989586621680010277"><span class="annot"><span class="annottext">Eq WavFormat
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680015199"><span id="local-6989586621680015201"><span id="local-6989586621680015203"><span id="local-6989586621680015205"><span id="local-6989586621680015207"><span id="local-6989586621680015209"><span id="local-6989586621680015211"><span class="annot"><span class="annottext">Eq WavFormat
 Eq WavFormat
 -&gt; (WavFormat -&gt; WavFormat -&gt; Ordering)
 -&gt; (WavFormat -&gt; WavFormat -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. WavFormat -&gt; Rep WavFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680010257"><span id="local-6989586621680010259"><span class="annot"><span class="annottext">Int -&gt; WavFormat -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680015191"><span id="local-6989586621680015193"><span class="annot"><span class="annottext">Int -&gt; WavFormat -&gt; Int
 WavFormat -&gt; Int
 (Int -&gt; WavFormat -&gt; Int)
 -&gt; (WavFormat -&gt; Int) -&gt; Hashable WavFormat
@@ -145,49 +145,49 @@ $chash :: WavFormat -&gt; Int
 hashWithSalt :: Int -&gt; WavFormat -&gt; Int
 $chashWithSalt :: Int -&gt; WavFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680010254"><span class="annot"><span class="annottext">WavFormat -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680015188"><span class="annot"><span class="annottext">WavFormat -&gt; ()
 (WavFormat -&gt; ()) -&gt; NFData WavFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WavFormat -&gt; ()
 $crnf :: WavFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680010251"><span class="annot"><span class="annottext">Text -&gt; Either String WavFormat
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680015185"><span class="annot"><span class="annottext">Text -&gt; Either String WavFormat
 (Text -&gt; Either String WavFormat) -&gt; FromText WavFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WavFormat
 $cfromText :: Text -&gt; Either String WavFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680010248"><span class="annot"><span class="annottext">WavFormat -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680015182"><span class="annot"><span class="annottext">WavFormat -&gt; Text
 (WavFormat -&gt; Text) -&gt; ToText WavFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WavFormat -&gt; Text
 $ctoText :: WavFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680010245"><span class="annot"><span class="annottext">WavFormat -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680015179"><span class="annot"><span class="annottext">WavFormat -&gt; ByteString
 (WavFormat -&gt; ByteString) -&gt; ToByteString WavFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WavFormat -&gt; ByteString
 $ctoBS :: WavFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680010242"><span class="annot"><span class="annottext">WavFormat -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680015176"><span class="annot"><span class="annottext">WavFormat -&gt; ByteStringBuilder
 (WavFormat -&gt; ByteStringBuilder) -&gt; ToLog WavFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WavFormat -&gt; ByteStringBuilder
 $cbuild :: WavFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680010239"><span class="annot"><span class="annottext">HeaderName -&gt; WavFormat -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680015173"><span class="annot"><span class="annottext">HeaderName -&gt; WavFormat -&gt; [Header]
 (HeaderName -&gt; WavFormat -&gt; [Header]) -&gt; ToHeader WavFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WavFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WavFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680010236"><span class="annot"><span class="annottext">WavFormat -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680015170"><span class="annot"><span class="annottext">WavFormat -&gt; QueryString
 (WavFormat -&gt; QueryString) -&gt; ToQuery WavFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WavFormat -&gt; QueryString
 $ctoQuery :: WavFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680010231"><span id="local-6989586621680010233"><span class="annot"><span class="annottext">Value -&gt; Parser [WavFormat]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680015165"><span id="local-6989586621680015167"><span class="annot"><span class="annottext">Value -&gt; Parser [WavFormat]
 Value -&gt; Parser WavFormat
 (Value -&gt; Parser WavFormat)
 -&gt; (Value -&gt; Parser [WavFormat]) -&gt; FromJSON WavFormat
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [WavFormat]
 parseJSON :: Value -&gt; Parser WavFormat
 $cparseJSON :: Value -&gt; Parser WavFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680010226"><span id="local-6989586621680010228"><span class="annot"><span class="annottext">FromJSONKeyFunction [WavFormat]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680015160"><span id="local-6989586621680015162"><span class="annot"><span class="annottext">FromJSONKeyFunction [WavFormat]
 FromJSONKeyFunction WavFormat
 FromJSONKeyFunction WavFormat
 -&gt; FromJSONKeyFunction [WavFormat] -&gt; FromJSONKey WavFormat
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WavFormat]
 fromJSONKey :: FromJSONKeyFunction WavFormat
 $cfromJSONKey :: FromJSONKeyFunction WavFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680010217"><span id="local-6989586621680010219"><span id="local-6989586621680010221"><span id="local-6989586621680010223"><span class="annot"><span class="annottext">[WavFormat] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680015151"><span id="local-6989586621680015153"><span id="local-6989586621680015155"><span id="local-6989586621680015157"><span class="annot"><span class="annottext">[WavFormat] -&gt; Encoding
 [WavFormat] -&gt; Value
 WavFormat -&gt; Encoding
 WavFormat -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: WavFormat -&gt; Encoding
 toJSON :: WavFormat -&gt; Value
 $ctoJSON :: WavFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680010212"><span id="local-6989586621680010214"><span class="annot"><span class="annottext">ToJSONKeyFunction [WavFormat]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680015146"><span id="local-6989586621680015148"><span class="annot"><span class="annottext">ToJSONKeyFunction [WavFormat]
 ToJSONKeyFunction WavFormat
 ToJSONKeyFunction WavFormat
 -&gt; ToJSONKeyFunction [WavFormat] -&gt; ToJSONKey WavFormat
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WavFormat]
 toJSONKey :: ToJSONKeyFunction WavFormat
 $ctoJSONKey :: ToJSONKeyFunction WavFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680010209"><span class="annot"><span class="annottext">[Node] -&gt; Either String WavFormat
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680015143"><span class="annot"><span class="annottext">[Node] -&gt; Either String WavFormat
 ([Node] -&gt; Either String WavFormat) -&gt; FromXML WavFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WavFormat
 $cparseXML :: [Node] -&gt; Either String WavFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680010206"><span class="annot"><span class="annottext">WavFormat -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680015140"><span class="annot"><span class="annottext">WavFormat -&gt; XML
 (WavFormat -&gt; XML) -&gt; ToXML WavFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WavFormat -&gt; XML

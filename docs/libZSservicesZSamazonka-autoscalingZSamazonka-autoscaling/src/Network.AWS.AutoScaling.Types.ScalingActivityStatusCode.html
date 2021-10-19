@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679331643"><span id="local-6989586621679331644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingActivityStatusCode"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-var">ScalingActivityStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingActivityStatusCode%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode%27"><span class="hs-identifier hs-var">ScalingActivityStatusCode'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679332304"><span id="local-6989586621679332305"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingActivityStatusCode"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode"><span class="hs-identifier hs-var">ScalingActivityStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingActivityStatusCode%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#ScalingActivityStatusCode%27"><span class="hs-identifier hs-var">ScalingActivityStatusCode'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalingActivityStatusCode"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.ScalingActivityStatusCode.html#fromScalingActivityStatusCode"><span class="hs-identifier hs-var hs-var">fromScalingActivityStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331635"><span id="local-6989586621679331637"><span id="local-6989586621679331639"><span class="annot"><span class="annottext">Int -&gt; ScalingActivityStatusCode -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332296"><span id="local-6989586621679332298"><span id="local-6989586621679332300"><span class="annot"><span class="annottext">Int -&gt; ScalingActivityStatusCode -&gt; ShowS
 [ScalingActivityStatusCode] -&gt; ShowS
 ScalingActivityStatusCode -&gt; String
 (Int -&gt; ScalingActivityStatusCode -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: ScalingActivityStatusCode -&gt; String
 showsPrec :: Int -&gt; ScalingActivityStatusCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScalingActivityStatusCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679331626"><span id="local-6989586621679331628"><span id="local-6989586621679331630"><span id="local-6989586621679331632"><span class="annot"><span class="annottext">ReadPrec [ScalingActivityStatusCode]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679332287"><span id="local-6989586621679332289"><span id="local-6989586621679332291"><span id="local-6989586621679332293"><span class="annot"><span class="annottext">ReadPrec [ScalingActivityStatusCode]
 ReadPrec ScalingActivityStatusCode
 Int -&gt; ReadS ScalingActivityStatusCode
 ReadS [ScalingActivityStatusCode]
@@ -82,7 +82,7 @@ $creadList :: ReadS [ScalingActivityStatusCode]
 readsPrec :: Int -&gt; ReadS ScalingActivityStatusCode
 $creadsPrec :: Int -&gt; ReadS ScalingActivityStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679331621"><span id="local-6989586621679331623"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ScalingActivityStatusCode -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679332282"><span id="local-6989586621679332284"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ScalingActivityStatusCode -&gt; Bool
 (ScalingActivityStatusCode -&gt; ScalingActivityStatusCode -&gt; Bool)
 -&gt; (ScalingActivityStatusCode -&gt; ScalingActivityStatusCode -&gt; Bool)
 -&gt; Eq ScalingActivityStatusCode
@@ -92,7 +92,7 @@ $c/= :: ScalingActivityStatusCode -&gt; ScalingActivityStatusCode -&gt; Bool
 == :: ScalingActivityStatusCode -&gt; ScalingActivityStatusCode -&gt; Bool
 $c== :: ScalingActivityStatusCode -&gt; ScalingActivityStatusCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679331605"><span id="local-6989586621679331607"><span id="local-6989586621679331609"><span id="local-6989586621679331611"><span id="local-6989586621679331613"><span id="local-6989586621679331615"><span id="local-6989586621679331617"><span class="annot"><span class="annottext">Eq ScalingActivityStatusCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679332266"><span id="local-6989586621679332268"><span id="local-6989586621679332270"><span id="local-6989586621679332272"><span id="local-6989586621679332274"><span id="local-6989586621679332276"><span id="local-6989586621679332278"><span class="annot"><span class="annottext">Eq ScalingActivityStatusCode
 Eq ScalingActivityStatusCode
 -&gt; (ScalingActivityStatusCode
     -&gt; ScalingActivityStatusCode -&gt; Ordering)
@@ -157,7 +157,7 @@ ScalingActivityStatusCode -&gt; Rep ScalingActivityStatusCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331597"><span id="local-6989586621679331599"><span class="annot"><span class="annottext">Int -&gt; ScalingActivityStatusCode -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332258"><span id="local-6989586621679332260"><span class="annot"><span class="annottext">Int -&gt; ScalingActivityStatusCode -&gt; Int
 ScalingActivityStatusCode -&gt; Int
 (Int -&gt; ScalingActivityStatusCode -&gt; Int)
 -&gt; (ScalingActivityStatusCode -&gt; Int)
@@ -168,56 +168,56 @@ $chash :: ScalingActivityStatusCode -&gt; Int
 hashWithSalt :: Int -&gt; ScalingActivityStatusCode -&gt; Int
 $chashWithSalt :: Int -&gt; ScalingActivityStatusCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679331594"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332255"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ()
 (ScalingActivityStatusCode -&gt; ())
 -&gt; NFData ScalingActivityStatusCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScalingActivityStatusCode -&gt; ()
 $crnf :: ScalingActivityStatusCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679331591"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingActivityStatusCode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332252"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingActivityStatusCode
 (Text -&gt; Either String ScalingActivityStatusCode)
 -&gt; FromText ScalingActivityStatusCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScalingActivityStatusCode
 $cfromText :: Text -&gt; Either String ScalingActivityStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679331588"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332249"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; Text
 (ScalingActivityStatusCode -&gt; Text)
 -&gt; ToText ScalingActivityStatusCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScalingActivityStatusCode -&gt; Text
 $ctoText :: ScalingActivityStatusCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679331585"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679332246"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ByteString
 (ScalingActivityStatusCode -&gt; ByteString)
 -&gt; ToByteString ScalingActivityStatusCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScalingActivityStatusCode -&gt; ByteString
 $ctoBS :: ScalingActivityStatusCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679331582"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679332243"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; ByteStringBuilder
 (ScalingActivityStatusCode -&gt; ByteStringBuilder)
 -&gt; ToLog ScalingActivityStatusCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScalingActivityStatusCode -&gt; ByteStringBuilder
 $cbuild :: ScalingActivityStatusCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679331579"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingActivityStatusCode -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679332240"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingActivityStatusCode -&gt; [Header]
 (HeaderName -&gt; ScalingActivityStatusCode -&gt; [Header])
 -&gt; ToHeader ScalingActivityStatusCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScalingActivityStatusCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScalingActivityStatusCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679331576"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679332237"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; QueryString
 (ScalingActivityStatusCode -&gt; QueryString)
 -&gt; ToQuery ScalingActivityStatusCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScalingActivityStatusCode -&gt; QueryString
 $ctoQuery :: ScalingActivityStatusCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679331571"><span id="local-6989586621679331573"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingActivityStatusCode]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679332232"><span id="local-6989586621679332234"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingActivityStatusCode]
 Value -&gt; Parser ScalingActivityStatusCode
 (Value -&gt; Parser ScalingActivityStatusCode)
 -&gt; (Value -&gt; Parser [ScalingActivityStatusCode])
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [ScalingActivityStatusCode]
 parseJSON :: Value -&gt; Parser ScalingActivityStatusCode
 $cparseJSON :: Value -&gt; Parser ScalingActivityStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679331566"><span id="local-6989586621679331568"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingActivityStatusCode]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679332227"><span id="local-6989586621679332229"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingActivityStatusCode]
 FromJSONKeyFunction ScalingActivityStatusCode
 FromJSONKeyFunction ScalingActivityStatusCode
 -&gt; FromJSONKeyFunction [ScalingActivityStatusCode]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScalingActivityStatusCode]
 fromJSONKey :: FromJSONKeyFunction ScalingActivityStatusCode
 $cfromJSONKey :: FromJSONKeyFunction ScalingActivityStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679331557"><span id="local-6989586621679331559"><span id="local-6989586621679331561"><span id="local-6989586621679331563"><span class="annot"><span class="annottext">[ScalingActivityStatusCode] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679332218"><span id="local-6989586621679332220"><span id="local-6989586621679332222"><span id="local-6989586621679332224"><span class="annot"><span class="annottext">[ScalingActivityStatusCode] -&gt; Encoding
 [ScalingActivityStatusCode] -&gt; Value
 ScalingActivityStatusCode -&gt; Encoding
 ScalingActivityStatusCode -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: ScalingActivityStatusCode -&gt; Encoding
 toJSON :: ScalingActivityStatusCode -&gt; Value
 $ctoJSON :: ScalingActivityStatusCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679331552"><span id="local-6989586621679331554"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingActivityStatusCode]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679332213"><span id="local-6989586621679332215"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingActivityStatusCode]
 ToJSONKeyFunction ScalingActivityStatusCode
 ToJSONKeyFunction ScalingActivityStatusCode
 -&gt; ToJSONKeyFunction [ScalingActivityStatusCode]
@@ -277,14 +277,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScalingActivityStatusCode]
 toJSONKey :: ToJSONKeyFunction ScalingActivityStatusCode
 $ctoJSONKey :: ToJSONKeyFunction ScalingActivityStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679331549"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingActivityStatusCode
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679332210"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingActivityStatusCode
 ([Node] -&gt; Either String ScalingActivityStatusCode)
 -&gt; FromXML ScalingActivityStatusCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScalingActivityStatusCode
 $cparseXML :: [Node] -&gt; Either String ScalingActivityStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679331546"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679332207"><span class="annot"><span class="annottext">ScalingActivityStatusCode -&gt; XML
 (ScalingActivityStatusCode -&gt; XML)
 -&gt; ToXML ScalingActivityStatusCode
 forall a. (a -&gt; XML) -&gt; ToXML a

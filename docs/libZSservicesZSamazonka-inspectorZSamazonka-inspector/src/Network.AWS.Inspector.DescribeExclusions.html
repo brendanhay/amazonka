@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeExclusions' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679256306"><span id="local-6989586621679256307"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeExclusions"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-var">DescribeExclusions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeExclusions%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-var">DescribeExclusions'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679256708"><span id="local-6989586621679256709"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeExclusions"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-var">DescribeExclusions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeExclusions%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-var">DescribeExclusions'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The locale into which you want to translate the exclusion\'s title,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- description, and recommendation.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Alocale%3ADescribeExclusions%27"><span class="annot"><span class="annottext">DescribeExclusions -&gt; Maybe Locale
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AexclusionArns%3ADescribeExclusions%27"><span class="annot"><span class="annottext">DescribeExclusions -&gt; NonEmpty Text
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AexclusionArns%3ADescribeExclusions%27"><span class="hs-identifier hs-var hs-var">exclusionArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256299"><span id="local-6989586621679256301"><span class="annot"><span class="annottext">DescribeExclusions -&gt; DescribeExclusions -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256701"><span id="local-6989586621679256703"><span class="annot"><span class="annottext">DescribeExclusions -&gt; DescribeExclusions -&gt; Bool
 (DescribeExclusions -&gt; DescribeExclusions -&gt; Bool)
 -&gt; (DescribeExclusions -&gt; DescribeExclusions -&gt; Bool)
 -&gt; Eq DescribeExclusions
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeExclusions -&gt; DescribeExclusions -&gt; Bool
 == :: DescribeExclusions -&gt; DescribeExclusions -&gt; Bool
 $c== :: DescribeExclusions -&gt; DescribeExclusions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256290"><span id="local-6989586621679256292"><span id="local-6989586621679256294"><span id="local-6989586621679256296"><span class="annot"><span class="annottext">ReadPrec [DescribeExclusions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256692"><span id="local-6989586621679256694"><span id="local-6989586621679256696"><span id="local-6989586621679256698"><span class="annot"><span class="annottext">ReadPrec [DescribeExclusions]
 ReadPrec DescribeExclusions
 Int -&gt; ReadS DescribeExclusions
 ReadS [DescribeExclusions]
@@ -87,7 +87,7 @@ readList :: ReadS [DescribeExclusions]
 $creadList :: ReadS [DescribeExclusions]
 readsPrec :: Int -&gt; ReadS DescribeExclusions
 $creadsPrec :: Int -&gt; ReadS DescribeExclusions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256283"><span id="local-6989586621679256285"><span id="local-6989586621679256287"><span class="annot"><span class="annottext">Int -&gt; DescribeExclusions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256685"><span id="local-6989586621679256687"><span id="local-6989586621679256689"><span class="annot"><span class="annottext">Int -&gt; DescribeExclusions -&gt; ShowS
 [DescribeExclusions] -&gt; ShowS
 DescribeExclusions -&gt; String
 (Int -&gt; DescribeExclusions -&gt; ShowS)
@@ -130,8 +130,8 @@ $cfrom :: forall x. DescribeExclusions -&gt; Rep DescribeExclusions x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span>
 </span><span id="line-77"></span><span id="newDescribeExclusions"><span class="annot"><span class="annottext">newDescribeExclusions :: NonEmpty Text -&gt; DescribeExclusions
-</span><a href="Network.AWS.Inspector.DescribeExclusions.html#newDescribeExclusions"><span class="hs-identifier hs-var hs-var">newDescribeExclusions</span></a></span></span><span> </span><span id="local-6989586621679256278"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256278"><span class="hs-identifier hs-var">pExclusionArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.DescribeExclusions.html#newDescribeExclusions"><span class="hs-identifier hs-var hs-var">newDescribeExclusions</span></a></span></span><span> </span><span id="local-6989586621679256680"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var">pExclusionArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeExclusions' :: Maybe Locale -&gt; NonEmpty Text -&gt; DescribeExclusions
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:locale:DescribeExclusions' :: Maybe Locale
@@ -141,13 +141,13 @@ forall a. Maybe a
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:exclusionArns:DescribeExclusions' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AexclusionArns%3ADescribeExclusions%27"><span class="hs-identifier hs-var">exclusionArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256278"><span class="hs-identifier hs-var">pExclusionArns_</span></a></span><span>
+</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var">pExclusionArns_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The locale into which you want to translate the exclusion\'s title,</span><span>
@@ -160,16 +160,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      DescribeExclusions DescribeExclusions (Maybe Locale) (Maybe Locale)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256273"><span class="annot"><span class="annottext">Maybe Locale
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256675"><span class="annot"><span class="annottext">Maybe Locale
 locale :: Maybe Locale
 $sel:locale:DescribeExclusions' :: DescribeExclusions -&gt; Maybe Locale
-</span><a href="#local-6989586621679256273"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
-</span><a href="#local-6989586621679256273"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256272"><span class="annot"><span class="annottext">s :: DescribeExclusions
-</span><a href="#local-6989586621679256272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256271"><span class="annot"><span class="annottext">Maybe Locale
-</span><a href="#local-6989586621679256271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusions
-</span><a href="#local-6989586621679256272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeExclusions' :: Maybe Locale
+</span><a href="#local-6989586621679256675"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679256675"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256674"><span class="annot"><span class="annottext">s :: DescribeExclusions
+</span><a href="#local-6989586621679256674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256673"><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679256673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusions
+</span><a href="#local-6989586621679256674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:DescribeExclusions' :: Maybe Locale
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3Alocale%3ADescribeExclusions%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
-</span><a href="#local-6989586621679256271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The list of ARNs that specify the exclusions that you want to describe.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#describeExclusions_exclusionArns"><span class="hs-identifier hs-type">describeExclusions_exclusionArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -183,16 +183,16 @@ $sel:locale:DescribeExclusions' :: DescribeExclusions -&gt; Maybe Locale
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256270"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256672"><span class="annot"><span class="annottext">NonEmpty Text
 exclusionArns :: NonEmpty Text
 $sel:exclusionArns:DescribeExclusions' :: DescribeExclusions -&gt; NonEmpty Text
-</span><a href="#local-6989586621679256270"><span class="hs-identifier hs-var hs-var">exclusionArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256270"><span class="hs-identifier hs-var">exclusionArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256269"><span class="annot"><span class="annottext">s :: DescribeExclusions
-</span><a href="#local-6989586621679256269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256268"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusions
-</span><a href="#local-6989586621679256269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusionArns:DescribeExclusions' :: NonEmpty Text
+</span><a href="#local-6989586621679256672"><span class="hs-identifier hs-var hs-var">exclusionArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679256672"><span class="hs-identifier hs-var">exclusionArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256671"><span class="annot"><span class="annottext">s :: DescribeExclusions
+</span><a href="#local-6989586621679256671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256670"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679256670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusions
+</span><a href="#local-6989586621679256671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusionArns:DescribeExclusions' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AexclusionArns%3ADescribeExclusions%27"><span class="hs-identifier hs-var">exclusionArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679256670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DescribeExclusions -&gt; f DescribeExclusions)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -202,19 +202,19 @@ $sel:exclusionArns:DescribeExclusions' :: DescribeExclusions -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679256263"><span class="annot"><span class="annottext">request :: DescribeExclusions -&gt; Request DescribeExclusions
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679256665"><span class="annot"><span class="annottext">request :: DescribeExclusions -&gt; Request DescribeExclusions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeExclusions -&gt; Request DescribeExclusions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679256259"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679256661"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeExclusions
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256256"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256256"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256255"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679256255"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256254"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256658"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256658"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256657"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256657"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256656"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; HashMap Text Exclusion
 -&gt; HashMap Text FailedItemDetails
@@ -264,7 +264,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256256"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256658"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (HashMap Text Exclusion
@@ -275,7 +275,7 @@ forall a. Enum a =&gt; a -&gt; Int
      (HashMap Text FailedItemDetails -&gt; DescribeExclusionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (HashMap Text Exclusion))
+</span><a href="#local-6989586621679256656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (HashMap Text Exclusion))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exclusions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (HashMap Text Exclusion))
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String DescribeExclusionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (HashMap Text FailedItemDetails))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -304,12 +304,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256245"><span id="local-6989586621679256247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256647"><span id="local-6989586621679256649"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679256238"><span class="annot"><span class="annottext">toHeaders :: DescribeExclusions -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679256640"><span class="annot"><span class="annottext">toHeaders :: DescribeExclusions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeExclusions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -336,15 +336,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256228"><span id="local-6989586621679256230"><span id="local-6989586621679256232"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679256226"><span class="annot"><span class="annottext">toJSON :: DescribeExclusions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256223"><span id="local-6989586621679256224"><span class="annot"><span class="annottext">Maybe Locale
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256630"><span id="local-6989586621679256632"><span id="local-6989586621679256634"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679256628"><span class="annot"><span class="annottext">toJSON :: DescribeExclusions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions%27"><span class="hs-identifier hs-type">DescribeExclusions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256625"><span id="local-6989586621679256626"><span class="annot"><span class="annottext">Maybe Locale
 NonEmpty Text
 exclusionArns :: NonEmpty Text
 locale :: Maybe Locale
 $sel:exclusionArns:DescribeExclusions' :: DescribeExclusions -&gt; NonEmpty Text
 $sel:locale:DescribeExclusions' :: DescribeExclusions -&gt; Maybe Locale
-</span><a href="#local-6989586621679256223"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256625"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -356,7 +356,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Locale -&gt; Pair) -&gt; Maybe Locale -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Locale
-</span><a href="#local-6989586621679256224"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256626"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -364,19 +364,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;exclusionArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256223"><span class="hs-identifier hs-var">exclusionArns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256625"><span class="hs-identifier hs-var">exclusionArns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679256217"><span class="annot"><span class="annottext">toPath :: DescribeExclusions -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679256619"><span class="annot"><span class="annottext">toPath :: DescribeExclusions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeExclusions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusions"><span class="hs-identifier hs-type">DescribeExclusions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679256213"><span class="annot"><span class="annottext">toQuery :: DescribeExclusions -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679256615"><span class="annot"><span class="annottext">toQuery :: DescribeExclusions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeExclusions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -384,7 +384,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newDescribeExclusionsResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679256210"><span id="local-6989586621679256211"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeExclusionsResponse"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-var">DescribeExclusionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeExclusionsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-var">DescribeExclusionsResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679256612"><span id="local-6989586621679256613"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeExclusionsResponse"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-var">DescribeExclusionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeExclusionsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-var">DescribeExclusionsResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeExclusionsResponse%27"><span class="annot"><span class="annottext">DescribeExclusionsResponse -&gt; Int
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AhttpStatus%3ADescribeExclusionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -396,7 +396,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AfailedItems%3ADescribeExclusionsResponse%27"><span class="annot"><span class="annottext">DescribeExclusionsResponse -&gt; HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AfailedItems%3ADescribeExclusionsResponse%27"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256203"><span id="local-6989586621679256205"><span class="annot"><span class="annottext">DescribeExclusionsResponse -&gt; DescribeExclusionsResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256605"><span id="local-6989586621679256607"><span class="annot"><span class="annottext">DescribeExclusionsResponse -&gt; DescribeExclusionsResponse -&gt; Bool
 (DescribeExclusionsResponse -&gt; DescribeExclusionsResponse -&gt; Bool)
 -&gt; (DescribeExclusionsResponse
     -&gt; DescribeExclusionsResponse -&gt; Bool)
@@ -406,7 +406,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeExclusionsResponse -&gt; DescribeExclusionsResponse -&gt; Bool
 == :: DescribeExclusionsResponse -&gt; DescribeExclusionsResponse -&gt; Bool
 $c== :: DescribeExclusionsResponse -&gt; DescribeExclusionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256195"><span id="local-6989586621679256197"><span id="local-6989586621679256199"><span id="local-6989586621679256201"><span class="annot"><span class="annottext">ReadPrec [DescribeExclusionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256597"><span id="local-6989586621679256599"><span id="local-6989586621679256601"><span id="local-6989586621679256603"><span class="annot"><span class="annottext">ReadPrec [DescribeExclusionsResponse]
 ReadPrec DescribeExclusionsResponse
 Int -&gt; ReadS DescribeExclusionsResponse
 ReadS [DescribeExclusionsResponse]
@@ -426,7 +426,7 @@ readList :: ReadS [DescribeExclusionsResponse]
 $creadList :: ReadS [DescribeExclusionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeExclusionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeExclusionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256189"><span id="local-6989586621679256191"><span id="local-6989586621679256193"><span class="annot"><span class="annottext">Int -&gt; DescribeExclusionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256591"><span id="local-6989586621679256593"><span id="local-6989586621679256595"><span class="annot"><span class="annottext">Int -&gt; DescribeExclusionsResponse -&gt; ShowS
 [DescribeExclusionsResponse] -&gt; ShowS
 DescribeExclusionsResponse -&gt; String
 (Int -&gt; DescribeExclusionsResponse -&gt; ShowS)
@@ -477,8 +477,8 @@ DescribeExclusionsResponse -&gt; Rep DescribeExclusionsResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newDescribeExclusionsResponse"><span class="annot"><span class="annottext">newDescribeExclusionsResponse :: Int -&gt; DescribeExclusionsResponse
-</span><a href="Network.AWS.Inspector.DescribeExclusions.html#newDescribeExclusionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeExclusionsResponse</span></a></span></span><span> </span><span id="local-6989586621679256186"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.DescribeExclusions.html#newDescribeExclusionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeExclusionsResponse</span></a></span></span><span> </span><span id="local-6989586621679256588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DescribeExclusionsResponse' :: Int
 -&gt; HashMap Text Exclusion
 -&gt; HashMap Text FailedItemDetails
@@ -487,7 +487,7 @@ DescribeExclusionsResponse -&gt; Rep DescribeExclusionsResponse x
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeExclusionsResponse' :: Int
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AhttpStatus%3ADescribeExclusionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256186"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:exclusions:DescribeExclusionsResponse' :: HashMap Text Exclusion
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3Aexclusions%3ADescribeExclusionsResponse%27"><span class="hs-identifier hs-var">exclusions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Exclusion
 forall a. Monoid a =&gt; a
@@ -508,16 +508,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      DescribeExclusionsResponse DescribeExclusionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256185"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256587"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeExclusionsResponse' :: DescribeExclusionsResponse -&gt; Int
-</span><a href="#local-6989586621679256185"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256185"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256184"><span class="annot"><span class="annottext">s :: DescribeExclusionsResponse
-</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256183"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusionsResponse
-</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeExclusionsResponse' :: Int
+</span><a href="#local-6989586621679256587"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256587"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256586"><span class="annot"><span class="annottext">s :: DescribeExclusionsResponse
+</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256585"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusionsResponse
+</span><a href="#local-6989586621679256586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeExclusionsResponse' :: Int
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AhttpStatus%3ADescribeExclusionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | Information about the exclusions.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#describeExclusionsResponse_exclusions"><span class="hs-identifier hs-type">describeExclusionsResponse_exclusions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Exclusion.html#Exclusion"><span class="hs-identifier hs-type">Exclusion</span></a></span><span class="hs-special">)</span><span>
@@ -532,16 +532,16 @@ $sel:httpStatus:DescribeExclusionsResponse' :: DescribeExclusionsResponse -&gt; 
      (HashMap Text Exclusion)
      (HashMap Text Exclusion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256182"><span class="annot"><span class="annottext">HashMap Text Exclusion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256584"><span class="annot"><span class="annottext">HashMap Text Exclusion
 exclusions :: HashMap Text Exclusion
 $sel:exclusions:DescribeExclusionsResponse' :: DescribeExclusionsResponse -&gt; HashMap Text Exclusion
-</span><a href="#local-6989586621679256182"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Exclusion
-</span><a href="#local-6989586621679256182"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256181"><span class="annot"><span class="annottext">s :: DescribeExclusionsResponse
-</span><a href="#local-6989586621679256181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256180"><span class="annot"><span class="annottext">HashMap Text Exclusion
-</span><a href="#local-6989586621679256180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusionsResponse
-</span><a href="#local-6989586621679256181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusions:DescribeExclusionsResponse' :: HashMap Text Exclusion
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Exclusion
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256583"><span class="annot"><span class="annottext">s :: DescribeExclusionsResponse
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256582"><span class="annot"><span class="annottext">HashMap Text Exclusion
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusionsResponse
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusions:DescribeExclusionsResponse' :: HashMap Text Exclusion
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3Aexclusions%3ADescribeExclusionsResponse%27"><span class="hs-identifier hs-var">exclusions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Exclusion
-</span><a href="#local-6989586621679256180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Exclusion -&gt; f (HashMap Text Exclusion))
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Exclusion -&gt; f (HashMap Text Exclusion))
  -&gt; DescribeExclusionsResponse -&gt; f DescribeExclusionsResponse)
 -&gt; ((HashMap Text Exclusion -&gt; f (HashMap Text Exclusion))
     -&gt; HashMap Text Exclusion -&gt; f (HashMap Text Exclusion))
@@ -551,8 +551,8 @@ $sel:exclusions:DescribeExclusionsResponse' :: DescribeExclusionsResponse -&gt; 
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Exclusion -&gt; f (HashMap Text Exclusion))
 -&gt; HashMap Text Exclusion -&gt; f (HashMap Text Exclusion)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Exclusion details that cannot be described. An error code is provided</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- for each failed item.</span><span>
@@ -569,16 +569,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (HashMap Text FailedItemDetails)
      (HashMap Text FailedItemDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256179"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256581"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
 failedItems :: HashMap Text FailedItemDetails
 $sel:failedItems:DescribeExclusionsResponse' :: DescribeExclusionsResponse -&gt; HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256179"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256179"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256178"><span class="annot"><span class="annottext">s :: DescribeExclusionsResponse
-</span><a href="#local-6989586621679256178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256177"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusionsResponse
-</span><a href="#local-6989586621679256178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:DescribeExclusionsResponse' :: HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256580"><span class="annot"><span class="annottext">s :: DescribeExclusionsResponse
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse%27"><span class="hs-identifier hs-type">DescribeExclusionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256579"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExclusionsResponse
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:DescribeExclusionsResponse' :: HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.DescribeExclusions.html#%24sel%3AfailedItems%3ADescribeExclusionsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
   -&gt; f (HashMap Text FailedItemDetails))
  -&gt; DescribeExclusionsResponse -&gt; f DescribeExclusionsResponse)
 -&gt; ((HashMap Text FailedItemDetails
@@ -594,8 +594,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f (HashMap Text FailedItemDetails))
 -&gt; HashMap Text FailedItemDetails
 -&gt; f (HashMap Text FailedItemDetails)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeExclusions.html#DescribeExclusionsResponse"><span class="hs-identifier hs-type">DescribeExclusionsResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-comment">-- | The input values for @InitiateVaultLock@.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- /See:/ 'newInitiateVaultLock' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679222578"><span id="local-6989586621679222579"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateVaultLock"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-var">InitiateVaultLock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateVaultLock%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-var">InitiateVaultLock'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679222637"><span id="local-6989586621679222638"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateVaultLock"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-var">InitiateVaultLock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateVaultLock%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-var">InitiateVaultLock'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The vault lock policy as a JSON string, which uses \&quot;\\\&quot; as an escape</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- character.</span><span>
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3Apolicy%3AInitiateVaultLock%27"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; Maybe VaultLockPolicy
@@ -100,7 +100,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; Text
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222570"><span id="local-6989586621679222572"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222629"><span id="local-6989586621679222631"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
 (InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool)
 -&gt; (InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool)
 -&gt; Eq InitiateVaultLock
@@ -109,7 +109,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
 == :: InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
 $c== :: InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222561"><span id="local-6989586621679222563"><span id="local-6989586621679222565"><span id="local-6989586621679222567"><span class="annot"><span class="annottext">ReadPrec [InitiateVaultLock]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222620"><span id="local-6989586621679222622"><span id="local-6989586621679222624"><span id="local-6989586621679222626"><span class="annot"><span class="annottext">ReadPrec [InitiateVaultLock]
 ReadPrec InitiateVaultLock
 Int -&gt; ReadS InitiateVaultLock
 ReadS [InitiateVaultLock]
@@ -129,7 +129,7 @@ readList :: ReadS [InitiateVaultLock]
 $creadList :: ReadS [InitiateVaultLock]
 readsPrec :: Int -&gt; ReadS InitiateVaultLock
 $creadsPrec :: Int -&gt; ReadS InitiateVaultLock
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222554"><span id="local-6989586621679222556"><span id="local-6989586621679222558"><span class="annot"><span class="annottext">Int -&gt; InitiateVaultLock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222613"><span id="local-6989586621679222615"><span id="local-6989586621679222617"><span class="annot"><span class="annottext">Int -&gt; InitiateVaultLock -&gt; ShowS
 [InitiateVaultLock] -&gt; ShowS
 InitiateVaultLock -&gt; String
 (Int -&gt; InitiateVaultLock -&gt; ShowS)
@@ -181,9 +181,9 @@ $cfrom :: forall x. InitiateVaultLock -&gt; Rep InitiateVaultLock x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span>
 </span><span id="line-127"></span><span id="newInitiateVaultLock"><span class="annot"><span class="annottext">newInitiateVaultLock :: Text -&gt; Text -&gt; InitiateVaultLock
-</span><a href="Network.AWS.Glacier.InitiateVaultLock.html#newInitiateVaultLock"><span class="hs-identifier hs-var hs-var">newInitiateVaultLock</span></a></span></span><span> </span><span id="local-6989586621679222549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222549"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679222548"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222548"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.InitiateVaultLock.html#newInitiateVaultLock"><span class="hs-identifier hs-var hs-var">newInitiateVaultLock</span></a></span></span><span> </span><span id="local-6989586621679222608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222608"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679222607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222607"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">InitiateVaultLock' :: Maybe VaultLockPolicy -&gt; Text -&gt; Text -&gt; InitiateVaultLock
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:InitiateVaultLock' :: Maybe VaultLockPolicy
@@ -192,10 +192,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:InitiateVaultLock' :: Text
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AaccountId%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222549"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222608"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:InitiateVaultLock' :: Text
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222548"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679222607"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The vault lock policy as a JSON string, which uses \&quot;\\\&quot; as an escape</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
      (Maybe VaultLockPolicy)
      (Maybe VaultLockPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222545"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222604"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
 policy :: Maybe VaultLockPolicy
 $sel:policy:InitiateVaultLock' :: InitiateVaultLock -&gt; Maybe VaultLockPolicy
-</span><a href="#local-6989586621679222545"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
-</span><a href="#local-6989586621679222545"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222544"><span class="annot"><span class="annottext">s :: InitiateVaultLock
-</span><a href="#local-6989586621679222544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222543"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
-</span><a href="#local-6989586621679222543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
-</span><a href="#local-6989586621679222544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:InitiateVaultLock' :: Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222604"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222604"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222603"><span class="annot"><span class="annottext">s :: InitiateVaultLock
+</span><a href="#local-6989586621679222603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222602"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
+</span><a href="#local-6989586621679222603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:InitiateVaultLock' :: Maybe VaultLockPolicy
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3Apolicy%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
-</span><a href="#local-6989586621679222543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
@@ -235,16 +235,16 @@ $sel:policy:InitiateVaultLock' :: InitiateVaultLock -&gt; Maybe VaultLockPolicy
 -&gt; (InitiateVaultLock -&gt; Text -&gt; InitiateVaultLock)
 -&gt; Lens InitiateVaultLock InitiateVaultLock Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222542"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222601"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
-</span><a href="#local-6989586621679222542"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222542"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222541"><span class="annot"><span class="annottext">s :: InitiateVaultLock
-</span><a href="#local-6989586621679222541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222540"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
-</span><a href="#local-6989586621679222541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InitiateVaultLock' :: Text
+</span><a href="#local-6989586621679222601"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222601"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222600"><span class="annot"><span class="annottext">s :: InitiateVaultLock
+</span><a href="#local-6989586621679222600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
+</span><a href="#local-6989586621679222600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InitiateVaultLock' :: Text
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AaccountId%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#initiateVaultLock_vaultName"><span class="hs-identifier hs-type">initiateVaultLock_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -253,22 +253,22 @@ $sel:accountId:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
 -&gt; (InitiateVaultLock -&gt; Text -&gt; InitiateVaultLock)
 -&gt; Lens InitiateVaultLock InitiateVaultLock Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222539"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222598"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
-</span><a href="#local-6989586621679222539"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222539"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222538"><span class="annot"><span class="annottext">s :: InitiateVaultLock
-</span><a href="#local-6989586621679222538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222537"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
-</span><a href="#local-6989586621679222538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:InitiateVaultLock' :: Text
+</span><a href="#local-6989586621679222598"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222598"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222597"><span class="annot"><span class="annottext">s :: InitiateVaultLock
+</span><a href="#local-6989586621679222597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
+</span><a href="#local-6989586621679222597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:InitiateVaultLock' :: Text
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-154"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679222533"><span class="annot"><span class="annottext">request :: InitiateVaultLock -&gt; Request InitiateVaultLock
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679222592"><span class="annot"><span class="annottext">request :: InitiateVaultLock -&gt; Request InitiateVaultLock
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ByteString
 -&gt; Request InitiateVaultLock -&gt; Request InitiateVaultLock
@@ -285,7 +285,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679222526"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679222585"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy InitiateVaultLock
 -&gt; ClientResponse ClientBody
@@ -311,10 +311,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222523"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222523"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222522"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679222522"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222521"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679222521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222582"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222582"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222581"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222581"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222580"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679222580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; InitiateVaultLockResponse
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-var">InitiateVaultLockResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; InitiateVaultLockResponse)
@@ -322,7 +322,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; InitiateVaultLockResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679222522"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679222581"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -336,24 +336,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222523"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222582"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222513"><span id="local-6989586621679222515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222572"><span id="local-6989586621679222574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679222506"><span class="annot"><span class="annottext">toHeaders :: InitiateVaultLock -&gt; ResponseHeaders
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679222565"><span class="annot"><span class="annottext">toHeaders :: InitiateVaultLock -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InitiateVaultLock -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222497"><span id="local-6989586621679222499"><span id="local-6989586621679222501"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679222495"><span class="annot"><span class="annottext">toJSON :: InitiateVaultLock -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222491"><span id="local-6989586621679222492"><span id="local-6989586621679222493"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222556"><span id="local-6989586621679222558"><span id="local-6989586621679222560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679222554"><span class="annot"><span class="annottext">toJSON :: InitiateVaultLock -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222550"><span id="local-6989586621679222551"><span id="local-6989586621679222552"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
 Text
 vaultName :: Text
 accountId :: Text
@@ -361,7 +361,7 @@ policy :: Maybe VaultLockPolicy
 $sel:vaultName:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
 $sel:accountId:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
 $sel:policy:InitiateVaultLock' :: InitiateVaultLock -&gt; Maybe VaultLockPolicy
-</span><a href="#local-6989586621679222491"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222550"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -373,12 +373,12 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VaultLockPolicy -&gt; Pair) -&gt; Maybe VaultLockPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
-</span><a href="#local-6989586621679222493"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679222552"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679222485"><span class="annot"><span class="annottext">toPath :: InitiateVaultLock -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222481"><span id="local-6989586621679222482"><span id="local-6989586621679222483"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679222544"><span class="annot"><span class="annottext">toPath :: InitiateVaultLock -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222540"><span id="local-6989586621679222541"><span id="local-6989586621679222542"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
 Text
 vaultName :: Text
 accountId :: Text
@@ -386,7 +386,7 @@ policy :: Maybe VaultLockPolicy
 $sel:vaultName:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
 $sel:accountId:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
 $sel:policy:InitiateVaultLock' :: InitiateVaultLock -&gt; Maybe VaultLockPolicy
-</span><a href="#local-6989586621679222481"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222540"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -395,19 +395,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222482"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222541"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222481"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222540"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/lock-policy&quot;</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679222477"><span class="annot"><span class="annottext">toQuery :: InitiateVaultLock -&gt; QueryString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679222536"><span class="annot"><span class="annottext">toQuery :: InitiateVaultLock -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InitiateVaultLock -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -417,7 +417,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-194"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-195"></span><span class="hs-comment">--</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- /See:/ 'newInitiateVaultLockResponse' smart constructor.</span><span>
-</span><span id="line-197"></span><span id="local-6989586621679222474"><span id="local-6989586621679222475"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateVaultLockResponse"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-var">InitiateVaultLockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateVaultLockResponse%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-var">InitiateVaultLockResponse'</span></a></span></span><span>
+</span><span id="line-197"></span><span id="local-6989586621679222533"><span id="local-6989586621679222534"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateVaultLockResponse"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-var">InitiateVaultLockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateVaultLockResponse%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-var">InitiateVaultLockResponse'</span></a></span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The lock ID, which is used to complete the vault locking process.</span><span>
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AlockId%3AInitiateVaultLockResponse%27"><span class="annot"><span class="annottext">InitiateVaultLockResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AlockId%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var hs-var">lockId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -425,7 +425,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="annot"><span class="annottext">InitiateVaultLockResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222468"><span id="local-6989586621679222470"><span class="annot"><span class="annottext">InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222527"><span id="local-6989586621679222529"><span class="annot"><span class="annottext">InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
 (InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool)
 -&gt; (InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool)
 -&gt; Eq InitiateVaultLockResponse
@@ -434,7 +434,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
 == :: InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
 $c== :: InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222460"><span id="local-6989586621679222462"><span id="local-6989586621679222464"><span id="local-6989586621679222466"><span class="annot"><span class="annottext">ReadPrec [InitiateVaultLockResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222519"><span id="local-6989586621679222521"><span id="local-6989586621679222523"><span id="local-6989586621679222525"><span class="annot"><span class="annottext">ReadPrec [InitiateVaultLockResponse]
 ReadPrec InitiateVaultLockResponse
 Int -&gt; ReadS InitiateVaultLockResponse
 ReadS [InitiateVaultLockResponse]
@@ -454,7 +454,7 @@ readList :: ReadS [InitiateVaultLockResponse]
 $creadList :: ReadS [InitiateVaultLockResponse]
 readsPrec :: Int -&gt; ReadS InitiateVaultLockResponse
 $creadsPrec :: Int -&gt; ReadS InitiateVaultLockResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222454"><span id="local-6989586621679222456"><span id="local-6989586621679222458"><span class="annot"><span class="annottext">Int -&gt; InitiateVaultLockResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222513"><span id="local-6989586621679222515"><span id="local-6989586621679222517"><span class="annot"><span class="annottext">Int -&gt; InitiateVaultLockResponse -&gt; ShowS
 [InitiateVaultLockResponse] -&gt; ShowS
 InitiateVaultLockResponse -&gt; String
 (Int -&gt; InitiateVaultLockResponse -&gt; ShowS)
@@ -502,8 +502,8 @@ InitiateVaultLockResponse -&gt; Rep InitiateVaultLockResponse x
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span>
 </span><span id="line-220"></span><span id="newInitiateVaultLockResponse"><span class="annot"><span class="annottext">newInitiateVaultLockResponse :: Int -&gt; InitiateVaultLockResponse
-</span><a href="Network.AWS.Glacier.InitiateVaultLock.html#newInitiateVaultLockResponse"><span class="hs-identifier hs-var hs-var">newInitiateVaultLockResponse</span></a></span></span><span> </span><span id="local-6989586621679222451"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.InitiateVaultLock.html#newInitiateVaultLockResponse"><span class="hs-identifier hs-var hs-var">newInitiateVaultLockResponse</span></a></span></span><span> </span><span id="local-6989586621679222510"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">InitiateVaultLockResponse' :: Maybe Text -&gt; Int -&gt; InitiateVaultLockResponse
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lockId:InitiateVaultLockResponse' :: Maybe Text
@@ -513,7 +513,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateVaultLockResponse' :: Int
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679222510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The lock ID, which is used to complete the vault locking process.</span><span>
@@ -529,16 +529,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222450"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222509"><span class="annot"><span class="annottext">Maybe Text
 lockId :: Maybe Text
 $sel:lockId:InitiateVaultLockResponse' :: InitiateVaultLockResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679222450"><span class="hs-identifier hs-var hs-var">lockId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222450"><span class="hs-identifier hs-var">lockId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222449"><span class="annot"><span class="annottext">s :: InitiateVaultLockResponse
-</span><a href="#local-6989586621679222449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222448"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLockResponse
-</span><a href="#local-6989586621679222449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lockId:InitiateVaultLockResponse' :: Maybe Text
+</span><a href="#local-6989586621679222509"><span class="hs-identifier hs-var hs-var">lockId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222509"><span class="hs-identifier hs-var">lockId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222508"><span class="annot"><span class="annottext">s :: InitiateVaultLockResponse
+</span><a href="#local-6989586621679222508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLockResponse
+</span><a href="#local-6989586621679222508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lockId:InitiateVaultLockResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AlockId%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var">lockId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#initiateVaultLockResponse_httpStatus"><span class="hs-identifier hs-type">initiateVaultLockResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -548,16 +548,16 @@ $sel:lockId:InitiateVaultLockResponse' :: InitiateVaultLockResponse -&gt; Maybe 
 -&gt; (InitiateVaultLockResponse -&gt; Int -&gt; InitiateVaultLockResponse)
 -&gt; Lens InitiateVaultLockResponse InitiateVaultLockResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222447"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222506"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:InitiateVaultLockResponse' :: InitiateVaultLockResponse -&gt; Int
-</span><a href="#local-6989586621679222447"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222447"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222446"><span class="annot"><span class="annottext">s :: InitiateVaultLockResponse
-</span><a href="#local-6989586621679222446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222445"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLockResponse
-</span><a href="#local-6989586621679222446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateVaultLockResponse' :: Int
+</span><a href="#local-6989586621679222506"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222506"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222505"><span class="annot"><span class="annottext">s :: InitiateVaultLockResponse
+</span><a href="#local-6989586621679222505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLockResponse
+</span><a href="#local-6989586621679222505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateVaultLockResponse' :: Int
 </span><a href="Network.AWS.Glacier.InitiateVaultLock.html#%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

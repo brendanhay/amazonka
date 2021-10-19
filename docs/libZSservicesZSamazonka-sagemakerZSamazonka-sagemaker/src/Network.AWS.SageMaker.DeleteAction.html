@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteAction' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621680410298"><span id="local-6989586621680410299"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAction"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-var">DeleteAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAction%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-var">DeleteAction'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621680411923"><span id="local-6989586621680411924"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAction"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-var">DeleteAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAction%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-var">DeleteAction'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the action to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AactionName%3ADeleteAction%27"><span class="annot"><span class="annottext">DeleteAction -&gt; Text
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AactionName%3ADeleteAction%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680410292"><span id="local-6989586621680410294"><span class="annot"><span class="annottext">DeleteAction -&gt; DeleteAction -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680411917"><span id="local-6989586621680411919"><span class="annot"><span class="annottext">DeleteAction -&gt; DeleteAction -&gt; Bool
 (DeleteAction -&gt; DeleteAction -&gt; Bool)
 -&gt; (DeleteAction -&gt; DeleteAction -&gt; Bool) -&gt; Eq DeleteAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAction -&gt; DeleteAction -&gt; Bool
 == :: DeleteAction -&gt; DeleteAction -&gt; Bool
 $c== :: DeleteAction -&gt; DeleteAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680410283"><span id="local-6989586621680410285"><span id="local-6989586621680410287"><span id="local-6989586621680410289"><span class="annot"><span class="annottext">ReadPrec [DeleteAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411908"><span id="local-6989586621680411910"><span id="local-6989586621680411912"><span id="local-6989586621680411914"><span class="annot"><span class="annottext">ReadPrec [DeleteAction]
 ReadPrec DeleteAction
 Int -&gt; ReadS DeleteAction
 ReadS [DeleteAction]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteAction]
 $creadList :: ReadS [DeleteAction]
 readsPrec :: Int -&gt; ReadS DeleteAction
 $creadsPrec :: Int -&gt; ReadS DeleteAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680410276"><span id="local-6989586621680410278"><span id="local-6989586621680410280"><span class="annot"><span class="annottext">Int -&gt; DeleteAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411901"><span id="local-6989586621680411903"><span id="local-6989586621680411905"><span class="annot"><span class="annottext">Int -&gt; DeleteAction -&gt; ShowS
 [DeleteAction] -&gt; ShowS
 DeleteAction -&gt; String
 (Int -&gt; DeleteAction -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteAction -&gt; Rep DeleteAction x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteAction"><span class="annot"><span class="annottext">newDeleteAction :: Text -&gt; DeleteAction
-</span><a href="Network.AWS.SageMaker.DeleteAction.html#newDeleteAction"><span class="hs-identifier hs-var hs-var">newDeleteAction</span></a></span></span><span> </span><span id="local-6989586621680410271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680410271"><span class="hs-identifier hs-var">pActionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DeleteAction.html#newDeleteAction"><span class="hs-identifier hs-var hs-var">newDeleteAction</span></a></span></span><span> </span><span id="local-6989586621680411896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411896"><span class="hs-identifier hs-var">pActionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteAction' :: Text -&gt; DeleteAction
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-type">DeleteAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:DeleteAction' :: Text
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AactionName%3ADeleteAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680410271"><span class="hs-identifier hs-var">pActionName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680411896"><span class="hs-identifier hs-var">pActionName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the action to delete.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#deleteAction_actionName"><span class="hs-identifier hs-type">deleteAction_actionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. DeleteAction -&gt; Rep DeleteAction x
 -&gt; (DeleteAction -&gt; Text -&gt; DeleteAction)
 -&gt; Lens DeleteAction DeleteAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-type">DeleteAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680410268"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-type">DeleteAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411893"><span class="annot"><span class="annottext">Text
 actionName :: Text
 $sel:actionName:DeleteAction' :: DeleteAction -&gt; Text
-</span><a href="#local-6989586621680410268"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680410268"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680410267"><span class="annot"><span class="annottext">s :: DeleteAction
-</span><a href="#local-6989586621680410267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-type">DeleteAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680410266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680410266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAction
-</span><a href="#local-6989586621680410267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:DeleteAction' :: Text
+</span><a href="#local-6989586621680411893"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411893"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411892"><span class="annot"><span class="annottext">s :: DeleteAction
+</span><a href="#local-6989586621680411892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-type">DeleteAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAction
+</span><a href="#local-6989586621680411892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:DeleteAction' :: Text
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AactionName%3ADeleteAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680410266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680411891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680410262"><span class="annot"><span class="annottext">request :: DeleteAction -&gt; Request DeleteAction
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680411887"><span class="annot"><span class="annottext">request :: DeleteAction -&gt; Request DeleteAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAction -&gt; Request DeleteAction
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621680410258"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680411883"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAction
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680410255"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680410255"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680410254"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680410254"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680410253"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680410253"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680411880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411880"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680411879"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680411879"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680411878"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680411878"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteActionResponse
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-var">DeleteActionResponse'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteActionResponse)
@@ -187,7 +187,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteActionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680410253"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680411878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680410255"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680411880"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680410245"><span id="local-6989586621680410247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411870"><span id="local-6989586621680411872"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680410242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621680410238"><span class="annot"><span class="annottext">toHeaders :: DeleteAction -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680411863"><span class="annot"><span class="annottext">toHeaders :: DeleteAction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680410228"><span id="local-6989586621680410230"><span id="local-6989586621680410232"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680410226"><span class="annot"><span class="annottext">toJSON :: DeleteAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-type">DeleteAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680410224"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411853"><span id="local-6989586621680411855"><span id="local-6989586621680411857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680411851"><span class="annot"><span class="annottext">toJSON :: DeleteAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction%27"><span class="hs-identifier hs-type">DeleteAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411849"><span class="annot"><span class="annottext">Text
 actionName :: Text
 $sel:actionName:DeleteAction' :: DeleteAction -&gt; Text
-</span><a href="#local-6989586621680410224"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680411849"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,18 +249,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ActionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680410224"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680411849"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621680410218"><span class="annot"><span class="annottext">toPath :: DeleteAction -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621680411843"><span class="annot"><span class="annottext">toPath :: DeleteAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteAction"><span class="hs-identifier hs-type">DeleteAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621680410214"><span class="annot"><span class="annottext">toQuery :: DeleteAction -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680411839"><span class="annot"><span class="annottext">toQuery :: DeleteAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -268,7 +268,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newDeleteActionResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621680410211"><span id="local-6989586621680410212"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActionResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-var">DeleteActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-var">DeleteActionResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621680411836"><span id="local-6989586621680411837"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActionResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-var">DeleteActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-var">DeleteActionResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the action.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AactionArn%3ADeleteActionResponse%27"><span class="annot"><span class="annottext">DeleteActionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AactionArn%3ADeleteActionResponse%27"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -276,7 +276,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteActionResponse%27"><span class="annot"><span class="annottext">DeleteActionResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AhttpStatus%3ADeleteActionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680410205"><span id="local-6989586621680410207"><span class="annot"><span class="annottext">DeleteActionResponse -&gt; DeleteActionResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680411830"><span id="local-6989586621680411832"><span class="annot"><span class="annottext">DeleteActionResponse -&gt; DeleteActionResponse -&gt; Bool
 (DeleteActionResponse -&gt; DeleteActionResponse -&gt; Bool)
 -&gt; (DeleteActionResponse -&gt; DeleteActionResponse -&gt; Bool)
 -&gt; Eq DeleteActionResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteActionResponse -&gt; DeleteActionResponse -&gt; Bool
 == :: DeleteActionResponse -&gt; DeleteActionResponse -&gt; Bool
 $c== :: DeleteActionResponse -&gt; DeleteActionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680410197"><span id="local-6989586621680410199"><span id="local-6989586621680410201"><span id="local-6989586621680410203"><span class="annot"><span class="annottext">ReadPrec [DeleteActionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411822"><span id="local-6989586621680411824"><span id="local-6989586621680411826"><span id="local-6989586621680411828"><span class="annot"><span class="annottext">ReadPrec [DeleteActionResponse]
 ReadPrec DeleteActionResponse
 Int -&gt; ReadS DeleteActionResponse
 ReadS [DeleteActionResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [DeleteActionResponse]
 $creadList :: ReadS [DeleteActionResponse]
 readsPrec :: Int -&gt; ReadS DeleteActionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteActionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680410191"><span id="local-6989586621680410193"><span id="local-6989586621680410195"><span class="annot"><span class="annottext">Int -&gt; DeleteActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411816"><span id="local-6989586621680411818"><span id="local-6989586621680411820"><span class="annot"><span class="annottext">Int -&gt; DeleteActionResponse -&gt; ShowS
 [DeleteActionResponse] -&gt; ShowS
 DeleteActionResponse -&gt; String
 (Int -&gt; DeleteActionResponse -&gt; ShowS)
@@ -347,8 +347,8 @@ $cfrom :: forall x. DeleteActionResponse -&gt; Rep DeleteActionResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span><span>
 </span><span id="line-141"></span><span id="newDeleteActionResponse"><span class="annot"><span class="annottext">newDeleteActionResponse :: Int -&gt; DeleteActionResponse
-</span><a href="Network.AWS.SageMaker.DeleteAction.html#newDeleteActionResponse"><span class="hs-identifier hs-var hs-var">newDeleteActionResponse</span></a></span></span><span> </span><span id="local-6989586621680410188"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680410188"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DeleteAction.html#newDeleteActionResponse"><span class="hs-identifier hs-var hs-var">newDeleteActionResponse</span></a></span></span><span> </span><span id="local-6989586621680411813"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">DeleteActionResponse' :: Maybe Text -&gt; Int -&gt; DeleteActionResponse
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionArn:DeleteActionResponse' :: Maybe Text
@@ -357,7 +357,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AhttpStatus%3ADeleteActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680410188"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680411813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the action.</span><span>
@@ -369,16 +369,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteActionResponse DeleteActionResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680410187"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411812"><span class="annot"><span class="annottext">Maybe Text
 actionArn :: Maybe Text
 $sel:actionArn:DeleteActionResponse' :: DeleteActionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680410187"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680410187"><span class="hs-identifier hs-var">actionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680410186"><span class="annot"><span class="annottext">s :: DeleteActionResponse
-</span><a href="#local-6989586621680410186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680410185"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680410185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActionResponse
-</span><a href="#local-6989586621680410186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionArn:DeleteActionResponse' :: Maybe Text
+</span><a href="#local-6989586621680411812"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411812"><span class="hs-identifier hs-var">actionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411811"><span class="annot"><span class="annottext">s :: DeleteActionResponse
+</span><a href="#local-6989586621680411811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActionResponse
+</span><a href="#local-6989586621680411811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionArn:DeleteActionResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AactionArn%3ADeleteActionResponse%27"><span class="hs-identifier hs-var">actionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680410185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680411810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#deleteActionResponse_httpStatus"><span class="hs-identifier hs-type">deleteActionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -387,16 +387,16 @@ $sel:actionArn:DeleteActionResponse' :: DeleteActionResponse -&gt; Maybe Text
 -&gt; (DeleteActionResponse -&gt; Int -&gt; DeleteActionResponse)
 -&gt; Lens DeleteActionResponse DeleteActionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680410184"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411809"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteActionResponse' :: DeleteActionResponse -&gt; Int
-</span><a href="#local-6989586621680410184"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680410184"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680410183"><span class="annot"><span class="annottext">s :: DeleteActionResponse
-</span><a href="#local-6989586621680410183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680410182"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680410182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActionResponse
-</span><a href="#local-6989586621680410183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActionResponse' :: Int
+</span><a href="#local-6989586621680411809"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411809"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411808"><span class="annot"><span class="annottext">s :: DeleteActionResponse
+</span><a href="#local-6989586621680411808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse%27"><span class="hs-identifier hs-type">DeleteActionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411807"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActionResponse
+</span><a href="#local-6989586621680411808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DeleteAction.html#%24sel%3AhttpStatus%3ADeleteActionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680410182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680411807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680410180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteAction.html#DeleteActionResponse"><span class="hs-identifier hs-type">DeleteActionResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

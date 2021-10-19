@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681096590"><span id="local-6989586621681096591"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OnDemandAllocationStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandAllocationStrategy.html#OnDemandAllocationStrategy"><span class="hs-identifier hs-var">OnDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandAllocationStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandAllocationStrategy.html#OnDemandAllocationStrategy%27"><span class="hs-identifier hs-var">OnDemandAllocationStrategy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681131285"><span id="local-6989586621681131286"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OnDemandAllocationStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandAllocationStrategy.html#OnDemandAllocationStrategy"><span class="hs-identifier hs-var">OnDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OnDemandAllocationStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.OnDemandAllocationStrategy.html#OnDemandAllocationStrategy%27"><span class="hs-identifier hs-var">OnDemandAllocationStrategy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOnDemandAllocationStrategy"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; Text
 </span><a href="Network.AWS.EC2.Types.OnDemandAllocationStrategy.html#fromOnDemandAllocationStrategy"><span class="hs-identifier hs-var hs-var">fromOnDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096582"><span id="local-6989586621681096584"><span id="local-6989586621681096586"><span class="annot"><span class="annottext">Int -&gt; OnDemandAllocationStrategy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131277"><span id="local-6989586621681131279"><span id="local-6989586621681131281"><span class="annot"><span class="annottext">Int -&gt; OnDemandAllocationStrategy -&gt; ShowS
 [OnDemandAllocationStrategy] -&gt; ShowS
 OnDemandAllocationStrategy -&gt; String
 (Int -&gt; OnDemandAllocationStrategy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: OnDemandAllocationStrategy -&gt; String
 showsPrec :: Int -&gt; OnDemandAllocationStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; OnDemandAllocationStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681096573"><span id="local-6989586621681096575"><span id="local-6989586621681096577"><span id="local-6989586621681096579"><span class="annot"><span class="annottext">ReadPrec [OnDemandAllocationStrategy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681131268"><span id="local-6989586621681131270"><span id="local-6989586621681131272"><span id="local-6989586621681131274"><span class="annot"><span class="annottext">ReadPrec [OnDemandAllocationStrategy]
 ReadPrec OnDemandAllocationStrategy
 Int -&gt; ReadS OnDemandAllocationStrategy
 ReadS [OnDemandAllocationStrategy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [OnDemandAllocationStrategy]
 readsPrec :: Int -&gt; ReadS OnDemandAllocationStrategy
 $creadsPrec :: Int -&gt; ReadS OnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681096568"><span id="local-6989586621681096570"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; OnDemandAllocationStrategy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681131263"><span id="local-6989586621681131265"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; OnDemandAllocationStrategy -&gt; Bool
 (OnDemandAllocationStrategy -&gt; OnDemandAllocationStrategy -&gt; Bool)
 -&gt; (OnDemandAllocationStrategy
     -&gt; OnDemandAllocationStrategy -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: OnDemandAllocationStrategy -&gt; OnDemandAllocationStrategy -&gt; Bool
 == :: OnDemandAllocationStrategy -&gt; OnDemandAllocationStrategy -&gt; Bool
 $c== :: OnDemandAllocationStrategy -&gt; OnDemandAllocationStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681096552"><span id="local-6989586621681096554"><span id="local-6989586621681096556"><span id="local-6989586621681096558"><span id="local-6989586621681096560"><span id="local-6989586621681096562"><span id="local-6989586621681096564"><span class="annot"><span class="annottext">Eq OnDemandAllocationStrategy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681131247"><span id="local-6989586621681131249"><span id="local-6989586621681131251"><span id="local-6989586621681131253"><span id="local-6989586621681131255"><span id="local-6989586621681131257"><span id="local-6989586621681131259"><span class="annot"><span class="annottext">Eq OnDemandAllocationStrategy
 Eq OnDemandAllocationStrategy
 -&gt; (OnDemandAllocationStrategy
     -&gt; OnDemandAllocationStrategy -&gt; Ordering)
@@ -156,7 +156,7 @@ OnDemandAllocationStrategy -&gt; Rep OnDemandAllocationStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096544"><span id="local-6989586621681096546"><span class="annot"><span class="annottext">Int -&gt; OnDemandAllocationStrategy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681131239"><span id="local-6989586621681131241"><span class="annot"><span class="annottext">Int -&gt; OnDemandAllocationStrategy -&gt; Int
 OnDemandAllocationStrategy -&gt; Int
 (Int -&gt; OnDemandAllocationStrategy -&gt; Int)
 -&gt; (OnDemandAllocationStrategy -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: OnDemandAllocationStrategy -&gt; Int
 hashWithSalt :: Int -&gt; OnDemandAllocationStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; OnDemandAllocationStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681096541"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681131236"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; ()
 (OnDemandAllocationStrategy -&gt; ())
 -&gt; NFData OnDemandAllocationStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OnDemandAllocationStrategy -&gt; ()
 $crnf :: OnDemandAllocationStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681096538"><span class="annot"><span class="annottext">Text -&gt; Either String OnDemandAllocationStrategy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681131233"><span class="annot"><span class="annottext">Text -&gt; Either String OnDemandAllocationStrategy
 (Text -&gt; Either String OnDemandAllocationStrategy)
 -&gt; FromText OnDemandAllocationStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OnDemandAllocationStrategy
 $cfromText :: Text -&gt; Either String OnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681096535"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681131230"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; Text
 (OnDemandAllocationStrategy -&gt; Text)
 -&gt; ToText OnDemandAllocationStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OnDemandAllocationStrategy -&gt; Text
 $ctoText :: OnDemandAllocationStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681096532"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681131227"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; ByteString
 (OnDemandAllocationStrategy -&gt; ByteString)
 -&gt; ToByteString OnDemandAllocationStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OnDemandAllocationStrategy -&gt; ByteString
 $ctoBS :: OnDemandAllocationStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681096529"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681131224"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; ByteStringBuilder
 (OnDemandAllocationStrategy -&gt; ByteStringBuilder)
 -&gt; ToLog OnDemandAllocationStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OnDemandAllocationStrategy -&gt; ByteStringBuilder
 $cbuild :: OnDemandAllocationStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681096526"><span class="annot"><span class="annottext">HeaderName -&gt; OnDemandAllocationStrategy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681131221"><span class="annot"><span class="annottext">HeaderName -&gt; OnDemandAllocationStrategy -&gt; [Header]
 (HeaderName -&gt; OnDemandAllocationStrategy -&gt; [Header])
 -&gt; ToHeader OnDemandAllocationStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OnDemandAllocationStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OnDemandAllocationStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681096523"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681131218"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; QueryString
 (OnDemandAllocationStrategy -&gt; QueryString)
 -&gt; ToQuery OnDemandAllocationStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OnDemandAllocationStrategy -&gt; QueryString
 $ctoQuery :: OnDemandAllocationStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681096518"><span id="local-6989586621681096520"><span class="annot"><span class="annottext">Value -&gt; Parser [OnDemandAllocationStrategy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681131213"><span id="local-6989586621681131215"><span class="annot"><span class="annottext">Value -&gt; Parser [OnDemandAllocationStrategy]
 Value -&gt; Parser OnDemandAllocationStrategy
 (Value -&gt; Parser OnDemandAllocationStrategy)
 -&gt; (Value -&gt; Parser [OnDemandAllocationStrategy])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [OnDemandAllocationStrategy]
 parseJSON :: Value -&gt; Parser OnDemandAllocationStrategy
 $cparseJSON :: Value -&gt; Parser OnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681096513"><span id="local-6989586621681096515"><span class="annot"><span class="annottext">FromJSONKeyFunction [OnDemandAllocationStrategy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681131208"><span id="local-6989586621681131210"><span class="annot"><span class="annottext">FromJSONKeyFunction [OnDemandAllocationStrategy]
 FromJSONKeyFunction OnDemandAllocationStrategy
 FromJSONKeyFunction OnDemandAllocationStrategy
 -&gt; FromJSONKeyFunction [OnDemandAllocationStrategy]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OnDemandAllocationStrategy]
 fromJSONKey :: FromJSONKeyFunction OnDemandAllocationStrategy
 $cfromJSONKey :: FromJSONKeyFunction OnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681096504"><span id="local-6989586621681096506"><span id="local-6989586621681096508"><span id="local-6989586621681096510"><span class="annot"><span class="annottext">[OnDemandAllocationStrategy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681131199"><span id="local-6989586621681131201"><span id="local-6989586621681131203"><span id="local-6989586621681131205"><span class="annot"><span class="annottext">[OnDemandAllocationStrategy] -&gt; Encoding
 [OnDemandAllocationStrategy] -&gt; Value
 OnDemandAllocationStrategy -&gt; Encoding
 OnDemandAllocationStrategy -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: OnDemandAllocationStrategy -&gt; Encoding
 toJSON :: OnDemandAllocationStrategy -&gt; Value
 $ctoJSON :: OnDemandAllocationStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681096499"><span id="local-6989586621681096501"><span class="annot"><span class="annottext">ToJSONKeyFunction [OnDemandAllocationStrategy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681131194"><span id="local-6989586621681131196"><span class="annot"><span class="annottext">ToJSONKeyFunction [OnDemandAllocationStrategy]
 ToJSONKeyFunction OnDemandAllocationStrategy
 ToJSONKeyFunction OnDemandAllocationStrategy
 -&gt; ToJSONKeyFunction [OnDemandAllocationStrategy]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OnDemandAllocationStrategy]
 toJSONKey :: ToJSONKeyFunction OnDemandAllocationStrategy
 $ctoJSONKey :: ToJSONKeyFunction OnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681096496"><span class="annot"><span class="annottext">[Node] -&gt; Either String OnDemandAllocationStrategy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681131191"><span class="annot"><span class="annottext">[Node] -&gt; Either String OnDemandAllocationStrategy
 ([Node] -&gt; Either String OnDemandAllocationStrategy)
 -&gt; FromXML OnDemandAllocationStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OnDemandAllocationStrategy
 $cparseXML :: [Node] -&gt; Either String OnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681096493"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681131188"><span class="annot"><span class="annottext">OnDemandAllocationStrategy -&gt; XML
 (OnDemandAllocationStrategy -&gt; XML)
 -&gt; ToXML OnDemandAllocationStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The status of an online resharding operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReshardingStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679405472"><span id="local-6989586621679405473"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReshardingStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-var">ReshardingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReshardingStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus%27"><span class="hs-identifier hs-var">ReshardingStatus'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679406007"><span id="local-6989586621679406008"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReshardingStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-var">ReshardingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReshardingStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus%27"><span class="hs-identifier hs-var">ReshardingStatus'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the progress of an online resharding operation.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AslotMigration%3AReshardingStatus%27"><span class="annot"><span class="annottext">ReshardingStatus -&gt; Maybe SlotMigration
 </span><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#%24sel%3AslotMigration%3AReshardingStatus%27"><span class="hs-identifier hs-var hs-var">slotMigration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.SlotMigration.html#SlotMigration"><span class="hs-identifier hs-type">SlotMigration</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405466"><span id="local-6989586621679405468"><span class="annot"><span class="annottext">ReshardingStatus -&gt; ReshardingStatus -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406001"><span id="local-6989586621679406003"><span class="annot"><span class="annottext">ReshardingStatus -&gt; ReshardingStatus -&gt; Bool
 (ReshardingStatus -&gt; ReshardingStatus -&gt; Bool)
 -&gt; (ReshardingStatus -&gt; ReshardingStatus -&gt; Bool)
 -&gt; Eq ReshardingStatus
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReshardingStatus -&gt; ReshardingStatus -&gt; Bool
 == :: ReshardingStatus -&gt; ReshardingStatus -&gt; Bool
 $c== :: ReshardingStatus -&gt; ReshardingStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405457"><span id="local-6989586621679405459"><span id="local-6989586621679405461"><span id="local-6989586621679405463"><span class="annot"><span class="annottext">ReadPrec [ReshardingStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405992"><span id="local-6989586621679405994"><span id="local-6989586621679405996"><span id="local-6989586621679405998"><span class="annot"><span class="annottext">ReadPrec [ReshardingStatus]
 ReadPrec ReshardingStatus
 Int -&gt; ReadS ReshardingStatus
 ReadS [ReshardingStatus]
@@ -61,7 +61,7 @@ readList :: ReadS [ReshardingStatus]
 $creadList :: ReadS [ReshardingStatus]
 readsPrec :: Int -&gt; ReadS ReshardingStatus
 $creadsPrec :: Int -&gt; ReadS ReshardingStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405450"><span id="local-6989586621679405452"><span id="local-6989586621679405454"><span class="annot"><span class="annottext">Int -&gt; ReshardingStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405985"><span id="local-6989586621679405987"><span id="local-6989586621679405989"><span class="annot"><span class="annottext">Int -&gt; ReshardingStatus -&gt; ShowS
 [ReshardingStatus] -&gt; ShowS
 ReshardingStatus -&gt; String
 (Int -&gt; ReshardingStatus -&gt; ShowS)
@@ -118,21 +118,21 @@ forall a. Maybe a
      (Maybe SlotMigration)
      (Maybe SlotMigration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus%27"><span class="hs-identifier hs-type">ReshardingStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405441"><span class="annot"><span class="annottext">Maybe SlotMigration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus%27"><span class="hs-identifier hs-type">ReshardingStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405976"><span class="annot"><span class="annottext">Maybe SlotMigration
 slotMigration :: Maybe SlotMigration
 $sel:slotMigration:ReshardingStatus' :: ReshardingStatus -&gt; Maybe SlotMigration
-</span><a href="#local-6989586621679405441"><span class="hs-identifier hs-var hs-var">slotMigration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlotMigration
-</span><a href="#local-6989586621679405441"><span class="hs-identifier hs-var">slotMigration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405440"><span class="annot"><span class="annottext">s :: ReshardingStatus
-</span><a href="#local-6989586621679405440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus%27"><span class="hs-identifier hs-type">ReshardingStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405439"><span class="annot"><span class="annottext">Maybe SlotMigration
-</span><a href="#local-6989586621679405439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReshardingStatus
-</span><a href="#local-6989586621679405440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotMigration:ReshardingStatus' :: Maybe SlotMigration
+</span><a href="#local-6989586621679405976"><span class="hs-identifier hs-var hs-var">slotMigration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlotMigration
+</span><a href="#local-6989586621679405976"><span class="hs-identifier hs-var">slotMigration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405975"><span class="annot"><span class="annottext">s :: ReshardingStatus
+</span><a href="#local-6989586621679405975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus%27"><span class="hs-identifier hs-type">ReshardingStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405974"><span class="annot"><span class="annottext">Maybe SlotMigration
+</span><a href="#local-6989586621679405974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReshardingStatus
+</span><a href="#local-6989586621679405975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotMigration:ReshardingStatus' :: Maybe SlotMigration
 </span><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#%24sel%3AslotMigration%3AReshardingStatus%27"><span class="hs-identifier hs-var">slotMigration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SlotMigration
-</span><a href="#local-6989586621679405439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679405436"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReshardingStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405434"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679405971"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReshardingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679405969"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679405969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe SlotMigration -&gt; ReshardingStatus
 </span><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus%27"><span class="hs-identifier hs-var">ReshardingStatus'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SlotMigration -&gt; ReshardingStatus)
@@ -140,12 +140,12 @@ $sel:slotMigration:ReshardingStatus' :: ReshardingStatus -&gt; Maybe SlotMigrati
 -&gt; Either String ReshardingStatus
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679405434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SlotMigration)
+</span><a href="#local-6989586621679405969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SlotMigration)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SlotMigration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405428"><span id="local-6989586621679405430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405963"><span id="local-6989586621679405965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReshardingStatus.html#ReshardingStatus"><span class="hs-identifier hs-type">ReshardingStatus</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679300856"><span id="local-6989586621679300857"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnvironmentHealthStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus.html#EnvironmentHealthStatus"><span class="hs-identifier hs-var">EnvironmentHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentHealthStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus.html#EnvironmentHealthStatus%27"><span class="hs-identifier hs-var">EnvironmentHealthStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679301135"><span id="local-6989586621679301136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnvironmentHealthStatus"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus.html#EnvironmentHealthStatus"><span class="hs-identifier hs-var">EnvironmentHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentHealthStatus%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus.html#EnvironmentHealthStatus%27"><span class="hs-identifier hs-var">EnvironmentHealthStatus'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnvironmentHealthStatus"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus.html#fromEnvironmentHealthStatus"><span class="hs-identifier hs-var hs-var">fromEnvironmentHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300848"><span id="local-6989586621679300850"><span id="local-6989586621679300852"><span class="annot"><span class="annottext">Int -&gt; EnvironmentHealthStatus -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301127"><span id="local-6989586621679301129"><span id="local-6989586621679301131"><span class="annot"><span class="annottext">Int -&gt; EnvironmentHealthStatus -&gt; ShowS
 [EnvironmentHealthStatus] -&gt; ShowS
 EnvironmentHealthStatus -&gt; String
 (Int -&gt; EnvironmentHealthStatus -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: EnvironmentHealthStatus -&gt; String
 showsPrec :: Int -&gt; EnvironmentHealthStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; EnvironmentHealthStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679300839"><span id="local-6989586621679300841"><span id="local-6989586621679300843"><span id="local-6989586621679300845"><span class="annot"><span class="annottext">ReadPrec [EnvironmentHealthStatus]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679301118"><span id="local-6989586621679301120"><span id="local-6989586621679301122"><span id="local-6989586621679301124"><span class="annot"><span class="annottext">ReadPrec [EnvironmentHealthStatus]
 ReadPrec EnvironmentHealthStatus
 Int -&gt; ReadS EnvironmentHealthStatus
 ReadS [EnvironmentHealthStatus]
@@ -79,7 +79,7 @@ $creadList :: ReadS [EnvironmentHealthStatus]
 readsPrec :: Int -&gt; ReadS EnvironmentHealthStatus
 $creadsPrec :: Int -&gt; ReadS EnvironmentHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679300834"><span id="local-6989586621679300836"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301113"><span id="local-6989586621679301115"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool
 (EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool)
 -&gt; (EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool)
 -&gt; Eq EnvironmentHealthStatus
@@ -89,7 +89,7 @@ $c/= :: EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool
 == :: EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool
 $c== :: EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300818"><span id="local-6989586621679300820"><span id="local-6989586621679300822"><span id="local-6989586621679300824"><span id="local-6989586621679300826"><span id="local-6989586621679300828"><span id="local-6989586621679300830"><span class="annot"><span class="annottext">Eq EnvironmentHealthStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301097"><span id="local-6989586621679301099"><span id="local-6989586621679301101"><span id="local-6989586621679301103"><span id="local-6989586621679301105"><span id="local-6989586621679301107"><span id="local-6989586621679301109"><span class="annot"><span class="annottext">Eq EnvironmentHealthStatus
 Eq EnvironmentHealthStatus
 -&gt; (EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Ordering)
 -&gt; (EnvironmentHealthStatus -&gt; EnvironmentHealthStatus -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. EnvironmentHealthStatus -&gt; Rep EnvironmentHealthStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300810"><span id="local-6989586621679300812"><span class="annot"><span class="annottext">Int -&gt; EnvironmentHealthStatus -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301089"><span id="local-6989586621679301091"><span class="annot"><span class="annottext">Int -&gt; EnvironmentHealthStatus -&gt; Int
 EnvironmentHealthStatus -&gt; Int
 (Int -&gt; EnvironmentHealthStatus -&gt; Int)
 -&gt; (EnvironmentHealthStatus -&gt; Int)
@@ -160,54 +160,54 @@ $chash :: EnvironmentHealthStatus -&gt; Int
 hashWithSalt :: Int -&gt; EnvironmentHealthStatus -&gt; Int
 $chashWithSalt :: Int -&gt; EnvironmentHealthStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300807"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301086"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; ()
 (EnvironmentHealthStatus -&gt; ()) -&gt; NFData EnvironmentHealthStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EnvironmentHealthStatus -&gt; ()
 $crnf :: EnvironmentHealthStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300804"><span class="annot"><span class="annottext">Text -&gt; Either String EnvironmentHealthStatus
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301083"><span class="annot"><span class="annottext">Text -&gt; Either String EnvironmentHealthStatus
 (Text -&gt; Either String EnvironmentHealthStatus)
 -&gt; FromText EnvironmentHealthStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EnvironmentHealthStatus
 $cfromText :: Text -&gt; Either String EnvironmentHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300801"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301080"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; Text
 (EnvironmentHealthStatus -&gt; Text) -&gt; ToText EnvironmentHealthStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EnvironmentHealthStatus -&gt; Text
 $ctoText :: EnvironmentHealthStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300798"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301077"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; ByteString
 (EnvironmentHealthStatus -&gt; ByteString)
 -&gt; ToByteString EnvironmentHealthStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EnvironmentHealthStatus -&gt; ByteString
 $ctoBS :: EnvironmentHealthStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300795"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301074"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; ByteStringBuilder
 (EnvironmentHealthStatus -&gt; ByteStringBuilder)
 -&gt; ToLog EnvironmentHealthStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EnvironmentHealthStatus -&gt; ByteStringBuilder
 $cbuild :: EnvironmentHealthStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300792"><span class="annot"><span class="annottext">HeaderName -&gt; EnvironmentHealthStatus -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301071"><span class="annot"><span class="annottext">HeaderName -&gt; EnvironmentHealthStatus -&gt; [Header]
 (HeaderName -&gt; EnvironmentHealthStatus -&gt; [Header])
 -&gt; ToHeader EnvironmentHealthStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EnvironmentHealthStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EnvironmentHealthStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300789"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679301068"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; QueryString
 (EnvironmentHealthStatus -&gt; QueryString)
 -&gt; ToQuery EnvironmentHealthStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EnvironmentHealthStatus -&gt; QueryString
 $ctoQuery :: EnvironmentHealthStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679300784"><span id="local-6989586621679300786"><span class="annot"><span class="annottext">Value -&gt; Parser [EnvironmentHealthStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679301063"><span id="local-6989586621679301065"><span class="annot"><span class="annottext">Value -&gt; Parser [EnvironmentHealthStatus]
 Value -&gt; Parser EnvironmentHealthStatus
 (Value -&gt; Parser EnvironmentHealthStatus)
 -&gt; (Value -&gt; Parser [EnvironmentHealthStatus])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [EnvironmentHealthStatus]
 parseJSON :: Value -&gt; Parser EnvironmentHealthStatus
 $cparseJSON :: Value -&gt; Parser EnvironmentHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679300779"><span id="local-6989586621679300781"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnvironmentHealthStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679301058"><span id="local-6989586621679301060"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnvironmentHealthStatus]
 FromJSONKeyFunction EnvironmentHealthStatus
 FromJSONKeyFunction EnvironmentHealthStatus
 -&gt; FromJSONKeyFunction [EnvironmentHealthStatus]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EnvironmentHealthStatus]
 fromJSONKey :: FromJSONKeyFunction EnvironmentHealthStatus
 $cfromJSONKey :: FromJSONKeyFunction EnvironmentHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679300770"><span id="local-6989586621679300772"><span id="local-6989586621679300774"><span id="local-6989586621679300776"><span class="annot"><span class="annottext">[EnvironmentHealthStatus] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679301049"><span id="local-6989586621679301051"><span id="local-6989586621679301053"><span id="local-6989586621679301055"><span class="annot"><span class="annottext">[EnvironmentHealthStatus] -&gt; Encoding
 [EnvironmentHealthStatus] -&gt; Value
 EnvironmentHealthStatus -&gt; Encoding
 EnvironmentHealthStatus -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: EnvironmentHealthStatus -&gt; Encoding
 toJSON :: EnvironmentHealthStatus -&gt; Value
 $ctoJSON :: EnvironmentHealthStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679300765"><span id="local-6989586621679300767"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnvironmentHealthStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679301044"><span id="local-6989586621679301046"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnvironmentHealthStatus]
 ToJSONKeyFunction EnvironmentHealthStatus
 ToJSONKeyFunction EnvironmentHealthStatus
 -&gt; ToJSONKeyFunction [EnvironmentHealthStatus]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EnvironmentHealthStatus]
 toJSONKey :: ToJSONKeyFunction EnvironmentHealthStatus
 $ctoJSONKey :: ToJSONKeyFunction EnvironmentHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679300762"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentHealthStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679301041"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentHealthStatus
 ([Node] -&gt; Either String EnvironmentHealthStatus)
 -&gt; FromXML EnvironmentHealthStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EnvironmentHealthStatus
 $cparseXML :: [Node] -&gt; Either String EnvironmentHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679300759"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679301038"><span class="annot"><span class="annottext">EnvironmentHealthStatus -&gt; XML
 (EnvironmentHealthStatus -&gt; XML) -&gt; ToXML EnvironmentHealthStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EnvironmentHealthStatus -&gt; XML

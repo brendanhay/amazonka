@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#newListUsersResponse"><span class="hs-identifier">newListUsersResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_userSummaryList"><span class="hs-identifier">listUsersResponse_userSummaryList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_nextToken"><span class="hs-identifier">listUsersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_nextToken"><span class="hs-identifier">listUsersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_userSummaryList"><span class="hs-identifier">listUsersResponse_userSummaryList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_httpStatus"><span class="hs-identifier">listUsersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListUsers' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679411061"><span id="local-6989586621679411062"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsers"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-var">ListUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsers%27"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-var">ListUsers'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679411354"><span id="local-6989586621679411355"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsers"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-var">ListUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsers%27"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-var">ListUsers'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- results.</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AinstanceId%3AListUsers%27"><span class="annot"><span class="annottext">ListUsers -&gt; Text
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AinstanceId%3AListUsers%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411053"><span id="local-6989586621679411055"><span class="annot"><span class="annottext">ListUsers -&gt; ListUsers -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411346"><span id="local-6989586621679411348"><span class="annot"><span class="annottext">ListUsers -&gt; ListUsers -&gt; Bool
 (ListUsers -&gt; ListUsers -&gt; Bool)
 -&gt; (ListUsers -&gt; ListUsers -&gt; Bool) -&gt; Eq ListUsers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListUsers -&gt; ListUsers -&gt; Bool
 == :: ListUsers -&gt; ListUsers -&gt; Bool
 $c== :: ListUsers -&gt; ListUsers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411044"><span id="local-6989586621679411046"><span id="local-6989586621679411048"><span id="local-6989586621679411050"><span class="annot"><span class="annottext">ReadPrec [ListUsers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411337"><span id="local-6989586621679411339"><span id="local-6989586621679411341"><span id="local-6989586621679411343"><span class="annot"><span class="annottext">ReadPrec [ListUsers]
 ReadPrec ListUsers
 Int -&gt; ReadS ListUsers
 ReadS [ListUsers]
@@ -95,7 +95,7 @@ readList :: ReadS [ListUsers]
 $creadList :: ReadS [ListUsers]
 readsPrec :: Int -&gt; ReadS ListUsers
 $creadsPrec :: Int -&gt; ReadS ListUsers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411037"><span id="local-6989586621679411039"><span id="local-6989586621679411041"><span class="annot"><span class="annottext">Int -&gt; ListUsers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411330"><span id="local-6989586621679411332"><span id="local-6989586621679411334"><span class="annot"><span class="annottext">Int -&gt; ListUsers -&gt; ShowS
 [ListUsers] -&gt; ShowS
 ListUsers -&gt; String
 (Int -&gt; ListUsers -&gt; ShowS)
@@ -141,8 +141,8 @@ $cfrom :: forall x. ListUsers -&gt; Rep ListUsers x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span>
 </span><span id="line-89"></span><span id="newListUsers"><span class="annot"><span class="annottext">newListUsers :: Text -&gt; ListUsers
-</span><a href="Network.AWS.Connect.ListUsers.html#newListUsers"><span class="hs-identifier hs-var hs-var">newListUsers</span></a></span></span><span> </span><span id="local-6989586621679411032"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411032"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.ListUsers.html#newListUsers"><span class="hs-identifier hs-var hs-var">newListUsers</span></a></span></span><span> </span><span id="local-6989586621679411325"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411325"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ListUsers' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListUsers
 </span><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListUsers' :: Maybe Text
@@ -155,7 +155,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListUsers' :: Text
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AinstanceId%3AListUsers%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411032"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679411325"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
@@ -167,16 +167,16 @@ forall a. Maybe a
 -&gt; (ListUsers -&gt; Maybe Text -&gt; ListUsers)
 -&gt; Lens ListUsers ListUsers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411030"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411323"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679411030"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411030"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411029"><span class="annot"><span class="annottext">s :: ListUsers
-</span><a href="#local-6989586621679411029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411028"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679411029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsers' :: Maybe Text
+</span><a href="#local-6989586621679411323"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411323"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411322"><span class="annot"><span class="annottext">s :: ListUsers
+</span><a href="#local-6989586621679411322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411321"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
+</span><a href="#local-6989586621679411322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsers' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AnextToken%3AListUsers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679411028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsers_maxResults"><span class="hs-identifier hs-type">listUsers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -185,16 +185,16 @@ $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
 -&gt; (ListUsers -&gt; Maybe Natural -&gt; ListUsers)
 -&gt; Lens ListUsers ListUsers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411027"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411320"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
-</span><a href="#local-6989586621679411027"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679411027"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411026"><span class="annot"><span class="annottext">s :: ListUsers
-</span><a href="#local-6989586621679411026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411025"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679411025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679411026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUsers' :: Maybe Natural
+</span><a href="#local-6989586621679411320"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679411320"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411319"><span class="annot"><span class="annottext">s :: ListUsers
+</span><a href="#local-6989586621679411319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411318"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679411318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
+</span><a href="#local-6989586621679411319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListUsers' :: Maybe Natural
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AmaxResults%3AListUsers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679411025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -204,28 +204,28 @@ $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
 -&gt; (ListUsers -&gt; Text -&gt; ListUsers)
 -&gt; Lens ListUsers ListUsers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411024"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411317"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:ListUsers' :: ListUsers -&gt; Text
-</span><a href="#local-6989586621679411024"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411024"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411023"><span class="annot"><span class="annottext">s :: ListUsers
-</span><a href="#local-6989586621679411023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411022"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679411023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListUsers' :: Text
+</span><a href="#local-6989586621679411317"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411317"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411316"><span class="annot"><span class="annottext">s :: ListUsers
+</span><a href="#local-6989586621679411316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411315"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsers
+</span><a href="#local-6989586621679411316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListUsers' :: Text
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AinstanceId%3AListUsers%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679411018"><span class="annot"><span class="annottext">page :: ListUsers -&gt; AWSResponse ListUsers -&gt; Maybe ListUsers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679411016"><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679411016"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679411015"><span class="annot"><span class="annottext">AWSResponse ListUsers
-</span><a href="#local-6989586621679411015"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679411311"><span class="annot"><span class="annottext">page :: ListUsers -&gt; AWSResponse ListUsers -&gt; Maybe ListUsers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679411309"><span class="annot"><span class="annottext">ListUsers
+</span><a href="#local-6989586621679411309"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679411308"><span class="annot"><span class="annottext">AWSResponse ListUsers
+</span><a href="#local-6989586621679411308"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListUsers
 ListUsersResponse
-</span><a href="#local-6989586621679411015"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679411308"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">ListUsersResponse
 -&gt; Getting (First Text) ListUsersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -251,7 +251,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListUsers
 ListUsersResponse
-</span><a href="#local-6989586621679411015"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679411308"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">ListUsersResponse
 -&gt; Getting (First [UserSummary]) ListUsersResponse [UserSummary]
 -&gt; Maybe [UserSummary]
@@ -288,7 +288,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListUsers
-</span><a href="#local-6989586621679411016"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679411309"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListUsers -&gt; (ListUsers -&gt; ListUsers) -&gt; ListUsers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -301,7 +301,7 @@ Lens ListUsers ListUsers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListUsers
 ListUsersResponse
-</span><a href="#local-6989586621679411015"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679411308"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListUsersResponse
 -&gt; Getting (First Text) ListUsersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -321,12 +321,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679411005"><span class="annot"><span class="annottext">request :: ListUsers -&gt; Request ListUsers
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679411298"><span class="annot"><span class="annottext">request :: ListUsers -&gt; Request ListUsers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListUsers -&gt; Request ListUsers
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679411001"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679411294"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListUsers
 -&gt; ClientResponse ClientBody
@@ -350,37 +350,37 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410998"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410998"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679410997"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679410997"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679410996"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679410996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UserSummary] -&gt; Maybe Text -&gt; Int -&gt; ListUsersResponse
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679411291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411291"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411290"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679411290"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411289"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [UserSummary] -&gt; Int -&gt; ListUsersResponse
 </span><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-var">ListUsersResponse'</span></a></span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UserSummary] -&gt; Maybe Text -&gt; Int -&gt; ListUsersResponse)
--&gt; Either String (Maybe [UserSummary])
--&gt; Either String (Maybe Text -&gt; Int -&gt; ListUsersResponse)
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [UserSummary] -&gt; Int -&gt; ListUsersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [UserSummary] -&gt; Int -&gt; ListUsersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679410996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UserSummary]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [UserSummary] -&gt; Int -&gt; ListUsersResponse)
+-&gt; Either String (Maybe [UserSummary])
+-&gt; Either String (Int -&gt; ListUsersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [UserSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserSummaryList&quot;</span></span><span>
-</span><span id="line-139"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UserSummary]))
+</span><span id="line-140"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [UserSummary]))
 -&gt; Maybe [UserSummary] -&gt; Either String (Maybe [UserSummary])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-140"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListUsersResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListUsersResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679410996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListUsersResponse)
 -&gt; Either String Int -&gt; Either String ListUsersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -389,15 +389,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410998"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411291"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410987"><span id="local-6989586621679410989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411280"><span id="local-6989586621679411282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679410980"><span class="annot"><span class="annottext">toHeaders :: ListUsers -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679411273"><span class="annot"><span class="annottext">toHeaders :: ListUsers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListUsers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -417,8 +417,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679410974"><span class="annot"><span class="annottext">toPath :: ListUsers -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410970"><span id="local-6989586621679410971"><span id="local-6989586621679410972"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679411267"><span class="annot"><span class="annottext">toPath :: ListUsers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411263"><span id="local-6989586621679411264"><span id="local-6989586621679411265"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 instanceId :: Text
@@ -427,7 +427,7 @@ nextToken :: Maybe Text
 $sel:instanceId:ListUsers' :: ListUsers -&gt; Text
 $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
 $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679410970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679411263"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -435,11 +435,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/users-summary/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410970"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679411263"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers"><span class="hs-identifier hs-type">ListUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679410966"><span class="annot"><span class="annottext">toQuery :: ListUsers -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410962"><span id="local-6989586621679410963"><span id="local-6989586621679410964"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679411259"><span class="annot"><span class="annottext">toQuery :: ListUsers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsers%27"><span class="hs-identifier hs-type">ListUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411255"><span id="local-6989586621679411256"><span id="local-6989586621679411257"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 instanceId :: Text
@@ -448,7 +448,7 @@ nextToken :: Maybe Text
 $sel:instanceId:ListUsers' :: ListUsers -&gt; Text
 $sel:maxResults:ListUsers' :: ListUsers -&gt; Maybe Natural
 $sel:nextToken:ListUsers' :: ListUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679410962"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679411255"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -456,28 +456,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679410964"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679411257"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679410963"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679411256"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newListUsersResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679410959"><span id="local-6989586621679410960"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsersResponse"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-var">ListUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsersResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-var">ListUsersResponse'</span></a></span></span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the users.</span><span>
-</span><span id="line-175"></span><span>    </span><span id="%24sel%3AuserSummaryList%3AListUsersResponse%27"><span class="annot"><span class="annottext">ListUsersResponse -&gt; Maybe [UserSummary]
-</span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AuserSummaryList%3AListUsersResponse%27"><span class="hs-identifier hs-var hs-var">userSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-178"></span><span>    </span><span id="%24sel%3AnextToken%3AListUsersResponse%27"><span class="annot"><span class="annottext">ListUsersResponse -&gt; Maybe Text
+</span><span id="line-173"></span><span id="local-6989586621679411252"><span id="local-6989586621679411253"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListUsersResponse"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-var">ListUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListUsersResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-var">ListUsersResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AnextToken%3AListUsersResponse%27"><span class="annot"><span class="annottext">ListUsersResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AnextToken%3AListUsersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | Information about the users.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AuserSummaryList%3AListUsersResponse%27"><span class="annot"><span class="annottext">ListUsersResponse -&gt; Maybe [UserSummary]
+</span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AuserSummaryList%3AListUsersResponse%27"><span class="hs-identifier hs-var hs-var">userSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="annot"><span class="annottext">ListUsersResponse -&gt; Int
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410952"><span id="local-6989586621679410954"><span class="annot"><span class="annottext">ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411245"><span id="local-6989586621679411247"><span class="annot"><span class="annottext">ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
 (ListUsersResponse -&gt; ListUsersResponse -&gt; Bool)
 -&gt; (ListUsersResponse -&gt; ListUsersResponse -&gt; Bool)
 -&gt; Eq ListUsersResponse
@@ -486,7 +486,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
 == :: ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
 $c== :: ListUsersResponse -&gt; ListUsersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410944"><span id="local-6989586621679410946"><span id="local-6989586621679410948"><span id="local-6989586621679410950"><span class="annot"><span class="annottext">ReadPrec [ListUsersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411237"><span id="local-6989586621679411239"><span id="local-6989586621679411241"><span id="local-6989586621679411243"><span class="annot"><span class="annottext">ReadPrec [ListUsersResponse]
 ReadPrec ListUsersResponse
 Int -&gt; ReadS ListUsersResponse
 ReadS [ListUsersResponse]
@@ -506,7 +506,7 @@ readList :: ReadS [ListUsersResponse]
 $creadList :: ReadS [ListUsersResponse]
 readsPrec :: Int -&gt; ReadS ListUsersResponse
 $creadsPrec :: Int -&gt; ReadS ListUsersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410938"><span id="local-6989586621679410940"><span id="local-6989586621679410942"><span class="annot"><span class="annottext">Int -&gt; ListUsersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411231"><span id="local-6989586621679411233"><span id="local-6989586621679411235"><span class="annot"><span class="annottext">Int -&gt; ListUsersResponse -&gt; ShowS
 [ListUsersResponse] -&gt; ShowS
 ListUsersResponse -&gt; String
 (Int -&gt; ListUsersResponse -&gt; ShowS)
@@ -540,10 +540,10 @@ $cfrom :: forall x. ListUsersResponse -&gt; Rep ListUsersResponse x
 </span><span id="line-189"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- 'userSummaryList', 'listUsersResponse_userSummaryList' - Information about the users.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'nextToken', 'listUsersResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'nextToken', 'listUsersResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'userSummaryList', 'listUsersResponse_userSummaryList' - Information about the users.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">--</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- 'httpStatus', 'listUsersResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#newListUsersResponse"><span class="hs-identifier hs-type">newListUsersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -551,42 +551,61 @@ $cfrom :: forall x. ListUsersResponse -&gt; Rep ListUsersResponse x
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span>
 </span><span id="line-202"></span><span id="newListUsersResponse"><span class="annot"><span class="annottext">newListUsersResponse :: Int -&gt; ListUsersResponse
-</span><a href="Network.AWS.Connect.ListUsers.html#newListUsersResponse"><span class="hs-identifier hs-var hs-var">newListUsersResponse</span></a></span></span><span> </span><span id="local-6989586621679410935"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">ListUsersResponse' :: Maybe [UserSummary] -&gt; Maybe Text -&gt; Int -&gt; ListUsersResponse
+</span><a href="Network.AWS.Connect.ListUsers.html#newListUsersResponse"><span class="hs-identifier hs-var hs-var">newListUsersResponse</span></a></span></span><span> </span><span id="local-6989586621679411228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">ListUsersResponse' :: Maybe Text -&gt; Maybe [UserSummary] -&gt; Int -&gt; ListUsersResponse
 </span><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span>
-</span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userSummaryList:ListUsersResponse' :: Maybe [UserSummary]
-</span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AuserSummaryList%3AListUsersResponse%27"><span class="hs-identifier hs-var">userSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">Maybe [UserSummary]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListUsersResponse' :: Maybe Text
+</span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListUsersResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AnextToken%3AListUsersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListUsersResponse' :: Int
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:userSummaryList:ListUsersResponse' :: Maybe [UserSummary]
+</span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AuserSummaryList%3AListUsersResponse%27"><span class="hs-identifier hs-var">userSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListUsersResponse' :: Int
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410935"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- | Information about the users.</span><span>
-</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_userSummaryList"><span class="hs-identifier hs-type">listUsersResponse_userSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span id="listUsersResponse_userSummaryList"><span class="annot"><span class="annottext">listUsersResponse_userSummaryList :: (Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
+</span><a href="#local-6989586621679411228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_nextToken"><span class="hs-identifier hs-type">listUsersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="listUsersResponse_nextToken"><span class="annot"><span class="annottext">listUsersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListUsersResponse -&gt; f ListUsersResponse
+</span><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listUsersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListUsersResponse -&gt; Maybe Text)
+-&gt; (ListUsersResponse -&gt; Maybe Text -&gt; ListUsersResponse)
+-&gt; Lens' ListUsersResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411227"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679411227"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411227"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411226"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679411226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411225"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679411226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsersResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AnextToken%3AListUsersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Information about the users.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_userSummaryList"><span class="hs-identifier hs-type">listUsersResponse_userSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.UserSummary.html#UserSummary"><span class="hs-identifier hs-type">UserSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="listUsersResponse_userSummaryList"><span class="annot"><span class="annottext">listUsersResponse_userSummaryList :: (Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
 -&gt; ListUsersResponse -&gt; f ListUsersResponse
 </span><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_userSummaryList"><span class="hs-identifier hs-var hs-var">listUsersResponse_userSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListUsersResponse -&gt; Maybe [UserSummary])
 -&gt; (ListUsersResponse -&gt; Maybe [UserSummary] -&gt; ListUsersResponse)
 -&gt; Lens' ListUsersResponse (Maybe [UserSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410934"><span class="annot"><span class="annottext">Maybe [UserSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411224"><span class="annot"><span class="annottext">Maybe [UserSummary]
 userSummaryList :: Maybe [UserSummary]
 $sel:userSummaryList:ListUsersResponse' :: ListUsersResponse -&gt; Maybe [UserSummary]
-</span><a href="#local-6989586621679410934"><span class="hs-identifier hs-var hs-var">userSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
-</span><a href="#local-6989586621679410934"><span class="hs-identifier hs-var">userSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410933"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679410933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410932"><span class="annot"><span class="annottext">Maybe [UserSummary]
-</span><a href="#local-6989586621679410932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679410933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSummaryList:ListUsersResponse' :: Maybe [UserSummary]
+</span><a href="#local-6989586621679411224"><span class="hs-identifier hs-var hs-var">userSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
+</span><a href="#local-6989586621679411224"><span class="hs-identifier hs-var">userSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411223"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679411223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411222"><span class="annot"><span class="annottext">Maybe [UserSummary]
+</span><a href="#local-6989586621679411222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679411223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userSummaryList:ListUsersResponse' :: Maybe [UserSummary]
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AuserSummaryList%3AListUsersResponse%27"><span class="hs-identifier hs-var">userSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserSummary]
-</span><a href="#local-6989586621679410932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
+</span><a href="#local-6989586621679411222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
  -&gt; ListUsersResponse -&gt; f ListUsersResponse)
 -&gt; ((Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
     -&gt; Maybe [UserSummary] -&gt; f (Maybe [UserSummary]))
@@ -604,46 +623,26 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UserSummary] [UserSummary] [UserSummary] [UserSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_nextToken"><span class="hs-identifier hs-type">listUsersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="listUsersResponse_nextToken"><span class="annot"><span class="annottext">listUsersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListUsersResponse -&gt; f ListUsersResponse
-</span><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_nextToken"><span class="hs-identifier hs-var hs-var">listUsersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListUsersResponse -&gt; Maybe Text)
--&gt; (ListUsersResponse -&gt; Maybe Text -&gt; ListUsersResponse)
--&gt; Lens' ListUsersResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410929"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListUsersResponse' :: ListUsersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679410929"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679410929"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410928"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679410928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679410927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679410928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListUsersResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AnextToken%3AListUsersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679410927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_httpStatus"><span class="hs-identifier hs-type">listUsersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-221"></span><span id="listUsersResponse_httpStatus"><span class="annot"><span class="annottext">listUsersResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListUsersResponse -&gt; f ListUsersResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_httpStatus"><span class="hs-identifier hs-type">listUsersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span id="listUsersResponse_httpStatus"><span class="annot"><span class="annottext">listUsersResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListUsersResponse -&gt; f ListUsersResponse
 </span><a href="Network.AWS.Connect.ListUsers.html#listUsersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listUsersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListUsersResponse -&gt; Int)
 -&gt; (ListUsersResponse -&gt; Int -&gt; ListUsersResponse)
 -&gt; Lens ListUsersResponse ListUsersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410926"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411219"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListUsersResponse' :: ListUsersResponse -&gt; Int
-</span><a href="#local-6989586621679410926"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410926"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410925"><span class="annot"><span class="annottext">s :: ListUsersResponse
-</span><a href="#local-6989586621679410925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410924"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
-</span><a href="#local-6989586621679410925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListUsersResponse' :: Int
+</span><a href="#local-6989586621679411219"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411219"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411218"><span class="annot"><span class="annottext">s :: ListUsersResponse
+</span><a href="#local-6989586621679411218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse%27"><span class="hs-identifier hs-type">ListUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListUsersResponse
+</span><a href="#local-6989586621679411218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListUsersResponse' :: Int
 </span><a href="Network.AWS.Connect.ListUsers.html#%24sel%3AhttpStatus%3AListUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span></span><span>
-</span><span id="line-224"></span></pre></body></html>
+</span><a href="#local-6989586621679411217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListUsers.html#ListUsersResponse"><span class="hs-identifier hs-type">ListUsersResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

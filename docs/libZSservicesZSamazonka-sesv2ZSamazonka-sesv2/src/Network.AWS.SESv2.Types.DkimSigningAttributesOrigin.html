@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679324725"><span id="local-6989586621679324726"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DkimSigningAttributesOrigin"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributesOrigin.html#DkimSigningAttributesOrigin"><span class="hs-identifier hs-var">DkimSigningAttributesOrigin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DkimSigningAttributesOrigin%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributesOrigin.html#DkimSigningAttributesOrigin%27"><span class="hs-identifier hs-var">DkimSigningAttributesOrigin'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679326925"><span id="local-6989586621679326926"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DkimSigningAttributesOrigin"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributesOrigin.html#DkimSigningAttributesOrigin"><span class="hs-identifier hs-var">DkimSigningAttributesOrigin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DkimSigningAttributesOrigin%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningAttributesOrigin.html#DkimSigningAttributesOrigin%27"><span class="hs-identifier hs-var">DkimSigningAttributesOrigin'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDkimSigningAttributesOrigin"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.DkimSigningAttributesOrigin.html#fromDkimSigningAttributesOrigin"><span class="hs-identifier hs-var hs-var">fromDkimSigningAttributesOrigin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324717"><span id="local-6989586621679324719"><span id="local-6989586621679324721"><span class="annot"><span class="annottext">Int -&gt; DkimSigningAttributesOrigin -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326917"><span id="local-6989586621679326919"><span id="local-6989586621679326921"><span class="annot"><span class="annottext">Int -&gt; DkimSigningAttributesOrigin -&gt; ShowS
 [DkimSigningAttributesOrigin] -&gt; ShowS
 DkimSigningAttributesOrigin -&gt; String
 (Int -&gt; DkimSigningAttributesOrigin -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DkimSigningAttributesOrigin -&gt; String
 showsPrec :: Int -&gt; DkimSigningAttributesOrigin -&gt; ShowS
 $cshowsPrec :: Int -&gt; DkimSigningAttributesOrigin -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679324708"><span id="local-6989586621679324710"><span id="local-6989586621679324712"><span id="local-6989586621679324714"><span class="annot"><span class="annottext">ReadPrec [DkimSigningAttributesOrigin]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679326908"><span id="local-6989586621679326910"><span id="local-6989586621679326912"><span id="local-6989586621679326914"><span class="annot"><span class="annottext">ReadPrec [DkimSigningAttributesOrigin]
 ReadPrec DkimSigningAttributesOrigin
 Int -&gt; ReadS DkimSigningAttributesOrigin
 ReadS [DkimSigningAttributesOrigin]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DkimSigningAttributesOrigin]
 readsPrec :: Int -&gt; ReadS DkimSigningAttributesOrigin
 $creadsPrec :: Int -&gt; ReadS DkimSigningAttributesOrigin
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679324703"><span id="local-6989586621679324705"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; DkimSigningAttributesOrigin -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679326903"><span id="local-6989586621679326905"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; DkimSigningAttributesOrigin -&gt; Bool
 (DkimSigningAttributesOrigin
  -&gt; DkimSigningAttributesOrigin -&gt; Bool)
 -&gt; (DkimSigningAttributesOrigin
@@ -84,7 +84,7 @@ $c/= :: DkimSigningAttributesOrigin -&gt; DkimSigningAttributesOrigin -&gt; Bool
 == :: DkimSigningAttributesOrigin -&gt; DkimSigningAttributesOrigin -&gt; Bool
 $c== :: DkimSigningAttributesOrigin -&gt; DkimSigningAttributesOrigin -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679324687"><span id="local-6989586621679324689"><span id="local-6989586621679324691"><span id="local-6989586621679324693"><span id="local-6989586621679324695"><span id="local-6989586621679324697"><span id="local-6989586621679324699"><span class="annot"><span class="annottext">Eq DkimSigningAttributesOrigin
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679326887"><span id="local-6989586621679326889"><span id="local-6989586621679326891"><span id="local-6989586621679326893"><span id="local-6989586621679326895"><span id="local-6989586621679326897"><span id="local-6989586621679326899"><span class="annot"><span class="annottext">Eq DkimSigningAttributesOrigin
 Eq DkimSigningAttributesOrigin
 -&gt; (DkimSigningAttributesOrigin
     -&gt; DkimSigningAttributesOrigin -&gt; Ordering)
@@ -156,7 +156,7 @@ DkimSigningAttributesOrigin -&gt; Rep DkimSigningAttributesOrigin x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324679"><span id="local-6989586621679324681"><span class="annot"><span class="annottext">Int -&gt; DkimSigningAttributesOrigin -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326879"><span id="local-6989586621679326881"><span class="annot"><span class="annottext">Int -&gt; DkimSigningAttributesOrigin -&gt; Int
 DkimSigningAttributesOrigin -&gt; Int
 (Int -&gt; DkimSigningAttributesOrigin -&gt; Int)
 -&gt; (DkimSigningAttributesOrigin -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: DkimSigningAttributesOrigin -&gt; Int
 hashWithSalt :: Int -&gt; DkimSigningAttributesOrigin -&gt; Int
 $chashWithSalt :: Int -&gt; DkimSigningAttributesOrigin -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679324676"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326876"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; ()
 (DkimSigningAttributesOrigin -&gt; ())
 -&gt; NFData DkimSigningAttributesOrigin
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DkimSigningAttributesOrigin -&gt; ()
 $crnf :: DkimSigningAttributesOrigin -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679324673"><span class="annot"><span class="annottext">Text -&gt; Either String DkimSigningAttributesOrigin
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326873"><span class="annot"><span class="annottext">Text -&gt; Either String DkimSigningAttributesOrigin
 (Text -&gt; Either String DkimSigningAttributesOrigin)
 -&gt; FromText DkimSigningAttributesOrigin
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DkimSigningAttributesOrigin
 $cfromText :: Text -&gt; Either String DkimSigningAttributesOrigin
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679324670"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679326870"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; Text
 (DkimSigningAttributesOrigin -&gt; Text)
 -&gt; ToText DkimSigningAttributesOrigin
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DkimSigningAttributesOrigin -&gt; Text
 $ctoText :: DkimSigningAttributesOrigin -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679324667"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679326867"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; ByteString
 (DkimSigningAttributesOrigin -&gt; ByteString)
 -&gt; ToByteString DkimSigningAttributesOrigin
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DkimSigningAttributesOrigin -&gt; ByteString
 $ctoBS :: DkimSigningAttributesOrigin -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324664"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679326864"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; ByteStringBuilder
 (DkimSigningAttributesOrigin -&gt; ByteStringBuilder)
 -&gt; ToLog DkimSigningAttributesOrigin
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DkimSigningAttributesOrigin -&gt; ByteStringBuilder
 $cbuild :: DkimSigningAttributesOrigin -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679324661"><span class="annot"><span class="annottext">HeaderName -&gt; DkimSigningAttributesOrigin -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679326861"><span class="annot"><span class="annottext">HeaderName -&gt; DkimSigningAttributesOrigin -&gt; [Header]
 (HeaderName -&gt; DkimSigningAttributesOrigin -&gt; [Header])
 -&gt; ToHeader DkimSigningAttributesOrigin
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DkimSigningAttributesOrigin -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DkimSigningAttributesOrigin -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679324658"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326858"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; QueryString
 (DkimSigningAttributesOrigin -&gt; QueryString)
 -&gt; ToQuery DkimSigningAttributesOrigin
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DkimSigningAttributesOrigin -&gt; QueryString
 $ctoQuery :: DkimSigningAttributesOrigin -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324653"><span id="local-6989586621679324655"><span class="annot"><span class="annottext">Value -&gt; Parser [DkimSigningAttributesOrigin]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326853"><span id="local-6989586621679326855"><span class="annot"><span class="annottext">Value -&gt; Parser [DkimSigningAttributesOrigin]
 Value -&gt; Parser DkimSigningAttributesOrigin
 (Value -&gt; Parser DkimSigningAttributesOrigin)
 -&gt; (Value -&gt; Parser [DkimSigningAttributesOrigin])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [DkimSigningAttributesOrigin]
 parseJSON :: Value -&gt; Parser DkimSigningAttributesOrigin
 $cparseJSON :: Value -&gt; Parser DkimSigningAttributesOrigin
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324648"><span id="local-6989586621679324650"><span class="annot"><span class="annottext">FromJSONKeyFunction [DkimSigningAttributesOrigin]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326848"><span id="local-6989586621679326850"><span class="annot"><span class="annottext">FromJSONKeyFunction [DkimSigningAttributesOrigin]
 FromJSONKeyFunction DkimSigningAttributesOrigin
 FromJSONKeyFunction DkimSigningAttributesOrigin
 -&gt; FromJSONKeyFunction [DkimSigningAttributesOrigin]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DkimSigningAttributesOrigin]
 fromJSONKey :: FromJSONKeyFunction DkimSigningAttributesOrigin
 $cfromJSONKey :: FromJSONKeyFunction DkimSigningAttributesOrigin
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324639"><span id="local-6989586621679324641"><span id="local-6989586621679324643"><span id="local-6989586621679324645"><span class="annot"><span class="annottext">[DkimSigningAttributesOrigin] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326839"><span id="local-6989586621679326841"><span id="local-6989586621679326843"><span id="local-6989586621679326845"><span class="annot"><span class="annottext">[DkimSigningAttributesOrigin] -&gt; Encoding
 [DkimSigningAttributesOrigin] -&gt; Value
 DkimSigningAttributesOrigin -&gt; Encoding
 DkimSigningAttributesOrigin -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: DkimSigningAttributesOrigin -&gt; Encoding
 toJSON :: DkimSigningAttributesOrigin -&gt; Value
 $ctoJSON :: DkimSigningAttributesOrigin -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324634"><span id="local-6989586621679324636"><span class="annot"><span class="annottext">ToJSONKeyFunction [DkimSigningAttributesOrigin]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326834"><span id="local-6989586621679326836"><span class="annot"><span class="annottext">ToJSONKeyFunction [DkimSigningAttributesOrigin]
 ToJSONKeyFunction DkimSigningAttributesOrigin
 ToJSONKeyFunction DkimSigningAttributesOrigin
 -&gt; ToJSONKeyFunction [DkimSigningAttributesOrigin]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DkimSigningAttributesOrigin]
 toJSONKey :: ToJSONKeyFunction DkimSigningAttributesOrigin
 $ctoJSONKey :: ToJSONKeyFunction DkimSigningAttributesOrigin
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324631"><span class="annot"><span class="annottext">[Node] -&gt; Either String DkimSigningAttributesOrigin
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326831"><span class="annot"><span class="annottext">[Node] -&gt; Either String DkimSigningAttributesOrigin
 ([Node] -&gt; Either String DkimSigningAttributesOrigin)
 -&gt; FromXML DkimSigningAttributesOrigin
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DkimSigningAttributesOrigin
 $cparseXML :: [Node] -&gt; Either String DkimSigningAttributesOrigin
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324628"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326828"><span class="annot"><span class="annottext">DkimSigningAttributesOrigin -&gt; XML
 (DkimSigningAttributesOrigin -&gt; XML)
 -&gt; ToXML DkimSigningAttributesOrigin
 forall a. (a -&gt; XML) -&gt; ToXML a

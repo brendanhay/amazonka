@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Filters the conformance pack by compliance types and Config rule names.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConformancePackComplianceFilters' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679397276"><span id="local-6989586621679397277"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConformancePackComplianceFilters"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-var">ConformancePackComplianceFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConformancePackComplianceFilters%27"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">ConformancePackComplianceFilters'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the results by compliance.</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @INSUFFICIENT_DATA@ is not supported.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="annot"><span class="annottext">ConformancePackComplianceFilters
+</span><span id="line-30"></span><span id="local-6989586621679397854"><span id="local-6989586621679397855"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConformancePackComplianceFilters"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-var">ConformancePackComplianceFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConformancePackComplianceFilters%27"><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">ConformancePackComplianceFilters'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the results by Config rule names.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AconfigRuleNames%3AConformancePackComplianceFilters%27"><span class="annot"><span class="annottext">ConformancePackComplianceFilters -&gt; Maybe [Text]
+</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AconfigRuleNames%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Filters the results by compliance.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @INSUFFICIENT_DATA@ is not supported.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="annot"><span class="annottext">ConformancePackComplianceFilters
 -&gt; Maybe ConformancePackComplianceType
-</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceType.html#ConformancePackComplianceType"><span class="hs-identifier hs-type">ConformancePackComplianceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Filters the results by Config rule names.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconfigRuleNames%3AConformancePackComplianceFilters%27"><span class="annot"><span class="annottext">ConformancePackComplianceFilters -&gt; Maybe [Text]
-</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AconfigRuleNames%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceType.html#ConformancePackComplianceType"><span class="hs-identifier hs-type">ConformancePackComplianceType</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397269"><span id="local-6989586621679397271"><span class="annot"><span class="annottext">ConformancePackComplianceFilters
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397847"><span id="local-6989586621679397849"><span class="annot"><span class="annottext">ConformancePackComplianceFilters
 -&gt; ConformancePackComplianceFilters -&gt; Bool
 (ConformancePackComplianceFilters
  -&gt; ConformancePackComplianceFilters -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: ConformancePackComplianceFilters
 -&gt; ConformancePackComplianceFilters -&gt; Bool
 $c== :: ConformancePackComplianceFilters
 -&gt; ConformancePackComplianceFilters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397260"><span id="local-6989586621679397262"><span id="local-6989586621679397264"><span id="local-6989586621679397266"><span class="annot"><span class="annottext">ReadPrec [ConformancePackComplianceFilters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397838"><span id="local-6989586621679397840"><span id="local-6989586621679397842"><span id="local-6989586621679397844"><span class="annot"><span class="annottext">ReadPrec [ConformancePackComplianceFilters]
 ReadPrec ConformancePackComplianceFilters
 Int -&gt; ReadS ConformancePackComplianceFilters
 ReadS [ConformancePackComplianceFilters]
@@ -75,7 +75,7 @@ readList :: ReadS [ConformancePackComplianceFilters]
 $creadList :: ReadS [ConformancePackComplianceFilters]
 readsPrec :: Int -&gt; ReadS ConformancePackComplianceFilters
 $creadsPrec :: Int -&gt; ReadS ConformancePackComplianceFilters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397253"><span id="local-6989586621679397255"><span id="local-6989586621679397257"><span class="annot"><span class="annottext">Int -&gt; ConformancePackComplianceFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397831"><span id="local-6989586621679397833"><span id="local-6989586621679397835"><span class="annot"><span class="annottext">Int -&gt; ConformancePackComplianceFilters -&gt; ShowS
 [ConformancePackComplianceFilters] -&gt; ShowS
 ConformancePackComplianceFilters -&gt; String
 (Int -&gt; ConformancePackComplianceFilters -&gt; ShowS)
@@ -121,65 +121,34 @@ ConformancePackComplianceFilters
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'complianceType', 'conformancePackComplianceFilters_complianceType' - Filters the results by compliance.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'configRuleNames', 'conformancePackComplianceFilters_configRuleNames' - Filters the results by Config rule names.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@ is not supported.</span><span>
-</span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'configRuleNames', 'conformancePackComplianceFilters_configRuleNames' - Filters the results by Config rule names.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'complianceType', 'conformancePackComplianceFilters_complianceType' - Filters the results by compliance.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@ is not supported.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#newConformancePackComplianceFilters"><span class="hs-identifier hs-type">newConformancePackComplianceFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span>
 </span><span id="line-57"></span><span id="newConformancePackComplianceFilters"><span class="annot"><span class="annottext">newConformancePackComplianceFilters :: ConformancePackComplianceFilters
 </span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#newConformancePackComplianceFilters"><span class="hs-identifier hs-var hs-var">newConformancePackComplianceFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ConformancePackComplianceFilters' :: Maybe ConformancePackComplianceType
--&gt; Maybe [Text] -&gt; ConformancePackComplianceFilters
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ConformancePackComplianceFilters' :: Maybe [Text]
+-&gt; Maybe ConformancePackComplianceType
+-&gt; ConformancePackComplianceFilters
 </span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:complianceType:ConformancePackComplianceFilters' :: Maybe ConformancePackComplianceType
-</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configRuleNames:ConformancePackComplianceFilters' :: Maybe [Text]
+</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AconfigRuleNames%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:configRuleNames:ConformancePackComplianceFilters' :: Maybe [Text]
-</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AconfigRuleNames%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceType:ConformancePackComplianceFilters' :: Maybe ConformancePackComplianceType
+</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Filters the results by compliance.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@ is not supported.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#conformancePackComplianceFilters_complianceType"><span class="hs-identifier hs-type">conformancePackComplianceFilters_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceType.html#ConformancePackComplianceType"><span class="hs-identifier hs-type">ConformancePackComplianceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="conformancePackComplianceFilters_complianceType"><span class="annot"><span class="annottext">conformancePackComplianceFilters_complianceType :: (Maybe ConformancePackComplianceType
- -&gt; f (Maybe ConformancePackComplianceType))
--&gt; ConformancePackComplianceFilters
--&gt; f ConformancePackComplianceFilters
-</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#conformancePackComplianceFilters_complianceType"><span class="hs-identifier hs-var hs-var">conformancePackComplianceFilters_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConformancePackComplianceFilters
- -&gt; Maybe ConformancePackComplianceType)
--&gt; (ConformancePackComplianceFilters
-    -&gt; Maybe ConformancePackComplianceType
-    -&gt; ConformancePackComplianceFilters)
--&gt; Lens
-     ConformancePackComplianceFilters
-     ConformancePackComplianceFilters
-     (Maybe ConformancePackComplianceType)
-     (Maybe ConformancePackComplianceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397244"><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
-complianceType :: Maybe ConformancePackComplianceType
-$sel:complianceType:ConformancePackComplianceFilters' :: ConformancePackComplianceFilters
--&gt; Maybe ConformancePackComplianceType
-</span><a href="#local-6989586621679397244"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
-</span><a href="#local-6989586621679397244"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397243"><span class="annot"><span class="annottext">s :: ConformancePackComplianceFilters
-</span><a href="#local-6989586621679397243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397242"><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
-</span><a href="#local-6989586621679397242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConformancePackComplianceFilters
-</span><a href="#local-6989586621679397243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:ConformancePackComplianceFilters' :: Maybe ConformancePackComplianceType
-</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
-</span><a href="#local-6989586621679397242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | Filters the results by Config rule names.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#conformancePackComplianceFilters_configRuleNames"><span class="hs-identifier hs-type">conformancePackComplianceFilters_configRuleNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="conformancePackComplianceFilters_configRuleNames"><span class="annot"><span class="annottext">conformancePackComplianceFilters_configRuleNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-64"></span><span class="hs-comment">-- | Filters the results by Config rule names.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#conformancePackComplianceFilters_configRuleNames"><span class="hs-identifier hs-type">conformancePackComplianceFilters_configRuleNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="conformancePackComplianceFilters_configRuleNames"><span class="annot"><span class="annottext">conformancePackComplianceFilters_configRuleNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ConformancePackComplianceFilters
 -&gt; f ConformancePackComplianceFilters
 </span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#conformancePackComplianceFilters_configRuleNames"><span class="hs-identifier hs-var hs-var">conformancePackComplianceFilters_configRuleNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConformancePackComplianceFilters -&gt; Maybe [Text])
@@ -191,16 +160,16 @@ $sel:complianceType:ConformancePackComplianceFilters' :: ConformancePackComplian
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397240"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397822"><span class="annot"><span class="annottext">Maybe [Text]
 configRuleNames :: Maybe [Text]
 $sel:configRuleNames:ConformancePackComplianceFilters' :: ConformancePackComplianceFilters -&gt; Maybe [Text]
-</span><a href="#local-6989586621679397240"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397240"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397239"><span class="annot"><span class="annottext">s :: ConformancePackComplianceFilters
-</span><a href="#local-6989586621679397239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397238"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConformancePackComplianceFilters
-</span><a href="#local-6989586621679397239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleNames:ConformancePackComplianceFilters' :: Maybe [Text]
+</span><a href="#local-6989586621679397822"><span class="hs-identifier hs-var hs-var">configRuleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397822"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397821"><span class="annot"><span class="annottext">s :: ConformancePackComplianceFilters
+</span><a href="#local-6989586621679397821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397820"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679397820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConformancePackComplianceFilters
+</span><a href="#local-6989586621679397821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleNames:ConformancePackComplianceFilters' :: Maybe [Text]
 </span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AconfigRuleNames%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679397820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ConformancePackComplianceFilters
  -&gt; f ConformancePackComplianceFilters)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -215,49 +184,81 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Filters the results by compliance.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- @INSUFFICIENT_DATA@ is not supported.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#conformancePackComplianceFilters_complianceType"><span class="hs-identifier hs-type">conformancePackComplianceFilters_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceType.html#ConformancePackComplianceType"><span class="hs-identifier hs-type">ConformancePackComplianceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="conformancePackComplianceFilters_complianceType"><span class="annot"><span class="annottext">conformancePackComplianceFilters_complianceType :: (Maybe ConformancePackComplianceType
+ -&gt; f (Maybe ConformancePackComplianceType))
+-&gt; ConformancePackComplianceFilters
+-&gt; f ConformancePackComplianceFilters
+</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#conformancePackComplianceFilters_complianceType"><span class="hs-identifier hs-var hs-var">conformancePackComplianceFilters_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConformancePackComplianceFilters
+ -&gt; Maybe ConformancePackComplianceType)
+-&gt; (ConformancePackComplianceFilters
+    -&gt; Maybe ConformancePackComplianceType
+    -&gt; ConformancePackComplianceFilters)
+-&gt; Lens
+     ConformancePackComplianceFilters
+     ConformancePackComplianceFilters
+     (Maybe ConformancePackComplianceType)
+     (Maybe ConformancePackComplianceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397815"><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
+complianceType :: Maybe ConformancePackComplianceType
+$sel:complianceType:ConformancePackComplianceFilters' :: ConformancePackComplianceFilters
+-&gt; Maybe ConformancePackComplianceType
+</span><a href="#local-6989586621679397815"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
+</span><a href="#local-6989586621679397815"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397814"><span class="annot"><span class="annottext">s :: ConformancePackComplianceFilters
+</span><a href="#local-6989586621679397814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397813"><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
+</span><a href="#local-6989586621679397813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConformancePackComplianceFilters
+</span><a href="#local-6989586621679397814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:ConformancePackComplianceFilters' :: Maybe ConformancePackComplianceType
+</span><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#%24sel%3AcomplianceType%3AConformancePackComplianceFilters%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
+</span><a href="#local-6989586621679397813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679397231"><span id="local-6989586621679397233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679397809"><span id="local-6989586621679397811"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679397228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679397806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397220"><span id="local-6989586621679397222"><span id="local-6989586621679397224"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679397218"><span class="annot"><span class="annottext">toJSON :: ConformancePackComplianceFilters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397215"><span id="local-6989586621679397216"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397798"><span id="local-6989586621679397800"><span id="local-6989586621679397802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters"><span class="hs-identifier hs-type">ConformancePackComplianceFilters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679397796"><span class="annot"><span class="annottext">toJSON :: ConformancePackComplianceFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConformancePackComplianceFilters.html#ConformancePackComplianceFilters%27"><span class="hs-identifier hs-type">ConformancePackComplianceFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397793"><span id="local-6989586621679397794"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe ConformancePackComplianceType
-configRuleNames :: Maybe [Text]
 complianceType :: Maybe ConformancePackComplianceType
-$sel:configRuleNames:ConformancePackComplianceFilters' :: ConformancePackComplianceFilters -&gt; Maybe [Text]
+configRuleNames :: Maybe [Text]
 $sel:complianceType:ConformancePackComplianceFilters' :: ConformancePackComplianceFilters
 -&gt; Maybe ConformancePackComplianceType
-</span><a href="#local-6989586621679397215"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:configRuleNames:ConformancePackComplianceFilters' :: ConformancePackComplianceFilters -&gt; Maybe [Text]
+</span><a href="#local-6989586621679397793"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConformancePackComplianceType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>              </span><span class="annot"><span class="annottext">(ConformancePackComplianceType -&gt; Pair)
--&gt; Maybe ConformancePackComplianceType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
-</span><a href="#local-6989586621679397216"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigRuleNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+</span><span id="line-88"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679397215"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span>
+</span><a href="#local-6989586621679397794"><span class="hs-identifier hs-var">configRuleNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConformancePackComplianceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>              </span><span class="annot"><span class="annottext">(ConformancePackComplianceType -&gt; Pair)
+-&gt; Maybe ConformancePackComplianceType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConformancePackComplianceType
+</span><a href="#local-6989586621679397793"><span class="hs-identifier hs-var">complianceType</span></a></span><span>
 </span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span></pre></body></html>

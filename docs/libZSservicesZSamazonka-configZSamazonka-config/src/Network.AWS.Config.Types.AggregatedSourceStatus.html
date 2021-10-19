@@ -28,38 +28,38 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The current sync status between the source and the aggregator account.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAggregatedSourceStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679394692"><span id="local-6989586621679394693"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregatedSourceStatus"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-var">AggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregatedSourceStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-var">AggregatedSourceStatus'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the last updated status type.</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe AggregatedSourceStatusType
+</span><span id="line-31"></span><span id="local-6989586621679395270"><span id="local-6989586621679395271"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregatedSourceStatus"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-var">AggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregatedSourceStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-var">AggregatedSourceStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code that Config returned when the source account aggregation</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- last failed.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Filters the last updated status type.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe AggregatedSourceStatusType
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The message indicating that the source account aggregation failed due to</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- an error.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The time of the last update.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The source account or an organization.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe AggregatedSourceType
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The source account ID or an organization.</span><span>
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The error code that Config returned when the source account aggregation</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- last failed.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The message indicating that the source account aggregation failed due to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- an error.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The region authorized to collect aggregated data.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The source account or an organization.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe AggregatedSourceType
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The time of the last update.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394680"><span id="local-6989586621679394682"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395258"><span id="local-6989586621679395260"><span class="annot"><span class="annottext">AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
 (AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool)
 -&gt; (AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool)
 -&gt; Eq AggregatedSourceStatus
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
 == :: AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
 $c== :: AggregatedSourceStatus -&gt; AggregatedSourceStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394671"><span id="local-6989586621679394673"><span id="local-6989586621679394675"><span id="local-6989586621679394677"><span class="annot"><span class="annottext">ReadPrec [AggregatedSourceStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395249"><span id="local-6989586621679395251"><span id="local-6989586621679395253"><span id="local-6989586621679395255"><span class="annot"><span class="annottext">ReadPrec [AggregatedSourceStatus]
 ReadPrec AggregatedSourceStatus
 Int -&gt; ReadS AggregatedSourceStatus
 ReadS [AggregatedSourceStatus]
@@ -88,7 +88,7 @@ readList :: ReadS [AggregatedSourceStatus]
 $creadList :: ReadS [AggregatedSourceStatus]
 readsPrec :: Int -&gt; ReadS AggregatedSourceStatus
 $creadsPrec :: Int -&gt; ReadS AggregatedSourceStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394664"><span id="local-6989586621679394666"><span id="local-6989586621679394668"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395242"><span id="local-6989586621679395244"><span id="local-6989586621679395246"><span class="annot"><span class="annottext">Int -&gt; AggregatedSourceStatus -&gt; ShowS
 [AggregatedSourceStatus] -&gt; ShowS
 AggregatedSourceStatus -&gt; String
 (Int -&gt; AggregatedSourceStatus -&gt; ShowS)
@@ -123,80 +123,104 @@ $cfrom :: forall x. AggregatedSourceStatus -&gt; Rep AggregatedSourceStatus x
 </span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'lastUpdateStatus', 'aggregatedSourceStatus_lastUpdateStatus' - Filters the last updated status type.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'lastErrorMessage', 'aggregatedSourceStatus_lastErrorMessage' - The message indicating that the source account aggregation failed due to</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- an error.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastErrorCode', 'aggregatedSourceStatus_lastErrorCode' - The error code that Config returned when the source account aggregation</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- last failed.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'lastUpdateStatus', 'aggregatedSourceStatus_lastUpdateStatus' - Filters the last updated status type.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'lastUpdateTime', 'aggregatedSourceStatus_lastUpdateTime' - The time of the last update.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'sourceType', 'aggregatedSourceStatus_sourceType' - The source account or an organization.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- 'sourceId', 'aggregatedSourceStatus_sourceId' - The source account ID or an organization.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'lastErrorCode', 'aggregatedSourceStatus_lastErrorCode' - The error code that Config returned when the source account aggregation</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- last failed.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'lastErrorMessage', 'aggregatedSourceStatus_lastErrorMessage' - The message indicating that the source account aggregation failed due to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- an error.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- 'awsRegion', 'aggregatedSourceStatus_awsRegion' - The region authorized to collect aggregated data.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'sourceType', 'aggregatedSourceStatus_sourceType' - The source account or an organization.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'lastUpdateTime', 'aggregatedSourceStatus_lastUpdateTime' - The time of the last update.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#newAggregatedSourceStatus"><span class="hs-identifier hs-type">newAggregatedSourceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span>
 </span><span id="line-88"></span><span id="newAggregatedSourceStatus"><span class="annot"><span class="annottext">newAggregatedSourceStatus :: AggregatedSourceStatus
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#newAggregatedSourceStatus"><span class="hs-identifier hs-var hs-var">newAggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">AggregatedSourceStatus' :: Maybe AggregatedSourceStatusType
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">AggregatedSourceStatus' :: Maybe Text
+-&gt; Maybe AggregatedSourceStatusType
+-&gt; Maybe AggregatedSourceType
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe AggregatedSourceType
 -&gt; AggregatedSourceStatus
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdateStatus:AggregatedSourceStatus' :: Maybe AggregatedSourceStatusType
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastErrorCode:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:AggregatedSourceStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateStatus:AggregatedSourceStatus' :: Maybe AggregatedSourceStatusType
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:AggregatedSourceStatus' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:AggregatedSourceStatus' :: Maybe AggregatedSourceType
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceId:AggregatedSourceStatus' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorCode:AggregatedSourceStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastErrorMessage:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:AggregatedSourceStatus' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:AggregatedSourceStatus' :: Maybe AggregatedSourceType
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:AggregatedSourceStatus' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | Filters the last updated status type.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateStatus"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="aggregatedSourceStatus_lastUpdateStatus"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastUpdateStatus :: (Maybe AggregatedSourceStatusType
+</span><span id="line-100"></span><span class="hs-comment">-- | The error code that Config returned when the source account aggregation</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- last failed.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorCode"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="aggregatedSourceStatus_lastErrorCode"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorCode"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
+-&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395233"><span class="annot"><span class="annottext">Maybe Text
+lastErrorCode :: Maybe Text
+$sel:lastErrorCode:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679395233"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395233"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395232"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679395232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395231"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679395232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Filters the last updated status type.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   Valid value FAILED indicates errors while moving data.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   Valid value SUCCEEDED indicates the data was successfully moved.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   Valid value OUTDATED indicates the data is not the most recent.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateStatus"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatusType.html#AggregatedSourceStatusType"><span class="hs-identifier hs-type">AggregatedSourceStatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="aggregatedSourceStatus_lastUpdateStatus"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastUpdateStatus :: (Maybe AggregatedSourceStatusType
  -&gt; f (Maybe AggregatedSourceStatusType))
 -&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateStatus"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe AggregatedSourceStatusType)
@@ -208,21 +232,68 @@ forall a. Maybe a
      (Maybe AggregatedSourceStatusType)
      (Maybe AggregatedSourceStatusType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394655"><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395229"><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
 lastUpdateStatus :: Maybe AggregatedSourceStatusType
 $sel:lastUpdateStatus:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe AggregatedSourceStatusType
-</span><a href="#local-6989586621679394655"><span class="hs-identifier hs-var hs-var">lastUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
-</span><a href="#local-6989586621679394655"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394654"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
-</span><a href="#local-6989586621679394654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394653"><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
-</span><a href="#local-6989586621679394653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
-</span><a href="#local-6989586621679394654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateStatus:AggregatedSourceStatus' :: Maybe AggregatedSourceStatusType
+</span><a href="#local-6989586621679395229"><span class="hs-identifier hs-var hs-var">lastUpdateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><a href="#local-6989586621679395229"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395228"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679395228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395227"><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><a href="#local-6989586621679395227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679395228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateStatus:AggregatedSourceStatus' :: Maybe AggregatedSourceStatusType
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateStatus%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
-</span><a href="#local-6989586621679394653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The message indicating that the source account aggregation failed due to</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- an error.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorMessage"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="aggregatedSourceStatus_lastErrorMessage"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679395227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The source account or an organization.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceType"><span class="hs-identifier hs-type">aggregatedSourceStatus_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="aggregatedSourceStatus_sourceType"><span class="annot"><span class="annottext">aggregatedSourceStatus_sourceType :: (Maybe AggregatedSourceType -&gt; f (Maybe AggregatedSourceType))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceType"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe AggregatedSourceType)
+-&gt; (AggregatedSourceStatus
+    -&gt; Maybe AggregatedSourceType -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe AggregatedSourceType)
+     (Maybe AggregatedSourceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395225"><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+sourceType :: Maybe AggregatedSourceType
+$sel:sourceType:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe AggregatedSourceType
+</span><a href="#local-6989586621679395225"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+</span><a href="#local-6989586621679395225"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395224"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679395224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395223"><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+</span><a href="#local-6989586621679395223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679395224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:AggregatedSourceStatus' :: Maybe AggregatedSourceType
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
+</span><a href="#local-6989586621679395223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The source account ID or an organization.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceId"><span class="hs-identifier hs-type">aggregatedSourceStatus_sourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="aggregatedSourceStatus_sourceId"><span class="annot"><span class="annottext">aggregatedSourceStatus_sourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceId"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_sourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
+-&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395221"><span class="annot"><span class="annottext">Maybe Text
+sourceId :: Maybe Text
+$sel:sourceId:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679395221"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395221"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395220"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679395220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679395220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The message indicating that the source account aggregation failed due to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- an error.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorMessage"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="aggregatedSourceStatus_lastErrorMessage"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastErrorMessage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorMessage"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastErrorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
 -&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
@@ -232,20 +303,43 @@ $sel:lastUpdateStatus:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394651"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395217"><span class="annot"><span class="annottext">Maybe Text
 lastErrorMessage :: Maybe Text
 $sel:lastErrorMessage:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679394651"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394651"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394650"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
-</span><a href="#local-6989586621679394650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
-</span><a href="#local-6989586621679394650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:AggregatedSourceStatus' :: Maybe Text
+</span><a href="#local-6989586621679395217"><span class="hs-identifier hs-var hs-var">lastErrorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395217"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395216"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679395216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679395216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorMessage:AggregatedSourceStatus' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorMessage%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The time of the last update.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateTime"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="aggregatedSourceStatus_lastUpdateTime"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679395215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The region authorized to collect aggregated data.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_awsRegion"><span class="hs-identifier hs-type">aggregatedSourceStatus_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="aggregatedSourceStatus_awsRegion"><span class="annot"><span class="annottext">aggregatedSourceStatus_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_awsRegion"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
+-&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
+-&gt; Lens
+     AggregatedSourceStatus
+     AggregatedSourceStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395213"><span class="annot"><span class="annottext">Maybe Text
+awsRegion :: Maybe Text
+$sel:awsRegion:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679395213"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395213"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395212"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679395212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395211"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679395212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:AggregatedSourceStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The time of the last update.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateTime"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="aggregatedSourceStatus_lastUpdateTime"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastUpdateTime"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe POSIX)
 -&gt; (AggregatedSourceStatus
@@ -256,16 +350,16 @@ $sel:lastErrorMessage:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Ma
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394647"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395209"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdateTime :: Maybe POSIX
 $sel:lastUpdateTime:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe POSIX
-</span><a href="#local-6989586621679394647"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679394647"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394646"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
-</span><a href="#local-6989586621679394646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394645"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679394645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
-</span><a href="#local-6989586621679394646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:AggregatedSourceStatus' :: Maybe POSIX
+</span><a href="#local-6989586621679395209"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679395209"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395208"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
+</span><a href="#local-6989586621679395208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395207"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679395207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
+</span><a href="#local-6989586621679395208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:AggregatedSourceStatus' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastUpdateTime%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679394645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679395207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -281,103 +375,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The source account ID or an organization.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceId"><span class="hs-identifier hs-type">aggregatedSourceStatus_sourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="aggregatedSourceStatus_sourceId"><span class="annot"><span class="annottext">aggregatedSourceStatus_sourceId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceId"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_sourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
--&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
--&gt; Lens
-     AggregatedSourceStatus
-     AggregatedSourceStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394640"><span class="annot"><span class="annottext">Maybe Text
-sourceId :: Maybe Text
-$sel:sourceId:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679394640"><span class="hs-identifier hs-var hs-var">sourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394640"><span class="hs-identifier hs-var">sourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394639"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
-</span><a href="#local-6989586621679394639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394638"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
-</span><a href="#local-6989586621679394639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceId:AggregatedSourceStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceId%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The error code that Config returned when the source account aggregation</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- last failed.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorCode"><span class="hs-identifier hs-type">aggregatedSourceStatus_lastErrorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="aggregatedSourceStatus_lastErrorCode"><span class="annot"><span class="annottext">aggregatedSourceStatus_lastErrorCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_lastErrorCode"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_lastErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
--&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
--&gt; Lens
-     AggregatedSourceStatus
-     AggregatedSourceStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394636"><span class="annot"><span class="annottext">Maybe Text
-lastErrorCode :: Maybe Text
-$sel:lastErrorCode:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679394636"><span class="hs-identifier hs-var hs-var">lastErrorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394636"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394635"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
-</span><a href="#local-6989586621679394635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394634"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
-</span><a href="#local-6989586621679394635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastErrorCode:AggregatedSourceStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AlastErrorCode%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">lastErrorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The region authorized to collect aggregated data.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_awsRegion"><span class="hs-identifier hs-type">aggregatedSourceStatus_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="aggregatedSourceStatus_awsRegion"><span class="annot"><span class="annottext">aggregatedSourceStatus_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_awsRegion"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe Text)
--&gt; (AggregatedSourceStatus -&gt; Maybe Text -&gt; AggregatedSourceStatus)
--&gt; Lens
-     AggregatedSourceStatus
-     AggregatedSourceStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394632"><span class="annot"><span class="annottext">Maybe Text
-awsRegion :: Maybe Text
-$sel:awsRegion:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679394632"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394632"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394631"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
-</span><a href="#local-6989586621679394631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394630"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
-</span><a href="#local-6989586621679394631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:AggregatedSourceStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AawsRegion%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The source account or an organization.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceType"><span class="hs-identifier hs-type">aggregatedSourceStatus_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceType.html#AggregatedSourceType"><span class="hs-identifier hs-type">AggregatedSourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="aggregatedSourceStatus_sourceType"><span class="annot"><span class="annottext">aggregatedSourceStatus_sourceType :: (Maybe AggregatedSourceType -&gt; f (Maybe AggregatedSourceType))
--&gt; AggregatedSourceStatus -&gt; f AggregatedSourceStatus
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#aggregatedSourceStatus_sourceType"><span class="hs-identifier hs-var hs-var">aggregatedSourceStatus_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregatedSourceStatus -&gt; Maybe AggregatedSourceType)
--&gt; (AggregatedSourceStatus
-    -&gt; Maybe AggregatedSourceType -&gt; AggregatedSourceStatus)
--&gt; Lens
-     AggregatedSourceStatus
-     AggregatedSourceStatus
-     (Maybe AggregatedSourceType)
-     (Maybe AggregatedSourceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394628"><span class="annot"><span class="annottext">Maybe AggregatedSourceType
-sourceType :: Maybe AggregatedSourceType
-$sel:sourceType:AggregatedSourceStatus' :: AggregatedSourceStatus -&gt; Maybe AggregatedSourceType
-</span><a href="#local-6989586621679394628"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
-</span><a href="#local-6989586621679394628"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394627"><span class="annot"><span class="annottext">s :: AggregatedSourceStatus
-</span><a href="#local-6989586621679394627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-type">AggregatedSourceStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394626"><span class="annot"><span class="annottext">Maybe AggregatedSourceType
-</span><a href="#local-6989586621679394626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregatedSourceStatus
-</span><a href="#local-6989586621679394627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:AggregatedSourceStatus' :: Maybe AggregatedSourceType
-</span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#%24sel%3AsourceType%3AAggregatedSourceStatus%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregatedSourceType
-</span><a href="#local-6989586621679394626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394623"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679394621"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregatedSourceStatus
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395201"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679395199"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregatedSourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AggregatedSourceStatus)
@@ -387,138 +387,127 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AggregatedSourceStatus&quot;</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394618"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe AggregatedSourceStatusType
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395196"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe AggregatedSourceStatusType
+-&gt; Maybe AggregatedSourceType
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe AggregatedSourceType
 -&gt; AggregatedSourceStatus
 </span><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus%27"><span class="hs-identifier hs-var">AggregatedSourceStatus'</span></a></span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AggregatedSourceStatusType
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe AggregatedSourceStatusType
+ -&gt; Maybe AggregatedSourceType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe AggregatedSourceType
  -&gt; AggregatedSourceStatus)
--&gt; Parser (Maybe AggregatedSourceStatusType)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe AggregatedSourceStatusType
       -&gt; Maybe AggregatedSourceType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; AggregatedSourceStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregatedSourceStatusType)
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+  (Maybe AggregatedSourceStatusType
    -&gt; Maybe AggregatedSourceType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; AggregatedSourceStatus)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe AggregatedSourceStatusType)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe AggregatedSourceType
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe AggregatedSourceType
+      -&gt; Maybe POSIX
       -&gt; AggregatedSourceStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregatedSourceStatusType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastUpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+  (Maybe AggregatedSourceType
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe AggregatedSourceType
+   -&gt; Maybe POSIX
    -&gt; AggregatedSourceStatus)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe AggregatedSourceType)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe AggregatedSourceType
+      -&gt; Maybe POSIX
       -&gt; AggregatedSourceStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregatedSourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe AggregatedSourceType
+   -&gt; Maybe POSIX
    -&gt; AggregatedSourceStatus)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe AggregatedSourceType
-      -&gt; AggregatedSourceStatus)
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe AggregatedSourceType
-   -&gt; AggregatedSourceStatus)
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
 -&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe AggregatedSourceType -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastErrorCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe AggregatedSourceType -&gt; AggregatedSourceStatus)
+</span><span class="hs-string">&quot;LastErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; AggregatedSourceStatus)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe AggregatedSourceType -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe POSIX -&gt; AggregatedSourceStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AggregatedSourceType -&gt; AggregatedSourceStatus)
--&gt; Parser (Maybe AggregatedSourceType)
--&gt; Parser AggregatedSourceStatus
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; AggregatedSourceStatus)
+-&gt; Parser (Maybe POSIX) -&gt; Parser AggregatedSourceStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394618"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregatedSourceType)
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394612"><span id="local-6989586621679394614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395190"><span id="local-6989586621679395192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregatedSourceStatus.html#AggregatedSourceStatus"><span class="hs-identifier hs-type">AggregatedSourceStatus</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

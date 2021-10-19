@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Status of devices.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDeviceStats' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680300467"><span id="local-6989586621680300468"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceStats"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-var">DeviceStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceStats%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-var">DeviceStats'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680301840"><span id="local-6989586621680301841"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceStats"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-var">DeviceStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceStats%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-var">DeviceStats'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of devices connected with a heartbeat.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AconnectedDeviceCount%3ADeviceStats%27"><span class="annot"><span class="annottext">DeviceStats -&gt; Integer
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#%24sel%3AconnectedDeviceCount%3ADeviceStats%27"><span class="hs-identifier hs-var hs-var">connectedDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AregisteredDeviceCount%3ADeviceStats%27"><span class="annot"><span class="annottext">DeviceStats -&gt; Integer
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#%24sel%3AregisteredDeviceCount%3ADeviceStats%27"><span class="hs-identifier hs-var hs-var">registeredDeviceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680300460"><span id="local-6989586621680300462"><span class="annot"><span class="annottext">DeviceStats -&gt; DeviceStats -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680301833"><span id="local-6989586621680301835"><span class="annot"><span class="annottext">DeviceStats -&gt; DeviceStats -&gt; Bool
 (DeviceStats -&gt; DeviceStats -&gt; Bool)
 -&gt; (DeviceStats -&gt; DeviceStats -&gt; Bool) -&gt; Eq DeviceStats
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceStats -&gt; DeviceStats -&gt; Bool
 == :: DeviceStats -&gt; DeviceStats -&gt; Bool
 $c== :: DeviceStats -&gt; DeviceStats -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300451"><span id="local-6989586621680300453"><span id="local-6989586621680300455"><span id="local-6989586621680300457"><span class="annot"><span class="annottext">ReadPrec [DeviceStats]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301824"><span id="local-6989586621680301826"><span id="local-6989586621680301828"><span id="local-6989586621680301830"><span class="annot"><span class="annottext">ReadPrec [DeviceStats]
 ReadPrec DeviceStats
 Int -&gt; ReadS DeviceStats
 ReadS [DeviceStats]
@@ -62,7 +62,7 @@ readList :: ReadS [DeviceStats]
 $creadList :: ReadS [DeviceStats]
 readsPrec :: Int -&gt; ReadS DeviceStats
 $creadsPrec :: Int -&gt; ReadS DeviceStats
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300444"><span id="local-6989586621680300446"><span id="local-6989586621680300448"><span class="annot"><span class="annottext">Int -&gt; DeviceStats -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680301817"><span id="local-6989586621680301819"><span id="local-6989586621680301821"><span class="annot"><span class="annottext">Int -&gt; DeviceStats -&gt; ShowS
 [DeviceStats] -&gt; ShowS
 DeviceStats -&gt; String
 (Int -&gt; DeviceStats -&gt; ShowS)
@@ -107,19 +107,19 @@ $cfrom :: forall x. DeviceStats -&gt; Rep DeviceStats x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span><span>
 </span><span id="line-54"></span><span id="newDeviceStats"><span class="annot"><span class="annottext">newDeviceStats :: Integer -&gt; Integer -&gt; DeviceStats
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#newDeviceStats"><span class="hs-identifier hs-var hs-var">newDeviceStats</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621680300438"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300438"><span class="hs-identifier hs-var">pConnectedDeviceCount_</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621680300437"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300437"><span class="hs-identifier hs-var">pRegisteredDeviceCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621680301811"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680301811"><span class="hs-identifier hs-var">pConnectedDeviceCount_</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621680301810"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680301810"><span class="hs-identifier hs-var">pRegisteredDeviceCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">DeviceStats' :: Integer -&gt; Integer -&gt; DeviceStats
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectedDeviceCount:DeviceStats' :: Integer
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#%24sel%3AconnectedDeviceCount%3ADeviceStats%27"><span class="hs-identifier hs-var">connectedDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300438"><span class="hs-identifier hs-var">pConnectedDeviceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680301811"><span class="hs-identifier hs-var">pConnectedDeviceCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">$sel:registeredDeviceCount:DeviceStats' :: Integer
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#%24sel%3AregisteredDeviceCount%3ADeviceStats%27"><span class="hs-identifier hs-var">registeredDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300437"><span class="hs-identifier hs-var">pRegisteredDeviceCount_</span></a></span><span>
+</span><a href="#local-6989586621680301810"><span class="hs-identifier hs-var">pRegisteredDeviceCount_</span></a></span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The number of devices connected with a heartbeat.</span><span>
@@ -129,16 +129,16 @@ $cfrom :: forall x. DeviceStats -&gt; Rep DeviceStats x
 -&gt; (DeviceStats -&gt; Integer -&gt; DeviceStats)
 -&gt; Lens DeviceStats DeviceStats Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300433"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301806"><span class="annot"><span class="annottext">Integer
 connectedDeviceCount :: Integer
 $sel:connectedDeviceCount:DeviceStats' :: DeviceStats -&gt; Integer
-</span><a href="#local-6989586621680300433"><span class="hs-identifier hs-var hs-var">connectedDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300433"><span class="hs-identifier hs-var">connectedDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300432"><span class="annot"><span class="annottext">s :: DeviceStats
-</span><a href="#local-6989586621680300432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300431"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceStats
-</span><a href="#local-6989586621680300432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedDeviceCount:DeviceStats' :: Integer
+</span><a href="#local-6989586621680301806"><span class="hs-identifier hs-var hs-var">connectedDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680301806"><span class="hs-identifier hs-var">connectedDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301805"><span class="annot"><span class="annottext">s :: DeviceStats
+</span><a href="#local-6989586621680301805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301804"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680301804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceStats
+</span><a href="#local-6989586621680301805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectedDeviceCount:DeviceStats' :: Integer
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#%24sel%3AconnectedDeviceCount%3ADeviceStats%27"><span class="hs-identifier hs-var">connectedDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680301804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The number of registered devices.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#deviceStats_registeredDeviceCount"><span class="hs-identifier hs-type">deviceStats_registeredDeviceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -147,19 +147,19 @@ $sel:connectedDeviceCount:DeviceStats' :: DeviceStats -&gt; Integer
 -&gt; (DeviceStats -&gt; Integer -&gt; DeviceStats)
 -&gt; Lens DeviceStats DeviceStats Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300429"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680301802"><span class="annot"><span class="annottext">Integer
 registeredDeviceCount :: Integer
 $sel:registeredDeviceCount:DeviceStats' :: DeviceStats -&gt; Integer
-</span><a href="#local-6989586621680300429"><span class="hs-identifier hs-var hs-var">registeredDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300429"><span class="hs-identifier hs-var">registeredDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300428"><span class="annot"><span class="annottext">s :: DeviceStats
-</span><a href="#local-6989586621680300428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300427"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceStats
-</span><a href="#local-6989586621680300428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredDeviceCount:DeviceStats' :: Integer
+</span><a href="#local-6989586621680301802"><span class="hs-identifier hs-var hs-var">registeredDeviceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680301802"><span class="hs-identifier hs-var">registeredDeviceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680301801"><span class="annot"><span class="annottext">s :: DeviceStats
+</span><a href="#local-6989586621680301801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-type">DeviceStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680301800"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680301800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceStats
+</span><a href="#local-6989586621680301801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredDeviceCount:DeviceStats' :: Integer
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#%24sel%3AregisteredDeviceCount%3ADeviceStats%27"><span class="hs-identifier hs-var">registeredDeviceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680300427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680301800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300424"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621680300422"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceStats
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301797"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621680301795"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceStats
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceStats) -&gt; Value -&gt; Parser DeviceStats
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceStats&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680300419"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300419"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680301792"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680301792"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; DeviceStats
 </span><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats%27"><span class="hs-identifier hs-var">DeviceStats'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Integer -&gt; Integer -&gt; DeviceStats)
 -&gt; Parser Integer -&gt; Parser (Integer -&gt; DeviceStats)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300419"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621680301792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectedDeviceCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,13 +183,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser DeviceStats
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300419"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621680301792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegisteredDeviceCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300413"><span id="local-6989586621680300415"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301786"><span id="local-6989586621680301788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680301783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeviceStats.html#DeviceStats"><span class="hs-identifier hs-type">DeviceStats</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

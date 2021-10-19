@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetCrawlers' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679728032"><span id="local-6989586621679728033"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCrawlers"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-var">GetCrawlers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCrawlers%27"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-var">GetCrawlers'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679729812"><span id="local-6989586621679729813"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCrawlers"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-var">GetCrawlers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCrawlers%27"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-var">GetCrawlers'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation request.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCrawlers%27"><span class="annot"><span class="annottext">GetCrawlers -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AnextToken%3AGetCrawlers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetCrawlers%27"><span class="annot"><span class="annottext">GetCrawlers -&gt; Maybe Natural
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AmaxResults%3AGetCrawlers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679728025"><span id="local-6989586621679728027"><span class="annot"><span class="annottext">GetCrawlers -&gt; GetCrawlers -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679729805"><span id="local-6989586621679729807"><span class="annot"><span class="annottext">GetCrawlers -&gt; GetCrawlers -&gt; Bool
 (GetCrawlers -&gt; GetCrawlers -&gt; Bool)
 -&gt; (GetCrawlers -&gt; GetCrawlers -&gt; Bool) -&gt; Eq GetCrawlers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCrawlers -&gt; GetCrawlers -&gt; Bool
 == :: GetCrawlers -&gt; GetCrawlers -&gt; Bool
 $c== :: GetCrawlers -&gt; GetCrawlers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728016"><span id="local-6989586621679728018"><span id="local-6989586621679728020"><span id="local-6989586621679728022"><span class="annot"><span class="annottext">ReadPrec [GetCrawlers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729796"><span id="local-6989586621679729798"><span id="local-6989586621679729800"><span id="local-6989586621679729802"><span class="annot"><span class="annottext">ReadPrec [GetCrawlers]
 ReadPrec GetCrawlers
 Int -&gt; ReadS GetCrawlers
 ReadS [GetCrawlers]
@@ -87,7 +87,7 @@ readList :: ReadS [GetCrawlers]
 $creadList :: ReadS [GetCrawlers]
 readsPrec :: Int -&gt; ReadS GetCrawlers
 $creadsPrec :: Int -&gt; ReadS GetCrawlers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679728009"><span id="local-6989586621679728011"><span id="local-6989586621679728013"><span class="annot"><span class="annottext">Int -&gt; GetCrawlers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729789"><span id="local-6989586621679729791"><span id="local-6989586621679729793"><span class="annot"><span class="annottext">Int -&gt; GetCrawlers -&gt; ShowS
 [GetCrawlers] -&gt; ShowS
 GetCrawlers -&gt; String
 (Int -&gt; GetCrawlers -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (GetCrawlers -&gt; Maybe Text -&gt; GetCrawlers)
 -&gt; Lens GetCrawlers GetCrawlers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728003"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729783"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetCrawlers' :: GetCrawlers -&gt; Maybe Text
-</span><a href="#local-6989586621679728003"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679728003"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679728002"><span class="annot"><span class="annottext">s :: GetCrawlers
-</span><a href="#local-6989586621679728002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679728001"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679728001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlers
-</span><a href="#local-6989586621679728002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCrawlers' :: Maybe Text
+</span><a href="#local-6989586621679729783"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679729783"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729782"><span class="annot"><span class="annottext">s :: GetCrawlers
+</span><a href="#local-6989586621679729782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679729781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlers
+</span><a href="#local-6989586621679729782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCrawlers' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AnextToken%3AGetCrawlers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679728001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The number of crawlers to return on each call.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#getCrawlers_maxResults"><span class="hs-identifier hs-type">getCrawlers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -166,28 +166,28 @@ $sel:nextToken:GetCrawlers' :: GetCrawlers -&gt; Maybe Text
 -&gt; (GetCrawlers -&gt; Maybe Natural -&gt; GetCrawlers)
 -&gt; Lens GetCrawlers GetCrawlers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679728000"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729780"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetCrawlers' :: GetCrawlers -&gt; Maybe Natural
-</span><a href="#local-6989586621679728000"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679728000"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727999"><span class="annot"><span class="annottext">s :: GetCrawlers
-</span><a href="#local-6989586621679727999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727998"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679727998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlers
-</span><a href="#local-6989586621679727999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetCrawlers' :: Maybe Natural
+</span><a href="#local-6989586621679729780"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679729780"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729779"><span class="annot"><span class="annottext">s :: GetCrawlers
+</span><a href="#local-6989586621679729779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729778"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679729778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlers
+</span><a href="#local-6989586621679729779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetCrawlers' :: Maybe Natural
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AmaxResults%3AGetCrawlers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679727998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679727994"><span class="annot"><span class="annottext">page :: GetCrawlers -&gt; AWSResponse GetCrawlers -&gt; Maybe GetCrawlers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679727992"><span class="annot"><span class="annottext">GetCrawlers
-</span><a href="#local-6989586621679727992"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679727991"><span class="annot"><span class="annottext">AWSResponse GetCrawlers
-</span><a href="#local-6989586621679727991"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679729774"><span class="annot"><span class="annottext">page :: GetCrawlers -&gt; AWSResponse GetCrawlers -&gt; Maybe GetCrawlers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679729772"><span class="annot"><span class="annottext">GetCrawlers
+</span><a href="#local-6989586621679729772"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679729771"><span class="annot"><span class="annottext">AWSResponse GetCrawlers
+</span><a href="#local-6989586621679729771"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-92"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetCrawlers
 GetCrawlersResponse
-</span><a href="#local-6989586621679727991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679729771"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">GetCrawlersResponse
 -&gt; Getting (First Text) GetCrawlersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -213,7 +213,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetCrawlers
 GetCrawlersResponse
-</span><a href="#local-6989586621679727991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679729771"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">GetCrawlersResponse
 -&gt; Getting (First [Crawler]) GetCrawlersResponse [Crawler]
 -&gt; Maybe [Crawler]
@@ -246,7 +246,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">GetCrawlers
-</span><a href="#local-6989586621679727992"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679729772"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">GetCrawlers -&gt; (GetCrawlers -&gt; GetCrawlers) -&gt; GetCrawlers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -259,7 +259,7 @@ Lens GetCrawlers GetCrawlers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetCrawlers
 GetCrawlersResponse
-</span><a href="#local-6989586621679727991"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679729771"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">GetCrawlersResponse
 -&gt; Getting (First Text) GetCrawlersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -279,12 +279,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679727981"><span class="annot"><span class="annottext">request :: GetCrawlers -&gt; Request GetCrawlers
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679729761"><span class="annot"><span class="annottext">request :: GetCrawlers -&gt; Request GetCrawlers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCrawlers -&gt; Request GetCrawlers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679727977"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679729757"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCrawlers
 -&gt; ClientResponse ClientBody
@@ -308,10 +308,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679727974"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727974"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679727973"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679727973"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679727972"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727972"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679729754"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729754"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679729753"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679729753"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679729752"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679729752"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Crawler] -&gt; Int -&gt; GetCrawlersResponse
 </span><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-var">GetCrawlersResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Crawler] -&gt; Int -&gt; GetCrawlersResponse)
@@ -319,7 +319,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Crawler] -&gt; Int -&gt; GetCrawlersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679729752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,7 +328,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetCrawlersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727972"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Crawler]))
+</span><a href="#local-6989586621679729752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Crawler]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Crawlers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Crawler]))
@@ -345,15 +345,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727974"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729754"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727963"><span id="local-6989586621679727965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729743"><span id="local-6989586621679729745"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679727956"><span class="annot"><span class="annottext">toHeaders :: GetCrawlers -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679729736"><span class="annot"><span class="annottext">toHeaders :: GetCrawlers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCrawlers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -378,15 +378,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727946"><span id="local-6989586621679727948"><span id="local-6989586621679727950"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679727944"><span class="annot"><span class="annottext">toJSON :: GetCrawlers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727941"><span id="local-6989586621679727942"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729726"><span id="local-6989586621679729728"><span id="local-6989586621679729730"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679729724"><span class="annot"><span class="annottext">toJSON :: GetCrawlers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers%27"><span class="hs-identifier hs-type">GetCrawlers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729721"><span id="local-6989586621679729722"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:GetCrawlers' :: GetCrawlers -&gt; Maybe Natural
 $sel:nextToken:GetCrawlers' :: GetCrawlers -&gt; Maybe Text
-</span><a href="#local-6989586621679727941"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679729721"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -398,26 +398,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727942"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679729722"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679727941"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679729721"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679727935"><span class="annot"><span class="annottext">toPath :: GetCrawlers -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679729715"><span class="annot"><span class="annottext">toPath :: GetCrawlers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCrawlers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlers"><span class="hs-identifier hs-type">GetCrawlers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679727931"><span class="annot"><span class="annottext">toQuery :: GetCrawlers -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679729711"><span class="annot"><span class="annottext">toQuery :: GetCrawlers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCrawlers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -425,7 +425,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newGetCrawlersResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679727928"><span id="local-6989586621679727929"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCrawlersResponse"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-var">GetCrawlersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCrawlersResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-var">GetCrawlersResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679729708"><span id="local-6989586621679729709"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCrawlersResponse"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-var">GetCrawlersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCrawlersResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-var">GetCrawlersResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if the returned list has not reached the end of</span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-comment">-- those defined in this customer account.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCrawlersResponse%27"><span class="annot"><span class="annottext">GetCrawlersResponse -&gt; Maybe Text
@@ -437,7 +437,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCrawlersResponse%27"><span class="annot"><span class="annottext">GetCrawlersResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AhttpStatus%3AGetCrawlersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727921"><span id="local-6989586621679727923"><span class="annot"><span class="annottext">GetCrawlersResponse -&gt; GetCrawlersResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679729701"><span id="local-6989586621679729703"><span class="annot"><span class="annottext">GetCrawlersResponse -&gt; GetCrawlersResponse -&gt; Bool
 (GetCrawlersResponse -&gt; GetCrawlersResponse -&gt; Bool)
 -&gt; (GetCrawlersResponse -&gt; GetCrawlersResponse -&gt; Bool)
 -&gt; Eq GetCrawlersResponse
@@ -446,7 +446,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCrawlersResponse -&gt; GetCrawlersResponse -&gt; Bool
 == :: GetCrawlersResponse -&gt; GetCrawlersResponse -&gt; Bool
 $c== :: GetCrawlersResponse -&gt; GetCrawlersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727913"><span id="local-6989586621679727915"><span id="local-6989586621679727917"><span id="local-6989586621679727919"><span class="annot"><span class="annottext">ReadPrec [GetCrawlersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729693"><span id="local-6989586621679729695"><span id="local-6989586621679729697"><span id="local-6989586621679729699"><span class="annot"><span class="annottext">ReadPrec [GetCrawlersResponse]
 ReadPrec GetCrawlersResponse
 Int -&gt; ReadS GetCrawlersResponse
 ReadS [GetCrawlersResponse]
@@ -466,7 +466,7 @@ readList :: ReadS [GetCrawlersResponse]
 $creadList :: ReadS [GetCrawlersResponse]
 readsPrec :: Int -&gt; ReadS GetCrawlersResponse
 $creadsPrec :: Int -&gt; ReadS GetCrawlersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727907"><span id="local-6989586621679727909"><span id="local-6989586621679727911"><span class="annot"><span class="annottext">Int -&gt; GetCrawlersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729687"><span id="local-6989586621679729689"><span id="local-6989586621679729691"><span class="annot"><span class="annottext">Int -&gt; GetCrawlersResponse -&gt; ShowS
 [GetCrawlersResponse] -&gt; ShowS
 GetCrawlersResponse -&gt; String
 (Int -&gt; GetCrawlersResponse -&gt; ShowS)
@@ -511,8 +511,8 @@ $cfrom :: forall x. GetCrawlersResponse -&gt; Rep GetCrawlersResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newGetCrawlersResponse"><span class="annot"><span class="annottext">newGetCrawlersResponse :: Int -&gt; GetCrawlersResponse
-</span><a href="Network.AWS.Glue.GetCrawlers.html#newGetCrawlersResponse"><span class="hs-identifier hs-var hs-var">newGetCrawlersResponse</span></a></span></span><span> </span><span id="local-6989586621679727904"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetCrawlers.html#newGetCrawlersResponse"><span class="hs-identifier hs-var hs-var">newGetCrawlersResponse</span></a></span></span><span> </span><span id="local-6989586621679729684"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">GetCrawlersResponse' :: Maybe Text -&gt; Maybe [Crawler] -&gt; Int -&gt; GetCrawlersResponse
 </span><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetCrawlersResponse' :: Maybe Text
@@ -525,7 +525,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCrawlersResponse' :: Int
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AhttpStatus%3AGetCrawlersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727904"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679729684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | A continuation token, if the returned list has not reached the end of</span><span>
@@ -537,16 +537,16 @@ forall a. Maybe a
 -&gt; (GetCrawlersResponse -&gt; Maybe Text -&gt; GetCrawlersResponse)
 -&gt; Lens' GetCrawlersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727903"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729683"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetCrawlersResponse' :: GetCrawlersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679727903"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727903"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727902"><span class="annot"><span class="annottext">s :: GetCrawlersResponse
-</span><a href="#local-6989586621679727902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727901"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlersResponse
-</span><a href="#local-6989586621679727902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCrawlersResponse' :: Maybe Text
+</span><a href="#local-6989586621679729683"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679729683"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729682"><span class="annot"><span class="annottext">s :: GetCrawlersResponse
+</span><a href="#local-6989586621679729682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679729681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlersResponse
+</span><a href="#local-6989586621679729682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCrawlersResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AnextToken%3AGetCrawlersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | A list of crawler metadata.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#getCrawlersResponse_crawlers"><span class="hs-identifier hs-type">getCrawlersResponse_crawlers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Crawler.html#Crawler"><span class="hs-identifier hs-type">Crawler</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -556,16 +556,16 @@ $sel:nextToken:GetCrawlersResponse' :: GetCrawlersResponse -&gt; Maybe Text
 -&gt; (GetCrawlersResponse -&gt; Maybe [Crawler] -&gt; GetCrawlersResponse)
 -&gt; Lens' GetCrawlersResponse (Maybe [Crawler])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727900"><span class="annot"><span class="annottext">Maybe [Crawler]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729680"><span class="annot"><span class="annottext">Maybe [Crawler]
 crawlers :: Maybe [Crawler]
 $sel:crawlers:GetCrawlersResponse' :: GetCrawlersResponse -&gt; Maybe [Crawler]
-</span><a href="#local-6989586621679727900"><span class="hs-identifier hs-var hs-var">crawlers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Crawler]
-</span><a href="#local-6989586621679727900"><span class="hs-identifier hs-var">crawlers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727899"><span class="annot"><span class="annottext">s :: GetCrawlersResponse
-</span><a href="#local-6989586621679727899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727898"><span class="annot"><span class="annottext">Maybe [Crawler]
-</span><a href="#local-6989586621679727898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlersResponse
-</span><a href="#local-6989586621679727899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlers:GetCrawlersResponse' :: Maybe [Crawler]
+</span><a href="#local-6989586621679729680"><span class="hs-identifier hs-var hs-var">crawlers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Crawler]
+</span><a href="#local-6989586621679729680"><span class="hs-identifier hs-var">crawlers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729679"><span class="annot"><span class="annottext">s :: GetCrawlersResponse
+</span><a href="#local-6989586621679729679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729678"><span class="annot"><span class="annottext">Maybe [Crawler]
+</span><a href="#local-6989586621679729678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlersResponse
+</span><a href="#local-6989586621679729679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crawlers:GetCrawlersResponse' :: Maybe [Crawler]
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3Acrawlers%3AGetCrawlersResponse%27"><span class="hs-identifier hs-var">crawlers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Crawler]
-</span><a href="#local-6989586621679727898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Crawler] -&gt; f (Maybe [Crawler]))
+</span><a href="#local-6989586621679729678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Crawler] -&gt; f (Maybe [Crawler]))
  -&gt; GetCrawlersResponse -&gt; f GetCrawlersResponse)
 -&gt; ((Maybe [Crawler] -&gt; f (Maybe [Crawler]))
     -&gt; Maybe [Crawler] -&gt; f (Maybe [Crawler]))
@@ -583,8 +583,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Crawler] [Crawler] [Crawler] [Crawler]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#getCrawlersResponse_httpStatus"><span class="hs-identifier hs-type">getCrawlersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -593,16 +593,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetCrawlersResponse -&gt; Int -&gt; GetCrawlersResponse)
 -&gt; Lens GetCrawlersResponse GetCrawlersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727895"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729675"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCrawlersResponse' :: GetCrawlersResponse -&gt; Int
-</span><a href="#local-6989586621679727895"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727895"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727894"><span class="annot"><span class="annottext">s :: GetCrawlersResponse
-</span><a href="#local-6989586621679727894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727893"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlersResponse
-</span><a href="#local-6989586621679727894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCrawlersResponse' :: Int
+</span><a href="#local-6989586621679729675"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729675"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729674"><span class="annot"><span class="annottext">s :: GetCrawlersResponse
+</span><a href="#local-6989586621679729674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse%27"><span class="hs-identifier hs-type">GetCrawlersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729673"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679729673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCrawlersResponse
+</span><a href="#local-6989586621679729674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCrawlersResponse' :: Int
 </span><a href="Network.AWS.Glue.GetCrawlers.html#%24sel%3AhttpStatus%3AGetCrawlersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679729673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetCrawlers.html#GetCrawlersResponse"><span class="hs-identifier hs-type">GetCrawlersResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

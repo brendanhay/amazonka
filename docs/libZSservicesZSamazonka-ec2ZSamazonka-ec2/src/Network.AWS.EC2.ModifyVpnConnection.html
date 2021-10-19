@@ -69,10 +69,10 @@
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnection"><span class="hs-identifier">newModifyVpnConnection</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_dryRun"><span class="hs-identifier">modifyVpnConnection_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnGatewayId"><span class="hs-identifier">modifyVpnConnection_vpnGatewayId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_customerGatewayId"><span class="hs-identifier">modifyVpnConnection_customerGatewayId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnGatewayId"><span class="hs-identifier">modifyVpnConnection_vpnGatewayId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_transitGatewayId"><span class="hs-identifier">modifyVpnConnection_transitGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_transitGatewayId"><span class="hs-identifier">modifyVpnConnection_transitGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_dryRun"><span class="hs-identifier">modifyVpnConnection_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnConnectionId"><span class="hs-identifier">modifyVpnConnection_vpnConnectionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -93,28 +93,28 @@
 </span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newModifyVpnConnection' smart constructor.</span><span>
-</span><span id="line-96"></span><span id="local-6989586621681178250"><span id="local-6989586621681178251"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpnConnection"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-var">ModifyVpnConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpnConnection%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-var">ModifyVpnConnection'</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-101"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AdryRun%3AModifyVpnConnection%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The ID of the customer gateway at your end of the VPN connection.</span><span>
-</span><span id="line-103"></span><span>    </span><span id="%24sel%3AcustomerGatewayId%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AcustomerGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var hs-var">customerGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual private gateway at the Amazon Web Services side of</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- the VPN connection.</span><span>
-</span><span id="line-106"></span><span>    </span><span id="%24sel%3AvpnGatewayId%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Text
+</span><span id="line-96"></span><span id="local-6989586621681213628"><span id="local-6989586621681213629"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpnConnection"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-var">ModifyVpnConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpnConnection%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-var">ModifyVpnConnection'</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual private gateway at the Amazon Web Services side of</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- the VPN connection.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AvpnGatewayId%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var hs-var">vpnGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3AtransitGatewayId%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Text
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The ID of the customer gateway at your end of the VPN connection.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AcustomerGatewayId%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AcustomerGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var hs-var">customerGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AtransitGatewayId%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AtransitGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AdryRun%3AModifyVpnConnection%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The ID of the VPN connection.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AvpnConnectionId%3AModifyVpnConnection%27"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnConnectionId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var hs-var">vpnConnectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681178240"><span id="local-6989586621681178242"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; ModifyVpnConnection -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681213618"><span id="local-6989586621681213620"><span class="annot"><span class="annottext">ModifyVpnConnection -&gt; ModifyVpnConnection -&gt; Bool
 (ModifyVpnConnection -&gt; ModifyVpnConnection -&gt; Bool)
 -&gt; (ModifyVpnConnection -&gt; ModifyVpnConnection -&gt; Bool)
 -&gt; Eq ModifyVpnConnection
@@ -123,7 +123,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyVpnConnection -&gt; ModifyVpnConnection -&gt; Bool
 == :: ModifyVpnConnection -&gt; ModifyVpnConnection -&gt; Bool
 $c== :: ModifyVpnConnection -&gt; ModifyVpnConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178231"><span id="local-6989586621681178233"><span id="local-6989586621681178235"><span id="local-6989586621681178237"><span class="annot"><span class="annottext">ReadPrec [ModifyVpnConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681213609"><span id="local-6989586621681213611"><span id="local-6989586621681213613"><span id="local-6989586621681213615"><span class="annot"><span class="annottext">ReadPrec [ModifyVpnConnection]
 ReadPrec ModifyVpnConnection
 Int -&gt; ReadS ModifyVpnConnection
 ReadS [ModifyVpnConnection]
@@ -143,7 +143,7 @@ readList :: ReadS [ModifyVpnConnection]
 $creadList :: ReadS [ModifyVpnConnection]
 readsPrec :: Int -&gt; ReadS ModifyVpnConnection
 $creadsPrec :: Int -&gt; ReadS ModifyVpnConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178224"><span id="local-6989586621681178226"><span id="local-6989586621681178228"><span class="annot"><span class="annottext">Int -&gt; ModifyVpnConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681213602"><span id="local-6989586621681213604"><span id="local-6989586621681213606"><span class="annot"><span class="annottext">Int -&gt; ModifyVpnConnection -&gt; ShowS
 [ModifyVpnConnection] -&gt; ShowS
 ModifyVpnConnection -&gt; String
 (Int -&gt; ModifyVpnConnection -&gt; ShowS)
@@ -177,17 +177,17 @@ $cfrom :: forall x. ModifyVpnConnection -&gt; Rep ModifyVpnConnection x
 </span><span id="line-119"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- 'dryRun', 'modifyVpnConnection_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'vpnGatewayId', 'modifyVpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the Amazon Web Services side of</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the VPN connection.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'customerGatewayId', 'modifyVpnConnection_customerGatewayId' - The ID of the customer gateway at your end of the VPN connection.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'customerGatewayId', 'modifyVpnConnection_customerGatewayId' - The ID of the customer gateway at your end of the VPN connection.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'transitGatewayId', 'modifyVpnConnection_transitGatewayId' - The ID of the transit gateway.</span><span>
 </span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- 'vpnGatewayId', 'modifyVpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the Amazon Web Services side of</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- the VPN connection.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- 'transitGatewayId', 'modifyVpnConnection_transitGatewayId' - The ID of the transit gateway.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'dryRun', 'modifyVpnConnection_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-133"></span><span class="hs-comment">--</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- 'vpnConnectionId', 'modifyVpnConnection_vpnConnectionId' - The ID of the VPN connection.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnection"><span class="hs-identifier hs-type">newModifyVpnConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -195,155 +195,156 @@ $cfrom :: forall x. ModifyVpnConnection -&gt; Rep ModifyVpnConnection x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span>
 </span><span id="line-139"></span><span id="newModifyVpnConnection"><span class="annot"><span class="annottext">newModifyVpnConnection :: Text -&gt; ModifyVpnConnection
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnection"><span class="hs-identifier hs-var hs-var">newModifyVpnConnection</span></a></span></span><span> </span><span id="local-6989586621681178219"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178219"><span class="hs-identifier hs-var">pVpnConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpnConnection' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnection"><span class="hs-identifier hs-var hs-var">newModifyVpnConnection</span></a></span></span><span> </span><span id="local-6989586621681213597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681213597"><span class="hs-identifier hs-var">pVpnConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpnConnection' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; ModifyVpnConnection
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpnConnection' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AdryRun%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpnGatewayId:ModifyVpnConnection' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">vpnGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerGatewayId:ModifyVpnConnection' :: Maybe Text
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerGatewayId:ModifyVpnConnection' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AcustomerGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpnGatewayId:ModifyVpnConnection' :: Maybe Text
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">vpnGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayId:ModifyVpnConnection' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AtransitGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpnConnectionId:ModifyVpnConnection' :: Text
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnConnectionId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178219"><span class="hs-identifier hs-var">pVpnConnectionId_</span></a></span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_dryRun"><span class="hs-identifier hs-type">modifyVpnConnection_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span id="modifyVpnConnection_dryRun"><span class="annot"><span class="annottext">modifyVpnConnection_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_dryRun"><span class="hs-identifier hs-var hs-var">modifyVpnConnection_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnection -&gt; Maybe Bool)
--&gt; (ModifyVpnConnection -&gt; Maybe Bool -&gt; ModifyVpnConnection)
--&gt; Lens
-     ModifyVpnConnection ModifyVpnConnection (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178216"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Bool
-</span><a href="#local-6989586621681178216"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681178216"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178215"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
-</span><a href="#local-6989586621681178215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178214"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681178214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
-</span><a href="#local-6989586621681178215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpnConnection' :: Maybe Bool
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpnConnection' :: Maybe Bool
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AdryRun%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681178214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- | The ID of the customer gateway at your end of the VPN connection.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_customerGatewayId"><span class="hs-identifier hs-type">modifyVpnConnection_customerGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="modifyVpnConnection_customerGatewayId"><span class="annot"><span class="annottext">modifyVpnConnection_customerGatewayId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_customerGatewayId"><span class="hs-identifier hs-var hs-var">modifyVpnConnection_customerGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnection -&gt; Maybe Text)
--&gt; (ModifyVpnConnection -&gt; Maybe Text -&gt; ModifyVpnConnection)
--&gt; Lens
-     ModifyVpnConnection ModifyVpnConnection (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178213"><span class="annot"><span class="annottext">Maybe Text
-customerGatewayId :: Maybe Text
-$sel:customerGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
-</span><a href="#local-6989586621681178213"><span class="hs-identifier hs-var hs-var">customerGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178213"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178212"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
-</span><a href="#local-6989586621681178212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178211"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
-</span><a href="#local-6989586621681178212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerGatewayId:ModifyVpnConnection' :: Maybe Text
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AcustomerGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The ID of the virtual private gateway at the Amazon Web Services side of</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- the VPN connection.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnGatewayId"><span class="hs-identifier hs-type">modifyVpnConnection_vpnGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="modifyVpnConnection_vpnGatewayId"><span class="annot"><span class="annottext">modifyVpnConnection_vpnGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpnConnectionId:ModifyVpnConnection' :: Text
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnConnectionId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681213597"><span class="hs-identifier hs-var">pVpnConnectionId_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The ID of the virtual private gateway at the Amazon Web Services side of</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- the VPN connection.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnGatewayId"><span class="hs-identifier hs-type">modifyVpnConnection_vpnGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="modifyVpnConnection_vpnGatewayId"><span class="annot"><span class="annottext">modifyVpnConnection_vpnGatewayId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnGatewayId"><span class="hs-identifier hs-var hs-var">modifyVpnConnection_vpnGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnection -&gt; Maybe Text)
 -&gt; (ModifyVpnConnection -&gt; Maybe Text -&gt; ModifyVpnConnection)
 -&gt; Lens
      ModifyVpnConnection ModifyVpnConnection (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178210"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213594"><span class="annot"><span class="annottext">Maybe Text
 vpnGatewayId :: Maybe Text
 $sel:vpnGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
-</span><a href="#local-6989586621681178210"><span class="hs-identifier hs-var hs-var">vpnGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178210"><span class="hs-identifier hs-var">vpnGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178209"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
-</span><a href="#local-6989586621681178209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178208"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
-</span><a href="#local-6989586621681178209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnGatewayId:ModifyVpnConnection' :: Maybe Text
+</span><a href="#local-6989586621681213594"><span class="hs-identifier hs-var hs-var">vpnGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213594"><span class="hs-identifier hs-var">vpnGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681213593"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
+</span><a href="#local-6989586621681213593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681213592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
+</span><a href="#local-6989586621681213593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnGatewayId:ModifyVpnConnection' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">vpnGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_transitGatewayId"><span class="hs-identifier hs-type">modifyVpnConnection_transitGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="modifyVpnConnection_transitGatewayId"><span class="annot"><span class="annottext">modifyVpnConnection_transitGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681213592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The ID of the customer gateway at your end of the VPN connection.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_customerGatewayId"><span class="hs-identifier hs-type">modifyVpnConnection_customerGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="modifyVpnConnection_customerGatewayId"><span class="annot"><span class="annottext">modifyVpnConnection_customerGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_customerGatewayId"><span class="hs-identifier hs-var hs-var">modifyVpnConnection_customerGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnection -&gt; Maybe Text)
+-&gt; (ModifyVpnConnection -&gt; Maybe Text -&gt; ModifyVpnConnection)
+-&gt; Lens
+     ModifyVpnConnection ModifyVpnConnection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213591"><span class="annot"><span class="annottext">Maybe Text
+customerGatewayId :: Maybe Text
+$sel:customerGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
+</span><a href="#local-6989586621681213591"><span class="hs-identifier hs-var hs-var">customerGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213591"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681213590"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
+</span><a href="#local-6989586621681213590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681213589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
+</span><a href="#local-6989586621681213590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerGatewayId:ModifyVpnConnection' :: Maybe Text
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AcustomerGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_transitGatewayId"><span class="hs-identifier hs-type">modifyVpnConnection_transitGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="modifyVpnConnection_transitGatewayId"><span class="annot"><span class="annottext">modifyVpnConnection_transitGatewayId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_transitGatewayId"><span class="hs-identifier hs-var hs-var">modifyVpnConnection_transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnection -&gt; Maybe Text)
 -&gt; (ModifyVpnConnection -&gt; Maybe Text -&gt; ModifyVpnConnection)
 -&gt; Lens
      ModifyVpnConnection ModifyVpnConnection (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178207"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213588"><span class="annot"><span class="annottext">Maybe Text
 transitGatewayId :: Maybe Text
 $sel:transitGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
-</span><a href="#local-6989586621681178207"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178207"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178206"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
-</span><a href="#local-6989586621681178206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178205"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
-</span><a href="#local-6989586621681178206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayId:ModifyVpnConnection' :: Maybe Text
+</span><a href="#local-6989586621681213588"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213588"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681213587"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
+</span><a href="#local-6989586621681213587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681213586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
+</span><a href="#local-6989586621681213587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayId:ModifyVpnConnection' :: Maybe Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AtransitGatewayId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The ID of the VPN connection.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnConnectionId"><span class="hs-identifier hs-type">modifyVpnConnection_vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-170"></span><span id="modifyVpnConnection_vpnConnectionId"><span class="annot"><span class="annottext">modifyVpnConnection_vpnConnectionId :: (Text -&gt; f Text) -&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
+</span><a href="#local-6989586621681213586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_dryRun"><span class="hs-identifier hs-type">modifyVpnConnection_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="modifyVpnConnection_dryRun"><span class="annot"><span class="annottext">modifyVpnConnection_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_dryRun"><span class="hs-identifier hs-var hs-var">modifyVpnConnection_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnection -&gt; Maybe Bool)
+-&gt; (ModifyVpnConnection -&gt; Maybe Bool -&gt; ModifyVpnConnection)
+-&gt; Lens
+     ModifyVpnConnection ModifyVpnConnection (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213585"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Bool
+</span><a href="#local-6989586621681213585"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681213585"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681213584"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
+</span><a href="#local-6989586621681213584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681213583"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681213583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
+</span><a href="#local-6989586621681213584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVpnConnection' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AdryRun%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681213583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The ID of the VPN connection.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnConnectionId"><span class="hs-identifier hs-type">modifyVpnConnection_vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-171"></span><span id="modifyVpnConnection_vpnConnectionId"><span class="annot"><span class="annottext">modifyVpnConnection_vpnConnectionId :: (Text -&gt; f Text) -&gt; ModifyVpnConnection -&gt; f ModifyVpnConnection
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnection_vpnConnectionId"><span class="hs-identifier hs-var hs-var">modifyVpnConnection_vpnConnectionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnection -&gt; Text)
 -&gt; (ModifyVpnConnection -&gt; Text -&gt; ModifyVpnConnection)
 -&gt; Lens ModifyVpnConnection ModifyVpnConnection Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178204"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213582"><span class="annot"><span class="annottext">Text
 vpnConnectionId :: Text
 $sel:vpnConnectionId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Text
-</span><a href="#local-6989586621681178204"><span class="hs-identifier hs-var hs-var">vpnConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178204"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178203"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
-</span><a href="#local-6989586621681178203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178202"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
-</span><a href="#local-6989586621681178203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnConnectionId:ModifyVpnConnection' :: Text
+</span><a href="#local-6989586621681213582"><span class="hs-identifier hs-var hs-var">vpnConnectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681213582"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681213581"><span class="annot"><span class="annottext">s :: ModifyVpnConnection
+</span><a href="#local-6989586621681213581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681213580"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681213580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnection
+</span><a href="#local-6989586621681213581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnConnectionId:ModifyVpnConnection' :: Text
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnConnectionId%3AModifyVpnConnection%27"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-174"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-175"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621681178198"><span class="annot"><span class="annottext">request :: ModifyVpnConnection -&gt; Request ModifyVpnConnection
+</span><a href="#local-6989586621681213580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-175"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621681213576"><span class="annot"><span class="annottext">request :: ModifyVpnConnection -&gt; Request ModifyVpnConnection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyVpnConnection -&gt; Request ModifyVpnConnection
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621681178194"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681213572"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyVpnConnection
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse ModifyVpnConnection)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; [Node]
  -&gt; Either String (AWSResponse ModifyVpnConnection))
@@ -362,22 +363,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681178191"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681178191"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681178190"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681178190"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681178189"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe VpnConnection -&gt; Int -&gt; ModifyVpnConnectionResponse
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681213569"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681213569"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681213568"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681213568"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681213567"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681213567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe VpnConnection -&gt; Int -&gt; ModifyVpnConnectionResponse
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var">ModifyVpnConnectionResponse'</span></a></span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VpnConnection -&gt; Int -&gt; ModifyVpnConnectionResponse)
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VpnConnection -&gt; Int -&gt; ModifyVpnConnectionResponse)
 -&gt; Either String (Maybe VpnConnection)
 -&gt; Either String (Int -&gt; ModifyVpnConnectionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681178189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnConnection)
+</span><a href="#local-6989586621681213567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnConnection)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpnConnection&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyVpnConnectionResponse)
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyVpnConnectionResponse)
 -&gt; Either String Int -&gt; Either String ModifyVpnConnectionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -385,95 +386,95 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681178191"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178181"><span id="local-6989586621681178183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span></span></span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span></span><span>
-</span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621681178174"><span class="annot"><span class="annottext">toHeaders :: ModifyVpnConnection -&gt; ResponseHeaders
+</span><a href="#local-6989586621681213569"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681213559"><span id="local-6989586621681213561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span></span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681213556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621681213552"><span class="annot"><span class="annottext">toHeaders :: ModifyVpnConnection -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyVpnConnection -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621681178169"><span class="annot"><span class="annottext">toPath :: ModifyVpnConnection -&gt; ByteString
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621681213547"><span class="annot"><span class="annottext">toPath :: ModifyVpnConnection -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyVpnConnection -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621681178165"><span class="annot"><span class="annottext">toQuery :: ModifyVpnConnection -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178159"><span id="local-6989586621681178160"><span id="local-6989586621681178161"><span id="local-6989586621681178162"><span id="local-6989586621681178163"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection"><span class="hs-identifier hs-type">ModifyVpnConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621681213543"><span class="annot"><span class="annottext">toQuery :: ModifyVpnConnection -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnection%27"><span class="hs-identifier hs-type">ModifyVpnConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213537"><span id="local-6989586621681213538"><span id="local-6989586621681213539"><span id="local-6989586621681213540"><span id="local-6989586621681213541"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 vpnConnectionId :: Text
-transitGatewayId :: Maybe Text
-vpnGatewayId :: Maybe Text
-customerGatewayId :: Maybe Text
 dryRun :: Maybe Bool
+transitGatewayId :: Maybe Text
+customerGatewayId :: Maybe Text
+vpnGatewayId :: Maybe Text
 $sel:vpnConnectionId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Text
-$sel:transitGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
-$sel:vpnGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
-$sel:customerGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
 $sel:dryRun:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Bool
-</span><a href="#local-6989586621681178159"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+$sel:transitGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
+$sel:customerGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
+$sel:vpnGatewayId:ModifyVpnConnection' :: ModifyVpnConnection -&gt; Maybe Text
+</span><a href="#local-6989586621681213537"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-198"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-199"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ModifyVpnConnection&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Version&quot;</span></span><span>
-</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681178163"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;CustomerGatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178162"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpnGatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178161"><span class="hs-identifier hs-var">vpnGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681213541"><span class="hs-identifier hs-var">vpnGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CustomerGatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681213540"><span class="hs-identifier hs-var">customerGatewayId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TransitGatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681178160"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681213539"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681213538"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VpnConnectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681178159"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span>
-</span><span id="line-207"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- | /See:/ 'newModifyVpnConnectionResponse' smart constructor.</span><span>
-</span><span id="line-210"></span><span id="local-6989586621681178156"><span id="local-6989586621681178157"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpnConnectionResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-var">ModifyVpnConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpnConnectionResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var">ModifyVpnConnectionResponse'</span></a></span></span><span>
-</span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AvpnConnection%3AModifyVpnConnectionResponse%27"><span class="annot"><span class="annottext">ModifyVpnConnectionResponse -&gt; Maybe VpnConnection
+</span><a href="#local-6989586621681213537"><span class="hs-identifier hs-var">vpnConnectionId</span></a></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newModifyVpnConnectionResponse' smart constructor.</span><span>
+</span><span id="line-211"></span><span id="local-6989586621681213534"><span id="local-6989586621681213535"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVpnConnectionResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-var">ModifyVpnConnectionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVpnConnectionResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var">ModifyVpnConnectionResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AvpnConnection%3AModifyVpnConnectionResponse%27"><span class="annot"><span class="annottext">ModifyVpnConnectionResponse -&gt; Maybe VpnConnection
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnConnection%3AModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var hs-var">vpnConnection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnConnection.html#VpnConnection"><span class="hs-identifier hs-type">VpnConnection</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyVpnConnectionResponse%27"><span class="annot"><span class="annottext">ModifyVpnConnectionResponse -&gt; Int
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyVpnConnectionResponse%27"><span class="annot"><span class="annottext">ModifyVpnConnectionResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AhttpStatus%3AModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681178150"><span id="local-6989586621681178152"><span class="annot"><span class="annottext">ModifyVpnConnectionResponse -&gt; ModifyVpnConnectionResponse -&gt; Bool
+</span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681213528"><span id="local-6989586621681213530"><span class="annot"><span class="annottext">ModifyVpnConnectionResponse -&gt; ModifyVpnConnectionResponse -&gt; Bool
 (ModifyVpnConnectionResponse
  -&gt; ModifyVpnConnectionResponse -&gt; Bool)
 -&gt; (ModifyVpnConnectionResponse
@@ -484,7 +485,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyVpnConnectionResponse -&gt; ModifyVpnConnectionResponse -&gt; Bool
 == :: ModifyVpnConnectionResponse -&gt; ModifyVpnConnectionResponse -&gt; Bool
 $c== :: ModifyVpnConnectionResponse -&gt; ModifyVpnConnectionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178142"><span id="local-6989586621681178144"><span id="local-6989586621681178146"><span id="local-6989586621681178148"><span class="annot"><span class="annottext">ReadPrec [ModifyVpnConnectionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681213520"><span id="local-6989586621681213522"><span id="local-6989586621681213524"><span id="local-6989586621681213526"><span class="annot"><span class="annottext">ReadPrec [ModifyVpnConnectionResponse]
 ReadPrec ModifyVpnConnectionResponse
 Int -&gt; ReadS ModifyVpnConnectionResponse
 ReadS [ModifyVpnConnectionResponse]
@@ -504,7 +505,7 @@ readList :: ReadS [ModifyVpnConnectionResponse]
 $creadList :: ReadS [ModifyVpnConnectionResponse]
 readsPrec :: Int -&gt; ReadS ModifyVpnConnectionResponse
 $creadsPrec :: Int -&gt; ReadS ModifyVpnConnectionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681178136"><span id="local-6989586621681178138"><span id="local-6989586621681178140"><span class="annot"><span class="annottext">Int -&gt; ModifyVpnConnectionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681213514"><span id="local-6989586621681213516"><span id="local-6989586621681213518"><span class="annot"><span class="annottext">Int -&gt; ModifyVpnConnectionResponse -&gt; ShowS
 [ModifyVpnConnectionResponse] -&gt; ShowS
 ModifyVpnConnectionResponse -&gt; String
 (Int -&gt; ModifyVpnConnectionResponse -&gt; ShowS)
@@ -535,40 +536,40 @@ Rep ModifyVpnConnectionResponse x -&gt; ModifyVpnConnectionResponse
 $cfrom :: forall x.
 ModifyVpnConnectionResponse -&gt; Rep ModifyVpnConnectionResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'ModifyVpnConnectionResponse' with all optional fields omitted.</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-221"></span><span class="hs-comment">--</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- 'vpnConnection', 'modifyVpnConnectionResponse_vpnConnection' - Undocumented member.</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'modifyVpnConnectionResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnectionResponse"><span class="hs-identifier hs-type">newModifyVpnConnectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-229"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span>
-</span><span id="line-232"></span><span id="newModifyVpnConnectionResponse"><span class="annot"><span class="annottext">newModifyVpnConnectionResponse :: Int -&gt; ModifyVpnConnectionResponse
-</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnectionResponse"><span class="hs-identifier hs-var hs-var">newModifyVpnConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621681178133"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681178133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpnConnectionResponse' :: Maybe VpnConnection -&gt; Int -&gt; ModifyVpnConnectionResponse
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Create a value of 'ModifyVpnConnectionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'vpnConnection', 'modifyVpnConnectionResponse_vpnConnection' - Undocumented member.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'modifyVpnConnectionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnectionResponse"><span class="hs-identifier hs-type">newModifyVpnConnectionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newModifyVpnConnectionResponse"><span class="annot"><span class="annottext">newModifyVpnConnectionResponse :: Int -&gt; ModifyVpnConnectionResponse
+</span><a href="Network.AWS.EC2.ModifyVpnConnection.html#newModifyVpnConnectionResponse"><span class="hs-identifier hs-var hs-var">newModifyVpnConnectionResponse</span></a></span></span><span> </span><span id="local-6989586621681213511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681213511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">ModifyVpnConnectionResponse' :: Maybe VpnConnection -&gt; Int -&gt; ModifyVpnConnectionResponse
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span>
-</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpnConnection:ModifyVpnConnectionResponse' :: Maybe VpnConnection
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpnConnection:ModifyVpnConnectionResponse' :: Maybe VpnConnection
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnConnection%3AModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var">vpnConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe VpnConnection
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe VpnConnection
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpnConnectionResponse' :: Int
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpnConnectionResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AhttpStatus%3AModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681178133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-237"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnectionResponse_vpnConnection"><span class="hs-identifier hs-type">modifyVpnConnectionResponse_vpnConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnConnection.html#VpnConnection"><span class="hs-identifier hs-type">VpnConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span id="modifyVpnConnectionResponse_vpnConnection"><span class="annot"><span class="annottext">modifyVpnConnectionResponse_vpnConnection :: (Maybe VpnConnection -&gt; f (Maybe VpnConnection))
+</span><a href="#local-6989586621681213511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnectionResponse_vpnConnection"><span class="hs-identifier hs-type">modifyVpnConnectionResponse_vpnConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnConnection.html#VpnConnection"><span class="hs-identifier hs-type">VpnConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="modifyVpnConnectionResponse_vpnConnection"><span class="annot"><span class="annottext">modifyVpnConnectionResponse_vpnConnection :: (Maybe VpnConnection -&gt; f (Maybe VpnConnection))
 -&gt; ModifyVpnConnectionResponse -&gt; f ModifyVpnConnectionResponse
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnectionResponse_vpnConnection"><span class="hs-identifier hs-var hs-var">modifyVpnConnectionResponse_vpnConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnectionResponse -&gt; Maybe VpnConnection)
 -&gt; (ModifyVpnConnectionResponse
@@ -579,20 +580,20 @@ forall a. Maybe a
      (Maybe VpnConnection)
      (Maybe VpnConnection)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178132"><span class="annot"><span class="annottext">Maybe VpnConnection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213510"><span class="annot"><span class="annottext">Maybe VpnConnection
 vpnConnection :: Maybe VpnConnection
 $sel:vpnConnection:ModifyVpnConnectionResponse' :: ModifyVpnConnectionResponse -&gt; Maybe VpnConnection
-</span><a href="#local-6989586621681178132"><span class="hs-identifier hs-var hs-var">vpnConnection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnConnection
-</span><a href="#local-6989586621681178132"><span class="hs-identifier hs-var">vpnConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178131"><span class="annot"><span class="annottext">s :: ModifyVpnConnectionResponse
-</span><a href="#local-6989586621681178131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178130"><span class="annot"><span class="annottext">Maybe VpnConnection
-</span><a href="#local-6989586621681178130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnectionResponse
-</span><a href="#local-6989586621681178131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnConnection:ModifyVpnConnectionResponse' :: Maybe VpnConnection
+</span><a href="#local-6989586621681213510"><span class="hs-identifier hs-var hs-var">vpnConnection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnConnection
+</span><a href="#local-6989586621681213510"><span class="hs-identifier hs-var">vpnConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681213509"><span class="annot"><span class="annottext">s :: ModifyVpnConnectionResponse
+</span><a href="#local-6989586621681213509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681213508"><span class="annot"><span class="annottext">Maybe VpnConnection
+</span><a href="#local-6989586621681213508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnectionResponse
+</span><a href="#local-6989586621681213509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnConnection:ModifyVpnConnectionResponse' :: Maybe VpnConnection
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AvpnConnection%3AModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var">vpnConnection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnConnection
-</span><a href="#local-6989586621681178130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnectionResponse_httpStatus"><span class="hs-identifier hs-type">modifyVpnConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-245"></span><span id="modifyVpnConnectionResponse_httpStatus"><span class="annot"><span class="annottext">modifyVpnConnectionResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621681213508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnectionResponse_httpStatus"><span class="hs-identifier hs-type">modifyVpnConnectionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-246"></span><span id="modifyVpnConnectionResponse_httpStatus"><span class="annot"><span class="annottext">modifyVpnConnectionResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ModifyVpnConnectionResponse -&gt; f ModifyVpnConnectionResponse
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#modifyVpnConnectionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyVpnConnectionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVpnConnectionResponse -&gt; Int)
 -&gt; (ModifyVpnConnectionResponse
@@ -600,16 +601,16 @@ $sel:vpnConnection:ModifyVpnConnectionResponse' :: ModifyVpnConnectionResponse -
 -&gt; Lens
      ModifyVpnConnectionResponse ModifyVpnConnectionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681178129"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681213507"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyVpnConnectionResponse' :: ModifyVpnConnectionResponse -&gt; Int
-</span><a href="#local-6989586621681178129"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681178129"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681178128"><span class="annot"><span class="annottext">s :: ModifyVpnConnectionResponse
-</span><a href="#local-6989586621681178128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681178127"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681178127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnectionResponse
-</span><a href="#local-6989586621681178128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpnConnectionResponse' :: Int
+</span><a href="#local-6989586621681213507"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681213507"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681213506"><span class="annot"><span class="annottext">s :: ModifyVpnConnectionResponse
+</span><a href="#local-6989586621681213506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse%27"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681213505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681213505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVpnConnectionResponse
+</span><a href="#local-6989586621681213506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVpnConnectionResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyVpnConnection.html#%24sel%3AhttpStatus%3AModifyVpnConnectionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681178127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681178125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span></span><span>
-</span><span id="line-248"></span></pre></body></html>
+</span><a href="#local-6989586621681213505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681213503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVpnConnection.html#ModifyVpnConnectionResponse"><span class="hs-identifier hs-type">ModifyVpnConnectionResponse</span></a></span></span><span>
+</span><span id="line-249"></span></pre></body></html>

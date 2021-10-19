@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679349003"><span id="local-6989586621679349004"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SyntaxLanguageCode"><span class="annot"><a href="Network.AWS.Comprehend.Types.SyntaxLanguageCode.html#SyntaxLanguageCode"><span class="hs-identifier hs-var">SyntaxLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SyntaxLanguageCode%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.SyntaxLanguageCode.html#SyntaxLanguageCode%27"><span class="hs-identifier hs-var">SyntaxLanguageCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679349277"><span id="local-6989586621679349278"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SyntaxLanguageCode"><span class="annot"><a href="Network.AWS.Comprehend.Types.SyntaxLanguageCode.html#SyntaxLanguageCode"><span class="hs-identifier hs-var">SyntaxLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SyntaxLanguageCode%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.SyntaxLanguageCode.html#SyntaxLanguageCode%27"><span class="hs-identifier hs-var">SyntaxLanguageCode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSyntaxLanguageCode"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.SyntaxLanguageCode.html#fromSyntaxLanguageCode"><span class="hs-identifier hs-var hs-var">fromSyntaxLanguageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348995"><span id="local-6989586621679348997"><span id="local-6989586621679348999"><span class="annot"><span class="annottext">Int -&gt; SyntaxLanguageCode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349269"><span id="local-6989586621679349271"><span id="local-6989586621679349273"><span class="annot"><span class="annottext">Int -&gt; SyntaxLanguageCode -&gt; ShowS
 [SyntaxLanguageCode] -&gt; ShowS
 SyntaxLanguageCode -&gt; String
 (Int -&gt; SyntaxLanguageCode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: SyntaxLanguageCode -&gt; String
 showsPrec :: Int -&gt; SyntaxLanguageCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; SyntaxLanguageCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679348986"><span id="local-6989586621679348988"><span id="local-6989586621679348990"><span id="local-6989586621679348992"><span class="annot"><span class="annottext">ReadPrec [SyntaxLanguageCode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679349260"><span id="local-6989586621679349262"><span id="local-6989586621679349264"><span id="local-6989586621679349266"><span class="annot"><span class="annottext">ReadPrec [SyntaxLanguageCode]
 ReadPrec SyntaxLanguageCode
 Int -&gt; ReadS SyntaxLanguageCode
 ReadS [SyntaxLanguageCode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [SyntaxLanguageCode]
 readsPrec :: Int -&gt; ReadS SyntaxLanguageCode
 $creadsPrec :: Int -&gt; ReadS SyntaxLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679348981"><span id="local-6989586621679348983"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679349255"><span id="local-6989586621679349257"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool
 (SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool)
 -&gt; (SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool)
 -&gt; Eq SyntaxLanguageCode
@@ -86,7 +86,7 @@ $c/= :: SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool
 == :: SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool
 $c== :: SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679348965"><span id="local-6989586621679348967"><span id="local-6989586621679348969"><span id="local-6989586621679348971"><span id="local-6989586621679348973"><span id="local-6989586621679348975"><span id="local-6989586621679348977"><span class="annot"><span class="annottext">Eq SyntaxLanguageCode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679349239"><span id="local-6989586621679349241"><span id="local-6989586621679349243"><span id="local-6989586621679349245"><span id="local-6989586621679349247"><span id="local-6989586621679349249"><span id="local-6989586621679349251"><span class="annot"><span class="annottext">Eq SyntaxLanguageCode
 Eq SyntaxLanguageCode
 -&gt; (SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Ordering)
 -&gt; (SyntaxLanguageCode -&gt; SyntaxLanguageCode -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. SyntaxLanguageCode -&gt; Rep SyntaxLanguageCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348957"><span id="local-6989586621679348959"><span class="annot"><span class="annottext">Int -&gt; SyntaxLanguageCode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349231"><span id="local-6989586621679349233"><span class="annot"><span class="annottext">Int -&gt; SyntaxLanguageCode -&gt; Int
 SyntaxLanguageCode -&gt; Int
 (Int -&gt; SyntaxLanguageCode -&gt; Int)
 -&gt; (SyntaxLanguageCode -&gt; Int) -&gt; Hashable SyntaxLanguageCode
@@ -147,53 +147,53 @@ $chash :: SyntaxLanguageCode -&gt; Int
 hashWithSalt :: Int -&gt; SyntaxLanguageCode -&gt; Int
 $chashWithSalt :: Int -&gt; SyntaxLanguageCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348954"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679349228"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; ()
 (SyntaxLanguageCode -&gt; ()) -&gt; NFData SyntaxLanguageCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SyntaxLanguageCode -&gt; ()
 $crnf :: SyntaxLanguageCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348951"><span class="annot"><span class="annottext">Text -&gt; Either String SyntaxLanguageCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679349225"><span class="annot"><span class="annottext">Text -&gt; Either String SyntaxLanguageCode
 (Text -&gt; Either String SyntaxLanguageCode)
 -&gt; FromText SyntaxLanguageCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SyntaxLanguageCode
 $cfromText :: Text -&gt; Either String SyntaxLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348948"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679349222"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; Text
 (SyntaxLanguageCode -&gt; Text) -&gt; ToText SyntaxLanguageCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SyntaxLanguageCode -&gt; Text
 $ctoText :: SyntaxLanguageCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348945"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679349219"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; ByteString
 (SyntaxLanguageCode -&gt; ByteString)
 -&gt; ToByteString SyntaxLanguageCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SyntaxLanguageCode -&gt; ByteString
 $ctoBS :: SyntaxLanguageCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348942"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679349216"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; ByteStringBuilder
 (SyntaxLanguageCode -&gt; ByteStringBuilder)
 -&gt; ToLog SyntaxLanguageCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SyntaxLanguageCode -&gt; ByteStringBuilder
 $cbuild :: SyntaxLanguageCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348939"><span class="annot"><span class="annottext">HeaderName -&gt; SyntaxLanguageCode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679349213"><span class="annot"><span class="annottext">HeaderName -&gt; SyntaxLanguageCode -&gt; [Header]
 (HeaderName -&gt; SyntaxLanguageCode -&gt; [Header])
 -&gt; ToHeader SyntaxLanguageCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SyntaxLanguageCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SyntaxLanguageCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348936"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679349210"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; QueryString
 (SyntaxLanguageCode -&gt; QueryString) -&gt; ToQuery SyntaxLanguageCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SyntaxLanguageCode -&gt; QueryString
 $ctoQuery :: SyntaxLanguageCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348931"><span id="local-6989586621679348933"><span class="annot"><span class="annottext">Value -&gt; Parser [SyntaxLanguageCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679349205"><span id="local-6989586621679349207"><span class="annot"><span class="annottext">Value -&gt; Parser [SyntaxLanguageCode]
 Value -&gt; Parser SyntaxLanguageCode
 (Value -&gt; Parser SyntaxLanguageCode)
 -&gt; (Value -&gt; Parser [SyntaxLanguageCode])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [SyntaxLanguageCode]
 parseJSON :: Value -&gt; Parser SyntaxLanguageCode
 $cparseJSON :: Value -&gt; Parser SyntaxLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348926"><span id="local-6989586621679348928"><span class="annot"><span class="annottext">FromJSONKeyFunction [SyntaxLanguageCode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679349200"><span id="local-6989586621679349202"><span class="annot"><span class="annottext">FromJSONKeyFunction [SyntaxLanguageCode]
 FromJSONKeyFunction SyntaxLanguageCode
 FromJSONKeyFunction SyntaxLanguageCode
 -&gt; FromJSONKeyFunction [SyntaxLanguageCode]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SyntaxLanguageCode]
 fromJSONKey :: FromJSONKeyFunction SyntaxLanguageCode
 $cfromJSONKey :: FromJSONKeyFunction SyntaxLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679348917"><span id="local-6989586621679348919"><span id="local-6989586621679348921"><span id="local-6989586621679348923"><span class="annot"><span class="annottext">[SyntaxLanguageCode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679349191"><span id="local-6989586621679349193"><span id="local-6989586621679349195"><span id="local-6989586621679349197"><span class="annot"><span class="annottext">[SyntaxLanguageCode] -&gt; Encoding
 [SyntaxLanguageCode] -&gt; Value
 SyntaxLanguageCode -&gt; Encoding
 SyntaxLanguageCode -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: SyntaxLanguageCode -&gt; Encoding
 toJSON :: SyntaxLanguageCode -&gt; Value
 $ctoJSON :: SyntaxLanguageCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679348912"><span id="local-6989586621679348914"><span class="annot"><span class="annottext">ToJSONKeyFunction [SyntaxLanguageCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679349186"><span id="local-6989586621679349188"><span class="annot"><span class="annottext">ToJSONKeyFunction [SyntaxLanguageCode]
 ToJSONKeyFunction SyntaxLanguageCode
 ToJSONKeyFunction SyntaxLanguageCode
 -&gt; ToJSONKeyFunction [SyntaxLanguageCode]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SyntaxLanguageCode]
 toJSONKey :: ToJSONKeyFunction SyntaxLanguageCode
 $ctoJSONKey :: ToJSONKeyFunction SyntaxLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679348909"><span class="annot"><span class="annottext">[Node] -&gt; Either String SyntaxLanguageCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679349183"><span class="annot"><span class="annottext">[Node] -&gt; Either String SyntaxLanguageCode
 ([Node] -&gt; Either String SyntaxLanguageCode)
 -&gt; FromXML SyntaxLanguageCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SyntaxLanguageCode
 $cparseXML :: [Node] -&gt; Either String SyntaxLanguageCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679348906"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679349180"><span class="annot"><span class="annottext">SyntaxLanguageCode -&gt; XML
 (SyntaxLanguageCode -&gt; XML) -&gt; ToXML SyntaxLanguageCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SyntaxLanguageCode -&gt; XML

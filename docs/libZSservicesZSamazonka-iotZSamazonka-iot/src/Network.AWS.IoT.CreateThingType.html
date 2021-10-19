@@ -40,9 +40,9 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#newCreateThingTypeResponse"><span class="hs-identifier">newCreateThingTypeResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeId"><span class="hs-identifier">createThingTypeResponse_thingTypeId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeArn"><span class="hs-identifier">createThingTypeResponse_thingTypeArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeName"><span class="hs-identifier">createThingTypeResponse_thingTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeName"><span class="hs-identifier">createThingTypeResponse_thingTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeId"><span class="hs-identifier">createThingTypeResponse_thingTypeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeArn"><span class="hs-identifier">createThingTypeResponse_thingTypeArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_httpStatus"><span class="hs-identifier">createThingTypeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | The input for the CreateThingType operation.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newCreateThingType' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679846597"><span id="local-6989586621679846598"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateThingType"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-var">CreateThingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateThingType%27"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-var">CreateThingType'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679847585"><span id="local-6989586621679847586"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateThingType"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-var">CreateThingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateThingType%27"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-var">CreateThingType'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ThingTypeProperties for the thing type to create. It contains</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- information about the new thing type including a description, and a list</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- of searchable thing attribute names.</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AthingTypeName%3ACreateThingType%27"><span class="annot"><span class="annottext">CreateThingType -&gt; Text
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeName%3ACreateThingType%27"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846589"><span id="local-6989586621679846591"><span class="annot"><span class="annottext">CreateThingType -&gt; CreateThingType -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679847577"><span id="local-6989586621679847579"><span class="annot"><span class="annottext">CreateThingType -&gt; CreateThingType -&gt; Bool
 (CreateThingType -&gt; CreateThingType -&gt; Bool)
 -&gt; (CreateThingType -&gt; CreateThingType -&gt; Bool)
 -&gt; Eq CreateThingType
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateThingType -&gt; CreateThingType -&gt; Bool
 == :: CreateThingType -&gt; CreateThingType -&gt; Bool
 $c== :: CreateThingType -&gt; CreateThingType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846580"><span id="local-6989586621679846582"><span id="local-6989586621679846584"><span id="local-6989586621679846586"><span class="annot"><span class="annottext">ReadPrec [CreateThingType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847568"><span id="local-6989586621679847570"><span id="local-6989586621679847572"><span id="local-6989586621679847574"><span class="annot"><span class="annottext">ReadPrec [CreateThingType]
 ReadPrec CreateThingType
 Int -&gt; ReadS CreateThingType
 ReadS [CreateThingType]
@@ -99,7 +99,7 @@ readList :: ReadS [CreateThingType]
 $creadList :: ReadS [CreateThingType]
 readsPrec :: Int -&gt; ReadS CreateThingType
 $creadsPrec :: Int -&gt; ReadS CreateThingType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846573"><span id="local-6989586621679846575"><span id="local-6989586621679846577"><span class="annot"><span class="annottext">Int -&gt; CreateThingType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847561"><span id="local-6989586621679847563"><span id="local-6989586621679847565"><span class="annot"><span class="annottext">Int -&gt; CreateThingType -&gt; ShowS
 [CreateThingType] -&gt; ShowS
 CreateThingType -&gt; String
 (Int -&gt; CreateThingType -&gt; ShowS)
@@ -145,8 +145,8 @@ $cfrom :: forall x. CreateThingType -&gt; Rep CreateThingType x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span>
 </span><span id="line-91"></span><span id="newCreateThingType"><span class="annot"><span class="annottext">newCreateThingType :: Text -&gt; CreateThingType
-</span><a href="Network.AWS.IoT.CreateThingType.html#newCreateThingType"><span class="hs-identifier hs-var hs-var">newCreateThingType</span></a></span></span><span> </span><span id="local-6989586621679846568"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846568"><span class="hs-identifier hs-var">pThingTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CreateThingType.html#newCreateThingType"><span class="hs-identifier hs-var hs-var">newCreateThingType</span></a></span></span><span> </span><span id="local-6989586621679847556"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679847556"><span class="hs-identifier hs-var">pThingTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">CreateThingType' :: Maybe ThingTypeProperties -&gt; Maybe [Tag] -&gt; Text -&gt; CreateThingType
 </span><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingTypeProperties:CreateThingType' :: Maybe ThingTypeProperties
@@ -160,7 +160,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingTypeName:CreateThingType' :: Text
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeName%3ACreateThingType%27"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846568"><span class="hs-identifier hs-var">pThingTypeName_</span></a></span><span>
+</span><a href="#local-6989586621679847556"><span class="hs-identifier hs-var">pThingTypeName_</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The ThingTypeProperties for the thing type to create. It contains</span><span>
@@ -178,16 +178,16 @@ forall a. Maybe a
      (Maybe ThingTypeProperties)
      (Maybe ThingTypeProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846565"><span class="annot"><span class="annottext">Maybe ThingTypeProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847553"><span class="annot"><span class="annottext">Maybe ThingTypeProperties
 thingTypeProperties :: Maybe ThingTypeProperties
 $sel:thingTypeProperties:CreateThingType' :: CreateThingType -&gt; Maybe ThingTypeProperties
-</span><a href="#local-6989586621679846565"><span class="hs-identifier hs-var hs-var">thingTypeProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThingTypeProperties
-</span><a href="#local-6989586621679846565"><span class="hs-identifier hs-var">thingTypeProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846564"><span class="annot"><span class="annottext">s :: CreateThingType
-</span><a href="#local-6989586621679846564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846563"><span class="annot"><span class="annottext">Maybe ThingTypeProperties
-</span><a href="#local-6989586621679846563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingType
-</span><a href="#local-6989586621679846564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeProperties:CreateThingType' :: Maybe ThingTypeProperties
+</span><a href="#local-6989586621679847553"><span class="hs-identifier hs-var hs-var">thingTypeProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThingTypeProperties
+</span><a href="#local-6989586621679847553"><span class="hs-identifier hs-var">thingTypeProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847552"><span class="annot"><span class="annottext">s :: CreateThingType
+</span><a href="#local-6989586621679847552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847551"><span class="annot"><span class="annottext">Maybe ThingTypeProperties
+</span><a href="#local-6989586621679847551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingType
+</span><a href="#local-6989586621679847552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeProperties:CreateThingType' :: Maybe ThingTypeProperties
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeProperties%3ACreateThingType%27"><span class="hs-identifier hs-var">thingTypeProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThingTypeProperties
-</span><a href="#local-6989586621679846563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | Metadata which can be used to manage the thing type.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingType_tags"><span class="hs-identifier hs-type">createThingType_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -197,16 +197,16 @@ $sel:thingTypeProperties:CreateThingType' :: CreateThingType -&gt; Maybe ThingTy
 -&gt; (CreateThingType -&gt; Maybe [Tag] -&gt; CreateThingType)
 -&gt; Lens CreateThingType CreateThingType (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846562"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847550"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateThingType' :: CreateThingType -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679846562"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679846562"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846561"><span class="annot"><span class="annottext">s :: CreateThingType
-</span><a href="#local-6989586621679846561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846560"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679846560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingType
-</span><a href="#local-6989586621679846561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateThingType' :: Maybe [Tag]
+</span><a href="#local-6989586621679847550"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679847550"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847549"><span class="annot"><span class="annottext">s :: CreateThingType
+</span><a href="#local-6989586621679847549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847548"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679847548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingType
+</span><a href="#local-6989586621679847549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateThingType' :: Maybe [Tag]
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3Atags%3ACreateThingType%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679846560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679847548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateThingType -&gt; f CreateThingType)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -220,8 +220,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The name of the thing type.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingType_thingTypeName"><span class="hs-identifier hs-type">createThingType_thingTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -230,27 +230,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateThingType -&gt; Text -&gt; CreateThingType)
 -&gt; Lens CreateThingType CreateThingType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846556"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847544"><span class="annot"><span class="annottext">Text
 thingTypeName :: Text
 $sel:thingTypeName:CreateThingType' :: CreateThingType -&gt; Text
-</span><a href="#local-6989586621679846556"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846556"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846555"><span class="annot"><span class="annottext">s :: CreateThingType
-</span><a href="#local-6989586621679846555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846554"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingType
-</span><a href="#local-6989586621679846555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeName:CreateThingType' :: Text
+</span><a href="#local-6989586621679847544"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679847544"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847543"><span class="annot"><span class="annottext">s :: CreateThingType
+</span><a href="#local-6989586621679847543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847542"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679847542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingType
+</span><a href="#local-6989586621679847543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeName:CreateThingType' :: Text
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeName%3ACreateThingType%27"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679846550"><span class="annot"><span class="annottext">request :: CreateThingType -&gt; Request CreateThingType
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679847538"><span class="annot"><span class="annottext">request :: CreateThingType -&gt; Request CreateThingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateThingType -&gt; Request CreateThingType
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679846546"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679847534"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateThingType
 -&gt; ClientResponse ClientBody
@@ -274,10 +274,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679846543"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846543"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679846542"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679846542"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679846541"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679846541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679847531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847531"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679847530"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679847530"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679847529"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679847529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateThingTypeResponse
 </span><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-var">CreateThingTypeResponse'</span></a></span><span>
@@ -288,29 +288,29 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateThingTypeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679846541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679847529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thingTypeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;thingTypeName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateThingTypeResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateThingTypeResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679846541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679847529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thingTypeArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;thingTypeId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateThingTypeResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; CreateThingTypeResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679846541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679847529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;thingTypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;thingTypeArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateThingTypeResponse)
 -&gt; Either String Int -&gt; Either String CreateThingTypeResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -319,24 +319,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846543"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847531"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846533"><span id="local-6989586621679846535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679847521"><span id="local-6989586621679847523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679847518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679846526"><span class="annot"><span class="annottext">toHeaders :: CreateThingType -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679847514"><span class="annot"><span class="annottext">toHeaders :: CreateThingType -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateThingType -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846517"><span id="local-6989586621679846519"><span id="local-6989586621679846521"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679846515"><span class="annot"><span class="annottext">toJSON :: CreateThingType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846511"><span id="local-6989586621679846512"><span id="local-6989586621679846513"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679847505"><span id="local-6989586621679847507"><span id="local-6989586621679847509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679847503"><span class="annot"><span class="annottext">toJSON :: CreateThingType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847499"><span id="local-6989586621679847500"><span id="local-6989586621679847501"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe ThingTypeProperties
 Text
 thingTypeName :: Text
@@ -345,7 +345,7 @@ thingTypeProperties :: Maybe ThingTypeProperties
 $sel:thingTypeName:CreateThingType' :: CreateThingType -&gt; Text
 $sel:tags:CreateThingType' :: CreateThingType -&gt; Maybe [Tag]
 $sel:thingTypeProperties:CreateThingType' :: CreateThingType -&gt; Maybe ThingTypeProperties
-</span><a href="#local-6989586621679846511"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679847499"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -359,20 +359,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ThingTypeProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ThingTypeProperties
-</span><a href="#local-6989586621679846513"><span class="hs-identifier hs-var">thingTypeProperties</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679847501"><span class="hs-identifier hs-var">thingTypeProperties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679846512"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679847500"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679846505"><span class="annot"><span class="annottext">toPath :: CreateThingType -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846501"><span id="local-6989586621679846502"><span id="local-6989586621679846503"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679847493"><span class="annot"><span class="annottext">toPath :: CreateThingType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType%27"><span class="hs-identifier hs-type">CreateThingType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847489"><span id="local-6989586621679847490"><span id="local-6989586621679847491"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe ThingTypeProperties
 Text
 thingTypeName :: Text
@@ -381,7 +381,7 @@ thingTypeProperties :: Maybe ThingTypeProperties
 $sel:thingTypeName:CreateThingType' :: CreateThingType -&gt; Text
 $sel:tags:CreateThingType' :: CreateThingType -&gt; Maybe [Tag]
 $sel:thingTypeProperties:CreateThingType' :: CreateThingType -&gt; Maybe ThingTypeProperties
-</span><a href="#local-6989586621679846501"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679847489"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -389,10 +389,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/thing-types/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679846501"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679847489"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingType"><span class="hs-identifier hs-type">CreateThingType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679846497"><span class="annot"><span class="annottext">toQuery :: CreateThingType -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679847485"><span class="annot"><span class="annottext">toQuery :: CreateThingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateThingType -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -402,21 +402,21 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span class="hs-comment">-- | The output of the CreateThingType operation.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- /See:/ 'newCreateThingTypeResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679846494"><span id="local-6989586621679846495"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateThingTypeResponse"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-var">CreateThingTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateThingTypeResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-var">CreateThingTypeResponse'</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The thing type ID.</span><span>
-</span><span id="line-158"></span><span>    </span><span id="%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var hs-var">thingTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the thing type.</span><span>
-</span><span id="line-160"></span><span>    </span><span id="%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var hs-var">thingTypeArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The name of the thing type.</span><span>
-</span><span id="line-162"></span><span>    </span><span id="%24sel%3AthingTypeName%3ACreateThingTypeResponse%27"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; Maybe Text
+</span><span id="line-156"></span><span id="local-6989586621679847482"><span id="local-6989586621679847483"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateThingTypeResponse"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-var">CreateThingTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateThingTypeResponse%27"><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-var">CreateThingTypeResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the thing type.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AthingTypeName%3ACreateThingTypeResponse%27"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeName%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The thing type ID.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var hs-var">thingTypeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the thing type.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var hs-var">thingTypeArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateThingTypeResponse%27"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; Int
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AhttpStatus%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846486"><span id="local-6989586621679846488"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; CreateThingTypeResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679847474"><span id="local-6989586621679847476"><span class="annot"><span class="annottext">CreateThingTypeResponse -&gt; CreateThingTypeResponse -&gt; Bool
 (CreateThingTypeResponse -&gt; CreateThingTypeResponse -&gt; Bool)
 -&gt; (CreateThingTypeResponse -&gt; CreateThingTypeResponse -&gt; Bool)
 -&gt; Eq CreateThingTypeResponse
@@ -425,7 +425,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateThingTypeResponse -&gt; CreateThingTypeResponse -&gt; Bool
 == :: CreateThingTypeResponse -&gt; CreateThingTypeResponse -&gt; Bool
 $c== :: CreateThingTypeResponse -&gt; CreateThingTypeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846478"><span id="local-6989586621679846480"><span id="local-6989586621679846482"><span id="local-6989586621679846484"><span class="annot"><span class="annottext">ReadPrec [CreateThingTypeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847466"><span id="local-6989586621679847468"><span id="local-6989586621679847470"><span id="local-6989586621679847472"><span class="annot"><span class="annottext">ReadPrec [CreateThingTypeResponse]
 ReadPrec CreateThingTypeResponse
 Int -&gt; ReadS CreateThingTypeResponse
 ReadS [CreateThingTypeResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [CreateThingTypeResponse]
 $creadList :: ReadS [CreateThingTypeResponse]
 readsPrec :: Int -&gt; ReadS CreateThingTypeResponse
 $creadsPrec :: Int -&gt; ReadS CreateThingTypeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846472"><span id="local-6989586621679846474"><span id="local-6989586621679846476"><span class="annot"><span class="annottext">Int -&gt; CreateThingTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679847460"><span id="local-6989586621679847462"><span id="local-6989586621679847464"><span class="annot"><span class="annottext">Int -&gt; CreateThingTypeResponse -&gt; ShowS
 [CreateThingTypeResponse] -&gt; ShowS
 CreateThingTypeResponse -&gt; String
 (Int -&gt; CreateThingTypeResponse -&gt; ShowS)
@@ -481,11 +481,11 @@ $cfrom :: forall x. CreateThingTypeResponse -&gt; Rep CreateThingTypeResponse x
 </span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'thingTypeId', 'createThingTypeResponse_thingTypeId' - The thing type ID.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'thingTypeName', 'createThingTypeResponse_thingTypeName' - The name of the thing type.</span><span>
 </span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- 'thingTypeArn', 'createThingTypeResponse_thingTypeArn' - The Amazon Resource Name (ARN) of the thing type.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'thingTypeId', 'createThingTypeResponse_thingTypeId' - The thing type ID.</span><span>
 </span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- 'thingTypeName', 'createThingTypeResponse_thingTypeName' - The name of the thing type.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'thingTypeArn', 'createThingTypeResponse_thingTypeArn' - The Amazon Resource Name (ARN) of the thing type.</span><span>
 </span><span id="line-181"></span><span class="hs-comment">--</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'createThingTypeResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#newCreateThingTypeResponse"><span class="hs-identifier hs-type">newCreateThingTypeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -493,80 +493,32 @@ $cfrom :: forall x. CreateThingTypeResponse -&gt; Rep CreateThingTypeResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newCreateThingTypeResponse"><span class="annot"><span class="annottext">newCreateThingTypeResponse :: Int -&gt; CreateThingTypeResponse
-</span><a href="Network.AWS.IoT.CreateThingType.html#newCreateThingTypeResponse"><span class="hs-identifier hs-var hs-var">newCreateThingTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679846469"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CreateThingType.html#newCreateThingTypeResponse"><span class="hs-identifier hs-var hs-var">newCreateThingTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679847457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">CreateThingTypeResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateThingTypeResponse
 </span><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingTypeId:CreateThingTypeResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thingTypeName:CreateThingTypeResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeName%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingTypeArn:CreateThingTypeResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingTypeId:CreateThingTypeResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingTypeName:CreateThingTypeResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeName%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingTypeArn:CreateThingTypeResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateThingTypeResponse' :: Int
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AhttpStatus%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679847457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- | The thing type ID.</span><span>
-</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeId"><span class="hs-identifier hs-type">createThingTypeResponse_thingTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span id="createThingTypeResponse_thingTypeId"><span class="annot"><span class="annottext">createThingTypeResponse_thingTypeId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateThingTypeResponse -&gt; f CreateThingTypeResponse
-</span><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeId"><span class="hs-identifier hs-var hs-var">createThingTypeResponse_thingTypeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThingTypeResponse -&gt; Maybe Text)
--&gt; (CreateThingTypeResponse
-    -&gt; Maybe Text -&gt; CreateThingTypeResponse)
--&gt; Lens
-     CreateThingTypeResponse
-     CreateThingTypeResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846468"><span class="annot"><span class="annottext">Maybe Text
-thingTypeId :: Maybe Text
-$sel:thingTypeId:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679846468"><span class="hs-identifier hs-var hs-var">thingTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846468"><span class="hs-identifier hs-var">thingTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846467"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
-</span><a href="#local-6989586621679846467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846466"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
-</span><a href="#local-6989586621679846467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeId:CreateThingTypeResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the thing type.</span><span>
-</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeArn"><span class="hs-identifier hs-type">createThingTypeResponse_thingTypeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span id="createThingTypeResponse_thingTypeArn"><span class="annot"><span class="annottext">createThingTypeResponse_thingTypeArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateThingTypeResponse -&gt; f CreateThingTypeResponse
-</span><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeArn"><span class="hs-identifier hs-var hs-var">createThingTypeResponse_thingTypeArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThingTypeResponse -&gt; Maybe Text)
--&gt; (CreateThingTypeResponse
-    -&gt; Maybe Text -&gt; CreateThingTypeResponse)
--&gt; Lens
-     CreateThingTypeResponse
-     CreateThingTypeResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846465"><span class="annot"><span class="annottext">Maybe Text
-thingTypeArn :: Maybe Text
-$sel:thingTypeArn:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679846465"><span class="hs-identifier hs-var hs-var">thingTypeArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846465"><span class="hs-identifier hs-var">thingTypeArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846464"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
-</span><a href="#local-6989586621679846464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846463"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
-</span><a href="#local-6989586621679846464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeArn:CreateThingTypeResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The name of the thing type.</span><span>
-</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeName"><span class="hs-identifier hs-type">createThingTypeResponse_thingTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span id="createThingTypeResponse_thingTypeName"><span class="annot"><span class="annottext">createThingTypeResponse_thingTypeName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-196"></span><span class="hs-comment">-- | The name of the thing type.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeName"><span class="hs-identifier hs-type">createThingTypeResponse_thingTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="createThingTypeResponse_thingTypeName"><span class="annot"><span class="annottext">createThingTypeResponse_thingTypeName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateThingTypeResponse -&gt; f CreateThingTypeResponse
 </span><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeName"><span class="hs-identifier hs-var hs-var">createThingTypeResponse_thingTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThingTypeResponse -&gt; Maybe Text)
 -&gt; (CreateThingTypeResponse
@@ -577,16 +529,64 @@ $sel:thingTypeArn:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846462"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847456"><span class="annot"><span class="annottext">Maybe Text
 thingTypeName :: Maybe Text
 $sel:thingTypeName:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679846462"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846462"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846461"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
-</span><a href="#local-6989586621679846461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846460"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
-</span><a href="#local-6989586621679846461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeName:CreateThingTypeResponse' :: Maybe Text
+</span><a href="#local-6989586621679847456"><span class="hs-identifier hs-var hs-var">thingTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847456"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847455"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
+</span><a href="#local-6989586621679847455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
+</span><a href="#local-6989586621679847455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeName:CreateThingTypeResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeName%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679846460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The thing type ID.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeId"><span class="hs-identifier hs-type">createThingTypeResponse_thingTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="createThingTypeResponse_thingTypeId"><span class="annot"><span class="annottext">createThingTypeResponse_thingTypeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateThingTypeResponse -&gt; f CreateThingTypeResponse
+</span><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeId"><span class="hs-identifier hs-var hs-var">createThingTypeResponse_thingTypeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThingTypeResponse -&gt; Maybe Text)
+-&gt; (CreateThingTypeResponse
+    -&gt; Maybe Text -&gt; CreateThingTypeResponse)
+-&gt; Lens
+     CreateThingTypeResponse
+     CreateThingTypeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847453"><span class="annot"><span class="annottext">Maybe Text
+thingTypeId :: Maybe Text
+$sel:thingTypeId:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679847453"><span class="hs-identifier hs-var hs-var">thingTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847453"><span class="hs-identifier hs-var">thingTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847452"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
+</span><a href="#local-6989586621679847452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
+</span><a href="#local-6989586621679847452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeId:CreateThingTypeResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeId%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the thing type.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeArn"><span class="hs-identifier hs-type">createThingTypeResponse_thingTypeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="createThingTypeResponse_thingTypeArn"><span class="annot"><span class="annottext">createThingTypeResponse_thingTypeArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateThingTypeResponse -&gt; f CreateThingTypeResponse
+</span><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_thingTypeArn"><span class="hs-identifier hs-var hs-var">createThingTypeResponse_thingTypeArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThingTypeResponse -&gt; Maybe Text)
+-&gt; (CreateThingTypeResponse
+    -&gt; Maybe Text -&gt; CreateThingTypeResponse)
+-&gt; Lens
+     CreateThingTypeResponse
+     CreateThingTypeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847450"><span class="annot"><span class="annottext">Maybe Text
+thingTypeArn :: Maybe Text
+$sel:thingTypeArn:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679847450"><span class="hs-identifier hs-var hs-var">thingTypeArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847450"><span class="hs-identifier hs-var">thingTypeArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847449"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
+</span><a href="#local-6989586621679847449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
+</span><a href="#local-6989586621679847449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingTypeArn:CreateThingTypeResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AthingTypeArn%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">thingTypeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679847448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-209"></span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#createThingTypeResponse_httpStatus"><span class="hs-identifier hs-type">createThingTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -596,16 +596,16 @@ $sel:thingTypeName:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; May
 -&gt; (CreateThingTypeResponse -&gt; Int -&gt; CreateThingTypeResponse)
 -&gt; Lens CreateThingTypeResponse CreateThingTypeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846459"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679847447"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateThingTypeResponse' :: CreateThingTypeResponse -&gt; Int
-</span><a href="#local-6989586621679846459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846458"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
-</span><a href="#local-6989586621679846458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
-</span><a href="#local-6989586621679846458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateThingTypeResponse' :: Int
+</span><a href="#local-6989586621679847447"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847447"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679847446"><span class="annot"><span class="annottext">s :: CreateThingTypeResponse
+</span><a href="#local-6989586621679847446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse%27"><span class="hs-identifier hs-type">CreateThingTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679847445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679847445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThingTypeResponse
+</span><a href="#local-6989586621679847446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateThingTypeResponse' :: Int
 </span><a href="Network.AWS.IoT.CreateThingType.html#%24sel%3AhttpStatus%3ACreateThingTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679846457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679847445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679847443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CreateThingType.html#CreateThingTypeResponse"><span class="hs-identifier hs-type">CreateThingTypeResponse</span></a></span></span><span>
 </span><span id="line-213"></span></pre></body></html>

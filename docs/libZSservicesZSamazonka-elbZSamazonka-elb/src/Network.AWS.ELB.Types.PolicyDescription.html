@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a policy.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPolicyDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679197113"><span id="local-6989586621679197114"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyDescription"><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-var">PolicyDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyDescription%27"><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-var">PolicyDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679197340"><span id="local-6989586621679197341"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyDescription"><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-var">PolicyDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyDescription%27"><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-var">PolicyDescription'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the policy.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApolicyName%3APolicyDescription%27"><span class="annot"><span class="annottext">PolicyDescription -&gt; Maybe Text
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyName%3APolicyDescription%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the policy type.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="annot"><span class="annottext">PolicyDescription -&gt; Maybe Text
-</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="hs-identifier hs-var hs-var">policyTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The policy attributes.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApolicyAttributeDescriptions%3APolicyDescription%27"><span class="annot"><span class="annottext">PolicyDescription -&gt; Maybe [PolicyAttributeDescription]
-</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyAttributeDescriptions%3APolicyDescription%27"><span class="hs-identifier hs-var hs-var">policyAttributeDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyAttributeDescription.html#PolicyAttributeDescription"><span class="hs-identifier hs-type">PolicyAttributeDescription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The policy attributes.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ApolicyAttributeDescriptions%3APolicyDescription%27"><span class="annot"><span class="annottext">PolicyDescription -&gt; Maybe [PolicyAttributeDescription]
+</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyAttributeDescriptions%3APolicyDescription%27"><span class="hs-identifier hs-var hs-var">policyAttributeDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyAttributeDescription.html#PolicyAttributeDescription"><span class="hs-identifier hs-type">PolicyAttributeDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the policy type.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="annot"><span class="annottext">PolicyDescription -&gt; Maybe Text
+</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="hs-identifier hs-var hs-var">policyTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197105"><span id="local-6989586621679197107"><span class="annot"><span class="annottext">PolicyDescription -&gt; PolicyDescription -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197332"><span id="local-6989586621679197334"><span class="annot"><span class="annottext">PolicyDescription -&gt; PolicyDescription -&gt; Bool
 (PolicyDescription -&gt; PolicyDescription -&gt; Bool)
 -&gt; (PolicyDescription -&gt; PolicyDescription -&gt; Bool)
 -&gt; Eq PolicyDescription
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PolicyDescription -&gt; PolicyDescription -&gt; Bool
 == :: PolicyDescription -&gt; PolicyDescription -&gt; Bool
 $c== :: PolicyDescription -&gt; PolicyDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197096"><span id="local-6989586621679197098"><span id="local-6989586621679197100"><span id="local-6989586621679197102"><span class="annot"><span class="annottext">ReadPrec [PolicyDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197323"><span id="local-6989586621679197325"><span id="local-6989586621679197327"><span id="local-6989586621679197329"><span class="annot"><span class="annottext">ReadPrec [PolicyDescription]
 ReadPrec PolicyDescription
 Int -&gt; ReadS PolicyDescription
 ReadS [PolicyDescription]
@@ -68,7 +68,7 @@ readList :: ReadS [PolicyDescription]
 $creadList :: ReadS [PolicyDescription]
 readsPrec :: Int -&gt; ReadS PolicyDescription
 $creadsPrec :: Int -&gt; ReadS PolicyDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197089"><span id="local-6989586621679197091"><span id="local-6989586621679197093"><span class="annot"><span class="annottext">Int -&gt; PolicyDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197316"><span id="local-6989586621679197318"><span id="local-6989586621679197320"><span class="annot"><span class="annottext">Int -&gt; PolicyDescription -&gt; ShowS
 [PolicyDescription] -&gt; ShowS
 PolicyDescription -&gt; String
 (Int -&gt; PolicyDescription -&gt; ShowS)
@@ -104,28 +104,28 @@ $cfrom :: forall x. PolicyDescription -&gt; Rep PolicyDescription x
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'policyName', 'policyDescription_policyName' - The name of the policy.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'policyTypeName', 'policyDescription_policyTypeName' - The name of the policy type.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'policyAttributeDescriptions', 'policyDescription_policyAttributeDescriptions' - The policy attributes.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'policyAttributeDescriptions', 'policyDescription_policyAttributeDescriptions' - The policy attributes.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'policyTypeName', 'policyDescription_policyTypeName' - The name of the policy type.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#newPolicyDescription"><span class="hs-identifier hs-type">newPolicyDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span>
 </span><span id="line-56"></span><span id="newPolicyDescription"><span class="annot"><span class="annottext">newPolicyDescription :: PolicyDescription
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#newPolicyDescription"><span class="hs-identifier hs-var hs-var">newPolicyDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">PolicyDescription' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [PolicyAttributeDescription]
+-&gt; Maybe Text
 -&gt; PolicyDescription
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyName:PolicyDescription' :: Maybe Text
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyName%3APolicyDescription%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyTypeName:PolicyDescription' :: Maybe Text
-</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="hs-identifier hs-var">policyTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyAttributeDescriptions:PolicyDescription' :: Maybe [PolicyAttributeDescription]
+</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyAttributeDescriptions%3APolicyDescription%27"><span class="hs-identifier hs-var">policyAttributeDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyAttributeDescriptions:PolicyDescription' :: Maybe [PolicyAttributeDescription]
-</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyAttributeDescriptions%3APolicyDescription%27"><span class="hs-identifier hs-var">policyAttributeDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyTypeName:PolicyDescription' :: Maybe Text
+</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="hs-identifier hs-var">policyTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
@@ -139,40 +139,20 @@ forall a. Maybe a
 -&gt; Lens
      PolicyDescription PolicyDescription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197080"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197307"><span class="annot"><span class="annottext">Maybe Text
 policyName :: Maybe Text
 $sel:policyName:PolicyDescription' :: PolicyDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679197080"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197080"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197079"><span class="annot"><span class="annottext">s :: PolicyDescription
-</span><a href="#local-6989586621679197079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197078"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDescription
-</span><a href="#local-6989586621679197079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:PolicyDescription' :: Maybe Text
+</span><a href="#local-6989586621679197307"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197307"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197306"><span class="annot"><span class="annottext">s :: PolicyDescription
+</span><a href="#local-6989586621679197306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDescription
+</span><a href="#local-6989586621679197306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:PolicyDescription' :: Maybe Text
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyName%3APolicyDescription%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The name of the policy type.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#policyDescription_policyTypeName"><span class="hs-identifier hs-type">policyDescription_policyTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="policyDescription_policyTypeName"><span class="annot"><span class="annottext">policyDescription_policyTypeName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PolicyDescription -&gt; f PolicyDescription
-</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#policyDescription_policyTypeName"><span class="hs-identifier hs-var hs-var">policyDescription_policyTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDescription -&gt; Maybe Text)
--&gt; (PolicyDescription -&gt; Maybe Text -&gt; PolicyDescription)
--&gt; Lens
-     PolicyDescription PolicyDescription (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197076"><span class="annot"><span class="annottext">Maybe Text
-policyTypeName :: Maybe Text
-$sel:policyTypeName:PolicyDescription' :: PolicyDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679197076"><span class="hs-identifier hs-var hs-var">policyTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197076"><span class="hs-identifier hs-var">policyTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197075"><span class="annot"><span class="annottext">s :: PolicyDescription
-</span><a href="#local-6989586621679197075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197074"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDescription
-</span><a href="#local-6989586621679197075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypeName:PolicyDescription' :: Maybe Text
-</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="hs-identifier hs-var">policyTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679197074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The policy attributes.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#policyDescription_policyAttributeDescriptions"><span class="hs-identifier hs-type">policyDescription_policyAttributeDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyAttributeDescription.html#PolicyAttributeDescription"><span class="hs-identifier hs-type">PolicyAttributeDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="policyDescription_policyAttributeDescriptions"><span class="annot"><span class="annottext">policyDescription_policyAttributeDescriptions :: (Maybe [PolicyAttributeDescription]
+</span><span id="line-67"></span><span class="hs-comment">-- | The policy attributes.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#policyDescription_policyAttributeDescriptions"><span class="hs-identifier hs-type">policyDescription_policyAttributeDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyAttributeDescription.html#PolicyAttributeDescription"><span class="hs-identifier hs-type">PolicyAttributeDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="policyDescription_policyAttributeDescriptions"><span class="annot"><span class="annottext">policyDescription_policyAttributeDescriptions :: (Maybe [PolicyAttributeDescription]
  -&gt; f (Maybe [PolicyAttributeDescription]))
 -&gt; PolicyDescription -&gt; f PolicyDescription
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#policyDescription_policyAttributeDescriptions"><span class="hs-identifier hs-var hs-var">policyDescription_policyAttributeDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDescription -&gt; Maybe [PolicyAttributeDescription])
@@ -184,16 +164,16 @@ $sel:policyTypeName:PolicyDescription' :: PolicyDescription -&gt; Maybe Text
      (Maybe [PolicyAttributeDescription])
      (Maybe [PolicyAttributeDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197072"><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197303"><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
 policyAttributeDescriptions :: Maybe [PolicyAttributeDescription]
 $sel:policyAttributeDescriptions:PolicyDescription' :: PolicyDescription -&gt; Maybe [PolicyAttributeDescription]
-</span><a href="#local-6989586621679197072"><span class="hs-identifier hs-var hs-var">policyAttributeDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
-</span><a href="#local-6989586621679197072"><span class="hs-identifier hs-var">policyAttributeDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197071"><span class="annot"><span class="annottext">s :: PolicyDescription
-</span><a href="#local-6989586621679197071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197070"><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
-</span><a href="#local-6989586621679197070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDescription
-</span><a href="#local-6989586621679197071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyAttributeDescriptions:PolicyDescription' :: Maybe [PolicyAttributeDescription]
+</span><a href="#local-6989586621679197303"><span class="hs-identifier hs-var hs-var">policyAttributeDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
+</span><a href="#local-6989586621679197303"><span class="hs-identifier hs-var">policyAttributeDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197302"><span class="annot"><span class="annottext">s :: PolicyDescription
+</span><a href="#local-6989586621679197302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197301"><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
+</span><a href="#local-6989586621679197301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDescription
+</span><a href="#local-6989586621679197302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyAttributeDescriptions:PolicyDescription' :: Maybe [PolicyAttributeDescription]
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyAttributeDescriptions%3APolicyDescription%27"><span class="hs-identifier hs-var">policyAttributeDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttributeDescription]
-</span><a href="#local-6989586621679197070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyAttributeDescription]
+</span><a href="#local-6989586621679197301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyAttributeDescription]
   -&gt; f (Maybe [PolicyAttributeDescription]))
  -&gt; PolicyDescription -&gt; f PolicyDescription)
 -&gt; ((Maybe [PolicyAttributeDescription]
@@ -223,62 +203,71 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PolicyAttributeDescription]
   [PolicyAttributeDescription]
   [PolicyAttributeDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The name of the policy type.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#policyDescription_policyTypeName"><span class="hs-identifier hs-type">policyDescription_policyTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="policyDescription_policyTypeName"><span class="annot"><span class="annottext">policyDescription_policyTypeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PolicyDescription -&gt; f PolicyDescription
+</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#policyDescription_policyTypeName"><span class="hs-identifier hs-var hs-var">policyDescription_policyTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDescription -&gt; Maybe Text)
+-&gt; (PolicyDescription -&gt; Maybe Text -&gt; PolicyDescription)
+-&gt; Lens
+     PolicyDescription PolicyDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197296"><span class="annot"><span class="annottext">Maybe Text
+policyTypeName :: Maybe Text
+$sel:policyTypeName:PolicyDescription' :: PolicyDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679197296"><span class="hs-identifier hs-var hs-var">policyTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197296"><span class="hs-identifier hs-var">policyTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197295"><span class="annot"><span class="annottext">s :: PolicyDescription
+</span><a href="#local-6989586621679197295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-type">PolicyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197294"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDescription
+</span><a href="#local-6989586621679197295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypeName:PolicyDescription' :: Maybe Text
+</span><a href="Network.AWS.ELB.Types.PolicyDescription.html#%24sel%3ApolicyTypeName%3APolicyDescription%27"><span class="hs-identifier hs-var">policyTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679197064"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PolicyDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679197062"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679197291"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PolicyDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679197289"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679197289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [PolicyAttributeDescription]
+-&gt; Maybe Text
 -&gt; PolicyDescription
 </span><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription%27"><span class="hs-identifier hs-var">PolicyDescription'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe [PolicyAttributeDescription]
+ -&gt; Maybe Text
  -&gt; PolicyDescription)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe [PolicyAttributeDescription] -&gt; PolicyDescription)
+     (Maybe [PolicyAttributeDescription]
+      -&gt; Maybe Text -&gt; PolicyDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679197289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe [PolicyAttributeDescription] -&gt; PolicyDescription)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [PolicyAttributeDescription] -&gt; PolicyDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PolicyTypeName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe [PolicyAttributeDescription] -&gt; PolicyDescription)
+  (Maybe [PolicyAttributeDescription]
+   -&gt; Maybe Text -&gt; PolicyDescription)
 -&gt; Either String (Maybe [PolicyAttributeDescription])
--&gt; Either String PolicyDescription
+-&gt; Either String (Maybe Text -&gt; PolicyDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197062"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679197289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyAttributeDescriptions&quot;</span></span><span>
-</span><span id="line-81"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-80"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-82"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-81"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [PolicyAttributeDescription]))
 -&gt; Either String (Maybe [PolicyAttributeDescription])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -291,9 +280,17 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; PolicyDescription)
+-&gt; Either String (Maybe Text) -&gt; Either String PolicyDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679197289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyTypeName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197053"><span id="local-6989586621679197055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197280"><span id="local-6989586621679197282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.PolicyDescription.html#PolicyDescription"><span class="hs-identifier hs-type">PolicyDescription</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

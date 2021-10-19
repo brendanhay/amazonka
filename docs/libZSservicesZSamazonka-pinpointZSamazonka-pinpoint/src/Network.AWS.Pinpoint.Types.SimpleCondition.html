@@ -29,20 +29,20 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Specifies a condition to evaluate for an activity in a journey.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSimpleCondition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679611811"><span id="local-6989586621679611812"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimpleCondition"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-var">SimpleCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimpleCondition%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-var">SimpleCondition'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dimension settings for the event that\'s associated with the</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679612305"><span id="local-6989586621679612306"></span></span><span class="hs-keyword">data</span><span> </span><span id="SimpleCondition"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-var">SimpleCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimpleCondition%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-var">SimpleCondition'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dimension settings for the segment that\'s associated with the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- activity.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AeventCondition%3ASimpleCondition%27"><span class="annot"><span class="annottext">SimpleCondition -&gt; Maybe EventCondition
-</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AeventCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var hs-var">eventCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The dimension settings for the segment that\'s associated with the</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- activity.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsegmentDimensions%3ASimpleCondition%27"><span class="annot"><span class="annottext">SimpleCondition -&gt; Maybe SegmentDimensions
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsegmentDimensions%3ASimpleCondition%27"><span class="annot"><span class="annottext">SimpleCondition -&gt; Maybe SegmentDimensions
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AsegmentDimensions%3ASimpleCondition%27"><span class="hs-identifier hs-var hs-var">segmentDimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The dimension settings for the event that\'s associated with the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- activity.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AeventCondition%3ASimpleCondition%27"><span class="annot"><span class="annottext">SimpleCondition -&gt; Maybe EventCondition
+</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AeventCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var hs-var">eventCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The segment that\'s associated with the activity.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AsegmentCondition%3ASimpleCondition%27"><span class="annot"><span class="annottext">SimpleCondition -&gt; Maybe SegmentCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AsegmentCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var hs-var">segmentCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentCondition.html#SegmentCondition"><span class="hs-identifier hs-type">SegmentCondition</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611803"><span id="local-6989586621679611805"><span class="annot"><span class="annottext">SimpleCondition -&gt; SimpleCondition -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679612297"><span id="local-6989586621679612299"><span class="annot"><span class="annottext">SimpleCondition -&gt; SimpleCondition -&gt; Bool
 (SimpleCondition -&gt; SimpleCondition -&gt; Bool)
 -&gt; (SimpleCondition -&gt; SimpleCondition -&gt; Bool)
 -&gt; Eq SimpleCondition
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SimpleCondition -&gt; SimpleCondition -&gt; Bool
 == :: SimpleCondition -&gt; SimpleCondition -&gt; Bool
 $c== :: SimpleCondition -&gt; SimpleCondition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611794"><span id="local-6989586621679611796"><span id="local-6989586621679611798"><span id="local-6989586621679611800"><span class="annot"><span class="annottext">ReadPrec [SimpleCondition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612288"><span id="local-6989586621679612290"><span id="local-6989586621679612292"><span id="local-6989586621679612294"><span class="annot"><span class="annottext">ReadPrec [SimpleCondition]
 ReadPrec SimpleCondition
 Int -&gt; ReadS SimpleCondition
 ReadS [SimpleCondition]
@@ -71,7 +71,7 @@ readList :: ReadS [SimpleCondition]
 $creadList :: ReadS [SimpleCondition]
 readsPrec :: Int -&gt; ReadS SimpleCondition
 $creadsPrec :: Int -&gt; ReadS SimpleCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611787"><span id="local-6989586621679611789"><span id="local-6989586621679611791"><span class="annot"><span class="annottext">Int -&gt; SimpleCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679612281"><span id="local-6989586621679612283"><span id="local-6989586621679612285"><span class="annot"><span class="annottext">Int -&gt; SimpleCondition -&gt; ShowS
 [SimpleCondition] -&gt; ShowS
 SimpleCondition -&gt; String
 (Int -&gt; SimpleCondition -&gt; ShowS)
@@ -105,10 +105,10 @@ $cfrom :: forall x. SimpleCondition -&gt; Rep SimpleCondition x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'eventCondition', 'simpleCondition_eventCondition' - The dimension settings for the event that\'s associated with the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'segmentDimensions', 'simpleCondition_segmentDimensions' - The dimension settings for the segment that\'s associated with the</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- activity.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'segmentDimensions', 'simpleCondition_segmentDimensions' - The dimension settings for the segment that\'s associated with the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'eventCondition', 'simpleCondition_eventCondition' - The dimension settings for the event that\'s associated with the</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- activity.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'segmentCondition', 'simpleCondition_segmentCondition' - The segment that\'s associated with the activity.</span><span>
@@ -116,53 +116,30 @@ $cfrom :: forall x. SimpleCondition -&gt; Rep SimpleCondition x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span>
 </span><span id="line-61"></span><span id="newSimpleCondition"><span class="annot"><span class="annottext">newSimpleCondition :: SimpleCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#newSimpleCondition"><span class="hs-identifier hs-var hs-var">newSimpleCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">SimpleCondition' :: Maybe EventCondition
--&gt; Maybe SegmentDimensions
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">SimpleCondition' :: Maybe SegmentDimensions
+-&gt; Maybe EventCondition
 -&gt; Maybe SegmentCondition
 -&gt; SimpleCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventCondition:SimpleCondition' :: Maybe EventCondition
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:segmentDimensions:SimpleCondition' :: Maybe SegmentDimensions
+</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AsegmentDimensions%3ASimpleCondition%27"><span class="hs-identifier hs-var">segmentDimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe SegmentDimensions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventCondition:SimpleCondition' :: Maybe EventCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AeventCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var">eventCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCondition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentDimensions:SimpleCondition' :: Maybe SegmentDimensions
-</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AsegmentDimensions%3ASimpleCondition%27"><span class="hs-identifier hs-var">segmentDimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDimensions
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentCondition:SimpleCondition' :: Maybe SegmentCondition
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentCondition:SimpleCondition' :: Maybe SegmentCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AsegmentCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var">segmentCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The dimension settings for the event that\'s associated with the</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- activity.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_eventCondition"><span class="hs-identifier hs-type">simpleCondition_eventCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="simpleCondition_eventCondition"><span class="annot"><span class="annottext">simpleCondition_eventCondition :: (Maybe EventCondition -&gt; f (Maybe EventCondition))
--&gt; SimpleCondition -&gt; f SimpleCondition
-</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_eventCondition"><span class="hs-identifier hs-var hs-var">simpleCondition_eventCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleCondition -&gt; Maybe EventCondition)
--&gt; (SimpleCondition -&gt; Maybe EventCondition -&gt; SimpleCondition)
--&gt; Lens
-     SimpleCondition
-     SimpleCondition
-     (Maybe EventCondition)
-     (Maybe EventCondition)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611778"><span class="annot"><span class="annottext">Maybe EventCondition
-eventCondition :: Maybe EventCondition
-$sel:eventCondition:SimpleCondition' :: SimpleCondition -&gt; Maybe EventCondition
-</span><a href="#local-6989586621679611778"><span class="hs-identifier hs-var hs-var">eventCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventCondition
-</span><a href="#local-6989586621679611778"><span class="hs-identifier hs-var">eventCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611777"><span class="annot"><span class="annottext">s :: SimpleCondition
-</span><a href="#local-6989586621679611777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611776"><span class="annot"><span class="annottext">Maybe EventCondition
-</span><a href="#local-6989586621679611776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleCondition
-</span><a href="#local-6989586621679611777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCondition:SimpleCondition' :: Maybe EventCondition
-</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AeventCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var">eventCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCondition
-</span><a href="#local-6989586621679611776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The dimension settings for the segment that\'s associated with the</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- activity.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_segmentDimensions"><span class="hs-identifier hs-type">simpleCondition_segmentDimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="simpleCondition_segmentDimensions"><span class="annot"><span class="annottext">simpleCondition_segmentDimensions :: (Maybe SegmentDimensions -&gt; f (Maybe SegmentDimensions))
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The dimension settings for the segment that\'s associated with the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- activity.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_segmentDimensions"><span class="hs-identifier hs-type">simpleCondition_segmentDimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentDimensions.html#SegmentDimensions"><span class="hs-identifier hs-type">SegmentDimensions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="simpleCondition_segmentDimensions"><span class="annot"><span class="annottext">simpleCondition_segmentDimensions :: (Maybe SegmentDimensions -&gt; f (Maybe SegmentDimensions))
 -&gt; SimpleCondition -&gt; f SimpleCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_segmentDimensions"><span class="hs-identifier hs-var hs-var">simpleCondition_segmentDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleCondition -&gt; Maybe SegmentDimensions)
 -&gt; (SimpleCondition -&gt; Maybe SegmentDimensions -&gt; SimpleCondition)
@@ -172,20 +149,44 @@ $sel:eventCondition:SimpleCondition' :: SimpleCondition -&gt; Maybe EventConditi
      (Maybe SegmentDimensions)
      (Maybe SegmentDimensions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611774"><span class="annot"><span class="annottext">Maybe SegmentDimensions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612272"><span class="annot"><span class="annottext">Maybe SegmentDimensions
 segmentDimensions :: Maybe SegmentDimensions
 $sel:segmentDimensions:SimpleCondition' :: SimpleCondition -&gt; Maybe SegmentDimensions
-</span><a href="#local-6989586621679611774"><span class="hs-identifier hs-var hs-var">segmentDimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDimensions
-</span><a href="#local-6989586621679611774"><span class="hs-identifier hs-var">segmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611773"><span class="annot"><span class="annottext">s :: SimpleCondition
-</span><a href="#local-6989586621679611773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611772"><span class="annot"><span class="annottext">Maybe SegmentDimensions
-</span><a href="#local-6989586621679611772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleCondition
-</span><a href="#local-6989586621679611773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDimensions:SimpleCondition' :: Maybe SegmentDimensions
+</span><a href="#local-6989586621679612272"><span class="hs-identifier hs-var hs-var">segmentDimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDimensions
+</span><a href="#local-6989586621679612272"><span class="hs-identifier hs-var">segmentDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612271"><span class="annot"><span class="annottext">s :: SimpleCondition
+</span><a href="#local-6989586621679612271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612270"><span class="annot"><span class="annottext">Maybe SegmentDimensions
+</span><a href="#local-6989586621679612270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleCondition
+</span><a href="#local-6989586621679612271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDimensions:SimpleCondition' :: Maybe SegmentDimensions
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AsegmentDimensions%3ASimpleCondition%27"><span class="hs-identifier hs-var">segmentDimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDimensions
-</span><a href="#local-6989586621679611772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The segment that\'s associated with the activity.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_segmentCondition"><span class="hs-identifier hs-type">simpleCondition_segmentCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentCondition.html#SegmentCondition"><span class="hs-identifier hs-type">SegmentCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="simpleCondition_segmentCondition"><span class="annot"><span class="annottext">simpleCondition_segmentCondition :: (Maybe SegmentCondition -&gt; f (Maybe SegmentCondition))
+</span><a href="#local-6989586621679612270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The dimension settings for the event that\'s associated with the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- activity.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_eventCondition"><span class="hs-identifier hs-type">simpleCondition_eventCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="simpleCondition_eventCondition"><span class="annot"><span class="annottext">simpleCondition_eventCondition :: (Maybe EventCondition -&gt; f (Maybe EventCondition))
+-&gt; SimpleCondition -&gt; f SimpleCondition
+</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_eventCondition"><span class="hs-identifier hs-var hs-var">simpleCondition_eventCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleCondition -&gt; Maybe EventCondition)
+-&gt; (SimpleCondition -&gt; Maybe EventCondition -&gt; SimpleCondition)
+-&gt; Lens
+     SimpleCondition
+     SimpleCondition
+     (Maybe EventCondition)
+     (Maybe EventCondition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612268"><span class="annot"><span class="annottext">Maybe EventCondition
+eventCondition :: Maybe EventCondition
+$sel:eventCondition:SimpleCondition' :: SimpleCondition -&gt; Maybe EventCondition
+</span><a href="#local-6989586621679612268"><span class="hs-identifier hs-var hs-var">eventCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventCondition
+</span><a href="#local-6989586621679612268"><span class="hs-identifier hs-var">eventCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612267"><span class="annot"><span class="annottext">s :: SimpleCondition
+</span><a href="#local-6989586621679612267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612266"><span class="annot"><span class="annottext">Maybe EventCondition
+</span><a href="#local-6989586621679612266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleCondition
+</span><a href="#local-6989586621679612267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCondition:SimpleCondition' :: Maybe EventCondition
+</span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AeventCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var">eventCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventCondition
+</span><a href="#local-6989586621679612266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The segment that\'s associated with the activity.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_segmentCondition"><span class="hs-identifier hs-type">simpleCondition_segmentCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SegmentCondition.html#SegmentCondition"><span class="hs-identifier hs-type">SegmentCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="simpleCondition_segmentCondition"><span class="annot"><span class="annottext">simpleCondition_segmentCondition :: (Maybe SegmentCondition -&gt; f (Maybe SegmentCondition))
 -&gt; SimpleCondition -&gt; f SimpleCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#simpleCondition_segmentCondition"><span class="hs-identifier hs-var hs-var">simpleCondition_segmentCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SimpleCondition -&gt; Maybe SegmentCondition)
 -&gt; (SimpleCondition -&gt; Maybe SegmentCondition -&gt; SimpleCondition)
@@ -195,116 +196,114 @@ $sel:segmentDimensions:SimpleCondition' :: SimpleCondition -&gt; Maybe SegmentDi
      (Maybe SegmentCondition)
      (Maybe SegmentCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611770"><span class="annot"><span class="annottext">Maybe SegmentCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612264"><span class="annot"><span class="annottext">Maybe SegmentCondition
 segmentCondition :: Maybe SegmentCondition
 $sel:segmentCondition:SimpleCondition' :: SimpleCondition -&gt; Maybe SegmentCondition
-</span><a href="#local-6989586621679611770"><span class="hs-identifier hs-var hs-var">segmentCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679611770"><span class="hs-identifier hs-var">segmentCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611769"><span class="annot"><span class="annottext">s :: SimpleCondition
-</span><a href="#local-6989586621679611769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611768"><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679611768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleCondition
-</span><a href="#local-6989586621679611769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentCondition:SimpleCondition' :: Maybe SegmentCondition
+</span><a href="#local-6989586621679612264"><span class="hs-identifier hs-var hs-var">segmentCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
+</span><a href="#local-6989586621679612264"><span class="hs-identifier hs-var">segmentCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679612263"><span class="annot"><span class="annottext">s :: SimpleCondition
+</span><a href="#local-6989586621679612263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679612262"><span class="annot"><span class="annottext">Maybe SegmentCondition
+</span><a href="#local-6989586621679612262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SimpleCondition
+</span><a href="#local-6989586621679612263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentCondition:SimpleCondition' :: Maybe SegmentCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#%24sel%3AsegmentCondition%3ASimpleCondition%27"><span class="hs-identifier hs-var">segmentCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679611768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611765"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679611763"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SimpleCondition
+</span><a href="#local-6989586621679612262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679612257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SimpleCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SimpleCondition)
 -&gt; Value
 -&gt; Parser SimpleCondition
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SimpleCondition&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611760"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventCondition
--&gt; Maybe SegmentDimensions
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679612254"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe SegmentDimensions
+-&gt; Maybe EventCondition
 -&gt; Maybe SegmentCondition
 -&gt; SimpleCondition
 </span><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-var">SimpleCondition'</span></a></span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EventCondition
- -&gt; Maybe SegmentDimensions
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SegmentDimensions
+ -&gt; Maybe EventCondition
  -&gt; Maybe SegmentCondition
  -&gt; SimpleCondition)
--&gt; Parser (Maybe EventCondition)
+-&gt; Parser (Maybe SegmentDimensions)
 -&gt; Parser
-     (Maybe SegmentDimensions
-      -&gt; Maybe SegmentCondition -&gt; SimpleCondition)
+     (Maybe EventCondition -&gt; Maybe SegmentCondition -&gt; SimpleCondition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventCondition)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EventCondition&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SegmentDimensions
-   -&gt; Maybe SegmentCondition -&gt; SimpleCondition)
--&gt; Parser (Maybe SegmentDimensions)
--&gt; Parser (Maybe SegmentCondition -&gt; SimpleCondition)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentDimensions)
+</span><a href="#local-6989586621679612254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentDimensions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;segmentDimensions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SegmentCondition -&gt; SimpleCondition)
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventCondition -&gt; Maybe SegmentCondition -&gt; SimpleCondition)
+-&gt; Parser (Maybe EventCondition)
+-&gt; Parser (Maybe SegmentCondition -&gt; SimpleCondition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679612254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventCondition)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventCondition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SegmentCondition -&gt; SimpleCondition)
 -&gt; Parser (Maybe SegmentCondition) -&gt; Parser SimpleCondition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentCondition)
+</span><a href="#local-6989586621679612254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentCondition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SegmentCondition&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611754"><span id="local-6989586621679611756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span></span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611743"><span id="local-6989586621679611745"><span id="local-6989586621679611747"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679611741"><span class="annot"><span class="annottext">toJSON :: SimpleCondition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611737"><span id="local-6989586621679611738"><span id="local-6989586621679611739"><span class="annot"><span class="annottext">Maybe SegmentCondition
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612248"><span id="local-6989586621679612250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679612237"><span id="local-6989586621679612239"><span id="local-6989586621679612241"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition"><span class="hs-identifier hs-type">SimpleCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679612235"><span class="annot"><span class="annottext">toJSON :: SimpleCondition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SimpleCondition.html#SimpleCondition%27"><span class="hs-identifier hs-type">SimpleCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679612231"><span id="local-6989586621679612232"><span id="local-6989586621679612233"><span class="annot"><span class="annottext">Maybe SegmentCondition
 Maybe SegmentDimensions
 Maybe EventCondition
 segmentCondition :: Maybe SegmentCondition
-segmentDimensions :: Maybe SegmentDimensions
 eventCondition :: Maybe EventCondition
+segmentDimensions :: Maybe SegmentDimensions
 $sel:segmentCondition:SimpleCondition' :: SimpleCondition -&gt; Maybe SegmentCondition
-$sel:segmentDimensions:SimpleCondition' :: SimpleCondition -&gt; Maybe SegmentDimensions
 $sel:eventCondition:SimpleCondition' :: SimpleCondition -&gt; Maybe EventCondition
-</span><a href="#local-6989586621679611737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:segmentDimensions:SimpleCondition' :: SimpleCondition -&gt; Maybe SegmentDimensions
+</span><a href="#local-6989586621679612231"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EventCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventCondition -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(EventCondition -&gt; Pair) -&gt; Maybe EventCondition -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventCondition
-</span><a href="#local-6989586621679611739"><span class="hs-identifier hs-var">eventCondition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;segmentDimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SegmentDimensions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(SegmentDimensions -&gt; Pair)
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(SegmentDimensions -&gt; Pair)
 -&gt; Maybe SegmentDimensions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SegmentDimensions
-</span><a href="#local-6989586621679611738"><span class="hs-identifier hs-var">segmentDimensions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679612233"><span class="hs-identifier hs-var">segmentDimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventCondition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">(EventCondition -&gt; Pair) -&gt; Maybe EventCondition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventCondition
+</span><a href="#local-6989586621679612232"><span class="hs-identifier hs-var">eventCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SegmentCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SegmentCondition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(SegmentCondition -&gt; Pair) -&gt; Maybe SegmentCondition -&gt; Maybe Pair
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(SegmentCondition -&gt; Pair) -&gt; Maybe SegmentCondition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679611737"><span class="hs-identifier hs-var">segmentCondition</span></a></span><span>
-</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span></pre></body></html>
+</span><a href="#local-6989586621679612231"><span class="hs-identifier hs-var">segmentCondition</span></a></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

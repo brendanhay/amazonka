@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains a list of HTTP header names.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHeaders' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679392150"><span id="local-6989586621679392151"></span></span><span class="hs-keyword">data</span><span> </span><span id="Headers"><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-var">Headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Headers%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-var">Headers'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679392386"><span id="local-6989586621679392387"></span></span><span class="hs-keyword">data</span><span> </span><span id="Headers"><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-var">Headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Headers%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-var">Headers'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of HTTP header names.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aitems%3AHeaders%27"><span class="annot"><span class="annottext">Headers -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#%24sel%3Aitems%3AHeaders%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aquantity%3AHeaders%27"><span class="annot"><span class="annottext">Headers -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#%24sel%3Aquantity%3AHeaders%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392143"><span id="local-6989586621679392145"><span class="annot"><span class="annottext">Headers -&gt; Headers -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392379"><span id="local-6989586621679392381"><span class="annot"><span class="annottext">Headers -&gt; Headers -&gt; Bool
 (Headers -&gt; Headers -&gt; Bool)
 -&gt; (Headers -&gt; Headers -&gt; Bool) -&gt; Eq Headers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Headers -&gt; Headers -&gt; Bool
 == :: Headers -&gt; Headers -&gt; Bool
 $c== :: Headers -&gt; Headers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392134"><span id="local-6989586621679392136"><span id="local-6989586621679392138"><span id="local-6989586621679392140"><span class="annot"><span class="annottext">ReadPrec [Headers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392370"><span id="local-6989586621679392372"><span id="local-6989586621679392374"><span id="local-6989586621679392376"><span class="annot"><span class="annottext">ReadPrec [Headers]
 ReadPrec Headers
 Int -&gt; ReadS Headers
 ReadS [Headers]
@@ -62,7 +62,7 @@ readList :: ReadS [Headers]
 $creadList :: ReadS [Headers]
 readsPrec :: Int -&gt; ReadS Headers
 $creadsPrec :: Int -&gt; ReadS Headers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392127"><span id="local-6989586621679392129"><span id="local-6989586621679392131"><span class="annot"><span class="annottext">Int -&gt; Headers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392363"><span id="local-6989586621679392365"><span id="local-6989586621679392367"><span class="annot"><span class="annottext">Int -&gt; Headers -&gt; ShowS
 [Headers] -&gt; ShowS
 Headers -&gt; String
 (Int -&gt; Headers -&gt; ShowS)
@@ -101,8 +101,8 @@ $cfrom :: forall x. Headers -&gt; Rep Headers x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span>
 </span><span id="line-52"></span><span id="newHeaders"><span class="annot"><span class="annottext">newHeaders :: Int -&gt; Headers
-</span><a href="Network.AWS.CloudFront.Types.Headers.html#newHeaders"><span class="hs-identifier hs-var hs-var">newHeaders</span></a></span></span><span> </span><span id="local-6989586621679392121"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392121"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.Headers.html#newHeaders"><span class="hs-identifier hs-var hs-var">newHeaders</span></a></span></span><span> </span><span id="local-6989586621679392357"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392357"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Headers' :: Maybe [Text] -&gt; Int -&gt; Headers
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:Headers' :: Maybe [Text]
@@ -111,7 +111,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:Headers' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#%24sel%3Aquantity%3AHeaders%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392121"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679392357"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | A list of HTTP header names.</span><span>
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (Headers -&gt; Maybe [Text] -&gt; Headers)
 -&gt; Lens Headers Headers (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392117"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392353"><span class="annot"><span class="annottext">Maybe [Text]
 items :: Maybe [Text]
 $sel:items:Headers' :: Headers -&gt; Maybe [Text]
-</span><a href="#local-6989586621679392117"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679392117"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392116"><span class="annot"><span class="annottext">s :: Headers
-</span><a href="#local-6989586621679392116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392115"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679392115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Headers
-</span><a href="#local-6989586621679392116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Headers' :: Maybe [Text]
+</span><a href="#local-6989586621679392353"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679392353"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392352"><span class="annot"><span class="annottext">s :: Headers
+</span><a href="#local-6989586621679392352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392351"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679392351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Headers
+</span><a href="#local-6989586621679392352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Headers' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#%24sel%3Aitems%3AHeaders%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679392115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Headers -&gt; f Headers)
+</span><a href="#local-6989586621679392351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Headers -&gt; f Headers)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -143,8 +143,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The number of header names in the @Items@ list.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#headers_quantity"><span class="hs-identifier hs-type">headers_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -152,28 +152,28 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#headers_quantity"><span class="hs-identifier hs-var hs-var">headers_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Headers -&gt; Int)
 -&gt; (Headers -&gt; Int -&gt; Headers) -&gt; Lens Headers Headers Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392110"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392346"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:Headers' :: Headers -&gt; Int
-</span><a href="#local-6989586621679392110"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392110"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392109"><span class="annot"><span class="annottext">s :: Headers
-</span><a href="#local-6989586621679392109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392108"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Headers
-</span><a href="#local-6989586621679392109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:Headers' :: Int
+</span><a href="#local-6989586621679392346"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392346"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392345"><span class="annot"><span class="annottext">s :: Headers
+</span><a href="#local-6989586621679392345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392344"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Headers
+</span><a href="#local-6989586621679392345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:Headers' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#%24sel%3Aquantity%3AHeaders%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679392105"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Headers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679392103"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679392103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679392341"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Headers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679392339"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679392339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; Headers
 </span><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-var">Headers'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; Headers)
 -&gt; Either String (Maybe [Text]) -&gt; Either String (Int -&gt; Headers)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679392103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679392339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -199,24 +199,24 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Int -&gt; Either String Headers
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679392103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679392339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392093"><span id="local-6989586621679392095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392329"><span id="local-6989586621679392331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers"><span class="hs-identifier hs-type">Headers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679392086"><span class="annot"><span class="annottext">toXML :: Headers -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392083"><span id="local-6989586621679392084"><span class="annot"><span class="annottext">Int
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679392322"><span class="annot"><span class="annottext">toXML :: Headers -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Headers.html#Headers%27"><span class="hs-identifier hs-type">Headers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392319"><span id="local-6989586621679392320"><span class="annot"><span class="annottext">Int
 Maybe [Text]
 quantity :: Int
 items :: Maybe [Text]
 $sel:quantity:Headers' :: Headers -&gt; Int
 $sel:items:Headers' :: Headers -&gt; Maybe [Text]
-</span><a href="#local-6989586621679392083"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392319"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -232,11 +232,11 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; XML) -&gt; Maybe [Text] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679392084"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679392320"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679392083"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><a href="#local-6989586621679392319"><span class="hs-identifier hs-var">quantity</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span></pre></body></html>

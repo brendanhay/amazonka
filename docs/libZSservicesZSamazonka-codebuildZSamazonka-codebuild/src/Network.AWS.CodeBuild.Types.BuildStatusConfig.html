@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- reports the build status to the source provider.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBuildStatusConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679368023"><span id="local-6989586621679368024"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildStatusConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-var">BuildStatusConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildStatusConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-var">BuildStatusConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679369893"><span id="local-6989586621679369894"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildStatusConfig"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-var">BuildStatusConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildStatusConfig%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-var">BuildStatusConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the context of the build status CodeBuild sends to the source</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- provider. The usage of this parameter depends on the source provider.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AtargetUrl%3ABuildStatusConfig%27"><span class="annot"><span class="annottext">BuildStatusConfig -&gt; Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#%24sel%3AtargetUrl%3ABuildStatusConfig%27"><span class="hs-identifier hs-var hs-var">targetUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368016"><span id="local-6989586621679368018"><span class="annot"><span class="annottext">BuildStatusConfig -&gt; BuildStatusConfig -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369886"><span id="local-6989586621679369888"><span class="annot"><span class="annottext">BuildStatusConfig -&gt; BuildStatusConfig -&gt; Bool
 (BuildStatusConfig -&gt; BuildStatusConfig -&gt; Bool)
 -&gt; (BuildStatusConfig -&gt; BuildStatusConfig -&gt; Bool)
 -&gt; Eq BuildStatusConfig
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BuildStatusConfig -&gt; BuildStatusConfig -&gt; Bool
 == :: BuildStatusConfig -&gt; BuildStatusConfig -&gt; Bool
 $c== :: BuildStatusConfig -&gt; BuildStatusConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368007"><span id="local-6989586621679368009"><span id="local-6989586621679368011"><span id="local-6989586621679368013"><span class="annot"><span class="annottext">ReadPrec [BuildStatusConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369877"><span id="local-6989586621679369879"><span id="local-6989586621679369881"><span id="local-6989586621679369883"><span class="annot"><span class="annottext">ReadPrec [BuildStatusConfig]
 ReadPrec BuildStatusConfig
 Int -&gt; ReadS BuildStatusConfig
 ReadS [BuildStatusConfig]
@@ -91,7 +91,7 @@ readList :: ReadS [BuildStatusConfig]
 $creadList :: ReadS [BuildStatusConfig]
 readsPrec :: Int -&gt; ReadS BuildStatusConfig
 $creadsPrec :: Int -&gt; ReadS BuildStatusConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368000"><span id="local-6989586621679368002"><span id="local-6989586621679368004"><span class="annot"><span class="annottext">Int -&gt; BuildStatusConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369870"><span id="local-6989586621679369872"><span id="local-6989586621679369874"><span class="annot"><span class="annottext">Int -&gt; BuildStatusConfig -&gt; ShowS
 [BuildStatusConfig] -&gt; ShowS
 BuildStatusConfig -&gt; String
 (Int -&gt; BuildStatusConfig -&gt; ShowS)
@@ -193,16 +193,16 @@ forall a. Maybe a
 -&gt; Lens
      BuildStatusConfig BuildStatusConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367991"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369861"><span class="annot"><span class="annottext">Maybe Text
 context :: Maybe Text
 $sel:context:BuildStatusConfig' :: BuildStatusConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679367991"><span class="hs-identifier hs-var hs-var">context</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367991"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367990"><span class="annot"><span class="annottext">s :: BuildStatusConfig
-</span><a href="#local-6989586621679367990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367989"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildStatusConfig
-</span><a href="#local-6989586621679367990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:context:BuildStatusConfig' :: Maybe Text
+</span><a href="#local-6989586621679369861"><span class="hs-identifier hs-var hs-var">context</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369861"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369860"><span class="annot"><span class="annottext">s :: BuildStatusConfig
+</span><a href="#local-6989586621679369860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369859"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildStatusConfig
+</span><a href="#local-6989586621679369860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:context:BuildStatusConfig' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#%24sel%3Acontext%3ABuildStatusConfig%27"><span class="hs-identifier hs-var">context</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Specifies the target url of the build status CodeBuild sends to the</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- source provider. The usage of this parameter depends on the source</span><span>
@@ -227,19 +227,19 @@ $sel:context:BuildStatusConfig' :: BuildStatusConfig -&gt; Maybe Text
 -&gt; Lens
      BuildStatusConfig BuildStatusConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367987"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369857"><span class="annot"><span class="annottext">Maybe Text
 targetUrl :: Maybe Text
 $sel:targetUrl:BuildStatusConfig' :: BuildStatusConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679367987"><span class="hs-identifier hs-var hs-var">targetUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367987"><span class="hs-identifier hs-var">targetUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367986"><span class="annot"><span class="annottext">s :: BuildStatusConfig
-</span><a href="#local-6989586621679367986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367985"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildStatusConfig
-</span><a href="#local-6989586621679367986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetUrl:BuildStatusConfig' :: Maybe Text
+</span><a href="#local-6989586621679369857"><span class="hs-identifier hs-var hs-var">targetUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369857"><span class="hs-identifier hs-var">targetUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369856"><span class="annot"><span class="annottext">s :: BuildStatusConfig
+</span><a href="#local-6989586621679369856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildStatusConfig
+</span><a href="#local-6989586621679369856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetUrl:BuildStatusConfig' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#%24sel%3AtargetUrl%3ABuildStatusConfig%27"><span class="hs-identifier hs-var">targetUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367982"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679367980"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildStatusConfig
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369852"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679369850"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildStatusConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BuildStatusConfig)
@@ -249,15 +249,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BuildStatusConfig&quot;</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367977"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369847"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; BuildStatusConfig
 </span><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-var">BuildStatusConfig'</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; BuildStatusConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; BuildStatusConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679369847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;context&quot;</span></span><span class="hs-special">)</span><span>
@@ -265,24 +265,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser BuildStatusConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679369847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367971"><span id="local-6989586621679367973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369841"><span id="local-6989586621679369843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367960"><span id="local-6989586621679367962"><span id="local-6989586621679367964"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679367958"><span class="annot"><span class="annottext">toJSON :: BuildStatusConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367955"><span id="local-6989586621679367956"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369830"><span id="local-6989586621679369832"><span id="local-6989586621679369834"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679369828"><span class="annot"><span class="annottext">toJSON :: BuildStatusConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig%27"><span class="hs-identifier hs-type">BuildStatusConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369825"><span id="local-6989586621679369826"><span class="annot"><span class="annottext">Maybe Text
 targetUrl :: Maybe Text
 context :: Maybe Text
 $sel:targetUrl:BuildStatusConfig' :: BuildStatusConfig -&gt; Maybe Text
 $sel:context:BuildStatusConfig' :: BuildStatusConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679367955"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679369825"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,14 +294,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367956"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679369826"><span class="hs-identifier hs-var">context</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367955"><span class="hs-identifier hs-var">targetUrl</span></a></span><span>
+</span><a href="#local-6989586621679369825"><span class="hs-identifier hs-var">targetUrl</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span></pre></body></html>

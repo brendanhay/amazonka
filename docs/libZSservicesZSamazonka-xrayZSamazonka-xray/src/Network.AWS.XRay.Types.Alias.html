@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An alias for an edge.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAlias' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679250002"><span id="local-6989586621679250003"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alias"><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-var">Alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alias%27"><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-var">Alias'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679250270"><span id="local-6989586621679250271"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alias"><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-var">Alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alias%27"><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-var">Alias'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of names for the alias, including the canonical name.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Anames%3AAlias%27"><span class="annot"><span class="annottext">Alias -&gt; Maybe [Text]
 </span><a href="Network.AWS.XRay.Types.Alias.html#%24sel%3Anames%3AAlias%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -37,14 +37,14 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3AAlias%27"><span class="annot"><span class="annottext">Alias -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.Alias.html#%24sel%3Atype%27%3AAlias%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249994"><span id="local-6989586621679249996"><span class="annot"><span class="annottext">Alias -&gt; Alias -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250262"><span id="local-6989586621679250264"><span class="annot"><span class="annottext">Alias -&gt; Alias -&gt; Bool
 (Alias -&gt; Alias -&gt; Bool) -&gt; (Alias -&gt; Alias -&gt; Bool) -&gt; Eq Alias
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Alias -&gt; Alias -&gt; Bool
 $c/= :: Alias -&gt; Alias -&gt; Bool
 == :: Alias -&gt; Alias -&gt; Bool
 $c== :: Alias -&gt; Alias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249985"><span id="local-6989586621679249987"><span id="local-6989586621679249989"><span id="local-6989586621679249991"><span class="annot"><span class="annottext">ReadPrec [Alias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250253"><span id="local-6989586621679250255"><span id="local-6989586621679250257"><span id="local-6989586621679250259"><span class="annot"><span class="annottext">ReadPrec [Alias]
 ReadPrec Alias
 Int -&gt; ReadS Alias
 ReadS [Alias]
@@ -64,7 +64,7 @@ readList :: ReadS [Alias]
 $creadList :: ReadS [Alias]
 readsPrec :: Int -&gt; ReadS Alias
 $creadsPrec :: Int -&gt; ReadS Alias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249978"><span id="local-6989586621679249980"><span id="local-6989586621679249982"><span class="annot"><span class="annottext">Int -&gt; Alias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250246"><span id="local-6989586621679250248"><span id="local-6989586621679250250"><span class="annot"><span class="annottext">Int -&gt; Alias -&gt; ShowS
 [Alias] -&gt; ShowS
 Alias -&gt; String
 (Int -&gt; Alias -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (Alias -&gt; Maybe [Text] -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249969"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250237"><span class="annot"><span class="annottext">Maybe [Text]
 names :: Maybe [Text]
 $sel:names:Alias' :: Alias -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249969"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249969"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249968"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249967"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679249968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:Alias' :: Maybe [Text]
+</span><a href="#local-6989586621679250237"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250237"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250236"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679250236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250235"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679250236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:Alias' :: Maybe [Text]
 </span><a href="Network.AWS.XRay.Types.Alias.html#%24sel%3Anames%3AAlias%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Alias -&gt; f Alias)
+</span><a href="#local-6989586621679250235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Alias -&gt; f Alias)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -149,8 +149,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The canonical name of the alias.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#alias_name"><span class="hs-identifier hs-type">alias_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -159,16 +159,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Alias -&gt; Maybe Text -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250230"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Alias' :: Alias -&gt; Maybe Text
-</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249962"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249961"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679249961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679249961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Alias' :: Maybe Text
+</span><a href="#local-6989586621679250230"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250230"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250229"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679250229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679250229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Alias' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.Alias.html#%24sel%3Aname%3AAlias%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The type of the alias.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#alias_type"><span class="hs-identifier hs-type">alias_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -177,27 +177,27 @@ $sel:name:Alias' :: Alias -&gt; Maybe Text
 -&gt; (Alias -&gt; Maybe Text -&gt; Alias)
 -&gt; Lens Alias Alias (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249958"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250226"><span class="annot"><span class="annottext">Maybe Text
 type' :: Maybe Text
 $sel:type':Alias' :: Alias -&gt; Maybe Text
-</span><a href="#local-6989586621679249958"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249958"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249957"><span class="annot"><span class="annottext">s :: Alias
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
-</span><a href="#local-6989586621679249957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Alias' :: Maybe Text
+</span><a href="#local-6989586621679250226"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250226"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250225"><span class="annot"><span class="annottext">s :: Alias
+</span><a href="#local-6989586621679250225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-type">Alias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alias
+</span><a href="#local-6989586621679250225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Alias' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.Alias.html#%24sel%3Atype%27%3AAlias%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249953"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679249951"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alias
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250221"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679250219"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Alias) -&gt; Value -&gt; Parser Alias
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Alias&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249948"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250216"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250216"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Alias
 </span><a href="Network.AWS.XRay.Types.Alias.html#Alias%27"><span class="hs-identifier hs-var">Alias'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Alias)
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Alias)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679250216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -218,20 +218,20 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Alias)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Alias) -&gt; Parser (Maybe Text) -&gt; Parser Alias
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250216"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249941"><span id="local-6989586621679249943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250209"><span id="local-6989586621679250211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Alias.html#Alias"><span class="hs-identifier hs-type">Alias</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

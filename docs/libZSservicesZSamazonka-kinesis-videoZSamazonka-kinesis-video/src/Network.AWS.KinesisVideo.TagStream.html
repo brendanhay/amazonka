@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newTagStream' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679177383"><span id="local-6989586621679177384"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagStream"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-var">TagStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagStream%27"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-var">TagStream'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679177439"><span id="local-6989586621679177440"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagStream"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-var">TagStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagStream%27"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-var">TagStream'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource that you want to add the</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- tag or tags to.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AstreamARN%3ATagStream%27"><span class="annot"><span class="annottext">TagStream -&gt; Maybe Text
@@ -73,7 +73,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Atags%3ATagStream%27"><span class="annot"><span class="annottext">TagStream -&gt; HashMap Text Text
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#%24sel%3Atags%3ATagStream%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177375"><span id="local-6989586621679177377"><span class="annot"><span class="annottext">TagStream -&gt; TagStream -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177431"><span id="local-6989586621679177433"><span class="annot"><span class="annottext">TagStream -&gt; TagStream -&gt; Bool
 (TagStream -&gt; TagStream -&gt; Bool)
 -&gt; (TagStream -&gt; TagStream -&gt; Bool) -&gt; Eq TagStream
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagStream -&gt; TagStream -&gt; Bool
 == :: TagStream -&gt; TagStream -&gt; Bool
 $c== :: TagStream -&gt; TagStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177366"><span id="local-6989586621679177368"><span id="local-6989586621679177370"><span id="local-6989586621679177372"><span class="annot"><span class="annottext">ReadPrec [TagStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177422"><span id="local-6989586621679177424"><span id="local-6989586621679177426"><span id="local-6989586621679177428"><span class="annot"><span class="annottext">ReadPrec [TagStream]
 ReadPrec TagStream
 Int -&gt; ReadS TagStream
 ReadS [TagStream]
@@ -101,7 +101,7 @@ readList :: ReadS [TagStream]
 $creadList :: ReadS [TagStream]
 readsPrec :: Int -&gt; ReadS TagStream
 $creadsPrec :: Int -&gt; ReadS TagStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177359"><span id="local-6989586621679177361"><span id="local-6989586621679177363"><span class="annot"><span class="annottext">Int -&gt; TagStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177415"><span id="local-6989586621679177417"><span id="local-6989586621679177419"><span class="annot"><span class="annottext">Int -&gt; TagStream -&gt; ShowS
 [TagStream] -&gt; ShowS
 TagStream -&gt; String
 (Int -&gt; TagStream -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagStream -&gt; Maybe Text -&gt; TagStream)
 -&gt; Lens TagStream TagStream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177352"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177408"><span class="annot"><span class="annottext">Maybe Text
 streamARN :: Maybe Text
 $sel:streamARN:TagStream' :: TagStream -&gt; Maybe Text
-</span><a href="#local-6989586621679177352"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177352"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177351"><span class="annot"><span class="annottext">s :: TagStream
-</span><a href="#local-6989586621679177351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177350"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStream
-</span><a href="#local-6989586621679177351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:TagStream' :: Maybe Text
+</span><a href="#local-6989586621679177408"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177408"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177407"><span class="annot"><span class="annottext">s :: TagStream
+</span><a href="#local-6989586621679177407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177406"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStream
+</span><a href="#local-6989586621679177407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:TagStream' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#%24sel%3AstreamARN%3ATagStream%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the stream that you want to add the tag or tags to.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#tagStream_streamName"><span class="hs-identifier hs-type">tagStream_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -187,16 +187,16 @@ $sel:streamARN:TagStream' :: TagStream -&gt; Maybe Text
 -&gt; (TagStream -&gt; Maybe Text -&gt; TagStream)
 -&gt; Lens TagStream TagStream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177349"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177405"><span class="annot"><span class="annottext">Maybe Text
 streamName :: Maybe Text
 $sel:streamName:TagStream' :: TagStream -&gt; Maybe Text
-</span><a href="#local-6989586621679177349"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177349"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177348"><span class="annot"><span class="annottext">s :: TagStream
-</span><a href="#local-6989586621679177348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177347"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStream
-</span><a href="#local-6989586621679177348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:TagStream' :: Maybe Text
+</span><a href="#local-6989586621679177405"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177405"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177404"><span class="annot"><span class="annottext">s :: TagStream
+</span><a href="#local-6989586621679177404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStream
+</span><a href="#local-6989586621679177404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:TagStream' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#%24sel%3AstreamName%3ATagStream%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | A list of tags to associate with the specified stream. Each tag is a</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- key-value pair (the value is optional).</span><span>
@@ -207,16 +207,16 @@ $sel:streamName:TagStream' :: TagStream -&gt; Maybe Text
 -&gt; (TagStream -&gt; HashMap Text Text -&gt; TagStream)
 -&gt; Lens TagStream TagStream (HashMap Text Text) (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177346"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177402"><span class="annot"><span class="annottext">HashMap Text Text
 tags :: HashMap Text Text
 $sel:tags:TagStream' :: TagStream -&gt; HashMap Text Text
-</span><a href="#local-6989586621679177346"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177346"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177345"><span class="annot"><span class="annottext">s :: TagStream
-</span><a href="#local-6989586621679177345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177344"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStream
-</span><a href="#local-6989586621679177345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagStream' :: HashMap Text Text
+</span><a href="#local-6989586621679177402"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679177402"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177401"><span class="annot"><span class="annottext">s :: TagStream
+</span><a href="#local-6989586621679177401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177400"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679177400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStream
+</span><a href="#local-6989586621679177401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagStream' :: HashMap Text Text
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#%24sel%3Atags%3ATagStream%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679177400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; TagStream -&gt; f TagStream)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
@@ -226,17 +226,17 @@ $sel:tags:TagStream' :: TagStream -&gt; HashMap Text Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-type">TagStreamResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177338"><span class="annot"><span class="annottext">request :: TagStream -&gt; Request TagStream
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177394"><span class="annot"><span class="annottext">request :: TagStream -&gt; Request TagStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagStream -&gt; Request TagStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679177334"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679177390"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagStream
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177331"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177331"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177330"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679177330"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177329"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679177329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177387"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177386"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177386"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177385"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679177385"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; TagStreamResponse
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-var">TagStreamResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; TagStreamResponse)
@@ -272,24 +272,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177331"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177387"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177322"><span id="local-6989586621679177324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177378"><span id="local-6989586621679177380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679177315"><span class="annot"><span class="annottext">toHeaders :: TagStream -&gt; ResponseHeaders
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679177371"><span class="annot"><span class="annottext">toHeaders :: TagStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TagStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177306"><span id="local-6989586621679177308"><span id="local-6989586621679177310"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679177304"><span class="annot"><span class="annottext">toJSON :: TagStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177300"><span id="local-6989586621679177301"><span id="local-6989586621679177302"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177362"><span id="local-6989586621679177364"><span id="local-6989586621679177366"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679177360"><span class="annot"><span class="annottext">toJSON :: TagStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream%27"><span class="hs-identifier hs-type">TagStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177356"><span id="local-6989586621679177357"><span id="local-6989586621679177358"><span class="annot"><span class="annottext">Maybe Text
 HashMap Text Text
 tags :: HashMap Text Text
 streamName :: Maybe Text
@@ -297,7 +297,7 @@ streamARN :: Maybe Text
 $sel:tags:TagStream' :: TagStream -&gt; HashMap Text Text
 $sel:streamName:TagStream' :: TagStream -&gt; Maybe Text
 $sel:streamARN:TagStream' :: TagStream -&gt; Maybe Text
-</span><a href="#local-6989586621679177300"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177356"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -309,33 +309,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177302"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177358"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177301"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177357"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679177300"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177356"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679177294"><span class="annot"><span class="annottext">toPath :: TagStream -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679177350"><span class="annot"><span class="annottext">toPath :: TagStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/tagStream&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStream"><span class="hs-identifier hs-type">TagStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679177290"><span class="annot"><span class="annottext">toQuery :: TagStream -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679177346"><span class="annot"><span class="annottext">toQuery :: TagStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TagStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -343,12 +343,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newTagStreamResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679177287"><span id="local-6989586621679177288"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagStreamResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-var">TagStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagStreamResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-var">TagStreamResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679177343"><span id="local-6989586621679177344"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagStreamResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-var">TagStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagStreamResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-var">TagStreamResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATagStreamResponse%27"><span class="annot"><span class="annottext">TagStreamResponse -&gt; Int
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#%24sel%3AhttpStatus%3ATagStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177282"><span id="local-6989586621679177284"><span class="annot"><span class="annottext">TagStreamResponse -&gt; TagStreamResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177338"><span id="local-6989586621679177340"><span class="annot"><span class="annottext">TagStreamResponse -&gt; TagStreamResponse -&gt; Bool
 (TagStreamResponse -&gt; TagStreamResponse -&gt; Bool)
 -&gt; (TagStreamResponse -&gt; TagStreamResponse -&gt; Bool)
 -&gt; Eq TagStreamResponse
@@ -357,7 +357,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagStreamResponse -&gt; TagStreamResponse -&gt; Bool
 == :: TagStreamResponse -&gt; TagStreamResponse -&gt; Bool
 $c== :: TagStreamResponse -&gt; TagStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177274"><span id="local-6989586621679177276"><span id="local-6989586621679177278"><span id="local-6989586621679177280"><span class="annot"><span class="annottext">ReadPrec [TagStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177330"><span id="local-6989586621679177332"><span id="local-6989586621679177334"><span id="local-6989586621679177336"><span class="annot"><span class="annottext">ReadPrec [TagStreamResponse]
 ReadPrec TagStreamResponse
 Int -&gt; ReadS TagStreamResponse
 ReadS [TagStreamResponse]
@@ -377,7 +377,7 @@ readList :: ReadS [TagStreamResponse]
 $creadList :: ReadS [TagStreamResponse]
 readsPrec :: Int -&gt; ReadS TagStreamResponse
 $creadsPrec :: Int -&gt; ReadS TagStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177268"><span id="local-6989586621679177270"><span id="local-6989586621679177272"><span class="annot"><span class="annottext">Int -&gt; TagStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177324"><span id="local-6989586621679177326"><span id="local-6989586621679177328"><span class="annot"><span class="annottext">Int -&gt; TagStreamResponse -&gt; ShowS
 [TagStreamResponse] -&gt; ShowS
 TagStreamResponse -&gt; String
 (Int -&gt; TagStreamResponse -&gt; ShowS)
@@ -417,12 +417,12 @@ $cfrom :: forall x. TagStreamResponse -&gt; Rep TagStreamResponse x
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-type">TagStreamResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newTagStreamResponse"><span class="annot"><span class="annottext">newTagStreamResponse :: Int -&gt; TagStreamResponse
-</span><a href="Network.AWS.KinesisVideo.TagStream.html#newTagStreamResponse"><span class="hs-identifier hs-var hs-var">newTagStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679177265"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177265"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.TagStream.html#newTagStreamResponse"><span class="hs-identifier hs-var hs-var">newTagStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679177321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177321"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">TagStreamResponse' :: Int -&gt; TagStreamResponse
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-type">TagStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagStreamResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#%24sel%3AhttpStatus%3ATagStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177265"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679177321"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#tagStreamResponse_httpStatus"><span class="hs-identifier hs-type">tagStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-type">TagStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -431,16 +431,16 @@ $cfrom :: forall x. TagStreamResponse -&gt; Rep TagStreamResponse x
 -&gt; (TagStreamResponse -&gt; Int -&gt; TagStreamResponse)
 -&gt; Lens TagStreamResponse TagStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-type">TagStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177264"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-type">TagStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177320"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TagStreamResponse' :: TagStreamResponse -&gt; Int
-</span><a href="#local-6989586621679177264"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177264"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177263"><span class="annot"><span class="annottext">s :: TagStreamResponse
-</span><a href="#local-6989586621679177263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-type">TagStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177262"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStreamResponse
-</span><a href="#local-6989586621679177263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagStreamResponse' :: Int
+</span><a href="#local-6989586621679177320"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177320"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177319"><span class="annot"><span class="annottext">s :: TagStreamResponse
+</span><a href="#local-6989586621679177319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse%27"><span class="hs-identifier hs-type">TagStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177318"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagStreamResponse
+</span><a href="#local-6989586621679177319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagStreamResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.TagStream.html#%24sel%3AhttpStatus%3ATagStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-type">TagStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-type">TagStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-type">TagStreamResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177316"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.TagStream.html#TagStreamResponse"><span class="hs-identifier hs-type">TagStreamResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

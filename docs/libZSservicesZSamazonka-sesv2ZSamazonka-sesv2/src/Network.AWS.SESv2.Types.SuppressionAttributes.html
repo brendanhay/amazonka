@@ -25,10 +25,10 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html"><span class="hs-identifier">Network.AWS.SESv2.Types.SuppressionListReason</span></a></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | An object that contains information about the email address suppression</span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- preferences for your account in the current AWS Region.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- preferences for your account in the current Amazon Web Services Region.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSuppressionAttributes' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679330726"><span id="local-6989586621679330727"></span></span><span class="hs-keyword">data</span><span> </span><span id="SuppressionAttributes"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-var">SuppressionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuppressionAttributes%27"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes%27"><span class="hs-identifier hs-var">SuppressionAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679333240"><span id="local-6989586621679333241"></span></span><span class="hs-keyword">data</span><span> </span><span id="SuppressionAttributes"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-var">SuppressionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuppressionAttributes%27"><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes%27"><span class="hs-identifier hs-var">SuppressionAttributes'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list that contains the reasons that email addresses will be</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- automatically added to the suppression list for your account. This list</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- can contain any or all of the following:</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AsuppressedReasons%3ASuppressionAttributes%27"><span class="annot"><span class="annottext">SuppressionAttributes -&gt; Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#%24sel%3AsuppressedReasons%3ASuppressionAttributes%27"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330720"><span id="local-6989586621679330722"><span class="annot"><span class="annottext">SuppressionAttributes -&gt; SuppressionAttributes -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333234"><span id="local-6989586621679333236"><span class="annot"><span class="annottext">SuppressionAttributes -&gt; SuppressionAttributes -&gt; Bool
 (SuppressionAttributes -&gt; SuppressionAttributes -&gt; Bool)
 -&gt; (SuppressionAttributes -&gt; SuppressionAttributes -&gt; Bool)
 -&gt; Eq SuppressionAttributes
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SuppressionAttributes -&gt; SuppressionAttributes -&gt; Bool
 == :: SuppressionAttributes -&gt; SuppressionAttributes -&gt; Bool
 $c== :: SuppressionAttributes -&gt; SuppressionAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330711"><span id="local-6989586621679330713"><span id="local-6989586621679330715"><span id="local-6989586621679330717"><span class="annot"><span class="annottext">ReadPrec [SuppressionAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333225"><span id="local-6989586621679333227"><span id="local-6989586621679333229"><span id="local-6989586621679333231"><span class="annot"><span class="annottext">ReadPrec [SuppressionAttributes]
 ReadPrec SuppressionAttributes
 Int -&gt; ReadS SuppressionAttributes
 ReadS [SuppressionAttributes]
@@ -72,7 +72,7 @@ readList :: ReadS [SuppressionAttributes]
 $creadList :: ReadS [SuppressionAttributes]
 readsPrec :: Int -&gt; ReadS SuppressionAttributes
 $creadsPrec :: Int -&gt; ReadS SuppressionAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330704"><span id="local-6989586621679330706"><span id="local-6989586621679330708"><span class="annot"><span class="annottext">Int -&gt; SuppressionAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333218"><span id="local-6989586621679333220"><span id="local-6989586621679333222"><span class="annot"><span class="annottext">Int -&gt; SuppressionAttributes -&gt; ShowS
 [SuppressionAttributes] -&gt; ShowS
 SuppressionAttributes -&gt; String
 (Int -&gt; SuppressionAttributes -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe [SuppressionListReason])
      (Maybe [SuppressionListReason])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes%27"><span class="hs-identifier hs-type">SuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330695"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes%27"><span class="hs-identifier hs-type">SuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333209"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 suppressedReasons :: Maybe [SuppressionListReason]
 $sel:suppressedReasons:SuppressionAttributes' :: SuppressionAttributes -&gt; Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679330695"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679330695"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330694"><span class="annot"><span class="annottext">s :: SuppressionAttributes
-</span><a href="#local-6989586621679330694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes%27"><span class="hs-identifier hs-type">SuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330693"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679330693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuppressionAttributes
-</span><a href="#local-6989586621679330694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedReasons:SuppressionAttributes' :: Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679333209"><span class="hs-identifier hs-var hs-var">suppressedReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679333209"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333208"><span class="annot"><span class="annottext">s :: SuppressionAttributes
+</span><a href="#local-6989586621679333208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes%27"><span class="hs-identifier hs-type">SuppressionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333207"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679333207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuppressionAttributes
+</span><a href="#local-6989586621679333208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedReasons:SuppressionAttributes' :: Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#%24sel%3AsuppressedReasons%3ASuppressionAttributes%27"><span class="hs-identifier hs-var">suppressedReasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679330693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679333207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
   -&gt; f (Maybe [SuppressionListReason]))
  -&gt; SuppressionAttributes -&gt; f SuppressionAttributes)
 -&gt; ((Maybe [SuppressionListReason]
@@ -193,11 +193,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SuppressionListReason]
   [SuppressionListReason]
   [SuppressionListReason]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330687"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679330685"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SuppressionAttributes
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333201"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679333199"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SuppressionAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SuppressionAttributes)
@@ -207,8 +207,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SuppressionAttributes&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330682"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333196"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason] -&gt; SuppressionAttributes
 </span><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes%27"><span class="hs-identifier hs-var">SuppressionAttributes'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SuppressionListReason] -&gt; SuppressionAttributes)
@@ -216,7 +216,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser SuppressionAttributes
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SuppressionListReason]))
+</span><a href="#local-6989586621679333196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SuppressionListReason]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SuppressedReasons&quot;</span></span><span>
@@ -230,7 +230,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-96"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330675"><span id="local-6989586621679330677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333189"><span id="local-6989586621679333191"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333186"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionAttributes.html#SuppressionAttributes"><span class="hs-identifier hs-type">SuppressionAttributes</span></a></span></span><span>
 </span><span id="line-102"></span></pre></body></html>

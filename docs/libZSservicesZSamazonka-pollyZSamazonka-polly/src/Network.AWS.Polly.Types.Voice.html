@@ -30,46 +30,46 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Description of the voice.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newVoice' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679172522"><span id="local-6989586621679172523"></span></span><span class="hs-keyword">data</span><span> </span><span id="Voice"><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-var">Voice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Voice%27"><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-var">Voice'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679172566"><span id="local-6989586621679172567"></span></span><span class="hs-keyword">data</span><span> </span><span id="Voice"><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-var">Voice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Voice%27"><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-var">Voice'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Language code of the voice.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AlanguageCode%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe LanguageCode
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageCode%3AVoice%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Amazon Polly assigned voice ID. This is the ID that you specify when</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- calling the @SynthesizeSpeech@ operation.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aid%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe VoiceId
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aid%3AVoice%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Name of the voice (for example, Salli, Kendra, etc.). This provides a</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- human readable voice name that you might display in your application.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe Text
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aname%3AVoice%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Gender of the voice.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Agender%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe Gender
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Human readable name of the language in English.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlanguageName%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe Text
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageName%3AVoice%27"><span class="hs-identifier hs-var hs-var">languageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Gender of the voice.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Agender%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe Gender
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Agender%3AVoice%27"><span class="hs-identifier hs-var hs-var">gender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Gender.html#Gender"><span class="hs-identifier hs-type">Gender</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies which engines (@standard@ or @neural@) that are supported by a</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- given voice.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsupportedEngines%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe [Engine]
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AsupportedEngines%3AVoice%27"><span class="hs-identifier hs-var hs-var">supportedEngines</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine"><span class="hs-identifier hs-type">Engine</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Additional codes for languages available for the specified voice in</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- addition to its default language.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- For example, the default language for Aditi is Indian English (en-IN)</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- because it was first used for that language. Since Aditi is bilingual</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- and fluent in both Indian English and Hindi, this parameter would show</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the code @hi-IN@.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AadditionalLanguageCodes%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe [LanguageCode]
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Name of the voice (for example, Salli, Kendra, etc.). This provides a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- human readable voice name that you might display in your application.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe Text
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aname%3AVoice%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Amazon Polly assigned voice ID. This is the ID that you specify when</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- calling the @SynthesizeSpeech@ operation.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aid%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe VoiceId
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aid%3AVoice%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Additional codes for languages available for the specified voice in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- addition to its default language.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- For example, the default language for Aditi is Indian English (en-IN)</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- because it was first used for that language. Since Aditi is bilingual</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- and fluent in both Indian English and Hindi, this parameter would show</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the code @hi-IN@.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AadditionalLanguageCodes%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe [LanguageCode]
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AadditionalLanguageCodes%3AVoice%27"><span class="hs-identifier hs-var hs-var">additionalLanguageCodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Human readable name of the language in English.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AlanguageName%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe Text
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageName%3AVoice%27"><span class="hs-identifier hs-var hs-var">languageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Specifies which engines (@standard@ or @neural@) that are supported by a</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- given voice.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AsupportedEngines%3AVoice%27"><span class="annot"><span class="annottext">Voice -&gt; Maybe [Engine]
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AsupportedEngines%3AVoice%27"><span class="hs-identifier hs-var hs-var">supportedEngines</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine"><span class="hs-identifier hs-type">Engine</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172510"><span id="local-6989586621679172512"><span class="annot"><span class="annottext">Voice -&gt; Voice -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172554"><span id="local-6989586621679172556"><span class="annot"><span class="annottext">Voice -&gt; Voice -&gt; Bool
 (Voice -&gt; Voice -&gt; Bool) -&gt; (Voice -&gt; Voice -&gt; Bool) -&gt; Eq Voice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Voice -&gt; Voice -&gt; Bool
 $c/= :: Voice -&gt; Voice -&gt; Bool
 == :: Voice -&gt; Voice -&gt; Bool
 $c== :: Voice -&gt; Voice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172501"><span id="local-6989586621679172503"><span id="local-6989586621679172505"><span id="local-6989586621679172507"><span class="annot"><span class="annottext">ReadPrec [Voice]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172545"><span id="local-6989586621679172547"><span id="local-6989586621679172549"><span id="local-6989586621679172551"><span class="annot"><span class="annottext">ReadPrec [Voice]
 ReadPrec Voice
 Int -&gt; ReadS Voice
 ReadS [Voice]
@@ -89,7 +89,7 @@ readList :: ReadS [Voice]
 $creadList :: ReadS [Voice]
 readsPrec :: Int -&gt; ReadS Voice
 $creadsPrec :: Int -&gt; ReadS Voice
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172494"><span id="local-6989586621679172496"><span id="local-6989586621679172498"><span class="annot"><span class="annottext">Int -&gt; Voice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172538"><span id="local-6989586621679172540"><span id="local-6989586621679172542"><span class="annot"><span class="annottext">Int -&gt; Voice -&gt; ShowS
 [Voice] -&gt; ShowS
 Voice -&gt; String
 (Int -&gt; Voice -&gt; ShowS)
@@ -122,65 +122,65 @@ $cfrom :: forall x. Voice -&gt; Rep Voice x
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'languageCode', 'voice_languageCode' - Language code of the voice.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'id', 'voice_id' - Amazon Polly assigned voice ID. This is the ID that you specify when</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- calling the @SynthesizeSpeech@ operation.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'name', 'voice_name' - Name of the voice (for example, Salli, Kendra, etc.). This provides a</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- human readable voice name that you might display in your application.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'gender', 'voice_gender' - Gender of the voice.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'supportedEngines', 'voice_supportedEngines' - Specifies which engines (@standard@ or @neural@) that are supported by a</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- given voice.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'additionalLanguageCodes', 'voice_additionalLanguageCodes' - Additional codes for languages available for the specified voice in</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- addition to its default language.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- For example, the default language for Aditi is Indian English (en-IN)</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- because it was first used for that language. Since Aditi is bilingual</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- and fluent in both Indian English and Hindi, this parameter would show</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- the code @hi-IN@.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'languageName', 'voice_languageName' - Human readable name of the language in English.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'languageName', 'voice_languageName' - Human readable name of the language in English.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'gender', 'voice_gender' - Gender of the voice.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'name', 'voice_name' - Name of the voice (for example, Salli, Kendra, etc.). This provides a</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- human readable voice name that you might display in your application.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'id', 'voice_id' - Amazon Polly assigned voice ID. This is the ID that you specify when</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- calling the @SynthesizeSpeech@ operation.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'additionalLanguageCodes', 'voice_additionalLanguageCodes' - Additional codes for languages available for the specified voice in</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- addition to its default language.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- For example, the default language for Aditi is Indian English (en-IN)</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- because it was first used for that language. Since Aditi is bilingual</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- and fluent in both Indian English and Hindi, this parameter would show</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the code @hi-IN@.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'supportedEngines', 'voice_supportedEngines' - Specifies which engines (@standard@ or @neural@) that are supported by a</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- given voice.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#newVoice"><span class="hs-identifier hs-type">newVoice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span>
 </span><span id="line-92"></span><span id="newVoice"><span class="annot"><span class="annottext">newVoice :: Voice
 </span><a href="Network.AWS.Polly.Types.Voice.html#newVoice"><span class="hs-identifier hs-var hs-var">newVoice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">Voice' :: Maybe LanguageCode
--&gt; Maybe VoiceId
 -&gt; Maybe Text
 -&gt; Maybe Gender
--&gt; Maybe [Engine]
--&gt; Maybe [LanguageCode]
 -&gt; Maybe Text
+-&gt; Maybe VoiceId
+-&gt; Maybe [LanguageCode]
+-&gt; Maybe [Engine]
 -&gt; Voice
 </span><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:Voice' :: Maybe LanguageCode
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageCode%3AVoice%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Voice' :: Maybe VoiceId
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aid%3AVoice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceId
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageName:Voice' :: Maybe Text
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageName%3AVoice%27"><span class="hs-identifier hs-var">languageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Voice' :: Maybe Text
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aname%3AVoice%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:gender:Voice' :: Maybe Gender
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:gender:Voice' :: Maybe Gender
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Agender%3AVoice%27"><span class="hs-identifier hs-var">gender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Gender
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedEngines:Voice' :: Maybe [Engine]
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AsupportedEngines%3AVoice%27"><span class="hs-identifier hs-var">supportedEngines</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Voice' :: Maybe Text
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aname%3AVoice%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Voice' :: Maybe VoiceId
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aid%3AVoice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceId
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalLanguageCodes:Voice' :: Maybe [LanguageCode]
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AadditionalLanguageCodes%3AVoice%27"><span class="hs-identifier hs-var">additionalLanguageCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageCode]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageName:Voice' :: Maybe Text
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageName%3AVoice%27"><span class="hs-identifier hs-var">languageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedEngines:Voice' :: Maybe [Engine]
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AsupportedEngines%3AVoice%27"><span class="hs-identifier hs-var">supportedEngines</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
@@ -192,131 +192,115 @@ forall a. Maybe a
 -&gt; (Voice -&gt; Maybe LanguageCode -&gt; Voice)
 -&gt; Lens Voice Voice (Maybe LanguageCode) (Maybe LanguageCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172485"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172529"><span class="annot"><span class="annottext">Maybe LanguageCode
 languageCode :: Maybe LanguageCode
 $sel:languageCode:Voice' :: Voice -&gt; Maybe LanguageCode
-</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679172485"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172484"><span class="annot"><span class="annottext">s :: Voice
-</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172483"><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679172483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
-</span><a href="#local-6989586621679172484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:Voice' :: Maybe LanguageCode
+</span><a href="#local-6989586621679172529"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679172529"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172528"><span class="annot"><span class="annottext">s :: Voice
+</span><a href="#local-6989586621679172528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172527"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679172527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
+</span><a href="#local-6989586621679172528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:Voice' :: Maybe LanguageCode
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageCode%3AVoice%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679172483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679172527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Amazon Polly assigned voice ID. This is the ID that you specify when</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- calling the @SynthesizeSpeech@ operation.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_id"><span class="hs-identifier hs-type">voice_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="voice_id"><span class="annot"><span class="annottext">voice_id :: (Maybe VoiceId -&gt; f (Maybe VoiceId)) -&gt; Voice -&gt; f Voice
-</span><a href="Network.AWS.Polly.Types.Voice.html#voice_id"><span class="hs-identifier hs-var hs-var">voice_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe VoiceId)
--&gt; (Voice -&gt; Maybe VoiceId -&gt; Voice)
--&gt; Lens Voice Voice (Maybe VoiceId) (Maybe VoiceId)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172481"><span class="annot"><span class="annottext">Maybe VoiceId
-id :: Maybe VoiceId
-$sel:id:Voice' :: Voice -&gt; Maybe VoiceId
-</span><a href="#local-6989586621679172481"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceId
-</span><a href="#local-6989586621679172481"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172480"><span class="annot"><span class="annottext">s :: Voice
-</span><a href="#local-6989586621679172480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172479"><span class="annot"><span class="annottext">Maybe VoiceId
-</span><a href="#local-6989586621679172479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
-</span><a href="#local-6989586621679172480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Voice' :: Maybe VoiceId
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aid%3AVoice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceId
-</span><a href="#local-6989586621679172479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | Name of the voice (for example, Salli, Kendra, etc.). This provides a</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- human readable voice name that you might display in your application.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_name"><span class="hs-identifier hs-type">voice_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="voice_name"><span class="annot"><span class="annottext">voice_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Voice -&gt; f Voice
-</span><a href="Network.AWS.Polly.Types.Voice.html#voice_name"><span class="hs-identifier hs-var hs-var">voice_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe Text)
+</span><span id="line-107"></span><span class="hs-comment">-- | Human readable name of the language in English.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_languageName"><span class="hs-identifier hs-type">voice_languageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="voice_languageName"><span class="annot"><span class="annottext">voice_languageName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Voice -&gt; f Voice
+</span><a href="Network.AWS.Polly.Types.Voice.html#voice_languageName"><span class="hs-identifier hs-var hs-var">voice_languageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe Text)
 -&gt; (Voice -&gt; Maybe Text -&gt; Voice)
 -&gt; Lens Voice Voice (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172477"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:Voice' :: Voice -&gt; Maybe Text
-</span><a href="#local-6989586621679172477"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172477"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172476"><span class="annot"><span class="annottext">s :: Voice
-</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172475"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
-</span><a href="#local-6989586621679172476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Voice' :: Maybe Text
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aname%3AVoice%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | Gender of the voice.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_gender"><span class="hs-identifier hs-type">voice_gender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Gender.html#Gender"><span class="hs-identifier hs-type">Gender</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="voice_gender"><span class="annot"><span class="annottext">voice_gender :: (Maybe Gender -&gt; f (Maybe Gender)) -&gt; Voice -&gt; f Voice
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172525"><span class="annot"><span class="annottext">Maybe Text
+languageName :: Maybe Text
+$sel:languageName:Voice' :: Voice -&gt; Maybe Text
+</span><a href="#local-6989586621679172525"><span class="hs-identifier hs-var hs-var">languageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172525"><span class="hs-identifier hs-var">languageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172524"><span class="annot"><span class="annottext">s :: Voice
+</span><a href="#local-6989586621679172524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172523"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
+</span><a href="#local-6989586621679172524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageName:Voice' :: Maybe Text
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageName%3AVoice%27"><span class="hs-identifier hs-var">languageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Gender of the voice.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_gender"><span class="hs-identifier hs-type">voice_gender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Gender.html#Gender"><span class="hs-identifier hs-type">Gender</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="voice_gender"><span class="annot"><span class="annottext">voice_gender :: (Maybe Gender -&gt; f (Maybe Gender)) -&gt; Voice -&gt; f Voice
 </span><a href="Network.AWS.Polly.Types.Voice.html#voice_gender"><span class="hs-identifier hs-var hs-var">voice_gender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe Gender)
 -&gt; (Voice -&gt; Maybe Gender -&gt; Voice)
 -&gt; Lens Voice Voice (Maybe Gender) (Maybe Gender)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172473"><span class="annot"><span class="annottext">Maybe Gender
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172521"><span class="annot"><span class="annottext">Maybe Gender
 gender :: Maybe Gender
 $sel:gender:Voice' :: Voice -&gt; Maybe Gender
-</span><a href="#local-6989586621679172473"><span class="hs-identifier hs-var hs-var">gender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Gender
-</span><a href="#local-6989586621679172473"><span class="hs-identifier hs-var">gender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172472"><span class="annot"><span class="annottext">s :: Voice
-</span><a href="#local-6989586621679172472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172471"><span class="annot"><span class="annottext">Maybe Gender
-</span><a href="#local-6989586621679172471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
-</span><a href="#local-6989586621679172472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gender:Voice' :: Maybe Gender
+</span><a href="#local-6989586621679172521"><span class="hs-identifier hs-var hs-var">gender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Gender
+</span><a href="#local-6989586621679172521"><span class="hs-identifier hs-var">gender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172520"><span class="annot"><span class="annottext">s :: Voice
+</span><a href="#local-6989586621679172520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172519"><span class="annot"><span class="annottext">Maybe Gender
+</span><a href="#local-6989586621679172519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
+</span><a href="#local-6989586621679172520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gender:Voice' :: Maybe Gender
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Agender%3AVoice%27"><span class="hs-identifier hs-var">gender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Gender
-</span><a href="#local-6989586621679172471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | Specifies which engines (@standard@ or @neural@) that are supported by a</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- given voice.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_supportedEngines"><span class="hs-identifier hs-type">voice_supportedEngines</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine"><span class="hs-identifier hs-type">Engine</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="voice_supportedEngines"><span class="annot"><span class="annottext">voice_supportedEngines :: (Maybe [Engine] -&gt; f (Maybe [Engine])) -&gt; Voice -&gt; f Voice
-</span><a href="Network.AWS.Polly.Types.Voice.html#voice_supportedEngines"><span class="hs-identifier hs-var hs-var">voice_supportedEngines</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe [Engine])
--&gt; (Voice -&gt; Maybe [Engine] -&gt; Voice)
--&gt; Lens Voice Voice (Maybe [Engine]) (Maybe [Engine])
+</span><a href="#local-6989586621679172519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Name of the voice (for example, Salli, Kendra, etc.). This provides a</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- human readable voice name that you might display in your application.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_name"><span class="hs-identifier hs-type">voice_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="voice_name"><span class="annot"><span class="annottext">voice_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Voice -&gt; f Voice
+</span><a href="Network.AWS.Polly.Types.Voice.html#voice_name"><span class="hs-identifier hs-var hs-var">voice_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe Text)
+-&gt; (Voice -&gt; Maybe Text -&gt; Voice)
+-&gt; Lens Voice Voice (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172469"><span class="annot"><span class="annottext">Maybe [Engine]
-supportedEngines :: Maybe [Engine]
-$sel:supportedEngines:Voice' :: Voice -&gt; Maybe [Engine]
-</span><a href="#local-6989586621679172469"><span class="hs-identifier hs-var hs-var">supportedEngines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
-</span><a href="#local-6989586621679172469"><span class="hs-identifier hs-var">supportedEngines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172468"><span class="annot"><span class="annottext">s :: Voice
-</span><a href="#local-6989586621679172468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172467"><span class="annot"><span class="annottext">Maybe [Engine]
-</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
-</span><a href="#local-6989586621679172468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedEngines:Voice' :: Maybe [Engine]
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AsupportedEngines%3AVoice%27"><span class="hs-identifier hs-var">supportedEngines</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
-</span><a href="#local-6989586621679172467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Engine] -&gt; f (Maybe [Engine])) -&gt; Voice -&gt; f Voice)
--&gt; ((Maybe [Engine] -&gt; f (Maybe [Engine]))
-    -&gt; Maybe [Engine] -&gt; f (Maybe [Engine]))
--&gt; (Maybe [Engine] -&gt; f (Maybe [Engine]))
--&gt; Voice
--&gt; f Voice
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Engine] [Engine] [Engine] [Engine]
--&gt; Iso
-     (Maybe [Engine]) (Maybe [Engine]) (Maybe [Engine]) (Maybe [Engine])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Engine] [Engine] [Engine] [Engine]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Additional codes for languages available for the specified voice in</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- addition to its default language.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- For example, the default language for Aditi is Indian English (en-IN)</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- because it was first used for that language. Since Aditi is bilingual</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- and fluent in both Indian English and Hindi, this parameter would show</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- the code @hi-IN@.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_additionalLanguageCodes"><span class="hs-identifier hs-type">voice_additionalLanguageCodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="voice_additionalLanguageCodes"><span class="annot"><span class="annottext">voice_additionalLanguageCodes :: (Maybe [LanguageCode] -&gt; f (Maybe [LanguageCode]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172517"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Voice' :: Voice -&gt; Maybe Text
+</span><a href="#local-6989586621679172517"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172517"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172516"><span class="annot"><span class="annottext">s :: Voice
+</span><a href="#local-6989586621679172516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
+</span><a href="#local-6989586621679172516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Voice' :: Maybe Text
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aname%3AVoice%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Amazon Polly assigned voice ID. This is the ID that you specify when</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- calling the @SynthesizeSpeech@ operation.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_id"><span class="hs-identifier hs-type">voice_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.VoiceId.html#VoiceId"><span class="hs-identifier hs-type">VoiceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="voice_id"><span class="annot"><span class="annottext">voice_id :: (Maybe VoiceId -&gt; f (Maybe VoiceId)) -&gt; Voice -&gt; f Voice
+</span><a href="Network.AWS.Polly.Types.Voice.html#voice_id"><span class="hs-identifier hs-var hs-var">voice_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe VoiceId)
+-&gt; (Voice -&gt; Maybe VoiceId -&gt; Voice)
+-&gt; Lens Voice Voice (Maybe VoiceId) (Maybe VoiceId)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172513"><span class="annot"><span class="annottext">Maybe VoiceId
+id :: Maybe VoiceId
+$sel:id:Voice' :: Voice -&gt; Maybe VoiceId
+</span><a href="#local-6989586621679172513"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceId
+</span><a href="#local-6989586621679172513"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172512"><span class="annot"><span class="annottext">s :: Voice
+</span><a href="#local-6989586621679172512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172511"><span class="annot"><span class="annottext">Maybe VoiceId
+</span><a href="#local-6989586621679172511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
+</span><a href="#local-6989586621679172512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Voice' :: Maybe VoiceId
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3Aid%3AVoice%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceId
+</span><a href="#local-6989586621679172511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Additional codes for languages available for the specified voice in</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- addition to its default language.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- For example, the default language for Aditi is Indian English (en-IN)</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- because it was first used for that language. Since Aditi is bilingual</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- and fluent in both Indian English and Hindi, this parameter would show</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- the code @hi-IN@.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_additionalLanguageCodes"><span class="hs-identifier hs-type">voice_additionalLanguageCodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="voice_additionalLanguageCodes"><span class="annot"><span class="annottext">voice_additionalLanguageCodes :: (Maybe [LanguageCode] -&gt; f (Maybe [LanguageCode]))
 -&gt; Voice -&gt; f Voice
 </span><a href="Network.AWS.Polly.Types.Voice.html#voice_additionalLanguageCodes"><span class="hs-identifier hs-var hs-var">voice_additionalLanguageCodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe [LanguageCode])
 -&gt; (Voice -&gt; Maybe [LanguageCode] -&gt; Voice)
 -&gt; Lens Voice Voice (Maybe [LanguageCode]) (Maybe [LanguageCode])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172462"><span class="annot"><span class="annottext">Maybe [LanguageCode]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172509"><span class="annot"><span class="annottext">Maybe [LanguageCode]
 additionalLanguageCodes :: Maybe [LanguageCode]
 $sel:additionalLanguageCodes:Voice' :: Voice -&gt; Maybe [LanguageCode]
-</span><a href="#local-6989586621679172462"><span class="hs-identifier hs-var hs-var">additionalLanguageCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageCode]
-</span><a href="#local-6989586621679172462"><span class="hs-identifier hs-var">additionalLanguageCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172461"><span class="annot"><span class="annottext">s :: Voice
-</span><a href="#local-6989586621679172461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172460"><span class="annot"><span class="annottext">Maybe [LanguageCode]
-</span><a href="#local-6989586621679172460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
-</span><a href="#local-6989586621679172461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalLanguageCodes:Voice' :: Maybe [LanguageCode]
+</span><a href="#local-6989586621679172509"><span class="hs-identifier hs-var hs-var">additionalLanguageCodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageCode]
+</span><a href="#local-6989586621679172509"><span class="hs-identifier hs-var">additionalLanguageCodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172508"><span class="annot"><span class="annottext">s :: Voice
+</span><a href="#local-6989586621679172508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172507"><span class="annot"><span class="annottext">Maybe [LanguageCode]
+</span><a href="#local-6989586621679172507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
+</span><a href="#local-6989586621679172508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalLanguageCodes:Voice' :: Maybe [LanguageCode]
 </span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AadditionalLanguageCodes%3AVoice%27"><span class="hs-identifier hs-var">additionalLanguageCodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageCode]
-</span><a href="#local-6989586621679172460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LanguageCode] -&gt; f (Maybe [LanguageCode]))
+</span><a href="#local-6989586621679172507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LanguageCode] -&gt; f (Maybe [LanguageCode]))
  -&gt; Voice -&gt; f Voice)
 -&gt; ((Maybe [LanguageCode] -&gt; f (Maybe [LanguageCode]))
     -&gt; Maybe [LanguageCode] -&gt; f (Maybe [LanguageCode]))
@@ -334,162 +318,186 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LanguageCode] [LanguageCode] [LanguageCode] [LanguageCode]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | Human readable name of the language in English.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_languageName"><span class="hs-identifier hs-type">voice_languageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="voice_languageName"><span class="annot"><span class="annottext">voice_languageName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Voice -&gt; f Voice
-</span><a href="Network.AWS.Polly.Types.Voice.html#voice_languageName"><span class="hs-identifier hs-var hs-var">voice_languageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe Text)
--&gt; (Voice -&gt; Maybe Text -&gt; Voice)
--&gt; Lens Voice Voice (Maybe Text) (Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Specifies which engines (@standard@ or @neural@) that are supported by a</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- given voice.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#voice_supportedEngines"><span class="hs-identifier hs-type">voice_supportedEngines</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Polly.Types.Engine.html#Engine"><span class="hs-identifier hs-type">Engine</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="voice_supportedEngines"><span class="annot"><span class="annottext">voice_supportedEngines :: (Maybe [Engine] -&gt; f (Maybe [Engine])) -&gt; Voice -&gt; f Voice
+</span><a href="Network.AWS.Polly.Types.Voice.html#voice_supportedEngines"><span class="hs-identifier hs-var hs-var">voice_supportedEngines</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Voice -&gt; Maybe [Engine])
+-&gt; (Voice -&gt; Maybe [Engine] -&gt; Voice)
+-&gt; Lens Voice Voice (Maybe [Engine]) (Maybe [Engine])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172458"><span class="annot"><span class="annottext">Maybe Text
-languageName :: Maybe Text
-$sel:languageName:Voice' :: Voice -&gt; Maybe Text
-</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var hs-var">languageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172458"><span class="hs-identifier hs-var">languageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172457"><span class="annot"><span class="annottext">s :: Voice
-</span><a href="#local-6989586621679172457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172456"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
-</span><a href="#local-6989586621679172457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageName:Voice' :: Maybe Text
-</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AlanguageName%3AVoice%27"><span class="hs-identifier hs-var">languageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679172456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172502"><span class="annot"><span class="annottext">Maybe [Engine]
+supportedEngines :: Maybe [Engine]
+$sel:supportedEngines:Voice' :: Voice -&gt; Maybe [Engine]
+</span><a href="#local-6989586621679172502"><span class="hs-identifier hs-var hs-var">supportedEngines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
+</span><a href="#local-6989586621679172502"><span class="hs-identifier hs-var">supportedEngines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172501"><span class="annot"><span class="annottext">s :: Voice
+</span><a href="#local-6989586621679172501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-type">Voice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172500"><span class="annot"><span class="annottext">Maybe [Engine]
+</span><a href="#local-6989586621679172500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Voice
+</span><a href="#local-6989586621679172501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedEngines:Voice' :: Maybe [Engine]
+</span><a href="Network.AWS.Polly.Types.Voice.html#%24sel%3AsupportedEngines%3AVoice%27"><span class="hs-identifier hs-var">supportedEngines</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
+</span><a href="#local-6989586621679172500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Engine] -&gt; f (Maybe [Engine])) -&gt; Voice -&gt; f Voice)
+-&gt; ((Maybe [Engine] -&gt; f (Maybe [Engine]))
+    -&gt; Maybe [Engine] -&gt; f (Maybe [Engine]))
+-&gt; (Maybe [Engine] -&gt; f (Maybe [Engine]))
+-&gt; Voice
+-&gt; f Voice
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Engine] [Engine] [Engine] [Engine]
+-&gt; Iso
+     (Maybe [Engine]) (Maybe [Engine]) (Maybe [Engine]) (Maybe [Engine])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Engine] [Engine] [Engine] [Engine]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172453"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679172451"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Voice
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172497"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679172495"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Voice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Voice) -&gt; Value -&gt; Parser Voice
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Voice&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172448"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172492"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe LanguageCode
--&gt; Maybe VoiceId
 -&gt; Maybe Text
 -&gt; Maybe Gender
--&gt; Maybe [Engine]
--&gt; Maybe [LanguageCode]
 -&gt; Maybe Text
+-&gt; Maybe VoiceId
+-&gt; Maybe [LanguageCode]
+-&gt; Maybe [Engine]
 -&gt; Voice
 </span><a href="Network.AWS.Polly.Types.Voice.html#Voice%27"><span class="hs-identifier hs-var">Voice'</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LanguageCode
- -&gt; Maybe VoiceId
  -&gt; Maybe Text
  -&gt; Maybe Gender
- -&gt; Maybe [Engine]
- -&gt; Maybe [LanguageCode]
  -&gt; Maybe Text
+ -&gt; Maybe VoiceId
+ -&gt; Maybe [LanguageCode]
+ -&gt; Maybe [Engine]
  -&gt; Voice)
 -&gt; Parser (Maybe LanguageCode)
 -&gt; Parser
-     (Maybe VoiceId
-      -&gt; Maybe Text
+     (Maybe Text
       -&gt; Maybe Gender
-      -&gt; Maybe [Engine]
-      -&gt; Maybe [LanguageCode]
       -&gt; Maybe Text
+      -&gt; Maybe VoiceId
+      -&gt; Maybe [LanguageCode]
+      -&gt; Maybe [Engine]
       -&gt; Voice)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LanguageCode)
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LanguageCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe VoiceId
-   -&gt; Maybe Text
-   -&gt; Maybe Gender
-   -&gt; Maybe [Engine]
-   -&gt; Maybe [LanguageCode]
-   -&gt; Maybe Text
-   -&gt; Voice)
--&gt; Parser (Maybe VoiceId)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Gender
-      -&gt; Maybe [Engine]
-      -&gt; Maybe [LanguageCode]
-      -&gt; Maybe Text
-      -&gt; Voice)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VoiceId)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Gender
-   -&gt; Maybe [Engine]
-   -&gt; Maybe [LanguageCode]
    -&gt; Maybe Text
+   -&gt; Maybe VoiceId
+   -&gt; Maybe [LanguageCode]
+   -&gt; Maybe [Engine]
    -&gt; Voice)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Gender
-      -&gt; Maybe [Engine] -&gt; Maybe [LanguageCode] -&gt; Maybe Text -&gt; Voice)
+      -&gt; Maybe Text
+      -&gt; Maybe VoiceId
+      -&gt; Maybe [LanguageCode]
+      -&gt; Maybe [Engine]
+      -&gt; Voice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;LanguageName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Gender
-   -&gt; Maybe [Engine] -&gt; Maybe [LanguageCode] -&gt; Maybe Text -&gt; Voice)
+   -&gt; Maybe Text
+   -&gt; Maybe VoiceId
+   -&gt; Maybe [LanguageCode]
+   -&gt; Maybe [Engine]
+   -&gt; Voice)
 -&gt; Parser (Maybe Gender)
 -&gt; Parser
-     (Maybe [Engine] -&gt; Maybe [LanguageCode] -&gt; Maybe Text -&gt; Voice)
+     (Maybe Text
+      -&gt; Maybe VoiceId
+      -&gt; Maybe [LanguageCode]
+      -&gt; Maybe [Engine]
+      -&gt; Voice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Gender)
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Gender)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Gender&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Engine] -&gt; Maybe [LanguageCode] -&gt; Maybe Text -&gt; Voice)
--&gt; Parser (Maybe [Engine])
--&gt; Parser (Maybe [LanguageCode] -&gt; Maybe Text -&gt; Voice)
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe VoiceId
+   -&gt; Maybe [LanguageCode]
+   -&gt; Maybe [Engine]
+   -&gt; Voice)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe VoiceId -&gt; Maybe [LanguageCode] -&gt; Maybe [Engine] -&gt; Voice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Engine]))
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SupportedEngines&quot;</span></span><span>
-</span><span id="line-151"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Engine]))
--&gt; Maybe [Engine] -&gt; Parser (Maybe [Engine])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-152"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [LanguageCode] -&gt; Maybe Text -&gt; Voice)
--&gt; Parser (Maybe [LanguageCode]) -&gt; Parser (Maybe Text -&gt; Voice)
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VoiceId -&gt; Maybe [LanguageCode] -&gt; Maybe [Engine] -&gt; Voice)
+-&gt; Parser (Maybe VoiceId)
+-&gt; Parser (Maybe [LanguageCode] -&gt; Maybe [Engine] -&gt; Voice)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VoiceId)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [LanguageCode] -&gt; Maybe [Engine] -&gt; Voice)
+-&gt; Parser (Maybe [LanguageCode])
+-&gt; Parser (Maybe [Engine] -&gt; Voice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LanguageCode]))
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LanguageCode]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdditionalLanguageCodes&quot;</span></span><span>
-</span><span id="line-154"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LanguageCode]))
+</span><span id="line-152"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LanguageCode]))
 -&gt; Maybe [LanguageCode] -&gt; Parser (Maybe [LanguageCode])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LanguageCode]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-155"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Voice) -&gt; Parser (Maybe Text) -&gt; Parser Voice
+</span><span id="line-153"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Engine] -&gt; Voice)
+-&gt; Parser (Maybe [Engine]) -&gt; Parser Voice
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679172448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Engine]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LanguageName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SupportedEngines&quot;</span></span><span>
+</span><span id="line-155"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Engine]))
+-&gt; Maybe [Engine] -&gt; Parser (Maybe [Engine])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Engine]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172441"><span id="local-6989586621679172443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172485"><span id="local-6989586621679172487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Polly.Types.Voice.html#Voice"><span class="hs-identifier hs-type">Voice</span></a></span></span><span>
 </span><span id="line-162"></span></pre></body></html>

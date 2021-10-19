@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | List of signing profiles that can sign a code package.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAllowedPublishers' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679289038"><span id="local-6989586621679289039"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllowedPublishers"><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-var">AllowedPublishers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowedPublishers%27"><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-var">AllowedPublishers'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679293711"><span id="local-6989586621679293712"></span></span><span class="hs-keyword">data</span><span> </span><span id="AllowedPublishers"><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-var">AllowedPublishers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowedPublishers%27"><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-var">AllowedPublishers'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for each of the signing profiles. A</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- signing profile defines a trusted user who can sign a code package.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsigningProfileVersionArns%3AAllowedPublishers%27"><span class="annot"><span class="annottext">AllowedPublishers -&gt; NonEmpty Text
 </span><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#%24sel%3AsigningProfileVersionArns%3AAllowedPublishers%27"><span class="hs-identifier hs-var hs-var">signingProfileVersionArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289032"><span id="local-6989586621679289034"><span class="annot"><span class="annottext">AllowedPublishers -&gt; AllowedPublishers -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293705"><span id="local-6989586621679293707"><span class="annot"><span class="annottext">AllowedPublishers -&gt; AllowedPublishers -&gt; Bool
 (AllowedPublishers -&gt; AllowedPublishers -&gt; Bool)
 -&gt; (AllowedPublishers -&gt; AllowedPublishers -&gt; Bool)
 -&gt; Eq AllowedPublishers
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AllowedPublishers -&gt; AllowedPublishers -&gt; Bool
 == :: AllowedPublishers -&gt; AllowedPublishers -&gt; Bool
 $c== :: AllowedPublishers -&gt; AllowedPublishers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289023"><span id="local-6989586621679289025"><span id="local-6989586621679289027"><span id="local-6989586621679289029"><span class="annot"><span class="annottext">ReadPrec [AllowedPublishers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293696"><span id="local-6989586621679293698"><span id="local-6989586621679293700"><span id="local-6989586621679293702"><span class="annot"><span class="annottext">ReadPrec [AllowedPublishers]
 ReadPrec AllowedPublishers
 Int -&gt; ReadS AllowedPublishers
 ReadS [AllowedPublishers]
@@ -61,7 +61,7 @@ readList :: ReadS [AllowedPublishers]
 $creadList :: ReadS [AllowedPublishers]
 readsPrec :: Int -&gt; ReadS AllowedPublishers
 $creadsPrec :: Int -&gt; ReadS AllowedPublishers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289016"><span id="local-6989586621679289018"><span id="local-6989586621679289020"><span class="annot"><span class="annottext">Int -&gt; AllowedPublishers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293689"><span id="local-6989586621679293691"><span id="local-6989586621679293693"><span class="annot"><span class="annottext">Int -&gt; AllowedPublishers -&gt; ShowS
 [AllowedPublishers] -&gt; ShowS
 AllowedPublishers -&gt; String
 (Int -&gt; AllowedPublishers -&gt; ShowS)
@@ -102,21 +102,21 @@ $cfrom :: forall x. AllowedPublishers -&gt; Rep AllowedPublishers x
 </span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span><span>
 </span><span id="line-50"></span><span id="newAllowedPublishers"><span class="annot"><span class="annottext">newAllowedPublishers :: NonEmpty Text -&gt; AllowedPublishers
-</span><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#newAllowedPublishers"><span class="hs-identifier hs-var hs-var">newAllowedPublishers</span></a></span></span><span> </span><span id="local-6989586621679289010"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679289010"><span class="hs-identifier hs-var">pSigningProfileVersionArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#newAllowedPublishers"><span class="hs-identifier hs-var hs-var">newAllowedPublishers</span></a></span></span><span> </span><span id="local-6989586621679293683"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679293683"><span class="hs-identifier hs-var">pSigningProfileVersionArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">AllowedPublishers' :: NonEmpty Text -&gt; AllowedPublishers
 </span><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-type">AllowedPublishers'</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:signingProfileVersionArns:AllowedPublishers' :: NonEmpty Text
 </span><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#%24sel%3AsigningProfileVersionArns%3AAllowedPublishers%27"><span class="hs-identifier hs-var">signingProfileVersionArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679289010"><span class="hs-identifier hs-var">pSigningProfileVersionArns_</span></a></span><span>
+</span><a href="#local-6989586621679293683"><span class="hs-identifier hs-var">pSigningProfileVersionArns_</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for each of the signing profiles. A</span><span>
@@ -129,16 +129,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      AllowedPublishers AllowedPublishers (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-type">AllowedPublishers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289004"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-type">AllowedPublishers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293677"><span class="annot"><span class="annottext">NonEmpty Text
 signingProfileVersionArns :: NonEmpty Text
 $sel:signingProfileVersionArns:AllowedPublishers' :: AllowedPublishers -&gt; NonEmpty Text
-</span><a href="#local-6989586621679289004"><span class="hs-identifier hs-var hs-var">signingProfileVersionArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679289004"><span class="hs-identifier hs-var">signingProfileVersionArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289003"><span class="annot"><span class="annottext">s :: AllowedPublishers
-</span><a href="#local-6989586621679289003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-type">AllowedPublishers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289002"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679289002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPublishers
-</span><a href="#local-6989586621679289003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingProfileVersionArns:AllowedPublishers' :: NonEmpty Text
+</span><a href="#local-6989586621679293677"><span class="hs-identifier hs-var hs-var">signingProfileVersionArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679293677"><span class="hs-identifier hs-var">signingProfileVersionArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293676"><span class="annot"><span class="annottext">s :: AllowedPublishers
+</span><a href="#local-6989586621679293676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-type">AllowedPublishers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293675"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679293675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPublishers
+</span><a href="#local-6989586621679293676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingProfileVersionArns:AllowedPublishers' :: NonEmpty Text
 </span><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#%24sel%3AsigningProfileVersionArns%3AAllowedPublishers%27"><span class="hs-identifier hs-var">signingProfileVersionArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679289002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679293675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; AllowedPublishers -&gt; f AllowedPublishers)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -148,11 +148,11 @@ $sel:signingProfileVersionArns:AllowedPublishers' :: AllowedPublishers -&gt; Non
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288998"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679288996"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AllowedPublishers
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293671"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679293669"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AllowedPublishers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AllowedPublishers)
@@ -162,30 +162,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AllowedPublishers&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288993"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293666"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293666"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">NonEmpty Text -&gt; AllowedPublishers
 </span><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-var">AllowedPublishers'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; AllowedPublishers)
 -&gt; Parser (NonEmpty Text) -&gt; Parser AllowedPublishers
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679293666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SigningProfileVersionArns&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288987"><span id="local-6989586621679288989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293660"><span id="local-6989586621679293662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288976"><span id="local-6989586621679288978"><span id="local-6989586621679288980"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679288974"><span class="annot"><span class="annottext">toJSON :: AllowedPublishers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-type">AllowedPublishers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288972"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293649"><span id="local-6989586621679293651"><span id="local-6989586621679293653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679293647"><span class="annot"><span class="annottext">toJSON :: AllowedPublishers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers%27"><span class="hs-identifier hs-type">AllowedPublishers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293645"><span class="annot"><span class="annottext">NonEmpty Text
 signingProfileVersionArns :: NonEmpty Text
 $sel:signingProfileVersionArns:AllowedPublishers' :: AllowedPublishers -&gt; NonEmpty Text
-</span><a href="#local-6989586621679288972"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679293645"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -199,7 +199,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-80"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679288972"><span class="hs-identifier hs-var">signingProfileVersionArns</span></a></span><span>
+</span><a href="#local-6989586621679293645"><span class="hs-identifier hs-var">signingProfileVersionArns</span></a></span><span>
 </span><span id="line-81"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>

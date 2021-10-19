@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679365656"><span id="local-6989586621679365657"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceStatus"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatus.html#DeviceStatus"><span class="hs-identifier hs-var">DeviceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceStatus%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatus.html#DeviceStatus%27"><span class="hs-identifier hs-var">DeviceStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679365967"><span id="local-6989586621679365968"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceStatus"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatus.html#DeviceStatus"><span class="hs-identifier hs-var">DeviceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceStatus%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.DeviceStatus.html#DeviceStatus%27"><span class="hs-identifier hs-var">DeviceStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceStatus"><span class="annot"><span class="annottext">DeviceStatus -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.DeviceStatus.html#fromDeviceStatus"><span class="hs-identifier hs-var hs-var">fromDeviceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365648"><span id="local-6989586621679365650"><span id="local-6989586621679365652"><span class="annot"><span class="annottext">Int -&gt; DeviceStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365959"><span id="local-6989586621679365961"><span id="local-6989586621679365963"><span class="annot"><span class="annottext">Int -&gt; DeviceStatus -&gt; ShowS
 [DeviceStatus] -&gt; ShowS
 DeviceStatus -&gt; String
 (Int -&gt; DeviceStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: DeviceStatus -&gt; String
 showsPrec :: Int -&gt; DeviceStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeviceStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679365639"><span id="local-6989586621679365641"><span id="local-6989586621679365643"><span id="local-6989586621679365645"><span class="annot"><span class="annottext">ReadPrec [DeviceStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679365950"><span id="local-6989586621679365952"><span id="local-6989586621679365954"><span id="local-6989586621679365956"><span class="annot"><span class="annottext">ReadPrec [DeviceStatus]
 ReadPrec DeviceStatus
 Int -&gt; ReadS DeviceStatus
 ReadS [DeviceStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [DeviceStatus]
 readsPrec :: Int -&gt; ReadS DeviceStatus
 $creadsPrec :: Int -&gt; ReadS DeviceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679365634"><span id="local-6989586621679365636"><span class="annot"><span class="annottext">DeviceStatus -&gt; DeviceStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679365945"><span id="local-6989586621679365947"><span class="annot"><span class="annottext">DeviceStatus -&gt; DeviceStatus -&gt; Bool
 (DeviceStatus -&gt; DeviceStatus -&gt; Bool)
 -&gt; (DeviceStatus -&gt; DeviceStatus -&gt; Bool) -&gt; Eq DeviceStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: DeviceStatus -&gt; DeviceStatus -&gt; Bool
 == :: DeviceStatus -&gt; DeviceStatus -&gt; Bool
 $c== :: DeviceStatus -&gt; DeviceStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679365618"><span id="local-6989586621679365620"><span id="local-6989586621679365622"><span id="local-6989586621679365624"><span id="local-6989586621679365626"><span id="local-6989586621679365628"><span id="local-6989586621679365630"><span class="annot"><span class="annottext">Eq DeviceStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679365929"><span id="local-6989586621679365931"><span id="local-6989586621679365933"><span id="local-6989586621679365935"><span id="local-6989586621679365937"><span id="local-6989586621679365939"><span id="local-6989586621679365941"><span class="annot"><span class="annottext">Eq DeviceStatus
 Eq DeviceStatus
 -&gt; (DeviceStatus -&gt; DeviceStatus -&gt; Ordering)
 -&gt; (DeviceStatus -&gt; DeviceStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. DeviceStatus -&gt; Rep DeviceStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365610"><span id="local-6989586621679365612"><span class="annot"><span class="annottext">Int -&gt; DeviceStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365921"><span id="local-6989586621679365923"><span class="annot"><span class="annottext">Int -&gt; DeviceStatus -&gt; Int
 DeviceStatus -&gt; Int
 (Int -&gt; DeviceStatus -&gt; Int)
 -&gt; (DeviceStatus -&gt; Int) -&gt; Hashable DeviceStatus
@@ -145,49 +145,49 @@ $chash :: DeviceStatus -&gt; Int
 hashWithSalt :: Int -&gt; DeviceStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DeviceStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365607"><span class="annot"><span class="annottext">DeviceStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365918"><span class="annot"><span class="annottext">DeviceStatus -&gt; ()
 (DeviceStatus -&gt; ()) -&gt; NFData DeviceStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeviceStatus -&gt; ()
 $crnf :: DeviceStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365604"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365915"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceStatus
 (Text -&gt; Either String DeviceStatus) -&gt; FromText DeviceStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeviceStatus
 $cfromText :: Text -&gt; Either String DeviceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365601"><span class="annot"><span class="annottext">DeviceStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365912"><span class="annot"><span class="annottext">DeviceStatus -&gt; Text
 (DeviceStatus -&gt; Text) -&gt; ToText DeviceStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeviceStatus -&gt; Text
 $ctoText :: DeviceStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365598"><span class="annot"><span class="annottext">DeviceStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365909"><span class="annot"><span class="annottext">DeviceStatus -&gt; ByteString
 (DeviceStatus -&gt; ByteString) -&gt; ToByteString DeviceStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeviceStatus -&gt; ByteString
 $ctoBS :: DeviceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365595"><span class="annot"><span class="annottext">DeviceStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365906"><span class="annot"><span class="annottext">DeviceStatus -&gt; ByteStringBuilder
 (DeviceStatus -&gt; ByteStringBuilder) -&gt; ToLog DeviceStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeviceStatus -&gt; ByteStringBuilder
 $cbuild :: DeviceStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365592"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365903"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceStatus -&gt; [Header]
 (HeaderName -&gt; DeviceStatus -&gt; [Header]) -&gt; ToHeader DeviceStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeviceStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeviceStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365589"><span class="annot"><span class="annottext">DeviceStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365900"><span class="annot"><span class="annottext">DeviceStatus -&gt; QueryString
 (DeviceStatus -&gt; QueryString) -&gt; ToQuery DeviceStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeviceStatus -&gt; QueryString
 $ctoQuery :: DeviceStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365584"><span id="local-6989586621679365586"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365895"><span id="local-6989586621679365897"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceStatus]
 Value -&gt; Parser DeviceStatus
 (Value -&gt; Parser DeviceStatus)
 -&gt; (Value -&gt; Parser [DeviceStatus]) -&gt; FromJSON DeviceStatus
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [DeviceStatus]
 parseJSON :: Value -&gt; Parser DeviceStatus
 $cparseJSON :: Value -&gt; Parser DeviceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365579"><span id="local-6989586621679365581"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365890"><span id="local-6989586621679365892"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceStatus]
 FromJSONKeyFunction DeviceStatus
 FromJSONKeyFunction DeviceStatus
 -&gt; FromJSONKeyFunction [DeviceStatus] -&gt; FromJSONKey DeviceStatus
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeviceStatus]
 fromJSONKey :: FromJSONKeyFunction DeviceStatus
 $cfromJSONKey :: FromJSONKeyFunction DeviceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365570"><span id="local-6989586621679365572"><span id="local-6989586621679365574"><span id="local-6989586621679365576"><span class="annot"><span class="annottext">[DeviceStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365881"><span id="local-6989586621679365883"><span id="local-6989586621679365885"><span id="local-6989586621679365887"><span class="annot"><span class="annottext">[DeviceStatus] -&gt; Encoding
 [DeviceStatus] -&gt; Value
 DeviceStatus -&gt; Encoding
 DeviceStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: DeviceStatus -&gt; Encoding
 toJSON :: DeviceStatus -&gt; Value
 $ctoJSON :: DeviceStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365565"><span id="local-6989586621679365567"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365876"><span id="local-6989586621679365878"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceStatus]
 ToJSONKeyFunction DeviceStatus
 ToJSONKeyFunction DeviceStatus
 -&gt; ToJSONKeyFunction [DeviceStatus] -&gt; ToJSONKey DeviceStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeviceStatus]
 toJSONKey :: ToJSONKeyFunction DeviceStatus
 $ctoJSONKey :: ToJSONKeyFunction DeviceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679365562"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679365873"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceStatus
 ([Node] -&gt; Either String DeviceStatus) -&gt; FromXML DeviceStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeviceStatus
 $cparseXML :: [Node] -&gt; Either String DeviceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679365559"><span class="annot"><span class="annottext">DeviceStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679365870"><span class="annot"><span class="annottext">DeviceStatus -&gt; XML
 (DeviceStatus -&gt; XML) -&gt; ToXML DeviceStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeviceStatus -&gt; XML

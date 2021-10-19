@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- (OIDC) identity provider information for the cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOIDC' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679267718"><span id="local-6989586621679267719"></span></span><span class="hs-keyword">data</span><span> </span><span id="OIDC"><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-var">OIDC</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OIDC%27"><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC%27"><span class="hs-identifier hs-var">OIDC'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679267979"><span id="local-6989586621679267980"></span></span><span class="hs-keyword">data</span><span> </span><span id="OIDC"><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-var">OIDC</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OIDC%27"><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC%27"><span class="hs-identifier hs-var">OIDC'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The issuer URL for the OIDC identity provider.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aissuer%3AOIDC%27"><span class="annot"><span class="annottext">OIDC -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.OIDC.html#%24sel%3Aissuer%3AOIDC%27"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267712"><span id="local-6989586621679267714"><span class="annot"><span class="annottext">OIDC -&gt; OIDC -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267973"><span id="local-6989586621679267975"><span class="annot"><span class="annottext">OIDC -&gt; OIDC -&gt; Bool
 (OIDC -&gt; OIDC -&gt; Bool) -&gt; (OIDC -&gt; OIDC -&gt; Bool) -&gt; Eq OIDC
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: OIDC -&gt; OIDC -&gt; Bool
 $c/= :: OIDC -&gt; OIDC -&gt; Bool
 == :: OIDC -&gt; OIDC -&gt; Bool
 $c== :: OIDC -&gt; OIDC -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267703"><span id="local-6989586621679267705"><span id="local-6989586621679267707"><span id="local-6989586621679267709"><span class="annot"><span class="annottext">ReadPrec [OIDC]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267964"><span id="local-6989586621679267966"><span id="local-6989586621679267968"><span id="local-6989586621679267970"><span class="annot"><span class="annottext">ReadPrec [OIDC]
 ReadPrec OIDC
 Int -&gt; ReadS OIDC
 ReadS [OIDC]
@@ -56,7 +56,7 @@ readList :: ReadS [OIDC]
 $creadList :: ReadS [OIDC]
 readsPrec :: Int -&gt; ReadS OIDC
 $creadsPrec :: Int -&gt; ReadS OIDC
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267696"><span id="local-6989586621679267698"><span id="local-6989586621679267700"><span class="annot"><span class="annottext">Int -&gt; OIDC -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267957"><span id="local-6989586621679267959"><span id="local-6989586621679267961"><span class="annot"><span class="annottext">Int -&gt; OIDC -&gt; ShowS
 [OIDC] -&gt; ShowS
 OIDC -&gt; String
 (Int -&gt; OIDC -&gt; ShowS)
@@ -104,36 +104,36 @@ forall a. Maybe a
 -&gt; (OIDC -&gt; Maybe Text -&gt; OIDC)
 -&gt; Lens OIDC OIDC (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC%27"><span class="hs-identifier hs-type">OIDC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267687"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC%27"><span class="hs-identifier hs-type">OIDC'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267948"><span class="annot"><span class="annottext">Maybe Text
 issuer :: Maybe Text
 $sel:issuer:OIDC' :: OIDC -&gt; Maybe Text
-</span><a href="#local-6989586621679267687"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267687"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267686"><span class="annot"><span class="annottext">s :: OIDC
-</span><a href="#local-6989586621679267686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC%27"><span class="hs-identifier hs-type">OIDC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267685"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OIDC
-</span><a href="#local-6989586621679267686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:OIDC' :: Maybe Text
+</span><a href="#local-6989586621679267948"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267948"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267947"><span class="annot"><span class="annottext">s :: OIDC
+</span><a href="#local-6989586621679267947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC%27"><span class="hs-identifier hs-type">OIDC'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OIDC
+</span><a href="#local-6989586621679267947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:OIDC' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.OIDC.html#%24sel%3Aissuer%3AOIDC%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267682"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679267680"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OIDC
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267943"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679267941"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OIDC
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser OIDC) -&gt; Value -&gt; Parser OIDC
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OIDC&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267677"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; OIDC
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267938"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267938"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; OIDC
 </span><a href="Network.AWS.EKS.Types.OIDC.html#OIDC%27"><span class="hs-identifier hs-var">OIDC'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; OIDC) -&gt; Parser (Maybe Text) -&gt; Parser OIDC
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679267938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;issuer&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267671"><span id="local-6989586621679267673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267932"><span id="local-6989586621679267934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

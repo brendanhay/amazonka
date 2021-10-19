@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | An object that contains information about your account details.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAccountDetails' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679329034"><span id="local-6989586621679329035"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountDetails"><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-var">AccountDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountDetails%27"><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-var">AccountDetails'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the types of email that you plan to send.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">useCaseDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679331543"><span id="local-6989586621679331544"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountDetails"><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-var">AccountDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountDetails%27"><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-var">AccountDetails'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the review of the latest details you submitted.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AreviewDetails%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe ReviewDetails
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AreviewDetails%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">reviewDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of email your account is sending. The mail type can be one of</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the following:</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -43,23 +43,23 @@
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">--     during a transaction with a customer.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AmailType%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe MailType
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AmailType%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">mailType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.MailType.html#MailType"><span class="hs-identifier hs-type">MailType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The language you would prefer for the case. The contact language can be</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- one of @ENGLISH@ or @JAPANESE@.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcontactLanguage%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe ContactLanguage
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A description of the types of email that you plan to send.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">useCaseDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The language you would prefer for the case. The contact language can be</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- one of @ENGLISH@ or @JAPANESE@.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcontactLanguage%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe ContactLanguage
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AcontactLanguage%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">contactLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactLanguage.html#ContactLanguage"><span class="hs-identifier hs-type">ContactLanguage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The URL of your website. This information helps us better understand the</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- type of content that you plan to send.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AwebsiteURL%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AwebsiteURL%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">websiteURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Information about the review of the latest details you submitted.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AreviewDetails%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe ReviewDetails
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AreviewDetails%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">reviewDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Additional email addresses where updates are sent about your account</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- review process.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AadditionalContactEmailAddresses%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AadditionalContactEmailAddresses%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">additionalContactEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Additional email addresses where updates are sent about your account</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- review process.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AadditionalContactEmailAddresses%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AadditionalContactEmailAddresses%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">additionalContactEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The URL of your website. This information helps us better understand the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- type of content that you plan to send.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AwebsiteURL%3AAccountDetails%27"><span class="annot"><span class="annottext">AccountDetails -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AwebsiteURL%3AAccountDetails%27"><span class="hs-identifier hs-var hs-var">websiteURL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329023"><span id="local-6989586621679329025"><span class="annot"><span class="annottext">AccountDetails -&gt; AccountDetails -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331532"><span id="local-6989586621679331534"><span class="annot"><span class="annottext">AccountDetails -&gt; AccountDetails -&gt; Bool
 (AccountDetails -&gt; AccountDetails -&gt; Bool)
 -&gt; (AccountDetails -&gt; AccountDetails -&gt; Bool) -&gt; Eq AccountDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountDetails -&gt; AccountDetails -&gt; Bool
 == :: AccountDetails -&gt; AccountDetails -&gt; Bool
 $c== :: AccountDetails -&gt; AccountDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329016"><span id="local-6989586621679329018"><span id="local-6989586621679329020"><span class="annot"><span class="annottext">Int -&gt; AccountDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331525"><span id="local-6989586621679331527"><span id="local-6989586621679331529"><span class="annot"><span class="annottext">Int -&gt; AccountDetails -&gt; ShowS
 [AccountDetails] -&gt; ShowS
 AccountDetails -&gt; String
 (Int -&gt; AccountDetails -&gt; ShowS)
@@ -101,7 +101,7 @@ $cfrom :: forall x. AccountDetails -&gt; Rep AccountDetails x
 </span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'useCaseDescription', 'accountDetails_useCaseDescription' - A description of the types of email that you plan to send.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'reviewDetails', 'accountDetails_reviewDetails' - Information about the review of the latest details you submitted.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'mailType', 'accountDetails_mailType' - The type of email your account is sending. The mail type can be one of</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- the following:</span><span>
@@ -112,194 +112,57 @@ $cfrom :: forall x. AccountDetails -&gt; Rep AccountDetails x
 </span><span id="line-74"></span><span class="hs-comment">-- -   @TRANSACTIONAL@ &#8211; Most of your sending traffic is to communicate</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--     during a transaction with a customer.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'contactLanguage', 'accountDetails_contactLanguage' - The language you would prefer for the case. The contact language can be</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- one of @ENGLISH@ or @JAPANESE@.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'websiteURL', 'accountDetails_websiteURL' - The URL of your website. This information helps us better understand the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- type of content that you plan to send.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'reviewDetails', 'accountDetails_reviewDetails' - Information about the review of the latest details you submitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'useCaseDescription', 'accountDetails_useCaseDescription' - A description of the types of email that you plan to send.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'contactLanguage', 'accountDetails_contactLanguage' - The language you would prefer for the case. The contact language can be</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- one of @ENGLISH@ or @JAPANESE@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'additionalContactEmailAddresses', 'accountDetails_additionalContactEmailAddresses' - Additional email addresses where updates are sent about your account</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- review process.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'additionalContactEmailAddresses', 'accountDetails_additionalContactEmailAddresses' - Additional email addresses where updates are sent about your account</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- review process.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'websiteURL', 'accountDetails_websiteURL' - The URL of your website. This information helps us better understand the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- type of content that you plan to send.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#newAccountDetails"><span class="hs-identifier hs-type">newAccountDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span>
 </span><span id="line-89"></span><span id="newAccountDetails"><span class="annot"><span class="annottext">newAccountDetails :: AccountDetails
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#newAccountDetails"><span class="hs-identifier hs-var hs-var">newAccountDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">AccountDetails' :: Maybe (Sensitive Text)
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">AccountDetails' :: Maybe ReviewDetails
 -&gt; Maybe MailType
--&gt; Maybe ContactLanguage
 -&gt; Maybe (Sensitive Text)
--&gt; Maybe ReviewDetails
+-&gt; Maybe ContactLanguage
 -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+-&gt; Maybe (Sensitive Text)
 -&gt; AccountDetails
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:useCaseDescription:AccountDetails' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="hs-identifier hs-var">useCaseDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reviewDetails:AccountDetails' :: Maybe ReviewDetails
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AreviewDetails%3AAccountDetails%27"><span class="hs-identifier hs-var">reviewDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewDetails
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:mailType:AccountDetails' :: Maybe MailType
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:mailType:AccountDetails' :: Maybe MailType
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AmailType%3AAccountDetails%27"><span class="hs-identifier hs-var">mailType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MailType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:useCaseDescription:AccountDetails' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="hs-identifier hs-var">useCaseDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactLanguage:AccountDetails' :: Maybe ContactLanguage
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AcontactLanguage%3AAccountDetails%27"><span class="hs-identifier hs-var">contactLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactLanguage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:websiteURL:AccountDetails' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AwebsiteURL%3AAccountDetails%27"><span class="hs-identifier hs-var">websiteURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:reviewDetails:AccountDetails' :: Maybe ReviewDetails
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AreviewDetails%3AAccountDetails%27"><span class="hs-identifier hs-var">reviewDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewDetails
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalContactEmailAddresses:AccountDetails' :: Maybe (Sensitive (NonEmpty (Sensitive Text)))
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalContactEmailAddresses:AccountDetails' :: Maybe (Sensitive (NonEmpty (Sensitive Text)))
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AadditionalContactEmailAddresses%3AAccountDetails%27"><span class="hs-identifier hs-var">additionalContactEmailAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | A description of the types of email that you plan to send.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_useCaseDescription"><span class="hs-identifier hs-type">accountDetails_useCaseDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="accountDetails_useCaseDescription"><span class="annot"><span class="annottext">accountDetails_useCaseDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AccountDetails -&gt; f AccountDetails
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_useCaseDescription"><span class="hs-identifier hs-var hs-var">accountDetails_useCaseDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe (Sensitive Text))
--&gt; (AccountDetails -&gt; Maybe (Sensitive Text) -&gt; AccountDetails)
--&gt; Lens
-     AccountDetails
-     AccountDetails
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329007"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-useCaseDescription :: Maybe (Sensitive Text)
-$sel:useCaseDescription:AccountDetails' :: AccountDetails -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679329007"><span class="hs-identifier hs-var hs-var">useCaseDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679329007"><span class="hs-identifier hs-var">useCaseDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329006"><span class="annot"><span class="annottext">s :: AccountDetails
-</span><a href="#local-6989586621679329006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329005"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679329005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
-</span><a href="#local-6989586621679329006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseDescription:AccountDetails' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="hs-identifier hs-var">useCaseDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679329005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
- -&gt; AccountDetails -&gt; f AccountDetails)
--&gt; ((Maybe Text -&gt; f (Maybe Text))
-    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
--&gt; (Maybe Text -&gt; f (Maybe Text))
--&gt; AccountDetails
--&gt; f AccountDetails
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
--&gt; Iso
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-     (Maybe Text)
-     (Maybe Text)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The type of email your account is sending. The mail type can be one of</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- the following:</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- -   @MARKETING@ &#8211; Most of your sending traffic is to keep your customers</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--     informed of your latest offering.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- -   @TRANSACTIONAL@ &#8211; Most of your sending traffic is to communicate</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--     during a transaction with a customer.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_mailType"><span class="hs-identifier hs-type">accountDetails_mailType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.MailType.html#MailType"><span class="hs-identifier hs-type">MailType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="accountDetails_mailType"><span class="annot"><span class="annottext">accountDetails_mailType :: (Maybe MailType -&gt; f (Maybe MailType))
--&gt; AccountDetails -&gt; f AccountDetails
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_mailType"><span class="hs-identifier hs-var hs-var">accountDetails_mailType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe MailType)
--&gt; (AccountDetails -&gt; Maybe MailType -&gt; AccountDetails)
--&gt; Lens
-     AccountDetails AccountDetails (Maybe MailType) (Maybe MailType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329000"><span class="annot"><span class="annottext">Maybe MailType
-mailType :: Maybe MailType
-$sel:mailType:AccountDetails' :: AccountDetails -&gt; Maybe MailType
-</span><a href="#local-6989586621679329000"><span class="hs-identifier hs-var hs-var">mailType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MailType
-</span><a href="#local-6989586621679329000"><span class="hs-identifier hs-var">mailType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328999"><span class="annot"><span class="annottext">s :: AccountDetails
-</span><a href="#local-6989586621679328999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328998"><span class="annot"><span class="annottext">Maybe MailType
-</span><a href="#local-6989586621679328998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
-</span><a href="#local-6989586621679328999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailType:AccountDetails' :: Maybe MailType
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AmailType%3AAccountDetails%27"><span class="hs-identifier hs-var">mailType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MailType
-</span><a href="#local-6989586621679328998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The language you would prefer for the case. The contact language can be</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- one of @ENGLISH@ or @JAPANESE@.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_contactLanguage"><span class="hs-identifier hs-type">accountDetails_contactLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactLanguage.html#ContactLanguage"><span class="hs-identifier hs-type">ContactLanguage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="accountDetails_contactLanguage"><span class="annot"><span class="annottext">accountDetails_contactLanguage :: (Maybe ContactLanguage -&gt; f (Maybe ContactLanguage))
--&gt; AccountDetails -&gt; f AccountDetails
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_contactLanguage"><span class="hs-identifier hs-var hs-var">accountDetails_contactLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe ContactLanguage)
--&gt; (AccountDetails -&gt; Maybe ContactLanguage -&gt; AccountDetails)
--&gt; Lens
-     AccountDetails
-     AccountDetails
-     (Maybe ContactLanguage)
-     (Maybe ContactLanguage)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328996"><span class="annot"><span class="annottext">Maybe ContactLanguage
-contactLanguage :: Maybe ContactLanguage
-$sel:contactLanguage:AccountDetails' :: AccountDetails -&gt; Maybe ContactLanguage
-</span><a href="#local-6989586621679328996"><span class="hs-identifier hs-var hs-var">contactLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactLanguage
-</span><a href="#local-6989586621679328996"><span class="hs-identifier hs-var">contactLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328995"><span class="annot"><span class="annottext">s :: AccountDetails
-</span><a href="#local-6989586621679328995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328994"><span class="annot"><span class="annottext">Maybe ContactLanguage
-</span><a href="#local-6989586621679328994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
-</span><a href="#local-6989586621679328995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactLanguage:AccountDetails' :: Maybe ContactLanguage
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AcontactLanguage%3AAccountDetails%27"><span class="hs-identifier hs-var">contactLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactLanguage
-</span><a href="#local-6989586621679328994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The URL of your website. This information helps us better understand the</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- type of content that you plan to send.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_websiteURL"><span class="hs-identifier hs-type">accountDetails_websiteURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="accountDetails_websiteURL"><span class="annot"><span class="annottext">accountDetails_websiteURL :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AccountDetails -&gt; f AccountDetails
-</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_websiteURL"><span class="hs-identifier hs-var hs-var">accountDetails_websiteURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe (Sensitive Text))
--&gt; (AccountDetails -&gt; Maybe (Sensitive Text) -&gt; AccountDetails)
--&gt; Lens
-     AccountDetails
-     AccountDetails
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328992"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-websiteURL :: Maybe (Sensitive Text)
-$sel:websiteURL:AccountDetails' :: AccountDetails -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679328992"><span class="hs-identifier hs-var hs-var">websiteURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679328992"><span class="hs-identifier hs-var">websiteURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328991"><span class="annot"><span class="annottext">s :: AccountDetails
-</span><a href="#local-6989586621679328991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328990"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679328990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
-</span><a href="#local-6989586621679328991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:websiteURL:AccountDetails' :: Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:websiteURL:AccountDetails' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AwebsiteURL%3AAccountDetails%27"><span class="hs-identifier hs-var">websiteURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679328990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
- -&gt; AccountDetails -&gt; f AccountDetails)
--&gt; ((Maybe Text -&gt; f (Maybe Text))
-    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
--&gt; (Maybe Text -&gt; f (Maybe Text))
--&gt; AccountDetails
--&gt; f AccountDetails
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
--&gt; Iso
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-     (Maybe Text)
-     (Maybe Text)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | Information about the review of the latest details you submitted.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_reviewDetails"><span class="hs-identifier hs-type">accountDetails_reviewDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="accountDetails_reviewDetails"><span class="annot"><span class="annottext">accountDetails_reviewDetails :: (Maybe ReviewDetails -&gt; f (Maybe ReviewDetails))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Information about the review of the latest details you submitted.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_reviewDetails"><span class="hs-identifier hs-type">accountDetails_reviewDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ReviewDetails.html#ReviewDetails"><span class="hs-identifier hs-type">ReviewDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="accountDetails_reviewDetails"><span class="annot"><span class="annottext">accountDetails_reviewDetails :: (Maybe ReviewDetails -&gt; f (Maybe ReviewDetails))
 -&gt; AccountDetails -&gt; f AccountDetails
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_reviewDetails"><span class="hs-identifier hs-var hs-var">accountDetails_reviewDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe ReviewDetails)
 -&gt; (AccountDetails -&gt; Maybe ReviewDetails -&gt; AccountDetails)
@@ -309,21 +172,114 @@ forall a. Iso' (Sensitive a) a
      (Maybe ReviewDetails)
      (Maybe ReviewDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328988"><span class="annot"><span class="annottext">Maybe ReviewDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331516"><span class="annot"><span class="annottext">Maybe ReviewDetails
 reviewDetails :: Maybe ReviewDetails
 $sel:reviewDetails:AccountDetails' :: AccountDetails -&gt; Maybe ReviewDetails
-</span><a href="#local-6989586621679328988"><span class="hs-identifier hs-var hs-var">reviewDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewDetails
-</span><a href="#local-6989586621679328988"><span class="hs-identifier hs-var">reviewDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328987"><span class="annot"><span class="annottext">s :: AccountDetails
-</span><a href="#local-6989586621679328987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328986"><span class="annot"><span class="annottext">Maybe ReviewDetails
-</span><a href="#local-6989586621679328986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
-</span><a href="#local-6989586621679328987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewDetails:AccountDetails' :: Maybe ReviewDetails
+</span><a href="#local-6989586621679331516"><span class="hs-identifier hs-var hs-var">reviewDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewDetails
+</span><a href="#local-6989586621679331516"><span class="hs-identifier hs-var">reviewDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331515"><span class="annot"><span class="annottext">s :: AccountDetails
+</span><a href="#local-6989586621679331515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331514"><span class="annot"><span class="annottext">Maybe ReviewDetails
+</span><a href="#local-6989586621679331514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
+</span><a href="#local-6989586621679331515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reviewDetails:AccountDetails' :: Maybe ReviewDetails
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AreviewDetails%3AAccountDetails%27"><span class="hs-identifier hs-var">reviewDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReviewDetails
-</span><a href="#local-6989586621679328986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | Additional email addresses where updates are sent about your account</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- review process.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_additionalContactEmailAddresses"><span class="hs-identifier hs-type">accountDetails_additionalContactEmailAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="accountDetails_additionalContactEmailAddresses"><span class="annot"><span class="annottext">accountDetails_additionalContactEmailAddresses :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679331514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The type of email your account is sending. The mail type can be one of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the following:</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @MARKETING@ &#8211; Most of your sending traffic is to keep your customers</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     informed of your latest offering.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @TRANSACTIONAL@ &#8211; Most of your sending traffic is to communicate</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     during a transaction with a customer.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_mailType"><span class="hs-identifier hs-type">accountDetails_mailType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.MailType.html#MailType"><span class="hs-identifier hs-type">MailType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="accountDetails_mailType"><span class="annot"><span class="annottext">accountDetails_mailType :: (Maybe MailType -&gt; f (Maybe MailType))
+-&gt; AccountDetails -&gt; f AccountDetails
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_mailType"><span class="hs-identifier hs-var hs-var">accountDetails_mailType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe MailType)
+-&gt; (AccountDetails -&gt; Maybe MailType -&gt; AccountDetails)
+-&gt; Lens
+     AccountDetails AccountDetails (Maybe MailType) (Maybe MailType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331512"><span class="annot"><span class="annottext">Maybe MailType
+mailType :: Maybe MailType
+$sel:mailType:AccountDetails' :: AccountDetails -&gt; Maybe MailType
+</span><a href="#local-6989586621679331512"><span class="hs-identifier hs-var hs-var">mailType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MailType
+</span><a href="#local-6989586621679331512"><span class="hs-identifier hs-var">mailType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331511"><span class="annot"><span class="annottext">s :: AccountDetails
+</span><a href="#local-6989586621679331511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331510"><span class="annot"><span class="annottext">Maybe MailType
+</span><a href="#local-6989586621679331510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
+</span><a href="#local-6989586621679331511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailType:AccountDetails' :: Maybe MailType
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AmailType%3AAccountDetails%27"><span class="hs-identifier hs-var">mailType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MailType
+</span><a href="#local-6989586621679331510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A description of the types of email that you plan to send.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_useCaseDescription"><span class="hs-identifier hs-type">accountDetails_useCaseDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="accountDetails_useCaseDescription"><span class="annot"><span class="annottext">accountDetails_useCaseDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountDetails -&gt; f AccountDetails
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_useCaseDescription"><span class="hs-identifier hs-var hs-var">accountDetails_useCaseDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe (Sensitive Text))
+-&gt; (AccountDetails -&gt; Maybe (Sensitive Text) -&gt; AccountDetails)
+-&gt; Lens
+     AccountDetails
+     AccountDetails
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331508"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+useCaseDescription :: Maybe (Sensitive Text)
+$sel:useCaseDescription:AccountDetails' :: AccountDetails -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331508"><span class="hs-identifier hs-var hs-var">useCaseDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331508"><span class="hs-identifier hs-var">useCaseDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331507"><span class="annot"><span class="annottext">s :: AccountDetails
+</span><a href="#local-6989586621679331507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331506"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
+</span><a href="#local-6989586621679331507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseDescription:AccountDetails' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AuseCaseDescription%3AAccountDetails%27"><span class="hs-identifier hs-var">useCaseDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; AccountDetails -&gt; f AccountDetails)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountDetails
+-&gt; f AccountDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The language you would prefer for the case. The contact language can be</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- one of @ENGLISH@ or @JAPANESE@.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_contactLanguage"><span class="hs-identifier hs-type">accountDetails_contactLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactLanguage.html#ContactLanguage"><span class="hs-identifier hs-type">ContactLanguage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="accountDetails_contactLanguage"><span class="annot"><span class="annottext">accountDetails_contactLanguage :: (Maybe ContactLanguage -&gt; f (Maybe ContactLanguage))
+-&gt; AccountDetails -&gt; f AccountDetails
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_contactLanguage"><span class="hs-identifier hs-var hs-var">accountDetails_contactLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe ContactLanguage)
+-&gt; (AccountDetails -&gt; Maybe ContactLanguage -&gt; AccountDetails)
+-&gt; Lens
+     AccountDetails
+     AccountDetails
+     (Maybe ContactLanguage)
+     (Maybe ContactLanguage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331501"><span class="annot"><span class="annottext">Maybe ContactLanguage
+contactLanguage :: Maybe ContactLanguage
+$sel:contactLanguage:AccountDetails' :: AccountDetails -&gt; Maybe ContactLanguage
+</span><a href="#local-6989586621679331501"><span class="hs-identifier hs-var hs-var">contactLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactLanguage
+</span><a href="#local-6989586621679331501"><span class="hs-identifier hs-var">contactLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331500"><span class="annot"><span class="annottext">s :: AccountDetails
+</span><a href="#local-6989586621679331500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331499"><span class="annot"><span class="annottext">Maybe ContactLanguage
+</span><a href="#local-6989586621679331499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
+</span><a href="#local-6989586621679331500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactLanguage:AccountDetails' :: Maybe ContactLanguage
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AcontactLanguage%3AAccountDetails%27"><span class="hs-identifier hs-var">contactLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactLanguage
+</span><a href="#local-6989586621679331499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Additional email addresses where updates are sent about your account</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- review process.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_additionalContactEmailAddresses"><span class="hs-identifier hs-type">accountDetails_additionalContactEmailAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="accountDetails_additionalContactEmailAddresses"><span class="annot"><span class="annottext">accountDetails_additionalContactEmailAddresses :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; AccountDetails -&gt; f AccountDetails
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_additionalContactEmailAddresses"><span class="hs-identifier hs-var hs-var">accountDetails_additionalContactEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text))))
 -&gt; (AccountDetails
@@ -334,16 +290,16 @@ $sel:reviewDetails:AccountDetails' :: AccountDetails -&gt; Maybe ReviewDetails
      (Maybe (Sensitive (NonEmpty (Sensitive Text))))
      (Maybe (Sensitive (NonEmpty (Sensitive Text))))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328984"><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331497"><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
 additionalContactEmailAddresses :: Maybe (Sensitive (NonEmpty (Sensitive Text)))
 $sel:additionalContactEmailAddresses:AccountDetails' :: AccountDetails -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
-</span><a href="#local-6989586621679328984"><span class="hs-identifier hs-var hs-var">additionalContactEmailAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
-</span><a href="#local-6989586621679328984"><span class="hs-identifier hs-var">additionalContactEmailAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328983"><span class="annot"><span class="annottext">s :: AccountDetails
-</span><a href="#local-6989586621679328983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328982"><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
-</span><a href="#local-6989586621679328982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
-</span><a href="#local-6989586621679328983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalContactEmailAddresses:AccountDetails' :: Maybe (Sensitive (NonEmpty (Sensitive Text)))
+</span><a href="#local-6989586621679331497"><span class="hs-identifier hs-var hs-var">additionalContactEmailAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
+</span><a href="#local-6989586621679331497"><span class="hs-identifier hs-var">additionalContactEmailAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331496"><span class="annot"><span class="annottext">s :: AccountDetails
+</span><a href="#local-6989586621679331496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331495"><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
+</span><a href="#local-6989586621679331495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
+</span><a href="#local-6989586621679331496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalContactEmailAddresses:AccountDetails' :: Maybe (Sensitive (NonEmpty (Sensitive Text)))
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AadditionalContactEmailAddresses%3AAccountDetails%27"><span class="hs-identifier hs-var">additionalContactEmailAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (NonEmpty (Sensitive Text)))
-</span><a href="#local-6989586621679328982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (NonEmpty (Sensitive Text)))
+</span><a href="#local-6989586621679331495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (NonEmpty (Sensitive Text)))
   -&gt; f (Maybe (Sensitive (NonEmpty (Sensitive Text)))))
  -&gt; AccountDetails -&gt; f AccountDetails)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -413,130 +369,170 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
      (NonEmpty Text)
      (NonEmpty (Sensitive Text))
      (Identity (NonEmpty (Sensitive Text)))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328978"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679328976"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountDetails
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The URL of your website. This information helps us better understand the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- type of content that you plan to send.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_websiteURL"><span class="hs-identifier hs-type">accountDetails_websiteURL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="accountDetails_websiteURL"><span class="annot"><span class="annottext">accountDetails_websiteURL :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountDetails -&gt; f AccountDetails
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#accountDetails_websiteURL"><span class="hs-identifier hs-var hs-var">accountDetails_websiteURL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountDetails -&gt; Maybe (Sensitive Text))
+-&gt; (AccountDetails -&gt; Maybe (Sensitive Text) -&gt; AccountDetails)
+-&gt; Lens
+     AccountDetails
+     AccountDetails
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331492"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+websiteURL :: Maybe (Sensitive Text)
+$sel:websiteURL:AccountDetails' :: AccountDetails -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331492"><span class="hs-identifier hs-var hs-var">websiteURL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331492"><span class="hs-identifier hs-var">websiteURL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331491"><span class="annot"><span class="annottext">s :: AccountDetails
+</span><a href="#local-6989586621679331491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-type">AccountDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331490"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountDetails
+</span><a href="#local-6989586621679331491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:websiteURL:AccountDetails' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SESv2.Types.AccountDetails.html#%24sel%3AwebsiteURL%3AAccountDetails%27"><span class="hs-identifier hs-var">websiteURL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679331490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; AccountDetails -&gt; f AccountDetails)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountDetails
+-&gt; f AccountDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331487"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679331485"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccountDetails)
 -&gt; Value
 -&gt; Parser AccountDetails
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccountDetails&quot;</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328973"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328973"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331482"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReviewDetails
 -&gt; Maybe MailType
--&gt; Maybe ContactLanguage
 -&gt; Maybe (Sensitive Text)
--&gt; Maybe ReviewDetails
+-&gt; Maybe ContactLanguage
 -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+-&gt; Maybe (Sensitive Text)
 -&gt; AccountDetails
 </span><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails%27"><span class="hs-identifier hs-var">AccountDetails'</span></a></span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReviewDetails
  -&gt; Maybe MailType
- -&gt; Maybe ContactLanguage
  -&gt; Maybe (Sensitive Text)
- -&gt; Maybe ReviewDetails
+ -&gt; Maybe ContactLanguage
  -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+ -&gt; Maybe (Sensitive Text)
  -&gt; AccountDetails)
--&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe ReviewDetails)
 -&gt; Parser
      (Maybe MailType
-      -&gt; Maybe ContactLanguage
       -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe ReviewDetails
+      -&gt; Maybe ContactLanguage
       -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+      -&gt; Maybe (Sensitive Text)
       -&gt; AccountDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReviewDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UseCaseDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;ReviewDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe MailType
-   -&gt; Maybe ContactLanguage
    -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe ReviewDetails
+   -&gt; Maybe ContactLanguage
    -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+   -&gt; Maybe (Sensitive Text)
    -&gt; AccountDetails)
 -&gt; Parser (Maybe MailType)
 -&gt; Parser
-     (Maybe ContactLanguage
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe ReviewDetails
+     (Maybe (Sensitive Text)
+      -&gt; Maybe ContactLanguage
       -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+      -&gt; Maybe (Sensitive Text)
       -&gt; AccountDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MailType)
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MailType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MailType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ContactLanguage
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe ReviewDetails
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe ContactLanguage
    -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+   -&gt; Maybe (Sensitive Text)
    -&gt; AccountDetails)
--&gt; Parser (Maybe ContactLanguage)
+-&gt; Parser (Maybe (Sensitive Text))
 -&gt; Parser
-     (Maybe (Sensitive Text)
-      -&gt; Maybe ReviewDetails
+     (Maybe ContactLanguage
       -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+      -&gt; Maybe (Sensitive Text)
       -&gt; AccountDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactLanguage)
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UseCaseDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContactLanguage
+   -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
+   -&gt; Maybe (Sensitive Text)
+   -&gt; AccountDetails)
+-&gt; Parser (Maybe ContactLanguage)
+-&gt; Parser
+     (Maybe (Sensitive (NonEmpty (Sensitive Text)))
+      -&gt; Maybe (Sensitive Text) -&gt; AccountDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactLanguage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactLanguage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text)
-   -&gt; Maybe ReviewDetails
-   -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text)))
-   -&gt; AccountDetails)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser
-     (Maybe ReviewDetails
-      -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text))) -&gt; AccountDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WebsiteURL&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ReviewDetails
-   -&gt; Maybe (Sensitive (NonEmpty (Sensitive Text))) -&gt; AccountDetails)
--&gt; Parser (Maybe ReviewDetails)
--&gt; Parser
-     (Maybe (Sensitive (NonEmpty (Sensitive Text))) -&gt; AccountDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReviewDetails)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReviewDetails&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive (NonEmpty (Sensitive Text))) -&gt; AccountDetails)
+  (Maybe (Sensitive (NonEmpty (Sensitive Text)))
+   -&gt; Maybe (Sensitive Text) -&gt; AccountDetails)
 -&gt; Parser (Maybe (Sensitive (NonEmpty (Sensitive Text))))
--&gt; Parser AccountDetails
+-&gt; Parser (Maybe (Sensitive Text) -&gt; AccountDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Sensitive (NonEmpty (Sensitive Text))))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdditionalContactEmailAddresses&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328967"><span id="local-6989586621679328969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span></span></span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span></span><span>
-</span><span id="line-151"></span></pre></body></html>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; AccountDetails)
+-&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser AccountDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679331482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WebsiteURL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331476"><span id="local-6989586621679331478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.AccountDetails.html#AccountDetails"><span class="hs-identifier hs-type">AccountDetails</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

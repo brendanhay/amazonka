@@ -27,29 +27,29 @@
 </span><span id="line-27"></span><span class="hs-comment">-- same priority as a rule group that\'s already associated.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDnsRuleGroupPriorityConflictViolation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679245103"><span id="local-6989586621679245104"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRuleGroupPriorityConflictViolation"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-var">DnsRuleGroupPriorityConflictViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRuleGroupPriorityConflictViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">DnsRuleGroupPriorityConflictViolation'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The priority setting of the two conflicting rule groups.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AconflictingPriority%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Natural
+</span><span id="line-30"></span><span id="local-6989586621679245333"><span id="local-6989586621679245334"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsRuleGroupPriorityConflictViolation"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-var">DnsRuleGroupPriorityConflictViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsRuleGroupPriorityConflictViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">DnsRuleGroupPriorityConflictViolation'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The priority setting of the two conflicting rule groups.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AconflictingPriority%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Natural
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPriority%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">conflictingPriority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A description of the violation that specifies the VPC and the rule group</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- that\'s already associated with it.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AviolationTargetDescription%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the Firewall Manager DNS Firewall policy that was already</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- applied to the VPC. This policy contains the rule group that\'s already</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- associated with the VPC.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">conflictingPolicyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A description of the violation that specifies the VPC and the rule group</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- that\'s already associated with it.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AviolationTargetDescription%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTargetDescription%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The priorities of rule groups that are already associated with the VPC.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- To retry your operation, choose priority settings that aren\'t in this</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- list for the rule groups in your new DNS Firewall policy.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AunavailablePriorities%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe [Natural]
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AunavailablePriorities%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">unavailablePriorities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the Firewall Manager DNS Firewall policy that was already</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- applied to the VPC. This policy contains the rule group that\'s already</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- associated with the VPC.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">conflictingPolicyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The priorities of rule groups that are already associated with the VPC.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- To retry your operation, choose priority settings that aren\'t in this</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- list for the rule groups in your new DNS Firewall policy.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AunavailablePriorities%3ADnsRuleGroupPriorityConflictViolation%27"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation -&gt; Maybe [Natural]
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AunavailablePriorities%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var hs-var">unavailablePriorities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245093"><span id="local-6989586621679245095"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245323"><span id="local-6989586621679245325"><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
 -&gt; DnsRuleGroupPriorityConflictViolation -&gt; Bool
 (DnsRuleGroupPriorityConflictViolation
  -&gt; DnsRuleGroupPriorityConflictViolation -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: DnsRuleGroupPriorityConflictViolation
 -&gt; DnsRuleGroupPriorityConflictViolation -&gt; Bool
 $c== :: DnsRuleGroupPriorityConflictViolation
 -&gt; DnsRuleGroupPriorityConflictViolation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245084"><span id="local-6989586621679245086"><span id="local-6989586621679245088"><span id="local-6989586621679245090"><span class="annot"><span class="annottext">ReadPrec [DnsRuleGroupPriorityConflictViolation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245314"><span id="local-6989586621679245316"><span id="local-6989586621679245318"><span id="local-6989586621679245320"><span class="annot"><span class="annottext">ReadPrec [DnsRuleGroupPriorityConflictViolation]
 ReadPrec DnsRuleGroupPriorityConflictViolation
 Int -&gt; ReadS DnsRuleGroupPriorityConflictViolation
 ReadS [DnsRuleGroupPriorityConflictViolation]
@@ -85,7 +85,7 @@ readList :: ReadS [DnsRuleGroupPriorityConflictViolation]
 $creadList :: ReadS [DnsRuleGroupPriorityConflictViolation]
 readsPrec :: Int -&gt; ReadS DnsRuleGroupPriorityConflictViolation
 $creadsPrec :: Int -&gt; ReadS DnsRuleGroupPriorityConflictViolation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245077"><span id="local-6989586621679245079"><span id="local-6989586621679245081"><span class="annot"><span class="annottext">Int -&gt; DnsRuleGroupPriorityConflictViolation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245307"><span id="local-6989586621679245309"><span id="local-6989586621679245311"><span class="annot"><span class="annottext">Int -&gt; DnsRuleGroupPriorityConflictViolation -&gt; ShowS
 [DnsRuleGroupPriorityConflictViolation] -&gt; ShowS
 DnsRuleGroupPriorityConflictViolation -&gt; String
 (Int -&gt; DnsRuleGroupPriorityConflictViolation -&gt; ShowS)
@@ -131,39 +131,39 @@ DnsRuleGroupPriorityConflictViolation
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'violationTarget', 'dnsRuleGroupPriorityConflictViolation_violationTarget' - Information about the VPC ID.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'conflictingPriority', 'dnsRuleGroupPriorityConflictViolation_conflictingPriority' - The priority setting of the two conflicting rule groups.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'conflictingPriority', 'dnsRuleGroupPriorityConflictViolation_conflictingPriority' - The priority setting of the two conflicting rule groups.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'violationTargetDescription', 'dnsRuleGroupPriorityConflictViolation_violationTargetDescription' - A description of the violation that specifies the VPC and the rule group</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- that\'s already associated with it.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'unavailablePriorities', 'dnsRuleGroupPriorityConflictViolation_unavailablePriorities' - The priorities of rule groups that are already associated with the VPC.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- To retry your operation, choose priority settings that aren\'t in this</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- list for the rule groups in your new DNS Firewall policy.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'conflictingPolicyId', 'dnsRuleGroupPriorityConflictViolation_conflictingPolicyId' - The ID of the Firewall Manager DNS Firewall policy that was already</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- applied to the VPC. This policy contains the rule group that\'s already</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- associated with the VPC.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'violationTargetDescription', 'dnsRuleGroupPriorityConflictViolation_violationTargetDescription' - A description of the violation that specifies the VPC and the rule group</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- that\'s already associated with it.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'violationTarget', 'dnsRuleGroupPriorityConflictViolation_violationTarget' - Information about the VPC ID.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'conflictingPolicyId', 'dnsRuleGroupPriorityConflictViolation_conflictingPolicyId' - The ID of the Firewall Manager DNS Firewall policy that was already</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- applied to the VPC. This policy contains the rule group that\'s already</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- associated with the VPC.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'unavailablePriorities', 'dnsRuleGroupPriorityConflictViolation_unavailablePriorities' - The priorities of rule groups that are already associated with the VPC.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- To retry your operation, choose priority settings that aren\'t in this</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- list for the rule groups in your new DNS Firewall policy.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#newDnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">newDnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span>
 </span><span id="line-73"></span><span id="newDnsRuleGroupPriorityConflictViolation"><span class="annot"><span class="annottext">newDnsRuleGroupPriorityConflictViolation :: DnsRuleGroupPriorityConflictViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#newDnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-var hs-var">newDnsRuleGroupPriorityConflictViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation' :: Maybe Text
--&gt; Maybe Natural
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation' :: Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Natural]
--&gt; Maybe Text
 -&gt; DnsRuleGroupPriorityConflictViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conflictingPriority:DnsRuleGroupPriorityConflictViolation' :: Maybe Natural
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPriority%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">conflictingPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:conflictingPriority:DnsRuleGroupPriorityConflictViolation' :: Maybe Natural
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPriority%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">conflictingPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:conflictingPolicyId:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">conflictingPolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
@@ -171,46 +171,20 @@ forall a. Maybe a
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:unavailablePriorities:DnsRuleGroupPriorityConflictViolation' :: Maybe [Natural]
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AunavailablePriorities%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">unavailablePriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:conflictingPolicyId:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">conflictingPolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:unavailablePriorities:DnsRuleGroupPriorityConflictViolation' :: Maybe [Natural]
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AunavailablePriorities%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">unavailablePriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Natural]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_violationTarget"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_violationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="dnsRuleGroupPriorityConflictViolation_violationTarget"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_violationTarget :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DnsRuleGroupPriorityConflictViolation
--&gt; f DnsRuleGroupPriorityConflictViolation
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_violationTarget"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation_violationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text)
--&gt; (DnsRuleGroupPriorityConflictViolation
-    -&gt; Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
--&gt; Lens
-     DnsRuleGroupPriorityConflictViolation
-     DnsRuleGroupPriorityConflictViolation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245068"><span class="annot"><span class="annottext">Maybe Text
-violationTarget :: Maybe Text
-$sel:violationTarget:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679245068"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245068"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245067"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245066"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The priority setting of the two conflicting rule groups.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_conflictingPriority"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_conflictingPriority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="dnsRuleGroupPriorityConflictViolation_conflictingPriority"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_conflictingPriority :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The priority setting of the two conflicting rule groups.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_conflictingPriority"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_conflictingPriority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="dnsRuleGroupPriorityConflictViolation_conflictingPriority"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_conflictingPriority :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; DnsRuleGroupPriorityConflictViolation
 -&gt; f DnsRuleGroupPriorityConflictViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_conflictingPriority"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation_conflictingPriority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupPriorityConflictViolation -&gt; Maybe Natural)
@@ -222,21 +196,48 @@ $sel:violationTarget:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPrior
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245064"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245298"><span class="annot"><span class="annottext">Maybe Natural
 conflictingPriority :: Maybe Natural
 $sel:conflictingPriority:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPriorityConflictViolation -&gt; Maybe Natural
-</span><a href="#local-6989586621679245064"><span class="hs-identifier hs-var hs-var">conflictingPriority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679245064"><span class="hs-identifier hs-var">conflictingPriority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245063"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245062"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679245062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictingPriority:DnsRuleGroupPriorityConflictViolation' :: Maybe Natural
+</span><a href="#local-6989586621679245298"><span class="hs-identifier hs-var hs-var">conflictingPriority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245298"><span class="hs-identifier hs-var">conflictingPriority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245297"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245296"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictingPriority:DnsRuleGroupPriorityConflictViolation' :: Maybe Natural
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPriority%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">conflictingPriority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679245062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | A description of the violation that specifies the VPC and the rule group</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- that\'s already associated with it.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_violationTargetDescription"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="dnsRuleGroupPriorityConflictViolation_violationTargetDescription"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_violationTargetDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679245296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The ID of the Firewall Manager DNS Firewall policy that was already</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- applied to the VPC. This policy contains the rule group that\'s already</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- associated with the VPC.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_conflictingPolicyId"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_conflictingPolicyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="dnsRuleGroupPriorityConflictViolation_conflictingPolicyId"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_conflictingPolicyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DnsRuleGroupPriorityConflictViolation
+-&gt; f DnsRuleGroupPriorityConflictViolation
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_conflictingPolicyId"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation_conflictingPolicyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text)
+-&gt; (DnsRuleGroupPriorityConflictViolation
+    -&gt; Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
+-&gt; Lens
+     DnsRuleGroupPriorityConflictViolation
+     DnsRuleGroupPriorityConflictViolation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245294"><span class="annot"><span class="annottext">Maybe Text
+conflictingPolicyId :: Maybe Text
+$sel:conflictingPolicyId:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679245294"><span class="hs-identifier hs-var hs-var">conflictingPolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245294"><span class="hs-identifier hs-var">conflictingPolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245293"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245292"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictingPolicyId:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">conflictingPolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | A description of the violation that specifies the VPC and the rule group</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- that\'s already associated with it.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_violationTargetDescription"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="dnsRuleGroupPriorityConflictViolation_violationTargetDescription"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_violationTargetDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DnsRuleGroupPriorityConflictViolation
 -&gt; f DnsRuleGroupPriorityConflictViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_violationTargetDescription"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation_violationTargetDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text)
@@ -248,22 +249,47 @@ $sel:conflictingPriority:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupP
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245060"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245290"><span class="annot"><span class="annottext">Maybe Text
 violationTargetDescription :: Maybe Text
 $sel:violationTargetDescription:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679245060"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245060"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245059"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245058"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
+</span><a href="#local-6989586621679245290"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245290"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245289"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTargetDescription%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The priorities of rule groups that are already associated with the VPC.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- To retry your operation, choose priority settings that aren\'t in this</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- list for the rule groups in your new DNS Firewall policy.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_unavailablePriorities"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_unavailablePriorities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="dnsRuleGroupPriorityConflictViolation_unavailablePriorities"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_unavailablePriorities :: (Maybe [Natural] -&gt; f (Maybe [Natural]))
+</span><a href="#local-6989586621679245288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_violationTarget"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_violationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="dnsRuleGroupPriorityConflictViolation_violationTarget"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_violationTarget :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DnsRuleGroupPriorityConflictViolation
+-&gt; f DnsRuleGroupPriorityConflictViolation
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_violationTarget"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation_violationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text)
+-&gt; (DnsRuleGroupPriorityConflictViolation
+    -&gt; Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
+-&gt; Lens
+     DnsRuleGroupPriorityConflictViolation
+     DnsRuleGroupPriorityConflictViolation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245286"><span class="annot"><span class="annottext">Maybe Text
+violationTarget :: Maybe Text
+$sel:violationTarget:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679245286"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245286"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245285"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245284"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AviolationTarget%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The priorities of rule groups that are already associated with the VPC.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- To retry your operation, choose priority settings that aren\'t in this</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- list for the rule groups in your new DNS Firewall policy.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_unavailablePriorities"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_unavailablePriorities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="dnsRuleGroupPriorityConflictViolation_unavailablePriorities"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_unavailablePriorities :: (Maybe [Natural] -&gt; f (Maybe [Natural]))
 -&gt; DnsRuleGroupPriorityConflictViolation
 -&gt; f DnsRuleGroupPriorityConflictViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_unavailablePriorities"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation_unavailablePriorities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupPriorityConflictViolation -&gt; Maybe [Natural])
@@ -275,16 +301,16 @@ $sel:violationTargetDescription:DnsRuleGroupPriorityConflictViolation' :: DnsRul
      (Maybe [Natural])
      (Maybe [Natural])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245056"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245282"><span class="annot"><span class="annottext">Maybe [Natural]
 unavailablePriorities :: Maybe [Natural]
 $sel:unavailablePriorities:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPriorityConflictViolation -&gt; Maybe [Natural]
-</span><a href="#local-6989586621679245056"><span class="hs-identifier hs-var hs-var">unavailablePriorities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679245056"><span class="hs-identifier hs-var">unavailablePriorities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245055"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245054"><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679245054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unavailablePriorities:DnsRuleGroupPriorityConflictViolation' :: Maybe [Natural]
+</span><a href="#local-6989586621679245282"><span class="hs-identifier hs-var hs-var">unavailablePriorities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679245282"><span class="hs-identifier hs-var">unavailablePriorities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245281"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245280"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679245280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
+</span><a href="#local-6989586621679245281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unavailablePriorities:DnsRuleGroupPriorityConflictViolation' :: Maybe [Natural]
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AunavailablePriorities%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">unavailablePriorities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679245054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
+</span><a href="#local-6989586621679245280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural]))
  -&gt; DnsRuleGroupPriorityConflictViolation
  -&gt; f DnsRuleGroupPriorityConflictViolation)
 -&gt; ((Maybe [Natural] -&gt; f (Maybe [Natural]))
@@ -303,119 +329,102 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Natural] [Natural] [Natural] [Natural]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the Firewall Manager DNS Firewall policy that was already</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- applied to the VPC. This policy contains the rule group that\'s already</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- associated with the VPC.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_conflictingPolicyId"><span class="hs-identifier hs-type">dnsRuleGroupPriorityConflictViolation_conflictingPolicyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="dnsRuleGroupPriorityConflictViolation_conflictingPolicyId"><span class="annot"><span class="annottext">dnsRuleGroupPriorityConflictViolation_conflictingPolicyId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DnsRuleGroupPriorityConflictViolation
--&gt; f DnsRuleGroupPriorityConflictViolation
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#dnsRuleGroupPriorityConflictViolation_conflictingPolicyId"><span class="hs-identifier hs-var hs-var">dnsRuleGroupPriorityConflictViolation_conflictingPolicyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text)
--&gt; (DnsRuleGroupPriorityConflictViolation
-    -&gt; Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
--&gt; Lens
-     DnsRuleGroupPriorityConflictViolation
-     DnsRuleGroupPriorityConflictViolation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245049"><span class="annot"><span class="annottext">Maybe Text
-conflictingPolicyId :: Maybe Text
-$sel:conflictingPolicyId:DnsRuleGroupPriorityConflictViolation' :: DnsRuleGroupPriorityConflictViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679245049"><span class="hs-identifier hs-var hs-var">conflictingPolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245049"><span class="hs-identifier hs-var">conflictingPolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245048"><span class="annot"><span class="annottext">s :: DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245047"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsRuleGroupPriorityConflictViolation
-</span><a href="#local-6989586621679245048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictingPolicyId:DnsRuleGroupPriorityConflictViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#%24sel%3AconflictingPolicyId%3ADnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">conflictingPolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679245044"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
-</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679245042"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRuleGroupPriorityConflictViolation
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679245274"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679245272"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsRuleGroupPriorityConflictViolation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DnsRuleGroupPriorityConflictViolation)
 -&gt; Value
 -&gt; Parser DnsRuleGroupPriorityConflictViolation
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DnsRuleGroupPriorityConflictViolation&quot;</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245039"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Natural
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245269"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Natural]
--&gt; Maybe Text
 -&gt; DnsRuleGroupPriorityConflictViolation
 </span><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation%27"><span class="hs-identifier hs-var">DnsRuleGroupPriorityConflictViolation'</span></a></span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Natural
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [Natural]
- -&gt; Maybe Text
  -&gt; DnsRuleGroupPriorityConflictViolation)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe [Natural]
-      -&gt; Maybe Text
-      -&gt; DnsRuleGroupPriorityConflictViolation)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ViolationTarget&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe [Natural]
-   -&gt; Maybe Text
-   -&gt; DnsRuleGroupPriorityConflictViolation)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe [Natural]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Natural]
       -&gt; DnsRuleGroupPriorityConflictViolation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConflictingPriority&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe [Natural]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Natural]
    -&gt; DnsRuleGroupPriorityConflictViolation)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe [Natural]
-      -&gt; Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Natural]
+      -&gt; DnsRuleGroupPriorityConflictViolation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679245269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConflictingPolicyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Natural]
+   -&gt; DnsRuleGroupPriorityConflictViolation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Natural] -&gt; DnsRuleGroupPriorityConflictViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ViolationTargetDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Natural]
-   -&gt; Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Natural] -&gt; DnsRuleGroupPriorityConflictViolation)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Natural] -&gt; DnsRuleGroupPriorityConflictViolation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ViolationTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Natural] -&gt; DnsRuleGroupPriorityConflictViolation)
 -&gt; Parser (Maybe [Natural])
--&gt; Parser (Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
+-&gt; Parser DnsRuleGroupPriorityConflictViolation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
+</span><a href="#local-6989586621679245269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UnavailablePriorities&quot;</span></span><span>
@@ -426,22 +435,13 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DnsRuleGroupPriorityConflictViolation)
--&gt; Parser (Maybe Text)
--&gt; Parser DnsRuleGroupPriorityConflictViolation
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConflictingPolicyId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679245032"><span id="local-6989586621679245034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span></span></span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679245029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span></span><span>
-</span><span id="line-137"></span></pre></body></html>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679245262"><span id="local-6989586621679245264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679245259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation.html#DnsRuleGroupPriorityConflictViolation"><span class="hs-identifier hs-type">DnsRuleGroupPriorityConflictViolation</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

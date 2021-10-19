@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The range of timestamps for which to return fragments.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTimestampRange' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679165128"><span id="local-6989586621679165129"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimestampRange"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-var">TimestampRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimestampRange%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-var">TimestampRange'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679165139"><span id="local-6989586621679165140"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimestampRange"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-var">TimestampRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimestampRange%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-var">TimestampRange'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The starting timestamp in the range of timestamps for which to return</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- fragments.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartTimestamp%3ATimestampRange%27"><span class="annot"><span class="annottext">TimestampRange -&gt; POSIX
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AendTimestamp%3ATimestampRange%27"><span class="annot"><span class="annottext">TimestampRange -&gt; POSIX
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#%24sel%3AendTimestamp%3ATimestampRange%27"><span class="hs-identifier hs-var hs-var">endTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165121"><span id="local-6989586621679165123"><span class="annot"><span class="annottext">TimestampRange -&gt; TimestampRange -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165132"><span id="local-6989586621679165134"><span class="annot"><span class="annottext">TimestampRange -&gt; TimestampRange -&gt; Bool
 (TimestampRange -&gt; TimestampRange -&gt; Bool)
 -&gt; (TimestampRange -&gt; TimestampRange -&gt; Bool) -&gt; Eq TimestampRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimestampRange -&gt; TimestampRange -&gt; Bool
 == :: TimestampRange -&gt; TimestampRange -&gt; Bool
 $c== :: TimestampRange -&gt; TimestampRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165112"><span id="local-6989586621679165114"><span id="local-6989586621679165116"><span id="local-6989586621679165118"><span class="annot"><span class="annottext">ReadPrec [TimestampRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165123"><span id="local-6989586621679165125"><span id="local-6989586621679165127"><span id="local-6989586621679165129"><span class="annot"><span class="annottext">ReadPrec [TimestampRange]
 ReadPrec TimestampRange
 Int -&gt; ReadS TimestampRange
 ReadS [TimestampRange]
@@ -64,7 +64,7 @@ readList :: ReadS [TimestampRange]
 $creadList :: ReadS [TimestampRange]
 readsPrec :: Int -&gt; ReadS TimestampRange
 $creadsPrec :: Int -&gt; ReadS TimestampRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165105"><span id="local-6989586621679165107"><span id="local-6989586621679165109"><span class="annot"><span class="annottext">Int -&gt; TimestampRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165116"><span id="local-6989586621679165118"><span id="local-6989586621679165120"><span class="annot"><span class="annottext">Int -&gt; TimestampRange -&gt; ShowS
 [TimestampRange] -&gt; ShowS
 TimestampRange -&gt; String
 (Int -&gt; TimestampRange -&gt; ShowS)
@@ -110,9 +110,9 @@ $cfrom :: forall x. TimestampRange -&gt; Rep TimestampRange x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span>
 </span><span id="line-58"></span><span id="newTimestampRange"><span class="annot"><span class="annottext">newTimestampRange :: UTCTime -&gt; UTCTime -&gt; TimestampRange
-</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#newTimestampRange"><span class="hs-identifier hs-var hs-var">newTimestampRange</span></a></span></span><span> </span><span id="local-6989586621679165099"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679165099"><span class="hs-identifier hs-var">pStartTimestamp_</span></a></span></span><span> </span><span id="local-6989586621679165098"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679165098"><span class="hs-identifier hs-var">pEndTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#newTimestampRange"><span class="hs-identifier hs-var hs-var">newTimestampRange</span></a></span></span><span> </span><span id="local-6989586621679165110"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679165110"><span class="hs-identifier hs-var">pStartTimestamp_</span></a></span></span><span> </span><span id="local-6989586621679165109"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679165109"><span class="hs-identifier hs-var">pEndTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">TimestampRange' :: POSIX -&gt; POSIX -&gt; TimestampRange
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTimestamp:TimestampRange' :: POSIX
@@ -124,7 +124,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679165099"><span class="hs-identifier hs-var">pStartTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165110"><span class="hs-identifier hs-var">pStartTimestamp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTimestamp:TimestampRange' :: POSIX
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#%24sel%3AendTimestamp%3ATimestampRange%27"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -133,7 +133,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679165098"><span class="hs-identifier hs-var">pEndTimestamp_</span></a></span><span>
+</span><a href="#local-6989586621679165109"><span class="hs-identifier hs-var">pEndTimestamp_</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The starting timestamp in the range of timestamps for which to return</span><span>
@@ -144,16 +144,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (TimestampRange -&gt; POSIX -&gt; TimestampRange)
 -&gt; Lens TimestampRange TimestampRange POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165092"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165103"><span class="annot"><span class="annottext">POSIX
 startTimestamp :: POSIX
 $sel:startTimestamp:TimestampRange' :: TimestampRange -&gt; POSIX
-</span><a href="#local-6989586621679165092"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165092"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165091"><span class="annot"><span class="annottext">s :: TimestampRange
-</span><a href="#local-6989586621679165091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165090"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
-</span><a href="#local-6989586621679165091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestamp:TimestampRange' :: POSIX
+</span><a href="#local-6989586621679165103"><span class="hs-identifier hs-var hs-var">startTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679165103"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165102"><span class="annot"><span class="annottext">s :: TimestampRange
+</span><a href="#local-6989586621679165102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165101"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679165101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestamp:TimestampRange' :: POSIX
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#%24sel%3AstartTimestamp%3ATimestampRange%27"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimestampRange -&gt; f TimestampRange)
+</span><a href="#local-6989586621679165101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimestampRange -&gt; f TimestampRange)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; TimestampRange
@@ -171,16 +171,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TimestampRange -&gt; POSIX -&gt; TimestampRange)
 -&gt; Lens TimestampRange TimestampRange POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165087"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165098"><span class="annot"><span class="annottext">POSIX
 endTimestamp :: POSIX
 $sel:endTimestamp:TimestampRange' :: TimestampRange -&gt; POSIX
-</span><a href="#local-6989586621679165087"><span class="hs-identifier hs-var hs-var">endTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165087"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165086"><span class="annot"><span class="annottext">s :: TimestampRange
-</span><a href="#local-6989586621679165086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165085"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
-</span><a href="#local-6989586621679165086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimestamp:TimestampRange' :: POSIX
+</span><a href="#local-6989586621679165098"><span class="hs-identifier hs-var hs-var">endTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679165098"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165097"><span class="annot"><span class="annottext">s :: TimestampRange
+</span><a href="#local-6989586621679165097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165096"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679165096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679165097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimestamp:TimestampRange' :: POSIX
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#%24sel%3AendTimestamp%3ATimestampRange%27"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimestampRange -&gt; f TimestampRange)
+</span><a href="#local-6989586621679165096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TimestampRange -&gt; f TimestampRange)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; TimestampRange
@@ -190,18 +190,18 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165081"><span id="local-6989586621679165083"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165092"><span id="local-6989586621679165094"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165070"><span id="local-6989586621679165072"><span id="local-6989586621679165074"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679165068"><span class="annot"><span class="annottext">toJSON :: TimestampRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165065"><span id="local-6989586621679165066"><span class="annot"><span class="annottext">POSIX
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165081"><span id="local-6989586621679165083"><span id="local-6989586621679165085"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679165079"><span class="annot"><span class="annottext">toJSON :: TimestampRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165076"><span id="local-6989586621679165077"><span class="annot"><span class="annottext">POSIX
 endTimestamp :: POSIX
 startTimestamp :: POSIX
 $sel:endTimestamp:TimestampRange' :: TimestampRange -&gt; POSIX
 $sel:startTimestamp:TimestampRange' :: TimestampRange -&gt; POSIX
-</span><a href="#local-6989586621679165065"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679165076"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -214,14 +214,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StartTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165066"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165077"><span class="hs-identifier hs-var">startTimestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679165065"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165076"><span class="hs-identifier hs-var">endTimestamp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span></pre></body></html>

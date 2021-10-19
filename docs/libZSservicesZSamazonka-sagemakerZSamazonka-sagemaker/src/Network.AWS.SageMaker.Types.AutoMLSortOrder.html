@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680293445"><span id="local-6989586621680293446"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLSortOrder"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortOrder.html#AutoMLSortOrder"><span class="hs-identifier hs-var">AutoMLSortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLSortOrder%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortOrder.html#AutoMLSortOrder%27"><span class="hs-identifier hs-var">AutoMLSortOrder'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680294806"><span id="local-6989586621680294807"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLSortOrder"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortOrder.html#AutoMLSortOrder"><span class="hs-identifier hs-var">AutoMLSortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLSortOrder%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortOrder.html#AutoMLSortOrder%27"><span class="hs-identifier hs-var">AutoMLSortOrder'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoMLSortOrder"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLSortOrder.html#fromAutoMLSortOrder"><span class="hs-identifier hs-var hs-var">fromAutoMLSortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680293437"><span id="local-6989586621680293439"><span id="local-6989586621680293441"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortOrder -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294798"><span id="local-6989586621680294800"><span id="local-6989586621680294802"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortOrder -&gt; ShowS
 [AutoMLSortOrder] -&gt; ShowS
 AutoMLSortOrder -&gt; String
 (Int -&gt; AutoMLSortOrder -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AutoMLSortOrder -&gt; String
 showsPrec :: Int -&gt; AutoMLSortOrder -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoMLSortOrder -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680293428"><span id="local-6989586621680293430"><span id="local-6989586621680293432"><span id="local-6989586621680293434"><span class="annot"><span class="annottext">ReadPrec [AutoMLSortOrder]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680294789"><span id="local-6989586621680294791"><span id="local-6989586621680294793"><span id="local-6989586621680294795"><span class="annot"><span class="annottext">ReadPrec [AutoMLSortOrder]
 ReadPrec AutoMLSortOrder
 Int -&gt; ReadS AutoMLSortOrder
 ReadS [AutoMLSortOrder]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AutoMLSortOrder]
 readsPrec :: Int -&gt; ReadS AutoMLSortOrder
 $creadsPrec :: Int -&gt; ReadS AutoMLSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680293423"><span id="local-6989586621680293425"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680294784"><span id="local-6989586621680294786"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool
 (AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool)
 -&gt; (AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool)
 -&gt; Eq AutoMLSortOrder
@@ -82,7 +82,7 @@ $c/= :: AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool
 == :: AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool
 $c== :: AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680293407"><span id="local-6989586621680293409"><span id="local-6989586621680293411"><span id="local-6989586621680293413"><span id="local-6989586621680293415"><span id="local-6989586621680293417"><span id="local-6989586621680293419"><span class="annot"><span class="annottext">Eq AutoMLSortOrder
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680294768"><span id="local-6989586621680294770"><span id="local-6989586621680294772"><span id="local-6989586621680294774"><span id="local-6989586621680294776"><span id="local-6989586621680294778"><span id="local-6989586621680294780"><span class="annot"><span class="annottext">Eq AutoMLSortOrder
 Eq AutoMLSortOrder
 -&gt; (AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Ordering)
 -&gt; (AutoMLSortOrder -&gt; AutoMLSortOrder -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AutoMLSortOrder -&gt; Rep AutoMLSortOrder x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680293399"><span id="local-6989586621680293401"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortOrder -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294760"><span id="local-6989586621680294762"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortOrder -&gt; Int
 AutoMLSortOrder -&gt; Int
 (Int -&gt; AutoMLSortOrder -&gt; Int)
 -&gt; (AutoMLSortOrder -&gt; Int) -&gt; Hashable AutoMLSortOrder
@@ -143,50 +143,50 @@ $chash :: AutoMLSortOrder -&gt; Int
 hashWithSalt :: Int -&gt; AutoMLSortOrder -&gt; Int
 $chashWithSalt :: Int -&gt; AutoMLSortOrder -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680293396"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680294757"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; ()
 (AutoMLSortOrder -&gt; ()) -&gt; NFData AutoMLSortOrder
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoMLSortOrder -&gt; ()
 $crnf :: AutoMLSortOrder -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680293393"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLSortOrder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680294754"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLSortOrder
 (Text -&gt; Either String AutoMLSortOrder) -&gt; FromText AutoMLSortOrder
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoMLSortOrder
 $cfromText :: Text -&gt; Either String AutoMLSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680293390"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680294751"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; Text
 (AutoMLSortOrder -&gt; Text) -&gt; ToText AutoMLSortOrder
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoMLSortOrder -&gt; Text
 $ctoText :: AutoMLSortOrder -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680293387"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680294748"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; ByteString
 (AutoMLSortOrder -&gt; ByteString) -&gt; ToByteString AutoMLSortOrder
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoMLSortOrder -&gt; ByteString
 $ctoBS :: AutoMLSortOrder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680293384"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680294745"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; ByteStringBuilder
 (AutoMLSortOrder -&gt; ByteStringBuilder) -&gt; ToLog AutoMLSortOrder
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoMLSortOrder -&gt; ByteStringBuilder
 $cbuild :: AutoMLSortOrder -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680293381"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLSortOrder -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680294742"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLSortOrder -&gt; [Header]
 (HeaderName -&gt; AutoMLSortOrder -&gt; [Header])
 -&gt; ToHeader AutoMLSortOrder
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoMLSortOrder -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoMLSortOrder -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680293378"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680294739"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; QueryString
 (AutoMLSortOrder -&gt; QueryString) -&gt; ToQuery AutoMLSortOrder
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoMLSortOrder -&gt; QueryString
 $ctoQuery :: AutoMLSortOrder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680293373"><span id="local-6989586621680293375"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLSortOrder]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680294734"><span id="local-6989586621680294736"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLSortOrder]
 Value -&gt; Parser AutoMLSortOrder
 (Value -&gt; Parser AutoMLSortOrder)
 -&gt; (Value -&gt; Parser [AutoMLSortOrder]) -&gt; FromJSON AutoMLSortOrder
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoMLSortOrder]
 parseJSON :: Value -&gt; Parser AutoMLSortOrder
 $cparseJSON :: Value -&gt; Parser AutoMLSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680293368"><span id="local-6989586621680293370"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLSortOrder]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680294729"><span id="local-6989586621680294731"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLSortOrder]
 FromJSONKeyFunction AutoMLSortOrder
 FromJSONKeyFunction AutoMLSortOrder
 -&gt; FromJSONKeyFunction [AutoMLSortOrder]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoMLSortOrder]
 fromJSONKey :: FromJSONKeyFunction AutoMLSortOrder
 $cfromJSONKey :: FromJSONKeyFunction AutoMLSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680293359"><span id="local-6989586621680293361"><span id="local-6989586621680293363"><span id="local-6989586621680293365"><span class="annot"><span class="annottext">[AutoMLSortOrder] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680294720"><span id="local-6989586621680294722"><span id="local-6989586621680294724"><span id="local-6989586621680294726"><span class="annot"><span class="annottext">[AutoMLSortOrder] -&gt; Encoding
 [AutoMLSortOrder] -&gt; Value
 AutoMLSortOrder -&gt; Encoding
 AutoMLSortOrder -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: AutoMLSortOrder -&gt; Encoding
 toJSON :: AutoMLSortOrder -&gt; Value
 $ctoJSON :: AutoMLSortOrder -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680293354"><span id="local-6989586621680293356"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLSortOrder]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680294715"><span id="local-6989586621680294717"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLSortOrder]
 ToJSONKeyFunction AutoMLSortOrder
 ToJSONKeyFunction AutoMLSortOrder
 -&gt; ToJSONKeyFunction [AutoMLSortOrder] -&gt; ToJSONKey AutoMLSortOrder
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoMLSortOrder]
 toJSONKey :: ToJSONKeyFunction AutoMLSortOrder
 $ctoJSONKey :: ToJSONKeyFunction AutoMLSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680293351"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLSortOrder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680294712"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLSortOrder
 ([Node] -&gt; Either String AutoMLSortOrder)
 -&gt; FromXML AutoMLSortOrder
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoMLSortOrder
 $cparseXML :: [Node] -&gt; Either String AutoMLSortOrder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680293348"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680294709"><span class="annot"><span class="annottext">AutoMLSortOrder -&gt; XML
 (AutoMLSortOrder -&gt; XML) -&gt; ToXML AutoMLSortOrder
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoMLSortOrder -&gt; XML

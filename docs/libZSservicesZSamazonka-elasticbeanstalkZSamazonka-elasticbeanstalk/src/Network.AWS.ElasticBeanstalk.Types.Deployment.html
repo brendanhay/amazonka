@@ -26,30 +26,30 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about an application version deployment.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDeployment' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679300333"><span id="local-6989586621679300334"></span></span><span class="hs-keyword">data</span><span> </span><span id="Deployment"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-var">Deployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Deployment%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-var">Deployment'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the deployment:</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- -   @In Progress@ : The deployment is in progress.</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @Deployed@ : The deployment succeeded.</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @Failed@ : The deployment failed.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3Astatus%3ADeployment%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the deployment. This number increases by one each time that</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- you deploy source code or change instance configuration settings.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdeploymentId%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe Integer
+</span><span id="line-29"></span><span id="local-6989586621679300612"><span id="local-6989586621679300613"></span></span><span class="hs-keyword">data</span><span> </span><span id="Deployment"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-var">Deployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Deployment%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-var">Deployment'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the deployment. This number increases by one each time that</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- you deploy source code or change instance configuration settings.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeploymentId%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe Integer
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AdeploymentId%3ADeployment%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The version label of the application version in the deployment.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AversionLabel%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AversionLabel%3ADeployment%27"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | For in-progress deployments, the time that the deployment started.</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- For completed deployments, the time that the deployment ended.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdeploymentTime%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe ISO8601
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AdeploymentTime%3ADeployment%27"><span class="hs-identifier hs-var hs-var">deploymentTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the deployment:</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @In Progress@ : The deployment is in progress.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @Deployed@ : The deployment succeeded.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @Failed@ : The deployment failed.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3Astatus%3ADeployment%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | For in-progress deployments, the time that the deployment started.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- For completed deployments, the time that the deployment ended.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdeploymentTime%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AdeploymentTime%3ADeployment%27"><span class="hs-identifier hs-var hs-var">deploymentTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The version label of the application version in the deployment.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AversionLabel%3ADeployment%27"><span class="annot"><span class="annottext">Deployment -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AversionLabel%3ADeployment%27"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300324"><span id="local-6989586621679300326"><span class="annot"><span class="annottext">Deployment -&gt; Deployment -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300603"><span id="local-6989586621679300605"><span class="annot"><span class="annottext">Deployment -&gt; Deployment -&gt; Bool
 (Deployment -&gt; Deployment -&gt; Bool)
 -&gt; (Deployment -&gt; Deployment -&gt; Bool) -&gt; Eq Deployment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Deployment -&gt; Deployment -&gt; Bool
 == :: Deployment -&gt; Deployment -&gt; Bool
 $c== :: Deployment -&gt; Deployment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300315"><span id="local-6989586621679300317"><span id="local-6989586621679300319"><span id="local-6989586621679300321"><span class="annot"><span class="annottext">ReadPrec [Deployment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300594"><span id="local-6989586621679300596"><span id="local-6989586621679300598"><span id="local-6989586621679300600"><span class="annot"><span class="annottext">ReadPrec [Deployment]
 ReadPrec Deployment
 Int -&gt; ReadS Deployment
 ReadS [Deployment]
@@ -77,7 +77,7 @@ readList :: ReadS [Deployment]
 $creadList :: ReadS [Deployment]
 readsPrec :: Int -&gt; ReadS Deployment
 $creadsPrec :: Int -&gt; ReadS Deployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300308"><span id="local-6989586621679300310"><span id="local-6989586621679300312"><span class="annot"><span class="annottext">Int -&gt; Deployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300587"><span id="local-6989586621679300589"><span id="local-6989586621679300591"><span class="annot"><span class="annottext">Int -&gt; Deployment -&gt; ShowS
 [Deployment] -&gt; ShowS
 Deployment -&gt; String
 (Int -&gt; Deployment -&gt; ShowS)
@@ -110,127 +110,109 @@ $cfrom :: forall x. Deployment -&gt; Rep Deployment x
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'status', 'deployment_status' - The status of the deployment:</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- -   @In Progress@ : The deployment is in progress.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- -   @Deployed@ : The deployment succeeded.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- -   @Failed@ : The deployment failed.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'deploymentId', 'deployment_deploymentId' - The ID of the deployment. This number increases by one each time that</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- you deploy source code or change instance configuration settings.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'deploymentId', 'deployment_deploymentId' - The ID of the deployment. This number increases by one each time that</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- you deploy source code or change instance configuration settings.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'status', 'deployment_status' - The status of the deployment:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- -   @In Progress@ : The deployment is in progress.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- -   @Deployed@ : The deployment succeeded.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- -   @Failed@ : The deployment failed.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'versionLabel', 'deployment_versionLabel' - The version label of the application version in the deployment.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'deploymentTime', 'deployment_deploymentTime' - For in-progress deployments, the time that the deployment started.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'deploymentTime', 'deployment_deploymentTime' - For in-progress deployments, the time that the deployment started.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- For completed deployments, the time that the deployment ended.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- For completed deployments, the time that the deployment ended.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'versionLabel', 'deployment_versionLabel' - The version label of the application version in the deployment.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#newDeployment"><span class="hs-identifier hs-type">newDeployment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeployment"><span class="annot"><span class="annottext">newDeployment :: Deployment
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#newDeployment"><span class="hs-identifier hs-var hs-var">newDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">Deployment' :: Maybe Text
--&gt; Maybe Integer -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Deployment
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">Deployment' :: Maybe Integer
+-&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Deployment
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Deployment' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3Astatus%3ADeployment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentId:Deployment' :: Maybe Integer
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentId:Deployment' :: Maybe Integer
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AdeploymentId%3ADeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionLabel:Deployment' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AversionLabel%3ADeployment%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Deployment' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3Astatus%3ADeployment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentTime:Deployment' :: Maybe ISO8601
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentTime:Deployment' :: Maybe ISO8601
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AdeploymentTime%3ADeployment%27"><span class="hs-identifier hs-var">deploymentTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionLabel:Deployment' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AversionLabel%3ADeployment%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The status of the deployment:</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- -   @In Progress@ : The deployment is in progress.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   @Deployed@ : The deployment succeeded.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -   @Failed@ : The deployment failed.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_status"><span class="hs-identifier hs-type">deployment_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="deployment_status"><span class="annot"><span class="annottext">deployment_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Deployment -&gt; f Deployment
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_status"><span class="hs-identifier hs-var hs-var">deployment_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Deployment -&gt; Maybe Text)
--&gt; (Deployment -&gt; Maybe Text -&gt; Deployment)
--&gt; Lens Deployment Deployment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300299"><span class="annot"><span class="annottext">Maybe Text
-status :: Maybe Text
-$sel:status:Deployment' :: Deployment -&gt; Maybe Text
-</span><a href="#local-6989586621679300299"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300299"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300298"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679300298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300297"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679300298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Deployment' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3Astatus%3ADeployment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the deployment. This number increases by one each time that</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- you deploy source code or change instance configuration settings.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_deploymentId"><span class="hs-identifier hs-type">deployment_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="deployment_deploymentId"><span class="annot"><span class="annottext">deployment_deploymentId :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Deployment -&gt; f Deployment
+</span><span id="line-84"></span><span class="hs-comment">-- | The ID of the deployment. This number increases by one each time that</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- you deploy source code or change instance configuration settings.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_deploymentId"><span class="hs-identifier hs-type">deployment_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="deployment_deploymentId"><span class="annot"><span class="annottext">deployment_deploymentId :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Deployment -&gt; f Deployment
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_deploymentId"><span class="hs-identifier hs-var hs-var">deployment_deploymentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Deployment -&gt; Maybe Integer)
 -&gt; (Deployment -&gt; Maybe Integer -&gt; Deployment)
 -&gt; Lens Deployment Deployment (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300295"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300578"><span class="annot"><span class="annottext">Maybe Integer
 deploymentId :: Maybe Integer
 $sel:deploymentId:Deployment' :: Deployment -&gt; Maybe Integer
-</span><a href="#local-6989586621679300295"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679300295"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300294"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679300294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300293"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679300293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679300294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:Deployment' :: Maybe Integer
+</span><a href="#local-6989586621679300578"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679300578"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300577"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679300577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300576"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679300576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679300577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:Deployment' :: Maybe Integer
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AdeploymentId%3ADeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679300293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The version label of the application version in the deployment.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_versionLabel"><span class="hs-identifier hs-type">deployment_versionLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="deployment_versionLabel"><span class="annot"><span class="annottext">deployment_versionLabel :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Deployment -&gt; f Deployment
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_versionLabel"><span class="hs-identifier hs-var hs-var">deployment_versionLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Deployment -&gt; Maybe Text)
+</span><a href="#local-6989586621679300576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The status of the deployment:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @In Progress@ : The deployment is in progress.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @Deployed@ : The deployment succeeded.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @Failed@ : The deployment failed.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_status"><span class="hs-identifier hs-type">deployment_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="deployment_status"><span class="annot"><span class="annottext">deployment_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Deployment -&gt; f Deployment
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_status"><span class="hs-identifier hs-var hs-var">deployment_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Deployment -&gt; Maybe Text)
 -&gt; (Deployment -&gt; Maybe Text -&gt; Deployment)
 -&gt; Lens Deployment Deployment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300291"><span class="annot"><span class="annottext">Maybe Text
-versionLabel :: Maybe Text
-$sel:versionLabel:Deployment' :: Deployment -&gt; Maybe Text
-</span><a href="#local-6989586621679300291"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300291"><span class="hs-identifier hs-var">versionLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300290"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679300290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300289"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679300290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLabel:Deployment' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AversionLabel%3ADeployment%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | For in-progress deployments, the time that the deployment started.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- For completed deployments, the time that the deployment ended.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_deploymentTime"><span class="hs-identifier hs-type">deployment_deploymentTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="deployment_deploymentTime"><span class="annot"><span class="annottext">deployment_deploymentTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Deployment -&gt; f Deployment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300574"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:Deployment' :: Deployment -&gt; Maybe Text
+</span><a href="#local-6989586621679300574"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300574"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300573"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679300573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679300573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Deployment' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3Astatus%3ADeployment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | For in-progress deployments, the time that the deployment started.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- For completed deployments, the time that the deployment ended.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_deploymentTime"><span class="hs-identifier hs-type">deployment_deploymentTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="deployment_deploymentTime"><span class="annot"><span class="annottext">deployment_deploymentTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Deployment -&gt; f Deployment
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_deploymentTime"><span class="hs-identifier hs-var hs-var">deployment_deploymentTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Deployment -&gt; Maybe ISO8601)
 -&gt; (Deployment -&gt; Maybe ISO8601 -&gt; Deployment)
 -&gt; Lens Deployment Deployment (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300287"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300570"><span class="annot"><span class="annottext">Maybe ISO8601
 deploymentTime :: Maybe ISO8601
 $sel:deploymentTime:Deployment' :: Deployment -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679300287"><span class="hs-identifier hs-var hs-var">deploymentTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679300287"><span class="hs-identifier hs-var">deploymentTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300286"><span class="annot"><span class="annottext">s :: Deployment
-</span><a href="#local-6989586621679300286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300285"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679300285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
-</span><a href="#local-6989586621679300286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentTime:Deployment' :: Maybe ISO8601
+</span><a href="#local-6989586621679300570"><span class="hs-identifier hs-var hs-var">deploymentTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300570"><span class="hs-identifier hs-var">deploymentTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300569"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679300569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300568"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679300568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679300569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentTime:Deployment' :: Maybe ISO8601
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AdeploymentTime%3ADeployment%27"><span class="hs-identifier hs-var">deploymentTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679300285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679300568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; Deployment -&gt; f Deployment)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -247,54 +229,72 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The version label of the application version in the deployment.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_versionLabel"><span class="hs-identifier hs-type">deployment_versionLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="deployment_versionLabel"><span class="annot"><span class="annottext">deployment_versionLabel :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Deployment -&gt; f Deployment
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#deployment_versionLabel"><span class="hs-identifier hs-var hs-var">deployment_versionLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Deployment -&gt; Maybe Text)
+-&gt; (Deployment -&gt; Maybe Text -&gt; Deployment)
+-&gt; Lens Deployment Deployment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300563"><span class="annot"><span class="annottext">Maybe Text
+versionLabel :: Maybe Text
+$sel:versionLabel:Deployment' :: Deployment -&gt; Maybe Text
+</span><a href="#local-6989586621679300563"><span class="hs-identifier hs-var hs-var">versionLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300563"><span class="hs-identifier hs-var">versionLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300562"><span class="annot"><span class="annottext">s :: Deployment
+</span><a href="#local-6989586621679300562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-type">Deployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deployment
+</span><a href="#local-6989586621679300562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLabel:Deployment' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#%24sel%3AversionLabel%3ADeployment%27"><span class="hs-identifier hs-var">versionLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679300279"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Deployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679300277"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Integer -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Deployment
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679300558"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Deployment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679300556"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Deployment
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment%27"><span class="hs-identifier hs-var">Deployment'</span></a></span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Integer -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Deployment)
--&gt; Either String (Maybe Text)
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Deployment)
+-&gt; Either String (Maybe Integer)
 -&gt; Either
-     String (Maybe Integer -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Deployment)
+     String (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Deployment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Integer -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; Deployment)
--&gt; Either String (Maybe Integer)
--&gt; Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; Deployment)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeploymentId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; Deployment)
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; Deployment)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Maybe ISO8601 -&gt; Deployment)
+-&gt; Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; Deployment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VersionLabel&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Deployment)
--&gt; Either String (Maybe ISO8601) -&gt; Either String Deployment
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; Deployment)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; Deployment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeploymentTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Deployment)
+-&gt; Either String (Maybe Text) -&gt; Either String Deployment
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VersionLabel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300271"><span id="local-6989586621679300273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300550"><span id="local-6989586621679300552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

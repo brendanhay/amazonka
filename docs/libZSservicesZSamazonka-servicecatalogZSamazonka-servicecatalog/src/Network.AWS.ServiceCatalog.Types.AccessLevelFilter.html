@@ -27,23 +27,23 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The access level to use to filter results.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAccessLevelFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679397249"><span id="local-6989586621679397250"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessLevelFilter"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-var">AccessLevelFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLevelFilter%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-var">AccessLevelFilter'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access level.</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- -   @Account@ - Filter results based on the account.</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @Role@ - Filter results based on the federated role of the specified</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--     user.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679397693"><span id="local-6989586621679397694"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessLevelFilter"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-var">AccessLevelFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLevelFilter%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-var">AccessLevelFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user to which the access level applies. The only supported value is</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @Self@.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AAccessLevelFilter%27"><span class="annot"><span class="annottext">AccessLevelFilter -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Avalue%3AAccessLevelFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The access level.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @Account@ - Filter results based on the account.</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @User@ - Filter results based on the specified user.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Akey%3AAccessLevelFilter%27"><span class="annot"><span class="annottext">AccessLevelFilter -&gt; Maybe AccessLevelFilterKey
-</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Akey%3AAccessLevelFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey"><span class="hs-identifier hs-type">AccessLevelFilterKey</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The user to which the access level applies. The only supported value is</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @Self@.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Avalue%3AAccessLevelFilter%27"><span class="annot"><span class="annottext">AccessLevelFilter -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Avalue%3AAccessLevelFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @Role@ - Filter results based on the federated role of the specified</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     user.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @User@ - Filter results based on the specified user.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Akey%3AAccessLevelFilter%27"><span class="annot"><span class="annottext">AccessLevelFilter -&gt; Maybe AccessLevelFilterKey
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Akey%3AAccessLevelFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey"><span class="hs-identifier hs-type">AccessLevelFilterKey</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397242"><span id="local-6989586621679397244"><span class="annot"><span class="annottext">AccessLevelFilter -&gt; AccessLevelFilter -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397686"><span id="local-6989586621679397688"><span class="annot"><span class="annottext">AccessLevelFilter -&gt; AccessLevelFilter -&gt; Bool
 (AccessLevelFilter -&gt; AccessLevelFilter -&gt; Bool)
 -&gt; (AccessLevelFilter -&gt; AccessLevelFilter -&gt; Bool)
 -&gt; Eq AccessLevelFilter
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessLevelFilter -&gt; AccessLevelFilter -&gt; Bool
 == :: AccessLevelFilter -&gt; AccessLevelFilter -&gt; Bool
 $c== :: AccessLevelFilter -&gt; AccessLevelFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397233"><span id="local-6989586621679397235"><span id="local-6989586621679397237"><span id="local-6989586621679397239"><span class="annot"><span class="annottext">ReadPrec [AccessLevelFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397677"><span id="local-6989586621679397679"><span id="local-6989586621679397681"><span id="local-6989586621679397683"><span class="annot"><span class="annottext">ReadPrec [AccessLevelFilter]
 ReadPrec AccessLevelFilter
 Int -&gt; ReadS AccessLevelFilter
 ReadS [AccessLevelFilter]
@@ -72,7 +72,7 @@ readList :: ReadS [AccessLevelFilter]
 $creadList :: ReadS [AccessLevelFilter]
 readsPrec :: Int -&gt; ReadS AccessLevelFilter
 $creadsPrec :: Int -&gt; ReadS AccessLevelFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397226"><span id="local-6989586621679397228"><span id="local-6989586621679397230"><span class="annot"><span class="annottext">Int -&gt; AccessLevelFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397670"><span id="local-6989586621679397672"><span id="local-6989586621679397674"><span class="annot"><span class="annottext">Int -&gt; AccessLevelFilter -&gt; ShowS
 [AccessLevelFilter] -&gt; ShowS
 AccessLevelFilter -&gt; String
 (Int -&gt; AccessLevelFilter -&gt; ShowS)
@@ -106,43 +106,64 @@ $cfrom :: forall x. AccessLevelFilter -&gt; Rep AccessLevelFilter x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'key', 'accessLevelFilter_key' - The access level.</span><span>
-</span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- -   @Account@ - Filter results based on the account.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- -   @Role@ - Filter results based on the federated role of the specified</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--     user.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'value', 'accessLevelFilter_value' - The user to which the access level applies. The only supported value is</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- @Self@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'key', 'accessLevelFilter_key' - The access level.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   @Account@ - Filter results based on the account.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- -   @User@ - Filter results based on the specified user.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'value', 'accessLevelFilter_value' - The user to which the access level applies. The only supported value is</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- @Self@.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- -   @Role@ - Filter results based on the federated role of the specified</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--     user.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- -   @User@ - Filter results based on the specified user.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#newAccessLevelFilter"><span class="hs-identifier hs-type">newAccessLevelFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span>
 </span><span id="line-67"></span><span id="newAccessLevelFilter"><span class="annot"><span class="annottext">newAccessLevelFilter :: AccessLevelFilter
 </span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#newAccessLevelFilter"><span class="hs-identifier hs-var hs-var">newAccessLevelFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AccessLevelFilter' :: Maybe AccessLevelFilterKey -&gt; Maybe Text -&gt; AccessLevelFilter
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AccessLevelFilter' :: Maybe Text -&gt; Maybe AccessLevelFilterKey -&gt; AccessLevelFilter
 </span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:AccessLevelFilter' :: Maybe AccessLevelFilterKey
-</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Akey%3AAccessLevelFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:AccessLevelFilter' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Avalue%3AAccessLevelFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:AccessLevelFilter' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Avalue%3AAccessLevelFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:AccessLevelFilter' :: Maybe AccessLevelFilterKey
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Akey%3AAccessLevelFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The access level.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- -   @Account@ - Filter results based on the account.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- -   @Role@ - Filter results based on the federated role of the specified</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--     user.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The user to which the access level applies. The only supported value is</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @Self@.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#accessLevelFilter_value"><span class="hs-identifier hs-type">accessLevelFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="accessLevelFilter_value"><span class="annot"><span class="annottext">accessLevelFilter_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccessLevelFilter -&gt; f AccessLevelFilter
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#accessLevelFilter_value"><span class="hs-identifier hs-var hs-var">accessLevelFilter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessLevelFilter -&gt; Maybe Text)
+-&gt; (AccessLevelFilter -&gt; Maybe Text -&gt; AccessLevelFilter)
+-&gt; Lens
+     AccessLevelFilter AccessLevelFilter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397661"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:AccessLevelFilter' :: AccessLevelFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679397661"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397661"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397660"><span class="annot"><span class="annottext">s :: AccessLevelFilter
+</span><a href="#local-6989586621679397660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLevelFilter
+</span><a href="#local-6989586621679397660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AccessLevelFilter' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Avalue%3AAccessLevelFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The access level.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- -   @User@ - Filter results based on the specified user.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#accessLevelFilter_key"><span class="hs-identifier hs-type">accessLevelFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey"><span class="hs-identifier hs-type">AccessLevelFilterKey</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="accessLevelFilter_key"><span class="annot"><span class="annottext">accessLevelFilter_key :: (Maybe AccessLevelFilterKey -&gt; f (Maybe AccessLevelFilterKey))
+</span><span id="line-80"></span><span class="hs-comment">-- -   @Account@ - Filter results based on the account.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   @Role@ - Filter results based on the federated role of the specified</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     user.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @User@ - Filter results based on the specified user.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#accessLevelFilter_key"><span class="hs-identifier hs-type">accessLevelFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey.html#AccessLevelFilterKey"><span class="hs-identifier hs-type">AccessLevelFilterKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="accessLevelFilter_key"><span class="annot"><span class="annottext">accessLevelFilter_key :: (Maybe AccessLevelFilterKey -&gt; f (Maybe AccessLevelFilterKey))
 -&gt; AccessLevelFilter -&gt; f AccessLevelFilter
 </span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#accessLevelFilter_key"><span class="hs-identifier hs-var hs-var">accessLevelFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessLevelFilter -&gt; Maybe AccessLevelFilterKey)
 -&gt; (AccessLevelFilter
@@ -153,71 +174,50 @@ forall a. Maybe a
      (Maybe AccessLevelFilterKey)
      (Maybe AccessLevelFilterKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397217"><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397657"><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
 key :: Maybe AccessLevelFilterKey
 $sel:key:AccessLevelFilter' :: AccessLevelFilter -&gt; Maybe AccessLevelFilterKey
-</span><a href="#local-6989586621679397217"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
-</span><a href="#local-6989586621679397217"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397216"><span class="annot"><span class="annottext">s :: AccessLevelFilter
-</span><a href="#local-6989586621679397216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397215"><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
-</span><a href="#local-6989586621679397215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLevelFilter
-</span><a href="#local-6989586621679397216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:AccessLevelFilter' :: Maybe AccessLevelFilterKey
+</span><a href="#local-6989586621679397657"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
+</span><a href="#local-6989586621679397657"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397656"><span class="annot"><span class="annottext">s :: AccessLevelFilter
+</span><a href="#local-6989586621679397656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397655"><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
+</span><a href="#local-6989586621679397655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLevelFilter
+</span><a href="#local-6989586621679397656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:AccessLevelFilter' :: Maybe AccessLevelFilterKey
 </span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Akey%3AAccessLevelFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
-</span><a href="#local-6989586621679397215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The user to which the access level applies. The only supported value is</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- @Self@.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#accessLevelFilter_value"><span class="hs-identifier hs-type">accessLevelFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="accessLevelFilter_value"><span class="annot"><span class="annottext">accessLevelFilter_value :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AccessLevelFilter -&gt; f AccessLevelFilter
-</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#accessLevelFilter_value"><span class="hs-identifier hs-var hs-var">accessLevelFilter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessLevelFilter -&gt; Maybe Text)
--&gt; (AccessLevelFilter -&gt; Maybe Text -&gt; AccessLevelFilter)
--&gt; Lens
-     AccessLevelFilter AccessLevelFilter (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397213"><span class="annot"><span class="annottext">Maybe Text
-value :: Maybe Text
-$sel:value:AccessLevelFilter' :: AccessLevelFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679397213"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397213"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397212"><span class="annot"><span class="annottext">s :: AccessLevelFilter
-</span><a href="#local-6989586621679397212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397211"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLevelFilter
-</span><a href="#local-6989586621679397212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AccessLevelFilter' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#%24sel%3Avalue%3AAccessLevelFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397207"><span id="local-6989586621679397209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397651"><span id="local-6989586621679397653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397196"><span id="local-6989586621679397198"><span id="local-6989586621679397200"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679397194"><span class="annot"><span class="annottext">toJSON :: AccessLevelFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397191"><span id="local-6989586621679397192"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397640"><span id="local-6989586621679397642"><span id="local-6989586621679397644"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter"><span class="hs-identifier hs-type">AccessLevelFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679397638"><span class="annot"><span class="annottext">toJSON :: AccessLevelFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.AccessLevelFilter.html#AccessLevelFilter%27"><span class="hs-identifier hs-type">AccessLevelFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397635"><span id="local-6989586621679397636"><span class="annot"><span class="annottext">Maybe Text
 Maybe AccessLevelFilterKey
-value :: Maybe Text
 key :: Maybe AccessLevelFilterKey
-$sel:value:AccessLevelFilter' :: AccessLevelFilter -&gt; Maybe Text
+value :: Maybe Text
 $sel:key:AccessLevelFilter' :: AccessLevelFilter -&gt; Maybe AccessLevelFilterKey
-</span><a href="#local-6989586621679397191"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:value:AccessLevelFilter' :: AccessLevelFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679397635"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397636"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AccessLevelFilterKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessLevelFilterKey -&gt; Pair)
 -&gt; Maybe AccessLevelFilterKey -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessLevelFilterKey
-</span><a href="#local-6989586621679397192"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397191"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><a href="#local-6989586621679397635"><span class="hs-identifier hs-var">key</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

@@ -29,11 +29,11 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#newDescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier">newDescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_filters"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_filters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_filters"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="hs-identifier">describeLocalGatewayVirtualInterfaceGroups_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -54,37 +54,37 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeLocalGatewayVirtualInterfaceGroups' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621681221792"><span id="local-6989586621681221793"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroups"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AdryRun%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | One or more filters.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @local-gateway-id@ - The ID of a local gateway.</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     interface.</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     interface group.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Filter]
+</span><span id="line-57"></span><span id="local-6989586621681257521"><span id="local-6989586621681257522"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroups"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @local-gateway-id@ - The ID of a local gateway.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     interface.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     interface group.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3Afilters%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The IDs of the virtual interface groups.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AlocalGatewayVirtualInterfaceGroupIds%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AlocalGatewayVirtualInterfaceGroupIds%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The IDs of the virtual interface groups.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AlocalGatewayVirtualInterfaceGroupIds%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AlocalGatewayVirtualInterfaceGroupIds%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AdryRun%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681221782"><span id="local-6989586621681221784"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681257511"><span id="local-6989586621681257513"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; Bool
 (DescribeLocalGatewayVirtualInterfaceGroups
  -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; Bool)
@@ -100,7 +100,7 @@ $c/= :: DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; Bool
 $c== :: DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681221773"><span id="local-6989586621681221775"><span id="local-6989586621681221777"><span id="local-6989586621681221779"><span class="annot"><span class="annottext">ReadPrec [DescribeLocalGatewayVirtualInterfaceGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257502"><span id="local-6989586621681257504"><span id="local-6989586621681257506"><span id="local-6989586621681257508"><span class="annot"><span class="annottext">ReadPrec [DescribeLocalGatewayVirtualInterfaceGroups]
 ReadPrec DescribeLocalGatewayVirtualInterfaceGroups
 Int -&gt; ReadS DescribeLocalGatewayVirtualInterfaceGroups
 ReadS [DescribeLocalGatewayVirtualInterfaceGroups]
@@ -120,7 +120,7 @@ readList :: ReadS [DescribeLocalGatewayVirtualInterfaceGroups]
 $creadList :: ReadS [DescribeLocalGatewayVirtualInterfaceGroups]
 readsPrec :: Int -&gt; ReadS DescribeLocalGatewayVirtualInterfaceGroups
 $creadsPrec :: Int -&gt; ReadS DescribeLocalGatewayVirtualInterfaceGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681221766"><span id="local-6989586621681221768"><span id="local-6989586621681221770"><span class="annot"><span class="annottext">Int -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257495"><span id="local-6989586621681257497"><span id="local-6989586621681257499"><span class="annot"><span class="annottext">Int -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; ShowS
 [DescribeLocalGatewayVirtualInterfaceGroups] -&gt; ShowS
 DescribeLocalGatewayVirtualInterfaceGroups -&gt; String
 (Int -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; ShowS)
@@ -166,154 +166,74 @@ DescribeLocalGatewayVirtualInterfaceGroups
 </span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'describeLocalGatewayVirtualInterfaceGroups_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'filters', 'describeLocalGatewayVirtualInterfaceGroups_filters' - One or more filters.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'describeLocalGatewayVirtualInterfaceGroups_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'dryRun', 'describeLocalGatewayVirtualInterfaceGroups_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'filters', 'describeLocalGatewayVirtualInterfaceGroups_filters' - One or more filters.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- -   @local-gateway-id@ - The ID of a local gateway.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--     interface.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--     interface group.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'localGatewayVirtualInterfaceGroupIds', 'describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds' - The IDs of the virtual interface groups.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @local-gateway-id@ - The ID of a local gateway.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     interface.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     interface group.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'nextToken', 'describeLocalGatewayVirtualInterfaceGroups_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'localGatewayVirtualInterfaceGroupIds', 'describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds' - The IDs of the virtual interface groups.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'dryRun', 'describeLocalGatewayVirtualInterfaceGroups_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'maxResults', 'describeLocalGatewayVirtualInterfaceGroups_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#newDescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">newDescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span>
 </span><span id="line-116"></span><span id="newDescribeLocalGatewayVirtualInterfaceGroups"><span class="annot"><span class="annottext">newDescribeLocalGatewayVirtualInterfaceGroups :: DescribeLocalGatewayVirtualInterfaceGroups
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#newDescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-var hs-var">newDescribeLocalGatewayVirtualInterfaceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Text
--&gt; Maybe Natural
--&gt; Maybe Bool
--&gt; Maybe [Filter]
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Filter]
+-&gt; Maybe Text
 -&gt; Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Maybe Natural
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3Afilters%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Bool
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupIds:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AlocalGatewayVirtualInterfaceGroupIds%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AdryRun%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3Afilters%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupIds:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AlocalGatewayVirtualInterfaceGroupIds%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeLocalGatewayVirtualInterfaceGroups
--&gt; f DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Text)
--&gt; (DescribeLocalGatewayVirtualInterfaceGroups
-    -&gt; Maybe Text -&gt; DescribeLocalGatewayVirtualInterfaceGroups)
--&gt; Lens
-     DescribeLocalGatewayVirtualInterfaceGroups
-     DescribeLocalGatewayVirtualInterfaceGroups
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221760"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Text
-</span><a href="#local-6989586621681221760"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681221760"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221759"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221758"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681221758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681221758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeLocalGatewayVirtualInterfaceGroups
--&gt; f DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Natural)
--&gt; (DescribeLocalGatewayVirtualInterfaceGroups
-    -&gt; Maybe Natural -&gt; DescribeLocalGatewayVirtualInterfaceGroups)
--&gt; Lens
-     DescribeLocalGatewayVirtualInterfaceGroups
-     DescribeLocalGatewayVirtualInterfaceGroups
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221757"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Natural
-</span><a href="#local-6989586621681221757"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681221757"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221756"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221755"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681221755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681221755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeLocalGatewayVirtualInterfaceGroups
--&gt; f DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool)
--&gt; (DescribeLocalGatewayVirtualInterfaceGroups
-    -&gt; Maybe Bool -&gt; DescribeLocalGatewayVirtualInterfaceGroups)
--&gt; Lens
-     DescribeLocalGatewayVirtualInterfaceGroups
-     DescribeLocalGatewayVirtualInterfaceGroups
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221754"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool
-</span><a href="#local-6989586621681221754"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681221754"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221753"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221752"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681221752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AdryRun%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681221752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | One or more filters.</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- -   @local-gateway-id@ - The ID of a local gateway.</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--     interface.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--     interface group.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_filters"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="describeLocalGatewayVirtualInterfaceGroups_filters"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-127"></span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @local-gateway-id@ - The ID of a local gateway.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-id@ - The ID of the virtual</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     interface.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     interface group.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_filters"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="describeLocalGatewayVirtualInterfaceGroups_filters"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; f DescribeLocalGatewayVirtualInterfaceGroups
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_filters"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Filter])
@@ -325,16 +245,16 @@ $sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayV
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221751"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257489"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681221751"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681221751"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221750"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221749"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681221749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Filter]
+</span><a href="#local-6989586621681257489"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681257489"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257488"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257487"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681257487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3Afilters%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681221749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681257487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeLocalGatewayVirtualInterfaceGroups
  -&gt; f DescribeLocalGatewayVirtualInterfaceGroups)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -350,12 +270,37 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The IDs of the virtual interface groups.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeLocalGatewayVirtualInterfaceGroups
+-&gt; f DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_nextToken"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Text)
+-&gt; (DescribeLocalGatewayVirtualInterfaceGroups
+    -&gt; Maybe Text -&gt; DescribeLocalGatewayVirtualInterfaceGroups)
+-&gt; Lens
+     DescribeLocalGatewayVirtualInterfaceGroups
+     DescribeLocalGatewayVirtualInterfaceGroups
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257483"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Text
+</span><a href="#local-6989586621681257483"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257483"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257482"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257481"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The IDs of the virtual interface groups.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; f DescribeLocalGatewayVirtualInterfaceGroups
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_localGatewayVirtualInterfaceGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Text])
@@ -367,16 +312,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221745"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257480"><span class="annot"><span class="annottext">Maybe [Text]
 localGatewayVirtualInterfaceGroupIds :: Maybe [Text]
 $sel:localGatewayVirtualInterfaceGroupIds:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Text]
-</span><a href="#local-6989586621681221745"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681221745"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221744"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221743"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681221743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupIds:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Text]
+</span><a href="#local-6989586621681257480"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681257480"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257479"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257478"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681257478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupIds:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AlocalGatewayVirtualInterfaceGroupIds%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681221743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681257478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeLocalGatewayVirtualInterfaceGroups
  -&gt; f DescribeLocalGatewayVirtualInterfaceGroups)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -391,25 +336,80 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeLocalGatewayVirtualInterfaceGroups
+-&gt; f DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_dryRun"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool)
+-&gt; (DescribeLocalGatewayVirtualInterfaceGroups
+    -&gt; Maybe Bool -&gt; DescribeLocalGatewayVirtualInterfaceGroups)
+-&gt; Lens
+     DescribeLocalGatewayVirtualInterfaceGroups
+     DescribeLocalGatewayVirtualInterfaceGroups
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257477"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool
+</span><a href="#local-6989586621681257477"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257477"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257476"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257475"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AdryRun%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroups_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="annot"><span class="annottext">describeLocalGatewayVirtualInterfaceGroups_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeLocalGatewayVirtualInterfaceGroups
+-&gt; f DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroups_maxResults"><span class="hs-identifier hs-var hs-var">describeLocalGatewayVirtualInterfaceGroups_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Natural)
+-&gt; (DescribeLocalGatewayVirtualInterfaceGroups
+    -&gt; Maybe Natural -&gt; DescribeLocalGatewayVirtualInterfaceGroups)
+-&gt; Lens
+     DescribeLocalGatewayVirtualInterfaceGroups
+     DescribeLocalGatewayVirtualInterfaceGroups
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257474"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Natural
+</span><a href="#local-6989586621681257474"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681257474"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257473"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257472"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681257472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeLocalGatewayVirtualInterfaceGroups' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AmaxResults%3ADescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681257472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621681221739"><span class="annot"><span class="annottext">page :: DescribeLocalGatewayVirtualInterfaceGroups
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681257468"><span class="annot"><span class="annottext">page :: DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; AWSResponse DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; Maybe DescribeLocalGatewayVirtualInterfaceGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681221737"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221737"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681221736"><span class="annot"><span class="annottext">AWSResponse DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221736"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681257466"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257466"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681257465"><span class="annot"><span class="annottext">AWSResponse DescribeLocalGatewayVirtualInterfaceGroups
+</span><a href="#local-6989586621681257465"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeLocalGatewayVirtualInterfaceGroups
 DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221736"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681257465"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
 -&gt; Getting
      (First Text)
@@ -448,7 +448,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-172"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeLocalGatewayVirtualInterfaceGroups
 DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221736"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681257465"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
 -&gt; Getting
      (First [LocalGatewayVirtualInterfaceGroup])
@@ -515,7 +515,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
-</span><a href="#local-6989586621681221737"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681257466"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; (DescribeLocalGatewayVirtualInterfaceGroups
     -&gt; DescribeLocalGatewayVirtualInterfaceGroups)
@@ -539,7 +539,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeLocalGatewayVirtualInterfaceGroups
 DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221736"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681257465"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
 -&gt; Getting
      (First Text)
@@ -578,7 +578,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-190"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621681221727"><span class="annot"><span class="annottext">request :: DescribeLocalGatewayVirtualInterfaceGroups
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681257456"><span class="annot"><span class="annottext">request :: DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; Request DescribeLocalGatewayVirtualInterfaceGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups
@@ -586,7 +586,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621681221723"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621681257452"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLocalGatewayVirtualInterfaceGroups
 -&gt; ClientResponse ClientBody
@@ -617,10 +617,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681221720"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681221720"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681221719"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681221719"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681221718"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681221718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681257449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257449"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681257448"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681257448"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681257447"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681257447"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [LocalGatewayVirtualInterfaceGroup]
 -&gt; Int
@@ -637,7 +637,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681221718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681257447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -650,7 +650,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681221718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681257447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;localGatewayVirtualInterfaceGroupSet&quot;</span></span><span>
@@ -685,22 +685,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681221720"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681257449"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621681221707"><span id="local-6989586621681221709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621681257436"><span id="local-6989586621681257438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span></span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621681221704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621681257433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span></span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-216"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621681221700"><span class="annot"><span class="annottext">toHeaders :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; ResponseHeaders
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621681257429"><span class="annot"><span class="annottext">toHeaders :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -712,7 +712,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span>
 </span><span id="line-223"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621681221695"><span class="annot"><span class="annottext">toPath :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; ByteString
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621681257424"><span class="annot"><span class="annottext">toPath :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; DescribeLocalGatewayVirtualInterfaceGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -723,24 +723,24 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups</span></a></span><span>
 </span><span id="line-229"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621681221691"><span class="annot"><span class="annottext">toQuery :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; QueryString
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621681257420"><span class="annot"><span class="annottext">toQuery :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
-</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221685"><span id="local-6989586621681221686"><span id="local-6989586621681221687"><span id="local-6989586621681221688"><span id="local-6989586621681221689"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroups%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257414"><span id="local-6989586621681257415"><span id="local-6989586621681257416"><span id="local-6989586621681257417"><span id="local-6989586621681257418"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe [Filter]
 Maybe Text
-localGatewayVirtualInterfaceGroupIds :: Maybe [Text]
-filters :: Maybe [Filter]
-dryRun :: Maybe Bool
 maxResults :: Maybe Natural
+dryRun :: Maybe Bool
+localGatewayVirtualInterfaceGroupIds :: Maybe [Text]
 nextToken :: Maybe Text
-$sel:localGatewayVirtualInterfaceGroupIds:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Text]
-$sel:filters:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Filter]
-$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool
+filters :: Maybe [Filter]
 $sel:maxResults:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Natural
+$sel:dryRun:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Bool
+$sel:localGatewayVirtualInterfaceGroupIds:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Text]
 $sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe Text
-</span><a href="#local-6989586621681221685"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeLocalGatewayVirtualInterfaceGroups' :: DescribeLocalGatewayVirtualInterfaceGroups -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681257414"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -758,25 +758,10 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681221689"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681221688"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681221687"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+</span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -784,26 +769,41 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681221686"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-244"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><a href="#local-6989586621681257418"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257417"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span>
-</span><span id="line-246"></span><span>                </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-244"></span><span>                </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LocalGatewayVirtualInterfaceGroupId&quot;</span></span><span>
-</span><span id="line-247"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span id="line-245"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681221685"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span><span>
-</span><span id="line-248"></span><span>            </span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681257416"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupIds</span></a></span><span>
+</span><span id="line-246"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681257415"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681257414"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-249"></span><span>        </span><span class="hs-special">]</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | /See:/ 'newDescribeLocalGatewayVirtualInterfaceGroupsResponse' smart constructor.</span><span>
-</span><span id="line-252"></span><span id="local-6989586621681221681"><span id="local-6989586621681221682"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span></span><span>
+</span><span id="line-252"></span><span id="local-6989586621681257410"><span id="local-6989586621681257411"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-var">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span></span><span>
 </span><span id="line-253"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-255"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Maybe Text
@@ -816,7 +816,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-259"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AhttpStatus%3ADescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-260"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-261"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681221674"><span id="local-6989586621681221676"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
+</span><span id="line-261"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681257403"><span id="local-6989586621681257405"><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
 -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Bool
 (DescribeLocalGatewayVirtualInterfaceGroupsResponse
  -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Bool)
@@ -832,7 +832,7 @@ $c/= :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
 -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Bool
 $c== :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
 -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681221666"><span id="local-6989586621681221668"><span id="local-6989586621681221670"><span id="local-6989586621681221672"><span class="annot"><span class="annottext">ReadPrec [DescribeLocalGatewayVirtualInterfaceGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257395"><span id="local-6989586621681257397"><span id="local-6989586621681257399"><span id="local-6989586621681257401"><span class="annot"><span class="annottext">ReadPrec [DescribeLocalGatewayVirtualInterfaceGroupsResponse]
 ReadPrec DescribeLocalGatewayVirtualInterfaceGroupsResponse
 Int -&gt; ReadS DescribeLocalGatewayVirtualInterfaceGroupsResponse
 ReadS [DescribeLocalGatewayVirtualInterfaceGroupsResponse]
@@ -852,7 +852,7 @@ readList :: ReadS [DescribeLocalGatewayVirtualInterfaceGroupsResponse]
 $creadList :: ReadS [DescribeLocalGatewayVirtualInterfaceGroupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeLocalGatewayVirtualInterfaceGroupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681221660"><span id="local-6989586621681221662"><span id="local-6989586621681221664"><span class="annot"><span class="annottext">Int -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257389"><span id="local-6989586621681257391"><span id="local-6989586621681257393"><span class="annot"><span class="annottext">Int -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; ShowS
 [DescribeLocalGatewayVirtualInterfaceGroupsResponse] -&gt; ShowS
 DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; String
 (Int
@@ -911,8 +911,8 @@ DescribeLocalGatewayVirtualInterfaceGroupsResponse
 </span><span id="line-280"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span>
 </span><span id="line-281"></span><span id="newDescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="annot"><span class="annottext">newDescribeLocalGatewayVirtualInterfaceGroupsResponse :: Int -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#newDescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span></span><span>
-</span><span id="line-282"></span><span>  </span><span id="local-6989586621681221657"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681221657"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621681257386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-283"></span><span>    </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Maybe Text
 -&gt; Maybe [LocalGatewayVirtualInterfaceGroup]
 -&gt; Int
@@ -931,7 +931,7 @@ forall a. Maybe a
 </span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AhttpStatus%3ADescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-289"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681221657"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681257386"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-290"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -947,16 +947,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeLocalGatewayVirtualInterfaceGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221656"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257385"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681221656"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681221656"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221655"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221654"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681221654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621681257385"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257385"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257384"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
+</span><a href="#local-6989586621681257384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681257383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
+</span><a href="#local-6989586621681257384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AnextToken%3ADescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681221654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681257383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- | The virtual interface groups.</span><span>
 </span><span id="line-298"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroupsResponse_localGatewayVirtualInterfaceGroups"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroupsResponse_localGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroup.html#LocalGatewayVirtualInterfaceGroup"><span class="hs-identifier hs-type">LocalGatewayVirtualInterfaceGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -973,17 +973,17 @@ $sel:nextToken:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: DescribeLo
      DescribeLocalGatewayVirtualInterfaceGroupsResponse
      (Maybe [LocalGatewayVirtualInterfaceGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221653"><span class="annot"><span class="annottext">Maybe [LocalGatewayVirtualInterfaceGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257382"><span class="annot"><span class="annottext">Maybe [LocalGatewayVirtualInterfaceGroup]
 localGatewayVirtualInterfaceGroups :: Maybe [LocalGatewayVirtualInterfaceGroup]
 $sel:localGatewayVirtualInterfaceGroups:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
 -&gt; Maybe [LocalGatewayVirtualInterfaceGroup]
-</span><a href="#local-6989586621681221653"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalGatewayVirtualInterfaceGroup]
-</span><a href="#local-6989586621681221653"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221652"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221651"><span class="annot"><span class="annottext">Maybe [LocalGatewayVirtualInterfaceGroup]
-</span><a href="#local-6989586621681221651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroups:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Maybe [LocalGatewayVirtualInterfaceGroup]
+</span><a href="#local-6989586621681257382"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalGatewayVirtualInterfaceGroup]
+</span><a href="#local-6989586621681257382"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257381"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
+</span><a href="#local-6989586621681257381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257380"><span class="annot"><span class="annottext">Maybe [LocalGatewayVirtualInterfaceGroup]
+</span><a href="#local-6989586621681257380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
+</span><a href="#local-6989586621681257381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroups:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Maybe [LocalGatewayVirtualInterfaceGroup]
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AlocalGatewayVirtualInterfaceGroups%3ADescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LocalGatewayVirtualInterfaceGroup]
-</span><a href="#local-6989586621681221651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LocalGatewayVirtualInterfaceGroup]
+</span><a href="#local-6989586621681257380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LocalGatewayVirtualInterfaceGroup]
   -&gt; f (Maybe [LocalGatewayVirtualInterfaceGroup]))
  -&gt; DescribeLocalGatewayVirtualInterfaceGroupsResponse
  -&gt; f DescribeLocalGatewayVirtualInterfaceGroupsResponse)
@@ -1014,8 +1014,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LocalGatewayVirtualInterfaceGroup]
   [LocalGatewayVirtualInterfaceGroup]
   [LocalGatewayVirtualInterfaceGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-302"></span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#describeLocalGatewayVirtualInterfaceGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeLocalGatewayVirtualInterfaceGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1031,18 +1031,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681221650"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257379"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: DescribeLocalGatewayVirtualInterfaceGroupsResponse -&gt; Int
-</span><a href="#local-6989586621681221650"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681221650"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681221649"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681221648"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681221648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
-</span><a href="#local-6989586621681221649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Int
+</span><a href="#local-6989586621681257379"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257379"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257378"><span class="annot"><span class="annottext">s :: DescribeLocalGatewayVirtualInterfaceGroupsResponse
+</span><a href="#local-6989586621681257378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681257377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocalGatewayVirtualInterfaceGroupsResponse
+</span><a href="#local-6989586621681257378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLocalGatewayVirtualInterfaceGroupsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#%24sel%3AhttpStatus%3ADescribeLocalGatewayVirtualInterfaceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681221648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681257377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621681221646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621681257375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-307"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups.html#DescribeLocalGatewayVirtualInterfaceGroupsResponse"><span class="hs-identifier hs-type">DescribeLocalGatewayVirtualInterfaceGroupsResponse</span></a></span></span><span>
 </span><span id="line-308"></span></pre></body></html>

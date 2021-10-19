@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679246413"><span id="local-6989586621679246414"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionErrorCodeType"><span class="annot"><a href="Network.AWS.KMS.Types.ConnectionErrorCodeType.html#ConnectionErrorCodeType"><span class="hs-identifier hs-var">ConnectionErrorCodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionErrorCodeType%27"><span class="annot"><a href="Network.AWS.KMS.Types.ConnectionErrorCodeType.html#ConnectionErrorCodeType%27"><span class="hs-identifier hs-var">ConnectionErrorCodeType'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679246610"><span id="local-6989586621679246611"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionErrorCodeType"><span class="annot"><a href="Network.AWS.KMS.Types.ConnectionErrorCodeType.html#ConnectionErrorCodeType"><span class="hs-identifier hs-var">ConnectionErrorCodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionErrorCodeType%27"><span class="annot"><a href="Network.AWS.KMS.Types.ConnectionErrorCodeType.html#ConnectionErrorCodeType%27"><span class="hs-identifier hs-var">ConnectionErrorCodeType'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionErrorCodeType"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; Text
 </span><a href="Network.AWS.KMS.Types.ConnectionErrorCodeType.html#fromConnectionErrorCodeType"><span class="hs-identifier hs-var hs-var">fromConnectionErrorCodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246405"><span id="local-6989586621679246407"><span id="local-6989586621679246409"><span class="annot"><span class="annottext">Int -&gt; ConnectionErrorCodeType -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246602"><span id="local-6989586621679246604"><span id="local-6989586621679246606"><span class="annot"><span class="annottext">Int -&gt; ConnectionErrorCodeType -&gt; ShowS
 [ConnectionErrorCodeType] -&gt; ShowS
 ConnectionErrorCodeType -&gt; String
 (Int -&gt; ConnectionErrorCodeType -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ConnectionErrorCodeType -&gt; String
 showsPrec :: Int -&gt; ConnectionErrorCodeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConnectionErrorCodeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246396"><span id="local-6989586621679246398"><span id="local-6989586621679246400"><span id="local-6989586621679246402"><span class="annot"><span class="annottext">ReadPrec [ConnectionErrorCodeType]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246593"><span id="local-6989586621679246595"><span id="local-6989586621679246597"><span id="local-6989586621679246599"><span class="annot"><span class="annottext">ReadPrec [ConnectionErrorCodeType]
 ReadPrec ConnectionErrorCodeType
 Int -&gt; ReadS ConnectionErrorCodeType
 ReadS [ConnectionErrorCodeType]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ConnectionErrorCodeType]
 readsPrec :: Int -&gt; ReadS ConnectionErrorCodeType
 $creadsPrec :: Int -&gt; ReadS ConnectionErrorCodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246391"><span id="local-6989586621679246393"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246588"><span id="local-6989586621679246590"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool
 (ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool)
 -&gt; (ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool)
 -&gt; Eq ConnectionErrorCodeType
@@ -89,7 +89,7 @@ $c/= :: ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool
 == :: ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool
 $c== :: ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246375"><span id="local-6989586621679246377"><span id="local-6989586621679246379"><span id="local-6989586621679246381"><span id="local-6989586621679246383"><span id="local-6989586621679246385"><span id="local-6989586621679246387"><span class="annot"><span class="annottext">Eq ConnectionErrorCodeType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246572"><span id="local-6989586621679246574"><span id="local-6989586621679246576"><span id="local-6989586621679246578"><span id="local-6989586621679246580"><span id="local-6989586621679246582"><span id="local-6989586621679246584"><span class="annot"><span class="annottext">Eq ConnectionErrorCodeType
 Eq ConnectionErrorCodeType
 -&gt; (ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Ordering)
 -&gt; (ConnectionErrorCodeType -&gt; ConnectionErrorCodeType -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. ConnectionErrorCodeType -&gt; Rep ConnectionErrorCodeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246367"><span id="local-6989586621679246369"><span class="annot"><span class="annottext">Int -&gt; ConnectionErrorCodeType -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246564"><span id="local-6989586621679246566"><span class="annot"><span class="annottext">Int -&gt; ConnectionErrorCodeType -&gt; Int
 ConnectionErrorCodeType -&gt; Int
 (Int -&gt; ConnectionErrorCodeType -&gt; Int)
 -&gt; (ConnectionErrorCodeType -&gt; Int)
@@ -160,54 +160,54 @@ $chash :: ConnectionErrorCodeType -&gt; Int
 hashWithSalt :: Int -&gt; ConnectionErrorCodeType -&gt; Int
 $chashWithSalt :: Int -&gt; ConnectionErrorCodeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246364"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246561"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ()
 (ConnectionErrorCodeType -&gt; ()) -&gt; NFData ConnectionErrorCodeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConnectionErrorCodeType -&gt; ()
 $crnf :: ConnectionErrorCodeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246361"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionErrorCodeType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246558"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionErrorCodeType
 (Text -&gt; Either String ConnectionErrorCodeType)
 -&gt; FromText ConnectionErrorCodeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConnectionErrorCodeType
 $cfromText :: Text -&gt; Either String ConnectionErrorCodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246358"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246555"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; Text
 (ConnectionErrorCodeType -&gt; Text) -&gt; ToText ConnectionErrorCodeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConnectionErrorCodeType -&gt; Text
 $ctoText :: ConnectionErrorCodeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246355"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246552"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ByteString
 (ConnectionErrorCodeType -&gt; ByteString)
 -&gt; ToByteString ConnectionErrorCodeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConnectionErrorCodeType -&gt; ByteString
 $ctoBS :: ConnectionErrorCodeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246352"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246549"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; ByteStringBuilder
 (ConnectionErrorCodeType -&gt; ByteStringBuilder)
 -&gt; ToLog ConnectionErrorCodeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConnectionErrorCodeType -&gt; ByteStringBuilder
 $cbuild :: ConnectionErrorCodeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246349"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionErrorCodeType -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246546"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionErrorCodeType -&gt; [Header]
 (HeaderName -&gt; ConnectionErrorCodeType -&gt; [Header])
 -&gt; ToHeader ConnectionErrorCodeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConnectionErrorCodeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConnectionErrorCodeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679246346"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679246543"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; QueryString
 (ConnectionErrorCodeType -&gt; QueryString)
 -&gt; ToQuery ConnectionErrorCodeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConnectionErrorCodeType -&gt; QueryString
 $ctoQuery :: ConnectionErrorCodeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679246341"><span id="local-6989586621679246343"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionErrorCodeType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679246538"><span id="local-6989586621679246540"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionErrorCodeType]
 Value -&gt; Parser ConnectionErrorCodeType
 (Value -&gt; Parser ConnectionErrorCodeType)
 -&gt; (Value -&gt; Parser [ConnectionErrorCodeType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [ConnectionErrorCodeType]
 parseJSON :: Value -&gt; Parser ConnectionErrorCodeType
 $cparseJSON :: Value -&gt; Parser ConnectionErrorCodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679246336"><span id="local-6989586621679246338"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionErrorCodeType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679246533"><span id="local-6989586621679246535"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionErrorCodeType]
 FromJSONKeyFunction ConnectionErrorCodeType
 FromJSONKeyFunction ConnectionErrorCodeType
 -&gt; FromJSONKeyFunction [ConnectionErrorCodeType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConnectionErrorCodeType]
 fromJSONKey :: FromJSONKeyFunction ConnectionErrorCodeType
 $cfromJSONKey :: FromJSONKeyFunction ConnectionErrorCodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679246327"><span id="local-6989586621679246329"><span id="local-6989586621679246331"><span id="local-6989586621679246333"><span class="annot"><span class="annottext">[ConnectionErrorCodeType] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679246524"><span id="local-6989586621679246526"><span id="local-6989586621679246528"><span id="local-6989586621679246530"><span class="annot"><span class="annottext">[ConnectionErrorCodeType] -&gt; Encoding
 [ConnectionErrorCodeType] -&gt; Value
 ConnectionErrorCodeType -&gt; Encoding
 ConnectionErrorCodeType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: ConnectionErrorCodeType -&gt; Encoding
 toJSON :: ConnectionErrorCodeType -&gt; Value
 $ctoJSON :: ConnectionErrorCodeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679246322"><span id="local-6989586621679246324"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionErrorCodeType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679246519"><span id="local-6989586621679246521"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionErrorCodeType]
 ToJSONKeyFunction ConnectionErrorCodeType
 ToJSONKeyFunction ConnectionErrorCodeType
 -&gt; ToJSONKeyFunction [ConnectionErrorCodeType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConnectionErrorCodeType]
 toJSONKey :: ToJSONKeyFunction ConnectionErrorCodeType
 $ctoJSONKey :: ToJSONKeyFunction ConnectionErrorCodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679246319"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionErrorCodeType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679246516"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionErrorCodeType
 ([Node] -&gt; Either String ConnectionErrorCodeType)
 -&gt; FromXML ConnectionErrorCodeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConnectionErrorCodeType
 $cparseXML :: [Node] -&gt; Either String ConnectionErrorCodeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679246316"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679246513"><span class="annot"><span class="annottext">ConnectionErrorCodeType -&gt; XML
 (ConnectionErrorCodeType -&gt; XML) -&gt; ToXML ConnectionErrorCodeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConnectionErrorCodeType -&gt; XML

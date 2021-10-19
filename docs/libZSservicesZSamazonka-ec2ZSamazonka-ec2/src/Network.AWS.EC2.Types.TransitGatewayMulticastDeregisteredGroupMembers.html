@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the deregistered transit gateway multicast group members.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTransitGatewayMulticastDeregisteredGroupMembers' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681136514"><span id="local-6989586621681136515"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayMulticastDeregisteredGroupMembers"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-var">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The network interface IDs of the deregistered members.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AderegisteredNetworkInterfaceIds%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe [Text]
+</span><span id="line-30"></span><span id="local-6989586621681171650"><span id="local-6989586621681171651"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayMulticastDeregisteredGroupMembers"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-var">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The network interface IDs of the deregistered members.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AderegisteredNetworkInterfaceIds%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AderegisteredNetworkInterfaceIds%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var hs-var">deregisteredNetworkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AgroupIpAddress%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AgroupIpAddress%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681136506"><span id="local-6989586621681136508"><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681171642"><span id="local-6989586621681171644"><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
 -&gt; TransitGatewayMulticastDeregisteredGroupMembers -&gt; Bool
 (TransitGatewayMulticastDeregisteredGroupMembers
  -&gt; TransitGatewayMulticastDeregisteredGroupMembers -&gt; Bool)
@@ -54,7 +54,7 @@ $c/= :: TransitGatewayMulticastDeregisteredGroupMembers
 -&gt; TransitGatewayMulticastDeregisteredGroupMembers -&gt; Bool
 $c== :: TransitGatewayMulticastDeregisteredGroupMembers
 -&gt; TransitGatewayMulticastDeregisteredGroupMembers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136497"><span id="local-6989586621681136499"><span id="local-6989586621681136501"><span id="local-6989586621681136503"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayMulticastDeregisteredGroupMembers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171633"><span id="local-6989586621681171635"><span id="local-6989586621681171637"><span id="local-6989586621681171639"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayMulticastDeregisteredGroupMembers]
 ReadPrec TransitGatewayMulticastDeregisteredGroupMembers
 Int -&gt; ReadS TransitGatewayMulticastDeregisteredGroupMembers
 ReadS [TransitGatewayMulticastDeregisteredGroupMembers]
@@ -74,7 +74,7 @@ readList :: ReadS [TransitGatewayMulticastDeregisteredGroupMembers]
 $creadList :: ReadS [TransitGatewayMulticastDeregisteredGroupMembers]
 readsPrec :: Int -&gt; ReadS TransitGatewayMulticastDeregisteredGroupMembers
 $creadsPrec :: Int -&gt; ReadS TransitGatewayMulticastDeregisteredGroupMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136490"><span id="local-6989586621681136492"><span id="local-6989586621681136494"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayMulticastDeregisteredGroupMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171626"><span id="local-6989586621681171628"><span id="local-6989586621681171630"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayMulticastDeregisteredGroupMembers -&gt; ShowS
 [TransitGatewayMulticastDeregisteredGroupMembers] -&gt; ShowS
 TransitGatewayMulticastDeregisteredGroupMembers -&gt; String
 (Int -&gt; TransitGatewayMulticastDeregisteredGroupMembers -&gt; ShowS)
@@ -120,28 +120,28 @@ TransitGatewayMulticastDeregisteredGroupMembers
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'deregisteredNetworkInterfaceIds', 'transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds' - The network interface IDs of the deregistered members.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'deregisteredNetworkInterfaceIds', 'transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds' - The network interface IDs of the deregistered members.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'groupIpAddress', 'transitGatewayMulticastDeregisteredGroupMembers_groupIpAddress' - The IP address assigned to the transit gateway multicast group.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#newTransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">newTransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span>
 </span><span id="line-55"></span><span id="newTransitGatewayMulticastDeregisteredGroupMembers"><span class="annot"><span class="annottext">newTransitGatewayMulticastDeregisteredGroupMembers :: TransitGatewayMulticastDeregisteredGroupMembers
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#newTransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-var hs-var">newTransitGatewayMulticastDeregisteredGroupMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
--&gt; Maybe [Text]
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe [Text]
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; TransitGatewayMulticastDeregisteredGroupMembers
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deregisteredNetworkInterfaceIds:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AderegisteredNetworkInterfaceIds%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">deregisteredNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:deregisteredNetworkInterfaceIds:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AderegisteredNetworkInterfaceIds%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">deregisteredNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupIpAddress:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
@@ -151,34 +151,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGatewayMulticastDeregisteredGroupMembers
--&gt; f TransitGatewayMulticastDeregisteredGroupMembers
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text)
--&gt; (TransitGatewayMulticastDeregisteredGroupMembers
-    -&gt; Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
--&gt; Lens
-     TransitGatewayMulticastDeregisteredGroupMembers
-     TransitGatewayMulticastDeregisteredGroupMembers
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136481"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayMulticastDomainId :: Maybe Text
-$sel:transitGatewayMulticastDomainId:TransitGatewayMulticastDeregisteredGroupMembers' :: TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text
-</span><a href="#local-6989586621681136481"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136481"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136480"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDeregisteredGroupMembers
-</span><a href="#local-6989586621681136480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136479"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
-</span><a href="#local-6989586621681136480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The network interface IDs of the deregistered members.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds"><span class="hs-identifier hs-type">transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds"><span class="annot"><span class="annottext">transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-65"></span><span class="hs-comment">-- | The network interface IDs of the deregistered members.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds"><span class="hs-identifier hs-type">transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds"><span class="annot"><span class="annottext">transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; TransitGatewayMulticastDeregisteredGroupMembers
 -&gt; f TransitGatewayMulticastDeregisteredGroupMembers
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDeregisteredGroupMembers_deregisteredNetworkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe [Text])
@@ -190,16 +165,16 @@ $sel:transitGatewayMulticastDomainId:TransitGatewayMulticastDeregisteredGroupMem
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136477"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171617"><span class="annot"><span class="annottext">Maybe [Text]
 deregisteredNetworkInterfaceIds :: Maybe [Text]
 $sel:deregisteredNetworkInterfaceIds:TransitGatewayMulticastDeregisteredGroupMembers' :: TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe [Text]
-</span><a href="#local-6989586621681136477"><span class="hs-identifier hs-var hs-var">deregisteredNetworkInterfaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681136477"><span class="hs-identifier hs-var">deregisteredNetworkInterfaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136476"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDeregisteredGroupMembers
-</span><a href="#local-6989586621681136476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136475"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681136475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
-</span><a href="#local-6989586621681136476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deregisteredNetworkInterfaceIds:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe [Text]
+</span><a href="#local-6989586621681171617"><span class="hs-identifier hs-var hs-var">deregisteredNetworkInterfaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681171617"><span class="hs-identifier hs-var">deregisteredNetworkInterfaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171616"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDeregisteredGroupMembers
+</span><a href="#local-6989586621681171616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171615"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681171615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
+</span><a href="#local-6989586621681171616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deregisteredNetworkInterfaceIds:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AderegisteredNetworkInterfaceIds%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">deregisteredNetworkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681136475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681171615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TransitGatewayMulticastDeregisteredGroupMembers
  -&gt; f TransitGatewayMulticastDeregisteredGroupMembers)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -214,8 +189,33 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGatewayMulticastDeregisteredGroupMembers
+-&gt; f TransitGatewayMulticastDeregisteredGroupMembers
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDeregisteredGroupMembers_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text)
+-&gt; (TransitGatewayMulticastDeregisteredGroupMembers
+    -&gt; Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
+-&gt; Lens
+     TransitGatewayMulticastDeregisteredGroupMembers
+     TransitGatewayMulticastDeregisteredGroupMembers
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171610"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayMulticastDomainId :: Maybe Text
+$sel:transitGatewayMulticastDomainId:TransitGatewayMulticastDeregisteredGroupMembers' :: TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text
+</span><a href="#local-6989586621681171610"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171610"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171609"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDeregisteredGroupMembers
+</span><a href="#local-6989586621681171609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171608"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
+</span><a href="#local-6989586621681171609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AtransitGatewayMulticastDomainId%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#transitGatewayMulticastDeregisteredGroupMembers_groupIpAddress"><span class="hs-identifier hs-type">transitGatewayMulticastDeregisteredGroupMembers_groupIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -231,65 +231,51 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136470"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171606"><span class="annot"><span class="annottext">Maybe Text
 groupIpAddress :: Maybe Text
 $sel:groupIpAddress:TransitGatewayMulticastDeregisteredGroupMembers' :: TransitGatewayMulticastDeregisteredGroupMembers -&gt; Maybe Text
-</span><a href="#local-6989586621681136470"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136470"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136469"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDeregisteredGroupMembers
-</span><a href="#local-6989586621681136469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136468"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
-</span><a href="#local-6989586621681136469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIpAddress:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
+</span><a href="#local-6989586621681171606"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171606"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171605"><span class="annot"><span class="annottext">s :: TransitGatewayMulticastDeregisteredGroupMembers
+</span><a href="#local-6989586621681171605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayMulticastDeregisteredGroupMembers
+</span><a href="#local-6989586621681171605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIpAddress:TransitGatewayMulticastDeregisteredGroupMembers' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#%24sel%3AgroupIpAddress%3ATransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681171604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621681136465"><span class="annot"><span class="annottext">parseXML :: [Node]
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621681171601"><span class="annot"><span class="annottext">parseXML :: [Node]
 -&gt; Either String TransitGatewayMulticastDeregisteredGroupMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681136463"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [Text]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681171599"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; TransitGatewayMulticastDeregisteredGroupMembers
 </span><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers%27"><span class="hs-identifier hs-var">TransitGatewayMulticastDeregisteredGroupMembers'</span></a></span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Text]
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [Text]
-      -&gt; Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transitGatewayMulticastDomainId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Text]
-   -&gt; Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
-     (Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+     (Maybe Text
+      -&gt; Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deregisteredNetworkInterfaceIds&quot;</span></span><span>
-</span><span id="line-85"></span><span>                        </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-84"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-86"></span><span>                        </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-85"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -302,7 +288,21 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>                    </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayMulticastDomainId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text -&gt; TransitGatewayMulticastDeregisteredGroupMembers)
@@ -310,16 +310,16 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String TransitGatewayMulticastDeregisteredGroupMembers
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681171599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groupIpAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621681136454"><span id="local-6989586621681136456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681171590"><span id="local-6989586621681171592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621681136451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681171587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers.html#TransitGatewayMulticastDeregisteredGroupMembers"><span class="hs-identifier hs-type">TransitGatewayMulticastDeregisteredGroupMembers</span></a></span></span><span>
 </span><span id="line-97"></span></pre></body></html>

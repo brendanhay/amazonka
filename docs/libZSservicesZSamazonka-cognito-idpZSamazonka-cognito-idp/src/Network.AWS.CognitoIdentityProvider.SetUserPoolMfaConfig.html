@@ -47,8 +47,8 @@
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#newSetUserPoolMfaConfig"><span class="hs-identifier">newSetUserPoolMfaConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_softwareTokenMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfig_softwareTokenMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_smsMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfig_smsMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_smsMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfig_smsMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_softwareTokenMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfig_softwareTokenMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_mfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfig_mfaConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_userPoolId"><span class="hs-identifier">setUserPoolMfaConfig_userPoolId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>
@@ -57,8 +57,8 @@
 </span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#newSetUserPoolMfaConfigResponse"><span class="hs-identifier">newSetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfigResponse_smsMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfigResponse_smsMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_mfaConfiguration"><span class="hs-identifier">setUserPoolMfaConfigResponse_mfaConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_httpStatus"><span class="hs-identifier">setUserPoolMfaConfigResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">)</span><span>
@@ -72,13 +72,13 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newSetUserPoolMfaConfig' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679440191"><span id="local-6989586621679440192"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserPoolMfaConfig"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-var">SetUserPoolMfaConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserPoolMfaConfig%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">SetUserPoolMfaConfig'</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfig -&gt; Maybe SoftwareTokenMfaConfigType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType
+</span><span id="line-75"></span><span id="local-6989586621679440667"><span id="local-6989586621679440668"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserPoolMfaConfig"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-var">SetUserPoolMfaConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserPoolMfaConfig%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">SetUserPoolMfaConfig'</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var hs-var">smsMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType.html#SmsMfaConfigType"><span class="hs-identifier hs-type">SmsMfaConfigType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfig -&gt; Maybe SoftwareTokenMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- be able to sign-in if you set the MfaConfiguration value to &#8216;ON&#8217;. See</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- &lt;cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool&gt;</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AuserPoolId%3ASetUserPoolMfaConfig%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfig -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AuserPoolId%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440182"><span id="local-6989586621679440184"><span class="annot"><span class="annottext">SetUserPoolMfaConfig -&gt; SetUserPoolMfaConfig -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440658"><span id="local-6989586621679440660"><span class="annot"><span class="annottext">SetUserPoolMfaConfig -&gt; SetUserPoolMfaConfig -&gt; Bool
 (SetUserPoolMfaConfig -&gt; SetUserPoolMfaConfig -&gt; Bool)
 -&gt; (SetUserPoolMfaConfig -&gt; SetUserPoolMfaConfig -&gt; Bool)
 -&gt; Eq SetUserPoolMfaConfig
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetUserPoolMfaConfig -&gt; SetUserPoolMfaConfig -&gt; Bool
 == :: SetUserPoolMfaConfig -&gt; SetUserPoolMfaConfig -&gt; Bool
 $c== :: SetUserPoolMfaConfig -&gt; SetUserPoolMfaConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440173"><span id="local-6989586621679440175"><span id="local-6989586621679440177"><span id="local-6989586621679440179"><span class="annot"><span class="annottext">ReadPrec [SetUserPoolMfaConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440649"><span id="local-6989586621679440651"><span id="local-6989586621679440653"><span id="local-6989586621679440655"><span class="annot"><span class="annottext">ReadPrec [SetUserPoolMfaConfig]
 ReadPrec SetUserPoolMfaConfig
 Int -&gt; ReadS SetUserPoolMfaConfig
 ReadS [SetUserPoolMfaConfig]
@@ -125,7 +125,7 @@ readList :: ReadS [SetUserPoolMfaConfig]
 $creadList :: ReadS [SetUserPoolMfaConfig]
 readsPrec :: Int -&gt; ReadS SetUserPoolMfaConfig
 $creadsPrec :: Int -&gt; ReadS SetUserPoolMfaConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440166"><span id="local-6989586621679440168"><span id="local-6989586621679440170"><span class="annot"><span class="annottext">Int -&gt; SetUserPoolMfaConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440642"><span id="local-6989586621679440644"><span id="local-6989586621679440646"><span class="annot"><span class="annottext">Int -&gt; SetUserPoolMfaConfig -&gt; ShowS
 [SetUserPoolMfaConfig] -&gt; ShowS
 SetUserPoolMfaConfig -&gt; String
 (Int -&gt; SetUserPoolMfaConfig -&gt; ShowS)
@@ -159,9 +159,9 @@ $cfrom :: forall x. SetUserPoolMfaConfig -&gt; Rep SetUserPoolMfaConfig x
 </span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfig_softwareTokenMfaConfiguration' - The software token MFA configuration.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'smsMfaConfiguration', 'setUserPoolMfaConfig_smsMfaConfiguration' - The SMS text message MFA configuration.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'smsMfaConfiguration', 'setUserPoolMfaConfig_smsMfaConfiguration' - The SMS text message MFA configuration.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfig_softwareTokenMfaConfiguration' - The software token MFA configuration.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- 'mfaConfiguration', 'setUserPoolMfaConfig_mfaConfiguration' - The MFA configuration. Users who don\'t have an MFA factor set up won\'t</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- be able to sign-in if you set the MfaConfiguration value to &#8216;ON&#8217;. See</span><span>
@@ -181,21 +181,21 @@ $cfrom :: forall x. SetUserPoolMfaConfig -&gt; Rep SetUserPoolMfaConfig x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span>
 </span><span id="line-126"></span><span id="newSetUserPoolMfaConfig"><span class="annot"><span class="annottext">newSetUserPoolMfaConfig :: Text -&gt; SetUserPoolMfaConfig
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#newSetUserPoolMfaConfig"><span class="hs-identifier hs-var hs-var">newSetUserPoolMfaConfig</span></a></span></span><span> </span><span id="local-6989586621679440161"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440161"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig' :: Maybe SoftwareTokenMfaConfigType
--&gt; Maybe SmsMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#newSetUserPoolMfaConfig"><span class="hs-identifier hs-var hs-var">newSetUserPoolMfaConfig</span></a></span></span><span> </span><span id="local-6989586621679440637"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440637"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig' :: Maybe SmsMfaConfigType
+-&gt; Maybe SoftwareTokenMfaConfigType
 -&gt; Maybe UserPoolMfaType
 -&gt; Text
 -&gt; SetUserPoolMfaConfig
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SoftwareTokenMfaConfigType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SmsMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SmsMfaConfigType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SoftwareTokenMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:mfaConfiguration:SetUserPoolMfaConfig' :: Maybe UserPoolMfaType
@@ -204,12 +204,36 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:SetUserPoolMfaConfig' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AuserPoolId%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440161"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
+</span><a href="#local-6989586621679440637"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_softwareTokenMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfig_softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="setUserPoolMfaConfig_softwareTokenMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfig_softwareTokenMfaConfiguration :: (Maybe SoftwareTokenMfaConfigType
+</span><span id="line-135"></span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_smsMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfig_smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType.html#SmsMfaConfigType"><span class="hs-identifier hs-type">SmsMfaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="setUserPoolMfaConfig_smsMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfig_smsMfaConfiguration :: (Maybe SmsMfaConfigType -&gt; f (Maybe SmsMfaConfigType))
+-&gt; SetUserPoolMfaConfig -&gt; f SetUserPoolMfaConfig
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_smsMfaConfiguration"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfig_smsMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType)
+-&gt; (SetUserPoolMfaConfig
+    -&gt; Maybe SmsMfaConfigType -&gt; SetUserPoolMfaConfig)
+-&gt; Lens
+     SetUserPoolMfaConfig
+     SetUserPoolMfaConfig
+     (Maybe SmsMfaConfigType)
+     (Maybe SmsMfaConfigType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440634"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+smsMfaConfiguration :: Maybe SmsMfaConfigType
+$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440634"><span class="hs-identifier hs-var hs-var">smsMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440634"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440633"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440632"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SmsMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_softwareTokenMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfig_softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="setUserPoolMfaConfig_softwareTokenMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfig_softwareTokenMfaConfiguration :: (Maybe SoftwareTokenMfaConfigType
  -&gt; f (Maybe SoftwareTokenMfaConfigType))
 -&gt; SetUserPoolMfaConfig -&gt; f SetUserPoolMfaConfig
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_softwareTokenMfaConfiguration"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfig_softwareTokenMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfig -&gt; Maybe SoftwareTokenMfaConfigType)
@@ -221,40 +245,16 @@ forall a. Maybe a
      (Maybe SoftwareTokenMfaConfigType)
      (Maybe SoftwareTokenMfaConfigType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440158"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440631"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
 softwareTokenMfaConfiguration :: Maybe SoftwareTokenMfaConfigType
 $sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440158"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440158"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440157"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440156"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440631"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440631"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440630"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440629"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SoftwareTokenMfaConfigType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_smsMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfig_smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType.html#SmsMfaConfigType"><span class="hs-identifier hs-type">SmsMfaConfigType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="setUserPoolMfaConfig_smsMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfig_smsMfaConfiguration :: (Maybe SmsMfaConfigType -&gt; f (Maybe SmsMfaConfigType))
--&gt; SetUserPoolMfaConfig -&gt; f SetUserPoolMfaConfig
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_smsMfaConfiguration"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfig_smsMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType)
--&gt; (SetUserPoolMfaConfig
-    -&gt; Maybe SmsMfaConfigType -&gt; SetUserPoolMfaConfig)
--&gt; Lens
-     SetUserPoolMfaConfig
-     SetUserPoolMfaConfig
-     (Maybe SmsMfaConfigType)
-     (Maybe SmsMfaConfigType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440155"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-smsMfaConfiguration :: Maybe SmsMfaConfigType
-$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440155"><span class="hs-identifier hs-var hs-var">smsMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440155"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440154"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440153"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: Maybe SmsMfaConfigType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- be able to sign-in if you set the MfaConfiguration value to &#8216;ON&#8217;. See</span><span>
@@ -279,16 +279,16 @@ $sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; May
      (Maybe UserPoolMfaType)
      (Maybe UserPoolMfaType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440152"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440628"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
 mfaConfiguration :: Maybe UserPoolMfaType
 $sel:mfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440152"><span class="hs-identifier hs-var hs-var">mfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440152"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440151"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440150"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaConfiguration:SetUserPoolMfaConfig' :: Maybe UserPoolMfaType
+</span><a href="#local-6989586621679440628"><span class="hs-identifier hs-var hs-var">mfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
+</span><a href="#local-6989586621679440628"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440627"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440626"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
+</span><a href="#local-6989586621679440626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaConfiguration:SetUserPoolMfaConfig' :: Maybe UserPoolMfaType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AmfaConfiguration%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The user pool ID.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfig_userPoolId"><span class="hs-identifier hs-type">setUserPoolMfaConfig_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -297,27 +297,27 @@ $sel:mfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe 
 -&gt; (SetUserPoolMfaConfig -&gt; Text -&gt; SetUserPoolMfaConfig)
 -&gt; Lens SetUserPoolMfaConfig SetUserPoolMfaConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440149"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440625"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Text
-</span><a href="#local-6989586621679440149"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440149"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440148"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440147"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
-</span><a href="#local-6989586621679440148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:SetUserPoolMfaConfig' :: Text
+</span><a href="#local-6989586621679440625"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440625"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440624"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfig
+</span><a href="#local-6989586621679440624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:SetUserPoolMfaConfig' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AuserPoolId%3ASetUserPoolMfaConfig%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-163"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679440143"><span class="annot"><span class="annottext">request :: SetUserPoolMfaConfig -&gt; Request SetUserPoolMfaConfig
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679440619"><span class="annot"><span class="annottext">request :: SetUserPoolMfaConfig -&gt; Request SetUserPoolMfaConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetUserPoolMfaConfig -&gt; Request SetUserPoolMfaConfig
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679440139"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679440615"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetUserPoolMfaConfig
 -&gt; ClientResponse ClientBody
@@ -343,46 +343,46 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440136"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440136"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440135"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679440135"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440134"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
--&gt; Maybe SmsMfaConfigType
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440612"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440611"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679440611"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+-&gt; Maybe SoftwareTokenMfaConfigType
 -&gt; Maybe UserPoolMfaType
 -&gt; Int
 -&gt; SetUserPoolMfaConfigResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">SetUserPoolMfaConfigResponse'</span></a></span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SoftwareTokenMfaConfigType
- -&gt; Maybe SmsMfaConfigType
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SmsMfaConfigType
+ -&gt; Maybe SoftwareTokenMfaConfigType
  -&gt; Maybe UserPoolMfaType
  -&gt; Int
  -&gt; SetUserPoolMfaConfigResponse)
--&gt; Either String (Maybe SoftwareTokenMfaConfigType)
+-&gt; Either String (Maybe SmsMfaConfigType)
 -&gt; Either
      String
-     (Maybe SmsMfaConfigType
+     (Maybe SoftwareTokenMfaConfigType
       -&gt; Maybe UserPoolMfaType -&gt; Int -&gt; SetUserPoolMfaConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SoftwareTokenMfaConfigType)
+</span><a href="#local-6989586621679440610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SmsMfaConfigType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SoftwareTokenMfaConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SmsMfaConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe SmsMfaConfigType
+  (Maybe SoftwareTokenMfaConfigType
    -&gt; Maybe UserPoolMfaType -&gt; Int -&gt; SetUserPoolMfaConfigResponse)
--&gt; Either String (Maybe SmsMfaConfigType)
+-&gt; Either String (Maybe SoftwareTokenMfaConfigType)
 -&gt; Either
      String
      (Maybe UserPoolMfaType -&gt; Int -&gt; SetUserPoolMfaConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SmsMfaConfigType)
+</span><a href="#local-6989586621679440610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SoftwareTokenMfaConfigType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SmsMfaConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SoftwareTokenMfaConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe UserPoolMfaType -&gt; Int -&gt; SetUserPoolMfaConfigResponse)
@@ -390,7 +390,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; SetUserPoolMfaConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679440134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserPoolMfaType)
+</span><a href="#local-6989586621679440610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserPoolMfaType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MfaConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -402,15 +402,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440136"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440612"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440126"><span id="local-6989586621679440128"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440602"><span id="local-6989586621679440604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679440119"><span class="annot"><span class="annottext">toHeaders :: SetUserPoolMfaConfig -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679440595"><span class="annot"><span class="annottext">toHeaders :: SetUserPoolMfaConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetUserPoolMfaConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -437,43 +437,43 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440109"><span id="local-6989586621679440111"><span id="local-6989586621679440113"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679440107"><span class="annot"><span class="annottext">toJSON :: SetUserPoolMfaConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440102"><span id="local-6989586621679440103"><span id="local-6989586621679440104"><span id="local-6989586621679440105"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440585"><span id="local-6989586621679440587"><span id="local-6989586621679440589"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679440583"><span class="annot"><span class="annottext">toJSON :: SetUserPoolMfaConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440578"><span id="local-6989586621679440579"><span id="local-6989586621679440580"><span id="local-6989586621679440581"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
 Maybe SoftwareTokenMfaConfigType
 Maybe UserPoolMfaType
 Text
 userPoolId :: Text
 mfaConfiguration :: Maybe UserPoolMfaType
-smsMfaConfiguration :: Maybe SmsMfaConfigType
 softwareTokenMfaConfiguration :: Maybe SoftwareTokenMfaConfigType
+smsMfaConfiguration :: Maybe SmsMfaConfigType
 $sel:userPoolId:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Text
 $sel:mfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe UserPoolMfaType
-$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType
 $sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440102"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:smsMfaConfiguration:SetUserPoolMfaConfig' :: SetUserPoolMfaConfig -&gt; Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440578"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SoftwareTokenMfaConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SoftwareTokenMfaConfigType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(SoftwareTokenMfaConfigType -&gt; Pair)
--&gt; Maybe SoftwareTokenMfaConfigType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440105"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SmsMfaConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SmsMfaConfigType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(SmsMfaConfigType -&gt; Pair) -&gt; Maybe SmsMfaConfigType -&gt; Maybe Pair
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(SmsMfaConfigType -&gt; Pair) -&gt; Maybe SmsMfaConfigType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440104"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440581"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SoftwareTokenMfaConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SoftwareTokenMfaConfigType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(SoftwareTokenMfaConfigType -&gt; Pair)
+-&gt; Maybe SoftwareTokenMfaConfigType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440580"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MfaConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserPoolMfaType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -481,26 +481,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">(UserPoolMfaType -&gt; Pair) -&gt; Maybe UserPoolMfaType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440103"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440579"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440102"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440578"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679440096"><span class="annot"><span class="annottext">toPath :: SetUserPoolMfaConfig -&gt; ByteString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679440572"><span class="annot"><span class="annottext">toPath :: SetUserPoolMfaConfig -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetUserPoolMfaConfig -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfig"><span class="hs-identifier hs-type">SetUserPoolMfaConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679440092"><span class="annot"><span class="annottext">toQuery :: SetUserPoolMfaConfig -&gt; QueryString
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679440568"><span class="annot"><span class="annottext">toQuery :: SetUserPoolMfaConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetUserPoolMfaConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -508,13 +508,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | /See:/ 'newSetUserPoolMfaConfigResponse' smart constructor.</span><span>
-</span><span id="line-216"></span><span id="local-6989586621679440089"><span id="local-6989586621679440090"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserPoolMfaConfigResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-var">SetUserPoolMfaConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserPoolMfaConfigResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">SetUserPoolMfaConfigResponse'</span></a></span></span><span>
-</span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
-</span><span id="line-218"></span><span>    </span><span id="%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse -&gt; Maybe SoftwareTokenMfaConfigType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
-</span><span id="line-220"></span><span>    </span><span id="%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse -&gt; Maybe SmsMfaConfigType
+</span><span id="line-216"></span><span id="local-6989586621679440565"><span id="local-6989586621679440566"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserPoolMfaConfigResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-var">SetUserPoolMfaConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserPoolMfaConfigResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">SetUserPoolMfaConfigResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse -&gt; Maybe SmsMfaConfigType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var hs-var">smsMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType.html#SmsMfaConfigType"><span class="hs-identifier hs-type">SmsMfaConfigType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse -&gt; Maybe SoftwareTokenMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-comment">-- | The MFA configuration. Valid values include:</span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-comment">-- -   @OFF@ MFA will not be used for any users.</span><span>
@@ -529,7 +529,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetUserPoolMfaConfigResponse%27"><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AhttpStatus%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440081"><span id="local-6989586621679440083"><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440557"><span id="local-6989586621679440559"><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
 -&gt; SetUserPoolMfaConfigResponse -&gt; Bool
 (SetUserPoolMfaConfigResponse
  -&gt; SetUserPoolMfaConfigResponse -&gt; Bool)
@@ -545,7 +545,7 @@ $c/= :: SetUserPoolMfaConfigResponse
 -&gt; SetUserPoolMfaConfigResponse -&gt; Bool
 $c== :: SetUserPoolMfaConfigResponse
 -&gt; SetUserPoolMfaConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440073"><span id="local-6989586621679440075"><span id="local-6989586621679440077"><span id="local-6989586621679440079"><span class="annot"><span class="annottext">ReadPrec [SetUserPoolMfaConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440549"><span id="local-6989586621679440551"><span id="local-6989586621679440553"><span id="local-6989586621679440555"><span class="annot"><span class="annottext">ReadPrec [SetUserPoolMfaConfigResponse]
 ReadPrec SetUserPoolMfaConfigResponse
 Int -&gt; ReadS SetUserPoolMfaConfigResponse
 ReadS [SetUserPoolMfaConfigResponse]
@@ -565,7 +565,7 @@ readList :: ReadS [SetUserPoolMfaConfigResponse]
 $creadList :: ReadS [SetUserPoolMfaConfigResponse]
 readsPrec :: Int -&gt; ReadS SetUserPoolMfaConfigResponse
 $creadsPrec :: Int -&gt; ReadS SetUserPoolMfaConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440067"><span id="local-6989586621679440069"><span id="local-6989586621679440071"><span class="annot"><span class="annottext">Int -&gt; SetUserPoolMfaConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440543"><span id="local-6989586621679440545"><span id="local-6989586621679440547"><span class="annot"><span class="annottext">Int -&gt; SetUserPoolMfaConfigResponse -&gt; ShowS
 [SetUserPoolMfaConfigResponse] -&gt; ShowS
 SetUserPoolMfaConfigResponse -&gt; String
 (Int -&gt; SetUserPoolMfaConfigResponse -&gt; ShowS)
@@ -605,9 +605,9 @@ SetUserPoolMfaConfigResponse -&gt; Rep SetUserPoolMfaConfigResponse x
 </span><span id="line-240"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-242"></span><span class="hs-comment">--</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token MFA configuration.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'smsMfaConfiguration', 'setUserPoolMfaConfigResponse_smsMfaConfiguration' - The SMS text message MFA configuration.</span><span>
 </span><span id="line-244"></span><span class="hs-comment">--</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- 'smsMfaConfiguration', 'setUserPoolMfaConfigResponse_smsMfaConfiguration' - The SMS text message MFA configuration.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'softwareTokenMfaConfiguration', 'setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration' - The software token MFA configuration.</span><span>
 </span><span id="line-246"></span><span class="hs-comment">--</span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- 'mfaConfiguration', 'setUserPoolMfaConfigResponse_mfaConfiguration' - The MFA configuration. Valid values include:</span><span>
 </span><span id="line-248"></span><span class="hs-comment">--</span><span>
@@ -624,35 +624,60 @@ SetUserPoolMfaConfigResponse -&gt; Rep SetUserPoolMfaConfigResponse x
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span>
 </span><span id="line-261"></span><span id="newSetUserPoolMfaConfigResponse"><span class="annot"><span class="annottext">newSetUserPoolMfaConfigResponse :: Int -&gt; SetUserPoolMfaConfigResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#newSetUserPoolMfaConfigResponse"><span class="hs-identifier hs-var hs-var">newSetUserPoolMfaConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679440064"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse' :: Maybe SoftwareTokenMfaConfigType
--&gt; Maybe SmsMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#newSetUserPoolMfaConfigResponse"><span class="hs-identifier hs-var hs-var">newSetUserPoolMfaConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679440540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse' :: Maybe SmsMfaConfigType
+-&gt; Maybe SoftwareTokenMfaConfigType
 -&gt; Maybe UserPoolMfaType
 -&gt; Int
 -&gt; SetUserPoolMfaConfigResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span>
-</span><span id="line-263"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SoftwareTokenMfaConfigType
+</span><span id="line-263"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SmsMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SoftwareTokenMfaConfigType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SmsMfaConfigType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:mfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe UserPoolMfaType
+</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:mfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe UserPoolMfaType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AmfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserPoolMfaConfigResponse' :: Int
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserPoolMfaConfigResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AhttpStatus%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-268"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
-</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-272"></span><span id="setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: (Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType.html#SmsMfaConfigType"><span class="hs-identifier hs-type">SmsMfaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_smsMfaConfiguration :: (Maybe SmsMfaConfigType -&gt; f (Maybe SmsMfaConfigType))
+-&gt; SetUserPoolMfaConfigResponse -&gt; f SetUserPoolMfaConfigResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfigResponse_smsMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfigResponse -&gt; Maybe SmsMfaConfigType)
+-&gt; (SetUserPoolMfaConfigResponse
+    -&gt; Maybe SmsMfaConfigType -&gt; SetUserPoolMfaConfigResponse)
+-&gt; Lens
+     SetUserPoolMfaConfigResponse
+     SetUserPoolMfaConfigResponse
+     (Maybe SmsMfaConfigType)
+     (Maybe SmsMfaConfigType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440539"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+smsMfaConfiguration :: Maybe SmsMfaConfigType
+$sel:smsMfaConfiguration:SetUserPoolMfaConfigResponse' :: SetUserPoolMfaConfigResponse -&gt; Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440539"><span class="hs-identifier hs-var hs-var">smsMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440539"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440538"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440537"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SmsMfaConfigType
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
+</span><a href="#local-6989586621679440537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The software token MFA configuration.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SoftwareTokenMfaConfigType.html#SoftwareTokenMfaConfigType"><span class="hs-identifier hs-type">SoftwareTokenMfaConfigType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: (Maybe SoftwareTokenMfaConfigType
  -&gt; f (Maybe SoftwareTokenMfaConfigType))
 -&gt; SetUserPoolMfaConfigResponse -&gt; f SetUserPoolMfaConfigResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfigResponse_softwareTokenMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfigResponse -&gt; Maybe SoftwareTokenMfaConfigType)
@@ -665,51 +690,27 @@ forall a. Maybe a
      (Maybe SoftwareTokenMfaConfigType)
      (Maybe SoftwareTokenMfaConfigType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440063"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440536"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
 softwareTokenMfaConfiguration :: Maybe SoftwareTokenMfaConfigType
 $sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfigResponse' :: SetUserPoolMfaConfigResponse -&gt; Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440063"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440063"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440062"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440061"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440536"><span class="hs-identifier hs-var hs-var">softwareTokenMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440536"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440535"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440534"><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
+</span><a href="#local-6989586621679440534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softwareTokenMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SoftwareTokenMfaConfigType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsoftwareTokenMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">softwareTokenMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SoftwareTokenMfaConfigType
-</span><a href="#local-6989586621679440061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- | The SMS text message MFA configuration.</span><span>
-</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.SmsMfaConfigType.html#SmsMfaConfigType"><span class="hs-identifier hs-type">SmsMfaConfigType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-276"></span><span id="setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_smsMfaConfiguration :: (Maybe SmsMfaConfigType -&gt; f (Maybe SmsMfaConfigType))
--&gt; SetUserPoolMfaConfigResponse -&gt; f SetUserPoolMfaConfigResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_smsMfaConfiguration"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfigResponse_smsMfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfigResponse -&gt; Maybe SmsMfaConfigType)
--&gt; (SetUserPoolMfaConfigResponse
-    -&gt; Maybe SmsMfaConfigType -&gt; SetUserPoolMfaConfigResponse)
--&gt; Lens
-     SetUserPoolMfaConfigResponse
-     SetUserPoolMfaConfigResponse
-     (Maybe SmsMfaConfigType)
-     (Maybe SmsMfaConfigType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440060"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-smsMfaConfiguration :: Maybe SmsMfaConfigType
-$sel:smsMfaConfiguration:SetUserPoolMfaConfigResponse' :: SetUserPoolMfaConfigResponse -&gt; Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440060"><span class="hs-identifier hs-var hs-var">smsMfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440060"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440059"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440058"><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smsMfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe SmsMfaConfigType
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AsmsMfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">smsMfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmsMfaConfigType
-</span><a href="#local-6989586621679440058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- | The MFA configuration. Valid values include:</span><span>
-</span><span id="line-279"></span><span class="hs-comment">--</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- -   @OFF@ MFA will not be used for any users.</span><span>
-</span><span id="line-281"></span><span class="hs-comment">--</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- -   @ON@ MFA is required for all users to sign in.</span><span>
-</span><span id="line-283"></span><span class="hs-comment">--</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- -   @OPTIONAL@ MFA will be required only for individual users who have</span><span>
-</span><span id="line-285"></span><span class="hs-comment">--     an MFA factor enabled.</span><span>
-</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_mfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_mfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType.html#UserPoolMfaType"><span class="hs-identifier hs-type">UserPoolMfaType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-287"></span><span id="setUserPoolMfaConfigResponse_mfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_mfaConfiguration :: (Maybe UserPoolMfaType -&gt; f (Maybe UserPoolMfaType))
+</span><a href="#local-6989586621679440534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The MFA configuration. Valid values include:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   @OFF@ MFA will not be used for any users.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   @ON@ MFA is required for all users to sign in.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- -   @OPTIONAL@ MFA will be required only for individual users who have</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--     an MFA factor enabled.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_mfaConfiguration"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_mfaConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolMfaType.html#UserPoolMfaType"><span class="hs-identifier hs-type">UserPoolMfaType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="setUserPoolMfaConfigResponse_mfaConfiguration"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_mfaConfiguration :: (Maybe UserPoolMfaType -&gt; f (Maybe UserPoolMfaType))
 -&gt; SetUserPoolMfaConfigResponse -&gt; f SetUserPoolMfaConfigResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_mfaConfiguration"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfigResponse_mfaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfigResponse -&gt; Maybe UserPoolMfaType)
 -&gt; (SetUserPoolMfaConfigResponse
@@ -720,20 +721,20 @@ $sel:smsMfaConfiguration:SetUserPoolMfaConfigResponse' :: SetUserPoolMfaConfigRe
      (Maybe UserPoolMfaType)
      (Maybe UserPoolMfaType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440057"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440533"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
 mfaConfiguration :: Maybe UserPoolMfaType
 $sel:mfaConfiguration:SetUserPoolMfaConfigResponse' :: SetUserPoolMfaConfigResponse -&gt; Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440057"><span class="hs-identifier hs-var hs-var">mfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440057"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440056"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440055"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe UserPoolMfaType
+</span><a href="#local-6989586621679440533"><span class="hs-identifier hs-var hs-var">mfaConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
+</span><a href="#local-6989586621679440533"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440532"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440531"><span class="annot"><span class="annottext">Maybe UserPoolMfaType
+</span><a href="#local-6989586621679440531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaConfiguration:SetUserPoolMfaConfigResponse' :: Maybe UserPoolMfaType
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AmfaConfiguration%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">mfaConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolMfaType
-</span><a href="#local-6989586621679440055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-288"></span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_httpStatus"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-291"></span><span id="setUserPoolMfaConfigResponse_httpStatus"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679440531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_httpStatus"><span class="hs-identifier hs-type">setUserPoolMfaConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-292"></span><span id="setUserPoolMfaConfigResponse_httpStatus"><span class="annot"><span class="annottext">setUserPoolMfaConfigResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; SetUserPoolMfaConfigResponse -&gt; f SetUserPoolMfaConfigResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#setUserPoolMfaConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">setUserPoolMfaConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetUserPoolMfaConfigResponse -&gt; Int)
 -&gt; (SetUserPoolMfaConfigResponse
@@ -741,16 +742,16 @@ $sel:mfaConfiguration:SetUserPoolMfaConfigResponse' :: SetUserPoolMfaConfigRespo
 -&gt; Lens
      SetUserPoolMfaConfigResponse SetUserPoolMfaConfigResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440054"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440530"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetUserPoolMfaConfigResponse' :: SetUserPoolMfaConfigResponse -&gt; Int
-</span><a href="#local-6989586621679440054"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440054"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440053"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
-</span><a href="#local-6989586621679440053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserPoolMfaConfigResponse' :: Int
+</span><a href="#local-6989586621679440530"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440530"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440529"><span class="annot"><span class="annottext">s :: SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440528"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserPoolMfaConfigResponse
+</span><a href="#local-6989586621679440529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserPoolMfaConfigResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#%24sel%3AhttpStatus%3ASetUserPoolMfaConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span></span><span>
-</span><span id="line-294"></span></pre></body></html>
+</span><a href="#local-6989586621679440528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig.html#SetUserPoolMfaConfigResponse"><span class="hs-identifier hs-type">SetUserPoolMfaConfigResponse</span></a></span></span><span>
+</span><span id="line-295"></span></pre></body></html>

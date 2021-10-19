@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Auto Scaling group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceRefreshLivePoolProgress' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679326123"><span id="local-6989586621679326124"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceRefreshLivePoolProgress"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-var">InstanceRefreshLivePoolProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRefreshLivePoolProgress%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">InstanceRefreshLivePoolProgress'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The percentage of instances in the Auto Scaling group that have been</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the instance\'s health status and warm-up time. When the instance\'s</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- health status changes to healthy and the specified warm-up time passes,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the instance is considered updated and is added to the percentage</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- complete.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress -&gt; Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var hs-var">percentageComplete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of instances remaining to update.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstancesToUpdate%3AInstanceRefreshLivePoolProgress%27"><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress -&gt; Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3AinstancesToUpdate%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var hs-var">instancesToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679326775"><span id="local-6989586621679326776"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceRefreshLivePoolProgress"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-var">InstanceRefreshLivePoolProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRefreshLivePoolProgress%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">InstanceRefreshLivePoolProgress'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of instances remaining to update.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AinstancesToUpdate%3AInstanceRefreshLivePoolProgress%27"><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress -&gt; Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3AinstancesToUpdate%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var hs-var">instancesToUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The percentage of instances in the Auto Scaling group that have been</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the instance\'s health status and warm-up time. When the instance\'s</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- health status changes to healthy and the specified warm-up time passes,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the instance is considered updated and is added to the percentage</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress -&gt; Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var hs-var">percentageComplete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326116"><span id="local-6989586621679326118"><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326768"><span id="local-6989586621679326770"><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress
 -&gt; InstanceRefreshLivePoolProgress -&gt; Bool
 (InstanceRefreshLivePoolProgress
  -&gt; InstanceRefreshLivePoolProgress -&gt; Bool)
@@ -56,7 +56,7 @@ $c/= :: InstanceRefreshLivePoolProgress
 -&gt; InstanceRefreshLivePoolProgress -&gt; Bool
 $c== :: InstanceRefreshLivePoolProgress
 -&gt; InstanceRefreshLivePoolProgress -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326107"><span id="local-6989586621679326109"><span id="local-6989586621679326111"><span id="local-6989586621679326113"><span class="annot"><span class="annottext">ReadPrec [InstanceRefreshLivePoolProgress]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326759"><span id="local-6989586621679326761"><span id="local-6989586621679326763"><span id="local-6989586621679326765"><span class="annot"><span class="annottext">ReadPrec [InstanceRefreshLivePoolProgress]
 ReadPrec InstanceRefreshLivePoolProgress
 Int -&gt; ReadS InstanceRefreshLivePoolProgress
 ReadS [InstanceRefreshLivePoolProgress]
@@ -76,7 +76,7 @@ readList :: ReadS [InstanceRefreshLivePoolProgress]
 $creadList :: ReadS [InstanceRefreshLivePoolProgress]
 readsPrec :: Int -&gt; ReadS InstanceRefreshLivePoolProgress
 $creadsPrec :: Int -&gt; ReadS InstanceRefreshLivePoolProgress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326100"><span id="local-6989586621679326102"><span id="local-6989586621679326104"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshLivePoolProgress -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326752"><span id="local-6989586621679326754"><span id="local-6989586621679326756"><span class="annot"><span class="annottext">Int -&gt; InstanceRefreshLivePoolProgress -&gt; ShowS
 [InstanceRefreshLivePoolProgress] -&gt; ShowS
 InstanceRefreshLivePoolProgress -&gt; String
 (Int -&gt; InstanceRefreshLivePoolProgress -&gt; ShowS)
@@ -122,64 +122,34 @@ InstanceRefreshLivePoolProgress
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'percentageComplete', 'instanceRefreshLivePoolProgress_percentageComplete' - The percentage of instances in the Auto Scaling group that have been</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- the instance\'s health status and warm-up time. When the instance\'s</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- health status changes to healthy and the specified warm-up time passes,</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- the instance is considered updated and is added to the percentage</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- complete.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'instancesToUpdate', 'instanceRefreshLivePoolProgress_instancesToUpdate' - The number of instances remaining to update.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'instancesToUpdate', 'instanceRefreshLivePoolProgress_instancesToUpdate' - The number of instances remaining to update.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'percentageComplete', 'instanceRefreshLivePoolProgress_percentageComplete' - The percentage of instances in the Auto Scaling group that have been</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- the instance\'s health status and warm-up time. When the instance\'s</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- health status changes to healthy and the specified warm-up time passes,</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- the instance is considered updated and is added to the percentage</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- complete.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#newInstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">newInstanceRefreshLivePoolProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span>
 </span><span id="line-61"></span><span id="newInstanceRefreshLivePoolProgress"><span class="annot"><span class="annottext">newInstanceRefreshLivePoolProgress :: InstanceRefreshLivePoolProgress
 </span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#newInstanceRefreshLivePoolProgress"><span class="hs-identifier hs-var hs-var">newInstanceRefreshLivePoolProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress' :: Maybe Natural -&gt; Maybe Natural -&gt; InstanceRefreshLivePoolProgress
 </span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:percentageComplete:InstanceRefreshLivePoolProgress' :: Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instancesToUpdate:InstanceRefreshLivePoolProgress' :: Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3AinstancesToUpdate%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:instancesToUpdate:InstanceRefreshLivePoolProgress' :: Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3AinstancesToUpdate%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:percentageComplete:InstanceRefreshLivePoolProgress' :: Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The percentage of instances in the Auto Scaling group that have been</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- the instance\'s health status and warm-up time. When the instance\'s</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- health status changes to healthy and the specified warm-up time passes,</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- the instance is considered updated and is added to the percentage</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- complete.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#instanceRefreshLivePoolProgress_percentageComplete"><span class="hs-identifier hs-type">instanceRefreshLivePoolProgress_percentageComplete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="instanceRefreshLivePoolProgress_percentageComplete"><span class="annot"><span class="annottext">instanceRefreshLivePoolProgress_percentageComplete :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; InstanceRefreshLivePoolProgress
--&gt; f InstanceRefreshLivePoolProgress
-</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#instanceRefreshLivePoolProgress_percentageComplete"><span class="hs-identifier hs-var hs-var">instanceRefreshLivePoolProgress_percentageComplete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefreshLivePoolProgress -&gt; Maybe Natural)
--&gt; (InstanceRefreshLivePoolProgress
-    -&gt; Maybe Natural -&gt; InstanceRefreshLivePoolProgress)
--&gt; Lens
-     InstanceRefreshLivePoolProgress
-     InstanceRefreshLivePoolProgress
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326091"><span class="annot"><span class="annottext">Maybe Natural
-percentageComplete :: Maybe Natural
-$sel:percentageComplete:InstanceRefreshLivePoolProgress' :: InstanceRefreshLivePoolProgress -&gt; Maybe Natural
-</span><a href="#local-6989586621679326091"><span class="hs-identifier hs-var hs-var">percentageComplete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326091"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326090"><span class="annot"><span class="annottext">s :: InstanceRefreshLivePoolProgress
-</span><a href="#local-6989586621679326090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326089"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress
-</span><a href="#local-6989586621679326090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentageComplete:InstanceRefreshLivePoolProgress' :: Maybe Natural
-</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The number of instances remaining to update.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#instanceRefreshLivePoolProgress_instancesToUpdate"><span class="hs-identifier hs-type">instanceRefreshLivePoolProgress_instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="instanceRefreshLivePoolProgress_instancesToUpdate"><span class="annot"><span class="annottext">instanceRefreshLivePoolProgress_instancesToUpdate :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-68"></span><span class="hs-comment">-- | The number of instances remaining to update.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#instanceRefreshLivePoolProgress_instancesToUpdate"><span class="hs-identifier hs-type">instanceRefreshLivePoolProgress_instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="instanceRefreshLivePoolProgress_instancesToUpdate"><span class="annot"><span class="annottext">instanceRefreshLivePoolProgress_instancesToUpdate :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; InstanceRefreshLivePoolProgress
 -&gt; f InstanceRefreshLivePoolProgress
 </span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#instanceRefreshLivePoolProgress_instancesToUpdate"><span class="hs-identifier hs-var hs-var">instanceRefreshLivePoolProgress_instancesToUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefreshLivePoolProgress -&gt; Maybe Natural)
@@ -191,21 +161,51 @@ $sel:percentageComplete:InstanceRefreshLivePoolProgress' :: InstanceRefreshLiveP
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326087"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326743"><span class="annot"><span class="annottext">Maybe Natural
 instancesToUpdate :: Maybe Natural
 $sel:instancesToUpdate:InstanceRefreshLivePoolProgress' :: InstanceRefreshLivePoolProgress -&gt; Maybe Natural
-</span><a href="#local-6989586621679326087"><span class="hs-identifier hs-var hs-var">instancesToUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326087"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326086"><span class="annot"><span class="annottext">s :: InstanceRefreshLivePoolProgress
-</span><a href="#local-6989586621679326086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326085"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress
-</span><a href="#local-6989586621679326086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesToUpdate:InstanceRefreshLivePoolProgress' :: Maybe Natural
+</span><a href="#local-6989586621679326743"><span class="hs-identifier hs-var hs-var">instancesToUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679326743"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326742"><span class="annot"><span class="annottext">s :: InstanceRefreshLivePoolProgress
+</span><a href="#local-6989586621679326742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326741"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679326741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress
+</span><a href="#local-6989586621679326742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesToUpdate:InstanceRefreshLivePoolProgress' :: Maybe Natural
 </span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3AinstancesToUpdate%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">instancesToUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679326085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The percentage of instances in the Auto Scaling group that have been</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the instance\'s health status and warm-up time. When the instance\'s</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- health status changes to healthy and the specified warm-up time passes,</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the instance is considered updated and is added to the percentage</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#instanceRefreshLivePoolProgress_percentageComplete"><span class="hs-identifier hs-type">instanceRefreshLivePoolProgress_percentageComplete</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="instanceRefreshLivePoolProgress_percentageComplete"><span class="annot"><span class="annottext">instanceRefreshLivePoolProgress_percentageComplete :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; InstanceRefreshLivePoolProgress
+-&gt; f InstanceRefreshLivePoolProgress
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#instanceRefreshLivePoolProgress_percentageComplete"><span class="hs-identifier hs-var hs-var">instanceRefreshLivePoolProgress_percentageComplete</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRefreshLivePoolProgress -&gt; Maybe Natural)
+-&gt; (InstanceRefreshLivePoolProgress
+    -&gt; Maybe Natural -&gt; InstanceRefreshLivePoolProgress)
+-&gt; Lens
+     InstanceRefreshLivePoolProgress
+     InstanceRefreshLivePoolProgress
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326739"><span class="annot"><span class="annottext">Maybe Natural
+percentageComplete :: Maybe Natural
+$sel:percentageComplete:InstanceRefreshLivePoolProgress' :: InstanceRefreshLivePoolProgress -&gt; Maybe Natural
+</span><a href="#local-6989586621679326739"><span class="hs-identifier hs-var hs-var">percentageComplete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679326739"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326738"><span class="annot"><span class="annottext">s :: InstanceRefreshLivePoolProgress
+</span><a href="#local-6989586621679326738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326737"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679326737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRefreshLivePoolProgress
+</span><a href="#local-6989586621679326738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentageComplete:InstanceRefreshLivePoolProgress' :: Maybe Natural
+</span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#%24sel%3ApercentageComplete%3AInstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">percentageComplete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679326737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679326082"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceRefreshLivePoolProgress
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679326080"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679326080"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679326734"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceRefreshLivePoolProgress
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679326732"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326732"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; InstanceRefreshLivePoolProgress
 </span><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress%27"><span class="hs-identifier hs-var">InstanceRefreshLivePoolProgress'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; InstanceRefreshLivePoolProgress)
@@ -213,25 +213,25 @@ $sel:instancesToUpdate:InstanceRefreshLivePoolProgress' :: InstanceRefreshLivePo
 -&gt; Either String (Maybe Natural -&gt; InstanceRefreshLivePoolProgress)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679326080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679326732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PercentageComplete&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;InstancesToUpdate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Natural -&gt; InstanceRefreshLivePoolProgress)
 -&gt; Either String (Maybe Natural)
 -&gt; Either String InstanceRefreshLivePoolProgress
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679326080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679326732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstancesToUpdate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PercentageComplete&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679326074"><span id="local-6989586621679326076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679326726"><span id="local-6989586621679326728"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679326071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679326723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefreshLivePoolProgress.html#InstanceRefreshLivePoolProgress"><span class="hs-identifier hs-type">InstanceRefreshLivePoolProgress</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

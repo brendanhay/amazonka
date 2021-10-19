@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679374365"><span id="local-6989586621679374366"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScaleDownBehavior"><span class="annot"><a href="Network.AWS.EMR.Types.ScaleDownBehavior.html#ScaleDownBehavior"><span class="hs-identifier hs-var">ScaleDownBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScaleDownBehavior%27"><span class="annot"><a href="Network.AWS.EMR.Types.ScaleDownBehavior.html#ScaleDownBehavior%27"><span class="hs-identifier hs-var">ScaleDownBehavior'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679374719"><span id="local-6989586621679374720"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScaleDownBehavior"><span class="annot"><a href="Network.AWS.EMR.Types.ScaleDownBehavior.html#ScaleDownBehavior"><span class="hs-identifier hs-var">ScaleDownBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScaleDownBehavior%27"><span class="annot"><a href="Network.AWS.EMR.Types.ScaleDownBehavior.html#ScaleDownBehavior%27"><span class="hs-identifier hs-var">ScaleDownBehavior'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScaleDownBehavior"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; Text
 </span><a href="Network.AWS.EMR.Types.ScaleDownBehavior.html#fromScaleDownBehavior"><span class="hs-identifier hs-var hs-var">fromScaleDownBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374357"><span id="local-6989586621679374359"><span id="local-6989586621679374361"><span class="annot"><span class="annottext">Int -&gt; ScaleDownBehavior -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374711"><span id="local-6989586621679374713"><span id="local-6989586621679374715"><span class="annot"><span class="annottext">Int -&gt; ScaleDownBehavior -&gt; ShowS
 [ScaleDownBehavior] -&gt; ShowS
 ScaleDownBehavior -&gt; String
 (Int -&gt; ScaleDownBehavior -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ScaleDownBehavior -&gt; String
 showsPrec :: Int -&gt; ScaleDownBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScaleDownBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679374348"><span id="local-6989586621679374350"><span id="local-6989586621679374352"><span id="local-6989586621679374354"><span class="annot"><span class="annottext">ReadPrec [ScaleDownBehavior]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679374702"><span id="local-6989586621679374704"><span id="local-6989586621679374706"><span id="local-6989586621679374708"><span class="annot"><span class="annottext">ReadPrec [ScaleDownBehavior]
 ReadPrec ScaleDownBehavior
 Int -&gt; ReadS ScaleDownBehavior
 ReadS [ScaleDownBehavior]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ScaleDownBehavior]
 readsPrec :: Int -&gt; ReadS ScaleDownBehavior
 $creadsPrec :: Int -&gt; ReadS ScaleDownBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374343"><span id="local-6989586621679374345"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374697"><span id="local-6989586621679374699"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool
 (ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool)
 -&gt; (ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool)
 -&gt; Eq ScaleDownBehavior
@@ -82,7 +82,7 @@ $c/= :: ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool
 == :: ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool
 $c== :: ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374327"><span id="local-6989586621679374329"><span id="local-6989586621679374331"><span id="local-6989586621679374333"><span id="local-6989586621679374335"><span id="local-6989586621679374337"><span id="local-6989586621679374339"><span class="annot"><span class="annottext">Eq ScaleDownBehavior
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374681"><span id="local-6989586621679374683"><span id="local-6989586621679374685"><span id="local-6989586621679374687"><span id="local-6989586621679374689"><span id="local-6989586621679374691"><span id="local-6989586621679374693"><span class="annot"><span class="annottext">Eq ScaleDownBehavior
 Eq ScaleDownBehavior
 -&gt; (ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Ordering)
 -&gt; (ScaleDownBehavior -&gt; ScaleDownBehavior -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ScaleDownBehavior -&gt; Rep ScaleDownBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374319"><span id="local-6989586621679374321"><span class="annot"><span class="annottext">Int -&gt; ScaleDownBehavior -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374673"><span id="local-6989586621679374675"><span class="annot"><span class="annottext">Int -&gt; ScaleDownBehavior -&gt; Int
 ScaleDownBehavior -&gt; Int
 (Int -&gt; ScaleDownBehavior -&gt; Int)
 -&gt; (ScaleDownBehavior -&gt; Int) -&gt; Hashable ScaleDownBehavior
@@ -143,51 +143,51 @@ $chash :: ScaleDownBehavior -&gt; Int
 hashWithSalt :: Int -&gt; ScaleDownBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; ScaleDownBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679374316"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679374670"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ()
 (ScaleDownBehavior -&gt; ()) -&gt; NFData ScaleDownBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScaleDownBehavior -&gt; ()
 $crnf :: ScaleDownBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374313"><span class="annot"><span class="annottext">Text -&gt; Either String ScaleDownBehavior
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374667"><span class="annot"><span class="annottext">Text -&gt; Either String ScaleDownBehavior
 (Text -&gt; Either String ScaleDownBehavior)
 -&gt; FromText ScaleDownBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScaleDownBehavior
 $cfromText :: Text -&gt; Either String ScaleDownBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374310"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374664"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; Text
 (ScaleDownBehavior -&gt; Text) -&gt; ToText ScaleDownBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScaleDownBehavior -&gt; Text
 $ctoText :: ScaleDownBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374307"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374661"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ByteString
 (ScaleDownBehavior -&gt; ByteString) -&gt; ToByteString ScaleDownBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScaleDownBehavior -&gt; ByteString
 $ctoBS :: ScaleDownBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374304"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374658"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; ByteStringBuilder
 (ScaleDownBehavior -&gt; ByteStringBuilder) -&gt; ToLog ScaleDownBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScaleDownBehavior -&gt; ByteStringBuilder
 $cbuild :: ScaleDownBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374301"><span class="annot"><span class="annottext">HeaderName -&gt; ScaleDownBehavior -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374655"><span class="annot"><span class="annottext">HeaderName -&gt; ScaleDownBehavior -&gt; [Header]
 (HeaderName -&gt; ScaleDownBehavior -&gt; [Header])
 -&gt; ToHeader ScaleDownBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScaleDownBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScaleDownBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374298"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374652"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; QueryString
 (ScaleDownBehavior -&gt; QueryString) -&gt; ToQuery ScaleDownBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScaleDownBehavior -&gt; QueryString
 $ctoQuery :: ScaleDownBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374293"><span id="local-6989586621679374295"><span class="annot"><span class="annottext">Value -&gt; Parser [ScaleDownBehavior]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374647"><span id="local-6989586621679374649"><span class="annot"><span class="annottext">Value -&gt; Parser [ScaleDownBehavior]
 Value -&gt; Parser ScaleDownBehavior
 (Value -&gt; Parser ScaleDownBehavior)
 -&gt; (Value -&gt; Parser [ScaleDownBehavior])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ScaleDownBehavior]
 parseJSON :: Value -&gt; Parser ScaleDownBehavior
 $cparseJSON :: Value -&gt; Parser ScaleDownBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374288"><span id="local-6989586621679374290"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScaleDownBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374642"><span id="local-6989586621679374644"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScaleDownBehavior]
 FromJSONKeyFunction ScaleDownBehavior
 FromJSONKeyFunction ScaleDownBehavior
 -&gt; FromJSONKeyFunction [ScaleDownBehavior]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScaleDownBehavior]
 fromJSONKey :: FromJSONKeyFunction ScaleDownBehavior
 $cfromJSONKey :: FromJSONKeyFunction ScaleDownBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374279"><span id="local-6989586621679374281"><span id="local-6989586621679374283"><span id="local-6989586621679374285"><span class="annot"><span class="annottext">[ScaleDownBehavior] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374633"><span id="local-6989586621679374635"><span id="local-6989586621679374637"><span id="local-6989586621679374639"><span class="annot"><span class="annottext">[ScaleDownBehavior] -&gt; Encoding
 [ScaleDownBehavior] -&gt; Value
 ScaleDownBehavior -&gt; Encoding
 ScaleDownBehavior -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ScaleDownBehavior -&gt; Encoding
 toJSON :: ScaleDownBehavior -&gt; Value
 $ctoJSON :: ScaleDownBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374274"><span id="local-6989586621679374276"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScaleDownBehavior]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374628"><span id="local-6989586621679374630"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScaleDownBehavior]
 ToJSONKeyFunction ScaleDownBehavior
 ToJSONKeyFunction ScaleDownBehavior
 -&gt; ToJSONKeyFunction [ScaleDownBehavior]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScaleDownBehavior]
 toJSONKey :: ToJSONKeyFunction ScaleDownBehavior
 $ctoJSONKey :: ToJSONKeyFunction ScaleDownBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374271"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScaleDownBehavior
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374625"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScaleDownBehavior
 ([Node] -&gt; Either String ScaleDownBehavior)
 -&gt; FromXML ScaleDownBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScaleDownBehavior
 $cparseXML :: [Node] -&gt; Either String ScaleDownBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374268"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374622"><span class="annot"><span class="annottext">ScaleDownBehavior -&gt; XML
 (ScaleDownBehavior -&gt; XML) -&gt; ToXML ScaleDownBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScaleDownBehavior -&gt; XML

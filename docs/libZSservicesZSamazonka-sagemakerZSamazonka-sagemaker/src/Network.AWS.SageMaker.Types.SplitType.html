@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621680343209"><span id="local-6989586621680343210"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SplitType"><span class="annot"><a href="Network.AWS.SageMaker.Types.SplitType.html#SplitType"><span class="hs-identifier hs-var">SplitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SplitType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SplitType.html#SplitType%27"><span class="hs-identifier hs-var">SplitType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680344627"><span id="local-6989586621680344628"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SplitType"><span class="annot"><a href="Network.AWS.SageMaker.Types.SplitType.html#SplitType"><span class="hs-identifier hs-var">SplitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SplitType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SplitType.html#SplitType%27"><span class="hs-identifier hs-var">SplitType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSplitType"><span class="annot"><span class="annottext">SplitType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.SplitType.html#fromSplitType"><span class="hs-identifier hs-var hs-var">fromSplitType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680343201"><span id="local-6989586621680343203"><span id="local-6989586621680343205"><span class="annot"><span class="annottext">Int -&gt; SplitType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680344619"><span id="local-6989586621680344621"><span id="local-6989586621680344623"><span class="annot"><span class="annottext">Int -&gt; SplitType -&gt; ShowS
 [SplitType] -&gt; ShowS
 SplitType -&gt; String
 (Int -&gt; SplitType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SplitType -&gt; String
 showsPrec :: Int -&gt; SplitType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SplitType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680343192"><span id="local-6989586621680343194"><span id="local-6989586621680343196"><span id="local-6989586621680343198"><span class="annot"><span class="annottext">ReadPrec [SplitType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680344610"><span id="local-6989586621680344612"><span id="local-6989586621680344614"><span id="local-6989586621680344616"><span class="annot"><span class="annottext">ReadPrec [SplitType]
 ReadPrec SplitType
 Int -&gt; ReadS SplitType
 ReadS [SplitType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SplitType]
 readsPrec :: Int -&gt; ReadS SplitType
 $creadsPrec :: Int -&gt; ReadS SplitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680343187"><span id="local-6989586621680343189"><span class="annot"><span class="annottext">SplitType -&gt; SplitType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680344605"><span id="local-6989586621680344607"><span class="annot"><span class="annottext">SplitType -&gt; SplitType -&gt; Bool
 (SplitType -&gt; SplitType -&gt; Bool)
 -&gt; (SplitType -&gt; SplitType -&gt; Bool) -&gt; Eq SplitType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: SplitType -&gt; SplitType -&gt; Bool
 == :: SplitType -&gt; SplitType -&gt; Bool
 $c== :: SplitType -&gt; SplitType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680343171"><span id="local-6989586621680343173"><span id="local-6989586621680343175"><span id="local-6989586621680343177"><span id="local-6989586621680343179"><span id="local-6989586621680343181"><span id="local-6989586621680343183"><span class="annot"><span class="annottext">Eq SplitType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680344589"><span id="local-6989586621680344591"><span id="local-6989586621680344593"><span id="local-6989586621680344595"><span id="local-6989586621680344597"><span id="local-6989586621680344599"><span id="local-6989586621680344601"><span class="annot"><span class="annottext">Eq SplitType
 Eq SplitType
 -&gt; (SplitType -&gt; SplitType -&gt; Ordering)
 -&gt; (SplitType -&gt; SplitType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SplitType -&gt; Rep SplitType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680343163"><span id="local-6989586621680343165"><span class="annot"><span class="annottext">Int -&gt; SplitType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680344581"><span id="local-6989586621680344583"><span class="annot"><span class="annottext">Int -&gt; SplitType -&gt; Int
 SplitType -&gt; Int
 (Int -&gt; SplitType -&gt; Int)
 -&gt; (SplitType -&gt; Int) -&gt; Hashable SplitType
@@ -143,49 +143,49 @@ $chash :: SplitType -&gt; Int
 hashWithSalt :: Int -&gt; SplitType -&gt; Int
 $chashWithSalt :: Int -&gt; SplitType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680343160"><span class="annot"><span class="annottext">SplitType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680344578"><span class="annot"><span class="annottext">SplitType -&gt; ()
 (SplitType -&gt; ()) -&gt; NFData SplitType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SplitType -&gt; ()
 $crnf :: SplitType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680343157"><span class="annot"><span class="annottext">Text -&gt; Either String SplitType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680344575"><span class="annot"><span class="annottext">Text -&gt; Either String SplitType
 (Text -&gt; Either String SplitType) -&gt; FromText SplitType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SplitType
 $cfromText :: Text -&gt; Either String SplitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680343154"><span class="annot"><span class="annottext">SplitType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680344572"><span class="annot"><span class="annottext">SplitType -&gt; Text
 (SplitType -&gt; Text) -&gt; ToText SplitType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SplitType -&gt; Text
 $ctoText :: SplitType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680343151"><span class="annot"><span class="annottext">SplitType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680344569"><span class="annot"><span class="annottext">SplitType -&gt; ByteString
 (SplitType -&gt; ByteString) -&gt; ToByteString SplitType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SplitType -&gt; ByteString
 $ctoBS :: SplitType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680343148"><span class="annot"><span class="annottext">SplitType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680344566"><span class="annot"><span class="annottext">SplitType -&gt; ByteStringBuilder
 (SplitType -&gt; ByteStringBuilder) -&gt; ToLog SplitType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SplitType -&gt; ByteStringBuilder
 $cbuild :: SplitType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680343145"><span class="annot"><span class="annottext">HeaderName -&gt; SplitType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680344563"><span class="annot"><span class="annottext">HeaderName -&gt; SplitType -&gt; [Header]
 (HeaderName -&gt; SplitType -&gt; [Header]) -&gt; ToHeader SplitType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SplitType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SplitType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680343142"><span class="annot"><span class="annottext">SplitType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680344560"><span class="annot"><span class="annottext">SplitType -&gt; QueryString
 (SplitType -&gt; QueryString) -&gt; ToQuery SplitType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SplitType -&gt; QueryString
 $ctoQuery :: SplitType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680343137"><span id="local-6989586621680343139"><span class="annot"><span class="annottext">Value -&gt; Parser [SplitType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680344555"><span id="local-6989586621680344557"><span class="annot"><span class="annottext">Value -&gt; Parser [SplitType]
 Value -&gt; Parser SplitType
 (Value -&gt; Parser SplitType)
 -&gt; (Value -&gt; Parser [SplitType]) -&gt; FromJSON SplitType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [SplitType]
 parseJSON :: Value -&gt; Parser SplitType
 $cparseJSON :: Value -&gt; Parser SplitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680343132"><span id="local-6989586621680343134"><span class="annot"><span class="annottext">FromJSONKeyFunction [SplitType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680344550"><span id="local-6989586621680344552"><span class="annot"><span class="annottext">FromJSONKeyFunction [SplitType]
 FromJSONKeyFunction SplitType
 FromJSONKeyFunction SplitType
 -&gt; FromJSONKeyFunction [SplitType] -&gt; FromJSONKey SplitType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SplitType]
 fromJSONKey :: FromJSONKeyFunction SplitType
 $cfromJSONKey :: FromJSONKeyFunction SplitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680343123"><span id="local-6989586621680343125"><span id="local-6989586621680343127"><span id="local-6989586621680343129"><span class="annot"><span class="annottext">[SplitType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680344541"><span id="local-6989586621680344543"><span id="local-6989586621680344545"><span id="local-6989586621680344547"><span class="annot"><span class="annottext">[SplitType] -&gt; Encoding
 [SplitType] -&gt; Value
 SplitType -&gt; Encoding
 SplitType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: SplitType -&gt; Encoding
 toJSON :: SplitType -&gt; Value
 $ctoJSON :: SplitType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680343118"><span id="local-6989586621680343120"><span class="annot"><span class="annottext">ToJSONKeyFunction [SplitType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680344536"><span id="local-6989586621680344538"><span class="annot"><span class="annottext">ToJSONKeyFunction [SplitType]
 ToJSONKeyFunction SplitType
 ToJSONKeyFunction SplitType
 -&gt; ToJSONKeyFunction [SplitType] -&gt; ToJSONKey SplitType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SplitType]
 toJSONKey :: ToJSONKeyFunction SplitType
 $ctoJSONKey :: ToJSONKeyFunction SplitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680343115"><span class="annot"><span class="annottext">[Node] -&gt; Either String SplitType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680344533"><span class="annot"><span class="annottext">[Node] -&gt; Either String SplitType
 ([Node] -&gt; Either String SplitType) -&gt; FromXML SplitType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SplitType
 $cparseXML :: [Node] -&gt; Either String SplitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680343112"><span class="annot"><span class="annottext">SplitType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680344530"><span class="annot"><span class="annottext">SplitType -&gt; XML
 (SplitType -&gt; XML) -&gt; ToXML SplitType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SplitType -&gt; XML

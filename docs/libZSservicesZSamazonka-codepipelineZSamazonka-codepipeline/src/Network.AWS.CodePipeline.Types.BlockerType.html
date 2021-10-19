@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679276423"><span id="local-6989586621679276424"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlockerType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerType.html#BlockerType"><span class="hs-identifier hs-var">BlockerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockerType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerType.html#BlockerType%27"><span class="hs-identifier hs-var">BlockerType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679276623"><span id="local-6989586621679276624"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlockerType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerType.html#BlockerType"><span class="hs-identifier hs-var">BlockerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlockerType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.BlockerType.html#BlockerType%27"><span class="hs-identifier hs-var">BlockerType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBlockerType"><span class="annot"><span class="annottext">BlockerType -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.BlockerType.html#fromBlockerType"><span class="hs-identifier hs-var hs-var">fromBlockerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276415"><span id="local-6989586621679276417"><span id="local-6989586621679276419"><span class="annot"><span class="annottext">Int -&gt; BlockerType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276615"><span id="local-6989586621679276617"><span id="local-6989586621679276619"><span class="annot"><span class="annottext">Int -&gt; BlockerType -&gt; ShowS
 [BlockerType] -&gt; ShowS
 BlockerType -&gt; String
 (Int -&gt; BlockerType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: BlockerType -&gt; String
 showsPrec :: Int -&gt; BlockerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BlockerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679276406"><span id="local-6989586621679276408"><span id="local-6989586621679276410"><span id="local-6989586621679276412"><span class="annot"><span class="annottext">ReadPrec [BlockerType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679276606"><span id="local-6989586621679276608"><span id="local-6989586621679276610"><span id="local-6989586621679276612"><span class="annot"><span class="annottext">ReadPrec [BlockerType]
 ReadPrec BlockerType
 Int -&gt; ReadS BlockerType
 ReadS [BlockerType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [BlockerType]
 readsPrec :: Int -&gt; ReadS BlockerType
 $creadsPrec :: Int -&gt; ReadS BlockerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679276401"><span id="local-6989586621679276403"><span class="annot"><span class="annottext">BlockerType -&gt; BlockerType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679276601"><span id="local-6989586621679276603"><span class="annot"><span class="annottext">BlockerType -&gt; BlockerType -&gt; Bool
 (BlockerType -&gt; BlockerType -&gt; Bool)
 -&gt; (BlockerType -&gt; BlockerType -&gt; Bool) -&gt; Eq BlockerType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: BlockerType -&gt; BlockerType -&gt; Bool
 == :: BlockerType -&gt; BlockerType -&gt; Bool
 $c== :: BlockerType -&gt; BlockerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679276385"><span id="local-6989586621679276387"><span id="local-6989586621679276389"><span id="local-6989586621679276391"><span id="local-6989586621679276393"><span id="local-6989586621679276395"><span id="local-6989586621679276397"><span class="annot"><span class="annottext">Eq BlockerType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679276585"><span id="local-6989586621679276587"><span id="local-6989586621679276589"><span id="local-6989586621679276591"><span id="local-6989586621679276593"><span id="local-6989586621679276595"><span id="local-6989586621679276597"><span class="annot"><span class="annottext">Eq BlockerType
 Eq BlockerType
 -&gt; (BlockerType -&gt; BlockerType -&gt; Ordering)
 -&gt; (BlockerType -&gt; BlockerType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. BlockerType -&gt; Rep BlockerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276377"><span id="local-6989586621679276379"><span class="annot"><span class="annottext">Int -&gt; BlockerType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276577"><span id="local-6989586621679276579"><span class="annot"><span class="annottext">Int -&gt; BlockerType -&gt; Int
 BlockerType -&gt; Int
 (Int -&gt; BlockerType -&gt; Int)
 -&gt; (BlockerType -&gt; Int) -&gt; Hashable BlockerType
@@ -141,49 +141,49 @@ $chash :: BlockerType -&gt; Int
 hashWithSalt :: Int -&gt; BlockerType -&gt; Int
 $chashWithSalt :: Int -&gt; BlockerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679276374"><span class="annot"><span class="annottext">BlockerType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679276574"><span class="annot"><span class="annottext">BlockerType -&gt; ()
 (BlockerType -&gt; ()) -&gt; NFData BlockerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BlockerType -&gt; ()
 $crnf :: BlockerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679276371"><span class="annot"><span class="annottext">Text -&gt; Either String BlockerType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679276571"><span class="annot"><span class="annottext">Text -&gt; Either String BlockerType
 (Text -&gt; Either String BlockerType) -&gt; FromText BlockerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BlockerType
 $cfromText :: Text -&gt; Either String BlockerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679276368"><span class="annot"><span class="annottext">BlockerType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679276568"><span class="annot"><span class="annottext">BlockerType -&gt; Text
 (BlockerType -&gt; Text) -&gt; ToText BlockerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BlockerType -&gt; Text
 $ctoText :: BlockerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276365"><span class="annot"><span class="annottext">BlockerType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276565"><span class="annot"><span class="annottext">BlockerType -&gt; ByteString
 (BlockerType -&gt; ByteString) -&gt; ToByteString BlockerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BlockerType -&gt; ByteString
 $ctoBS :: BlockerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276362"><span class="annot"><span class="annottext">BlockerType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276562"><span class="annot"><span class="annottext">BlockerType -&gt; ByteStringBuilder
 (BlockerType -&gt; ByteStringBuilder) -&gt; ToLog BlockerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BlockerType -&gt; ByteStringBuilder
 $cbuild :: BlockerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276359"><span class="annot"><span class="annottext">HeaderName -&gt; BlockerType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276559"><span class="annot"><span class="annottext">HeaderName -&gt; BlockerType -&gt; [Header]
 (HeaderName -&gt; BlockerType -&gt; [Header]) -&gt; ToHeader BlockerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BlockerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BlockerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276356"><span class="annot"><span class="annottext">BlockerType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276556"><span class="annot"><span class="annottext">BlockerType -&gt; QueryString
 (BlockerType -&gt; QueryString) -&gt; ToQuery BlockerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BlockerType -&gt; QueryString
 $ctoQuery :: BlockerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276351"><span id="local-6989586621679276353"><span class="annot"><span class="annottext">Value -&gt; Parser [BlockerType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276551"><span id="local-6989586621679276553"><span class="annot"><span class="annottext">Value -&gt; Parser [BlockerType]
 Value -&gt; Parser BlockerType
 (Value -&gt; Parser BlockerType)
 -&gt; (Value -&gt; Parser [BlockerType]) -&gt; FromJSON BlockerType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [BlockerType]
 parseJSON :: Value -&gt; Parser BlockerType
 $cparseJSON :: Value -&gt; Parser BlockerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276346"><span id="local-6989586621679276348"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlockerType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276546"><span id="local-6989586621679276548"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlockerType]
 FromJSONKeyFunction BlockerType
 FromJSONKeyFunction BlockerType
 -&gt; FromJSONKeyFunction [BlockerType] -&gt; FromJSONKey BlockerType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BlockerType]
 fromJSONKey :: FromJSONKeyFunction BlockerType
 $cfromJSONKey :: FromJSONKeyFunction BlockerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276337"><span id="local-6989586621679276339"><span id="local-6989586621679276341"><span id="local-6989586621679276343"><span class="annot"><span class="annottext">[BlockerType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276537"><span id="local-6989586621679276539"><span id="local-6989586621679276541"><span id="local-6989586621679276543"><span class="annot"><span class="annottext">[BlockerType] -&gt; Encoding
 [BlockerType] -&gt; Value
 BlockerType -&gt; Encoding
 BlockerType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: BlockerType -&gt; Encoding
 toJSON :: BlockerType -&gt; Value
 $ctoJSON :: BlockerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276332"><span id="local-6989586621679276334"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlockerType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276532"><span id="local-6989586621679276534"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlockerType]
 ToJSONKeyFunction BlockerType
 ToJSONKeyFunction BlockerType
 -&gt; ToJSONKeyFunction [BlockerType] -&gt; ToJSONKey BlockerType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BlockerType]
 toJSONKey :: ToJSONKeyFunction BlockerType
 $ctoJSONKey :: ToJSONKeyFunction BlockerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276329"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlockerType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276529"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlockerType
 ([Node] -&gt; Either String BlockerType) -&gt; FromXML BlockerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BlockerType
 $cparseXML :: [Node] -&gt; Either String BlockerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276326"><span class="annot"><span class="annottext">BlockerType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276526"><span class="annot"><span class="annottext">BlockerType -&gt; XML
 (BlockerType -&gt; XML) -&gt; ToXML BlockerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BlockerType -&gt; XML

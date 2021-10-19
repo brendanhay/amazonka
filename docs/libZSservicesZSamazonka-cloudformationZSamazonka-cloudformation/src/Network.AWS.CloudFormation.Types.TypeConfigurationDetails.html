@@ -31,48 +31,48 @@
 </span><span id="line-31"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newTypeConfigurationDetails' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679427205"><span id="local-6989586621679427206"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypeConfigurationDetails"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-var">TypeConfigurationDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypeConfigurationDetails%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-var">TypeConfigurationDetails'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the extension.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The alias specified for this configuration, if one was specified when</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the configuration was set.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A JSON string specifying the configuration data for the extension, in</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- this account and region.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- CloudFormation returns @{}@.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the configuration data, in this</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- account and region.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aarn%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aarn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | When the configuration data was last updated for this extension.</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- CloudFormation returns @null@.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AlastUpdated%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe ISO8601
+</span><span id="line-34"></span><span id="local-6989586621679427620"><span id="local-6989586621679427621"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypeConfigurationDetails"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-var">TypeConfigurationDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypeConfigurationDetails%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-var">TypeConfigurationDetails'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the configuration data was last updated for this extension.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- CloudFormation returns @null@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastUpdated%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AlastUpdated%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Whether or not this configuration data is the default configuration for</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the extension.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Bool
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">isDefaultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the extension, in this account and</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- region.</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- For public extensions, this will be the ARN assigned when you</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type&gt;</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- in this account and region. For private extensions, this will be the ARN</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- assigned when you</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type&gt;</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- in this account and region.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtypeArn%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeArn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">typeArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the extension.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the configuration data, in this</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- account and region.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aarn%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aarn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The alias specified for this configuration, if one was specified when</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the configuration was set.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the extension, in this account and</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- region.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- For public extensions, this will be the ARN assigned when you</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type&gt;</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- in this account and region. For private extensions, this will be the ARN</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- assigned when you</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type&gt;</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- in this account and region.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AtypeArn%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeArn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">typeArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A JSON string specifying the configuration data for the extension, in</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- this account and region.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- CloudFormation returns @{}@.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Whether or not this configuration data is the default configuration for</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the extension.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var hs-var">isDefaultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427193"><span id="local-6989586621679427195"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; TypeConfigurationDetails -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427608"><span id="local-6989586621679427610"><span class="annot"><span class="annottext">TypeConfigurationDetails -&gt; TypeConfigurationDetails -&gt; Bool
 (TypeConfigurationDetails -&gt; TypeConfigurationDetails -&gt; Bool)
 -&gt; (TypeConfigurationDetails -&gt; TypeConfigurationDetails -&gt; Bool)
 -&gt; Eq TypeConfigurationDetails
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TypeConfigurationDetails -&gt; TypeConfigurationDetails -&gt; Bool
 == :: TypeConfigurationDetails -&gt; TypeConfigurationDetails -&gt; Bool
 $c== :: TypeConfigurationDetails -&gt; TypeConfigurationDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427184"><span id="local-6989586621679427186"><span id="local-6989586621679427188"><span id="local-6989586621679427190"><span class="annot"><span class="annottext">ReadPrec [TypeConfigurationDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427599"><span id="local-6989586621679427601"><span id="local-6989586621679427603"><span id="local-6989586621679427605"><span class="annot"><span class="annottext">ReadPrec [TypeConfigurationDetails]
 ReadPrec TypeConfigurationDetails
 Int -&gt; ReadS TypeConfigurationDetails
 ReadS [TypeConfigurationDetails]
@@ -101,7 +101,7 @@ readList :: ReadS [TypeConfigurationDetails]
 $creadList :: ReadS [TypeConfigurationDetails]
 readsPrec :: Int -&gt; ReadS TypeConfigurationDetails
 $creadsPrec :: Int -&gt; ReadS TypeConfigurationDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427177"><span id="local-6989586621679427179"><span id="local-6989586621679427181"><span class="annot"><span class="annottext">Int -&gt; TypeConfigurationDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427592"><span id="local-6989586621679427594"><span id="local-6989586621679427596"><span class="annot"><span class="annottext">Int -&gt; TypeConfigurationDetails -&gt; ShowS
 [TypeConfigurationDetails] -&gt; ShowS
 TypeConfigurationDetails -&gt; String
 (Int -&gt; TypeConfigurationDetails -&gt; ShowS)
@@ -141,189 +141,87 @@ TypeConfigurationDetails -&gt; Rep TypeConfigurationDetails x
 </span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'typeName', 'typeConfigurationDetails_typeName' - The name of the extension.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'lastUpdated', 'typeConfigurationDetails_lastUpdated' - When the configuration data was last updated for this extension.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'alias', 'typeConfigurationDetails_alias' - The alias specified for this configuration, if one was specified when</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- the configuration was set.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- CloudFormation returns @null@.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'configuration', 'typeConfigurationDetails_configuration' - A JSON string specifying the configuration data for the extension, in</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- this account and region.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- CloudFormation returns @{}@.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'arn', 'typeConfigurationDetails_arn' - The Amazon Resource Name (ARN) for the configuration data, in this</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- account and region.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'lastUpdated', 'typeConfigurationDetails_lastUpdated' - When the configuration data was last updated for this extension.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'typeName', 'typeConfigurationDetails_typeName' - The name of the extension.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'arn', 'typeConfigurationDetails_arn' - The Amazon Resource Name (ARN) for the configuration data, in this</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- account and region.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'alias', 'typeConfigurationDetails_alias' - The alias specified for this configuration, if one was specified when</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- the configuration was set.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'typeArn', 'typeConfigurationDetails_typeArn' - The Amazon Resource Name (ARN) for the extension, in this account and</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- region.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- CloudFormation returns @null@.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'isDefaultConfiguration', 'typeConfigurationDetails_isDefaultConfiguration' - Whether or not this configuration data is the default configuration for</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- the extension.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'typeArn', 'typeConfigurationDetails_typeArn' - The Amazon Resource Name (ARN) for the extension, in this account and</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- region.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- For public extensions, this will be the ARN assigned when you</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type&gt;</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- in this account and region. For private extensions, this will be the ARN</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- assigned when you</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type&gt;</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- in this account and region.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- For public extensions, this will be the ARN assigned when you</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type&gt;</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- in this account and region. For private extensions, this will be the ARN</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- assigned when you</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type&gt;</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- in this account and region.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'configuration', 'typeConfigurationDetails_configuration' - A JSON string specifying the configuration data for the extension, in</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- this account and region.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- CloudFormation returns @{}@.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'isDefaultConfiguration', 'typeConfigurationDetails_isDefaultConfiguration' - Whether or not this configuration data is the default configuration for</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the extension.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#newTypeConfigurationDetails"><span class="hs-identifier hs-type">newTypeConfigurationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span>
 </span><span id="line-111"></span><span id="newTypeConfigurationDetails"><span class="annot"><span class="annottext">newTypeConfigurationDetails :: TypeConfigurationDetails
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#newTypeConfigurationDetails"><span class="hs-identifier hs-var hs-var">newTypeConfigurationDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">TypeConfigurationDetails' :: Maybe Text
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">TypeConfigurationDetails' :: Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; TypeConfigurationDetails
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:TypeConfigurationDetails' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdated:TypeConfigurationDetails' :: Maybe ISO8601
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AlastUpdated%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:TypeConfigurationDetails' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:TypeConfigurationDetails' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:TypeConfigurationDetails' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:TypeConfigurationDetails' :: Maybe Text
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:TypeConfigurationDetails' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aarn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdated:TypeConfigurationDetails' :: Maybe ISO8601
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AlastUpdated%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:TypeConfigurationDetails' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDefaultConfiguration:TypeConfigurationDetails' :: Maybe Bool
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">isDefaultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeArn:TypeConfigurationDetails' :: Maybe Text
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeArn:TypeConfigurationDetails' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeArn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">typeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:TypeConfigurationDetails' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDefaultConfiguration:TypeConfigurationDetails' :: Maybe Bool
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">isDefaultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The name of the extension.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_typeName"><span class="hs-identifier hs-type">typeConfigurationDetails_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="typeConfigurationDetails_typeName"><span class="annot"><span class="annottext">typeConfigurationDetails_typeName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_typeName"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
--&gt; (TypeConfigurationDetails
-    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
--&gt; Lens
-     TypeConfigurationDetails
-     TypeConfigurationDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427168"><span class="annot"><span class="annottext">Maybe Text
-typeName :: Maybe Text
-$sel:typeName:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679427168"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427168"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427167"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
-</span><a href="#local-6989586621679427167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427166"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
-</span><a href="#local-6989586621679427167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:TypeConfigurationDetails' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The alias specified for this configuration, if one was specified when</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- the configuration was set.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_alias"><span class="hs-identifier hs-type">typeConfigurationDetails_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="typeConfigurationDetails_alias"><span class="annot"><span class="annottext">typeConfigurationDetails_alias :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_alias"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
--&gt; (TypeConfigurationDetails
-    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
--&gt; Lens
-     TypeConfigurationDetails
-     TypeConfigurationDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427164"><span class="annot"><span class="annottext">Maybe Text
-alias :: Maybe Text
-$sel:alias:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679427164"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427164"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427163"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
-</span><a href="#local-6989586621679427163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427162"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
-</span><a href="#local-6989586621679427163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:TypeConfigurationDetails' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A JSON string specifying the configuration data for the extension, in</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- this account and region.</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- CloudFormation returns @{}@.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_configuration"><span class="hs-identifier hs-type">typeConfigurationDetails_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="typeConfigurationDetails_configuration"><span class="annot"><span class="annottext">typeConfigurationDetails_configuration :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_configuration"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
--&gt; (TypeConfigurationDetails
-    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
--&gt; Lens
-     TypeConfigurationDetails
-     TypeConfigurationDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427160"><span class="annot"><span class="annottext">Maybe Text
-configuration :: Maybe Text
-$sel:configuration:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679427160"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427160"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427159"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
-</span><a href="#local-6989586621679427159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427158"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
-</span><a href="#local-6989586621679427159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:TypeConfigurationDetails' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the configuration data, in this</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- account and region.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_arn"><span class="hs-identifier hs-type">typeConfigurationDetails_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="typeConfigurationDetails_arn"><span class="annot"><span class="annottext">typeConfigurationDetails_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_arn"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
--&gt; (TypeConfigurationDetails
-    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
--&gt; Lens
-     TypeConfigurationDetails
-     TypeConfigurationDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427156"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679427156"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427156"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427155"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
-</span><a href="#local-6989586621679427155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427154"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
-</span><a href="#local-6989586621679427155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TypeConfigurationDetails' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aarn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | When the configuration data was last updated for this extension.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- CloudFormation returns @null@.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_lastUpdated"><span class="hs-identifier hs-type">typeConfigurationDetails_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="typeConfigurationDetails_lastUpdated"><span class="annot"><span class="annottext">typeConfigurationDetails_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-123"></span><span class="hs-comment">-- | When the configuration data was last updated for this extension.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- CloudFormation returns @null@.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_lastUpdated"><span class="hs-identifier hs-type">typeConfigurationDetails_lastUpdated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="typeConfigurationDetails_lastUpdated"><span class="annot"><span class="annottext">typeConfigurationDetails_lastUpdated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_lastUpdated"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_lastUpdated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe ISO8601)
 -&gt; (TypeConfigurationDetails
@@ -334,16 +232,16 @@ $sel:arn:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427152"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427583"><span class="annot"><span class="annottext">Maybe ISO8601
 lastUpdated :: Maybe ISO8601
 $sel:lastUpdated:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679427152"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679427152"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427151"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
-</span><a href="#local-6989586621679427151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427150"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679427150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
-</span><a href="#local-6989586621679427151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:TypeConfigurationDetails' :: Maybe ISO8601
+</span><a href="#local-6989586621679427583"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679427583"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427582"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
+</span><a href="#local-6989586621679427582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427581"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679427581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
+</span><a href="#local-6989586621679427582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:TypeConfigurationDetails' :: Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AlastUpdated%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679427150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679427581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -360,43 +258,92 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | Whether or not this configuration data is the default configuration for</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- the extension.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_isDefaultConfiguration"><span class="hs-identifier hs-type">typeConfigurationDetails_isDefaultConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="typeConfigurationDetails_isDefaultConfiguration"><span class="annot"><span class="annottext">typeConfigurationDetails_isDefaultConfiguration :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The name of the extension.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_typeName"><span class="hs-identifier hs-type">typeConfigurationDetails_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="typeConfigurationDetails_typeName"><span class="annot"><span class="annottext">typeConfigurationDetails_typeName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_isDefaultConfiguration"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_isDefaultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Bool)
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_typeName"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
 -&gt; (TypeConfigurationDetails
-    -&gt; Maybe Bool -&gt; TypeConfigurationDetails)
+    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
 -&gt; Lens
      TypeConfigurationDetails
      TypeConfigurationDetails
-     (Maybe Bool)
-     (Maybe Bool)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427145"><span class="annot"><span class="annottext">Maybe Bool
-isDefaultConfiguration :: Maybe Bool
-$sel:isDefaultConfiguration:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Bool
-</span><a href="#local-6989586621679427145"><span class="hs-identifier hs-var hs-var">isDefaultConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679427145"><span class="hs-identifier hs-var">isDefaultConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427144"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
-</span><a href="#local-6989586621679427144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427143"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679427143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
-</span><a href="#local-6989586621679427144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultConfiguration:TypeConfigurationDetails' :: Maybe Bool
-</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">isDefaultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679427143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the extension, in this account and</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- region.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- For public extensions, this will be the ARN assigned when you</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type&gt;</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- in this account and region. For private extensions, this will be the ARN</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- assigned when you</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type&gt;</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- in this account and region.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_typeArn"><span class="hs-identifier hs-type">typeConfigurationDetails_typeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="typeConfigurationDetails_typeArn"><span class="annot"><span class="annottext">typeConfigurationDetails_typeArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427576"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679427576"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427576"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427575"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427574"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:TypeConfigurationDetails' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeName%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the configuration data, in this</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- account and region.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_arn"><span class="hs-identifier hs-type">typeConfigurationDetails_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="typeConfigurationDetails_arn"><span class="annot"><span class="annottext">typeConfigurationDetails_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_arn"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
+-&gt; (TypeConfigurationDetails
+    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
+-&gt; Lens
+     TypeConfigurationDetails
+     TypeConfigurationDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427572"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679427572"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427572"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427571"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
+</span><a href="#local-6989586621679427571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
+</span><a href="#local-6989586621679427571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TypeConfigurationDetails' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aarn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The alias specified for this configuration, if one was specified when</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- the configuration was set.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_alias"><span class="hs-identifier hs-type">typeConfigurationDetails_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="typeConfigurationDetails_alias"><span class="annot"><span class="annottext">typeConfigurationDetails_alias :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_alias"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
+-&gt; (TypeConfigurationDetails
+    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
+-&gt; Lens
+     TypeConfigurationDetails
+     TypeConfigurationDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427568"><span class="annot"><span class="annottext">Maybe Text
+alias :: Maybe Text
+$sel:alias:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679427568"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427568"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427567"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
+</span><a href="#local-6989586621679427567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427566"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
+</span><a href="#local-6989586621679427567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:TypeConfigurationDetails' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aalias%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the extension, in this account and</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- region.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- For public extensions, this will be the ARN assigned when you</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type&gt;</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- in this account and region. For private extensions, this will be the ARN</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- assigned when you</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type&gt;</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- in this account and region.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_typeArn"><span class="hs-identifier hs-type">typeConfigurationDetails_typeArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="typeConfigurationDetails_typeArn"><span class="annot"><span class="annottext">typeConfigurationDetails_typeArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_typeArn"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_typeArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
 -&gt; (TypeConfigurationDetails
@@ -407,152 +354,205 @@ $sel:isDefaultConfiguration:TypeConfigurationDetails' :: TypeConfigurationDetail
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427141"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427564"><span class="annot"><span class="annottext">Maybe Text
 typeArn :: Maybe Text
 $sel:typeArn:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679427141"><span class="hs-identifier hs-var hs-var">typeArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427141"><span class="hs-identifier hs-var">typeArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427140"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
-</span><a href="#local-6989586621679427140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427139"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
-</span><a href="#local-6989586621679427140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeArn:TypeConfigurationDetails' :: Maybe Text
+</span><a href="#local-6989586621679427564"><span class="hs-identifier hs-var hs-var">typeArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427564"><span class="hs-identifier hs-var">typeArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427563"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
+</span><a href="#local-6989586621679427563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427562"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
+</span><a href="#local-6989586621679427563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeArn:TypeConfigurationDetails' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AtypeArn%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">typeArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679427139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679427562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | A JSON string specifying the configuration data for the extension, in</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- this account and region.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- If a configuration has not been set for a specified extension,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- CloudFormation returns @{}@.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_configuration"><span class="hs-identifier hs-type">typeConfigurationDetails_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="typeConfigurationDetails_configuration"><span class="annot"><span class="annottext">typeConfigurationDetails_configuration :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_configuration"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Text)
+-&gt; (TypeConfigurationDetails
+    -&gt; Maybe Text -&gt; TypeConfigurationDetails)
+-&gt; Lens
+     TypeConfigurationDetails
+     TypeConfigurationDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427560"><span class="annot"><span class="annottext">Maybe Text
+configuration :: Maybe Text
+$sel:configuration:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679427560"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427560"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427559"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
+</span><a href="#local-6989586621679427559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
+</span><a href="#local-6989586621679427559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:TypeConfigurationDetails' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3Aconfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Whether or not this configuration data is the default configuration for</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- the extension.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_isDefaultConfiguration"><span class="hs-identifier hs-type">typeConfigurationDetails_isDefaultConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="typeConfigurationDetails_isDefaultConfiguration"><span class="annot"><span class="annottext">typeConfigurationDetails_isDefaultConfiguration :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; TypeConfigurationDetails -&gt; f TypeConfigurationDetails
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#typeConfigurationDetails_isDefaultConfiguration"><span class="hs-identifier hs-var hs-var">typeConfigurationDetails_isDefaultConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TypeConfigurationDetails -&gt; Maybe Bool)
+-&gt; (TypeConfigurationDetails
+    -&gt; Maybe Bool -&gt; TypeConfigurationDetails)
+-&gt; Lens
+     TypeConfigurationDetails
+     TypeConfigurationDetails
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427556"><span class="annot"><span class="annottext">Maybe Bool
+isDefaultConfiguration :: Maybe Bool
+$sel:isDefaultConfiguration:TypeConfigurationDetails' :: TypeConfigurationDetails -&gt; Maybe Bool
+</span><a href="#local-6989586621679427556"><span class="hs-identifier hs-var hs-var">isDefaultConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679427556"><span class="hs-identifier hs-var">isDefaultConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427555"><span class="annot"><span class="annottext">s :: TypeConfigurationDetails
+</span><a href="#local-6989586621679427555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-type">TypeConfigurationDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427554"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679427554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypeConfigurationDetails
+</span><a href="#local-6989586621679427555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDefaultConfiguration:TypeConfigurationDetails' :: Maybe Bool
+</span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#%24sel%3AisDefaultConfiguration%3ATypeConfigurationDetails%27"><span class="hs-identifier hs-var">isDefaultConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679427554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679427136"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TypeConfigurationDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679427134"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679427551"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TypeConfigurationDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679427549"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; TypeConfigurationDetails
 </span><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails%27"><span class="hs-identifier hs-var">TypeConfigurationDetails'</span></a></span><span>
-</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Bool
- -&gt; Maybe Text
  -&gt; TypeConfigurationDetails)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; TypeConfigurationDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; TypeConfigurationDetails)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; TypeConfigurationDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Alias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TypeName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; TypeConfigurationDetails)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; TypeConfigurationDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; TypeConfigurationDetails)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe ISO8601
-      -&gt; Maybe Bool -&gt; Maybe Text -&gt; TypeConfigurationDetails)
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Bool -&gt; TypeConfigurationDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Alias&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
-   -&gt; Maybe Bool -&gt; Maybe Text -&gt; TypeConfigurationDetails)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String (Maybe Bool -&gt; Maybe Text -&gt; TypeConfigurationDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Bool -&gt; Maybe Text -&gt; TypeConfigurationDetails)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe Text -&gt; TypeConfigurationDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsDefaultConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; TypeConfigurationDetails)
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Bool -&gt; TypeConfigurationDetails)
 -&gt; Either String (Maybe Text)
--&gt; Either String TypeConfigurationDetails
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Bool -&gt; TypeConfigurationDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679427134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TypeArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Bool -&gt; TypeConfigurationDetails)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; TypeConfigurationDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; TypeConfigurationDetails)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String TypeConfigurationDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679427549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsDefaultConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427128"><span id="local-6989586621679427130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427543"><span id="local-6989586621679427545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationDetails.html#TypeConfigurationDetails"><span class="hs-identifier hs-type">TypeConfigurationDetails</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

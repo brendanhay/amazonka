@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#newUpdateExperiment"><span class="hs-identifier">newUpdateExperiment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_description"><span class="hs-identifier">updateExperiment_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_displayName"><span class="hs-identifier">updateExperiment_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_displayName"><span class="hs-identifier">updateExperiment_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_description"><span class="hs-identifier">updateExperiment_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_experimentName"><span class="hs-identifier">updateExperiment_experimentName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -50,20 +50,20 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateExperiment' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621680425714"><span id="local-6989586621680425715"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateExperiment"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-var">UpdateExperiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateExperiment%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-var">UpdateExperiment'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the experiment.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateExperiment%27"><span class="annot"><span class="annottext">UpdateExperiment -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3Adescription%3AUpdateExperiment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name of the experiment as displayed. The name doesn\'t need to be</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- displayed.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateExperiment%27"><span class="annot"><span class="annottext">UpdateExperiment -&gt; Maybe Text
+</span><span id="line-53"></span><span id="local-6989586621680427391"><span id="local-6989586621680427392"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateExperiment"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-var">UpdateExperiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateExperiment%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-var">UpdateExperiment'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the experiment as displayed. The name doesn\'t need to be</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateExperiment%27"><span class="annot"><span class="annottext">UpdateExperiment -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AdisplayName%3AUpdateExperiment%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The description of the experiment.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateExperiment%27"><span class="annot"><span class="annottext">UpdateExperiment -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3Adescription%3AUpdateExperiment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name of the experiment to update.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AexperimentName%3AUpdateExperiment%27"><span class="annot"><span class="annottext">UpdateExperiment -&gt; Text
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AexperimentName%3AUpdateExperiment%27"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680425706"><span id="local-6989586621680425708"><span class="annot"><span class="annottext">UpdateExperiment -&gt; UpdateExperiment -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680427383"><span id="local-6989586621680427385"><span class="annot"><span class="annottext">UpdateExperiment -&gt; UpdateExperiment -&gt; Bool
 (UpdateExperiment -&gt; UpdateExperiment -&gt; Bool)
 -&gt; (UpdateExperiment -&gt; UpdateExperiment -&gt; Bool)
 -&gt; Eq UpdateExperiment
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateExperiment -&gt; UpdateExperiment -&gt; Bool
 == :: UpdateExperiment -&gt; UpdateExperiment -&gt; Bool
 $c== :: UpdateExperiment -&gt; UpdateExperiment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425697"><span id="local-6989586621680425699"><span id="local-6989586621680425701"><span id="local-6989586621680425703"><span class="annot"><span class="annottext">ReadPrec [UpdateExperiment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427374"><span id="local-6989586621680427376"><span id="local-6989586621680427378"><span id="local-6989586621680427380"><span class="annot"><span class="annottext">ReadPrec [UpdateExperiment]
 ReadPrec UpdateExperiment
 Int -&gt; ReadS UpdateExperiment
 ReadS [UpdateExperiment]
@@ -92,7 +92,7 @@ readList :: ReadS [UpdateExperiment]
 $creadList :: ReadS [UpdateExperiment]
 readsPrec :: Int -&gt; ReadS UpdateExperiment
 $creadsPrec :: Int -&gt; ReadS UpdateExperiment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425690"><span id="local-6989586621680425692"><span id="local-6989586621680425694"><span class="annot"><span class="annottext">Int -&gt; UpdateExperiment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427367"><span id="local-6989586621680427369"><span id="local-6989586621680427371"><span class="annot"><span class="annottext">Int -&gt; UpdateExperiment -&gt; ShowS
 [UpdateExperiment] -&gt; ShowS
 UpdateExperiment -&gt; String
 (Int -&gt; UpdateExperiment -&gt; ShowS)
@@ -126,11 +126,11 @@ $cfrom :: forall x. UpdateExperiment -&gt; Rep UpdateExperiment x
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'description', 'updateExperiment_description' - The description of the experiment.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'displayName', 'updateExperiment_displayName' - The name of the experiment as displayed. The name doesn\'t need to be</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'displayName', 'updateExperiment_displayName' - The name of the experiment as displayed. The name doesn\'t need to be</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'description', 'updateExperiment_description' - The description of the experiment.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'experimentName', 'updateExperiment_experimentName' - The name of the experiment to update.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#newUpdateExperiment"><span class="hs-identifier hs-type">newUpdateExperiment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -138,62 +138,62 @@ $cfrom :: forall x. UpdateExperiment -&gt; Rep UpdateExperiment x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span>
 </span><span id="line-84"></span><span id="newUpdateExperiment"><span class="annot"><span class="annottext">newUpdateExperiment :: Text -&gt; UpdateExperiment
-</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#newUpdateExperiment"><span class="hs-identifier hs-var hs-var">newUpdateExperiment</span></a></span></span><span> </span><span id="local-6989586621680425685"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680425685"><span class="hs-identifier hs-var">pExperimentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#newUpdateExperiment"><span class="hs-identifier hs-var hs-var">newUpdateExperiment</span></a></span></span><span> </span><span id="local-6989586621680427362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427362"><span class="hs-identifier hs-var">pExperimentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">UpdateExperiment' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateExperiment
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:UpdateExperiment' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3Adescription%3AUpdateExperiment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:displayName:UpdateExperiment' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AdisplayName%3AUpdateExperiment%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:UpdateExperiment' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AdisplayName%3AUpdateExperiment%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateExperiment' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3Adescription%3AUpdateExperiment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:experimentName:UpdateExperiment' :: Text
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AexperimentName%3AUpdateExperiment%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680425685"><span class="hs-identifier hs-var">pExperimentName_</span></a></span><span>
+</span><a href="#local-6989586621680427362"><span class="hs-identifier hs-var">pExperimentName_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The description of the experiment.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_description"><span class="hs-identifier hs-type">updateExperiment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="updateExperiment_description"><span class="annot"><span class="annottext">updateExperiment_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateExperiment -&gt; f UpdateExperiment
-</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_description"><span class="hs-identifier hs-var hs-var">updateExperiment_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperiment -&gt; Maybe Text)
--&gt; (UpdateExperiment -&gt; Maybe Text -&gt; UpdateExperiment)
--&gt; Lens UpdateExperiment UpdateExperiment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425682"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:UpdateExperiment' :: UpdateExperiment -&gt; Maybe Text
-</span><a href="#local-6989586621680425682"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425682"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425681"><span class="annot"><span class="annottext">s :: UpdateExperiment
-</span><a href="#local-6989586621680425681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425680"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperiment
-</span><a href="#local-6989586621680425681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateExperiment' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3Adescription%3AUpdateExperiment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The name of the experiment as displayed. The name doesn\'t need to be</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- displayed.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_displayName"><span class="hs-identifier hs-type">updateExperiment_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="updateExperiment_displayName"><span class="annot"><span class="annottext">updateExperiment_displayName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-91"></span><span class="hs-comment">-- | The name of the experiment as displayed. The name doesn\'t need to be</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_displayName"><span class="hs-identifier hs-type">updateExperiment_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="updateExperiment_displayName"><span class="annot"><span class="annottext">updateExperiment_displayName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateExperiment -&gt; f UpdateExperiment
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_displayName"><span class="hs-identifier hs-var hs-var">updateExperiment_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperiment -&gt; Maybe Text)
 -&gt; (UpdateExperiment -&gt; Maybe Text -&gt; UpdateExperiment)
 -&gt; Lens UpdateExperiment UpdateExperiment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425679"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427359"><span class="annot"><span class="annottext">Maybe Text
 displayName :: Maybe Text
 $sel:displayName:UpdateExperiment' :: UpdateExperiment -&gt; Maybe Text
-</span><a href="#local-6989586621680425679"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425679"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425678"><span class="annot"><span class="annottext">s :: UpdateExperiment
-</span><a href="#local-6989586621680425678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425677"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperiment
-</span><a href="#local-6989586621680425678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateExperiment' :: Maybe Text
+</span><a href="#local-6989586621680427359"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427359"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427358"><span class="annot"><span class="annottext">s :: UpdateExperiment
+</span><a href="#local-6989586621680427358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427357"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperiment
+</span><a href="#local-6989586621680427358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateExperiment' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AdisplayName%3AUpdateExperiment%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680427357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The description of the experiment.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_description"><span class="hs-identifier hs-type">updateExperiment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="updateExperiment_description"><span class="annot"><span class="annottext">updateExperiment_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateExperiment -&gt; f UpdateExperiment
+</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_description"><span class="hs-identifier hs-var hs-var">updateExperiment_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateExperiment -&gt; Maybe Text)
+-&gt; (UpdateExperiment -&gt; Maybe Text -&gt; UpdateExperiment)
+-&gt; Lens UpdateExperiment UpdateExperiment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427356"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateExperiment' :: UpdateExperiment -&gt; Maybe Text
+</span><a href="#local-6989586621680427356"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427356"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427355"><span class="annot"><span class="annottext">s :: UpdateExperiment
+</span><a href="#local-6989586621680427355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427354"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperiment
+</span><a href="#local-6989586621680427355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateExperiment' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3Adescription%3AUpdateExperiment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of the experiment to update.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperiment_experimentName"><span class="hs-identifier hs-type">updateExperiment_experimentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,27 +202,27 @@ $sel:displayName:UpdateExperiment' :: UpdateExperiment -&gt; Maybe Text
 -&gt; (UpdateExperiment -&gt; Text -&gt; UpdateExperiment)
 -&gt; Lens UpdateExperiment UpdateExperiment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425676"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427353"><span class="annot"><span class="annottext">Text
 experimentName :: Text
 $sel:experimentName:UpdateExperiment' :: UpdateExperiment -&gt; Text
-</span><a href="#local-6989586621680425676"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680425676"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425675"><span class="annot"><span class="annottext">s :: UpdateExperiment
-</span><a href="#local-6989586621680425675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425674"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680425674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperiment
-</span><a href="#local-6989586621680425675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentName:UpdateExperiment' :: Text
+</span><a href="#local-6989586621680427353"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427353"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427352"><span class="annot"><span class="annottext">s :: UpdateExperiment
+</span><a href="#local-6989586621680427352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680427351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperiment
+</span><a href="#local-6989586621680427352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentName:UpdateExperiment' :: Text
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AexperimentName%3AUpdateExperiment%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680425674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680427351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621680425670"><span class="annot"><span class="annottext">request :: UpdateExperiment -&gt; Request UpdateExperiment
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621680427347"><span class="annot"><span class="annottext">request :: UpdateExperiment -&gt; Request UpdateExperiment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateExperiment -&gt; Request UpdateExperiment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621680425666"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621680427343"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateExperiment
 -&gt; ClientResponse ClientBody
@@ -246,10 +246,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680425663"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680425663"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680425662"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680425662"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680425661"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680425661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680427340"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427340"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680427339"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680427339"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680427338"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680427338"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateExperimentResponse
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-var">UpdateExperimentResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateExperimentResponse)
@@ -257,7 +257,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateExperimentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680425661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680427338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExperimentArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,15 +269,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680425663"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680427340"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425653"><span id="local-6989586621680425655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427330"><span id="local-6989586621680427332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621680425646"><span class="annot"><span class="annottext">toHeaders :: UpdateExperiment -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621680427323"><span class="annot"><span class="annottext">toHeaders :: UpdateExperiment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateExperiment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -302,36 +302,36 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425636"><span id="local-6989586621680425638"><span id="local-6989586621680425640"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621680425634"><span class="annot"><span class="annottext">toJSON :: UpdateExperiment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425630"><span id="local-6989586621680425631"><span id="local-6989586621680425632"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427313"><span id="local-6989586621680427315"><span id="local-6989586621680427317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621680427311"><span class="annot"><span class="annottext">toJSON :: UpdateExperiment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment%27"><span class="hs-identifier hs-type">UpdateExperiment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427307"><span id="local-6989586621680427308"><span id="local-6989586621680427309"><span class="annot"><span class="annottext">Maybe Text
 Text
 experimentName :: Text
-displayName :: Maybe Text
 description :: Maybe Text
+displayName :: Maybe Text
 $sel:experimentName:UpdateExperiment' :: UpdateExperiment -&gt; Text
-$sel:displayName:UpdateExperiment' :: UpdateExperiment -&gt; Maybe Text
 $sel:description:UpdateExperiment' :: UpdateExperiment -&gt; Maybe Text
-</span><a href="#local-6989586621680425630"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:displayName:UpdateExperiment' :: UpdateExperiment -&gt; Maybe Text
+</span><a href="#local-6989586621680427307"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425632"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425631"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680427309"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427308"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -339,19 +339,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ExperimentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680425630"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680427307"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621680425624"><span class="annot"><span class="annottext">toPath :: UpdateExperiment -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621680427301"><span class="annot"><span class="annottext">toPath :: UpdateExperiment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateExperiment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperiment"><span class="hs-identifier hs-type">UpdateExperiment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621680425620"><span class="annot"><span class="annottext">toQuery :: UpdateExperiment -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621680427297"><span class="annot"><span class="annottext">toQuery :: UpdateExperiment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateExperiment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -359,7 +359,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newUpdateExperimentResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621680425617"><span id="local-6989586621680425618"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateExperimentResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-var">UpdateExperimentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateExperimentResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-var">UpdateExperimentResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621680427294"><span id="local-6989586621680427295"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateExperimentResponse"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-var">UpdateExperimentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateExperimentResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-var">UpdateExperimentResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the experiment.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AexperimentArn%3AUpdateExperimentResponse%27"><span class="annot"><span class="annottext">UpdateExperimentResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AexperimentArn%3AUpdateExperimentResponse%27"><span class="hs-identifier hs-var hs-var">experimentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateExperimentResponse%27"><span class="annot"><span class="annottext">UpdateExperimentResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AhttpStatus%3AUpdateExperimentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680425611"><span id="local-6989586621680425613"><span class="annot"><span class="annottext">UpdateExperimentResponse -&gt; UpdateExperimentResponse -&gt; Bool
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680427288"><span id="local-6989586621680427290"><span class="annot"><span class="annottext">UpdateExperimentResponse -&gt; UpdateExperimentResponse -&gt; Bool
 (UpdateExperimentResponse -&gt; UpdateExperimentResponse -&gt; Bool)
 -&gt; (UpdateExperimentResponse -&gt; UpdateExperimentResponse -&gt; Bool)
 -&gt; Eq UpdateExperimentResponse
@@ -376,7 +376,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateExperimentResponse -&gt; UpdateExperimentResponse -&gt; Bool
 == :: UpdateExperimentResponse -&gt; UpdateExperimentResponse -&gt; Bool
 $c== :: UpdateExperimentResponse -&gt; UpdateExperimentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425603"><span id="local-6989586621680425605"><span id="local-6989586621680425607"><span id="local-6989586621680425609"><span class="annot"><span class="annottext">ReadPrec [UpdateExperimentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427280"><span id="local-6989586621680427282"><span id="local-6989586621680427284"><span id="local-6989586621680427286"><span class="annot"><span class="annottext">ReadPrec [UpdateExperimentResponse]
 ReadPrec UpdateExperimentResponse
 Int -&gt; ReadS UpdateExperimentResponse
 ReadS [UpdateExperimentResponse]
@@ -396,7 +396,7 @@ readList :: ReadS [UpdateExperimentResponse]
 $creadList :: ReadS [UpdateExperimentResponse]
 readsPrec :: Int -&gt; ReadS UpdateExperimentResponse
 $creadsPrec :: Int -&gt; ReadS UpdateExperimentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680425597"><span id="local-6989586621680425599"><span id="local-6989586621680425601"><span class="annot"><span class="annottext">Int -&gt; UpdateExperimentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680427274"><span id="local-6989586621680427276"><span id="local-6989586621680427278"><span class="annot"><span class="annottext">Int -&gt; UpdateExperimentResponse -&gt; ShowS
 [UpdateExperimentResponse] -&gt; ShowS
 UpdateExperimentResponse -&gt; String
 (Int -&gt; UpdateExperimentResponse -&gt; ShowS)
@@ -444,8 +444,8 @@ UpdateExperimentResponse -&gt; Rep UpdateExperimentResponse x
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newUpdateExperimentResponse"><span class="annot"><span class="annottext">newUpdateExperimentResponse :: Int -&gt; UpdateExperimentResponse
-</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#newUpdateExperimentResponse"><span class="hs-identifier hs-var hs-var">newUpdateExperimentResponse</span></a></span></span><span> </span><span id="local-6989586621680425594"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680425594"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.UpdateExperiment.html#newUpdateExperimentResponse"><span class="hs-identifier hs-var hs-var">newUpdateExperimentResponse</span></a></span></span><span> </span><span id="local-6989586621680427271"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427271"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">UpdateExperimentResponse' :: Maybe Text -&gt; Int -&gt; UpdateExperimentResponse
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:experimentArn:UpdateExperimentResponse' :: Maybe Text
@@ -455,7 +455,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateExperimentResponse' :: Int
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AhttpStatus%3AUpdateExperimentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680425594"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680427271"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the experiment.</span><span>
@@ -471,16 +471,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425593"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427270"><span class="annot"><span class="annottext">Maybe Text
 experimentArn :: Maybe Text
 $sel:experimentArn:UpdateExperimentResponse' :: UpdateExperimentResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680425593"><span class="hs-identifier hs-var hs-var">experimentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425593"><span class="hs-identifier hs-var">experimentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425592"><span class="annot"><span class="annottext">s :: UpdateExperimentResponse
-</span><a href="#local-6989586621680425592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425591"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentResponse
-</span><a href="#local-6989586621680425592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentArn:UpdateExperimentResponse' :: Maybe Text
+</span><a href="#local-6989586621680427270"><span class="hs-identifier hs-var hs-var">experimentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427270"><span class="hs-identifier hs-var">experimentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427269"><span class="annot"><span class="annottext">s :: UpdateExperimentResponse
+</span><a href="#local-6989586621680427269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427268"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680427268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentResponse
+</span><a href="#local-6989586621680427269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentArn:UpdateExperimentResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AexperimentArn%3AUpdateExperimentResponse%27"><span class="hs-identifier hs-var">experimentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680425591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680427268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#updateExperimentResponse_httpStatus"><span class="hs-identifier hs-type">updateExperimentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -490,16 +490,16 @@ $sel:experimentArn:UpdateExperimentResponse' :: UpdateExperimentResponse -&gt; M
 -&gt; (UpdateExperimentResponse -&gt; Int -&gt; UpdateExperimentResponse)
 -&gt; Lens UpdateExperimentResponse UpdateExperimentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680425590"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680427267"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateExperimentResponse' :: UpdateExperimentResponse -&gt; Int
-</span><a href="#local-6989586621680425590"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680425590"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680425589"><span class="annot"><span class="annottext">s :: UpdateExperimentResponse
-</span><a href="#local-6989586621680425589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680425588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680425588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentResponse
-</span><a href="#local-6989586621680425589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateExperimentResponse' :: Int
+</span><a href="#local-6989586621680427267"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427267"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680427266"><span class="annot"><span class="annottext">s :: UpdateExperimentResponse
+</span><a href="#local-6989586621680427266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse%27"><span class="hs-identifier hs-type">UpdateExperimentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680427265"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680427265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateExperimentResponse
+</span><a href="#local-6989586621680427266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateExperimentResponse' :: Int
 </span><a href="Network.AWS.SageMaker.UpdateExperiment.html#%24sel%3AhttpStatus%3AUpdateExperimentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680425588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680427265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680425586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680427263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.UpdateExperiment.html#UpdateExperimentResponse"><span class="hs-identifier hs-type">UpdateExperimentResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

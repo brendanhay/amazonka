@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.html"><span class="hs-identifier">Network.AWS.SESv2.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateContact' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679349621"><span id="local-6989586621679349622"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContact"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-var">CreateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContact%27"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-var">CreateContact'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679352203"><span id="local-6989586621679352204"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContact"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-var">CreateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContact%27"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-var">CreateContact'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A boolean value status noting if the contact is unsubscribed from all</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- contact list topics.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AunsubscribeAll%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; Maybe Bool
@@ -69,7 +69,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AemailAddress%3ACreateContact%27"><span class="annot"><span class="annottext">CreateContact -&gt; Text
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AemailAddress%3ACreateContact%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349611"><span id="local-6989586621679349613"><span class="annot"><span class="annottext">CreateContact -&gt; CreateContact -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352193"><span id="local-6989586621679352195"><span class="annot"><span class="annottext">CreateContact -&gt; CreateContact -&gt; Bool
 (CreateContact -&gt; CreateContact -&gt; Bool)
 -&gt; (CreateContact -&gt; CreateContact -&gt; Bool) -&gt; Eq CreateContact
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateContact -&gt; CreateContact -&gt; Bool
 == :: CreateContact -&gt; CreateContact -&gt; Bool
 $c== :: CreateContact -&gt; CreateContact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349602"><span id="local-6989586621679349604"><span id="local-6989586621679349606"><span id="local-6989586621679349608"><span class="annot"><span class="annottext">ReadPrec [CreateContact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352184"><span id="local-6989586621679352186"><span id="local-6989586621679352188"><span id="local-6989586621679352190"><span class="annot"><span class="annottext">ReadPrec [CreateContact]
 ReadPrec CreateContact
 Int -&gt; ReadS CreateContact
 ReadS [CreateContact]
@@ -97,7 +97,7 @@ readList :: ReadS [CreateContact]
 $creadList :: ReadS [CreateContact]
 readsPrec :: Int -&gt; ReadS CreateContact
 $creadsPrec :: Int -&gt; ReadS CreateContact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349595"><span id="local-6989586621679349597"><span id="local-6989586621679349599"><span class="annot"><span class="annottext">Int -&gt; CreateContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352177"><span id="local-6989586621679352179"><span id="local-6989586621679352181"><span class="annot"><span class="annottext">Int -&gt; CreateContact -&gt; ShowS
 [CreateContact] -&gt; ShowS
 CreateContact -&gt; String
 (Int -&gt; CreateContact -&gt; ShowS)
@@ -148,9 +148,9 @@ $cfrom :: forall x. CreateContact -&gt; Rep CreateContact x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span>
 </span><span id="line-93"></span><span id="newCreateContact"><span class="annot"><span class="annottext">newCreateContact :: Text -&gt; Text -&gt; CreateContact
-</span><a href="Network.AWS.SESv2.CreateContact.html#newCreateContact"><span class="hs-identifier hs-var hs-var">newCreateContact</span></a></span></span><span> </span><span id="local-6989586621679349590"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349590"><span class="hs-identifier hs-var">pContactListName_</span></a></span></span><span> </span><span id="local-6989586621679349589"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349589"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.CreateContact.html#newCreateContact"><span class="hs-identifier hs-var hs-var">newCreateContact</span></a></span></span><span> </span><span id="local-6989586621679352172"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352172"><span class="hs-identifier hs-var">pContactListName_</span></a></span></span><span> </span><span id="local-6989586621679352171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352171"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">CreateContact' :: Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe [TopicPreference]
@@ -172,10 +172,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactListName:CreateContact' :: Text
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AcontactListName%3ACreateContact%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349590"><span class="hs-identifier hs-var">pContactListName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352172"><span class="hs-identifier hs-var">pContactListName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:CreateContact' :: Text
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AemailAddress%3ACreateContact%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349589"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span><span>
+</span><a href="#local-6989586621679352171"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | A boolean value status noting if the contact is unsubscribed from all</span><span>
@@ -186,16 +186,16 @@ forall a. Maybe a
 -&gt; (CreateContact -&gt; Maybe Bool -&gt; CreateContact)
 -&gt; Lens CreateContact CreateContact (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349586"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352168"><span class="annot"><span class="annottext">Maybe Bool
 unsubscribeAll :: Maybe Bool
 $sel:unsubscribeAll:CreateContact' :: CreateContact -&gt; Maybe Bool
-</span><a href="#local-6989586621679349586"><span class="hs-identifier hs-var hs-var">unsubscribeAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679349586"><span class="hs-identifier hs-var">unsubscribeAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349585"><span class="annot"><span class="annottext">s :: CreateContact
-</span><a href="#local-6989586621679349585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349584"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679349584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
-</span><a href="#local-6989586621679349585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsubscribeAll:CreateContact' :: Maybe Bool
+</span><a href="#local-6989586621679352168"><span class="hs-identifier hs-var hs-var">unsubscribeAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679352168"><span class="hs-identifier hs-var">unsubscribeAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352167"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679352167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352166"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679352166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679352167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsubscribeAll:CreateContact' :: Maybe Bool
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AunsubscribeAll%3ACreateContact%27"><span class="hs-identifier hs-var">unsubscribeAll</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679349584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The attribute data attached to a contact.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#createContact_attributesData"><span class="hs-identifier hs-type">createContact_attributesData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -204,16 +204,16 @@ $sel:unsubscribeAll:CreateContact' :: CreateContact -&gt; Maybe Bool
 -&gt; (CreateContact -&gt; Maybe Text -&gt; CreateContact)
 -&gt; Lens CreateContact CreateContact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349583"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352165"><span class="annot"><span class="annottext">Maybe Text
 attributesData :: Maybe Text
 $sel:attributesData:CreateContact' :: CreateContact -&gt; Maybe Text
-</span><a href="#local-6989586621679349583"><span class="hs-identifier hs-var hs-var">attributesData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349583"><span class="hs-identifier hs-var">attributesData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349582"><span class="annot"><span class="annottext">s :: CreateContact
-</span><a href="#local-6989586621679349582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
-</span><a href="#local-6989586621679349582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesData:CreateContact' :: Maybe Text
+</span><a href="#local-6989586621679352165"><span class="hs-identifier hs-var hs-var">attributesData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352165"><span class="hs-identifier hs-var">attributesData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352164"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679352164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679352164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributesData:CreateContact' :: Maybe Text
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AattributesData%3ACreateContact%27"><span class="hs-identifier hs-var">attributesData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The contact\'s preferences for being opted-in to or opted-out of topics.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#createContact_topicPreferences"><span class="hs-identifier hs-type">createContact_topicPreferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicPreference.html#TopicPreference"><span class="hs-identifier hs-type">TopicPreference</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -227,16 +227,16 @@ $sel:attributesData:CreateContact' :: CreateContact -&gt; Maybe Text
      (Maybe [TopicPreference])
      (Maybe [TopicPreference])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349580"><span class="annot"><span class="annottext">Maybe [TopicPreference]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352162"><span class="annot"><span class="annottext">Maybe [TopicPreference]
 topicPreferences :: Maybe [TopicPreference]
 $sel:topicPreferences:CreateContact' :: CreateContact -&gt; Maybe [TopicPreference]
-</span><a href="#local-6989586621679349580"><span class="hs-identifier hs-var hs-var">topicPreferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicPreference]
-</span><a href="#local-6989586621679349580"><span class="hs-identifier hs-var">topicPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349579"><span class="annot"><span class="annottext">s :: CreateContact
-</span><a href="#local-6989586621679349579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349578"><span class="annot"><span class="annottext">Maybe [TopicPreference]
-</span><a href="#local-6989586621679349578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
-</span><a href="#local-6989586621679349579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicPreferences:CreateContact' :: Maybe [TopicPreference]
+</span><a href="#local-6989586621679352162"><span class="hs-identifier hs-var hs-var">topicPreferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicPreference]
+</span><a href="#local-6989586621679352162"><span class="hs-identifier hs-var">topicPreferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352161"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679352161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352160"><span class="annot"><span class="annottext">Maybe [TopicPreference]
+</span><a href="#local-6989586621679352160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679352161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicPreferences:CreateContact' :: Maybe [TopicPreference]
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AtopicPreferences%3ACreateContact%27"><span class="hs-identifier hs-var">topicPreferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TopicPreference]
-</span><a href="#local-6989586621679349578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TopicPreference] -&gt; f (Maybe [TopicPreference]))
+</span><a href="#local-6989586621679352160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TopicPreference] -&gt; f (Maybe [TopicPreference]))
  -&gt; CreateContact -&gt; f CreateContact)
 -&gt; ((Maybe [TopicPreference] -&gt; f (Maybe [TopicPreference]))
     -&gt; Maybe [TopicPreference] -&gt; f (Maybe [TopicPreference]))
@@ -262,8 +262,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TopicPreference]
   [TopicPreference]
   [TopicPreference]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The name of the contact list to which the contact should be added.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#createContact_contactListName"><span class="hs-identifier hs-type">createContact_contactListName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -272,16 +272,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateContact -&gt; Text -&gt; CreateContact)
 -&gt; Lens CreateContact CreateContact Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349574"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352156"><span class="annot"><span class="annottext">Text
 contactListName :: Text
 $sel:contactListName:CreateContact' :: CreateContact -&gt; Text
-</span><a href="#local-6989586621679349574"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349574"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349573"><span class="annot"><span class="annottext">s :: CreateContact
-</span><a href="#local-6989586621679349573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349572"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
-</span><a href="#local-6989586621679349573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListName:CreateContact' :: Text
+</span><a href="#local-6989586621679352156"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352156"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352155"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679352155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679352155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListName:CreateContact' :: Text
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AcontactListName%3ACreateContact%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The contact\'s email address.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#createContact_emailAddress"><span class="hs-identifier hs-type">createContact_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -290,27 +290,27 @@ $sel:contactListName:CreateContact' :: CreateContact -&gt; Text
 -&gt; (CreateContact -&gt; Text -&gt; CreateContact)
 -&gt; Lens CreateContact CreateContact Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349571"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352153"><span class="annot"><span class="annottext">Text
 emailAddress :: Text
 $sel:emailAddress:CreateContact' :: CreateContact -&gt; Text
-</span><a href="#local-6989586621679349571"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349571"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349570"><span class="annot"><span class="annottext">s :: CreateContact
-</span><a href="#local-6989586621679349570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
-</span><a href="#local-6989586621679349570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:CreateContact' :: Text
+</span><a href="#local-6989586621679352153"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352153"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352152"><span class="annot"><span class="annottext">s :: CreateContact
+</span><a href="#local-6989586621679352152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContact
+</span><a href="#local-6989586621679352152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:CreateContact' :: Text
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AemailAddress%3ACreateContact%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679349565"><span class="annot"><span class="annottext">request :: CreateContact -&gt; Request CreateContact
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679352147"><span class="annot"><span class="annottext">request :: CreateContact -&gt; Request CreateContact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateContact -&gt; Request CreateContact
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679349561"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679352143"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateContact
 -&gt; ClientResponse ClientBody
@@ -334,10 +334,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349558"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349558"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349557"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679349557"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349556"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679349556"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352140"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352140"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679352139"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679352139"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679352138"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679352138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateContactResponse
 </span><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-var">CreateContactResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateContactResponse)
@@ -348,15 +348,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349558"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352140"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349549"><span id="local-6989586621679349551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352131"><span id="local-6989586621679352133"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679349542"><span class="annot"><span class="annottext">toHeaders :: CreateContact -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679352124"><span class="annot"><span class="annottext">toHeaders :: CreateContact -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateContact -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -375,9 +375,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349532"><span id="local-6989586621679349534"><span id="local-6989586621679349536"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679349530"><span class="annot"><span class="annottext">toJSON :: CreateContact -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349524"><span id="local-6989586621679349525"><span id="local-6989586621679349526"><span id="local-6989586621679349527"><span id="local-6989586621679349528"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352114"><span id="local-6989586621679352116"><span id="local-6989586621679352118"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679352112"><span class="annot"><span class="annottext">toJSON :: CreateContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352106"><span id="local-6989586621679352107"><span id="local-6989586621679352108"><span id="local-6989586621679352109"><span id="local-6989586621679352110"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [TopicPreference]
 Maybe Text
 Text
@@ -391,7 +391,7 @@ $sel:contactListName:CreateContact' :: CreateContact -&gt; Text
 $sel:topicPreferences:CreateContact' :: CreateContact -&gt; Maybe [TopicPreference]
 $sel:attributesData:CreateContact' :: CreateContact -&gt; Maybe Text
 $sel:unsubscribeAll:CreateContact' :: CreateContact -&gt; Maybe Bool
-</span><a href="#local-6989586621679349524"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679352106"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -404,7 +404,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679349528"><span class="hs-identifier hs-var">unsubscribeAll</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352110"><span class="hs-identifier hs-var">unsubscribeAll</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributesData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -412,7 +412,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349527"><span class="hs-identifier hs-var">attributesData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352109"><span class="hs-identifier hs-var">attributesData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicPreferences&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TopicPreference] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -421,20 +421,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [TopicPreference] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TopicPreference]
-</span><a href="#local-6989586621679349526"><span class="hs-identifier hs-var">topicPreferences</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352108"><span class="hs-identifier hs-var">topicPreferences</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349524"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352106"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679349518"><span class="annot"><span class="annottext">toPath :: CreateContact -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349512"><span id="local-6989586621679349513"><span id="local-6989586621679349514"><span id="local-6989586621679349515"><span id="local-6989586621679349516"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679352100"><span class="annot"><span class="annottext">toPath :: CreateContact -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact%27"><span class="hs-identifier hs-type">CreateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352094"><span id="local-6989586621679352095"><span id="local-6989586621679352096"><span id="local-6989586621679352097"><span id="local-6989586621679352098"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [TopicPreference]
 Maybe Text
 Text
@@ -448,7 +448,7 @@ $sel:contactListName:CreateContact' :: CreateContact -&gt; Text
 $sel:topicPreferences:CreateContact' :: CreateContact -&gt; Maybe [TopicPreference]
 $sel:attributesData:CreateContact' :: CreateContact -&gt; Maybe Text
 $sel:unsubscribeAll:CreateContact' :: CreateContact -&gt; Maybe Bool
-</span><a href="#local-6989586621679349512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679352094"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -457,13 +457,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349513"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352095"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/contacts&quot;</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContact"><span class="hs-identifier hs-type">CreateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679349508"><span class="annot"><span class="annottext">toQuery :: CreateContact -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679352090"><span class="annot"><span class="annottext">toQuery :: CreateContact -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateContact -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -471,12 +471,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newCreateContactResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679349505"><span id="local-6989586621679349506"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContactResponse"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-var">CreateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContactResponse%27"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-var">CreateContactResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679352087"><span id="local-6989586621679352088"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContactResponse"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-var">CreateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContactResponse%27"><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-var">CreateContactResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="annot"><span class="annottext">CreateContactResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349500"><span id="local-6989586621679349502"><span class="annot"><span class="annottext">CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352082"><span id="local-6989586621679352084"><span class="annot"><span class="annottext">CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
 (CreateContactResponse -&gt; CreateContactResponse -&gt; Bool)
 -&gt; (CreateContactResponse -&gt; CreateContactResponse -&gt; Bool)
 -&gt; Eq CreateContactResponse
@@ -485,7 +485,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
 == :: CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
 $c== :: CreateContactResponse -&gt; CreateContactResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349492"><span id="local-6989586621679349494"><span id="local-6989586621679349496"><span id="local-6989586621679349498"><span class="annot"><span class="annottext">ReadPrec [CreateContactResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352074"><span id="local-6989586621679352076"><span id="local-6989586621679352078"><span id="local-6989586621679352080"><span class="annot"><span class="annottext">ReadPrec [CreateContactResponse]
 ReadPrec CreateContactResponse
 Int -&gt; ReadS CreateContactResponse
 ReadS [CreateContactResponse]
@@ -505,7 +505,7 @@ readList :: ReadS [CreateContactResponse]
 $creadList :: ReadS [CreateContactResponse]
 readsPrec :: Int -&gt; ReadS CreateContactResponse
 $creadsPrec :: Int -&gt; ReadS CreateContactResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349486"><span id="local-6989586621679349488"><span id="local-6989586621679349490"><span class="annot"><span class="annottext">Int -&gt; CreateContactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352068"><span id="local-6989586621679352070"><span id="local-6989586621679352072"><span class="annot"><span class="annottext">Int -&gt; CreateContactResponse -&gt; ShowS
 [CreateContactResponse] -&gt; ShowS
 CreateContactResponse -&gt; String
 (Int -&gt; CreateContactResponse -&gt; ShowS)
@@ -545,12 +545,12 @@ $cfrom :: forall x. CreateContactResponse -&gt; Rep CreateContactResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newCreateContactResponse"><span class="annot"><span class="annottext">newCreateContactResponse :: Int -&gt; CreateContactResponse
-</span><a href="Network.AWS.SESv2.CreateContact.html#newCreateContactResponse"><span class="hs-identifier hs-var hs-var">newCreateContactResponse</span></a></span></span><span> </span><span id="local-6989586621679349483"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.CreateContact.html#newCreateContactResponse"><span class="hs-identifier hs-var hs-var">newCreateContactResponse</span></a></span></span><span> </span><span id="local-6989586621679352065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">CreateContactResponse' :: Int -&gt; CreateContactResponse
 </span><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactResponse' :: Int
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349483"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679352065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#createContactResponse_httpStatus"><span class="hs-identifier hs-type">createContactResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -559,16 +559,16 @@ $cfrom :: forall x. CreateContactResponse -&gt; Rep CreateContactResponse x
 -&gt; (CreateContactResponse -&gt; Int -&gt; CreateContactResponse)
 -&gt; Lens CreateContactResponse CreateContactResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349482"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352064"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateContactResponse' :: CreateContactResponse -&gt; Int
-</span><a href="#local-6989586621679349482"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349482"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349481"><span class="annot"><span class="annottext">s :: CreateContactResponse
-</span><a href="#local-6989586621679349481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349480"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactResponse
-</span><a href="#local-6989586621679349481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactResponse' :: Int
+</span><a href="#local-6989586621679352064"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352064"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352063"><span class="annot"><span class="annottext">s :: CreateContactResponse
+</span><a href="#local-6989586621679352063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse%27"><span class="hs-identifier hs-type">CreateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContactResponse
+</span><a href="#local-6989586621679352063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContactResponse' :: Int
 </span><a href="Network.AWS.SESv2.CreateContact.html#%24sel%3AhttpStatus%3ACreateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352060"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateContact.html#CreateContactResponse"><span class="hs-identifier hs-type">CreateContactResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

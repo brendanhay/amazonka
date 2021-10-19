@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#newGetUserDefinedFunctions"><span class="hs-identifier">newGetUserDefinedFunctions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_nextToken"><span class="hs-identifier">getUserDefinedFunctions_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_maxResults"><span class="hs-identifier">getUserDefinedFunctions_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_catalogId"><span class="hs-identifier">getUserDefinedFunctions_catalogId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_databaseName"><span class="hs-identifier">getUserDefinedFunctions_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_catalogId"><span class="hs-identifier">getUserDefinedFunctions_catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_nextToken"><span class="hs-identifier">getUserDefinedFunctions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_databaseName"><span class="hs-identifier">getUserDefinedFunctions_databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_maxResults"><span class="hs-identifier">getUserDefinedFunctions_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_pattern"><span class="hs-identifier">getUserDefinedFunctions_pattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -54,29 +54,29 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetUserDefinedFunctions' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679718362"><span id="local-6989586621679718363"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserDefinedFunctions"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-var">GetUserDefinedFunctions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserDefinedFunctions%27"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-var">GetUserDefinedFunctions'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation call.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of functions to return in one response.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Natural
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the Data Catalog where the functions to be retrieved are</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- located. If none is provided, the Amazon Web Services account ID is used</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- by default.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Text
+</span><span id="line-57"></span><span id="local-6989586621679720118"><span id="local-6989586621679720119"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserDefinedFunctions"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-var">GetUserDefinedFunctions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserDefinedFunctions%27"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-var">GetUserDefinedFunctions'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the functions to be retrieved are</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- located. If none is provided, the Amazon Web Services account ID is used</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- by default.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AcatalogId%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the catalog database where the functions are located. If</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- none is provided, functions from all the databases across the catalog</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- will be returned.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdatabaseName%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Text
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A continuation token, if this is a continuation call.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the catalog database where the functions are located. If</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- none is provided, functions from all the databases across the catalog</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- will be returned.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdatabaseName%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AdatabaseName%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of functions to return in one response.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Maybe Natural
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | An optional function-name pattern string that filters the function</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- definitions returned.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Apattern%27%3AGetUserDefinedFunctions%27"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3Apattern%27%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718352"><span id="local-6989586621679718354"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; GetUserDefinedFunctions -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679720108"><span id="local-6989586621679720110"><span class="annot"><span class="annottext">GetUserDefinedFunctions -&gt; GetUserDefinedFunctions -&gt; Bool
 (GetUserDefinedFunctions -&gt; GetUserDefinedFunctions -&gt; Bool)
 -&gt; (GetUserDefinedFunctions -&gt; GetUserDefinedFunctions -&gt; Bool)
 -&gt; Eq GetUserDefinedFunctions
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetUserDefinedFunctions -&gt; GetUserDefinedFunctions -&gt; Bool
 == :: GetUserDefinedFunctions -&gt; GetUserDefinedFunctions -&gt; Bool
 $c== :: GetUserDefinedFunctions -&gt; GetUserDefinedFunctions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718343"><span id="local-6989586621679718345"><span id="local-6989586621679718347"><span id="local-6989586621679718349"><span class="annot"><span class="annottext">ReadPrec [GetUserDefinedFunctions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679720099"><span id="local-6989586621679720101"><span id="local-6989586621679720103"><span id="local-6989586621679720105"><span class="annot"><span class="annottext">ReadPrec [GetUserDefinedFunctions]
 ReadPrec GetUserDefinedFunctions
 Int -&gt; ReadS GetUserDefinedFunctions
 ReadS [GetUserDefinedFunctions]
@@ -105,7 +105,7 @@ readList :: ReadS [GetUserDefinedFunctions]
 $creadList :: ReadS [GetUserDefinedFunctions]
 readsPrec :: Int -&gt; ReadS GetUserDefinedFunctions
 $creadsPrec :: Int -&gt; ReadS GetUserDefinedFunctions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718336"><span id="local-6989586621679718338"><span id="local-6989586621679718340"><span class="annot"><span class="annottext">Int -&gt; GetUserDefinedFunctions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679720092"><span id="local-6989586621679720094"><span id="local-6989586621679720096"><span class="annot"><span class="annottext">Int -&gt; GetUserDefinedFunctions -&gt; ShowS
 [GetUserDefinedFunctions] -&gt; ShowS
 GetUserDefinedFunctions -&gt; String
 (Int -&gt; GetUserDefinedFunctions -&gt; ShowS)
@@ -141,17 +141,17 @@ $cfrom :: forall x. GetUserDefinedFunctions -&gt; Rep GetUserDefinedFunctions x
 </span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'nextToken', 'getUserDefinedFunctions_nextToken' - A continuation token, if this is a continuation call.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'maxResults', 'getUserDefinedFunctions_maxResults' - The maximum number of functions to return in one response.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'catalogId', 'getUserDefinedFunctions_catalogId' - The ID of the Data Catalog where the functions to be retrieved are</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- located. If none is provided, the Amazon Web Services account ID is used</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- by default.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'catalogId', 'getUserDefinedFunctions_catalogId' - The ID of the Data Catalog where the functions to be retrieved are</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- located. If none is provided, the Amazon Web Services account ID is used</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- by default.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'databaseName', 'getUserDefinedFunctions_databaseName' - The name of the catalog database where the functions are located. If</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- none is provided, functions from all the databases across the catalog</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- will be returned.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'nextToken', 'getUserDefinedFunctions_nextToken' - A continuation token, if this is a continuation call.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'databaseName', 'getUserDefinedFunctions_databaseName' - The name of the catalog database where the functions are located. If</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- none is provided, functions from all the databases across the catalog</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- will be returned.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'getUserDefinedFunctions_maxResults' - The maximum number of functions to return in one response.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- 'pattern'', 'getUserDefinedFunctions_pattern' - An optional function-name pattern string that filters the function</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- definitions returned.</span><span>
@@ -160,90 +160,42 @@ $cfrom :: forall x. GetUserDefinedFunctions -&gt; Rep GetUserDefinedFunctions x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span>
 </span><span id="line-102"></span><span id="newGetUserDefinedFunctions"><span class="annot"><span class="annottext">newGetUserDefinedFunctions :: Text -&gt; GetUserDefinedFunctions
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#newGetUserDefinedFunctions"><span class="hs-identifier hs-var hs-var">newGetUserDefinedFunctions</span></a></span></span><span> </span><span id="local-6989586621679718331"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679718331"><span class="hs-identifier hs-var">pPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#newGetUserDefinedFunctions"><span class="hs-identifier hs-var hs-var">newGetUserDefinedFunctions</span></a></span></span><span> </span><span id="local-6989586621679720087"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679720087"><span class="hs-identifier hs-var">pPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">GetUserDefinedFunctions' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Text
 -&gt; GetUserDefinedFunctions
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetUserDefinedFunctions' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:GetUserDefinedFunctions' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AcatalogId%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetUserDefinedFunctions' :: Maybe Natural
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetUserDefinedFunctions' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogId:GetUserDefinedFunctions' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AcatalogId%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GetUserDefinedFunctions' :: Maybe Text
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:GetUserDefinedFunctions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AdatabaseName%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetUserDefinedFunctions' :: Maybe Natural
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:pattern':GetUserDefinedFunctions' :: Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3Apattern%27%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679718331"><span class="hs-identifier hs-var">pPattern_</span></a></span><span>
+</span><a href="#local-6989586621679720087"><span class="hs-identifier hs-var">pPattern_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | A continuation token, if this is a continuation call.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_nextToken"><span class="hs-identifier hs-type">getUserDefinedFunctions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="getUserDefinedFunctions_nextToken"><span class="annot"><span class="annottext">getUserDefinedFunctions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetUserDefinedFunctions -&gt; f GetUserDefinedFunctions
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_nextToken"><span class="hs-identifier hs-var hs-var">getUserDefinedFunctions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserDefinedFunctions -&gt; Maybe Text)
--&gt; (GetUserDefinedFunctions
-    -&gt; Maybe Text -&gt; GetUserDefinedFunctions)
--&gt; Lens
-     GetUserDefinedFunctions
-     GetUserDefinedFunctions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718329"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
-</span><a href="#local-6989586621679718329"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718329"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718328"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
-</span><a href="#local-6989586621679718328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718327"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
-</span><a href="#local-6989586621679718328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetUserDefinedFunctions' :: Maybe Text
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of functions to return in one response.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_maxResults"><span class="hs-identifier hs-type">getUserDefinedFunctions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="getUserDefinedFunctions_maxResults"><span class="annot"><span class="annottext">getUserDefinedFunctions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; GetUserDefinedFunctions -&gt; f GetUserDefinedFunctions
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_maxResults"><span class="hs-identifier hs-var hs-var">getUserDefinedFunctions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserDefinedFunctions -&gt; Maybe Natural)
--&gt; (GetUserDefinedFunctions
-    -&gt; Maybe Natural -&gt; GetUserDefinedFunctions)
--&gt; Lens
-     GetUserDefinedFunctions
-     GetUserDefinedFunctions
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718326"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Natural
-</span><a href="#local-6989586621679718326"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718326"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718325"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
-</span><a href="#local-6989586621679718325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718324"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
-</span><a href="#local-6989586621679718325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetUserDefinedFunctions' :: Maybe Natural
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the Data Catalog where the functions to be retrieved are</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- located. If none is provided, the Amazon Web Services account ID is used</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- by default.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_catalogId"><span class="hs-identifier hs-type">getUserDefinedFunctions_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="getUserDefinedFunctions_catalogId"><span class="annot"><span class="annottext">getUserDefinedFunctions_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the Data Catalog where the functions to be retrieved are</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- located. If none is provided, the Amazon Web Services account ID is used</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- by default.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_catalogId"><span class="hs-identifier hs-type">getUserDefinedFunctions_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="getUserDefinedFunctions_catalogId"><span class="annot"><span class="annottext">getUserDefinedFunctions_catalogId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetUserDefinedFunctions -&gt; f GetUserDefinedFunctions
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_catalogId"><span class="hs-identifier hs-var hs-var">getUserDefinedFunctions_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserDefinedFunctions -&gt; Maybe Text)
 -&gt; (GetUserDefinedFunctions
@@ -254,22 +206,46 @@ $sel:maxResults:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718323"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720085"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
-</span><a href="#local-6989586621679718323"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718323"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718322"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
-</span><a href="#local-6989586621679718322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718321"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
-</span><a href="#local-6989586621679718322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetUserDefinedFunctions' :: Maybe Text
+</span><a href="#local-6989586621679720085"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720085"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720084"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
+</span><a href="#local-6989586621679720084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
+</span><a href="#local-6989586621679720084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetUserDefinedFunctions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AcatalogId%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The name of the catalog database where the functions are located. If</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- none is provided, functions from all the databases across the catalog</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- will be returned.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_databaseName"><span class="hs-identifier hs-type">getUserDefinedFunctions_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="getUserDefinedFunctions_databaseName"><span class="annot"><span class="annottext">getUserDefinedFunctions_databaseName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679720083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A continuation token, if this is a continuation call.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_nextToken"><span class="hs-identifier hs-type">getUserDefinedFunctions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="getUserDefinedFunctions_nextToken"><span class="annot"><span class="annottext">getUserDefinedFunctions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetUserDefinedFunctions -&gt; f GetUserDefinedFunctions
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_nextToken"><span class="hs-identifier hs-var hs-var">getUserDefinedFunctions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserDefinedFunctions -&gt; Maybe Text)
+-&gt; (GetUserDefinedFunctions
+    -&gt; Maybe Text -&gt; GetUserDefinedFunctions)
+-&gt; Lens
+     GetUserDefinedFunctions
+     GetUserDefinedFunctions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720082"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
+</span><a href="#local-6989586621679720082"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720082"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720081"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
+</span><a href="#local-6989586621679720081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
+</span><a href="#local-6989586621679720081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetUserDefinedFunctions' :: Maybe Text
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AnextToken%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The name of the catalog database where the functions are located. If</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- none is provided, functions from all the databases across the catalog</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- will be returned.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_databaseName"><span class="hs-identifier hs-type">getUserDefinedFunctions_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="getUserDefinedFunctions_databaseName"><span class="annot"><span class="annottext">getUserDefinedFunctions_databaseName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetUserDefinedFunctions -&gt; f GetUserDefinedFunctions
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_databaseName"><span class="hs-identifier hs-var hs-var">getUserDefinedFunctions_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserDefinedFunctions -&gt; Maybe Text)
 -&gt; (GetUserDefinedFunctions
@@ -280,16 +256,40 @@ $sel:catalogId:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe T
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718320"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720079"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 $sel:databaseName:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
-</span><a href="#local-6989586621679718320"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718320"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718319"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
-</span><a href="#local-6989586621679718319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718318"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
-</span><a href="#local-6989586621679718319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetUserDefinedFunctions' :: Maybe Text
+</span><a href="#local-6989586621679720079"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720079"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720078"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
+</span><a href="#local-6989586621679720078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720077"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
+</span><a href="#local-6989586621679720078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetUserDefinedFunctions' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AdatabaseName%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679720077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The maximum number of functions to return in one response.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_maxResults"><span class="hs-identifier hs-type">getUserDefinedFunctions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="getUserDefinedFunctions_maxResults"><span class="annot"><span class="annottext">getUserDefinedFunctions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetUserDefinedFunctions -&gt; f GetUserDefinedFunctions
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctions_maxResults"><span class="hs-identifier hs-var hs-var">getUserDefinedFunctions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetUserDefinedFunctions -&gt; Maybe Natural)
+-&gt; (GetUserDefinedFunctions
+    -&gt; Maybe Natural -&gt; GetUserDefinedFunctions)
+-&gt; Lens
+     GetUserDefinedFunctions
+     GetUserDefinedFunctions
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720076"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Natural
+</span><a href="#local-6989586621679720076"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679720076"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720075"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
+</span><a href="#local-6989586621679720075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720074"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679720074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
+</span><a href="#local-6989586621679720075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetUserDefinedFunctions' :: Maybe Natural
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AmaxResults%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679720074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | An optional function-name pattern string that filters the function</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- definitions returned.</span><span>
@@ -300,30 +300,30 @@ $sel:databaseName:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Mayb
 -&gt; (GetUserDefinedFunctions -&gt; Text -&gt; GetUserDefinedFunctions)
 -&gt; Lens GetUserDefinedFunctions GetUserDefinedFunctions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718317"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720073"><span class="annot"><span class="annottext">Text
 pattern' :: Text
 $sel:pattern':GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Text
-</span><a href="#local-6989586621679718317"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679718317"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718316"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
-</span><a href="#local-6989586621679718316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718315"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679718315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
-</span><a href="#local-6989586621679718316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':GetUserDefinedFunctions' :: Text
+</span><a href="#local-6989586621679720073"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679720073"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679720072"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctions
+</span><a href="#local-6989586621679720072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679720071"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679720071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
+</span><a href="#local-6989586621679720072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':GetUserDefinedFunctions' :: Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3Apattern%27%3AGetUserDefinedFunctions%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679718315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679720071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679718311"><span class="annot"><span class="annottext">page :: GetUserDefinedFunctions
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679720067"><span class="annot"><span class="annottext">page :: GetUserDefinedFunctions
 -&gt; AWSResponse GetUserDefinedFunctions
 -&gt; Maybe GetUserDefinedFunctions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679718309"><span class="annot"><span class="annottext">GetUserDefinedFunctions
-</span><a href="#local-6989586621679718309"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679718308"><span class="annot"><span class="annottext">AWSResponse GetUserDefinedFunctions
-</span><a href="#local-6989586621679718308"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679720065"><span class="annot"><span class="annottext">GetUserDefinedFunctions
+</span><a href="#local-6989586621679720065"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679720064"><span class="annot"><span class="annottext">AWSResponse GetUserDefinedFunctions
+</span><a href="#local-6989586621679720064"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-140"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetUserDefinedFunctions
 GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718308"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679720064"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
 -&gt; Getting (First Text) GetUserDefinedFunctionsResponse Text
 -&gt; Maybe Text
@@ -353,7 +353,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetUserDefinedFunctions
 GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718308"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679720064"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
 -&gt; Getting
      (First [UserDefinedFunction])
@@ -405,7 +405,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
-</span><a href="#local-6989586621679718309"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679720065"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">GetUserDefinedFunctions
 -&gt; (GetUserDefinedFunctions -&gt; GetUserDefinedFunctions)
 -&gt; GetUserDefinedFunctions
@@ -424,7 +424,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetUserDefinedFunctions
 GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718308"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679720064"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
 -&gt; Getting (First Text) GetUserDefinedFunctionsResponse Text
 -&gt; Maybe Text
@@ -450,13 +450,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-161"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679718298"><span class="annot"><span class="annottext">request :: GetUserDefinedFunctions -&gt; Request GetUserDefinedFunctions
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679720054"><span class="annot"><span class="annottext">request :: GetUserDefinedFunctions -&gt; Request GetUserDefinedFunctions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetUserDefinedFunctions -&gt; Request GetUserDefinedFunctions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679718294"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679720050"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetUserDefinedFunctions
 -&gt; ClientResponse ClientBody
@@ -482,10 +482,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679718291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718291"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679718290"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679718290"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679718289"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679720047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679720047"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679720046"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679720046"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679720045"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679720045"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [UserDefinedFunction]
 -&gt; Int
@@ -502,7 +502,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; GetUserDefinedFunctionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679720045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -514,7 +514,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetUserDefinedFunctionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679720045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [UserDefinedFunction]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -536,15 +536,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718291"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679720047"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718280"><span id="local-6989586621679718282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679720036"><span id="local-6989586621679720038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679720033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679718273"><span class="annot"><span class="annottext">toHeaders :: GetUserDefinedFunctions -&gt; ResponseHeaders
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679720029"><span class="annot"><span class="annottext">toHeaders :: GetUserDefinedFunctions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetUserDefinedFunctions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -571,74 +571,74 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718263"><span id="local-6989586621679718265"><span id="local-6989586621679718267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679718261"><span class="annot"><span class="annottext">toJSON :: GetUserDefinedFunctions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718255"><span id="local-6989586621679718256"><span id="local-6989586621679718257"><span id="local-6989586621679718258"><span id="local-6989586621679718259"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679720019"><span id="local-6989586621679720021"><span id="local-6989586621679720023"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679720017"><span class="annot"><span class="annottext">toJSON :: GetUserDefinedFunctions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions%27"><span class="hs-identifier hs-type">GetUserDefinedFunctions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679720011"><span id="local-6989586621679720012"><span id="local-6989586621679720013"><span id="local-6989586621679720014"><span id="local-6989586621679720015"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 pattern' :: Text
-databaseName :: Maybe Text
-catalogId :: Maybe Text
 maxResults :: Maybe Natural
+databaseName :: Maybe Text
 nextToken :: Maybe Text
+catalogId :: Maybe Text
 $sel:pattern':GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Text
-$sel:databaseName:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
-$sel:catalogId:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
 $sel:maxResults:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Natural
+$sel:databaseName:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
 $sel:nextToken:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
-</span><a href="#local-6989586621679718255"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:catalogId:GetUserDefinedFunctions' :: GetUserDefinedFunctions -&gt; Maybe Text
+</span><a href="#local-6989586621679720011"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718259"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718258"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718257"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679720015"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679720014"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718256"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679720013"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679720012"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Pattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679718255"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679720011"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679718249"><span class="annot"><span class="annottext">toPath :: GetUserDefinedFunctions -&gt; ByteString
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679720005"><span class="annot"><span class="annottext">toPath :: GetUserDefinedFunctions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetUserDefinedFunctions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctions"><span class="hs-identifier hs-type">GetUserDefinedFunctions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679718245"><span class="annot"><span class="annottext">toQuery :: GetUserDefinedFunctions -&gt; QueryString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679720001"><span class="annot"><span class="annottext">toQuery :: GetUserDefinedFunctions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetUserDefinedFunctions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -646,7 +646,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | /See:/ 'newGetUserDefinedFunctionsResponse' smart constructor.</span><span>
-</span><span id="line-213"></span><span id="local-6989586621679718242"><span id="local-6989586621679718243"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserDefinedFunctionsResponse"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-var">GetUserDefinedFunctionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserDefinedFunctionsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-var">GetUserDefinedFunctionsResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span id="local-6989586621679719998"><span id="local-6989586621679719999"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetUserDefinedFunctionsResponse"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-var">GetUserDefinedFunctionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetUserDefinedFunctionsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-var">GetUserDefinedFunctionsResponse'</span></a></span></span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if the list of functions returned does not include</span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-comment">-- the last requested function.</span><span>
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AnextToken%3AGetUserDefinedFunctionsResponse%27"><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse -&gt; Maybe Text
@@ -658,7 +658,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetUserDefinedFunctionsResponse%27"><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AhttpStatus%3AGetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718235"><span id="local-6989586621679718237"><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679719991"><span id="local-6989586621679719993"><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
 -&gt; GetUserDefinedFunctionsResponse -&gt; Bool
 (GetUserDefinedFunctionsResponse
  -&gt; GetUserDefinedFunctionsResponse -&gt; Bool)
@@ -674,7 +674,7 @@ $c/= :: GetUserDefinedFunctionsResponse
 -&gt; GetUserDefinedFunctionsResponse -&gt; Bool
 $c== :: GetUserDefinedFunctionsResponse
 -&gt; GetUserDefinedFunctionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718227"><span id="local-6989586621679718229"><span id="local-6989586621679718231"><span id="local-6989586621679718233"><span class="annot"><span class="annottext">ReadPrec [GetUserDefinedFunctionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679719983"><span id="local-6989586621679719985"><span id="local-6989586621679719987"><span id="local-6989586621679719989"><span class="annot"><span class="annottext">ReadPrec [GetUserDefinedFunctionsResponse]
 ReadPrec GetUserDefinedFunctionsResponse
 Int -&gt; ReadS GetUserDefinedFunctionsResponse
 ReadS [GetUserDefinedFunctionsResponse]
@@ -694,7 +694,7 @@ readList :: ReadS [GetUserDefinedFunctionsResponse]
 $creadList :: ReadS [GetUserDefinedFunctionsResponse]
 readsPrec :: Int -&gt; ReadS GetUserDefinedFunctionsResponse
 $creadsPrec :: Int -&gt; ReadS GetUserDefinedFunctionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718221"><span id="local-6989586621679718223"><span id="local-6989586621679718225"><span class="annot"><span class="annottext">Int -&gt; GetUserDefinedFunctionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679719977"><span id="local-6989586621679719979"><span id="local-6989586621679719981"><span class="annot"><span class="annottext">Int -&gt; GetUserDefinedFunctionsResponse -&gt; ShowS
 [GetUserDefinedFunctionsResponse] -&gt; ShowS
 GetUserDefinedFunctionsResponse -&gt; String
 (Int -&gt; GetUserDefinedFunctionsResponse -&gt; ShowS)
@@ -751,8 +751,8 @@ GetUserDefinedFunctionsResponse
 </span><span id="line-240"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span>
 </span><span id="line-242"></span><span id="newGetUserDefinedFunctionsResponse"><span class="annot"><span class="annottext">newGetUserDefinedFunctionsResponse :: Int -&gt; GetUserDefinedFunctionsResponse
-</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#newGetUserDefinedFunctionsResponse"><span class="hs-identifier hs-var hs-var">newGetUserDefinedFunctionsResponse</span></a></span></span><span> </span><span id="local-6989586621679718218"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#newGetUserDefinedFunctionsResponse"><span class="hs-identifier hs-var hs-var">newGetUserDefinedFunctionsResponse</span></a></span></span><span> </span><span id="local-6989586621679719974"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679719974"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse' :: Maybe Text
 -&gt; Maybe [UserDefinedFunction]
 -&gt; Int
@@ -769,7 +769,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserDefinedFunctionsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AhttpStatus%3AGetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718218"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679719974"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | A continuation token, if the list of functions returned does not include</span><span>
@@ -783,16 +783,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; GetUserDefinedFunctionsResponse)
 -&gt; Lens' GetUserDefinedFunctionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718217"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679719973"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetUserDefinedFunctionsResponse' :: GetUserDefinedFunctionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679718217"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718217"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718216"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718215"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetUserDefinedFunctionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679719973"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679719973"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679719972"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctionsResponse
+</span><a href="#local-6989586621679719972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679719971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679719971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
+</span><a href="#local-6989586621679719972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetUserDefinedFunctionsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AnextToken%3AGetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679719971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | A list of requested function definitions.</span><span>
 </span><span id="line-256"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctionsResponse_userDefinedFunctions"><span class="hs-identifier hs-type">getUserDefinedFunctionsResponse_userDefinedFunctions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -805,16 +805,16 @@ $sel:nextToken:GetUserDefinedFunctionsResponse' :: GetUserDefinedFunctionsRespon
 -&gt; Lens'
      GetUserDefinedFunctionsResponse (Maybe [UserDefinedFunction])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718214"><span class="annot"><span class="annottext">Maybe [UserDefinedFunction]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679719970"><span class="annot"><span class="annottext">Maybe [UserDefinedFunction]
 userDefinedFunctions :: Maybe [UserDefinedFunction]
 $sel:userDefinedFunctions:GetUserDefinedFunctionsResponse' :: GetUserDefinedFunctionsResponse -&gt; Maybe [UserDefinedFunction]
-</span><a href="#local-6989586621679718214"><span class="hs-identifier hs-var hs-var">userDefinedFunctions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserDefinedFunction]
-</span><a href="#local-6989586621679718214"><span class="hs-identifier hs-var">userDefinedFunctions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718213"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718212"><span class="annot"><span class="annottext">Maybe [UserDefinedFunction]
-</span><a href="#local-6989586621679718212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userDefinedFunctions:GetUserDefinedFunctionsResponse' :: Maybe [UserDefinedFunction]
+</span><a href="#local-6989586621679719970"><span class="hs-identifier hs-var hs-var">userDefinedFunctions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserDefinedFunction]
+</span><a href="#local-6989586621679719970"><span class="hs-identifier hs-var">userDefinedFunctions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679719969"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctionsResponse
+</span><a href="#local-6989586621679719969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679719968"><span class="annot"><span class="annottext">Maybe [UserDefinedFunction]
+</span><a href="#local-6989586621679719968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
+</span><a href="#local-6989586621679719969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userDefinedFunctions:GetUserDefinedFunctionsResponse' :: Maybe [UserDefinedFunction]
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AuserDefinedFunctions%3AGetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-var">userDefinedFunctions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserDefinedFunction]
-</span><a href="#local-6989586621679718212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserDefinedFunction] -&gt; f (Maybe [UserDefinedFunction]))
+</span><a href="#local-6989586621679719968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserDefinedFunction] -&gt; f (Maybe [UserDefinedFunction]))
  -&gt; GetUserDefinedFunctionsResponse
  -&gt; f GetUserDefinedFunctionsResponse)
 -&gt; ((Maybe [UserDefinedFunction]
@@ -842,8 +842,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UserDefinedFunction]
   [UserDefinedFunction]
   [UserDefinedFunction]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-260"></span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#getUserDefinedFunctionsResponse_httpStatus"><span class="hs-identifier hs-type">getUserDefinedFunctionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -859,18 +859,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718209"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679719965"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetUserDefinedFunctionsResponse' :: GetUserDefinedFunctionsResponse -&gt; Int
-</span><a href="#local-6989586621679718209"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718209"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718208"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718207"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
-</span><a href="#local-6989586621679718208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserDefinedFunctionsResponse' :: Int
+</span><a href="#local-6989586621679719965"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679719965"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679719964"><span class="annot"><span class="annottext">s :: GetUserDefinedFunctionsResponse
+</span><a href="#local-6989586621679719964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679719963"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679719963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetUserDefinedFunctionsResponse
+</span><a href="#local-6989586621679719964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetUserDefinedFunctionsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#%24sel%3AhttpStatus%3AGetUserDefinedFunctionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679719963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679718205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679719961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetUserDefinedFunctions.html#GetUserDefinedFunctionsResponse"><span class="hs-identifier hs-type">GetUserDefinedFunctionsResponse</span></a></span></span><span>
 </span><span id="line-266"></span></pre></body></html>

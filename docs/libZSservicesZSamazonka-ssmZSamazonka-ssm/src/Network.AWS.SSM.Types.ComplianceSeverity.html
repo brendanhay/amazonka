@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679789500"><span id="local-6989586621679789501"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceSeverity"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceSeverity.html#ComplianceSeverity"><span class="hs-identifier hs-var">ComplianceSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceSeverity%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceSeverity.html#ComplianceSeverity%27"><span class="hs-identifier hs-var">ComplianceSeverity'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679791121"><span id="local-6989586621679791122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceSeverity"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceSeverity.html#ComplianceSeverity"><span class="hs-identifier hs-var">ComplianceSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceSeverity%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceSeverity.html#ComplianceSeverity%27"><span class="hs-identifier hs-var">ComplianceSeverity'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComplianceSeverity"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; Text
 </span><a href="Network.AWS.SSM.Types.ComplianceSeverity.html#fromComplianceSeverity"><span class="hs-identifier hs-var hs-var">fromComplianceSeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789492"><span id="local-6989586621679789494"><span id="local-6989586621679789496"><span class="annot"><span class="annottext">Int -&gt; ComplianceSeverity -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791113"><span id="local-6989586621679791115"><span id="local-6989586621679791117"><span class="annot"><span class="annottext">Int -&gt; ComplianceSeverity -&gt; ShowS
 [ComplianceSeverity] -&gt; ShowS
 ComplianceSeverity -&gt; String
 (Int -&gt; ComplianceSeverity -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ComplianceSeverity -&gt; String
 showsPrec :: Int -&gt; ComplianceSeverity -&gt; ShowS
 $cshowsPrec :: Int -&gt; ComplianceSeverity -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679789483"><span id="local-6989586621679789485"><span id="local-6989586621679789487"><span id="local-6989586621679789489"><span class="annot"><span class="annottext">ReadPrec [ComplianceSeverity]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679791104"><span id="local-6989586621679791106"><span id="local-6989586621679791108"><span id="local-6989586621679791110"><span class="annot"><span class="annottext">ReadPrec [ComplianceSeverity]
 ReadPrec ComplianceSeverity
 Int -&gt; ReadS ComplianceSeverity
 ReadS [ComplianceSeverity]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ComplianceSeverity]
 readsPrec :: Int -&gt; ReadS ComplianceSeverity
 $creadsPrec :: Int -&gt; ReadS ComplianceSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679789478"><span id="local-6989586621679789480"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679791099"><span id="local-6989586621679791101"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool
 (ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool)
 -&gt; (ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool)
 -&gt; Eq ComplianceSeverity
@@ -86,7 +86,7 @@ $c/= :: ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool
 == :: ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool
 $c== :: ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679789462"><span id="local-6989586621679789464"><span id="local-6989586621679789466"><span id="local-6989586621679789468"><span id="local-6989586621679789470"><span id="local-6989586621679789472"><span id="local-6989586621679789474"><span class="annot"><span class="annottext">Eq ComplianceSeverity
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679791083"><span id="local-6989586621679791085"><span id="local-6989586621679791087"><span id="local-6989586621679791089"><span id="local-6989586621679791091"><span id="local-6989586621679791093"><span id="local-6989586621679791095"><span class="annot"><span class="annottext">Eq ComplianceSeverity
 Eq ComplianceSeverity
 -&gt; (ComplianceSeverity -&gt; ComplianceSeverity -&gt; Ordering)
 -&gt; (ComplianceSeverity -&gt; ComplianceSeverity -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. ComplianceSeverity -&gt; Rep ComplianceSeverity x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789454"><span id="local-6989586621679789456"><span class="annot"><span class="annottext">Int -&gt; ComplianceSeverity -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791075"><span id="local-6989586621679791077"><span class="annot"><span class="annottext">Int -&gt; ComplianceSeverity -&gt; Int
 ComplianceSeverity -&gt; Int
 (Int -&gt; ComplianceSeverity -&gt; Int)
 -&gt; (ComplianceSeverity -&gt; Int) -&gt; Hashable ComplianceSeverity
@@ -147,53 +147,53 @@ $chash :: ComplianceSeverity -&gt; Int
 hashWithSalt :: Int -&gt; ComplianceSeverity -&gt; Int
 $chashWithSalt :: Int -&gt; ComplianceSeverity -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679789451"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679791072"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ()
 (ComplianceSeverity -&gt; ()) -&gt; NFData ComplianceSeverity
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ComplianceSeverity -&gt; ()
 $crnf :: ComplianceSeverity -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679789448"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceSeverity
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679791069"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceSeverity
 (Text -&gt; Either String ComplianceSeverity)
 -&gt; FromText ComplianceSeverity
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ComplianceSeverity
 $cfromText :: Text -&gt; Either String ComplianceSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679789445"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679791066"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; Text
 (ComplianceSeverity -&gt; Text) -&gt; ToText ComplianceSeverity
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ComplianceSeverity -&gt; Text
 $ctoText :: ComplianceSeverity -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679789442"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679791063"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ByteString
 (ComplianceSeverity -&gt; ByteString)
 -&gt; ToByteString ComplianceSeverity
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ComplianceSeverity -&gt; ByteString
 $ctoBS :: ComplianceSeverity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789439"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679791060"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; ByteStringBuilder
 (ComplianceSeverity -&gt; ByteStringBuilder)
 -&gt; ToLog ComplianceSeverity
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ComplianceSeverity -&gt; ByteStringBuilder
 $cbuild :: ComplianceSeverity -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789436"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceSeverity -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679791057"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceSeverity -&gt; [Header]
 (HeaderName -&gt; ComplianceSeverity -&gt; [Header])
 -&gt; ToHeader ComplianceSeverity
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ComplianceSeverity -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ComplianceSeverity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789433"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679791054"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; QueryString
 (ComplianceSeverity -&gt; QueryString) -&gt; ToQuery ComplianceSeverity
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ComplianceSeverity -&gt; QueryString
 $ctoQuery :: ComplianceSeverity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789428"><span id="local-6989586621679789430"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceSeverity]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679791049"><span id="local-6989586621679791051"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceSeverity]
 Value -&gt; Parser ComplianceSeverity
 (Value -&gt; Parser ComplianceSeverity)
 -&gt; (Value -&gt; Parser [ComplianceSeverity])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [ComplianceSeverity]
 parseJSON :: Value -&gt; Parser ComplianceSeverity
 $cparseJSON :: Value -&gt; Parser ComplianceSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789423"><span id="local-6989586621679789425"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceSeverity]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679791044"><span id="local-6989586621679791046"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceSeverity]
 FromJSONKeyFunction ComplianceSeverity
 FromJSONKeyFunction ComplianceSeverity
 -&gt; FromJSONKeyFunction [ComplianceSeverity]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ComplianceSeverity]
 fromJSONKey :: FromJSONKeyFunction ComplianceSeverity
 $cfromJSONKey :: FromJSONKeyFunction ComplianceSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679789414"><span id="local-6989586621679789416"><span id="local-6989586621679789418"><span id="local-6989586621679789420"><span class="annot"><span class="annottext">[ComplianceSeverity] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679791035"><span id="local-6989586621679791037"><span id="local-6989586621679791039"><span id="local-6989586621679791041"><span class="annot"><span class="annottext">[ComplianceSeverity] -&gt; Encoding
 [ComplianceSeverity] -&gt; Value
 ComplianceSeverity -&gt; Encoding
 ComplianceSeverity -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: ComplianceSeverity -&gt; Encoding
 toJSON :: ComplianceSeverity -&gt; Value
 $ctoJSON :: ComplianceSeverity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679789409"><span id="local-6989586621679789411"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceSeverity]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679791030"><span id="local-6989586621679791032"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceSeverity]
 ToJSONKeyFunction ComplianceSeverity
 ToJSONKeyFunction ComplianceSeverity
 -&gt; ToJSONKeyFunction [ComplianceSeverity]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ComplianceSeverity]
 toJSONKey :: ToJSONKeyFunction ComplianceSeverity
 $ctoJSONKey :: ToJSONKeyFunction ComplianceSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679789406"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceSeverity
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679791027"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceSeverity
 ([Node] -&gt; Either String ComplianceSeverity)
 -&gt; FromXML ComplianceSeverity
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ComplianceSeverity
 $cparseXML :: [Node] -&gt; Either String ComplianceSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679789403"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679791024"><span class="annot"><span class="annottext">ComplianceSeverity -&gt; XML
 (ComplianceSeverity -&gt; XML) -&gt; ToXML ComplianceSeverity
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ComplianceSeverity -&gt; XML

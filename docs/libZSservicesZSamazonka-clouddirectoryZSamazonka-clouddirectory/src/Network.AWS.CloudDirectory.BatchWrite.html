@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newBatchWrite' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679347734"><span id="local-6989586621679347735"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWrite"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-var">BatchWrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWrite%27"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-var">BatchWrite'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679348153"><span id="local-6989586621679348154"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWrite"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-var">BatchWrite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWrite%27"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-var">BatchWrite'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory.</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- For more information, see arns.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ABatchWrite%27"><span class="annot"><span class="annottext">BatchWrite -&gt; Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aoperations%3ABatchWrite%27"><span class="annot"><span class="annottext">BatchWrite -&gt; [BatchWriteOperation]
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3Aoperations%3ABatchWrite%27"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchWriteOperation.html#BatchWriteOperation"><span class="hs-identifier hs-type">BatchWriteOperation</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347727"><span id="local-6989586621679347729"><span class="annot"><span class="annottext">BatchWrite -&gt; BatchWrite -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348146"><span id="local-6989586621679348148"><span class="annot"><span class="annottext">BatchWrite -&gt; BatchWrite -&gt; Bool
 (BatchWrite -&gt; BatchWrite -&gt; Bool)
 -&gt; (BatchWrite -&gt; BatchWrite -&gt; Bool) -&gt; Eq BatchWrite
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchWrite -&gt; BatchWrite -&gt; Bool
 == :: BatchWrite -&gt; BatchWrite -&gt; Bool
 $c== :: BatchWrite -&gt; BatchWrite -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347718"><span id="local-6989586621679347720"><span id="local-6989586621679347722"><span id="local-6989586621679347724"><span class="annot"><span class="annottext">ReadPrec [BatchWrite]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348137"><span id="local-6989586621679348139"><span id="local-6989586621679348141"><span id="local-6989586621679348143"><span class="annot"><span class="annottext">ReadPrec [BatchWrite]
 ReadPrec BatchWrite
 Int -&gt; ReadS BatchWrite
 ReadS [BatchWrite]
@@ -86,7 +86,7 @@ readList :: ReadS [BatchWrite]
 $creadList :: ReadS [BatchWrite]
 readsPrec :: Int -&gt; ReadS BatchWrite
 $creadsPrec :: Int -&gt; ReadS BatchWrite
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347711"><span id="local-6989586621679347713"><span id="local-6989586621679347715"><span class="annot"><span class="annottext">Int -&gt; BatchWrite -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348130"><span id="local-6989586621679348132"><span id="local-6989586621679348134"><span class="annot"><span class="annottext">Int -&gt; BatchWrite -&gt; ShowS
 [BatchWrite] -&gt; ShowS
 BatchWrite -&gt; String
 (Int -&gt; BatchWrite -&gt; ShowS)
@@ -128,13 +128,13 @@ $cfrom :: forall x. BatchWrite -&gt; Rep BatchWrite x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span>
 </span><span id="line-77"></span><span id="newBatchWrite"><span class="annot"><span class="annottext">newBatchWrite :: Text -&gt; BatchWrite
-</span><a href="Network.AWS.CloudDirectory.BatchWrite.html#newBatchWrite"><span class="hs-identifier hs-var hs-var">newBatchWrite</span></a></span></span><span> </span><span id="local-6989586621679347706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347706"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.BatchWrite.html#newBatchWrite"><span class="hs-identifier hs-var hs-var">newBatchWrite</span></a></span></span><span> </span><span id="local-6989586621679348125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348125"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">BatchWrite' :: Text -&gt; [BatchWriteOperation] -&gt; BatchWrite
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:BatchWrite' :: Text
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3AdirectoryArn%3ABatchWrite%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347706"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348125"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:operations:BatchWrite' :: [BatchWriteOperation]
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3Aoperations%3ABatchWrite%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchWriteOperation]
 forall a. Monoid a =&gt; a
@@ -149,16 +149,16 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchWrite -&gt; Text -&gt; BatchWrite)
 -&gt; Lens BatchWrite BatchWrite Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347703"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348122"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:BatchWrite' :: BatchWrite -&gt; Text
-</span><a href="#local-6989586621679347703"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347703"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347702"><span class="annot"><span class="annottext">s :: BatchWrite
-</span><a href="#local-6989586621679347702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347701"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWrite
-</span><a href="#local-6989586621679347702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:BatchWrite' :: Text
+</span><a href="#local-6989586621679348122"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348122"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348121"><span class="annot"><span class="annottext">s :: BatchWrite
+</span><a href="#local-6989586621679348121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWrite
+</span><a href="#local-6989586621679348121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:BatchWrite' :: Text
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3AdirectoryArn%3ABatchWrite%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | A list of operations that are part of the batch.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#batchWrite_operations"><span class="hs-identifier hs-type">batchWrite_operations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchWriteOperation.html#BatchWriteOperation"><span class="hs-identifier hs-type">BatchWriteOperation</span></a></span><span class="hs-special">]</span><span>
@@ -169,16 +169,16 @@ $sel:directoryArn:BatchWrite' :: BatchWrite -&gt; Text
 -&gt; Lens
      BatchWrite BatchWrite [BatchWriteOperation] [BatchWriteOperation]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347700"><span class="annot"><span class="annottext">[BatchWriteOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348119"><span class="annot"><span class="annottext">[BatchWriteOperation]
 operations :: [BatchWriteOperation]
 $sel:operations:BatchWrite' :: BatchWrite -&gt; [BatchWriteOperation]
-</span><a href="#local-6989586621679347700"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchWriteOperation]
-</span><a href="#local-6989586621679347700"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347699"><span class="annot"><span class="annottext">s :: BatchWrite
-</span><a href="#local-6989586621679347699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347698"><span class="annot"><span class="annottext">[BatchWriteOperation]
-</span><a href="#local-6989586621679347698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWrite
-</span><a href="#local-6989586621679347699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:BatchWrite' :: [BatchWriteOperation]
+</span><a href="#local-6989586621679348119"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchWriteOperation]
+</span><a href="#local-6989586621679348119"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348118"><span class="annot"><span class="annottext">s :: BatchWrite
+</span><a href="#local-6989586621679348118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348117"><span class="annot"><span class="annottext">[BatchWriteOperation]
+</span><a href="#local-6989586621679348117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWrite
+</span><a href="#local-6989586621679348118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:BatchWrite' :: [BatchWriteOperation]
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3Aoperations%3ABatchWrite%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchWriteOperation]
-</span><a href="#local-6989586621679347698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchWriteOperation] -&gt; f [BatchWriteOperation])
+</span><a href="#local-6989586621679348117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchWriteOperation] -&gt; f [BatchWriteOperation])
  -&gt; BatchWrite -&gt; f BatchWrite)
 -&gt; (([BatchWriteOperation] -&gt; f [BatchWriteOperation])
     -&gt; [BatchWriteOperation] -&gt; f [BatchWriteOperation])
@@ -188,17 +188,17 @@ $sel:operations:BatchWrite' :: BatchWrite -&gt; [BatchWriteOperation]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchWriteOperation] -&gt; f [BatchWriteOperation])
 -&gt; [BatchWriteOperation] -&gt; f [BatchWriteOperation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679347692"><span class="annot"><span class="annottext">request :: BatchWrite -&gt; Request BatchWrite
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679348111"><span class="annot"><span class="annottext">request :: BatchWrite -&gt; Request BatchWrite
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchWrite -&gt; Request BatchWrite
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679347688"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679348107"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchWrite
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347685"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347685"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347684"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679347684"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347683"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348104"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348103"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348103"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348102"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348102"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse] -&gt; Int -&gt; BatchWriteResponse
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-var">BatchWriteResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BatchWriteOperationResponse] -&gt; Int -&gt; BatchWriteResponse)
@@ -233,7 +233,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; BatchWriteResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [BatchWriteOperationResponse]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -253,22 +253,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347685"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348104"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347674"><span id="local-6989586621679347676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348093"><span id="local-6989586621679348095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679347667"><span class="annot"><span class="annottext">toHeaders :: BatchWrite -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347664"><span id="local-6989586621679347665"><span class="annot"><span class="annottext">[BatchWriteOperation]
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679348086"><span class="annot"><span class="annottext">toHeaders :: BatchWrite -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348083"><span id="local-6989586621679348084"><span class="annot"><span class="annottext">[BatchWriteOperation]
 Text
 operations :: [BatchWriteOperation]
 directoryArn :: Text
 $sel:operations:BatchWrite' :: BatchWrite -&gt; [BatchWriteOperation]
 $sel:directoryArn:BatchWrite' :: BatchWrite -&gt; Text
-</span><a href="#local-6989586621679347664"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348083"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -276,17 +276,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347665"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679348084"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347656"><span id="local-6989586621679347658"><span id="local-6989586621679347660"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679347654"><span class="annot"><span class="annottext">toJSON :: BatchWrite -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347651"><span id="local-6989586621679347652"><span class="annot"><span class="annottext">[BatchWriteOperation]
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348075"><span id="local-6989586621679348077"><span id="local-6989586621679348079"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679348073"><span class="annot"><span class="annottext">toJSON :: BatchWrite -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite%27"><span class="hs-identifier hs-type">BatchWrite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348070"><span id="local-6989586621679348071"><span class="annot"><span class="annottext">[BatchWriteOperation]
 Text
 operations :: [BatchWriteOperation]
 directoryArn :: Text
 $sel:operations:BatchWrite' :: BatchWrite -&gt; [BatchWriteOperation]
 $sel:directoryArn:BatchWrite' :: BatchWrite -&gt; Text
-</span><a href="#local-6989586621679347651"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348070"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -298,11 +298,11 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [BatchWriteOperation] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[BatchWriteOperation]
-</span><a href="#local-6989586621679347651"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679348070"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679347645"><span class="annot"><span class="annottext">toPath :: BatchWrite -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679348064"><span class="annot"><span class="annottext">toPath :: BatchWrite -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; BatchWrite -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -311,7 +311,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/batchwrite&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWrite"><span class="hs-identifier hs-type">BatchWrite</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679347640"><span class="annot"><span class="annottext">toQuery :: BatchWrite -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679348059"><span class="annot"><span class="annottext">toQuery :: BatchWrite -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchWrite -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -319,7 +319,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newBatchWriteResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679347637"><span id="local-6989586621679347638"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWriteResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-var">BatchWriteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWriteResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-var">BatchWriteResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679348056"><span id="local-6989586621679348057"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchWriteResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-var">BatchWriteResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchWriteResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-var">BatchWriteResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of all the responses for each batch write.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3Aresponses%3ABatchWriteResponse%27"><span class="annot"><span class="annottext">BatchWriteResponse -&gt; Maybe [BatchWriteOperationResponse]
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3Aresponses%3ABatchWriteResponse%27"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse.html#BatchWriteOperationResponse"><span class="hs-identifier hs-type">BatchWriteOperationResponse</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -327,7 +327,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchWriteResponse%27"><span class="annot"><span class="annottext">BatchWriteResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3AhttpStatus%3ABatchWriteResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347631"><span id="local-6989586621679347633"><span class="annot"><span class="annottext">BatchWriteResponse -&gt; BatchWriteResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348050"><span id="local-6989586621679348052"><span class="annot"><span class="annottext">BatchWriteResponse -&gt; BatchWriteResponse -&gt; Bool
 (BatchWriteResponse -&gt; BatchWriteResponse -&gt; Bool)
 -&gt; (BatchWriteResponse -&gt; BatchWriteResponse -&gt; Bool)
 -&gt; Eq BatchWriteResponse
@@ -336,7 +336,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchWriteResponse -&gt; BatchWriteResponse -&gt; Bool
 == :: BatchWriteResponse -&gt; BatchWriteResponse -&gt; Bool
 $c== :: BatchWriteResponse -&gt; BatchWriteResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347623"><span id="local-6989586621679347625"><span id="local-6989586621679347627"><span id="local-6989586621679347629"><span class="annot"><span class="annottext">ReadPrec [BatchWriteResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348042"><span id="local-6989586621679348044"><span id="local-6989586621679348046"><span id="local-6989586621679348048"><span class="annot"><span class="annottext">ReadPrec [BatchWriteResponse]
 ReadPrec BatchWriteResponse
 Int -&gt; ReadS BatchWriteResponse
 ReadS [BatchWriteResponse]
@@ -356,7 +356,7 @@ readList :: ReadS [BatchWriteResponse]
 $creadList :: ReadS [BatchWriteResponse]
 readsPrec :: Int -&gt; ReadS BatchWriteResponse
 $creadsPrec :: Int -&gt; ReadS BatchWriteResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347617"><span id="local-6989586621679347619"><span id="local-6989586621679347621"><span class="annot"><span class="annottext">Int -&gt; BatchWriteResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348036"><span id="local-6989586621679348038"><span id="local-6989586621679348040"><span class="annot"><span class="annottext">Int -&gt; BatchWriteResponse -&gt; ShowS
 [BatchWriteResponse] -&gt; ShowS
 BatchWriteResponse -&gt; String
 (Int -&gt; BatchWriteResponse -&gt; ShowS)
@@ -398,8 +398,8 @@ $cfrom :: forall x. BatchWriteResponse -&gt; Rep BatchWriteResponse x
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span><span>
 </span><span id="line-151"></span><span id="newBatchWriteResponse"><span class="annot"><span class="annottext">newBatchWriteResponse :: Int -&gt; BatchWriteResponse
-</span><a href="Network.AWS.CloudDirectory.BatchWrite.html#newBatchWriteResponse"><span class="hs-identifier hs-var hs-var">newBatchWriteResponse</span></a></span></span><span> </span><span id="local-6989586621679347614"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.BatchWrite.html#newBatchWriteResponse"><span class="hs-identifier hs-var hs-var">newBatchWriteResponse</span></a></span></span><span> </span><span id="local-6989586621679348033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">BatchWriteResponse' :: Maybe [BatchWriteOperationResponse] -&gt; Int -&gt; BatchWriteResponse
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:responses:BatchWriteResponse' :: Maybe [BatchWriteOperationResponse]
@@ -408,7 +408,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchWriteResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3AhttpStatus%3ABatchWriteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347614"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679348033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | A list of all the responses for each batch write.</span><span>
@@ -425,16 +425,16 @@ forall a. Maybe a
      (Maybe [BatchWriteOperationResponse])
      (Maybe [BatchWriteOperationResponse])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347613"><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348032"><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse]
 responses :: Maybe [BatchWriteOperationResponse]
 $sel:responses:BatchWriteResponse' :: BatchWriteResponse -&gt; Maybe [BatchWriteOperationResponse]
-</span><a href="#local-6989586621679347613"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse]
-</span><a href="#local-6989586621679347613"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347612"><span class="annot"><span class="annottext">s :: BatchWriteResponse
-</span><a href="#local-6989586621679347612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347611"><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse]
-</span><a href="#local-6989586621679347611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteResponse
-</span><a href="#local-6989586621679347612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:BatchWriteResponse' :: Maybe [BatchWriteOperationResponse]
+</span><a href="#local-6989586621679348032"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse]
+</span><a href="#local-6989586621679348032"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348031"><span class="annot"><span class="annottext">s :: BatchWriteResponse
+</span><a href="#local-6989586621679348031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348030"><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse]
+</span><a href="#local-6989586621679348030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteResponse
+</span><a href="#local-6989586621679348031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:BatchWriteResponse' :: Maybe [BatchWriteOperationResponse]
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3Aresponses%3ABatchWriteResponse%27"><span class="hs-identifier hs-var">responses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchWriteOperationResponse]
-</span><a href="#local-6989586621679347611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchWriteOperationResponse]
+</span><a href="#local-6989586621679348030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchWriteOperationResponse]
   -&gt; f (Maybe [BatchWriteOperationResponse]))
  -&gt; BatchWriteResponse -&gt; f BatchWriteResponse)
 -&gt; ((Maybe [BatchWriteOperationResponse]
@@ -464,8 +464,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [BatchWriteOperationResponse]
   [BatchWriteOperationResponse]
   [BatchWriteOperationResponse]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#batchWriteResponse_httpStatus"><span class="hs-identifier hs-type">batchWriteResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -474,16 +474,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (BatchWriteResponse -&gt; Int -&gt; BatchWriteResponse)
 -&gt; Lens BatchWriteResponse BatchWriteResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347609"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348028"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchWriteResponse' :: BatchWriteResponse -&gt; Int
-</span><a href="#local-6989586621679347609"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347609"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347608"><span class="annot"><span class="annottext">s :: BatchWriteResponse
-</span><a href="#local-6989586621679347608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347607"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteResponse
-</span><a href="#local-6989586621679347608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchWriteResponse' :: Int
+</span><a href="#local-6989586621679348028"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348028"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348027"><span class="annot"><span class="annottext">s :: BatchWriteResponse
+</span><a href="#local-6989586621679348027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse%27"><span class="hs-identifier hs-type">BatchWriteResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchWriteResponse
+</span><a href="#local-6989586621679348027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchWriteResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.BatchWrite.html#%24sel%3AhttpStatus%3ABatchWriteResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679347607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348024"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.BatchWrite.html#BatchWriteResponse"><span class="hs-identifier hs-type">BatchWriteResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

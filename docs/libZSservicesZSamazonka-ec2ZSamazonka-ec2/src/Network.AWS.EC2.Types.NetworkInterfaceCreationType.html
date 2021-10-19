@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681094847"><span id="local-6989586621681094848"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkInterfaceCreationType"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceCreationType.html#NetworkInterfaceCreationType"><span class="hs-identifier hs-var">NetworkInterfaceCreationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfaceCreationType%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceCreationType.html#NetworkInterfaceCreationType%27"><span class="hs-identifier hs-var">NetworkInterfaceCreationType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681129540"><span id="local-6989586621681129541"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkInterfaceCreationType"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceCreationType.html#NetworkInterfaceCreationType"><span class="hs-identifier hs-var">NetworkInterfaceCreationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfaceCreationType%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceCreationType.html#NetworkInterfaceCreationType%27"><span class="hs-identifier hs-var">NetworkInterfaceCreationType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkInterfaceCreationType"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.NetworkInterfaceCreationType.html#fromNetworkInterfaceCreationType"><span class="hs-identifier hs-var hs-var">fromNetworkInterfaceCreationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681094839"><span id="local-6989586621681094841"><span id="local-6989586621681094843"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceCreationType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681129532"><span id="local-6989586621681129534"><span id="local-6989586621681129536"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceCreationType -&gt; ShowS
 [NetworkInterfaceCreationType] -&gt; ShowS
 NetworkInterfaceCreationType -&gt; String
 (Int -&gt; NetworkInterfaceCreationType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: NetworkInterfaceCreationType -&gt; String
 showsPrec :: Int -&gt; NetworkInterfaceCreationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; NetworkInterfaceCreationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681094830"><span id="local-6989586621681094832"><span id="local-6989586621681094834"><span id="local-6989586621681094836"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfaceCreationType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681129523"><span id="local-6989586621681129525"><span id="local-6989586621681129527"><span id="local-6989586621681129529"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfaceCreationType]
 ReadPrec NetworkInterfaceCreationType
 Int -&gt; ReadS NetworkInterfaceCreationType
 ReadS [NetworkInterfaceCreationType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [NetworkInterfaceCreationType]
 readsPrec :: Int -&gt; ReadS NetworkInterfaceCreationType
 $creadsPrec :: Int -&gt; ReadS NetworkInterfaceCreationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681094825"><span id="local-6989586621681094827"><span class="annot"><span class="annottext">NetworkInterfaceCreationType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681129518"><span id="local-6989586621681129520"><span class="annot"><span class="annottext">NetworkInterfaceCreationType
 -&gt; NetworkInterfaceCreationType -&gt; Bool
 (NetworkInterfaceCreationType
  -&gt; NetworkInterfaceCreationType -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: NetworkInterfaceCreationType
 $c== :: NetworkInterfaceCreationType
 -&gt; NetworkInterfaceCreationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681094809"><span id="local-6989586621681094811"><span id="local-6989586621681094813"><span id="local-6989586621681094815"><span id="local-6989586621681094817"><span id="local-6989586621681094819"><span id="local-6989586621681094821"><span class="annot"><span class="annottext">Eq NetworkInterfaceCreationType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681129502"><span id="local-6989586621681129504"><span id="local-6989586621681129506"><span id="local-6989586621681129508"><span id="local-6989586621681129510"><span id="local-6989586621681129512"><span id="local-6989586621681129514"><span class="annot"><span class="annottext">Eq NetworkInterfaceCreationType
 Eq NetworkInterfaceCreationType
 -&gt; (NetworkInterfaceCreationType
     -&gt; NetworkInterfaceCreationType -&gt; Ordering)
@@ -172,7 +172,7 @@ NetworkInterfaceCreationType -&gt; Rep NetworkInterfaceCreationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681094801"><span id="local-6989586621681094803"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceCreationType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681129494"><span id="local-6989586621681129496"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceCreationType -&gt; Int
 NetworkInterfaceCreationType -&gt; Int
 (Int -&gt; NetworkInterfaceCreationType -&gt; Int)
 -&gt; (NetworkInterfaceCreationType -&gt; Int)
@@ -183,56 +183,56 @@ $chash :: NetworkInterfaceCreationType -&gt; Int
 hashWithSalt :: Int -&gt; NetworkInterfaceCreationType -&gt; Int
 $chashWithSalt :: Int -&gt; NetworkInterfaceCreationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681094798"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681129491"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; ()
 (NetworkInterfaceCreationType -&gt; ())
 -&gt; NFData NetworkInterfaceCreationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NetworkInterfaceCreationType -&gt; ()
 $crnf :: NetworkInterfaceCreationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681094795"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkInterfaceCreationType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681129488"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkInterfaceCreationType
 (Text -&gt; Either String NetworkInterfaceCreationType)
 -&gt; FromText NetworkInterfaceCreationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NetworkInterfaceCreationType
 $cfromText :: Text -&gt; Either String NetworkInterfaceCreationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681094792"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681129485"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; Text
 (NetworkInterfaceCreationType -&gt; Text)
 -&gt; ToText NetworkInterfaceCreationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NetworkInterfaceCreationType -&gt; Text
 $ctoText :: NetworkInterfaceCreationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681094789"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681129482"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; ByteString
 (NetworkInterfaceCreationType -&gt; ByteString)
 -&gt; ToByteString NetworkInterfaceCreationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NetworkInterfaceCreationType -&gt; ByteString
 $ctoBS :: NetworkInterfaceCreationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681094786"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681129479"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; ByteStringBuilder
 (NetworkInterfaceCreationType -&gt; ByteStringBuilder)
 -&gt; ToLog NetworkInterfaceCreationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NetworkInterfaceCreationType -&gt; ByteStringBuilder
 $cbuild :: NetworkInterfaceCreationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681094783"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkInterfaceCreationType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681129476"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkInterfaceCreationType -&gt; [Header]
 (HeaderName -&gt; NetworkInterfaceCreationType -&gt; [Header])
 -&gt; ToHeader NetworkInterfaceCreationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NetworkInterfaceCreationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NetworkInterfaceCreationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681094780"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681129473"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; QueryString
 (NetworkInterfaceCreationType -&gt; QueryString)
 -&gt; ToQuery NetworkInterfaceCreationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NetworkInterfaceCreationType -&gt; QueryString
 $ctoQuery :: NetworkInterfaceCreationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681094775"><span id="local-6989586621681094777"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkInterfaceCreationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681129468"><span id="local-6989586621681129470"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkInterfaceCreationType]
 Value -&gt; Parser NetworkInterfaceCreationType
 (Value -&gt; Parser NetworkInterfaceCreationType)
 -&gt; (Value -&gt; Parser [NetworkInterfaceCreationType])
@@ -244,7 +244,7 @@ $cparseJSONList :: Value -&gt; Parser [NetworkInterfaceCreationType]
 parseJSON :: Value -&gt; Parser NetworkInterfaceCreationType
 $cparseJSON :: Value -&gt; Parser NetworkInterfaceCreationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681094770"><span id="local-6989586621681094772"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkInterfaceCreationType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681129463"><span id="local-6989586621681129465"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkInterfaceCreationType]
 FromJSONKeyFunction NetworkInterfaceCreationType
 FromJSONKeyFunction NetworkInterfaceCreationType
 -&gt; FromJSONKeyFunction [NetworkInterfaceCreationType]
@@ -256,7 +256,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NetworkInterfaceCreationType]
 fromJSONKey :: FromJSONKeyFunction NetworkInterfaceCreationType
 $cfromJSONKey :: FromJSONKeyFunction NetworkInterfaceCreationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681094761"><span id="local-6989586621681094763"><span id="local-6989586621681094765"><span id="local-6989586621681094767"><span class="annot"><span class="annottext">[NetworkInterfaceCreationType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681129454"><span id="local-6989586621681129456"><span id="local-6989586621681129458"><span id="local-6989586621681129460"><span class="annot"><span class="annottext">[NetworkInterfaceCreationType] -&gt; Encoding
 [NetworkInterfaceCreationType] -&gt; Value
 NetworkInterfaceCreationType -&gt; Encoding
 NetworkInterfaceCreationType -&gt; Value
@@ -280,7 +280,7 @@ $ctoEncoding :: NetworkInterfaceCreationType -&gt; Encoding
 toJSON :: NetworkInterfaceCreationType -&gt; Value
 $ctoJSON :: NetworkInterfaceCreationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681094756"><span id="local-6989586621681094758"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkInterfaceCreationType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681129449"><span id="local-6989586621681129451"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkInterfaceCreationType]
 ToJSONKeyFunction NetworkInterfaceCreationType
 ToJSONKeyFunction NetworkInterfaceCreationType
 -&gt; ToJSONKeyFunction [NetworkInterfaceCreationType]
@@ -292,14 +292,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NetworkInterfaceCreationType]
 toJSONKey :: ToJSONKeyFunction NetworkInterfaceCreationType
 $ctoJSONKey :: ToJSONKeyFunction NetworkInterfaceCreationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681094753"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkInterfaceCreationType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681129446"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkInterfaceCreationType
 ([Node] -&gt; Either String NetworkInterfaceCreationType)
 -&gt; FromXML NetworkInterfaceCreationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NetworkInterfaceCreationType
 $cparseXML :: [Node] -&gt; Either String NetworkInterfaceCreationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681094750"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681129443"><span class="annot"><span class="annottext">NetworkInterfaceCreationType -&gt; XML
 (NetworkInterfaceCreationType -&gt; XML)
 -&gt; ToXML NetworkInterfaceCreationType
 forall a. (a -&gt; XML) -&gt; ToXML a

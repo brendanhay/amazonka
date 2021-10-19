@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- -   @SGD@ - Stochastic Gradient Descent.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- -   @RandomForest@ - Random forest of decision trees.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679249515"><span id="local-6989586621679249516"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Algorithm"><span class="annot"><a href="Network.AWS.MachineLearning.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-var">Algorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Algorithm%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.Algorithm.html#Algorithm%27"><span class="hs-identifier hs-var">Algorithm'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679249593"><span id="local-6989586621679249594"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Algorithm"><span class="annot"><a href="Network.AWS.MachineLearning.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-var">Algorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Algorithm%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.Algorithm.html#Algorithm%27"><span class="hs-identifier hs-var">Algorithm'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlgorithm"><span class="annot"><span class="annottext">Algorithm -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.Algorithm.html#fromAlgorithm"><span class="hs-identifier hs-var hs-var">fromAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249507"><span id="local-6989586621679249509"><span id="local-6989586621679249511"><span class="annot"><span class="annottext">Int -&gt; Algorithm -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249585"><span id="local-6989586621679249587"><span id="local-6989586621679249589"><span class="annot"><span class="annottext">Int -&gt; Algorithm -&gt; ShowS
 [Algorithm] -&gt; ShowS
 Algorithm -&gt; String
 (Int -&gt; Algorithm -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: Algorithm -&gt; String
 showsPrec :: Int -&gt; Algorithm -&gt; ShowS
 $cshowsPrec :: Int -&gt; Algorithm -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679249498"><span id="local-6989586621679249500"><span id="local-6989586621679249502"><span id="local-6989586621679249504"><span class="annot"><span class="annottext">ReadPrec [Algorithm]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679249576"><span id="local-6989586621679249578"><span id="local-6989586621679249580"><span id="local-6989586621679249582"><span class="annot"><span class="annottext">ReadPrec [Algorithm]
 ReadPrec Algorithm
 Int -&gt; ReadS Algorithm
 ReadS [Algorithm]
@@ -77,7 +77,7 @@ $creadList :: ReadS [Algorithm]
 readsPrec :: Int -&gt; ReadS Algorithm
 $creadsPrec :: Int -&gt; ReadS Algorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679249493"><span id="local-6989586621679249495"><span class="annot"><span class="annottext">Algorithm -&gt; Algorithm -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679249571"><span id="local-6989586621679249573"><span class="annot"><span class="annottext">Algorithm -&gt; Algorithm -&gt; Bool
 (Algorithm -&gt; Algorithm -&gt; Bool)
 -&gt; (Algorithm -&gt; Algorithm -&gt; Bool) -&gt; Eq Algorithm
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: Algorithm -&gt; Algorithm -&gt; Bool
 == :: Algorithm -&gt; Algorithm -&gt; Bool
 $c== :: Algorithm -&gt; Algorithm -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679249477"><span id="local-6989586621679249479"><span id="local-6989586621679249481"><span id="local-6989586621679249483"><span id="local-6989586621679249485"><span id="local-6989586621679249487"><span id="local-6989586621679249489"><span class="annot"><span class="annottext">Eq Algorithm
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679249555"><span id="local-6989586621679249557"><span id="local-6989586621679249559"><span id="local-6989586621679249561"><span id="local-6989586621679249563"><span id="local-6989586621679249565"><span id="local-6989586621679249567"><span class="annot"><span class="annottext">Eq Algorithm
 Eq Algorithm
 -&gt; (Algorithm -&gt; Algorithm -&gt; Ordering)
 -&gt; (Algorithm -&gt; Algorithm -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. Algorithm -&gt; Rep Algorithm x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249469"><span id="local-6989586621679249471"><span class="annot"><span class="annottext">Int -&gt; Algorithm -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249547"><span id="local-6989586621679249549"><span class="annot"><span class="annottext">Int -&gt; Algorithm -&gt; Int
 Algorithm -&gt; Int
 (Int -&gt; Algorithm -&gt; Int)
 -&gt; (Algorithm -&gt; Int) -&gt; Hashable Algorithm
@@ -146,49 +146,49 @@ $chash :: Algorithm -&gt; Int
 hashWithSalt :: Int -&gt; Algorithm -&gt; Int
 $chashWithSalt :: Int -&gt; Algorithm -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679249466"><span class="annot"><span class="annottext">Algorithm -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679249544"><span class="annot"><span class="annottext">Algorithm -&gt; ()
 (Algorithm -&gt; ()) -&gt; NFData Algorithm
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Algorithm -&gt; ()
 $crnf :: Algorithm -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679249463"><span class="annot"><span class="annottext">Text -&gt; Either String Algorithm
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679249541"><span class="annot"><span class="annottext">Text -&gt; Either String Algorithm
 (Text -&gt; Either String Algorithm) -&gt; FromText Algorithm
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Algorithm
 $cfromText :: Text -&gt; Either String Algorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679249460"><span class="annot"><span class="annottext">Algorithm -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679249538"><span class="annot"><span class="annottext">Algorithm -&gt; Text
 (Algorithm -&gt; Text) -&gt; ToText Algorithm
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Algorithm -&gt; Text
 $ctoText :: Algorithm -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679249457"><span class="annot"><span class="annottext">Algorithm -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679249535"><span class="annot"><span class="annottext">Algorithm -&gt; ByteString
 (Algorithm -&gt; ByteString) -&gt; ToByteString Algorithm
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Algorithm -&gt; ByteString
 $ctoBS :: Algorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679249454"><span class="annot"><span class="annottext">Algorithm -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679249532"><span class="annot"><span class="annottext">Algorithm -&gt; ByteStringBuilder
 (Algorithm -&gt; ByteStringBuilder) -&gt; ToLog Algorithm
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Algorithm -&gt; ByteStringBuilder
 $cbuild :: Algorithm -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679249451"><span class="annot"><span class="annottext">HeaderName -&gt; Algorithm -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679249529"><span class="annot"><span class="annottext">HeaderName -&gt; Algorithm -&gt; [Header]
 (HeaderName -&gt; Algorithm -&gt; [Header]) -&gt; ToHeader Algorithm
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Algorithm -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Algorithm -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679249448"><span class="annot"><span class="annottext">Algorithm -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679249526"><span class="annot"><span class="annottext">Algorithm -&gt; QueryString
 (Algorithm -&gt; QueryString) -&gt; ToQuery Algorithm
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Algorithm -&gt; QueryString
 $ctoQuery :: Algorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679249443"><span id="local-6989586621679249445"><span class="annot"><span class="annottext">Value -&gt; Parser [Algorithm]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679249521"><span id="local-6989586621679249523"><span class="annot"><span class="annottext">Value -&gt; Parser [Algorithm]
 Value -&gt; Parser Algorithm
 (Value -&gt; Parser Algorithm)
 -&gt; (Value -&gt; Parser [Algorithm]) -&gt; FromJSON Algorithm
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [Algorithm]
 parseJSON :: Value -&gt; Parser Algorithm
 $cparseJSON :: Value -&gt; Parser Algorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679249438"><span id="local-6989586621679249440"><span class="annot"><span class="annottext">FromJSONKeyFunction [Algorithm]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679249516"><span id="local-6989586621679249518"><span class="annot"><span class="annottext">FromJSONKeyFunction [Algorithm]
 FromJSONKeyFunction Algorithm
 FromJSONKeyFunction Algorithm
 -&gt; FromJSONKeyFunction [Algorithm] -&gt; FromJSONKey Algorithm
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Algorithm]
 fromJSONKey :: FromJSONKeyFunction Algorithm
 $cfromJSONKey :: FromJSONKeyFunction Algorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679249429"><span id="local-6989586621679249431"><span id="local-6989586621679249433"><span id="local-6989586621679249435"><span class="annot"><span class="annottext">[Algorithm] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679249507"><span id="local-6989586621679249509"><span id="local-6989586621679249511"><span id="local-6989586621679249513"><span class="annot"><span class="annottext">[Algorithm] -&gt; Encoding
 [Algorithm] -&gt; Value
 Algorithm -&gt; Encoding
 Algorithm -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: Algorithm -&gt; Encoding
 toJSON :: Algorithm -&gt; Value
 $ctoJSON :: Algorithm -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679249424"><span id="local-6989586621679249426"><span class="annot"><span class="annottext">ToJSONKeyFunction [Algorithm]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679249502"><span id="local-6989586621679249504"><span class="annot"><span class="annottext">ToJSONKeyFunction [Algorithm]
 ToJSONKeyFunction Algorithm
 ToJSONKeyFunction Algorithm
 -&gt; ToJSONKeyFunction [Algorithm] -&gt; ToJSONKey Algorithm
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Algorithm]
 toJSONKey :: ToJSONKeyFunction Algorithm
 $ctoJSONKey :: ToJSONKeyFunction Algorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679249421"><span class="annot"><span class="annottext">[Node] -&gt; Either String Algorithm
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679249499"><span class="annot"><span class="annottext">[Node] -&gt; Either String Algorithm
 ([Node] -&gt; Either String Algorithm) -&gt; FromXML Algorithm
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Algorithm
 $cparseXML :: [Node] -&gt; Either String Algorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679249418"><span class="annot"><span class="annottext">Algorithm -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679249496"><span class="annot"><span class="annottext">Algorithm -&gt; XML
 (Algorithm -&gt; XML) -&gt; ToXML Algorithm
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Algorithm -&gt; XML

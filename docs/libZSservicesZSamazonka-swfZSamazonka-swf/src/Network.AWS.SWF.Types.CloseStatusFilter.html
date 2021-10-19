@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- their close status.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCloseStatusFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679343802"><span id="local-6989586621679343803"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloseStatusFilter"><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-var">CloseStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloseStatusFilter%27"><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-var">CloseStatusFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679343879"><span id="local-6989586621679343880"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloseStatusFilter"><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-var">CloseStatusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloseStatusFilter%27"><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-var">CloseStatusFilter'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The close status that must match the close status of an execution for it</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to meet the criteria of this filter.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ACloseStatusFilter%27"><span class="annot"><span class="annottext">CloseStatusFilter -&gt; CloseStatus
 </span><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#%24sel%3Astatus%3ACloseStatusFilter%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343796"><span id="local-6989586621679343798"><span class="annot"><span class="annottext">CloseStatusFilter -&gt; CloseStatusFilter -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343873"><span id="local-6989586621679343875"><span class="annot"><span class="annottext">CloseStatusFilter -&gt; CloseStatusFilter -&gt; Bool
 (CloseStatusFilter -&gt; CloseStatusFilter -&gt; Bool)
 -&gt; (CloseStatusFilter -&gt; CloseStatusFilter -&gt; Bool)
 -&gt; Eq CloseStatusFilter
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloseStatusFilter -&gt; CloseStatusFilter -&gt; Bool
 == :: CloseStatusFilter -&gt; CloseStatusFilter -&gt; Bool
 $c== :: CloseStatusFilter -&gt; CloseStatusFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343787"><span id="local-6989586621679343789"><span id="local-6989586621679343791"><span id="local-6989586621679343793"><span class="annot"><span class="annottext">ReadPrec [CloseStatusFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343864"><span id="local-6989586621679343866"><span id="local-6989586621679343868"><span id="local-6989586621679343870"><span class="annot"><span class="annottext">ReadPrec [CloseStatusFilter]
 ReadPrec CloseStatusFilter
 Int -&gt; ReadS CloseStatusFilter
 ReadS [CloseStatusFilter]
@@ -63,7 +63,7 @@ readList :: ReadS [CloseStatusFilter]
 $creadList :: ReadS [CloseStatusFilter]
 readsPrec :: Int -&gt; ReadS CloseStatusFilter
 $creadsPrec :: Int -&gt; ReadS CloseStatusFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343780"><span id="local-6989586621679343782"><span id="local-6989586621679343784"><span class="annot"><span class="annottext">Int -&gt; CloseStatusFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343857"><span id="local-6989586621679343859"><span id="local-6989586621679343861"><span class="annot"><span class="annottext">Int -&gt; CloseStatusFilter -&gt; ShowS
 [CloseStatusFilter] -&gt; ShowS
 CloseStatusFilter -&gt; String
 (Int -&gt; CloseStatusFilter -&gt; ShowS)
@@ -104,12 +104,12 @@ $cfrom :: forall x. CloseStatusFilter -&gt; Rep CloseStatusFilter x
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span><span>
 </span><span id="line-52"></span><span id="newCloseStatusFilter"><span class="annot"><span class="annottext">newCloseStatusFilter :: CloseStatus -&gt; CloseStatusFilter
-</span><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#newCloseStatusFilter"><span class="hs-identifier hs-var hs-var">newCloseStatusFilter</span></a></span></span><span> </span><span id="local-6989586621679343774"><span class="annot"><span class="annottext">CloseStatus
-</span><a href="#local-6989586621679343774"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#newCloseStatusFilter"><span class="hs-identifier hs-var hs-var">newCloseStatusFilter</span></a></span></span><span> </span><span id="local-6989586621679343851"><span class="annot"><span class="annottext">CloseStatus
+</span><a href="#local-6989586621679343851"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">CloseStatusFilter' :: CloseStatus -&gt; CloseStatusFilter
 </span><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-type">CloseStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CloseStatusFilter' :: CloseStatus
 </span><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#%24sel%3Astatus%3ACloseStatusFilter%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CloseStatus
-</span><a href="#local-6989586621679343774"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679343851"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | The close status that must match the close status of an execution for it</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- to meet the criteria of this filter.</span><span>
@@ -120,27 +120,27 @@ $cfrom :: forall x. CloseStatusFilter -&gt; Rep CloseStatusFilter x
 -&gt; (CloseStatusFilter -&gt; CloseStatus -&gt; CloseStatusFilter)
 -&gt; Lens CloseStatusFilter CloseStatusFilter CloseStatus CloseStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-type">CloseStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343770"><span class="annot"><span class="annottext">CloseStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-type">CloseStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343847"><span class="annot"><span class="annottext">CloseStatus
 status :: CloseStatus
 $sel:status:CloseStatusFilter' :: CloseStatusFilter -&gt; CloseStatus
-</span><a href="#local-6989586621679343770"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloseStatus
-</span><a href="#local-6989586621679343770"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343769"><span class="annot"><span class="annottext">s :: CloseStatusFilter
-</span><a href="#local-6989586621679343769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-type">CloseStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343768"><span class="annot"><span class="annottext">CloseStatus
-</span><a href="#local-6989586621679343768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloseStatusFilter
-</span><a href="#local-6989586621679343769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CloseStatusFilter' :: CloseStatus
+</span><a href="#local-6989586621679343847"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloseStatus
+</span><a href="#local-6989586621679343847"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343846"><span class="annot"><span class="annottext">s :: CloseStatusFilter
+</span><a href="#local-6989586621679343846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-type">CloseStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343845"><span class="annot"><span class="annottext">CloseStatus
+</span><a href="#local-6989586621679343845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloseStatusFilter
+</span><a href="#local-6989586621679343846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CloseStatusFilter' :: CloseStatus
 </span><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#%24sel%3Astatus%3ACloseStatusFilter%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CloseStatus
-</span><a href="#local-6989586621679343768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343764"><span id="local-6989586621679343766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343841"><span id="local-6989586621679343843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343753"><span id="local-6989586621679343755"><span id="local-6989586621679343757"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679343751"><span class="annot"><span class="annottext">toJSON :: CloseStatusFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-type">CloseStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343749"><span class="annot"><span class="annottext">CloseStatus
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343830"><span id="local-6989586621679343832"><span id="local-6989586621679343834"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter"><span class="hs-identifier hs-type">CloseStatusFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679343828"><span class="annot"><span class="annottext">toJSON :: CloseStatusFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.CloseStatusFilter.html#CloseStatusFilter%27"><span class="hs-identifier hs-type">CloseStatusFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343826"><span class="annot"><span class="annottext">CloseStatus
 status :: CloseStatus
 $sel:status:CloseStatusFilter' :: CloseStatusFilter -&gt; CloseStatus
-</span><a href="#local-6989586621679343749"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679343826"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -152,6 +152,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloseStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CloseStatus
-</span><a href="#local-6989586621679343749"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679343826"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span></pre></body></html>

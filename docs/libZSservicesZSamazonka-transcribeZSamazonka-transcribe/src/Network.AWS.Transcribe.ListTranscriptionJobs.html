@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_status"><span class="hs-identifier">listTranscriptionJobs_status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_nextToken"><span class="hs-identifier">listTranscriptionJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_maxResults"><span class="hs-identifier">listTranscriptionJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_jobNameContains"><span class="hs-identifier">listTranscriptionJobs_jobNameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_jobNameContains"><span class="hs-identifier">listTranscriptionJobs_jobNameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_maxResults"><span class="hs-identifier">listTranscriptionJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier">ListTranscriptionJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListTranscriptionJobs' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679280991"><span id="local-6989586621679280992"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTranscriptionJobs"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-var">ListTranscriptionJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTranscriptionJobs%27"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-var">ListTranscriptionJobs'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679281176"><span id="local-6989586621679281177"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTranscriptionJobs"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-var">ListTranscriptionJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTranscriptionJobs%27"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-var">ListTranscriptionJobs'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When specified, returns only transcription jobs with the specified</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- status. Jobs are ordered by creation date, with the newest jobs returned</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- first. If you don&#8217;t specify a status, Amazon Transcribe returns all</span><span>
@@ -63,17 +63,17 @@
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of jobs.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListTranscriptionJobs%27"><span class="annot"><span class="annottext">ListTranscriptionJobs -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AnextToken%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of jobs to return in each page of results. If there</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- are fewer results than the value you specify, only the actual results</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- are returned. If you do not specify a value, the default of 5 is used.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTranscriptionJobs%27"><span class="annot"><span class="annottext">ListTranscriptionJobs -&gt; Maybe Natural
-</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AmaxResults%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | When specified, the jobs returned in the list are limited to jobs whose</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- name contains the specified string.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="annot"><span class="annottext">ListTranscriptionJobs -&gt; Maybe Text
-</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var hs-var">jobNameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | When specified, the jobs returned in the list are limited to jobs whose</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- name contains the specified string.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="annot"><span class="annottext">ListTranscriptionJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var hs-var">jobNameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of jobs to return in each page of results. If there</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- are fewer results than the value you specify, only the actual results</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- are returned. If you do not specify a value, the default of 5 is used.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxResults%3AListTranscriptionJobs%27"><span class="annot"><span class="annottext">ListTranscriptionJobs -&gt; Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AmaxResults%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280982"><span id="local-6989586621679280984"><span class="annot"><span class="annottext">ListTranscriptionJobs -&gt; ListTranscriptionJobs -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281167"><span id="local-6989586621679281169"><span class="annot"><span class="annottext">ListTranscriptionJobs -&gt; ListTranscriptionJobs -&gt; Bool
 (ListTranscriptionJobs -&gt; ListTranscriptionJobs -&gt; Bool)
 -&gt; (ListTranscriptionJobs -&gt; ListTranscriptionJobs -&gt; Bool)
 -&gt; Eq ListTranscriptionJobs
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTranscriptionJobs -&gt; ListTranscriptionJobs -&gt; Bool
 == :: ListTranscriptionJobs -&gt; ListTranscriptionJobs -&gt; Bool
 $c== :: ListTranscriptionJobs -&gt; ListTranscriptionJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280973"><span id="local-6989586621679280975"><span id="local-6989586621679280977"><span id="local-6989586621679280979"><span class="annot"><span class="annottext">ReadPrec [ListTranscriptionJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281158"><span id="local-6989586621679281160"><span id="local-6989586621679281162"><span id="local-6989586621679281164"><span class="annot"><span class="annottext">ReadPrec [ListTranscriptionJobs]
 ReadPrec ListTranscriptionJobs
 Int -&gt; ReadS ListTranscriptionJobs
 ReadS [ListTranscriptionJobs]
@@ -102,7 +102,7 @@ readList :: ReadS [ListTranscriptionJobs]
 $creadList :: ReadS [ListTranscriptionJobs]
 readsPrec :: Int -&gt; ReadS ListTranscriptionJobs
 $creadsPrec :: Int -&gt; ReadS ListTranscriptionJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280966"><span id="local-6989586621679280968"><span id="local-6989586621679280970"><span class="annot"><span class="annottext">Int -&gt; ListTranscriptionJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281151"><span id="local-6989586621679281153"><span id="local-6989586621679281155"><span class="annot"><span class="annottext">Int -&gt; ListTranscriptionJobs -&gt; ShowS
 [ListTranscriptionJobs] -&gt; ShowS
 ListTranscriptionJobs -&gt; String
 (Int -&gt; ListTranscriptionJobs -&gt; ShowS)
@@ -144,20 +144,20 @@ $cfrom :: forall x. ListTranscriptionJobs -&gt; Rep ListTranscriptionJobs x
 </span><span id="line-87"></span><span class="hs-comment">-- 'nextToken', 'listTranscriptionJobs_nextToken' - If the result of the previous request to @ListTranscriptionJobs@ is</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of jobs.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'listTranscriptionJobs_maxResults' - The maximum number of jobs to return in each page of results. If there</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- are fewer results than the value you specify, only the actual results</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- are returned. If you do not specify a value, the default of 5 is used.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'jobNameContains', 'listTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- name contains the specified string.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'jobNameContains', 'listTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- name contains the specified string.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'maxResults', 'listTranscriptionJobs_maxResults' - The maximum number of jobs to return in each page of results. If there</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- are fewer results than the value you specify, only the actual results</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- are returned. If you do not specify a value, the default of 5 is used.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#newListTranscriptionJobs"><span class="hs-identifier hs-type">newListTranscriptionJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span>
 </span><span id="line-98"></span><span id="newListTranscriptionJobs"><span class="annot"><span class="annottext">newListTranscriptionJobs :: ListTranscriptionJobs
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#newListTranscriptionJobs"><span class="hs-identifier hs-var hs-var">newListTranscriptionJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">ListTranscriptionJobs' :: Maybe TranscriptionJobStatus
 -&gt; Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; ListTranscriptionJobs
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListTranscriptionJobs' :: Maybe TranscriptionJobStatus
@@ -168,12 +168,12 @@ forall a. Maybe a
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AnextToken%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTranscriptionJobs' :: Maybe Natural
-</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AmaxResults%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobNameContains:ListTranscriptionJobs' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobNameContains:ListTranscriptionJobs' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListTranscriptionJobs' :: Maybe Natural
+</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AmaxResults%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
@@ -194,16 +194,16 @@ forall a. Maybe a
      (Maybe TranscriptionJobStatus)
      (Maybe TranscriptionJobStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280959"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281144"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
 status :: Maybe TranscriptionJobStatus
 $sel:status:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280959"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280959"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280958"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
-</span><a href="#local-6989586621679280958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280957"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
-</span><a href="#local-6989586621679280958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListTranscriptionJobs' :: Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679281144"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679281144"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281143"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
+</span><a href="#local-6989586621679281143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281142"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679281142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
+</span><a href="#local-6989586621679281143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListTranscriptionJobs' :: Maybe TranscriptionJobStatus
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3Astatus%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | If the result of the previous request to @ListTranscriptionJobs@ is</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- truncated, include the @NextToken@ to fetch the next set of jobs.</span><span>
@@ -218,22 +218,46 @@ $sel:status:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Transcri
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280956"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281141"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679280956"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280956"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280955"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
-</span><a href="#local-6989586621679280955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280954"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
-</span><a href="#local-6989586621679280955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTranscriptionJobs' :: Maybe Text
+</span><a href="#local-6989586621679281141"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281141"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281140"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
+</span><a href="#local-6989586621679281140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
+</span><a href="#local-6989586621679281140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTranscriptionJobs' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AnextToken%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The maximum number of jobs to return in each page of results. If there</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- are fewer results than the value you specify, only the actual results</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- are returned. If you do not specify a value, the default of 5 is used.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_maxResults"><span class="hs-identifier hs-type">listTranscriptionJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="listTranscriptionJobs_maxResults"><span class="annot"><span class="annottext">listTranscriptionJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-118"></span><span class="hs-comment">-- | When specified, the jobs returned in the list are limited to jobs whose</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- name contains the specified string.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_jobNameContains"><span class="hs-identifier hs-type">listTranscriptionJobs_jobNameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="listTranscriptionJobs_jobNameContains"><span class="annot"><span class="annottext">listTranscriptionJobs_jobNameContains :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTranscriptionJobs -&gt; f ListTranscriptionJobs
+</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_jobNameContains"><span class="hs-identifier hs-var hs-var">listTranscriptionJobs_jobNameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTranscriptionJobs -&gt; Maybe Text)
+-&gt; (ListTranscriptionJobs -&gt; Maybe Text -&gt; ListTranscriptionJobs)
+-&gt; Lens
+     ListTranscriptionJobs
+     ListTranscriptionJobs
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281138"><span class="annot"><span class="annottext">Maybe Text
+jobNameContains :: Maybe Text
+$sel:jobNameContains:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679281138"><span class="hs-identifier hs-var hs-var">jobNameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281138"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281137"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
+</span><a href="#local-6989586621679281137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
+</span><a href="#local-6989586621679281137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobNameContains:ListTranscriptionJobs' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The maximum number of jobs to return in each page of results. If there</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- are fewer results than the value you specify, only the actual results</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- are returned. If you do not specify a value, the default of 5 is used.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_maxResults"><span class="hs-identifier hs-type">listTranscriptionJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="listTranscriptionJobs_maxResults"><span class="annot"><span class="annottext">listTranscriptionJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListTranscriptionJobs -&gt; f ListTranscriptionJobs
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_maxResults"><span class="hs-identifier hs-var hs-var">listTranscriptionJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTranscriptionJobs -&gt; Maybe Natural)
 -&gt; (ListTranscriptionJobs
@@ -244,51 +268,27 @@ $sel:nextToken:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280953"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281135"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679280953"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679280953"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280952"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
-</span><a href="#local-6989586621679280952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280951"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679280951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
-</span><a href="#local-6989586621679280952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTranscriptionJobs' :: Maybe Natural
+</span><a href="#local-6989586621679281135"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281135"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281134"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
+</span><a href="#local-6989586621679281134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281133"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679281133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
+</span><a href="#local-6989586621679281134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTranscriptionJobs' :: Maybe Natural
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AmaxResults%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679280951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | When specified, the jobs returned in the list are limited to jobs whose</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- name contains the specified string.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_jobNameContains"><span class="hs-identifier hs-type">listTranscriptionJobs_jobNameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="listTranscriptionJobs_jobNameContains"><span class="annot"><span class="annottext">listTranscriptionJobs_jobNameContains :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListTranscriptionJobs -&gt; f ListTranscriptionJobs
-</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobs_jobNameContains"><span class="hs-identifier hs-var hs-var">listTranscriptionJobs_jobNameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTranscriptionJobs -&gt; Maybe Text)
--&gt; (ListTranscriptionJobs -&gt; Maybe Text -&gt; ListTranscriptionJobs)
--&gt; Lens
-     ListTranscriptionJobs
-     ListTranscriptionJobs
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280950"><span class="annot"><span class="annottext">Maybe Text
-jobNameContains :: Maybe Text
-$sel:jobNameContains:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679280950"><span class="hs-identifier hs-var hs-var">jobNameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280950"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280949"><span class="annot"><span class="annottext">s :: ListTranscriptionJobs
-</span><a href="#local-6989586621679280949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280948"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobs
-</span><a href="#local-6989586621679280949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobNameContains:ListTranscriptionJobs' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AjobNameContains%3AListTranscriptionJobs%27"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679280944"><span class="annot"><span class="annottext">request :: ListTranscriptionJobs -&gt; Request ListTranscriptionJobs
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679281129"><span class="annot"><span class="annottext">request :: ListTranscriptionJobs -&gt; Request ListTranscriptionJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTranscriptionJobs -&gt; Request ListTranscriptionJobs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679280940"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679281125"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTranscriptionJobs
 -&gt; ClientResponse ClientBody
@@ -314,10 +314,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280937"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280937"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280936"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679280936"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280935"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281122"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281122"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281121"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679281121"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
 -&gt; Maybe Text
 -&gt; Maybe [TranscriptionJobSummary]
@@ -338,7 +338,7 @@ MonadResource m =&gt;
       -&gt; ListTranscriptionJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TranscriptionJobStatus)
+</span><a href="#local-6989586621679281120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TranscriptionJobStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,7 +355,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Int -&gt; ListTranscriptionJobsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679281120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -367,7 +367,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListTranscriptionJobsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679280935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [TranscriptionJobSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -388,15 +388,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280937"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281122"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280926"><span id="local-6989586621679280928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281111"><span id="local-6989586621679281113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679280919"><span class="annot"><span class="annottext">toHeaders :: ListTranscriptionJobs -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679281104"><span class="annot"><span class="annottext">toHeaders :: ListTranscriptionJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTranscriptionJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -423,20 +423,20 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280909"><span id="local-6989586621679280911"><span id="local-6989586621679280913"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679280907"><span class="annot"><span class="annottext">toJSON :: ListTranscriptionJobs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280902"><span id="local-6989586621679280903"><span id="local-6989586621679280904"><span id="local-6989586621679280905"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281094"><span id="local-6989586621679281096"><span id="local-6989586621679281098"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679281092"><span class="annot"><span class="annottext">toJSON :: ListTranscriptionJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs%27"><span class="hs-identifier hs-type">ListTranscriptionJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281087"><span id="local-6989586621679281088"><span id="local-6989586621679281089"><span id="local-6989586621679281090"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe TranscriptionJobStatus
-jobNameContains :: Maybe Text
 maxResults :: Maybe Natural
+jobNameContains :: Maybe Text
 nextToken :: Maybe Text
 status :: Maybe TranscriptionJobStatus
-$sel:jobNameContains:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Text
 $sel:maxResults:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Natural
+$sel:jobNameContains:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Text
 $sel:nextToken:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe Text
 $sel:status:ListTranscriptionJobs' :: ListTranscriptionJobs -&gt; Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280902"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679281087"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -449,41 +449,41 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TranscriptionJobStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280905"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281090"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280904"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281089"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobNameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281088"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679280903"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobNameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280902"><span class="hs-identifier hs-var">jobNameContains</span></a></span><span>
+</span><a href="#local-6989586621679281087"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679280896"><span class="annot"><span class="annottext">toPath :: ListTranscriptionJobs -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679281081"><span class="annot"><span class="annottext">toPath :: ListTranscriptionJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTranscriptionJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobs"><span class="hs-identifier hs-type">ListTranscriptionJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679280892"><span class="annot"><span class="annottext">toQuery :: ListTranscriptionJobs -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679281077"><span class="annot"><span class="annottext">toQuery :: ListTranscriptionJobs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTranscriptionJobs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -491,7 +491,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newListTranscriptionJobsResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679280889"><span id="local-6989586621679280890"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTranscriptionJobsResponse"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-var">ListTranscriptionJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTranscriptionJobsResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var">ListTranscriptionJobsResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679281074"><span id="local-6989586621679281075"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTranscriptionJobsResponse"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-var">ListTranscriptionJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTranscriptionJobsResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var">ListTranscriptionJobsResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The requested status of the jobs returned.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3Astatus%3AListTranscriptionJobsResponse%27"><span class="annot"><span class="annottext">ListTranscriptionJobsResponse -&gt; Maybe TranscriptionJobStatus
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3Astatus%3AListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-type">TranscriptionJobStatus</span></a></span><span class="hs-special">,</span><span>
@@ -511,7 +511,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTranscriptionJobsResponse%27"><span class="annot"><span class="annottext">ListTranscriptionJobsResponse -&gt; Int
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AhttpStatus%3AListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280881"><span id="local-6989586621679280883"><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281066"><span id="local-6989586621679281068"><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
 -&gt; ListTranscriptionJobsResponse -&gt; Bool
 (ListTranscriptionJobsResponse
  -&gt; ListTranscriptionJobsResponse -&gt; Bool)
@@ -527,7 +527,7 @@ $c/= :: ListTranscriptionJobsResponse
 -&gt; ListTranscriptionJobsResponse -&gt; Bool
 $c== :: ListTranscriptionJobsResponse
 -&gt; ListTranscriptionJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280873"><span id="local-6989586621679280875"><span id="local-6989586621679280877"><span id="local-6989586621679280879"><span class="annot"><span class="annottext">ReadPrec [ListTranscriptionJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281058"><span id="local-6989586621679281060"><span id="local-6989586621679281062"><span id="local-6989586621679281064"><span class="annot"><span class="annottext">ReadPrec [ListTranscriptionJobsResponse]
 ReadPrec ListTranscriptionJobsResponse
 Int -&gt; ReadS ListTranscriptionJobsResponse
 ReadS [ListTranscriptionJobsResponse]
@@ -547,7 +547,7 @@ readList :: ReadS [ListTranscriptionJobsResponse]
 $creadList :: ReadS [ListTranscriptionJobsResponse]
 readsPrec :: Int -&gt; ReadS ListTranscriptionJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListTranscriptionJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280867"><span id="local-6989586621679280869"><span id="local-6989586621679280871"><span class="annot"><span class="annottext">Int -&gt; ListTranscriptionJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281052"><span id="local-6989586621679281054"><span id="local-6989586621679281056"><span class="annot"><span class="annottext">Int -&gt; ListTranscriptionJobsResponse -&gt; ShowS
 [ListTranscriptionJobsResponse] -&gt; ShowS
 ListTranscriptionJobsResponse -&gt; String
 (Int -&gt; ListTranscriptionJobsResponse -&gt; ShowS)
@@ -611,8 +611,8 @@ ListTranscriptionJobsResponse
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span>
 </span><span id="line-227"></span><span id="newListTranscriptionJobsResponse"><span class="annot"><span class="annottext">newListTranscriptionJobsResponse :: Int -&gt; ListTranscriptionJobsResponse
-</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#newListTranscriptionJobsResponse"><span class="hs-identifier hs-var hs-var">newListTranscriptionJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679280864"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#newListTranscriptionJobsResponse"><span class="hs-identifier hs-var hs-var">newListTranscriptionJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679281049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse' :: Maybe TranscriptionJobStatus
 -&gt; Maybe Text
 -&gt; Maybe [TranscriptionJobSummary]
@@ -634,7 +634,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTranscriptionJobsResponse' :: Int
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AhttpStatus%3AListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679281049"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The requested status of the jobs returned.</span><span>
@@ -650,16 +650,16 @@ forall a. Maybe a
      (Maybe TranscriptionJobStatus)
      (Maybe TranscriptionJobStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280863"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281048"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
 status :: Maybe TranscriptionJobStatus
 $sel:status:ListTranscriptionJobsResponse' :: ListTranscriptionJobsResponse -&gt; Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280863"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280863"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280862"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280861"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListTranscriptionJobsResponse' :: Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679281048"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679281048"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281047"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281046"><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
+</span><a href="#local-6989586621679281046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListTranscriptionJobsResponse' :: Maybe TranscriptionJobStatus
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3Astatus%3AListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptionJobStatus
-</span><a href="#local-6989586621679280861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The @ListTranscriptionJobs@ operation returns a page of jobs at a time.</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- The maximum size of the page is set by the @MaxResults@ parameter. If</span><span>
@@ -679,16 +679,16 @@ $sel:status:ListTranscriptionJobsResponse' :: ListTranscriptionJobsResponse -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280860"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281045"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTranscriptionJobsResponse' :: ListTranscriptionJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679280860"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280860"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280859"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280858"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTranscriptionJobsResponse' :: Maybe Text
+</span><a href="#local-6989586621679281045"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281045"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281044"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281043"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTranscriptionJobsResponse' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AnextToken%3AListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679280858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | A list of objects containing summary information for a transcription</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- job.</span><span>
@@ -706,16 +706,16 @@ $sel:nextToken:ListTranscriptionJobsResponse' :: ListTranscriptionJobsResponse -
      (Maybe [TranscriptionJobSummary])
      (Maybe [TranscriptionJobSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280857"><span class="annot"><span class="annottext">Maybe [TranscriptionJobSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281042"><span class="annot"><span class="annottext">Maybe [TranscriptionJobSummary]
 transcriptionJobSummaries :: Maybe [TranscriptionJobSummary]
 $sel:transcriptionJobSummaries:ListTranscriptionJobsResponse' :: ListTranscriptionJobsResponse -&gt; Maybe [TranscriptionJobSummary]
-</span><a href="#local-6989586621679280857"><span class="hs-identifier hs-var hs-var">transcriptionJobSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TranscriptionJobSummary]
-</span><a href="#local-6989586621679280857"><span class="hs-identifier hs-var">transcriptionJobSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280856"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280855"><span class="annot"><span class="annottext">Maybe [TranscriptionJobSummary]
-</span><a href="#local-6989586621679280855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptionJobSummaries:ListTranscriptionJobsResponse' :: Maybe [TranscriptionJobSummary]
+</span><a href="#local-6989586621679281042"><span class="hs-identifier hs-var hs-var">transcriptionJobSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TranscriptionJobSummary]
+</span><a href="#local-6989586621679281042"><span class="hs-identifier hs-var">transcriptionJobSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281041"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281040"><span class="annot"><span class="annottext">Maybe [TranscriptionJobSummary]
+</span><a href="#local-6989586621679281040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptionJobSummaries:ListTranscriptionJobsResponse' :: Maybe [TranscriptionJobSummary]
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AtranscriptionJobSummaries%3AListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var">transcriptionJobSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TranscriptionJobSummary]
-</span><a href="#local-6989586621679280855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TranscriptionJobSummary]
+</span><a href="#local-6989586621679281040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TranscriptionJobSummary]
   -&gt; f (Maybe [TranscriptionJobSummary]))
  -&gt; ListTranscriptionJobsResponse
  -&gt; f ListTranscriptionJobsResponse)
@@ -746,8 +746,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TranscriptionJobSummary]
   [TranscriptionJobSummary]
   [TranscriptionJobSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-255"></span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#listTranscriptionJobsResponse_httpStatus"><span class="hs-identifier hs-type">listTranscriptionJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -759,16 +759,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListTranscriptionJobsResponse ListTranscriptionJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280851"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281036"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTranscriptionJobsResponse' :: ListTranscriptionJobsResponse -&gt; Int
-</span><a href="#local-6989586621679280851"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280851"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280850"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280849"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
-</span><a href="#local-6989586621679280850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTranscriptionJobsResponse' :: Int
+</span><a href="#local-6989586621679281036"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281036"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281035"><span class="annot"><span class="annottext">s :: ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse%27"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281034"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTranscriptionJobsResponse
+</span><a href="#local-6989586621679281035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTranscriptionJobsResponse' :: Int
 </span><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#%24sel%3AhttpStatus%3AListTranscriptionJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679280849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.ListTranscriptionJobs.html#ListTranscriptionJobsResponse"><span class="hs-identifier hs-type">ListTranscriptionJobsResponse</span></a></span></span><span>
 </span><span id="line-259"></span></pre></body></html>

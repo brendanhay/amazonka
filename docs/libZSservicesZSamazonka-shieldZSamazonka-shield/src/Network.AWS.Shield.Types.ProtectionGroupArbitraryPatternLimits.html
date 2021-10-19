@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Limits settings on protection groups with arbitrary pattern type.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProtectionGroupArbitraryPatternLimits' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679202884"><span id="local-6989586621679202885"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProtectionGroupArbitraryPatternLimits"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-var">ProtectionGroupArbitraryPatternLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtectionGroupArbitraryPatternLimits%27"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-var">ProtectionGroupArbitraryPatternLimits'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679203010"><span id="local-6989586621679203011"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProtectionGroupArbitraryPatternLimits"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-var">ProtectionGroupArbitraryPatternLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtectionGroupArbitraryPatternLimits%27"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-var">ProtectionGroupArbitraryPatternLimits'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of resources you can specify for a single arbitrary</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- pattern in a protection group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmaxMembers%3AProtectionGroupArbitraryPatternLimits%27"><span class="annot"><span class="annottext">ProtectionGroupArbitraryPatternLimits -&gt; Integer
 </span><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#%24sel%3AmaxMembers%3AProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-var hs-var">maxMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202878"><span id="local-6989586621679202880"><span class="annot"><span class="annottext">ProtectionGroupArbitraryPatternLimits
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203004"><span id="local-6989586621679203006"><span class="annot"><span class="annottext">ProtectionGroupArbitraryPatternLimits
 -&gt; ProtectionGroupArbitraryPatternLimits -&gt; Bool
 (ProtectionGroupArbitraryPatternLimits
  -&gt; ProtectionGroupArbitraryPatternLimits -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: ProtectionGroupArbitraryPatternLimits
 -&gt; ProtectionGroupArbitraryPatternLimits -&gt; Bool
 $c== :: ProtectionGroupArbitraryPatternLimits
 -&gt; ProtectionGroupArbitraryPatternLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202869"><span id="local-6989586621679202871"><span id="local-6989586621679202873"><span id="local-6989586621679202875"><span class="annot"><span class="annottext">ReadPrec [ProtectionGroupArbitraryPatternLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202995"><span id="local-6989586621679202997"><span id="local-6989586621679202999"><span id="local-6989586621679203001"><span class="annot"><span class="annottext">ReadPrec [ProtectionGroupArbitraryPatternLimits]
 ReadPrec ProtectionGroupArbitraryPatternLimits
 Int -&gt; ReadS ProtectionGroupArbitraryPatternLimits
 ReadS [ProtectionGroupArbitraryPatternLimits]
@@ -68,7 +68,7 @@ readList :: ReadS [ProtectionGroupArbitraryPatternLimits]
 $creadList :: ReadS [ProtectionGroupArbitraryPatternLimits]
 readsPrec :: Int -&gt; ReadS ProtectionGroupArbitraryPatternLimits
 $creadsPrec :: Int -&gt; ReadS ProtectionGroupArbitraryPatternLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202862"><span id="local-6989586621679202864"><span id="local-6989586621679202866"><span class="annot"><span class="annottext">Int -&gt; ProtectionGroupArbitraryPatternLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202988"><span id="local-6989586621679202990"><span id="local-6989586621679202992"><span class="annot"><span class="annottext">Int -&gt; ProtectionGroupArbitraryPatternLimits -&gt; ShowS
 [ProtectionGroupArbitraryPatternLimits] -&gt; ShowS
 ProtectionGroupArbitraryPatternLimits -&gt; String
 (Int -&gt; ProtectionGroupArbitraryPatternLimits -&gt; ShowS)
@@ -121,14 +121,14 @@ ProtectionGroupArbitraryPatternLimits
 </span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits</span></a></span><span>
 </span><span id="line-50"></span><span id="newProtectionGroupArbitraryPatternLimits"><span class="annot"><span class="annottext">newProtectionGroupArbitraryPatternLimits :: Integer -&gt; ProtectionGroupArbitraryPatternLimits
-</span><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#newProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-var hs-var">newProtectionGroupArbitraryPatternLimits</span></a></span></span><span> </span><span id="local-6989586621679202856"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679202856"><span class="hs-identifier hs-var">pMaxMembers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#newProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-var hs-var">newProtectionGroupArbitraryPatternLimits</span></a></span></span><span> </span><span id="local-6989586621679202982"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679202982"><span class="hs-identifier hs-var">pMaxMembers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ProtectionGroupArbitraryPatternLimits' :: Integer -&gt; ProtectionGroupArbitraryPatternLimits
 </span><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits'</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxMembers:ProtectionGroupArbitraryPatternLimits' :: Integer
 </span><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#%24sel%3AmaxMembers%3AProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-var">maxMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679202856"><span class="hs-identifier hs-var">pMaxMembers_</span></a></span><span>
+</span><a href="#local-6989586621679202982"><span class="hs-identifier hs-var">pMaxMembers_</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | The maximum number of resources you can specify for a single arbitrary</span><span>
@@ -146,22 +146,22 @@ ProtectionGroupArbitraryPatternLimits
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202852"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202978"><span class="annot"><span class="annottext">Integer
 maxMembers :: Integer
 $sel:maxMembers:ProtectionGroupArbitraryPatternLimits' :: ProtectionGroupArbitraryPatternLimits -&gt; Integer
-</span><a href="#local-6989586621679202852"><span class="hs-identifier hs-var hs-var">maxMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679202852"><span class="hs-identifier hs-var">maxMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202851"><span class="annot"><span class="annottext">s :: ProtectionGroupArbitraryPatternLimits
-</span><a href="#local-6989586621679202851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202850"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679202850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupArbitraryPatternLimits
-</span><a href="#local-6989586621679202851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxMembers:ProtectionGroupArbitraryPatternLimits' :: Integer
+</span><a href="#local-6989586621679202978"><span class="hs-identifier hs-var hs-var">maxMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679202978"><span class="hs-identifier hs-var">maxMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202977"><span class="annot"><span class="annottext">s :: ProtectionGroupArbitraryPatternLimits
+</span><a href="#local-6989586621679202977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202976"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679202976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupArbitraryPatternLimits
+</span><a href="#local-6989586621679202977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxMembers:ProtectionGroupArbitraryPatternLimits' :: Integer
 </span><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#%24sel%3AmaxMembers%3AProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-var">maxMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679202850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679202847"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679202973"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679202845"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProtectionGroupArbitraryPatternLimits
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679202971"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProtectionGroupArbitraryPatternLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProtectionGroupArbitraryPatternLimits)
@@ -171,25 +171,25 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProtectionGroupArbitraryPatternLimits&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202842"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202968"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Integer -&gt; ProtectionGroupArbitraryPatternLimits
 </span><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits%27"><span class="hs-identifier hs-var">ProtectionGroupArbitraryPatternLimits'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Integer -&gt; ProtectionGroupArbitraryPatternLimits)
 -&gt; Parser Integer -&gt; Parser ProtectionGroupArbitraryPatternLimits
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679202968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxMembers&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679202836"><span id="local-6989586621679202838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679202962"><span id="local-6989586621679202964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679202833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679202959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits.html#ProtectionGroupArbitraryPatternLimits"><span class="hs-identifier hs-type">ProtectionGroupArbitraryPatternLimits</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

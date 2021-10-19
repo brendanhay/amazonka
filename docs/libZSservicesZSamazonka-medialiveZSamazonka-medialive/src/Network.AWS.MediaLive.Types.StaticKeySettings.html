@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Static Key Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStaticKeySettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679915505"><span id="local-6989586621679915506"></span></span><span class="hs-keyword">data</span><span> </span><span id="StaticKeySettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-var">StaticKeySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StaticKeySettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-var">StaticKeySettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679923007"><span id="local-6989586621679923008"></span></span><span class="hs-keyword">data</span><span> </span><span id="StaticKeySettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-var">StaticKeySettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StaticKeySettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-var">StaticKeySettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the license server used for protecting content.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AkeyProviderServer%3AStaticKeySettings%27"><span class="annot"><span class="annottext">StaticKeySettings -&gt; Maybe InputLocation
 </span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#%24sel%3AkeyProviderServer%3AStaticKeySettings%27"><span class="hs-identifier hs-var hs-var">keyProviderServer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputLocation.html#InputLocation"><span class="hs-identifier hs-type">InputLocation</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AstaticKeyValue%3AStaticKeySettings%27"><span class="annot"><span class="annottext">StaticKeySettings -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#%24sel%3AstaticKeyValue%3AStaticKeySettings%27"><span class="hs-identifier hs-var hs-var">staticKeyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915498"><span id="local-6989586621679915500"><span class="annot"><span class="annottext">StaticKeySettings -&gt; StaticKeySettings -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923000"><span id="local-6989586621679923002"><span class="annot"><span class="annottext">StaticKeySettings -&gt; StaticKeySettings -&gt; Bool
 (StaticKeySettings -&gt; StaticKeySettings -&gt; Bool)
 -&gt; (StaticKeySettings -&gt; StaticKeySettings -&gt; Bool)
 -&gt; Eq StaticKeySettings
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StaticKeySettings -&gt; StaticKeySettings -&gt; Bool
 == :: StaticKeySettings -&gt; StaticKeySettings -&gt; Bool
 $c== :: StaticKeySettings -&gt; StaticKeySettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915489"><span id="local-6989586621679915491"><span id="local-6989586621679915493"><span id="local-6989586621679915495"><span class="annot"><span class="annottext">ReadPrec [StaticKeySettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679922991"><span id="local-6989586621679922993"><span id="local-6989586621679922995"><span id="local-6989586621679922997"><span class="annot"><span class="annottext">ReadPrec [StaticKeySettings]
 ReadPrec StaticKeySettings
 Int -&gt; ReadS StaticKeySettings
 ReadS [StaticKeySettings]
@@ -64,7 +64,7 @@ readList :: ReadS [StaticKeySettings]
 $creadList :: ReadS [StaticKeySettings]
 readsPrec :: Int -&gt; ReadS StaticKeySettings
 $creadsPrec :: Int -&gt; ReadS StaticKeySettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915482"><span id="local-6989586621679915484"><span id="local-6989586621679915486"><span class="annot"><span class="annottext">Int -&gt; StaticKeySettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679922984"><span id="local-6989586621679922986"><span id="local-6989586621679922988"><span class="annot"><span class="annottext">Int -&gt; StaticKeySettings -&gt; ShowS
 [StaticKeySettings] -&gt; ShowS
 StaticKeySettings -&gt; String
 (Int -&gt; StaticKeySettings -&gt; ShowS)
@@ -106,8 +106,8 @@ $cfrom :: forall x. StaticKeySettings -&gt; Rep StaticKeySettings x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span><span>
 </span><span id="line-53"></span><span id="newStaticKeySettings"><span class="annot"><span class="annottext">newStaticKeySettings :: Text -&gt; StaticKeySettings
-</span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#newStaticKeySettings"><span class="hs-identifier hs-var hs-var">newStaticKeySettings</span></a></span></span><span> </span><span id="local-6989586621679915476"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679915476"><span class="hs-identifier hs-var">pStaticKeyValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#newStaticKeySettings"><span class="hs-identifier hs-var hs-var">newStaticKeySettings</span></a></span></span><span> </span><span id="local-6989586621679922978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679922978"><span class="hs-identifier hs-var">pStaticKeyValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">StaticKeySettings' :: Maybe InputLocation -&gt; Text -&gt; StaticKeySettings
 </span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyProviderServer:StaticKeySettings' :: Maybe InputLocation
@@ -117,7 +117,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:staticKeyValue:StaticKeySettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#%24sel%3AstaticKeyValue%3AStaticKeySettings%27"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679915476"><span class="hs-identifier hs-var">pStaticKeyValue_</span></a></span><span>
+</span><a href="#local-6989586621679922978"><span class="hs-identifier hs-var">pStaticKeyValue_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The URL of the license server used for protecting content.</span><span>
@@ -132,16 +132,16 @@ forall a. Maybe a
      (Maybe InputLocation)
      (Maybe InputLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915472"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679922974"><span class="annot"><span class="annottext">Maybe InputLocation
 keyProviderServer :: Maybe InputLocation
 $sel:keyProviderServer:StaticKeySettings' :: StaticKeySettings -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679915472"><span class="hs-identifier hs-var hs-var">keyProviderServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679915472"><span class="hs-identifier hs-var">keyProviderServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915471"><span class="annot"><span class="annottext">s :: StaticKeySettings
-</span><a href="#local-6989586621679915471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915470"><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679915470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeySettings
-</span><a href="#local-6989586621679915471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyProviderServer:StaticKeySettings' :: Maybe InputLocation
+</span><a href="#local-6989586621679922974"><span class="hs-identifier hs-var hs-var">keyProviderServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679922974"><span class="hs-identifier hs-var">keyProviderServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679922973"><span class="annot"><span class="annottext">s :: StaticKeySettings
+</span><a href="#local-6989586621679922973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679922972"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679922972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeySettings
+</span><a href="#local-6989586621679922973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyProviderServer:StaticKeySettings' :: Maybe InputLocation
 </span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#%24sel%3AkeyProviderServer%3AStaticKeySettings%27"><span class="hs-identifier hs-var">keyProviderServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679915470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679922972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Static key value as a 32 character hexadecimal string.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#staticKeySettings_staticKeyValue"><span class="hs-identifier hs-type">staticKeySettings_staticKeyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -150,19 +150,19 @@ $sel:keyProviderServer:StaticKeySettings' :: StaticKeySettings -&gt; Maybe Input
 -&gt; (StaticKeySettings -&gt; Text -&gt; StaticKeySettings)
 -&gt; Lens StaticKeySettings StaticKeySettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915468"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679922970"><span class="annot"><span class="annottext">Text
 staticKeyValue :: Text
 $sel:staticKeyValue:StaticKeySettings' :: StaticKeySettings -&gt; Text
-</span><a href="#local-6989586621679915468"><span class="hs-identifier hs-var hs-var">staticKeyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679915468"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915467"><span class="annot"><span class="annottext">s :: StaticKeySettings
-</span><a href="#local-6989586621679915467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915466"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679915466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeySettings
-</span><a href="#local-6989586621679915467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticKeyValue:StaticKeySettings' :: Text
+</span><a href="#local-6989586621679922970"><span class="hs-identifier hs-var hs-var">staticKeyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679922970"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679922969"><span class="annot"><span class="annottext">s :: StaticKeySettings
+</span><a href="#local-6989586621679922969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679922968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679922968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StaticKeySettings
+</span><a href="#local-6989586621679922969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticKeyValue:StaticKeySettings' :: Text
 </span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#%24sel%3AstaticKeyValue%3AStaticKeySettings%27"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679915466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679922968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915463"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679915461"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StaticKeySettings
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679922963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StaticKeySettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StaticKeySettings)
@@ -172,8 +172,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StaticKeySettings&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679915458"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915458"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679922960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679922960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputLocation -&gt; Text -&gt; StaticKeySettings
 </span><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-var">StaticKeySettings'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InputLocation -&gt; Text -&gt; StaticKeySettings)
@@ -181,7 +181,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; StaticKeySettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
+</span><a href="#local-6989586621679922960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyProviderServer&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,25 +189,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser StaticKeySettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915458"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679922960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;staticKeyValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915451"><span id="local-6989586621679915453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922953"><span id="local-6989586621679922955"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915440"><span id="local-6989586621679915442"><span id="local-6989586621679915444"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679915438"><span class="annot"><span class="annottext">toJSON :: StaticKeySettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915435"><span id="local-6989586621679915436"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679922942"><span id="local-6989586621679922944"><span id="local-6989586621679922946"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings"><span class="hs-identifier hs-type">StaticKeySettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679922940"><span class="annot"><span class="annottext">toJSON :: StaticKeySettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StaticKeySettings.html#StaticKeySettings%27"><span class="hs-identifier hs-type">StaticKeySettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679922937"><span id="local-6989586621679922938"><span class="annot"><span class="annottext">Maybe InputLocation
 Text
 staticKeyValue :: Text
 keyProviderServer :: Maybe InputLocation
 $sel:staticKeyValue:StaticKeySettings' :: StaticKeySettings -&gt; Text
 $sel:keyProviderServer:StaticKeySettings' :: StaticKeySettings -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679915435"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679922937"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,7 +220,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(InputLocation -&gt; Pair) -&gt; Maybe InputLocation -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679915436"><span class="hs-identifier hs-var">keyProviderServer</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679922938"><span class="hs-identifier hs-var">keyProviderServer</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -228,7 +228,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;staticKeyValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679915435"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679922937"><span class="hs-identifier hs-var">staticKeyValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

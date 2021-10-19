@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newStopDBInstance' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679773079"><span id="local-6989586621679773080"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstance"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-var">StopDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstance%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-var">StopDBInstance'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679774164"><span id="local-6989586621679774165"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstance"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-var">StopDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstance%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-var">StopDBInstance'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user-supplied instance identifier of the DB Snapshot created</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- immediately before the DB instance is stopped.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AdbSnapshotIdentifier%3AStopDBInstance%27"><span class="annot"><span class="annottext">StopDBInstance -&gt; Maybe Text
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AdbInstanceIdentifier%3AStopDBInstance%27"><span class="annot"><span class="annottext">StopDBInstance -&gt; Text
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStopDBInstance%27"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773072"><span id="local-6989586621679773074"><span class="annot"><span class="annottext">StopDBInstance -&gt; StopDBInstance -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774157"><span id="local-6989586621679774159"><span class="annot"><span class="annottext">StopDBInstance -&gt; StopDBInstance -&gt; Bool
 (StopDBInstance -&gt; StopDBInstance -&gt; Bool)
 -&gt; (StopDBInstance -&gt; StopDBInstance -&gt; Bool) -&gt; Eq StopDBInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopDBInstance -&gt; StopDBInstance -&gt; Bool
 == :: StopDBInstance -&gt; StopDBInstance -&gt; Bool
 $c== :: StopDBInstance -&gt; StopDBInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773063"><span id="local-6989586621679773065"><span id="local-6989586621679773067"><span id="local-6989586621679773069"><span class="annot"><span class="annottext">ReadPrec [StopDBInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774148"><span id="local-6989586621679774150"><span id="local-6989586621679774152"><span id="local-6989586621679774154"><span class="annot"><span class="annottext">ReadPrec [StopDBInstance]
 ReadPrec StopDBInstance
 Int -&gt; ReadS StopDBInstance
 ReadS [StopDBInstance]
@@ -95,7 +95,7 @@ readList :: ReadS [StopDBInstance]
 $creadList :: ReadS [StopDBInstance]
 readsPrec :: Int -&gt; ReadS StopDBInstance
 $creadsPrec :: Int -&gt; ReadS StopDBInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773056"><span id="local-6989586621679773058"><span id="local-6989586621679773060"><span class="annot"><span class="annottext">Int -&gt; StopDBInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774141"><span id="local-6989586621679774143"><span id="local-6989586621679774145"><span class="annot"><span class="annottext">Int -&gt; StopDBInstance -&gt; ShowS
 [StopDBInstance] -&gt; ShowS
 StopDBInstance -&gt; String
 (Int -&gt; StopDBInstance -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. StopDBInstance -&gt; Rep StopDBInstance x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span>
 </span><span id="line-86"></span><span id="newStopDBInstance"><span class="annot"><span class="annottext">newStopDBInstance :: Text -&gt; StopDBInstance
-</span><a href="Network.AWS.RDS.StopDBInstance.html#newStopDBInstance"><span class="hs-identifier hs-var hs-var">newStopDBInstance</span></a></span></span><span> </span><span id="local-6989586621679773051"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773051"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.StopDBInstance.html#newStopDBInstance"><span class="hs-identifier hs-var hs-var">newStopDBInstance</span></a></span></span><span> </span><span id="local-6989586621679774136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774136"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">StopDBInstance' :: Maybe Text -&gt; Text -&gt; StopDBInstance
 </span><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:StopDBInstance' :: Maybe Text
@@ -149,7 +149,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StopDBInstance' :: Text
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStopDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773051"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679774136"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The user-supplied instance identifier of the DB Snapshot created</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
 -&gt; (StopDBInstance -&gt; Maybe Text -&gt; StopDBInstance)
 -&gt; Lens StopDBInstance StopDBInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773048"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774133"><span class="annot"><span class="annottext">Maybe Text
 dbSnapshotIdentifier :: Maybe Text
 $sel:dbSnapshotIdentifier:StopDBInstance' :: StopDBInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679773048"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773048"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773047"><span class="annot"><span class="annottext">s :: StopDBInstance
-</span><a href="#local-6989586621679773047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773046"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstance
-</span><a href="#local-6989586621679773047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:StopDBInstance' :: Maybe Text
+</span><a href="#local-6989586621679774133"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774133"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774132"><span class="annot"><span class="annottext">s :: StopDBInstance
+</span><a href="#local-6989586621679774132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstance
+</span><a href="#local-6989586621679774132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:StopDBInstance' :: Maybe Text
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AdbSnapshotIdentifier%3AStopDBInstance%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The user-supplied instance identifier.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#stopDBInstance_dbInstanceIdentifier"><span class="hs-identifier hs-type">stopDBInstance_dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,27 +179,27 @@ $sel:dbSnapshotIdentifier:StopDBInstance' :: StopDBInstance -&gt; Maybe Text
 -&gt; (StopDBInstance -&gt; Text -&gt; StopDBInstance)
 -&gt; Lens StopDBInstance StopDBInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773045"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774130"><span class="annot"><span class="annottext">Text
 dbInstanceIdentifier :: Text
 $sel:dbInstanceIdentifier:StopDBInstance' :: StopDBInstance -&gt; Text
-</span><a href="#local-6989586621679773045"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773045"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773044"><span class="annot"><span class="annottext">s :: StopDBInstance
-</span><a href="#local-6989586621679773044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773043"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstance
-</span><a href="#local-6989586621679773044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StopDBInstance' :: Text
+</span><a href="#local-6989586621679774130"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774130"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774129"><span class="annot"><span class="annottext">s :: StopDBInstance
+</span><a href="#local-6989586621679774129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstance
+</span><a href="#local-6989586621679774129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StopDBInstance' :: Text
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStopDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679773039"><span class="annot"><span class="annottext">request :: StopDBInstance -&gt; Request StopDBInstance
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679774124"><span class="annot"><span class="annottext">request :: StopDBInstance -&gt; Request StopDBInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopDBInstance -&gt; Request StopDBInstance
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679773035"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679774120"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopDBInstance
 -&gt; ClientResponse ClientBody
@@ -228,10 +228,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StopDBInstanceResult&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679773032"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773032"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679773031"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679773031"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679773030"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774117"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679774116"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679774116"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679774115"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679774115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBInstance -&gt; Int -&gt; StopDBInstanceResponse
 </span><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-var">StopDBInstanceResponse'</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBInstance -&gt; Int -&gt; StopDBInstanceResponse)
@@ -239,7 +239,7 @@ Text
 -&gt; Either String (Int -&gt; StopDBInstanceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstance)
+</span><a href="#local-6989586621679774115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstance)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBInstance&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,15 +251,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773032"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774117"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773022"><span id="local-6989586621679773024"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774107"><span id="local-6989586621679774109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679773015"><span class="annot"><span class="annottext">toHeaders :: StopDBInstance -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679774100"><span class="annot"><span class="annottext">toHeaders :: StopDBInstance -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopDBInstance -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -267,21 +267,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679773010"><span class="annot"><span class="annottext">toPath :: StopDBInstance -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679774095"><span class="annot"><span class="annottext">toPath :: StopDBInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopDBInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance"><span class="hs-identifier hs-type">StopDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679773006"><span class="annot"><span class="annottext">toQuery :: StopDBInstance -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773003"><span id="local-6989586621679773004"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679774091"><span class="annot"><span class="annottext">toQuery :: StopDBInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstance%27"><span class="hs-identifier hs-type">StopDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774088"><span id="local-6989586621679774089"><span class="annot"><span class="annottext">Maybe Text
 Text
 dbInstanceIdentifier :: Text
 dbSnapshotIdentifier :: Maybe Text
 $sel:dbInstanceIdentifier:StopDBInstance' :: StopDBInstance -&gt; Text
 $sel:dbSnapshotIdentifier:StopDBInstance' :: StopDBInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679773003"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679774088"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -301,23 +301,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DBSnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773004"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774089"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773003"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679774088"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newStopDBInstanceResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679773000"><span id="local-6989586621679773001"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstanceResponse"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-var">StopDBInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstanceResponse%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-var">StopDBInstanceResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679774085"><span id="local-6989586621679774086"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDBInstanceResponse"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-var">StopDBInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDBInstanceResponse%27"><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-var">StopDBInstanceResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbInstance%3AStopDBInstanceResponse%27"><span class="annot"><span class="annottext">StopDBInstanceResponse -&gt; Maybe DBInstance
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AdbInstance%3AStopDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstance.html#DBInstance"><span class="hs-identifier hs-type">DBInstance</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopDBInstanceResponse%27"><span class="annot"><span class="annottext">StopDBInstanceResponse -&gt; Int
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AhttpStatus%3AStopDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679772994"><span id="local-6989586621679772996"><span class="annot"><span class="annottext">StopDBInstanceResponse -&gt; StopDBInstanceResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774079"><span id="local-6989586621679774081"><span class="annot"><span class="annottext">StopDBInstanceResponse -&gt; StopDBInstanceResponse -&gt; Bool
 (StopDBInstanceResponse -&gt; StopDBInstanceResponse -&gt; Bool)
 -&gt; (StopDBInstanceResponse -&gt; StopDBInstanceResponse -&gt; Bool)
 -&gt; Eq StopDBInstanceResponse
@@ -326,7 +326,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopDBInstanceResponse -&gt; StopDBInstanceResponse -&gt; Bool
 == :: StopDBInstanceResponse -&gt; StopDBInstanceResponse -&gt; Bool
 $c== :: StopDBInstanceResponse -&gt; StopDBInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679772986"><span id="local-6989586621679772988"><span id="local-6989586621679772990"><span id="local-6989586621679772992"><span class="annot"><span class="annottext">ReadPrec [StopDBInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774071"><span id="local-6989586621679774073"><span id="local-6989586621679774075"><span id="local-6989586621679774077"><span class="annot"><span class="annottext">ReadPrec [StopDBInstanceResponse]
 ReadPrec StopDBInstanceResponse
 Int -&gt; ReadS StopDBInstanceResponse
 ReadS [StopDBInstanceResponse]
@@ -346,7 +346,7 @@ readList :: ReadS [StopDBInstanceResponse]
 $creadList :: ReadS [StopDBInstanceResponse]
 readsPrec :: Int -&gt; ReadS StopDBInstanceResponse
 $creadsPrec :: Int -&gt; ReadS StopDBInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679772980"><span id="local-6989586621679772982"><span id="local-6989586621679772984"><span class="annot"><span class="annottext">Int -&gt; StopDBInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774065"><span id="local-6989586621679774067"><span id="local-6989586621679774069"><span class="annot"><span class="annottext">Int -&gt; StopDBInstanceResponse -&gt; ShowS
 [StopDBInstanceResponse] -&gt; ShowS
 StopDBInstanceResponse -&gt; String
 (Int -&gt; StopDBInstanceResponse -&gt; ShowS)
@@ -389,8 +389,8 @@ $cfrom :: forall x. StopDBInstanceResponse -&gt; Rep StopDBInstanceResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newStopDBInstanceResponse"><span class="annot"><span class="annottext">newStopDBInstanceResponse :: Int -&gt; StopDBInstanceResponse
-</span><a href="Network.AWS.RDS.StopDBInstance.html#newStopDBInstanceResponse"><span class="hs-identifier hs-var hs-var">newStopDBInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679772977"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679772977"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.StopDBInstance.html#newStopDBInstanceResponse"><span class="hs-identifier hs-var hs-var">newStopDBInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679774062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774062"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">StopDBInstanceResponse' :: Maybe DBInstance -&gt; Int -&gt; StopDBInstanceResponse
 </span><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstance:StopDBInstanceResponse' :: Maybe DBInstance
@@ -400,7 +400,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopDBInstanceResponse' :: Int
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AhttpStatus%3AStopDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679772977"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679774062"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -416,16 +416,16 @@ forall a. Maybe a
      (Maybe DBInstance)
      (Maybe DBInstance)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679772976"><span class="annot"><span class="annottext">Maybe DBInstance
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774061"><span class="annot"><span class="annottext">Maybe DBInstance
 dbInstance :: Maybe DBInstance
 $sel:dbInstance:StopDBInstanceResponse' :: StopDBInstanceResponse -&gt; Maybe DBInstance
-</span><a href="#local-6989586621679772976"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679772976"><span class="hs-identifier hs-var">dbInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679772975"><span class="annot"><span class="annottext">s :: StopDBInstanceResponse
-</span><a href="#local-6989586621679772975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679772974"><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679772974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceResponse
-</span><a href="#local-6989586621679772975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstance:StopDBInstanceResponse' :: Maybe DBInstance
+</span><a href="#local-6989586621679774061"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679774061"><span class="hs-identifier hs-var">dbInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774060"><span class="annot"><span class="annottext">s :: StopDBInstanceResponse
+</span><a href="#local-6989586621679774060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774059"><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679774059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceResponse
+</span><a href="#local-6989586621679774060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstance:StopDBInstanceResponse' :: Maybe DBInstance
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AdbInstance%3AStopDBInstanceResponse%27"><span class="hs-identifier hs-var">dbInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679772974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#stopDBInstanceResponse_httpStatus"><span class="hs-identifier hs-type">stopDBInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -435,16 +435,16 @@ $sel:dbInstance:StopDBInstanceResponse' :: StopDBInstanceResponse -&gt; Maybe DB
 -&gt; (StopDBInstanceResponse -&gt; Int -&gt; StopDBInstanceResponse)
 -&gt; Lens StopDBInstanceResponse StopDBInstanceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679772973"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774058"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopDBInstanceResponse' :: StopDBInstanceResponse -&gt; Int
-</span><a href="#local-6989586621679772973"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679772973"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679772972"><span class="annot"><span class="annottext">s :: StopDBInstanceResponse
-</span><a href="#local-6989586621679772972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679772971"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679772971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceResponse
-</span><a href="#local-6989586621679772972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDBInstanceResponse' :: Int
+</span><a href="#local-6989586621679774058"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774058"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774057"><span class="annot"><span class="annottext">s :: StopDBInstanceResponse
+</span><a href="#local-6989586621679774057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse%27"><span class="hs-identifier hs-type">StopDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774056"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDBInstanceResponse
+</span><a href="#local-6989586621679774057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDBInstanceResponse' :: Int
 </span><a href="Network.AWS.RDS.StopDBInstance.html#%24sel%3AhttpStatus%3AStopDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679772971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679772969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopDBInstance.html#StopDBInstanceResponse"><span class="hs-identifier hs-type">StopDBInstanceResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

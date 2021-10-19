@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#newListConfigurationSetsResponse"><span class="hs-identifier">newListConfigurationSetsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_nextToken"><span class="hs-identifier">listConfigurationSetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_configurationSets"><span class="hs-identifier">listConfigurationSetsResponse_configurationSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_configurationSets"><span class="hs-identifier">listConfigurationSetsResponse_configurationSets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_nextToken"><span class="hs-identifier">listConfigurationSetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_httpStatus"><span class="hs-identifier">listConfigurationSetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,10 +56,10 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.html"><span class="hs-identifier">Network.AWS.SESv2.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | A request to obtain a list of configuration sets for your Amazon SES</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- account in the current AWS Region.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- account in the current Amazon Web Services Region.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newListConfigurationSets' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679341740"><span id="local-6989586621679341741"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationSets"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-var">ListConfigurationSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationSets%27"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-var">ListConfigurationSets'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679344300"><span id="local-6989586621679344301"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationSets"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-var">ListConfigurationSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationSets%27"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-var">ListConfigurationSets'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token returned from a previous call to @ListConfigurationSets@ to</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- indicate the position in the list of configuration sets.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigurationSets%27"><span class="annot"><span class="annottext">ListConfigurationSets -&gt; Maybe Text
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3ApageSize%3AListConfigurationSets%27"><span class="annot"><span class="annottext">ListConfigurationSets -&gt; Maybe Int
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3ApageSize%3AListConfigurationSets%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341733"><span id="local-6989586621679341735"><span class="annot"><span class="annottext">ListConfigurationSets -&gt; ListConfigurationSets -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344293"><span id="local-6989586621679344295"><span class="annot"><span class="annottext">ListConfigurationSets -&gt; ListConfigurationSets -&gt; Bool
 (ListConfigurationSets -&gt; ListConfigurationSets -&gt; Bool)
 -&gt; (ListConfigurationSets -&gt; ListConfigurationSets -&gt; Bool)
 -&gt; Eq ListConfigurationSets
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListConfigurationSets -&gt; ListConfigurationSets -&gt; Bool
 == :: ListConfigurationSets -&gt; ListConfigurationSets -&gt; Bool
 $c== :: ListConfigurationSets -&gt; ListConfigurationSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341724"><span id="local-6989586621679341726"><span id="local-6989586621679341728"><span id="local-6989586621679341730"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344284"><span id="local-6989586621679344286"><span id="local-6989586621679344288"><span id="local-6989586621679344290"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationSets]
 ReadPrec ListConfigurationSets
 Int -&gt; ReadS ListConfigurationSets
 ReadS [ListConfigurationSets]
@@ -100,7 +100,7 @@ readList :: ReadS [ListConfigurationSets]
 $creadList :: ReadS [ListConfigurationSets]
 readsPrec :: Int -&gt; ReadS ListConfigurationSets
 $creadsPrec :: Int -&gt; ReadS ListConfigurationSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341717"><span id="local-6989586621679341719"><span id="local-6989586621679341721"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344277"><span id="local-6989586621679344279"><span id="local-6989586621679344281"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationSets -&gt; ShowS
 [ListConfigurationSets] -&gt; ShowS
 ListConfigurationSets -&gt; String
 (Int -&gt; ListConfigurationSets -&gt; ShowS)
@@ -170,16 +170,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341710"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344270"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListConfigurationSets' :: ListConfigurationSets -&gt; Maybe Text
-</span><a href="#local-6989586621679341710"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341710"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341709"><span class="annot"><span class="annottext">s :: ListConfigurationSets
-</span><a href="#local-6989586621679341709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341708"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSets
-</span><a href="#local-6989586621679341709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationSets' :: Maybe Text
+</span><a href="#local-6989586621679344270"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344270"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344269"><span class="annot"><span class="annottext">s :: ListConfigurationSets
+</span><a href="#local-6989586621679344269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344268"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSets
+</span><a href="#local-6989586621679344269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationSets' :: Maybe Text
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AnextToken%3AListConfigurationSets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- @ListConfigurationSets@. If the number of results is larger than the</span><span>
@@ -193,27 +193,27 @@ $sel:nextToken:ListConfigurationSets' :: ListConfigurationSets -&gt; Maybe Text
 -&gt; Lens
      ListConfigurationSets ListConfigurationSets (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341707"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344267"><span class="annot"><span class="annottext">Maybe Int
 pageSize :: Maybe Int
 $sel:pageSize:ListConfigurationSets' :: ListConfigurationSets -&gt; Maybe Int
-</span><a href="#local-6989586621679341707"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341707"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341706"><span class="annot"><span class="annottext">s :: ListConfigurationSets
-</span><a href="#local-6989586621679341706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341705"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSets
-</span><a href="#local-6989586621679341706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListConfigurationSets' :: Maybe Int
+</span><a href="#local-6989586621679344267"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344267"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344266"><span class="annot"><span class="annottext">s :: ListConfigurationSets
+</span><a href="#local-6989586621679344266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344265"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679344265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSets
+</span><a href="#local-6989586621679344266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListConfigurationSets' :: Maybe Int
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3ApageSize%3AListConfigurationSets%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679341701"><span class="annot"><span class="annottext">request :: ListConfigurationSets -&gt; Request ListConfigurationSets
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679344261"><span class="annot"><span class="annottext">request :: ListConfigurationSets -&gt; Request ListConfigurationSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListConfigurationSets -&gt; Request ListConfigurationSets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679341697"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679344257"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListConfigurationSets
 -&gt; ClientResponse ClientBody
@@ -239,40 +239,39 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341694"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341694"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341693"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679341693"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341692"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341692"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListConfigurationSetsResponse
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344254"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344254"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344253"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679344253"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344252"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListConfigurationSetsResponse
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">ListConfigurationSetsResponse'</span></a></span><span>
-</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Text] -&gt; Int -&gt; ListConfigurationSetsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [Text] -&gt; Int -&gt; ListConfigurationSetsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [Text] -&gt; Int -&gt; ListConfigurationSetsResponse)
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Text -&gt; Int -&gt; ListConfigurationSetsResponse)
 -&gt; Either String (Maybe [Text])
--&gt; Either String (Int -&gt; ListConfigurationSetsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListConfigurationSetsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigurationSets&quot;</span></span><span>
-</span><span id="line-120"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+</span><span id="line-119"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-121"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListConfigurationSetsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListConfigurationSetsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListConfigurationSetsResponse)
 -&gt; Either String Int -&gt; Either String ListConfigurationSetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -281,15 +280,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341694"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344254"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341683"><span id="local-6989586621679341685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344243"><span id="local-6989586621679344245"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679341676"><span class="annot"><span class="annottext">toHeaders :: ListConfigurationSets -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679344236"><span class="annot"><span class="annottext">toHeaders :: ListConfigurationSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListConfigurationSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -309,21 +308,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679341670"><span class="annot"><span class="annottext">toPath :: ListConfigurationSets -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679344230"><span class="annot"><span class="annottext">toPath :: ListConfigurationSets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListConfigurationSets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v2/email/configuration-sets&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets"><span class="hs-identifier hs-type">ListConfigurationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679341666"><span class="annot"><span class="annottext">toQuery :: ListConfigurationSets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341663"><span id="local-6989586621679341664"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679344226"><span class="annot"><span class="annottext">toQuery :: ListConfigurationSets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSets%27"><span class="hs-identifier hs-type">ListConfigurationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344223"><span id="local-6989586621679344224"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 pageSize :: Maybe Int
 nextToken :: Maybe Text
 $sel:pageSize:ListConfigurationSets' :: ListConfigurationSets -&gt; Maybe Int
 $sel:nextToken:ListConfigurationSets' :: ListConfigurationSets -&gt; Maybe Text
-</span><a href="#local-6989586621679341663"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679344223"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -331,34 +330,34 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341664"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344224"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341663"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><a href="#local-6989586621679344223"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | A list of configuration sets in your Amazon SES account in the current</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- AWS Region.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Amazon Web Services Region.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- /See:/ 'newListConfigurationSetsResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679341660"><span id="local-6989586621679341661"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationSetsResponse"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-var">ListConfigurationSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationSetsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">ListConfigurationSetsResponse'</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that indicates that there are additional configuration sets to</span><span>
-</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- list. To view additional configuration sets, issue another request to</span><span>
-</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- @ListConfigurationSets@, and pass this token in the @NextToken@</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
-</span><span id="line-159"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="annot"><span class="annottext">ListConfigurationSetsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | An array that contains all of the configuration sets in your Amazon SES</span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- account in the current AWS Region.</span><span>
-</span><span id="line-162"></span><span>    </span><span id="%24sel%3AconfigurationSets%3AListConfigurationSetsResponse%27"><span class="annot"><span class="annottext">ListConfigurationSetsResponse -&gt; Maybe [Text]
+</span><span id="line-154"></span><span id="local-6989586621679344220"><span id="local-6989586621679344221"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationSetsResponse"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-var">ListConfigurationSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationSetsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">ListConfigurationSetsResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array that contains all of the configuration sets in your Amazon SES</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- account in the current Amazon Web Services Region.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AconfigurationSets%3AListConfigurationSetsResponse%27"><span class="annot"><span class="annottext">ListConfigurationSetsResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AconfigurationSets%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var hs-var">configurationSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | A token that indicates that there are additional configuration sets to</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- list. To view additional configuration sets, issue another request to</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- @ListConfigurationSets@, and pass this token in the @NextToken@</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="annot"><span class="annottext">ListConfigurationSetsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConfigurationSetsResponse%27"><span class="annot"><span class="annottext">ListConfigurationSetsResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AhttpStatus%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341653"><span id="local-6989586621679341655"><span class="annot"><span class="annottext">ListConfigurationSetsResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344213"><span id="local-6989586621679344215"><span class="annot"><span class="annottext">ListConfigurationSetsResponse
 -&gt; ListConfigurationSetsResponse -&gt; Bool
 (ListConfigurationSetsResponse
  -&gt; ListConfigurationSetsResponse -&gt; Bool)
@@ -374,7 +373,7 @@ $c/= :: ListConfigurationSetsResponse
 -&gt; ListConfigurationSetsResponse -&gt; Bool
 $c== :: ListConfigurationSetsResponse
 -&gt; ListConfigurationSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341645"><span id="local-6989586621679341647"><span id="local-6989586621679341649"><span id="local-6989586621679341651"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344205"><span id="local-6989586621679344207"><span id="local-6989586621679344209"><span id="local-6989586621679344211"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationSetsResponse]
 ReadPrec ListConfigurationSetsResponse
 Int -&gt; ReadS ListConfigurationSetsResponse
 ReadS [ListConfigurationSetsResponse]
@@ -394,7 +393,7 @@ readList :: ReadS [ListConfigurationSetsResponse]
 $creadList :: ReadS [ListConfigurationSetsResponse]
 readsPrec :: Int -&gt; ReadS ListConfigurationSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListConfigurationSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341639"><span id="local-6989586621679341641"><span id="local-6989586621679341643"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344199"><span id="local-6989586621679344201"><span id="local-6989586621679344203"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationSetsResponse -&gt; ShowS
 [ListConfigurationSetsResponse] -&gt; ShowS
 ListConfigurationSetsResponse -&gt; String
 (Int -&gt; ListConfigurationSetsResponse -&gt; ShowS)
@@ -440,13 +439,13 @@ ListConfigurationSetsResponse
 </span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'nextToken', 'listConfigurationSetsResponse_nextToken' - A token that indicates that there are additional configuration sets to</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- list. To view additional configuration sets, issue another request to</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- @ListConfigurationSets@, and pass this token in the @NextToken@</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- parameter.</span><span>
-</span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- 'configurationSets', 'listConfigurationSetsResponse_configurationSets' - An array that contains all of the configuration sets in your Amazon SES</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- account in the current AWS Region.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'configurationSets', 'listConfigurationSetsResponse_configurationSets' - An array that contains all of the configuration sets in your Amazon SES</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- account in the current Amazon Web Services Region.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'nextToken', 'listConfigurationSetsResponse_nextToken' - A token that indicates that there are additional configuration sets to</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- list. To view additional configuration sets, issue another request to</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- @ListConfigurationSets@, and pass this token in the @NextToken@</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- parameter.</span><span>
 </span><span id="line-183"></span><span class="hs-comment">--</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'listConfigurationSetsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#newListConfigurationSetsResponse"><span class="hs-identifier hs-type">newListConfigurationSetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -454,55 +453,28 @@ ListConfigurationSetsResponse
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span>
 </span><span id="line-189"></span><span id="newListConfigurationSetsResponse"><span class="annot"><span class="annottext">newListConfigurationSetsResponse :: Int -&gt; ListConfigurationSetsResponse
-</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#newListConfigurationSetsResponse"><span class="hs-identifier hs-var hs-var">newListConfigurationSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679341636"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListConfigurationSetsResponse
+</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#newListConfigurationSetsResponse"><span class="hs-identifier hs-var hs-var">newListConfigurationSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679344196"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344196"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListConfigurationSetsResponse
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationSetsResponse' :: Maybe Text
-</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationSets:ListConfigurationSetsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AconfigurationSets%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">configurationSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationSets:ListConfigurationSetsResponse' :: Maybe [Text]
-</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AconfigurationSets%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">configurationSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationSetsResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AhttpStatus%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341636"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679344196"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | A token that indicates that there are additional configuration sets to</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- list. To view additional configuration sets, issue another request to</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- @ListConfigurationSets@, and pass this token in the @NextToken@</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- parameter.</span><span>
-</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_nextToken"><span class="hs-identifier hs-type">listConfigurationSetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span id="listConfigurationSetsResponse_nextToken"><span class="annot"><span class="annottext">listConfigurationSetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListConfigurationSetsResponse -&gt; f ListConfigurationSetsResponse
-</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listConfigurationSetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationSetsResponse -&gt; Maybe Text)
--&gt; (ListConfigurationSetsResponse
-    -&gt; Maybe Text -&gt; ListConfigurationSetsResponse)
--&gt; Lens
-     ListConfigurationSetsResponse
-     ListConfigurationSetsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341635"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListConfigurationSetsResponse' :: ListConfigurationSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679341635"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341635"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341634"><span class="annot"><span class="annottext">s :: ListConfigurationSetsResponse
-</span><a href="#local-6989586621679341634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse
-</span><a href="#local-6989586621679341634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationSetsResponse' :: Maybe Text
-</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | An array that contains all of the configuration sets in your Amazon SES</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- account in the current AWS Region.</span><span>
-</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_configurationSets"><span class="hs-identifier hs-type">listConfigurationSetsResponse_configurationSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span id="listConfigurationSetsResponse_configurationSets"><span class="annot"><span class="annottext">listConfigurationSetsResponse_configurationSets :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-197"></span><span class="hs-comment">-- | An array that contains all of the configuration sets in your Amazon SES</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- account in the current Amazon Web Services Region.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_configurationSets"><span class="hs-identifier hs-type">listConfigurationSetsResponse_configurationSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="listConfigurationSetsResponse_configurationSets"><span class="annot"><span class="annottext">listConfigurationSetsResponse_configurationSets :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ListConfigurationSetsResponse -&gt; f ListConfigurationSetsResponse
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_configurationSets"><span class="hs-identifier hs-var hs-var">listConfigurationSetsResponse_configurationSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationSetsResponse -&gt; Maybe [Text])
 -&gt; (ListConfigurationSetsResponse
@@ -513,16 +485,16 @@ $sel:nextToken:ListConfigurationSetsResponse' :: ListConfigurationSetsResponse -
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341632"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344195"><span class="annot"><span class="annottext">Maybe [Text]
 configurationSets :: Maybe [Text]
 $sel:configurationSets:ListConfigurationSetsResponse' :: ListConfigurationSetsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679341632"><span class="hs-identifier hs-var hs-var">configurationSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341632"><span class="hs-identifier hs-var">configurationSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341631"><span class="annot"><span class="annottext">s :: ListConfigurationSetsResponse
-</span><a href="#local-6989586621679341631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341630"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse
-</span><a href="#local-6989586621679341631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSets:ListConfigurationSetsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679344195"><span class="hs-identifier hs-var hs-var">configurationSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679344195"><span class="hs-identifier hs-var">configurationSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344194"><span class="annot"><span class="annottext">s :: ListConfigurationSetsResponse
+</span><a href="#local-6989586621679344194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344193"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679344193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse
+</span><a href="#local-6989586621679344194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSets:ListConfigurationSetsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AconfigurationSets%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">configurationSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679344193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListConfigurationSetsResponse
  -&gt; f ListConfigurationSetsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -537,8 +509,35 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | A token that indicates that there are additional configuration sets to</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- list. To view additional configuration sets, issue another request to</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- @ListConfigurationSets@, and pass this token in the @NextToken@</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_nextToken"><span class="hs-identifier hs-type">listConfigurationSetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listConfigurationSetsResponse_nextToken"><span class="annot"><span class="annottext">listConfigurationSetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConfigurationSetsResponse -&gt; f ListConfigurationSetsResponse
+</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listConfigurationSetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationSetsResponse -&gt; Maybe Text)
+-&gt; (ListConfigurationSetsResponse
+    -&gt; Maybe Text -&gt; ListConfigurationSetsResponse)
+-&gt; Lens
+     ListConfigurationSetsResponse
+     ListConfigurationSetsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344189"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConfigurationSetsResponse' :: ListConfigurationSetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679344189"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344189"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344188"><span class="annot"><span class="annottext">s :: ListConfigurationSetsResponse
+</span><a href="#local-6989586621679344188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse
+</span><a href="#local-6989586621679344188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationSetsResponse' :: Maybe Text
+</span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AnextToken%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679344187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#listConfigurationSetsResponse_httpStatus"><span class="hs-identifier hs-type">listConfigurationSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -550,16 +549,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListConfigurationSetsResponse ListConfigurationSetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341626"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344186"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListConfigurationSetsResponse' :: ListConfigurationSetsResponse -&gt; Int
-</span><a href="#local-6989586621679341626"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341626"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341625"><span class="annot"><span class="annottext">s :: ListConfigurationSetsResponse
-</span><a href="#local-6989586621679341625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341624"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse
-</span><a href="#local-6989586621679341625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationSetsResponse' :: Int
+</span><a href="#local-6989586621679344186"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344186"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344185"><span class="annot"><span class="annottext">s :: ListConfigurationSetsResponse
+</span><a href="#local-6989586621679344185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse%27"><span class="hs-identifier hs-type">ListConfigurationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344184"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationSetsResponse
+</span><a href="#local-6989586621679344185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationSetsResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListConfigurationSets.html#%24sel%3AhttpStatus%3AListConfigurationSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListConfigurationSets.html#ListConfigurationSetsResponse"><span class="hs-identifier hs-type">ListConfigurationSetsResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

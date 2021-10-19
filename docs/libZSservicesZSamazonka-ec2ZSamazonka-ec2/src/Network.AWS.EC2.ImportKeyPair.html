@@ -48,9 +48,9 @@
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyFingerprint"><span class="hs-identifier">importKeyPairResponse_keyFingerprint</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyPairId"><span class="hs-identifier">importKeyPairResponse_keyPairId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_tags"><span class="hs-identifier">importKeyPairResponse_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyName"><span class="hs-identifier">importKeyPairResponse_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyName"><span class="hs-identifier">importKeyPairResponse_keyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyPairId"><span class="hs-identifier">importKeyPairResponse_keyPairId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_tags"><span class="hs-identifier">importKeyPairResponse_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_httpStatus"><span class="hs-identifier">importKeyPairResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span class="hs-keyword">where</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newImportKeyPair' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621681188379"><span id="local-6989586621681188380"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyPair"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-var">ImportKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyPair%27"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-var">ImportKeyPair'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621681224013"><span id="local-6989586621681224014"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyPair"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-var">ImportKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyPair%27"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-var">ImportKeyPair'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to apply to the imported key pair.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AtagSpecifications%3AImportKeyPair%27"><span class="annot"><span class="annottext">ImportKeyPair -&gt; Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AtagSpecifications%3AImportKeyPair%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3ApublicKeyMaterial%3AImportKeyPair%27"><span class="annot"><span class="annottext">ImportKeyPair -&gt; Base64
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3ApublicKeyMaterial%3AImportKeyPair%27"><span class="hs-identifier hs-var hs-var">publicKeyMaterial</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681188370"><span id="local-6989586621681188372"><span class="annot"><span class="annottext">ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681224004"><span id="local-6989586621681224006"><span class="annot"><span class="annottext">ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
 (ImportKeyPair -&gt; ImportKeyPair -&gt; Bool)
 -&gt; (ImportKeyPair -&gt; ImportKeyPair -&gt; Bool) -&gt; Eq ImportKeyPair
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
 == :: ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
 $c== :: ImportKeyPair -&gt; ImportKeyPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681188361"><span id="local-6989586621681188363"><span id="local-6989586621681188365"><span id="local-6989586621681188367"><span class="annot"><span class="annottext">ReadPrec [ImportKeyPair]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223995"><span id="local-6989586621681223997"><span id="local-6989586621681223999"><span id="local-6989586621681224001"><span class="annot"><span class="annottext">ReadPrec [ImportKeyPair]
 ReadPrec ImportKeyPair
 Int -&gt; ReadS ImportKeyPair
 ReadS [ImportKeyPair]
@@ -109,7 +109,7 @@ readList :: ReadS [ImportKeyPair]
 $creadList :: ReadS [ImportKeyPair]
 readsPrec :: Int -&gt; ReadS ImportKeyPair
 $creadsPrec :: Int -&gt; ReadS ImportKeyPair
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681188354"><span id="local-6989586621681188356"><span id="local-6989586621681188358"><span class="annot"><span class="annottext">Int -&gt; ImportKeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223988"><span id="local-6989586621681223990"><span id="local-6989586621681223992"><span class="annot"><span class="annottext">Int -&gt; ImportKeyPair -&gt; ShowS
 [ImportKeyPair] -&gt; ShowS
 ImportKeyPair -&gt; String
 (Int -&gt; ImportKeyPair -&gt; ShowS)
@@ -165,9 +165,9 @@ $cfrom :: forall x. ImportKeyPair -&gt; Rep ImportKeyPair x
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span>
 </span><span id="line-111"></span><span id="newImportKeyPair"><span class="annot"><span class="annottext">newImportKeyPair :: Text -&gt; ByteString -&gt; ImportKeyPair
-</span><a href="Network.AWS.EC2.ImportKeyPair.html#newImportKeyPair"><span class="hs-identifier hs-var hs-var">newImportKeyPair</span></a></span></span><span> </span><span id="local-6989586621681188349"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681188349"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span> </span><span id="local-6989586621681188348"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621681188348"><span class="hs-identifier hs-var">pPublicKeyMaterial_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ImportKeyPair.html#newImportKeyPair"><span class="hs-identifier hs-var hs-var">newImportKeyPair</span></a></span></span><span> </span><span id="local-6989586621681223983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681223983"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span> </span><span id="local-6989586621681223982"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681223982"><span class="hs-identifier hs-var">pPublicKeyMaterial_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">ImportKeyPair' :: Maybe [TagSpecification]
 -&gt; Maybe Bool -&gt; Text -&gt; Base64 -&gt; ImportKeyPair
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span>
@@ -181,7 +181,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:ImportKeyPair' :: Text
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyName%3AImportKeyPair%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681188349"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223983"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicKeyMaterial:ImportKeyPair' :: Base64
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3ApublicKeyMaterial%3AImportKeyPair%27"><span class="hs-identifier hs-var">publicKeyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
@@ -192,7 +192,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621681188348"><span class="hs-identifier hs-var">pPublicKeyMaterial_</span></a></span><span>
+</span><a href="#local-6989586621681223982"><span class="hs-identifier hs-var">pPublicKeyMaterial_</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The tags to apply to the imported key pair.</span><span>
@@ -207,16 +207,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188343"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223977"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:ImportKeyPair' :: ImportKeyPair -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681188343"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681188343"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188342"><span class="annot"><span class="annottext">s :: ImportKeyPair
-</span><a href="#local-6989586621681188342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188341"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681188341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
-</span><a href="#local-6989586621681188342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:ImportKeyPair' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681223977"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681223977"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223976"><span class="annot"><span class="annottext">s :: ImportKeyPair
+</span><a href="#local-6989586621681223976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223975"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681223975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
+</span><a href="#local-6989586621681223976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:ImportKeyPair' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AtagSpecifications%3AImportKeyPair%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681188341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681223975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; ImportKeyPair -&gt; f ImportKeyPair)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -242,8 +242,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TagSpecification]
   [TagSpecification]
   [TagSpecification]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -255,16 +255,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ImportKeyPair -&gt; Maybe Bool -&gt; ImportKeyPair)
 -&gt; Lens ImportKeyPair ImportKeyPair (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188337"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223971"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:ImportKeyPair' :: ImportKeyPair -&gt; Maybe Bool
-</span><a href="#local-6989586621681188337"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681188337"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188336"><span class="annot"><span class="annottext">s :: ImportKeyPair
-</span><a href="#local-6989586621681188336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188335"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681188335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
-</span><a href="#local-6989586621681188336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ImportKeyPair' :: Maybe Bool
+</span><a href="#local-6989586621681223971"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223971"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223970"><span class="annot"><span class="annottext">s :: ImportKeyPair
+</span><a href="#local-6989586621681223970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223969"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681223969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
+</span><a href="#local-6989586621681223970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ImportKeyPair' :: Maybe Bool
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AdryRun%3AImportKeyPair%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681188335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | A unique name for the key pair.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPair_keyName"><span class="hs-identifier hs-type">importKeyPair_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -273,16 +273,16 @@ $sel:dryRun:ImportKeyPair' :: ImportKeyPair -&gt; Maybe Bool
 -&gt; (ImportKeyPair -&gt; Text -&gt; ImportKeyPair)
 -&gt; Lens ImportKeyPair ImportKeyPair Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188334"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223968"><span class="annot"><span class="annottext">Text
 keyName :: Text
 $sel:keyName:ImportKeyPair' :: ImportKeyPair -&gt; Text
-</span><a href="#local-6989586621681188334"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681188334"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188333"><span class="annot"><span class="annottext">s :: ImportKeyPair
-</span><a href="#local-6989586621681188333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188332"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681188332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
-</span><a href="#local-6989586621681188333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:ImportKeyPair' :: Text
+</span><a href="#local-6989586621681223968"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681223968"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223967"><span class="annot"><span class="annottext">s :: ImportKeyPair
+</span><a href="#local-6989586621681223967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681223966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
+</span><a href="#local-6989586621681223967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:ImportKeyPair' :: Text
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyName%3AImportKeyPair%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681188332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The public key. For API calls, the text must be base64-encoded. For</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- command line tools, base64 encoding is performed for you.--</span><span>
@@ -296,16 +296,16 @@ $sel:keyName:ImportKeyPair' :: ImportKeyPair -&gt; Text
 -&gt; (ImportKeyPair -&gt; Base64 -&gt; ImportKeyPair)
 -&gt; Lens ImportKeyPair ImportKeyPair Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188331"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223965"><span class="annot"><span class="annottext">Base64
 publicKeyMaterial :: Base64
 $sel:publicKeyMaterial:ImportKeyPair' :: ImportKeyPair -&gt; Base64
-</span><a href="#local-6989586621681188331"><span class="hs-identifier hs-var hs-var">publicKeyMaterial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621681188331"><span class="hs-identifier hs-var">publicKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188330"><span class="annot"><span class="annottext">s :: ImportKeyPair
-</span><a href="#local-6989586621681188330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188329"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621681188329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
-</span><a href="#local-6989586621681188330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyMaterial:ImportKeyPair' :: Base64
+</span><a href="#local-6989586621681223965"><span class="hs-identifier hs-var hs-var">publicKeyMaterial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621681223965"><span class="hs-identifier hs-var">publicKeyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223964"><span class="annot"><span class="annottext">s :: ImportKeyPair
+</span><a href="#local-6989586621681223964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223963"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621681223963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPair
+</span><a href="#local-6989586621681223964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyMaterial:ImportKeyPair' :: Base64
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3ApublicKeyMaterial%3AImportKeyPair%27"><span class="hs-identifier hs-var">publicKeyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621681188329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ImportKeyPair -&gt; f ImportKeyPair)
+</span><a href="#local-6989586621681223963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; ImportKeyPair -&gt; f ImportKeyPair)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; ImportKeyPair
@@ -319,12 +319,12 @@ Iso' Base64 ByteString
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621681188325"><span class="annot"><span class="annottext">request :: ImportKeyPair -&gt; Request ImportKeyPair
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621681223959"><span class="annot"><span class="annottext">request :: ImportKeyPair -&gt; Request ImportKeyPair
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportKeyPair -&gt; Request ImportKeyPair
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621681188321"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621681223955"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ImportKeyPair
 -&gt; ClientResponse ClientBody
@@ -348,54 +348,63 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681188318"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681188318"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681188317"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681188317"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681188316"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681188316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681223952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223952"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681223951"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681223951"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681223950"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223950"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
--&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; Int
 -&gt; ImportKeyPairResponse
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-var">ImportKeyPairResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe [Tag]
  -&gt; Maybe Text
+ -&gt; Maybe [Tag]
  -&gt; Int
  -&gt; ImportKeyPairResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Int -&gt; ImportKeyPairResponse)
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportKeyPairResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681188316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681223950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyFingerprint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Int -&gt; ImportKeyPairResponse)
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportKeyPairResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe [Tag] -&gt; Maybe Text -&gt; Int -&gt; ImportKeyPairResponse)
+     String (Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681188316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681223950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; ImportKeyPairResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; Int -&gt; ImportKeyPairResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681223950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyPairId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [Tag] -&gt; Maybe Text -&gt; Int -&gt; ImportKeyPairResponse)
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Int -&gt; ImportKeyPairResponse)
 -&gt; Either String (Maybe [Tag])
--&gt; Either String (Maybe Text -&gt; Int -&gt; ImportKeyPairResponse)
+-&gt; Either String (Int -&gt; ImportKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681188316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681223950"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -403,7 +412,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-157"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -416,16 +425,7 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ImportKeyPairResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ImportKeyPairResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681188316"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;keyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ImportKeyPairResponse)
 -&gt; Either String Int -&gt; Either String ImportKeyPairResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -434,15 +434,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681188318"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223952"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681188305"><span id="local-6989586621681188307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223939"><span id="local-6989586621681223941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681188302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621681188298"><span class="annot"><span class="annottext">toHeaders :: ImportKeyPair -&gt; ResponseHeaders
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681223932"><span class="annot"><span class="annottext">toHeaders :: ImportKeyPair -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportKeyPair -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -450,15 +450,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621681188293"><span class="annot"><span class="annottext">toPath :: ImportKeyPair -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621681223927"><span class="annot"><span class="annottext">toPath :: ImportKeyPair -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportKeyPair -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair"><span class="hs-identifier hs-type">ImportKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621681188289"><span class="annot"><span class="annottext">toQuery :: ImportKeyPair -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188284"><span id="local-6989586621681188285"><span id="local-6989586621681188286"><span id="local-6989586621681188287"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621681223923"><span class="annot"><span class="annottext">toQuery :: ImportKeyPair -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPair%27"><span class="hs-identifier hs-type">ImportKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223918"><span id="local-6989586621681223919"><span id="local-6989586621681223920"><span id="local-6989586621681223921"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [TagSpecification]
 Text
 Base64
@@ -470,7 +470,7 @@ $sel:publicKeyMaterial:ImportKeyPair' :: ImportKeyPair -&gt; Base64
 $sel:keyName:ImportKeyPair' :: ImportKeyPair -&gt; Text
 $sel:dryRun:ImportKeyPair' :: ImportKeyPair -&gt; Maybe Bool
 $sel:tagSpecifications:ImportKeyPair' :: ImportKeyPair -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681188284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681223918"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -499,44 +499,44 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681188287"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681223921"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
 </span><span id="line-182"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681188286"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223920"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;KeyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681188285"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681223919"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PublicKeyMaterial&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Base64 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621681188284"><span class="hs-identifier hs-var">publicKeyMaterial</span></a></span><span>
+</span><a href="#local-6989586621681223918"><span class="hs-identifier hs-var">publicKeyMaterial</span></a></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newImportKeyPairResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621681188280"><span id="local-6989586621681188281"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyPairResponse"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-var">ImportKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyPairResponse%27"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-var">ImportKeyPairResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span id="local-6989586621681223914"><span id="local-6989586621681223915"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportKeyPairResponse"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-var">ImportKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportKeyPairResponse%27"><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-var">ImportKeyPairResponse'</span></a></span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.</span><span>
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AkeyFingerprint%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyFingerprint%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The ID of the resulting key pair.</span><span>
-</span><span id="line-193"></span><span>    </span><span id="%24sel%3AkeyPairId%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyPairId%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The tags applied to the imported key pair.</span><span>
-</span><span id="line-195"></span><span>    </span><span id="%24sel%3Atags%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3Atags%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The key pair name that you provided.</span><span>
-</span><span id="line-197"></span><span>    </span><span id="%24sel%3AkeyName%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe Text
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The key pair name that you provided.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AkeyName%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyName%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The ID of the resulting key pair.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AkeyPairId%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyPairId%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The tags applied to the imported key pair.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3Atags%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3Atags%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681188271"><span id="local-6989586621681188273"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681223905"><span id="local-6989586621681223907"><span class="annot"><span class="annottext">ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
 (ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool)
 -&gt; (ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool)
 -&gt; Eq ImportKeyPairResponse
@@ -545,7 +545,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
 == :: ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
 $c== :: ImportKeyPairResponse -&gt; ImportKeyPairResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681188263"><span id="local-6989586621681188265"><span id="local-6989586621681188267"><span id="local-6989586621681188269"><span class="annot"><span class="annottext">ReadPrec [ImportKeyPairResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223897"><span id="local-6989586621681223899"><span id="local-6989586621681223901"><span id="local-6989586621681223903"><span class="annot"><span class="annottext">ReadPrec [ImportKeyPairResponse]
 ReadPrec ImportKeyPairResponse
 Int -&gt; ReadS ImportKeyPairResponse
 ReadS [ImportKeyPairResponse]
@@ -565,7 +565,7 @@ readList :: ReadS [ImportKeyPairResponse]
 $creadList :: ReadS [ImportKeyPairResponse]
 readsPrec :: Int -&gt; ReadS ImportKeyPairResponse
 $creadsPrec :: Int -&gt; ReadS ImportKeyPairResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681188257"><span id="local-6989586621681188259"><span id="local-6989586621681188261"><span class="annot"><span class="annottext">Int -&gt; ImportKeyPairResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681223891"><span id="local-6989586621681223893"><span id="local-6989586621681223895"><span class="annot"><span class="annottext">Int -&gt; ImportKeyPairResponse -&gt; ShowS
 [ImportKeyPairResponse] -&gt; ShowS
 ImportKeyPairResponse -&gt; String
 (Int -&gt; ImportKeyPairResponse -&gt; ShowS)
@@ -601,11 +601,11 @@ $cfrom :: forall x. ImportKeyPairResponse -&gt; Rep ImportKeyPairResponse x
 </span><span id="line-210"></span><span class="hs-comment">--</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- 'keyFingerprint', 'importKeyPairResponse_keyFingerprint' - The MD5 public key fingerprint as specified in section 4 of RFC 4716.</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'keyPairId', 'importKeyPairResponse_keyPairId' - The ID of the resulting key pair.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'keyName', 'importKeyPairResponse_keyName' - The key pair name that you provided.</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- 'tags', 'importKeyPairResponse_tags' - The tags applied to the imported key pair.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'keyPairId', 'importKeyPairResponse_keyPairId' - The ID of the resulting key pair.</span><span>
 </span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- 'keyName', 'importKeyPairResponse_keyName' - The key pair name that you provided.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'tags', 'importKeyPairResponse_tags' - The tags applied to the imported key pair.</span><span>
 </span><span id="line-218"></span><span class="hs-comment">--</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- 'httpStatus', 'importKeyPairResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#newImportKeyPairResponse"><span class="hs-identifier hs-type">newImportKeyPairResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -613,12 +613,12 @@ $cfrom :: forall x. ImportKeyPairResponse -&gt; Rep ImportKeyPairResponse x
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span>
 </span><span id="line-224"></span><span id="newImportKeyPairResponse"><span class="annot"><span class="annottext">newImportKeyPairResponse :: Int -&gt; ImportKeyPairResponse
-</span><a href="Network.AWS.EC2.ImportKeyPair.html#newImportKeyPairResponse"><span class="hs-identifier hs-var hs-var">newImportKeyPairResponse</span></a></span></span><span> </span><span id="local-6989586621681188254"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681188254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ImportKeyPair.html#newImportKeyPairResponse"><span class="hs-identifier hs-var hs-var">newImportKeyPairResponse</span></a></span></span><span> </span><span id="local-6989586621681223888"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223888"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">ImportKeyPairResponse' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; Int
 -&gt; ImportKeyPairResponse
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span>
@@ -627,21 +627,21 @@ $cfrom :: forall x. ImportKeyPairResponse -&gt; Rep ImportKeyPairResponse x
 </span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPairId:ImportKeyPairResponse' :: Maybe Text
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:ImportKeyPairResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyName%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPairId:ImportKeyPairResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyPairId%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ImportKeyPairResponse' :: Maybe [Tag]
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ImportKeyPairResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3Atags%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:ImportKeyPairResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyName%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyPairResponse' :: Int
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681188254"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681223888"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.</span><span>
@@ -656,20 +656,43 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188253"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223887"><span class="annot"><span class="annottext">Maybe Text
 keyFingerprint :: Maybe Text
 $sel:keyFingerprint:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681188253"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188253"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188252"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
-</span><a href="#local-6989586621681188252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188251"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
-</span><a href="#local-6989586621681188252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:ImportKeyPairResponse' :: Maybe Text
+</span><a href="#local-6989586621681223887"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223887"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223886"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
+</span><a href="#local-6989586621681223886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223885"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
+</span><a href="#local-6989586621681223886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:ImportKeyPairResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyFingerprint%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- | The ID of the resulting key pair.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyPairId"><span class="hs-identifier hs-type">importKeyPairResponse_keyPairId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span id="importKeyPairResponse_keyPairId"><span class="annot"><span class="annottext">importKeyPairResponse_keyPairId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-238"></span><span class="hs-comment">-- | The key pair name that you provided.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyName"><span class="hs-identifier hs-type">importKeyPairResponse_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="importKeyPairResponse_keyName"><span class="annot"><span class="annottext">importKeyPairResponse_keyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImportKeyPairResponse -&gt; f ImportKeyPairResponse
+</span><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyName"><span class="hs-identifier hs-var hs-var">importKeyPairResponse_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPairResponse -&gt; Maybe Text)
+-&gt; (ImportKeyPairResponse -&gt; Maybe Text -&gt; ImportKeyPairResponse)
+-&gt; Lens
+     ImportKeyPairResponse
+     ImportKeyPairResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223884"><span class="annot"><span class="annottext">Maybe Text
+keyName :: Maybe Text
+$sel:keyName:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681223884"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223884"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223883"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
+</span><a href="#local-6989586621681223883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223882"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
+</span><a href="#local-6989586621681223883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:ImportKeyPairResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyName%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The ID of the resulting key pair.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyPairId"><span class="hs-identifier hs-type">importKeyPairResponse_keyPairId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="importKeyPairResponse_keyPairId"><span class="annot"><span class="annottext">importKeyPairResponse_keyPairId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ImportKeyPairResponse -&gt; f ImportKeyPairResponse
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyPairId"><span class="hs-identifier hs-var hs-var">importKeyPairResponse_keyPairId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPairResponse -&gt; Maybe Text)
 -&gt; (ImportKeyPairResponse -&gt; Maybe Text -&gt; ImportKeyPairResponse)
@@ -679,20 +702,20 @@ $sel:keyFingerprint:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188250"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223881"><span class="annot"><span class="annottext">Maybe Text
 keyPairId :: Maybe Text
 $sel:keyPairId:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681188250"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188250"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188249"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
-</span><a href="#local-6989586621681188249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188248"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
-</span><a href="#local-6989586621681188249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:ImportKeyPairResponse' :: Maybe Text
+</span><a href="#local-6989586621681223881"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223881"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223880"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
+</span><a href="#local-6989586621681223880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681223879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
+</span><a href="#local-6989586621681223880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:ImportKeyPairResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyPairId%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- | The tags applied to the imported key pair.</span><span>
-</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_tags"><span class="hs-identifier hs-type">importKeyPairResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span id="importKeyPairResponse_tags"><span class="annot"><span class="annottext">importKeyPairResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681223879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The tags applied to the imported key pair.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_tags"><span class="hs-identifier hs-type">importKeyPairResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="importKeyPairResponse_tags"><span class="annot"><span class="annottext">importKeyPairResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; ImportKeyPairResponse -&gt; f ImportKeyPairResponse
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_tags"><span class="hs-identifier hs-var hs-var">importKeyPairResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPairResponse -&gt; Maybe [Tag])
 -&gt; (ImportKeyPairResponse -&gt; Maybe [Tag] -&gt; ImportKeyPairResponse)
@@ -702,16 +725,16 @@ $sel:keyPairId:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe Text
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188247"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223878"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681188247"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681188247"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188246"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
-</span><a href="#local-6989586621681188246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188245"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681188245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
-</span><a href="#local-6989586621681188246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ImportKeyPairResponse' :: Maybe [Tag]
+</span><a href="#local-6989586621681223878"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681223878"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223877"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
+</span><a href="#local-6989586621681223877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223876"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681223876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
+</span><a href="#local-6989586621681223877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ImportKeyPairResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3Atags%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681188245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681223876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; ImportKeyPairResponse -&gt; f ImportKeyPairResponse)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -725,31 +748,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- | The key pair name that you provided.</span><span>
-</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyName"><span class="hs-identifier hs-type">importKeyPairResponse_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span id="importKeyPairResponse_keyName"><span class="annot"><span class="annottext">importKeyPairResponse_keyName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ImportKeyPairResponse -&gt; f ImportKeyPairResponse
-</span><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_keyName"><span class="hs-identifier hs-var hs-var">importKeyPairResponse_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportKeyPairResponse -&gt; Maybe Text)
--&gt; (ImportKeyPairResponse -&gt; Maybe Text -&gt; ImportKeyPairResponse)
--&gt; Lens
-     ImportKeyPairResponse
-     ImportKeyPairResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188244"><span class="annot"><span class="annottext">Maybe Text
-keyName :: Maybe Text
-$sel:keyName:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681188244"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188244"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188243"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
-</span><a href="#local-6989586621681188243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188242"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
-</span><a href="#local-6989586621681188243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:ImportKeyPairResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AkeyName%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681188242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#importKeyPairResponse_httpStatus"><span class="hs-identifier hs-type">importKeyPairResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -758,16 +758,16 @@ $sel:keyName:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Maybe Text
 -&gt; (ImportKeyPairResponse -&gt; Int -&gt; ImportKeyPairResponse)
 -&gt; Lens ImportKeyPairResponse ImportKeyPairResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681188241"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681223875"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ImportKeyPairResponse' :: ImportKeyPairResponse -&gt; Int
-</span><a href="#local-6989586621681188241"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681188241"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681188240"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
-</span><a href="#local-6989586621681188240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681188239"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681188239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
-</span><a href="#local-6989586621681188240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyPairResponse' :: Int
+</span><a href="#local-6989586621681223875"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223875"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681223874"><span class="annot"><span class="annottext">s :: ImportKeyPairResponse
+</span><a href="#local-6989586621681223874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse%27"><span class="hs-identifier hs-type">ImportKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681223873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681223873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportKeyPairResponse
+</span><a href="#local-6989586621681223874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportKeyPairResponse' :: Int
 </span><a href="Network.AWS.EC2.ImportKeyPair.html#%24sel%3AhttpStatus%3AImportKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681188239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681223873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681188237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681223871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ImportKeyPair.html#ImportKeyPairResponse"><span class="hs-identifier hs-type">ImportKeyPairResponse</span></a></span></span><span>
 </span><span id="line-255"></span></pre></body></html>

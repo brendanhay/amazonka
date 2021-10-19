@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- based on how recently an endpoint was active.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRecencyDimension' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679606874"><span id="local-6989586621679606875"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecencyDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-var">RecencyDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecencyDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-var">RecencyDimension'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679607347"><span id="local-6989586621679607348"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecencyDimension"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-var">RecencyDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecencyDimension%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-var">RecencyDimension'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The duration to use when determining whether an endpoint is active or</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- inactive.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aduration%3ARecencyDimension%27"><span class="annot"><span class="annottext">RecencyDimension -&gt; Duration
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3ArecencyType%3ARecencyDimension%27"><span class="annot"><span class="annottext">RecencyDimension -&gt; RecencyType
 </span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#%24sel%3ArecencyType%3ARecencyDimension%27"><span class="hs-identifier hs-var hs-var">recencyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyType.html#RecencyType"><span class="hs-identifier hs-type">RecencyType</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679606867"><span id="local-6989586621679606869"><span class="annot"><span class="annottext">RecencyDimension -&gt; RecencyDimension -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679607340"><span id="local-6989586621679607342"><span class="annot"><span class="annottext">RecencyDimension -&gt; RecencyDimension -&gt; Bool
 (RecencyDimension -&gt; RecencyDimension -&gt; Bool)
 -&gt; (RecencyDimension -&gt; RecencyDimension -&gt; Bool)
 -&gt; Eq RecencyDimension
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RecencyDimension -&gt; RecencyDimension -&gt; Bool
 == :: RecencyDimension -&gt; RecencyDimension -&gt; Bool
 $c== :: RecencyDimension -&gt; RecencyDimension -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606858"><span id="local-6989586621679606860"><span id="local-6989586621679606862"><span id="local-6989586621679606864"><span class="annot"><span class="annottext">ReadPrec [RecencyDimension]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607331"><span id="local-6989586621679607333"><span id="local-6989586621679607335"><span id="local-6989586621679607337"><span class="annot"><span class="annottext">ReadPrec [RecencyDimension]
 ReadPrec RecencyDimension
 Int -&gt; ReadS RecencyDimension
 ReadS [RecencyDimension]
@@ -70,7 +70,7 @@ readList :: ReadS [RecencyDimension]
 $creadList :: ReadS [RecencyDimension]
 readsPrec :: Int -&gt; ReadS RecencyDimension
 $creadsPrec :: Int -&gt; ReadS RecencyDimension
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606851"><span id="local-6989586621679606853"><span id="local-6989586621679606855"><span class="annot"><span class="annottext">Int -&gt; RecencyDimension -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607324"><span id="local-6989586621679607326"><span id="local-6989586621679607328"><span class="annot"><span class="annottext">Int -&gt; RecencyDimension -&gt; ShowS
 [RecencyDimension] -&gt; ShowS
 RecencyDimension -&gt; String
 (Int -&gt; RecencyDimension -&gt; ShowS)
@@ -118,17 +118,17 @@ $cfrom :: forall x. RecencyDimension -&gt; Rep RecencyDimension x
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyType.html#RecencyType"><span class="hs-identifier hs-type">RecencyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span><span>
 </span><span id="line-65"></span><span id="newRecencyDimension"><span class="annot"><span class="annottext">newRecencyDimension :: Duration -&gt; RecencyType -&gt; RecencyDimension
-</span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#newRecencyDimension"><span class="hs-identifier hs-var hs-var">newRecencyDimension</span></a></span></span><span> </span><span id="local-6989586621679606845"><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679606845"><span class="hs-identifier hs-var">pDuration_</span></a></span></span><span> </span><span id="local-6989586621679606844"><span class="annot"><span class="annottext">RecencyType
-</span><a href="#local-6989586621679606844"><span class="hs-identifier hs-var">pRecencyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#newRecencyDimension"><span class="hs-identifier hs-var hs-var">newRecencyDimension</span></a></span></span><span> </span><span id="local-6989586621679607318"><span class="annot"><span class="annottext">Duration
+</span><a href="#local-6989586621679607318"><span class="hs-identifier hs-var">pDuration_</span></a></span></span><span> </span><span id="local-6989586621679607317"><span class="annot"><span class="annottext">RecencyType
+</span><a href="#local-6989586621679607317"><span class="hs-identifier hs-var">pRecencyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">RecencyDimension' :: Duration -&gt; RecencyType -&gt; RecencyDimension
 </span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:duration:RecencyDimension' :: Duration
 </span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#%24sel%3Aduration%3ARecencyDimension%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679606845"><span class="hs-identifier hs-var">pDuration_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679607318"><span class="hs-identifier hs-var">pDuration_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:recencyType:RecencyDimension' :: RecencyType
 </span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#%24sel%3ArecencyType%3ARecencyDimension%27"><span class="hs-identifier hs-var">recencyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RecencyType
-</span><a href="#local-6989586621679606844"><span class="hs-identifier hs-var">pRecencyType_</span></a></span><span>
+</span><a href="#local-6989586621679607317"><span class="hs-identifier hs-var">pRecencyType_</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The duration to use when determining whether an endpoint is active or</span><span>
@@ -139,16 +139,16 @@ $cfrom :: forall x. RecencyDimension -&gt; Rep RecencyDimension x
 -&gt; (RecencyDimension -&gt; Duration -&gt; RecencyDimension)
 -&gt; Lens RecencyDimension RecencyDimension Duration Duration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606840"><span class="annot"><span class="annottext">Duration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607313"><span class="annot"><span class="annottext">Duration
 duration :: Duration
 $sel:duration:RecencyDimension' :: RecencyDimension -&gt; Duration
-</span><a href="#local-6989586621679606840"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679606840"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606839"><span class="annot"><span class="annottext">s :: RecencyDimension
-</span><a href="#local-6989586621679606839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606838"><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679606838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecencyDimension
-</span><a href="#local-6989586621679606839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:RecencyDimension' :: Duration
+</span><a href="#local-6989586621679607313"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Duration
+</span><a href="#local-6989586621679607313"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607312"><span class="annot"><span class="annottext">s :: RecencyDimension
+</span><a href="#local-6989586621679607312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607311"><span class="annot"><span class="annottext">Duration
+</span><a href="#local-6989586621679607311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecencyDimension
+</span><a href="#local-6989586621679607312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:RecencyDimension' :: Duration
 </span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#%24sel%3Aduration%3ARecencyDimension%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679606838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679607311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The type of recency dimension to use for the segment. Valid values are:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- ACTIVE, endpoints that were active within the specified duration are</span><span>
@@ -161,19 +161,19 @@ $sel:duration:RecencyDimension' :: RecencyDimension -&gt; Duration
 -&gt; (RecencyDimension -&gt; RecencyType -&gt; RecencyDimension)
 -&gt; Lens RecencyDimension RecencyDimension RecencyType RecencyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606836"><span class="annot"><span class="annottext">RecencyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607309"><span class="annot"><span class="annottext">RecencyType
 recencyType :: RecencyType
 $sel:recencyType:RecencyDimension' :: RecencyDimension -&gt; RecencyType
-</span><a href="#local-6989586621679606836"><span class="hs-identifier hs-var hs-var">recencyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecencyType
-</span><a href="#local-6989586621679606836"><span class="hs-identifier hs-var">recencyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606835"><span class="annot"><span class="annottext">s :: RecencyDimension
-</span><a href="#local-6989586621679606835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606834"><span class="annot"><span class="annottext">RecencyType
-</span><a href="#local-6989586621679606834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecencyDimension
-</span><a href="#local-6989586621679606835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recencyType:RecencyDimension' :: RecencyType
+</span><a href="#local-6989586621679607309"><span class="hs-identifier hs-var hs-var">recencyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecencyType
+</span><a href="#local-6989586621679607309"><span class="hs-identifier hs-var">recencyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607308"><span class="annot"><span class="annottext">s :: RecencyDimension
+</span><a href="#local-6989586621679607308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607307"><span class="annot"><span class="annottext">RecencyType
+</span><a href="#local-6989586621679607307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecencyDimension
+</span><a href="#local-6989586621679607308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recencyType:RecencyDimension' :: RecencyType
 </span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#%24sel%3ArecencyType%3ARecencyDimension%27"><span class="hs-identifier hs-var">recencyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RecencyType
-</span><a href="#local-6989586621679606834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679607307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606831"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679606829"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecencyDimension
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679607302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecencyDimension
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RecencyDimension)
@@ -183,15 +183,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RecencyDimension&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679606826"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679607299"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Duration -&gt; RecencyType -&gt; RecencyDimension
 </span><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-var">RecencyDimension'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Duration -&gt; RecencyType -&gt; RecencyDimension)
 -&gt; Parser Duration -&gt; Parser (RecencyType -&gt; RecencyDimension)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Duration
+</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Duration
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,25 +199,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RecencyType -&gt; Parser RecencyDimension
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecencyType
+</span><a href="#local-6989586621679607299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecencyType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecencyType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606820"><span id="local-6989586621679606822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607293"><span id="local-6989586621679607295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606809"><span id="local-6989586621679606811"><span id="local-6989586621679606813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679606807"><span class="annot"><span class="annottext">toJSON :: RecencyDimension -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606804"><span id="local-6989586621679606805"><span class="annot"><span class="annottext">Duration
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607282"><span id="local-6989586621679607284"><span id="local-6989586621679607286"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension"><span class="hs-identifier hs-type">RecencyDimension</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679607280"><span class="annot"><span class="annottext">toJSON :: RecencyDimension -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.RecencyDimension.html#RecencyDimension%27"><span class="hs-identifier hs-type">RecencyDimension'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607277"><span id="local-6989586621679607278"><span class="annot"><span class="annottext">Duration
 RecencyType
 recencyType :: RecencyType
 duration :: Duration
 $sel:recencyType:RecencyDimension' :: RecencyDimension -&gt; RecencyType
 $sel:duration:RecencyDimension' :: RecencyDimension -&gt; Duration
-</span><a href="#local-6989586621679606804"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679607277"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,14 +229,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Duration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Duration
-</span><a href="#local-6989586621679606805"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679607278"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecencyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RecencyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RecencyType
-</span><a href="#local-6989586621679606804"><span class="hs-identifier hs-var">recencyType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679607277"><span class="hs-identifier hs-var">recencyType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

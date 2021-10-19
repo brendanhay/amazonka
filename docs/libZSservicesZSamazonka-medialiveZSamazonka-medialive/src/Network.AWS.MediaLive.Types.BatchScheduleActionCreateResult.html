@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | List of actions that have been created in the schedule.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchScheduleActionCreateResult' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679917157"><span id="local-6989586621679917158"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchScheduleActionCreateResult"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult"><span class="hs-identifier hs-var">BatchScheduleActionCreateResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchScheduleActionCreateResult%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult%27"><span class="hs-identifier hs-var">BatchScheduleActionCreateResult'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679924664"><span id="local-6989586621679924665"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchScheduleActionCreateResult"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult"><span class="hs-identifier hs-var">BatchScheduleActionCreateResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchScheduleActionCreateResult%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult%27"><span class="hs-identifier hs-var">BatchScheduleActionCreateResult'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of actions that have been created in the schedule.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AscheduleActions%3ABatchScheduleActionCreateResult%27"><span class="annot"><span class="annottext">BatchScheduleActionCreateResult -&gt; [ScheduleAction]
 </span><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#%24sel%3AscheduleActions%3ABatchScheduleActionCreateResult%27"><span class="hs-identifier hs-var hs-var">scheduleActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679917151"><span id="local-6989586621679917153"><span class="annot"><span class="annottext">BatchScheduleActionCreateResult
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679924658"><span id="local-6989586621679924660"><span class="annot"><span class="annottext">BatchScheduleActionCreateResult
 -&gt; BatchScheduleActionCreateResult -&gt; Bool
 (BatchScheduleActionCreateResult
  -&gt; BatchScheduleActionCreateResult -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: BatchScheduleActionCreateResult
 -&gt; BatchScheduleActionCreateResult -&gt; Bool
 $c== :: BatchScheduleActionCreateResult
 -&gt; BatchScheduleActionCreateResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679917142"><span id="local-6989586621679917144"><span id="local-6989586621679917146"><span id="local-6989586621679917148"><span class="annot"><span class="annottext">ReadPrec [BatchScheduleActionCreateResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679924649"><span id="local-6989586621679924651"><span id="local-6989586621679924653"><span id="local-6989586621679924655"><span class="annot"><span class="annottext">ReadPrec [BatchScheduleActionCreateResult]
 ReadPrec BatchScheduleActionCreateResult
 Int -&gt; ReadS BatchScheduleActionCreateResult
 ReadS [BatchScheduleActionCreateResult]
@@ -68,7 +68,7 @@ readList :: ReadS [BatchScheduleActionCreateResult]
 $creadList :: ReadS [BatchScheduleActionCreateResult]
 readsPrec :: Int -&gt; ReadS BatchScheduleActionCreateResult
 $creadsPrec :: Int -&gt; ReadS BatchScheduleActionCreateResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679917135"><span id="local-6989586621679917137"><span id="local-6989586621679917139"><span class="annot"><span class="annottext">Int -&gt; BatchScheduleActionCreateResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679924642"><span id="local-6989586621679924644"><span id="local-6989586621679924646"><span class="annot"><span class="annottext">Int -&gt; BatchScheduleActionCreateResult -&gt; ShowS
 [BatchScheduleActionCreateResult] -&gt; ShowS
 BatchScheduleActionCreateResult -&gt; String
 (Int -&gt; BatchScheduleActionCreateResult -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Monoid a =&gt; a
      [ScheduleAction]
      [ScheduleAction]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult%27"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679917126"><span class="annot"><span class="annottext">[ScheduleAction]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult%27"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924633"><span class="annot"><span class="annottext">[ScheduleAction]
 scheduleActions :: [ScheduleAction]
 $sel:scheduleActions:BatchScheduleActionCreateResult' :: BatchScheduleActionCreateResult -&gt; [ScheduleAction]
-</span><a href="#local-6989586621679917126"><span class="hs-identifier hs-var hs-var">scheduleActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScheduleAction]
-</span><a href="#local-6989586621679917126"><span class="hs-identifier hs-var">scheduleActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679917125"><span class="annot"><span class="annottext">s :: BatchScheduleActionCreateResult
-</span><a href="#local-6989586621679917125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult%27"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679917124"><span class="annot"><span class="annottext">[ScheduleAction]
-</span><a href="#local-6989586621679917124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchScheduleActionCreateResult
-</span><a href="#local-6989586621679917125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleActions:BatchScheduleActionCreateResult' :: [ScheduleAction]
+</span><a href="#local-6989586621679924633"><span class="hs-identifier hs-var hs-var">scheduleActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScheduleAction]
+</span><a href="#local-6989586621679924633"><span class="hs-identifier hs-var">scheduleActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679924632"><span class="annot"><span class="annottext">s :: BatchScheduleActionCreateResult
+</span><a href="#local-6989586621679924632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult%27"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679924631"><span class="annot"><span class="annottext">[ScheduleAction]
+</span><a href="#local-6989586621679924631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchScheduleActionCreateResult
+</span><a href="#local-6989586621679924632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleActions:BatchScheduleActionCreateResult' :: [ScheduleAction]
 </span><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#%24sel%3AscheduleActions%3ABatchScheduleActionCreateResult%27"><span class="hs-identifier hs-var">scheduleActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ScheduleAction]
-</span><a href="#local-6989586621679917124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScheduleAction] -&gt; f [ScheduleAction])
+</span><a href="#local-6989586621679924631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScheduleAction] -&gt; f [ScheduleAction])
  -&gt; BatchScheduleActionCreateResult
  -&gt; f BatchScheduleActionCreateResult)
 -&gt; (([ScheduleAction] -&gt; f [ScheduleAction])
@@ -162,14 +162,14 @@ $sel:scheduleActions:BatchScheduleActionCreateResult' :: BatchScheduleActionCrea
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ScheduleAction] -&gt; f [ScheduleAction])
 -&gt; [ScheduleAction] -&gt; f [ScheduleAction]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679917119"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679924626"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679917117"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchScheduleActionCreateResult
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679924624"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchScheduleActionCreateResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchScheduleActionCreateResult)
@@ -179,8 +179,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchScheduleActionCreateResult&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679917114"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679917114"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679924621"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679924621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">[ScheduleAction] -&gt; BatchScheduleActionCreateResult
 </span><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult%27"><span class="hs-identifier hs-var">BatchScheduleActionCreateResult'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">([ScheduleAction] -&gt; BatchScheduleActionCreateResult)
@@ -188,7 +188,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser BatchScheduleActionCreateResult
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679917114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ScheduleAction])
+</span><a href="#local-6989586621679924621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ScheduleAction])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduleActions&quot;</span></span><span>
@@ -202,10 +202,10 @@ forall a. Monoid a =&gt; a
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679917107"><span id="local-6989586621679917109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679924614"><span id="local-6989586621679924616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679917104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679924611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult.html#BatchScheduleActionCreateResult"><span class="hs-identifier hs-type">BatchScheduleActionCreateResult</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

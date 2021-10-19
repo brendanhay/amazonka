@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object that references a schema stored in the Glue Schema Registry.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSchemaReference' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679695646"><span id="local-6989586621679695647"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaReference"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-var">SchemaReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaReference%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-var">SchemaReference'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679697339"><span id="local-6989586621679697340"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaReference"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-var">SchemaReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaReference%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-var">SchemaReference'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID assigned to a version of the schema. Either this or the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @SchemaId@ has to be provided.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AschemaVersionId%3ASchemaReference%27"><span class="annot"><span class="annottext">SchemaReference -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionId%3ASchemaReference%27"><span class="hs-identifier hs-var hs-var">schemaVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The version number of the schema.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="annot"><span class="annottext">SchemaReference -&gt; Maybe Natural
-</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="hs-identifier hs-var hs-var">schemaVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A structure that contains schema identity fields. Either this or the</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @SchemaVersionId@ has to be provided.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AschemaId%3ASchemaReference%27"><span class="annot"><span class="annottext">SchemaReference -&gt; Maybe SchemaId
-</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaId%3ASchemaReference%27"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A structure that contains schema identity fields. Either this or the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @SchemaVersionId@ has to be provided.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AschemaId%3ASchemaReference%27"><span class="annot"><span class="annottext">SchemaReference -&gt; Maybe SchemaId
+</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaId%3ASchemaReference%27"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The version number of the schema.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="annot"><span class="annottext">SchemaReference -&gt; Maybe Natural
+</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="hs-identifier hs-var hs-var">schemaVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679695638"><span id="local-6989586621679695640"><span class="annot"><span class="annottext">SchemaReference -&gt; SchemaReference -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679697331"><span id="local-6989586621679697333"><span class="annot"><span class="annottext">SchemaReference -&gt; SchemaReference -&gt; Bool
 (SchemaReference -&gt; SchemaReference -&gt; Bool)
 -&gt; (SchemaReference -&gt; SchemaReference -&gt; Bool)
 -&gt; Eq SchemaReference
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SchemaReference -&gt; SchemaReference -&gt; Bool
 == :: SchemaReference -&gt; SchemaReference -&gt; Bool
 $c== :: SchemaReference -&gt; SchemaReference -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679695629"><span id="local-6989586621679695631"><span id="local-6989586621679695633"><span id="local-6989586621679695635"><span class="annot"><span class="annottext">ReadPrec [SchemaReference]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697322"><span id="local-6989586621679697324"><span id="local-6989586621679697326"><span id="local-6989586621679697328"><span class="annot"><span class="annottext">ReadPrec [SchemaReference]
 ReadPrec SchemaReference
 Int -&gt; ReadS SchemaReference
 ReadS [SchemaReference]
@@ -69,7 +69,7 @@ readList :: ReadS [SchemaReference]
 $creadList :: ReadS [SchemaReference]
 readsPrec :: Int -&gt; ReadS SchemaReference
 $creadsPrec :: Int -&gt; ReadS SchemaReference
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679695622"><span id="local-6989586621679695624"><span id="local-6989586621679695626"><span class="annot"><span class="annottext">Int -&gt; SchemaReference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697315"><span id="local-6989586621679697317"><span id="local-6989586621679697319"><span class="annot"><span class="annottext">Int -&gt; SchemaReference -&gt; ShowS
 [SchemaReference] -&gt; ShowS
 SchemaReference -&gt; String
 (Int -&gt; SchemaReference -&gt; ShowS)
@@ -106,26 +106,26 @@ $cfrom :: forall x. SchemaReference -&gt; Rep SchemaReference x
 </span><span id="line-50"></span><span class="hs-comment">-- 'schemaVersionId', 'schemaReference_schemaVersionId' - The unique ID assigned to a version of the schema. Either this or the</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- @SchemaId@ has to be provided.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'schemaVersionNumber', 'schemaReference_schemaVersionNumber' - The version number of the schema.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'schemaId', 'schemaReference_schemaId' - A structure that contains schema identity fields. Either this or the</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- @SchemaVersionId@ has to be provided.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'schemaId', 'schemaReference_schemaId' - A structure that contains schema identity fields. Either this or the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @SchemaVersionId@ has to be provided.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'schemaVersionNumber', 'schemaReference_schemaVersionNumber' - The version number of the schema.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#newSchemaReference"><span class="hs-identifier hs-type">newSchemaReference</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span>
 </span><span id="line-59"></span><span id="newSchemaReference"><span class="annot"><span class="annottext">newSchemaReference :: SchemaReference
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#newSchemaReference"><span class="hs-identifier hs-var hs-var">newSchemaReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">SchemaReference' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe SchemaId -&gt; SchemaReference
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">SchemaReference' :: Maybe Text -&gt; Maybe SchemaId -&gt; Maybe Natural -&gt; SchemaReference
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaVersionId:SchemaReference' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionId%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaVersionNumber:SchemaReference' :: Maybe Natural
-</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaId:SchemaReference' :: Maybe SchemaId
+</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaId%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaId
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaId:SchemaReference' :: Maybe SchemaId
-</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaId%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaId
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaVersionNumber:SchemaReference' :: Maybe Natural
+</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
@@ -139,60 +139,60 @@ forall a. Maybe a
 -&gt; (SchemaReference -&gt; Maybe Text -&gt; SchemaReference)
 -&gt; Lens SchemaReference SchemaReference (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695613"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697306"><span class="annot"><span class="annottext">Maybe Text
 schemaVersionId :: Maybe Text
 $sel:schemaVersionId:SchemaReference' :: SchemaReference -&gt; Maybe Text
-</span><a href="#local-6989586621679695613"><span class="hs-identifier hs-var hs-var">schemaVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679695613"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679695612"><span class="annot"><span class="annottext">s :: SchemaReference
-</span><a href="#local-6989586621679695612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679695611"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679695611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaReference
-</span><a href="#local-6989586621679695612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionId:SchemaReference' :: Maybe Text
+</span><a href="#local-6989586621679697306"><span class="hs-identifier hs-var hs-var">schemaVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697306"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697305"><span class="annot"><span class="annottext">s :: SchemaReference
+</span><a href="#local-6989586621679697305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697304"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679697304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaReference
+</span><a href="#local-6989586621679697305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionId:SchemaReference' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionId%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679695611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679697304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The version number of the schema.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#schemaReference_schemaVersionNumber"><span class="hs-identifier hs-type">schemaReference_schemaVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="schemaReference_schemaVersionNumber"><span class="annot"><span class="annottext">schemaReference_schemaVersionNumber :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; SchemaReference -&gt; f SchemaReference
-</span><a href="Network.AWS.Glue.Types.SchemaReference.html#schemaReference_schemaVersionNumber"><span class="hs-identifier hs-var hs-var">schemaReference_schemaVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SchemaReference -&gt; Maybe Natural)
--&gt; (SchemaReference -&gt; Maybe Natural -&gt; SchemaReference)
--&gt; Lens
-     SchemaReference SchemaReference (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695609"><span class="annot"><span class="annottext">Maybe Natural
-schemaVersionNumber :: Maybe Natural
-$sel:schemaVersionNumber:SchemaReference' :: SchemaReference -&gt; Maybe Natural
-</span><a href="#local-6989586621679695609"><span class="hs-identifier hs-var hs-var">schemaVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679695609"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679695608"><span class="annot"><span class="annottext">s :: SchemaReference
-</span><a href="#local-6989586621679695608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679695607"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679695607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaReference
-</span><a href="#local-6989586621679695608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionNumber:SchemaReference' :: Maybe Natural
-</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679695607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | A structure that contains schema identity fields. Either this or the</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- @SchemaVersionId@ has to be provided.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#schemaReference_schemaId"><span class="hs-identifier hs-type">schemaReference_schemaId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="schemaReference_schemaId"><span class="annot"><span class="annottext">schemaReference_schemaId :: (Maybe SchemaId -&gt; f (Maybe SchemaId))
+</span><span id="line-71"></span><span class="hs-comment">-- | A structure that contains schema identity fields. Either this or the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- @SchemaVersionId@ has to be provided.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#schemaReference_schemaId"><span class="hs-identifier hs-type">schemaReference_schemaId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaId.html#SchemaId"><span class="hs-identifier hs-type">SchemaId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="schemaReference_schemaId"><span class="annot"><span class="annottext">schemaReference_schemaId :: (Maybe SchemaId -&gt; f (Maybe SchemaId))
 -&gt; SchemaReference -&gt; f SchemaReference
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#schemaReference_schemaId"><span class="hs-identifier hs-var hs-var">schemaReference_schemaId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SchemaReference -&gt; Maybe SchemaId)
 -&gt; (SchemaReference -&gt; Maybe SchemaId -&gt; SchemaReference)
 -&gt; Lens
      SchemaReference SchemaReference (Maybe SchemaId) (Maybe SchemaId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695605"><span class="annot"><span class="annottext">Maybe SchemaId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697302"><span class="annot"><span class="annottext">Maybe SchemaId
 schemaId :: Maybe SchemaId
 $sel:schemaId:SchemaReference' :: SchemaReference -&gt; Maybe SchemaId
-</span><a href="#local-6989586621679695605"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaId
-</span><a href="#local-6989586621679695605"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679695604"><span class="annot"><span class="annottext">s :: SchemaReference
-</span><a href="#local-6989586621679695604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679695603"><span class="annot"><span class="annottext">Maybe SchemaId
-</span><a href="#local-6989586621679695603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaReference
-</span><a href="#local-6989586621679695604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:SchemaReference' :: Maybe SchemaId
+</span><a href="#local-6989586621679697302"><span class="hs-identifier hs-var hs-var">schemaId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaId
+</span><a href="#local-6989586621679697302"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697301"><span class="annot"><span class="annottext">s :: SchemaReference
+</span><a href="#local-6989586621679697301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697300"><span class="annot"><span class="annottext">Maybe SchemaId
+</span><a href="#local-6989586621679697300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaReference
+</span><a href="#local-6989586621679697301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaId:SchemaReference' :: Maybe SchemaId
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaId%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SchemaId
-</span><a href="#local-6989586621679695603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679697300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The version number of the schema.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#schemaReference_schemaVersionNumber"><span class="hs-identifier hs-type">schemaReference_schemaVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="schemaReference_schemaVersionNumber"><span class="annot"><span class="annottext">schemaReference_schemaVersionNumber :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SchemaReference -&gt; f SchemaReference
+</span><a href="Network.AWS.Glue.Types.SchemaReference.html#schemaReference_schemaVersionNumber"><span class="hs-identifier hs-var hs-var">schemaReference_schemaVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SchemaReference -&gt; Maybe Natural)
+-&gt; (SchemaReference -&gt; Maybe Natural -&gt; SchemaReference)
+-&gt; Lens
+     SchemaReference SchemaReference (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697298"><span class="annot"><span class="annottext">Maybe Natural
+schemaVersionNumber :: Maybe Natural
+$sel:schemaVersionNumber:SchemaReference' :: SchemaReference -&gt; Maybe Natural
+</span><a href="#local-6989586621679697298"><span class="hs-identifier hs-var hs-var">schemaVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679697298"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697297"><span class="annot"><span class="annottext">s :: SchemaReference
+</span><a href="#local-6989586621679697297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697296"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679697296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaReference
+</span><a href="#local-6989586621679697297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaVersionNumber:SchemaReference' :: Maybe Natural
+</span><a href="Network.AWS.Glue.Types.SchemaReference.html#%24sel%3AschemaVersionNumber%3ASchemaReference%27"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679697296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679695600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679695598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaReference
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697293"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679697291"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SchemaReference)
@@ -202,54 +202,54 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SchemaReference&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679695595"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679695595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Natural -&gt; Maybe SchemaId -&gt; SchemaReference
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679697288"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679697288"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe SchemaId -&gt; Maybe Natural -&gt; SchemaReference
 </span><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-var">SchemaReference'</span></a></span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Natural -&gt; Maybe SchemaId -&gt; SchemaReference)
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe SchemaId -&gt; Maybe Natural -&gt; SchemaReference)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Natural -&gt; Maybe SchemaId -&gt; SchemaReference)
+-&gt; Parser (Maybe SchemaId -&gt; Maybe Natural -&gt; SchemaReference)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679695595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679697288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaVersionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe SchemaId -&gt; SchemaReference)
--&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe SchemaId -&gt; SchemaReference)
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SchemaId -&gt; Maybe Natural -&gt; SchemaReference)
+-&gt; Parser (Maybe SchemaId)
+-&gt; Parser (Maybe Natural -&gt; SchemaReference)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679695595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SchemaVersionNumber&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SchemaId -&gt; SchemaReference)
--&gt; Parser (Maybe SchemaId) -&gt; Parser SchemaReference
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679695595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SchemaId)
+</span><a href="#local-6989586621679697288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SchemaId)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; SchemaReference)
+-&gt; Parser (Maybe Natural) -&gt; Parser SchemaReference
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679697288"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersionNumber&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679695589"><span id="local-6989586621679695591"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697282"><span id="local-6989586621679697284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679695586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679695578"><span id="local-6989586621679695580"><span id="local-6989586621679695582"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679695576"><span class="annot"><span class="annottext">toJSON :: SchemaReference -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679695572"><span id="local-6989586621679695573"><span id="local-6989586621679695574"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697271"><span id="local-6989586621679697273"><span id="local-6989586621679697275"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference"><span class="hs-identifier hs-type">SchemaReference</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679697269"><span class="annot"><span class="annottext">toJSON :: SchemaReference -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.SchemaReference.html#SchemaReference%27"><span class="hs-identifier hs-type">SchemaReference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697265"><span id="local-6989586621679697266"><span id="local-6989586621679697267"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe SchemaId
-schemaId :: Maybe SchemaId
 schemaVersionNumber :: Maybe Natural
+schemaId :: Maybe SchemaId
 schemaVersionId :: Maybe Text
-$sel:schemaId:SchemaReference' :: SchemaReference -&gt; Maybe SchemaId
 $sel:schemaVersionNumber:SchemaReference' :: SchemaReference -&gt; Maybe Natural
+$sel:schemaId:SchemaReference' :: SchemaReference -&gt; Maybe SchemaId
 $sel:schemaVersionId:SchemaReference' :: SchemaReference -&gt; Maybe Text
-</span><a href="#local-6989586621679695572"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679697265"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,22 +262,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679695574"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679697267"><span class="hs-identifier hs-var">schemaVersionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SchemaVersionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679695573"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SchemaId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SchemaId -&gt; Pair) -&gt; Maybe SchemaId -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SchemaId
-</span><a href="#local-6989586621679695572"><span class="hs-identifier hs-var">schemaId</span></a></span><span>
+</span><a href="#local-6989586621679697266"><span class="hs-identifier hs-var">schemaId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaVersionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679697265"><span class="hs-identifier hs-var">schemaVersionNumber</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

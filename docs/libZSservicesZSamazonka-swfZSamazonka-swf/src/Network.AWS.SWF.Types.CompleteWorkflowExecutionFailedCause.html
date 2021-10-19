@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679344036"><span id="local-6989586621679344037"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CompleteWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause.html#CompleteWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">CompleteWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompleteWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause.html#CompleteWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">CompleteWorkflowExecutionFailedCause'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679344113"><span id="local-6989586621679344114"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CompleteWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause.html#CompleteWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">CompleteWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompleteWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause.html#CompleteWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">CompleteWorkflowExecutionFailedCause'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCompleteWorkflowExecutionFailedCause"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause.html#fromCompleteWorkflowExecutionFailedCause"><span class="hs-identifier hs-var hs-var">fromCompleteWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344028"><span id="local-6989586621679344030"><span id="local-6989586621679344032"><span class="annot"><span class="annottext">Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344105"><span id="local-6989586621679344107"><span id="local-6989586621679344109"><span class="annot"><span class="annottext">Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; ShowS
 [CompleteWorkflowExecutionFailedCause] -&gt; ShowS
 CompleteWorkflowExecutionFailedCause -&gt; String
 (Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CompleteWorkflowExecutionFailedCause -&gt; String
 showsPrec :: Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344019"><span id="local-6989586621679344021"><span id="local-6989586621679344023"><span id="local-6989586621679344025"><span class="annot"><span class="annottext">ReadPrec [CompleteWorkflowExecutionFailedCause]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344096"><span id="local-6989586621679344098"><span id="local-6989586621679344100"><span id="local-6989586621679344102"><span class="annot"><span class="annottext">ReadPrec [CompleteWorkflowExecutionFailedCause]
 ReadPrec CompleteWorkflowExecutionFailedCause
 Int -&gt; ReadS CompleteWorkflowExecutionFailedCause
 ReadS [CompleteWorkflowExecutionFailedCause]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CompleteWorkflowExecutionFailedCause]
 readsPrec :: Int -&gt; ReadS CompleteWorkflowExecutionFailedCause
 $creadsPrec :: Int -&gt; ReadS CompleteWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344014"><span id="local-6989586621679344016"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344091"><span id="local-6989586621679344093"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause
 -&gt; CompleteWorkflowExecutionFailedCause -&gt; Bool
 (CompleteWorkflowExecutionFailedCause
  -&gt; CompleteWorkflowExecutionFailedCause -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: CompleteWorkflowExecutionFailedCause
 $c== :: CompleteWorkflowExecutionFailedCause
 -&gt; CompleteWorkflowExecutionFailedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679343998"><span id="local-6989586621679344000"><span id="local-6989586621679344002"><span id="local-6989586621679344004"><span id="local-6989586621679344006"><span id="local-6989586621679344008"><span id="local-6989586621679344010"><span class="annot"><span class="annottext">Eq CompleteWorkflowExecutionFailedCause
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679344075"><span id="local-6989586621679344077"><span id="local-6989586621679344079"><span id="local-6989586621679344081"><span id="local-6989586621679344083"><span id="local-6989586621679344085"><span id="local-6989586621679344087"><span class="annot"><span class="annottext">Eq CompleteWorkflowExecutionFailedCause
 Eq CompleteWorkflowExecutionFailedCause
 -&gt; (CompleteWorkflowExecutionFailedCause
     -&gt; CompleteWorkflowExecutionFailedCause -&gt; Ordering)
@@ -183,7 +183,7 @@ CompleteWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343990"><span id="local-6989586621679343992"><span class="annot"><span class="annottext">Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344067"><span id="local-6989586621679344069"><span class="annot"><span class="annottext">Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; Int
 CompleteWorkflowExecutionFailedCause -&gt; Int
 (Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; Int)
 -&gt; (CompleteWorkflowExecutionFailedCause -&gt; Int)
@@ -194,56 +194,56 @@ $chash :: CompleteWorkflowExecutionFailedCause -&gt; Int
 hashWithSalt :: Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; Int
 $chashWithSalt :: Int -&gt; CompleteWorkflowExecutionFailedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679343987"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344064"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; ()
 (CompleteWorkflowExecutionFailedCause -&gt; ())
 -&gt; NFData CompleteWorkflowExecutionFailedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CompleteWorkflowExecutionFailedCause -&gt; ()
 $crnf :: CompleteWorkflowExecutionFailedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679343984"><span class="annot"><span class="annottext">Text -&gt; Either String CompleteWorkflowExecutionFailedCause
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344061"><span class="annot"><span class="annottext">Text -&gt; Either String CompleteWorkflowExecutionFailedCause
 (Text -&gt; Either String CompleteWorkflowExecutionFailedCause)
 -&gt; FromText CompleteWorkflowExecutionFailedCause
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CompleteWorkflowExecutionFailedCause
 $cfromText :: Text -&gt; Either String CompleteWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679343981"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344058"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; Text
 (CompleteWorkflowExecutionFailedCause -&gt; Text)
 -&gt; ToText CompleteWorkflowExecutionFailedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CompleteWorkflowExecutionFailedCause -&gt; Text
 $ctoText :: CompleteWorkflowExecutionFailedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679343978"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344055"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; ByteString
 (CompleteWorkflowExecutionFailedCause -&gt; ByteString)
 -&gt; ToByteString CompleteWorkflowExecutionFailedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CompleteWorkflowExecutionFailedCause -&gt; ByteString
 $ctoBS :: CompleteWorkflowExecutionFailedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679343975"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344052"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 (CompleteWorkflowExecutionFailedCause -&gt; ByteStringBuilder)
 -&gt; ToLog CompleteWorkflowExecutionFailedCause
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CompleteWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 $cbuild :: CompleteWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679343972"><span class="annot"><span class="annottext">HeaderName -&gt; CompleteWorkflowExecutionFailedCause -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344049"><span class="annot"><span class="annottext">HeaderName -&gt; CompleteWorkflowExecutionFailedCause -&gt; [Header]
 (HeaderName -&gt; CompleteWorkflowExecutionFailedCause -&gt; [Header])
 -&gt; ToHeader CompleteWorkflowExecutionFailedCause
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CompleteWorkflowExecutionFailedCause -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CompleteWorkflowExecutionFailedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679343969"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344046"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; QueryString
 (CompleteWorkflowExecutionFailedCause -&gt; QueryString)
 -&gt; ToQuery CompleteWorkflowExecutionFailedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CompleteWorkflowExecutionFailedCause -&gt; QueryString
 $ctoQuery :: CompleteWorkflowExecutionFailedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679343964"><span id="local-6989586621679343966"><span class="annot"><span class="annottext">Value -&gt; Parser [CompleteWorkflowExecutionFailedCause]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344041"><span id="local-6989586621679344043"><span class="annot"><span class="annottext">Value -&gt; Parser [CompleteWorkflowExecutionFailedCause]
 Value -&gt; Parser CompleteWorkflowExecutionFailedCause
 (Value -&gt; Parser CompleteWorkflowExecutionFailedCause)
 -&gt; (Value -&gt; Parser [CompleteWorkflowExecutionFailedCause])
@@ -255,7 +255,7 @@ $cparseJSONList :: Value -&gt; Parser [CompleteWorkflowExecutionFailedCause]
 parseJSON :: Value -&gt; Parser CompleteWorkflowExecutionFailedCause
 $cparseJSON :: Value -&gt; Parser CompleteWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679343959"><span id="local-6989586621679343961"><span class="annot"><span class="annottext">FromJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344036"><span id="local-6989586621679344038"><span class="annot"><span class="annottext">FromJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
 FromJSONKeyFunction CompleteWorkflowExecutionFailedCause
 FromJSONKeyFunction CompleteWorkflowExecutionFailedCause
 -&gt; FromJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
@@ -267,7 +267,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
 fromJSONKey :: FromJSONKeyFunction CompleteWorkflowExecutionFailedCause
 $cfromJSONKey :: FromJSONKeyFunction CompleteWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679343950"><span id="local-6989586621679343952"><span id="local-6989586621679343954"><span id="local-6989586621679343956"><span class="annot"><span class="annottext">[CompleteWorkflowExecutionFailedCause] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344027"><span id="local-6989586621679344029"><span id="local-6989586621679344031"><span id="local-6989586621679344033"><span class="annot"><span class="annottext">[CompleteWorkflowExecutionFailedCause] -&gt; Encoding
 [CompleteWorkflowExecutionFailedCause] -&gt; Value
 CompleteWorkflowExecutionFailedCause -&gt; Encoding
 CompleteWorkflowExecutionFailedCause -&gt; Value
@@ -291,7 +291,7 @@ $ctoEncoding :: CompleteWorkflowExecutionFailedCause -&gt; Encoding
 toJSON :: CompleteWorkflowExecutionFailedCause -&gt; Value
 $ctoJSON :: CompleteWorkflowExecutionFailedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679343945"><span id="local-6989586621679343947"><span class="annot"><span class="annottext">ToJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344022"><span id="local-6989586621679344024"><span class="annot"><span class="annottext">ToJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
 ToJSONKeyFunction CompleteWorkflowExecutionFailedCause
 ToJSONKeyFunction CompleteWorkflowExecutionFailedCause
 -&gt; ToJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
@@ -303,14 +303,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CompleteWorkflowExecutionFailedCause]
 toJSONKey :: ToJSONKeyFunction CompleteWorkflowExecutionFailedCause
 $ctoJSONKey :: ToJSONKeyFunction CompleteWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679343942"><span class="annot"><span class="annottext">[Node] -&gt; Either String CompleteWorkflowExecutionFailedCause
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344019"><span class="annot"><span class="annottext">[Node] -&gt; Either String CompleteWorkflowExecutionFailedCause
 ([Node] -&gt; Either String CompleteWorkflowExecutionFailedCause)
 -&gt; FromXML CompleteWorkflowExecutionFailedCause
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CompleteWorkflowExecutionFailedCause
 $cparseXML :: [Node] -&gt; Either String CompleteWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679343939"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344016"><span class="annot"><span class="annottext">CompleteWorkflowExecutionFailedCause -&gt; XML
 (CompleteWorkflowExecutionFailedCause -&gt; XML)
 -&gt; ToXML CompleteWorkflowExecutionFailedCause
 forall a. (a -&gt; XML) -&gt; ToXML a

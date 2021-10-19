@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information about a slot used in a built-in intent.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBuiltinIntentSlot' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679308868"><span id="local-6989586621679308869"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuiltinIntentSlot"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-var">BuiltinIntentSlot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuiltinIntentSlot%27"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot%27"><span class="hs-identifier hs-var">BuiltinIntentSlot'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679309147"><span id="local-6989586621679309148"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuiltinIntentSlot"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-var">BuiltinIntentSlot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuiltinIntentSlot%27"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot%27"><span class="hs-identifier hs-var">BuiltinIntentSlot'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the slots defined for the intent.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3ABuiltinIntentSlot%27"><span class="annot"><span class="annottext">BuiltinIntentSlot -&gt; Maybe Text
 </span><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#%24sel%3Aname%3ABuiltinIntentSlot%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308862"><span id="local-6989586621679308864"><span class="annot"><span class="annottext">BuiltinIntentSlot -&gt; BuiltinIntentSlot -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309141"><span id="local-6989586621679309143"><span class="annot"><span class="annottext">BuiltinIntentSlot -&gt; BuiltinIntentSlot -&gt; Bool
 (BuiltinIntentSlot -&gt; BuiltinIntentSlot -&gt; Bool)
 -&gt; (BuiltinIntentSlot -&gt; BuiltinIntentSlot -&gt; Bool)
 -&gt; Eq BuiltinIntentSlot
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BuiltinIntentSlot -&gt; BuiltinIntentSlot -&gt; Bool
 == :: BuiltinIntentSlot -&gt; BuiltinIntentSlot -&gt; Bool
 $c== :: BuiltinIntentSlot -&gt; BuiltinIntentSlot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308853"><span id="local-6989586621679308855"><span id="local-6989586621679308857"><span id="local-6989586621679308859"><span class="annot"><span class="annottext">ReadPrec [BuiltinIntentSlot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309132"><span id="local-6989586621679309134"><span id="local-6989586621679309136"><span id="local-6989586621679309138"><span class="annot"><span class="annottext">ReadPrec [BuiltinIntentSlot]
 ReadPrec BuiltinIntentSlot
 Int -&gt; ReadS BuiltinIntentSlot
 ReadS [BuiltinIntentSlot]
@@ -60,7 +60,7 @@ readList :: ReadS [BuiltinIntentSlot]
 $creadList :: ReadS [BuiltinIntentSlot]
 readsPrec :: Int -&gt; ReadS BuiltinIntentSlot
 $creadsPrec :: Int -&gt; ReadS BuiltinIntentSlot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308846"><span id="local-6989586621679308848"><span id="local-6989586621679308850"><span class="annot"><span class="annottext">Int -&gt; BuiltinIntentSlot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309125"><span id="local-6989586621679309127"><span id="local-6989586621679309129"><span class="annot"><span class="annottext">Int -&gt; BuiltinIntentSlot -&gt; ShowS
 [BuiltinIntentSlot] -&gt; ShowS
 BuiltinIntentSlot -&gt; String
 (Int -&gt; BuiltinIntentSlot -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      BuiltinIntentSlot BuiltinIntentSlot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot%27"><span class="hs-identifier hs-type">BuiltinIntentSlot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308837"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot%27"><span class="hs-identifier hs-type">BuiltinIntentSlot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309116"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:BuiltinIntentSlot' :: BuiltinIntentSlot -&gt; Maybe Text
-</span><a href="#local-6989586621679308837"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308837"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308836"><span class="annot"><span class="annottext">s :: BuiltinIntentSlot
-</span><a href="#local-6989586621679308836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot%27"><span class="hs-identifier hs-type">BuiltinIntentSlot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308835"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinIntentSlot
-</span><a href="#local-6989586621679308836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:BuiltinIntentSlot' :: Maybe Text
+</span><a href="#local-6989586621679309116"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309116"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309115"><span class="annot"><span class="annottext">s :: BuiltinIntentSlot
+</span><a href="#local-6989586621679309115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot%27"><span class="hs-identifier hs-type">BuiltinIntentSlot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309114"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinIntentSlot
+</span><a href="#local-6989586621679309115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:BuiltinIntentSlot' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#%24sel%3Aname%3ABuiltinIntentSlot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308832"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679308830"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuiltinIntentSlot
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309111"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679309109"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuiltinIntentSlot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BuiltinIntentSlot)
@@ -136,20 +136,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BuiltinIntentSlot&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308827"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309106"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309106"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; BuiltinIntentSlot
 </span><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot%27"><span class="hs-identifier hs-var">BuiltinIntentSlot'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; BuiltinIntentSlot)
 -&gt; Parser (Maybe Text) -&gt; Parser BuiltinIntentSlot
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679309106"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308821"><span id="local-6989586621679308823"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309100"><span id="local-6989586621679309102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentSlot.html#BuiltinIntentSlot"><span class="hs-identifier hs-type">BuiltinIntentSlot</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

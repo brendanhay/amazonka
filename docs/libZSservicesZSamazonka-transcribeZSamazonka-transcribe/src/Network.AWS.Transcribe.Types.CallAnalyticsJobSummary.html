@@ -28,30 +28,30 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides summary information about a call analytics job.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCallAnalyticsJobSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679272020"><span id="local-6989586621679272021"></span></span><span class="hs-keyword">data</span><span> </span><span id="CallAnalyticsJobSummary"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-var">CallAnalyticsJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CallAnalyticsJobSummary%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">CallAnalyticsJobSummary'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language of the transcript in the source audio file.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe LanguageCode
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of the call analytics job.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcallAnalyticsJobStatus%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe CallAnalyticsJobStatus
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobStatus%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">callAnalyticsJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobStatus.html#CallAnalyticsJobStatus"><span class="hs-identifier hs-type">CallAnalyticsJobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A timestamp that shows when the call analytics job was created.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationTime%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe POSIX
+</span><span id="line-31"></span><span id="local-6989586621679272183"><span id="local-6989586621679272184"></span></span><span class="hs-keyword">data</span><span> </span><span id="CallAnalyticsJobSummary"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-var">CallAnalyticsJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CallAnalyticsJobSummary%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">CallAnalyticsJobSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A timestamp that shows when the call analytics job was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcreationTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A timestamp that shows when the job was completed.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of the call analytics job.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcallAnalyticsJobStatus%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe CallAnalyticsJobStatus
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobStatus%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">callAnalyticsJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobStatus.html#CallAnalyticsJobStatus"><span class="hs-identifier hs-type">CallAnalyticsJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The language of the transcript in the source audio file.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A timestamp that shows when the job began processing.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AstartTime%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AstartTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the call analytics job.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcallAnalyticsJobName%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobName%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">callAnalyticsJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A timestamp that shows when the job was completed.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the call analytics job.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcallAnalyticsJobName%3ACallAnalyticsJobSummary%27"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobName%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var hs-var">callAnalyticsJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272008"><span id="local-6989586621679272010"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; CallAnalyticsJobSummary -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272171"><span id="local-6989586621679272173"><span class="annot"><span class="annottext">CallAnalyticsJobSummary -&gt; CallAnalyticsJobSummary -&gt; Bool
 (CallAnalyticsJobSummary -&gt; CallAnalyticsJobSummary -&gt; Bool)
 -&gt; (CallAnalyticsJobSummary -&gt; CallAnalyticsJobSummary -&gt; Bool)
 -&gt; Eq CallAnalyticsJobSummary
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CallAnalyticsJobSummary -&gt; CallAnalyticsJobSummary -&gt; Bool
 == :: CallAnalyticsJobSummary -&gt; CallAnalyticsJobSummary -&gt; Bool
 $c== :: CallAnalyticsJobSummary -&gt; CallAnalyticsJobSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271999"><span id="local-6989586621679272001"><span id="local-6989586621679272003"><span id="local-6989586621679272005"><span class="annot"><span class="annottext">ReadPrec [CallAnalyticsJobSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272162"><span id="local-6989586621679272164"><span id="local-6989586621679272166"><span id="local-6989586621679272168"><span class="annot"><span class="annottext">ReadPrec [CallAnalyticsJobSummary]
 ReadPrec CallAnalyticsJobSummary
 Int -&gt; ReadS CallAnalyticsJobSummary
 ReadS [CallAnalyticsJobSummary]
@@ -80,7 +80,7 @@ readList :: ReadS [CallAnalyticsJobSummary]
 $creadList :: ReadS [CallAnalyticsJobSummary]
 readsPrec :: Int -&gt; ReadS CallAnalyticsJobSummary
 $creadsPrec :: Int -&gt; ReadS CallAnalyticsJobSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271992"><span id="local-6989586621679271994"><span id="local-6989586621679271996"><span class="annot"><span class="annottext">Int -&gt; CallAnalyticsJobSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272155"><span id="local-6989586621679272157"><span id="local-6989586621679272159"><span class="annot"><span class="annottext">Int -&gt; CallAnalyticsJobSummary -&gt; ShowS
 [CallAnalyticsJobSummary] -&gt; ShowS
 CallAnalyticsJobSummary -&gt; String
 (Int -&gt; CallAnalyticsJobSummary -&gt; ShowS)
@@ -116,114 +116,66 @@ $cfrom :: forall x. CallAnalyticsJobSummary -&gt; Rep CallAnalyticsJobSummary x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'languageCode', 'callAnalyticsJobSummary_languageCode' - The language of the transcript in the source audio file.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'creationTime', 'callAnalyticsJobSummary_creationTime' - A timestamp that shows when the call analytics job was created.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'callAnalyticsJobStatus', 'callAnalyticsJobSummary_callAnalyticsJobStatus' - The status of the call analytics job.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'failureReason', 'callAnalyticsJobSummary_failureReason' - If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'creationTime', 'callAnalyticsJobSummary_creationTime' - A timestamp that shows when the call analytics job was created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'callAnalyticsJobStatus', 'callAnalyticsJobSummary_callAnalyticsJobStatus' - The status of the call analytics job.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'completionTime', 'callAnalyticsJobSummary_completionTime' - A timestamp that shows when the job was completed.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'languageCode', 'callAnalyticsJobSummary_languageCode' - The language of the transcript in the source audio file.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'startTime', 'callAnalyticsJobSummary_startTime' - A timestamp that shows when the job began processing.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'callAnalyticsJobName', 'callAnalyticsJobSummary_callAnalyticsJobName' - The name of the call analytics job.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'completionTime', 'callAnalyticsJobSummary_completionTime' - A timestamp that shows when the job was completed.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'failureReason', 'callAnalyticsJobSummary_failureReason' - If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'callAnalyticsJobName', 'callAnalyticsJobSummary_callAnalyticsJobName' - The name of the call analytics job.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#newCallAnalyticsJobSummary"><span class="hs-identifier hs-type">newCallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span>
 </span><span id="line-72"></span><span id="newCallAnalyticsJobSummary"><span class="annot"><span class="annottext">newCallAnalyticsJobSummary :: CallAnalyticsJobSummary
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#newCallAnalyticsJobSummary"><span class="hs-identifier hs-var hs-var">newCallAnalyticsJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary' :: Maybe LanguageCode
--&gt; Maybe CallAnalyticsJobStatus
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary' :: Maybe POSIX
 -&gt; Maybe Text
+-&gt; Maybe CallAnalyticsJobStatus
+-&gt; Maybe LanguageCode
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; CallAnalyticsJobSummary
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:CallAnalyticsJobSummary' :: Maybe LanguageCode
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:CallAnalyticsJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcreationTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:callAnalyticsJobStatus:CallAnalyticsJobSummary' :: Maybe CallAnalyticsJobStatus
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:CallAnalyticsJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:callAnalyticsJobStatus:CallAnalyticsJobSummary' :: Maybe CallAnalyticsJobStatus
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobStatus%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">callAnalyticsJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:CallAnalyticsJobSummary' :: Maybe POSIX
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcreationTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionTime:CallAnalyticsJobSummary' :: Maybe POSIX
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:CallAnalyticsJobSummary' :: Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:CallAnalyticsJobSummary' :: Maybe POSIX
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AstartTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:callAnalyticsJobName:CallAnalyticsJobSummary' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobName%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">callAnalyticsJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionTime:CallAnalyticsJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:CallAnalyticsJobSummary' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:callAnalyticsJobName:CallAnalyticsJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobName%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">callAnalyticsJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The language of the transcript in the source audio file.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_languageCode"><span class="hs-identifier hs-type">callAnalyticsJobSummary_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="callAnalyticsJobSummary_languageCode"><span class="annot"><span class="annottext">callAnalyticsJobSummary_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
--&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_languageCode"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe LanguageCode)
--&gt; (CallAnalyticsJobSummary
-    -&gt; Maybe LanguageCode -&gt; CallAnalyticsJobSummary)
--&gt; Lens
-     CallAnalyticsJobSummary
-     CallAnalyticsJobSummary
-     (Maybe LanguageCode)
-     (Maybe LanguageCode)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271983"><span class="annot"><span class="annottext">Maybe LanguageCode
-languageCode :: Maybe LanguageCode
-$sel:languageCode:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe LanguageCode
-</span><a href="#local-6989586621679271983"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679271983"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271982"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271981"><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679271981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CallAnalyticsJobSummary' :: Maybe LanguageCode
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679271981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The status of the call analytics job.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_callAnalyticsJobStatus"><span class="hs-identifier hs-type">callAnalyticsJobSummary_callAnalyticsJobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobStatus.html#CallAnalyticsJobStatus"><span class="hs-identifier hs-type">CallAnalyticsJobStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="callAnalyticsJobSummary_callAnalyticsJobStatus"><span class="annot"><span class="annottext">callAnalyticsJobSummary_callAnalyticsJobStatus :: (Maybe CallAnalyticsJobStatus -&gt; f (Maybe CallAnalyticsJobStatus))
--&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_callAnalyticsJobStatus"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_callAnalyticsJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe CallAnalyticsJobStatus)
--&gt; (CallAnalyticsJobSummary
-    -&gt; Maybe CallAnalyticsJobStatus -&gt; CallAnalyticsJobSummary)
--&gt; Lens
-     CallAnalyticsJobSummary
-     CallAnalyticsJobSummary
-     (Maybe CallAnalyticsJobStatus)
-     (Maybe CallAnalyticsJobStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271979"><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
-callAnalyticsJobStatus :: Maybe CallAnalyticsJobStatus
-$sel:callAnalyticsJobStatus:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe CallAnalyticsJobStatus
-</span><a href="#local-6989586621679271979"><span class="hs-identifier hs-var hs-var">callAnalyticsJobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
-</span><a href="#local-6989586621679271979"><span class="hs-identifier hs-var">callAnalyticsJobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271978"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271977"><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
-</span><a href="#local-6989586621679271977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callAnalyticsJobStatus:CallAnalyticsJobSummary' :: Maybe CallAnalyticsJobStatus
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobStatus%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">callAnalyticsJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
-</span><a href="#local-6989586621679271977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | A timestamp that shows when the call analytics job was created.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_creationTime"><span class="hs-identifier hs-type">callAnalyticsJobSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="callAnalyticsJobSummary_creationTime"><span class="annot"><span class="annottext">callAnalyticsJobSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-84"></span><span class="hs-comment">-- | A timestamp that shows when the call analytics job was created.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_creationTime"><span class="hs-identifier hs-type">callAnalyticsJobSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="callAnalyticsJobSummary_creationTime"><span class="annot"><span class="annottext">callAnalyticsJobSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_creationTime"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe POSIX)
 -&gt; (CallAnalyticsJobSummary
@@ -234,16 +186,16 @@ $sel:callAnalyticsJobStatus:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary 
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271975"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272146"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679271975"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271975"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271974"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271973"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CallAnalyticsJobSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679272146"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272146"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272145"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272144"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CallAnalyticsJobSummary' :: Maybe POSIX
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcreationTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679272144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -259,45 +211,78 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | A timestamp that shows when the job was completed.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_completionTime"><span class="hs-identifier hs-type">callAnalyticsJobSummary_completionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="callAnalyticsJobSummary_completionTime"><span class="annot"><span class="annottext">callAnalyticsJobSummary_completionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_failureReason"><span class="hs-identifier hs-type">callAnalyticsJobSummary_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="callAnalyticsJobSummary_failureReason"><span class="annot"><span class="annottext">callAnalyticsJobSummary_failureReason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_completionTime"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_completionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_failureReason"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe Text)
 -&gt; (CallAnalyticsJobSummary
-    -&gt; Maybe POSIX -&gt; CallAnalyticsJobSummary)
+    -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
 -&gt; Lens
      CallAnalyticsJobSummary
      CallAnalyticsJobSummary
-     (Maybe POSIX)
-     (Maybe POSIX)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271968"><span class="annot"><span class="annottext">Maybe POSIX
-completionTime :: Maybe POSIX
-$sel:completionTime:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679271968"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271968"><span class="hs-identifier hs-var">completionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271967"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271966"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionTime:CallAnalyticsJobSummary' :: Maybe POSIX
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; CallAnalyticsJobSummary
--&gt; f CallAnalyticsJobSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272139"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679272139"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272139"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272138"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272137"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:CallAnalyticsJobSummary' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The status of the call analytics job.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_callAnalyticsJobStatus"><span class="hs-identifier hs-type">callAnalyticsJobSummary_callAnalyticsJobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobStatus.html#CallAnalyticsJobStatus"><span class="hs-identifier hs-type">CallAnalyticsJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="callAnalyticsJobSummary_callAnalyticsJobStatus"><span class="annot"><span class="annottext">callAnalyticsJobSummary_callAnalyticsJobStatus :: (Maybe CallAnalyticsJobStatus -&gt; f (Maybe CallAnalyticsJobStatus))
+-&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_callAnalyticsJobStatus"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_callAnalyticsJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe CallAnalyticsJobStatus)
+-&gt; (CallAnalyticsJobSummary
+    -&gt; Maybe CallAnalyticsJobStatus -&gt; CallAnalyticsJobSummary)
+-&gt; Lens
+     CallAnalyticsJobSummary
+     CallAnalyticsJobSummary
+     (Maybe CallAnalyticsJobStatus)
+     (Maybe CallAnalyticsJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272135"><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
+callAnalyticsJobStatus :: Maybe CallAnalyticsJobStatus
+$sel:callAnalyticsJobStatus:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe CallAnalyticsJobStatus
+</span><a href="#local-6989586621679272135"><span class="hs-identifier hs-var hs-var">callAnalyticsJobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
+</span><a href="#local-6989586621679272135"><span class="hs-identifier hs-var">callAnalyticsJobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272134"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272133"><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
+</span><a href="#local-6989586621679272133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callAnalyticsJobStatus:CallAnalyticsJobSummary' :: Maybe CallAnalyticsJobStatus
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobStatus%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">callAnalyticsJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CallAnalyticsJobStatus
+</span><a href="#local-6989586621679272133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The language of the transcript in the source audio file.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_languageCode"><span class="hs-identifier hs-type">callAnalyticsJobSummary_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="callAnalyticsJobSummary_languageCode"><span class="annot"><span class="annottext">callAnalyticsJobSummary_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
+-&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_languageCode"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe LanguageCode)
+-&gt; (CallAnalyticsJobSummary
+    -&gt; Maybe LanguageCode -&gt; CallAnalyticsJobSummary)
+-&gt; Lens
+     CallAnalyticsJobSummary
+     CallAnalyticsJobSummary
+     (Maybe LanguageCode)
+     (Maybe LanguageCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272131"><span class="annot"><span class="annottext">Maybe LanguageCode
+languageCode :: Maybe LanguageCode
+$sel:languageCode:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe LanguageCode
+</span><a href="#local-6989586621679272131"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679272131"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272130"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272129"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679272129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CallAnalyticsJobSummary' :: Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AlanguageCode%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679272129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | A timestamp that shows when the job began processing.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_startTime"><span class="hs-identifier hs-type">callAnalyticsJobSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -312,16 +297,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271964"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272127"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679271964"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271964"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271963"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271962"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:CallAnalyticsJobSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679272127"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272127"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272126"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272125"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:CallAnalyticsJobSummary' :: Maybe POSIX
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AstartTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679271962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679272125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -338,9 +323,48 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The name of the call analytics job.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_callAnalyticsJobName"><span class="hs-identifier hs-type">callAnalyticsJobSummary_callAnalyticsJobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="callAnalyticsJobSummary_callAnalyticsJobName"><span class="annot"><span class="annottext">callAnalyticsJobSummary_callAnalyticsJobName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-104"></span><span class="hs-comment">-- | A timestamp that shows when the job was completed.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_completionTime"><span class="hs-identifier hs-type">callAnalyticsJobSummary_completionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="callAnalyticsJobSummary_completionTime"><span class="annot"><span class="annottext">callAnalyticsJobSummary_completionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_completionTime"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_completionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe POSIX)
+-&gt; (CallAnalyticsJobSummary
+    -&gt; Maybe POSIX -&gt; CallAnalyticsJobSummary)
+-&gt; Lens
+     CallAnalyticsJobSummary
+     CallAnalyticsJobSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272123"><span class="annot"><span class="annottext">Maybe POSIX
+completionTime :: Maybe POSIX
+$sel:completionTime:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679272123"><span class="hs-identifier hs-var hs-var">completionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272123"><span class="hs-identifier hs-var">completionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272122"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272121"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionTime:CallAnalyticsJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcompletionTime%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">completionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679272121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CallAnalyticsJobSummary
+-&gt; f CallAnalyticsJobSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The name of the call analytics job.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_callAnalyticsJobName"><span class="hs-identifier hs-type">callAnalyticsJobSummary_callAnalyticsJobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="callAnalyticsJobSummary_callAnalyticsJobName"><span class="annot"><span class="annottext">callAnalyticsJobSummary_callAnalyticsJobName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_callAnalyticsJobName"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_callAnalyticsJobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe Text)
 -&gt; (CallAnalyticsJobSummary
@@ -351,43 +375,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271960"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272119"><span class="annot"><span class="annottext">Maybe Text
 callAnalyticsJobName :: Maybe Text
 $sel:callAnalyticsJobName:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679271960"><span class="hs-identifier hs-var hs-var">callAnalyticsJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271960"><span class="hs-identifier hs-var">callAnalyticsJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271959"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callAnalyticsJobName:CallAnalyticsJobSummary' :: Maybe Text
+</span><a href="#local-6989586621679272119"><span class="hs-identifier hs-var hs-var">callAnalyticsJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272119"><span class="hs-identifier hs-var">callAnalyticsJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272118"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272117"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
+</span><a href="#local-6989586621679272118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callAnalyticsJobName:CallAnalyticsJobSummary' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AcallAnalyticsJobName%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">callAnalyticsJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | If the @CallAnalyticsJobStatus@ is @FAILED@, a description of the error.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_failureReason"><span class="hs-identifier hs-type">callAnalyticsJobSummary_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="callAnalyticsJobSummary_failureReason"><span class="annot"><span class="annottext">callAnalyticsJobSummary_failureReason :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CallAnalyticsJobSummary -&gt; f CallAnalyticsJobSummary
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#callAnalyticsJobSummary_failureReason"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSummary_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSummary -&gt; Maybe Text)
--&gt; (CallAnalyticsJobSummary
-    -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
--&gt; Lens
-     CallAnalyticsJobSummary
-     CallAnalyticsJobSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271956"><span class="annot"><span class="annottext">Maybe Text
-failureReason :: Maybe Text
-$sel:failureReason:CallAnalyticsJobSummary' :: CallAnalyticsJobSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679271956"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271956"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271955"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-type">CallAnalyticsJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271954"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSummary
-</span><a href="#local-6989586621679271955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:CallAnalyticsJobSummary' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#%24sel%3AfailureReason%3ACallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271951"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679271949"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CallAnalyticsJobSummary
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272114"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679272112"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CallAnalyticsJobSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CallAnalyticsJobSummary)
@@ -397,129 +397,129 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CallAnalyticsJobSummary&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271946"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe LanguageCode
--&gt; Maybe CallAnalyticsJobStatus
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe POSIX
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272109"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
+-&gt; Maybe CallAnalyticsJobStatus
+-&gt; Maybe LanguageCode
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; CallAnalyticsJobSummary
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary%27"><span class="hs-identifier hs-var">CallAnalyticsJobSummary'</span></a></span><span>
-</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LanguageCode
- -&gt; Maybe CallAnalyticsJobStatus
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Text
+ -&gt; Maybe CallAnalyticsJobStatus
+ -&gt; Maybe LanguageCode
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; CallAnalyticsJobSummary)
--&gt; Parser (Maybe LanguageCode)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe CallAnalyticsJobStatus
+     (Maybe Text
+      -&gt; Maybe CallAnalyticsJobStatus
+      -&gt; Maybe LanguageCode
       -&gt; Maybe POSIX
       -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; CallAnalyticsJobSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LanguageCode)
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe CallAnalyticsJobStatus
-   -&gt; Maybe POSIX
+  (Maybe Text
+   -&gt; Maybe CallAnalyticsJobStatus
+   -&gt; Maybe LanguageCode
    -&gt; Maybe POSIX
    -&gt; Maybe POSIX
    -&gt; Maybe Text
+   -&gt; CallAnalyticsJobSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CallAnalyticsJobStatus
+      -&gt; Maybe LanguageCode
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; CallAnalyticsJobSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CallAnalyticsJobStatus
+   -&gt; Maybe LanguageCode
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; CallAnalyticsJobSummary)
 -&gt; Parser (Maybe CallAnalyticsJobStatus)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe LanguageCode
       -&gt; Maybe POSIX
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; CallAnalyticsJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CallAnalyticsJobStatus)
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CallAnalyticsJobStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CallAnalyticsJobStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; CallAnalyticsJobSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; CallAnalyticsJobSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+  (Maybe LanguageCode
+   -&gt; Maybe POSIX
    -&gt; Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; CallAnalyticsJobSummary)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe LanguageCode)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LanguageCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CompletionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
 -&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
--&gt; Parser (Maybe Text)
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; CallAnalyticsJobSummary)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe Text -&gt; CallAnalyticsJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CallAnalyticsJobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CompletionTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CallAnalyticsJobSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser CallAnalyticsJobSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679272109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CallAnalyticsJobName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271940"><span id="local-6989586621679271942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272103"><span id="local-6989586621679272105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSummary.html#CallAnalyticsJobSummary"><span class="hs-identifier hs-type">CallAnalyticsJobSummary</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

@@ -31,21 +31,21 @@
 </span><span id="line-31"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms Alarms in Amazon Lightsail&gt;.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newMonitoredResourceInfo' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679621784"><span id="local-6989586621679621785"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoredResourceInfo"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-var">MonitoredResourceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoredResourceInfo%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-var">MonitoredResourceInfo'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource being monitored.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3AMonitoredResourceInfo%27"><span class="annot"><span class="annottext">MonitoredResourceInfo -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aarn%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Lightsail resource type of the resource being monitored.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Instances, load balancers, and relational databases are the only</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Lightsail resources that can currently be monitored by alarms.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AresourceType%3AMonitoredResourceInfo%27"><span class="annot"><span class="annottext">MonitoredResourceInfo -&gt; Maybe ResourceType
+</span><span id="line-34"></span><span id="local-6989586621679622693"><span id="local-6989586621679622694"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoredResourceInfo"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-var">MonitoredResourceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoredResourceInfo%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-var">MonitoredResourceInfo'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Lightsail resource type of the resource being monitored.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Instances, load balancers, and relational databases are the only</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Lightsail resources that can currently be monitored by alarms.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceType%3AMonitoredResourceInfo%27"><span class="annot"><span class="annottext">MonitoredResourceInfo -&gt; Maybe ResourceType
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3AresourceType%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource being monitored.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aarn%3AMonitoredResourceInfo%27"><span class="annot"><span class="annottext">MonitoredResourceInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aarn%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the Lightsail resource being monitored.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Aname%3AMonitoredResourceInfo%27"><span class="annot"><span class="annottext">MonitoredResourceInfo -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aname%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679621776"><span id="local-6989586621679621778"><span class="annot"><span class="annottext">MonitoredResourceInfo -&gt; MonitoredResourceInfo -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679622685"><span id="local-6989586621679622687"><span class="annot"><span class="annottext">MonitoredResourceInfo -&gt; MonitoredResourceInfo -&gt; Bool
 (MonitoredResourceInfo -&gt; MonitoredResourceInfo -&gt; Bool)
 -&gt; (MonitoredResourceInfo -&gt; MonitoredResourceInfo -&gt; Bool)
 -&gt; Eq MonitoredResourceInfo
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonitoredResourceInfo -&gt; MonitoredResourceInfo -&gt; Bool
 == :: MonitoredResourceInfo -&gt; MonitoredResourceInfo -&gt; Bool
 $c== :: MonitoredResourceInfo -&gt; MonitoredResourceInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621767"><span id="local-6989586621679621769"><span id="local-6989586621679621771"><span id="local-6989586621679621773"><span class="annot"><span class="annottext">ReadPrec [MonitoredResourceInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622676"><span id="local-6989586621679622678"><span id="local-6989586621679622680"><span id="local-6989586621679622682"><span class="annot"><span class="annottext">ReadPrec [MonitoredResourceInfo]
 ReadPrec MonitoredResourceInfo
 Int -&gt; ReadS MonitoredResourceInfo
 ReadS [MonitoredResourceInfo]
@@ -74,7 +74,7 @@ readList :: ReadS [MonitoredResourceInfo]
 $creadList :: ReadS [MonitoredResourceInfo]
 readsPrec :: Int -&gt; ReadS MonitoredResourceInfo
 $creadsPrec :: Int -&gt; ReadS MonitoredResourceInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621760"><span id="local-6989586621679621762"><span id="local-6989586621679621764"><span class="annot"><span class="annottext">Int -&gt; MonitoredResourceInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679622669"><span id="local-6989586621679622671"><span id="local-6989586621679622673"><span class="annot"><span class="annottext">Int -&gt; MonitoredResourceInfo -&gt; ShowS
 [MonitoredResourceInfo] -&gt; ShowS
 MonitoredResourceInfo -&gt; String
 (Int -&gt; MonitoredResourceInfo -&gt; ShowS)
@@ -108,64 +108,42 @@ $cfrom :: forall x. MonitoredResourceInfo -&gt; Rep MonitoredResourceInfo x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'arn', 'monitoredResourceInfo_arn' - The Amazon Resource Name (ARN) of the resource being monitored.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'resourceType', 'monitoredResourceInfo_resourceType' - The Lightsail resource type of the resource being monitored.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'resourceType', 'monitoredResourceInfo_resourceType' - The Lightsail resource type of the resource being monitored.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- Instances, load balancers, and relational databases are the only</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- Lightsail resources that can currently be monitored by alarms.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Instances, load balancers, and relational databases are the only</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Lightsail resources that can currently be monitored by alarms.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'arn', 'monitoredResourceInfo_arn' - The Amazon Resource Name (ARN) of the resource being monitored.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- 'name', 'monitoredResourceInfo_name' - The name of the Lightsail resource being monitored.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#newMonitoredResourceInfo"><span class="hs-identifier hs-type">newMonitoredResourceInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span>
 </span><span id="line-65"></span><span id="newMonitoredResourceInfo"><span class="annot"><span class="annottext">newMonitoredResourceInfo :: MonitoredResourceInfo
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#newMonitoredResourceInfo"><span class="hs-identifier hs-var hs-var">newMonitoredResourceInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">MonitoredResourceInfo' :: Maybe Text
--&gt; Maybe ResourceType -&gt; Maybe Text -&gt; MonitoredResourceInfo
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">MonitoredResourceInfo' :: Maybe ResourceType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; MonitoredResourceInfo
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:MonitoredResourceInfo' :: Maybe Text
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:MonitoredResourceInfo' :: Maybe ResourceType
+</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3AresourceType%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResourceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:MonitoredResourceInfo' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aarn%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:MonitoredResourceInfo' :: Maybe ResourceType
-</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3AresourceType%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MonitoredResourceInfo' :: Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MonitoredResourceInfo' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aname%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource being monitored.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_arn"><span class="hs-identifier hs-type">monitoredResourceInfo_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="monitoredResourceInfo_arn"><span class="annot"><span class="annottext">monitoredResourceInfo_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MonitoredResourceInfo -&gt; f MonitoredResourceInfo
-</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_arn"><span class="hs-identifier hs-var hs-var">monitoredResourceInfo_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoredResourceInfo -&gt; Maybe Text)
--&gt; (MonitoredResourceInfo -&gt; Maybe Text -&gt; MonitoredResourceInfo)
--&gt; Lens
-     MonitoredResourceInfo
-     MonitoredResourceInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621751"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:MonitoredResourceInfo' :: MonitoredResourceInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679621751"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679621751"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621750"><span class="annot"><span class="annottext">s :: MonitoredResourceInfo
-</span><a href="#local-6989586621679621750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621749"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679621749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoredResourceInfo
-</span><a href="#local-6989586621679621750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:MonitoredResourceInfo' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aarn%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679621749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The Lightsail resource type of the resource being monitored.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- Instances, load balancers, and relational databases are the only</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- Lightsail resources that can currently be monitored by alarms.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_resourceType"><span class="hs-identifier hs-type">monitoredResourceInfo_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="monitoredResourceInfo_resourceType"><span class="annot"><span class="annottext">monitoredResourceInfo_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The Lightsail resource type of the resource being monitored.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Instances, load balancers, and relational databases are the only</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Lightsail resources that can currently be monitored by alarms.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_resourceType"><span class="hs-identifier hs-type">monitoredResourceInfo_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="monitoredResourceInfo_resourceType"><span class="annot"><span class="annottext">monitoredResourceInfo_resourceType :: (Maybe ResourceType -&gt; f (Maybe ResourceType))
 -&gt; MonitoredResourceInfo -&gt; f MonitoredResourceInfo
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_resourceType"><span class="hs-identifier hs-var hs-var">monitoredResourceInfo_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoredResourceInfo -&gt; Maybe ResourceType)
 -&gt; (MonitoredResourceInfo
@@ -176,20 +154,43 @@ $sel:arn:MonitoredResourceInfo' :: MonitoredResourceInfo -&gt; Maybe Text
      (Maybe ResourceType)
      (Maybe ResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621747"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622660"><span class="annot"><span class="annottext">Maybe ResourceType
 resourceType :: Maybe ResourceType
 $sel:resourceType:MonitoredResourceInfo' :: MonitoredResourceInfo -&gt; Maybe ResourceType
-</span><a href="#local-6989586621679621747"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679621747"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621746"><span class="annot"><span class="annottext">s :: MonitoredResourceInfo
-</span><a href="#local-6989586621679621746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621745"><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679621745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoredResourceInfo
-</span><a href="#local-6989586621679621746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:MonitoredResourceInfo' :: Maybe ResourceType
+</span><a href="#local-6989586621679622660"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679622660"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622659"><span class="annot"><span class="annottext">s :: MonitoredResourceInfo
+</span><a href="#local-6989586621679622659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622658"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679622658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoredResourceInfo
+</span><a href="#local-6989586621679622659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:MonitoredResourceInfo' :: Maybe ResourceType
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3AresourceType%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679621745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The name of the Lightsail resource being monitored.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_name"><span class="hs-identifier hs-type">monitoredResourceInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="monitoredResourceInfo_name"><span class="annot"><span class="annottext">monitoredResourceInfo_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679622658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource being monitored.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_arn"><span class="hs-identifier hs-type">monitoredResourceInfo_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="monitoredResourceInfo_arn"><span class="annot"><span class="annottext">monitoredResourceInfo_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MonitoredResourceInfo -&gt; f MonitoredResourceInfo
+</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_arn"><span class="hs-identifier hs-var hs-var">monitoredResourceInfo_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoredResourceInfo -&gt; Maybe Text)
+-&gt; (MonitoredResourceInfo -&gt; Maybe Text -&gt; MonitoredResourceInfo)
+-&gt; Lens
+     MonitoredResourceInfo
+     MonitoredResourceInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622656"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:MonitoredResourceInfo' :: MonitoredResourceInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679622656"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622656"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622655"><span class="annot"><span class="annottext">s :: MonitoredResourceInfo
+</span><a href="#local-6989586621679622655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoredResourceInfo
+</span><a href="#local-6989586621679622655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:MonitoredResourceInfo' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aarn%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the Lightsail resource being monitored.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_name"><span class="hs-identifier hs-type">monitoredResourceInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="monitoredResourceInfo_name"><span class="annot"><span class="annottext">monitoredResourceInfo_name :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MonitoredResourceInfo -&gt; f MonitoredResourceInfo
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#monitoredResourceInfo_name"><span class="hs-identifier hs-var hs-var">monitoredResourceInfo_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoredResourceInfo -&gt; Maybe Text)
 -&gt; (MonitoredResourceInfo -&gt; Maybe Text -&gt; MonitoredResourceInfo)
@@ -199,64 +200,63 @@ $sel:resourceType:MonitoredResourceInfo' :: MonitoredResourceInfo -&gt; Maybe Re
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621743"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679622652"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:MonitoredResourceInfo' :: MonitoredResourceInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679621743"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679621743"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621742"><span class="annot"><span class="annottext">s :: MonitoredResourceInfo
-</span><a href="#local-6989586621679621742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621741"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679621741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoredResourceInfo
-</span><a href="#local-6989586621679621742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MonitoredResourceInfo' :: Maybe Text
+</span><a href="#local-6989586621679622652"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622652"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679622651"><span class="annot"><span class="annottext">s :: MonitoredResourceInfo
+</span><a href="#local-6989586621679622651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-type">MonitoredResourceInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679622650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679622650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoredResourceInfo
+</span><a href="#local-6989586621679622651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MonitoredResourceInfo' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#%24sel%3Aname%3AMonitoredResourceInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679621741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621738"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679621736"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoredResourceInfo
+</span><a href="#local-6989586621679622650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622647"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679622645"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonitoredResourceInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonitoredResourceInfo)
 -&gt; Value
 -&gt; Parser MonitoredResourceInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonitoredResourceInfo&quot;</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679621733"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ResourceType -&gt; Maybe Text -&gt; MonitoredResourceInfo
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679622642"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679622642"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; MonitoredResourceInfo
 </span><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo%27"><span class="hs-identifier hs-var">MonitoredResourceInfo'</span></a></span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ResourceType -&gt; Maybe Text -&gt; MonitoredResourceInfo)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ResourceType -&gt; Maybe Text -&gt; MonitoredResourceInfo)
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceType
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; MonitoredResourceInfo)
+-&gt; Parser (Maybe ResourceType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MonitoredResourceInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceType -&gt; Maybe Text -&gt; MonitoredResourceInfo)
--&gt; Parser (Maybe ResourceType)
--&gt; Parser (Maybe Text -&gt; MonitoredResourceInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+</span><a href="#local-6989586621679622642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MonitoredResourceInfo)
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MonitoredResourceInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; MonitoredResourceInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679622642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MonitoredResourceInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser MonitoredResourceInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679621733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679622642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621727"><span id="local-6989586621679621729"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span></span></span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621724"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span></span><span>
-</span><span id="line-101"></span></pre></body></html>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622636"><span id="local-6989586621679622638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679622633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonitoredResourceInfo.html#MonitoredResourceInfo"><span class="hs-identifier hs-type">MonitoredResourceInfo</span></a></span></span><span>
+</span><span id="line-102"></span></pre></body></html>

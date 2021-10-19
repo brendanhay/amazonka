@@ -28,26 +28,26 @@
 </span><span id="line-28"></span><span class="hs-comment">-- jobs. For more information, see the operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newKeyPhrasesDetectionJobFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679344780"><span id="local-6989586621679344781"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPhrasesDetectionJobFilter"><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-var">KeyPhrasesDetectionJobFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPhrasesDetectionJobFilter%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">KeyPhrasesDetectionJobFilter'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the list of jobs based on job status. Returns only jobs with the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specified status.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for processing. Returns only jobs submitted before the specified time.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Jobs are returned in ascending order, oldest to newest.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsubmitTimeBefore%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeBefore%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var hs-var">submitTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- for processing. Returns only jobs submitted after the specified time.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Jobs are returned in descending order, newest to oldest.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsubmitTimeAfter%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
+</span><span id="line-31"></span><span id="local-6989586621679345047"><span id="local-6989586621679345048"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPhrasesDetectionJobFilter"><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-var">KeyPhrasesDetectionJobFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPhrasesDetectionJobFilter%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">KeyPhrasesDetectionJobFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- for processing. Returns only jobs submitted after the specified time.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Jobs are returned in descending order, newest to oldest.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubmitTimeAfter%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeAfter%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var hs-var">submitTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Filters on the name of the job.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AjobName%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobName%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- for processing. Returns only jobs submitted before the specified time.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Jobs are returned in ascending order, oldest to newest.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsubmitTimeBefore%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeBefore%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var hs-var">submitTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Filters on the name of the job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AjobName%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobName%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Filters the list of jobs based on job status. Returns only jobs with the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- specified status.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter -&gt; Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344771"><span id="local-6989586621679344773"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345038"><span id="local-6989586621679345040"><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
 -&gt; KeyPhrasesDetectionJobFilter -&gt; Bool
 (KeyPhrasesDetectionJobFilter
  -&gt; KeyPhrasesDetectionJobFilter -&gt; Bool)
@@ -63,7 +63,7 @@ $c/= :: KeyPhrasesDetectionJobFilter
 -&gt; KeyPhrasesDetectionJobFilter -&gt; Bool
 $c== :: KeyPhrasesDetectionJobFilter
 -&gt; KeyPhrasesDetectionJobFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344762"><span id="local-6989586621679344764"><span id="local-6989586621679344766"><span id="local-6989586621679344768"><span class="annot"><span class="annottext">ReadPrec [KeyPhrasesDetectionJobFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345029"><span id="local-6989586621679345031"><span id="local-6989586621679345033"><span id="local-6989586621679345035"><span class="annot"><span class="annottext">ReadPrec [KeyPhrasesDetectionJobFilter]
 ReadPrec KeyPhrasesDetectionJobFilter
 Int -&gt; ReadS KeyPhrasesDetectionJobFilter
 ReadS [KeyPhrasesDetectionJobFilter]
@@ -83,7 +83,7 @@ readList :: ReadS [KeyPhrasesDetectionJobFilter]
 $creadList :: ReadS [KeyPhrasesDetectionJobFilter]
 readsPrec :: Int -&gt; ReadS KeyPhrasesDetectionJobFilter
 $creadsPrec :: Int -&gt; ReadS KeyPhrasesDetectionJobFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344755"><span id="local-6989586621679344757"><span id="local-6989586621679344759"><span class="annot"><span class="annottext">Int -&gt; KeyPhrasesDetectionJobFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345022"><span id="local-6989586621679345024"><span id="local-6989586621679345026"><span class="annot"><span class="annottext">Int -&gt; KeyPhrasesDetectionJobFilter -&gt; ShowS
 [KeyPhrasesDetectionJobFilter] -&gt; ShowS
 KeyPhrasesDetectionJobFilter -&gt; String
 (Int -&gt; KeyPhrasesDetectionJobFilter -&gt; ShowS)
@@ -123,118 +123,52 @@ KeyPhrasesDetectionJobFilter -&gt; Rep KeyPhrasesDetectionJobFilter x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'jobStatus', 'keyPhrasesDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- specified status.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'submitTimeBefore', 'keyPhrasesDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- for processing. Returns only jobs submitted before the specified time.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- Jobs are returned in ascending order, oldest to newest.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'submitTimeAfter', 'keyPhrasesDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- for processing. Returns only jobs submitted after the specified time.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Jobs are returned in descending order, newest to oldest.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'jobName', 'keyPhrasesDetectionJobFilter_jobName' - Filters on the name of the job.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'submitTimeAfter', 'keyPhrasesDetectionJobFilter_submitTimeAfter' - Filters the list of jobs based on the time that the job was submitted</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for processing. Returns only jobs submitted after the specified time.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Jobs are returned in descending order, newest to oldest.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'submitTimeBefore', 'keyPhrasesDetectionJobFilter_submitTimeBefore' - Filters the list of jobs based on the time that the job was submitted</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for processing. Returns only jobs submitted before the specified time.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Jobs are returned in ascending order, oldest to newest.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'jobName', 'keyPhrasesDetectionJobFilter_jobName' - Filters on the name of the job.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'jobStatus', 'keyPhrasesDetectionJobFilter_jobStatus' - Filters the list of jobs based on job status. Returns only jobs with the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- specified status.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#newKeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">newKeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span>
 </span><span id="line-70"></span><span id="newKeyPhrasesDetectionJobFilter"><span class="annot"><span class="annottext">newKeyPhrasesDetectionJobFilter :: KeyPhrasesDetectionJobFilter
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#newKeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-var hs-var">newKeyPhrasesDetectionJobFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter' :: Maybe JobStatus
--&gt; Maybe POSIX
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter' :: Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Text
+-&gt; Maybe JobStatus
 -&gt; KeyPhrasesDetectionJobFilter
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobStatus:KeyPhrasesDetectionJobFilter' :: Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:submitTimeAfter:KeyPhrasesDetectionJobFilter' :: Maybe POSIX
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeAfter%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">submitTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:submitTimeBefore:KeyPhrasesDetectionJobFilter' :: Maybe POSIX
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeBefore%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">submitTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:submitTimeAfter:KeyPhrasesDetectionJobFilter' :: Maybe POSIX
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeAfter%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">submitTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:KeyPhrasesDetectionJobFilter' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobName%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:KeyPhrasesDetectionJobFilter' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobName%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:KeyPhrasesDetectionJobFilter' :: Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | Filters the list of jobs based on job status. Returns only jobs with the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- specified status.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_jobStatus"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="keyPhrasesDetectionJobFilter_jobStatus"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
--&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_jobStatus"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobFilter_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPhrasesDetectionJobFilter -&gt; Maybe JobStatus)
--&gt; (KeyPhrasesDetectionJobFilter
-    -&gt; Maybe JobStatus -&gt; KeyPhrasesDetectionJobFilter)
--&gt; Lens
-     KeyPhrasesDetectionJobFilter
-     KeyPhrasesDetectionJobFilter
-     (Maybe JobStatus)
-     (Maybe JobStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344746"><span class="annot"><span class="annottext">Maybe JobStatus
-jobStatus :: Maybe JobStatus
-$sel:jobStatus:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe JobStatus
-</span><a href="#local-6989586621679344746"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679344746"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344745"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344744"><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679344744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:KeyPhrasesDetectionJobFilter' :: Maybe JobStatus
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679344744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- for processing. Returns only jobs submitted before the specified time.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- Jobs are returned in ascending order, oldest to newest.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_submitTimeBefore"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_submitTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="keyPhrasesDetectionJobFilter_submitTimeBefore"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_submitTimeBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_submitTimeBefore"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobFilter_submitTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX)
--&gt; (KeyPhrasesDetectionJobFilter
-    -&gt; Maybe POSIX -&gt; KeyPhrasesDetectionJobFilter)
--&gt; Lens
-     KeyPhrasesDetectionJobFilter
-     KeyPhrasesDetectionJobFilter
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344742"><span class="annot"><span class="annottext">Maybe POSIX
-submitTimeBefore :: Maybe POSIX
-$sel:submitTimeBefore:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
-</span><a href="#local-6989586621679344742"><span class="hs-identifier hs-var hs-var">submitTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344742"><span class="hs-identifier hs-var">submitTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344741"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344740"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTimeBefore:KeyPhrasesDetectionJobFilter' :: Maybe POSIX
-</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeBefore%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">submitTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; KeyPhrasesDetectionJobFilter
--&gt; f KeyPhrasesDetectionJobFilter
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- for processing. Returns only jobs submitted after the specified time.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- Jobs are returned in descending order, newest to oldest.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_submitTimeAfter"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_submitTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="keyPhrasesDetectionJobFilter_submitTimeAfter"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_submitTimeAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-79"></span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for processing. Returns only jobs submitted after the specified time.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Jobs are returned in descending order, newest to oldest.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_submitTimeAfter"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_submitTimeAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="keyPhrasesDetectionJobFilter_submitTimeAfter"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_submitTimeAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_submitTimeAfter"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobFilter_submitTimeAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX)
 -&gt; (KeyPhrasesDetectionJobFilter
@@ -245,16 +179,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344735"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345013"><span class="annot"><span class="annottext">Maybe POSIX
 submitTimeAfter :: Maybe POSIX
 $sel:submitTimeAfter:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
-</span><a href="#local-6989586621679344735"><span class="hs-identifier hs-var hs-var">submitTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344735"><span class="hs-identifier hs-var">submitTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344734"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344733"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTimeAfter:KeyPhrasesDetectionJobFilter' :: Maybe POSIX
+</span><a href="#local-6989586621679345013"><span class="hs-identifier hs-var hs-var">submitTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345013"><span class="hs-identifier hs-var">submitTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345012"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679345012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345011"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679345012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTimeAfter:KeyPhrasesDetectionJobFilter' :: Maybe POSIX
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeAfter%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">submitTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679345011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -270,10 +204,51 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | Filters on the name of the job.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_jobName"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="keyPhrasesDetectionJobFilter_jobName"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_jobName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Filters the list of jobs based on the time that the job was submitted</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for processing. Returns only jobs submitted before the specified time.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Jobs are returned in ascending order, oldest to newest.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_submitTimeBefore"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_submitTimeBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="keyPhrasesDetectionJobFilter_submitTimeBefore"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_submitTimeBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_submitTimeBefore"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobFilter_submitTimeBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX)
+-&gt; (KeyPhrasesDetectionJobFilter
+    -&gt; Maybe POSIX -&gt; KeyPhrasesDetectionJobFilter)
+-&gt; Lens
+     KeyPhrasesDetectionJobFilter
+     KeyPhrasesDetectionJobFilter
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345006"><span class="annot"><span class="annottext">Maybe POSIX
+submitTimeBefore :: Maybe POSIX
+$sel:submitTimeBefore:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
+</span><a href="#local-6989586621679345006"><span class="hs-identifier hs-var hs-var">submitTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345006"><span class="hs-identifier hs-var">submitTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345005"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679345005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345004"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679345005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submitTimeBefore:KeyPhrasesDetectionJobFilter' :: Maybe POSIX
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AsubmitTimeBefore%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">submitTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679345004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; KeyPhrasesDetectionJobFilter
+-&gt; f KeyPhrasesDetectionJobFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Filters on the name of the job.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_jobName"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="keyPhrasesDetectionJobFilter_jobName"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_jobName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_jobName"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobFilter_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPhrasesDetectionJobFilter -&gt; Maybe Text)
 -&gt; (KeyPhrasesDetectionJobFilter
@@ -284,72 +259,97 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344731"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345002"><span class="annot"><span class="annottext">Maybe Text
 jobName :: Maybe Text
 $sel:jobName:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679344731"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344731"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344730"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344729"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
-</span><a href="#local-6989586621679344730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:KeyPhrasesDetectionJobFilter' :: Maybe Text
+</span><a href="#local-6989586621679345002"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345002"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345001"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679345001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679345001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:KeyPhrasesDetectionJobFilter' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobName%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Filters the list of jobs based on job status. Returns only jobs with the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- specified status.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_jobStatus"><span class="hs-identifier hs-type">keyPhrasesDetectionJobFilter_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="keyPhrasesDetectionJobFilter_jobStatus"><span class="annot"><span class="annottext">keyPhrasesDetectionJobFilter_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; KeyPhrasesDetectionJobFilter -&gt; f KeyPhrasesDetectionJobFilter
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#keyPhrasesDetectionJobFilter_jobStatus"><span class="hs-identifier hs-var hs-var">keyPhrasesDetectionJobFilter_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPhrasesDetectionJobFilter -&gt; Maybe JobStatus)
+-&gt; (KeyPhrasesDetectionJobFilter
+    -&gt; Maybe JobStatus -&gt; KeyPhrasesDetectionJobFilter)
+-&gt; Lens
+     KeyPhrasesDetectionJobFilter
+     KeyPhrasesDetectionJobFilter
+     (Maybe JobStatus)
+     (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344998"><span class="annot"><span class="annottext">Maybe JobStatus
+jobStatus :: Maybe JobStatus
+$sel:jobStatus:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679344998"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679344998"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344997"><span class="annot"><span class="annottext">s :: KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679344997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344996"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679344996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPhrasesDetectionJobFilter
+</span><a href="#local-6989586621679344997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:KeyPhrasesDetectionJobFilter' :: Maybe JobStatus
+</span><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#%24sel%3AjobStatus%3AKeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679344996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679344725"><span id="local-6989586621679344727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679344992"><span id="local-6989586621679344994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344714"><span id="local-6989586621679344716"><span id="local-6989586621679344718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679344712"><span class="annot"><span class="annottext">toJSON :: KeyPhrasesDetectionJobFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344707"><span id="local-6989586621679344708"><span id="local-6989586621679344709"><span id="local-6989586621679344710"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344981"><span id="local-6989586621679344983"><span id="local-6989586621679344985"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679344979"><span class="annot"><span class="annottext">toJSON :: KeyPhrasesDetectionJobFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter.html#KeyPhrasesDetectionJobFilter%27"><span class="hs-identifier hs-type">KeyPhrasesDetectionJobFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344974"><span id="local-6989586621679344975"><span id="local-6989586621679344976"><span id="local-6989586621679344977"><span class="annot"><span class="annottext">Maybe Text
 Maybe POSIX
 Maybe JobStatus
-jobName :: Maybe Text
-submitTimeAfter :: Maybe POSIX
-submitTimeBefore :: Maybe POSIX
 jobStatus :: Maybe JobStatus
-$sel:jobName:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe Text
-$sel:submitTimeAfter:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
-$sel:submitTimeBefore:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
+jobName :: Maybe Text
+submitTimeBefore :: Maybe POSIX
+submitTimeAfter :: Maybe POSIX
 $sel:jobStatus:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe JobStatus
-</span><a href="#local-6989586621679344707"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:jobName:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe Text
+$sel:submitTimeBefore:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
+$sel:submitTimeAfter:KeyPhrasesDetectionJobFilter' :: KeyPhrasesDetectionJobFilter -&gt; Maybe POSIX
+</span><a href="#local-6989586621679344974"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobStatus -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JobStatus -&gt; Pair) -&gt; Maybe JobStatus -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679344710"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SubmitTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344709"><span class="hs-identifier hs-var">submitTimeBefore</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubmitTimeAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679344708"><span class="hs-identifier hs-var">submitTimeAfter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344977"><span class="hs-identifier hs-var">submitTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubmitTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679344976"><span class="hs-identifier hs-var">submitTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344707"><span class="hs-identifier hs-var">jobName</span></a></span><span>
+</span><a href="#local-6989586621679344975"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JobStatus -&gt; Pair) -&gt; Maybe JobStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679344974"><span class="hs-identifier hs-var">jobStatus</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

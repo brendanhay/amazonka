@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details on an event associated with a service.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newServiceEvent' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679459941"><span id="local-6989586621679459942"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceEvent"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-var">ServiceEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceEvent%27"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-var">ServiceEvent'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event message.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Amessage%3AServiceEvent%27"><span class="annot"><span class="annottext">ServiceEvent -&gt; Maybe Text
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Amessage%3AServiceEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679460665"><span id="local-6989586621679460666"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceEvent"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-var">ServiceEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceEvent%27"><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-var">ServiceEvent'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Unix timestamp for when the event was triggered.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreatedAt%3AServiceEvent%27"><span class="annot"><span class="annottext">ServiceEvent -&gt; Maybe POSIX
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3AcreatedAt%3AServiceEvent%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ID string of the event.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3AServiceEvent%27"><span class="annot"><span class="annottext">ServiceEvent -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Aid%3AServiceEvent%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Unix timestamp for when the event was triggered.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreatedAt%3AServiceEvent%27"><span class="annot"><span class="annottext">ServiceEvent -&gt; Maybe POSIX
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3AcreatedAt%3AServiceEvent%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The event message.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AServiceEvent%27"><span class="annot"><span class="annottext">ServiceEvent -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Amessage%3AServiceEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459933"><span id="local-6989586621679459935"><span class="annot"><span class="annottext">ServiceEvent -&gt; ServiceEvent -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460657"><span id="local-6989586621679460659"><span class="annot"><span class="annottext">ServiceEvent -&gt; ServiceEvent -&gt; Bool
 (ServiceEvent -&gt; ServiceEvent -&gt; Bool)
 -&gt; (ServiceEvent -&gt; ServiceEvent -&gt; Bool) -&gt; Eq ServiceEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceEvent -&gt; ServiceEvent -&gt; Bool
 == :: ServiceEvent -&gt; ServiceEvent -&gt; Bool
 $c== :: ServiceEvent -&gt; ServiceEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459924"><span id="local-6989586621679459926"><span id="local-6989586621679459928"><span id="local-6989586621679459930"><span class="annot"><span class="annottext">ReadPrec [ServiceEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460648"><span id="local-6989586621679460650"><span id="local-6989586621679460652"><span id="local-6989586621679460654"><span class="annot"><span class="annottext">ReadPrec [ServiceEvent]
 ReadPrec ServiceEvent
 Int -&gt; ReadS ServiceEvent
 ReadS [ServiceEvent]
@@ -65,7 +65,7 @@ readList :: ReadS [ServiceEvent]
 $creadList :: ReadS [ServiceEvent]
 readsPrec :: Int -&gt; ReadS ServiceEvent
 $creadsPrec :: Int -&gt; ReadS ServiceEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459917"><span id="local-6989586621679459919"><span id="local-6989586621679459921"><span class="annot"><span class="annottext">Int -&gt; ServiceEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460641"><span id="local-6989586621679460643"><span id="local-6989586621679460645"><span class="annot"><span class="annottext">Int -&gt; ServiceEvent -&gt; ShowS
 [ServiceEvent] -&gt; ShowS
 ServiceEvent -&gt; String
 (Int -&gt; ServiceEvent -&gt; ShowS)
@@ -99,85 +99,49 @@ $cfrom :: forall x. ServiceEvent -&gt; Rep ServiceEvent x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'message', 'serviceEvent_message' - The event message.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'createdAt', 'serviceEvent_createdAt' - The Unix timestamp for when the event was triggered.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'id', 'serviceEvent_id' - The ID string of the event.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'createdAt', 'serviceEvent_createdAt' - The Unix timestamp for when the event was triggered.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'message', 'serviceEvent_message' - The event message.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#newServiceEvent"><span class="hs-identifier hs-type">newServiceEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span>
 </span><span id="line-54"></span><span id="newServiceEvent"><span class="annot"><span class="annottext">newServiceEvent :: ServiceEvent
 </span><a href="Network.AWS.ECS.Types.ServiceEvent.html#newServiceEvent"><span class="hs-identifier hs-var hs-var">newServiceEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ServiceEvent' :: Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ServiceEvent
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ServiceEvent' :: Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceEvent
 </span><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:ServiceEvent' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Amessage%3AServiceEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAt:ServiceEvent' :: Maybe POSIX
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3AcreatedAt%3AServiceEvent%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ServiceEvent' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Aid%3AServiceEvent%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ServiceEvent' :: Maybe POSIX
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3AcreatedAt%3AServiceEvent%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:ServiceEvent' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Amessage%3AServiceEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The event message.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_message"><span class="hs-identifier hs-type">serviceEvent_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="serviceEvent_message"><span class="annot"><span class="annottext">serviceEvent_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ServiceEvent -&gt; f ServiceEvent
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_message"><span class="hs-identifier hs-var hs-var">serviceEvent_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceEvent -&gt; Maybe Text)
--&gt; (ServiceEvent -&gt; Maybe Text -&gt; ServiceEvent)
--&gt; Lens ServiceEvent ServiceEvent (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459908"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:ServiceEvent' :: ServiceEvent -&gt; Maybe Text
-</span><a href="#local-6989586621679459908"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459908"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459907"><span class="annot"><span class="annottext">s :: ServiceEvent
-</span><a href="#local-6989586621679459907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459906"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEvent
-</span><a href="#local-6989586621679459907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ServiceEvent' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Amessage%3AServiceEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The ID string of the event.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_id"><span class="hs-identifier hs-type">serviceEvent_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="serviceEvent_id"><span class="annot"><span class="annottext">serviceEvent_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ServiceEvent -&gt; f ServiceEvent
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_id"><span class="hs-identifier hs-var hs-var">serviceEvent_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceEvent -&gt; Maybe Text)
--&gt; (ServiceEvent -&gt; Maybe Text -&gt; ServiceEvent)
--&gt; Lens ServiceEvent ServiceEvent (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459904"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:ServiceEvent' :: ServiceEvent -&gt; Maybe Text
-</span><a href="#local-6989586621679459904"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459904"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459903"><span class="annot"><span class="annottext">s :: ServiceEvent
-</span><a href="#local-6989586621679459903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459902"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEvent
-</span><a href="#local-6989586621679459903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ServiceEvent' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Aid%3AServiceEvent%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The Unix timestamp for when the event was triggered.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_createdAt"><span class="hs-identifier hs-type">serviceEvent_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="serviceEvent_createdAt"><span class="annot"><span class="annottext">serviceEvent_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-61"></span><span class="hs-comment">-- | The Unix timestamp for when the event was triggered.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_createdAt"><span class="hs-identifier hs-type">serviceEvent_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="serviceEvent_createdAt"><span class="annot"><span class="annottext">serviceEvent_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ServiceEvent -&gt; f ServiceEvent
 </span><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_createdAt"><span class="hs-identifier hs-var hs-var">serviceEvent_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceEvent -&gt; Maybe POSIX)
 -&gt; (ServiceEvent -&gt; Maybe POSIX -&gt; ServiceEvent)
 -&gt; Lens ServiceEvent ServiceEvent (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459900"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460632"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:ServiceEvent' :: ServiceEvent -&gt; Maybe POSIX
-</span><a href="#local-6989586621679459900"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679459900"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459899"><span class="annot"><span class="annottext">s :: ServiceEvent
-</span><a href="#local-6989586621679459899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459898"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679459898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEvent
-</span><a href="#local-6989586621679459899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ServiceEvent' :: Maybe POSIX
+</span><a href="#local-6989586621679460632"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679460632"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460631"><span class="annot"><span class="annottext">s :: ServiceEvent
+</span><a href="#local-6989586621679460631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460630"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679460630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEvent
+</span><a href="#local-6989586621679460631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ServiceEvent' :: Maybe POSIX
 </span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3AcreatedAt%3AServiceEvent%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679459898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679460630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ServiceEvent -&gt; f ServiceEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -193,9 +157,45 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The ID string of the event.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_id"><span class="hs-identifier hs-type">serviceEvent_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="serviceEvent_id"><span class="annot"><span class="annottext">serviceEvent_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ServiceEvent -&gt; f ServiceEvent
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_id"><span class="hs-identifier hs-var hs-var">serviceEvent_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceEvent -&gt; Maybe Text)
+-&gt; (ServiceEvent -&gt; Maybe Text -&gt; ServiceEvent)
+-&gt; Lens ServiceEvent ServiceEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460625"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ServiceEvent' :: ServiceEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679460625"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460625"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460624"><span class="annot"><span class="annottext">s :: ServiceEvent
+</span><a href="#local-6989586621679460624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460623"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEvent
+</span><a href="#local-6989586621679460624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ServiceEvent' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Aid%3AServiceEvent%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The event message.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_message"><span class="hs-identifier hs-type">serviceEvent_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="serviceEvent_message"><span class="annot"><span class="annottext">serviceEvent_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ServiceEvent -&gt; f ServiceEvent
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#serviceEvent_message"><span class="hs-identifier hs-var hs-var">serviceEvent_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceEvent -&gt; Maybe Text)
+-&gt; (ServiceEvent -&gt; Maybe Text -&gt; ServiceEvent)
+-&gt; Lens ServiceEvent ServiceEvent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460621"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:ServiceEvent' :: ServiceEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679460621"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460621"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460620"><span class="annot"><span class="annottext">s :: ServiceEvent
+</span><a href="#local-6989586621679460620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-type">ServiceEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460619"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEvent
+</span><a href="#local-6989586621679460620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ServiceEvent' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.ServiceEvent.html#%24sel%3Amessage%3AServiceEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459892"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679459890"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceEvent
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460616"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679460614"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServiceEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServiceEvent) -&gt; Value -&gt; Parser ServiceEvent
@@ -203,38 +203,38 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServiceEvent&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459887"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ServiceEvent
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460611"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679460611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceEvent
 </span><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent%27"><span class="hs-identifier hs-var">ServiceEvent'</span></a></span><span>
-</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ServiceEvent)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; ServiceEvent)
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; ServiceEvent)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ServiceEvent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; ServiceEvent)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; ServiceEvent)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ServiceEvent)
--&gt; Parser (Maybe POSIX) -&gt; Parser ServiceEvent
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679460611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ServiceEvent)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ServiceEvent)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679460611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ServiceEvent)
+-&gt; Parser (Maybe Text) -&gt; Parser ServiceEvent
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679460611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459881"><span id="local-6989586621679459883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460605"><span id="local-6989586621679460607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ServiceEvent.html#ServiceEvent"><span class="hs-identifier hs-type">ServiceEvent</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

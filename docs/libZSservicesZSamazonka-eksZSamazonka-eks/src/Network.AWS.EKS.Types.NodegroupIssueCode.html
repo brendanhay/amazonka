@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span id="local-6989586621679266814"><span id="local-6989586621679266815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodegroupIssueCode"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupIssueCode.html#NodegroupIssueCode"><span class="hs-identifier hs-var">NodegroupIssueCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupIssueCode%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupIssueCode.html#NodegroupIssueCode%27"><span class="hs-identifier hs-var">NodegroupIssueCode'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679267072"><span id="local-6989586621679267073"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodegroupIssueCode"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupIssueCode.html#NodegroupIssueCode"><span class="hs-identifier hs-var">NodegroupIssueCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupIssueCode%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupIssueCode.html#NodegroupIssueCode%27"><span class="hs-identifier hs-var">NodegroupIssueCode'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodegroupIssueCode"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; Text
 </span><a href="Network.AWS.EKS.Types.NodegroupIssueCode.html#fromNodegroupIssueCode"><span class="hs-identifier hs-var hs-var">fromNodegroupIssueCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266806"><span id="local-6989586621679266808"><span id="local-6989586621679266810"><span class="annot"><span class="annottext">Int -&gt; NodegroupIssueCode -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267064"><span id="local-6989586621679267066"><span id="local-6989586621679267068"><span class="annot"><span class="annottext">Int -&gt; NodegroupIssueCode -&gt; ShowS
 [NodegroupIssueCode] -&gt; ShowS
 NodegroupIssueCode -&gt; String
 (Int -&gt; NodegroupIssueCode -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: NodegroupIssueCode -&gt; String
 showsPrec :: Int -&gt; NodegroupIssueCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; NodegroupIssueCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679266797"><span id="local-6989586621679266799"><span id="local-6989586621679266801"><span id="local-6989586621679266803"><span class="annot"><span class="annottext">ReadPrec [NodegroupIssueCode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679267055"><span id="local-6989586621679267057"><span id="local-6989586621679267059"><span id="local-6989586621679267061"><span class="annot"><span class="annottext">ReadPrec [NodegroupIssueCode]
 ReadPrec NodegroupIssueCode
 Int -&gt; ReadS NodegroupIssueCode
 ReadS [NodegroupIssueCode]
@@ -88,7 +88,7 @@ $creadList :: ReadS [NodegroupIssueCode]
 readsPrec :: Int -&gt; ReadS NodegroupIssueCode
 $creadsPrec :: Int -&gt; ReadS NodegroupIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679266792"><span id="local-6989586621679266794"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679267050"><span id="local-6989586621679267052"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool
 (NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool)
 -&gt; (NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool)
 -&gt; Eq NodegroupIssueCode
@@ -98,7 +98,7 @@ $c/= :: NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool
 == :: NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool
 $c== :: NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679266776"><span id="local-6989586621679266778"><span id="local-6989586621679266780"><span id="local-6989586621679266782"><span id="local-6989586621679266784"><span id="local-6989586621679266786"><span id="local-6989586621679266788"><span class="annot"><span class="annottext">Eq NodegroupIssueCode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679267034"><span id="local-6989586621679267036"><span id="local-6989586621679267038"><span id="local-6989586621679267040"><span id="local-6989586621679267042"><span id="local-6989586621679267044"><span id="local-6989586621679267046"><span class="annot"><span class="annottext">Eq NodegroupIssueCode
 Eq NodegroupIssueCode
 -&gt; (NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Ordering)
 -&gt; (NodegroupIssueCode -&gt; NodegroupIssueCode -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. NodegroupIssueCode -&gt; Rep NodegroupIssueCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266768"><span id="local-6989586621679266770"><span class="annot"><span class="annottext">Int -&gt; NodegroupIssueCode -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267026"><span id="local-6989586621679267028"><span class="annot"><span class="annottext">Int -&gt; NodegroupIssueCode -&gt; Int
 NodegroupIssueCode -&gt; Int
 (Int -&gt; NodegroupIssueCode -&gt; Int)
 -&gt; (NodegroupIssueCode -&gt; Int) -&gt; Hashable NodegroupIssueCode
@@ -159,53 +159,53 @@ $chash :: NodegroupIssueCode -&gt; Int
 hashWithSalt :: Int -&gt; NodegroupIssueCode -&gt; Int
 $chashWithSalt :: Int -&gt; NodegroupIssueCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679266765"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679267023"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; ()
 (NodegroupIssueCode -&gt; ()) -&gt; NFData NodegroupIssueCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NodegroupIssueCode -&gt; ()
 $crnf :: NodegroupIssueCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679266762"><span class="annot"><span class="annottext">Text -&gt; Either String NodegroupIssueCode
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679267020"><span class="annot"><span class="annottext">Text -&gt; Either String NodegroupIssueCode
 (Text -&gt; Either String NodegroupIssueCode)
 -&gt; FromText NodegroupIssueCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NodegroupIssueCode
 $cfromText :: Text -&gt; Either String NodegroupIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679266759"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679267017"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; Text
 (NodegroupIssueCode -&gt; Text) -&gt; ToText NodegroupIssueCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NodegroupIssueCode -&gt; Text
 $ctoText :: NodegroupIssueCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679266756"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679267014"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; ByteString
 (NodegroupIssueCode -&gt; ByteString)
 -&gt; ToByteString NodegroupIssueCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NodegroupIssueCode -&gt; ByteString
 $ctoBS :: NodegroupIssueCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679266753"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679267011"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; ByteStringBuilder
 (NodegroupIssueCode -&gt; ByteStringBuilder)
 -&gt; ToLog NodegroupIssueCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NodegroupIssueCode -&gt; ByteStringBuilder
 $cbuild :: NodegroupIssueCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679266750"><span class="annot"><span class="annottext">HeaderName -&gt; NodegroupIssueCode -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679267008"><span class="annot"><span class="annottext">HeaderName -&gt; NodegroupIssueCode -&gt; [Header]
 (HeaderName -&gt; NodegroupIssueCode -&gt; [Header])
 -&gt; ToHeader NodegroupIssueCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NodegroupIssueCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NodegroupIssueCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679266747"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679267005"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; QueryString
 (NodegroupIssueCode -&gt; QueryString) -&gt; ToQuery NodegroupIssueCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NodegroupIssueCode -&gt; QueryString
 $ctoQuery :: NodegroupIssueCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679266742"><span id="local-6989586621679266744"><span class="annot"><span class="annottext">Value -&gt; Parser [NodegroupIssueCode]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679267000"><span id="local-6989586621679267002"><span class="annot"><span class="annottext">Value -&gt; Parser [NodegroupIssueCode]
 Value -&gt; Parser NodegroupIssueCode
 (Value -&gt; Parser NodegroupIssueCode)
 -&gt; (Value -&gt; Parser [NodegroupIssueCode])
@@ -217,7 +217,7 @@ $cparseJSONList :: Value -&gt; Parser [NodegroupIssueCode]
 parseJSON :: Value -&gt; Parser NodegroupIssueCode
 $cparseJSON :: Value -&gt; Parser NodegroupIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679266737"><span id="local-6989586621679266739"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodegroupIssueCode]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679266995"><span id="local-6989586621679266997"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodegroupIssueCode]
 FromJSONKeyFunction NodegroupIssueCode
 FromJSONKeyFunction NodegroupIssueCode
 -&gt; FromJSONKeyFunction [NodegroupIssueCode]
@@ -229,7 +229,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NodegroupIssueCode]
 fromJSONKey :: FromJSONKeyFunction NodegroupIssueCode
 $cfromJSONKey :: FromJSONKeyFunction NodegroupIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679266728"><span id="local-6989586621679266730"><span id="local-6989586621679266732"><span id="local-6989586621679266734"><span class="annot"><span class="annottext">[NodegroupIssueCode] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679266986"><span id="local-6989586621679266988"><span id="local-6989586621679266990"><span id="local-6989586621679266992"><span class="annot"><span class="annottext">[NodegroupIssueCode] -&gt; Encoding
 [NodegroupIssueCode] -&gt; Value
 NodegroupIssueCode -&gt; Encoding
 NodegroupIssueCode -&gt; Value
@@ -253,7 +253,7 @@ $ctoEncoding :: NodegroupIssueCode -&gt; Encoding
 toJSON :: NodegroupIssueCode -&gt; Value
 $ctoJSON :: NodegroupIssueCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679266723"><span id="local-6989586621679266725"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodegroupIssueCode]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679266981"><span id="local-6989586621679266983"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodegroupIssueCode]
 ToJSONKeyFunction NodegroupIssueCode
 ToJSONKeyFunction NodegroupIssueCode
 -&gt; ToJSONKeyFunction [NodegroupIssueCode]
@@ -265,14 +265,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NodegroupIssueCode]
 toJSONKey :: ToJSONKeyFunction NodegroupIssueCode
 $ctoJSONKey :: ToJSONKeyFunction NodegroupIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679266720"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodegroupIssueCode
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679266978"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodegroupIssueCode
 ([Node] -&gt; Either String NodegroupIssueCode)
 -&gt; FromXML NodegroupIssueCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NodegroupIssueCode
 $cparseXML :: [Node] -&gt; Either String NodegroupIssueCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679266717"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679266975"><span class="annot"><span class="annottext">NodegroupIssueCode -&gt; XML
 (NodegroupIssueCode -&gt; XML) -&gt; ToXML NodegroupIssueCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NodegroupIssueCode -&gt; XML

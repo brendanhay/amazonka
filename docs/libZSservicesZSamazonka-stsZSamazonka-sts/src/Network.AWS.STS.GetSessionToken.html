@@ -87,8 +87,8 @@
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_tokenCode"><span class="hs-identifier">getSessionToken_tokenCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_serialNumber"><span class="hs-identifier">getSessionToken_serialNumber</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_durationSeconds"><span class="hs-identifier">getSessionToken_durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_durationSeconds"><span class="hs-identifier">getSessionToken_durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_serialNumber"><span class="hs-identifier">getSessionToken_serialNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier">GetSessionTokenResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -108,7 +108,7 @@
 </span><span id="line-108"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.STS.Types.html"><span class="hs-identifier">Network.AWS.STS.Types</span></a></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newGetSessionToken' smart constructor.</span><span>
-</span><span id="line-111"></span><span id="local-6989586621679151561"><span id="local-6989586621679151562"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSessionToken"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-var">GetSessionToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSessionToken%27"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-var">GetSessionToken'</span></a></span></span><span>
+</span><span id="line-111"></span><span id="local-6989586621679151588"><span id="local-6989586621679151589"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSessionToken"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-var">GetSessionToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSessionToken%27"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-var">GetSessionToken'</span></a></span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value provided by the MFA device, if MFA is required. If any policy</span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-comment">-- requires the IAM user to submit an MFA code, specify this value. If MFA</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- authentication is required, the user must provide a code when requesting</span><span>
@@ -120,32 +120,32 @@
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">-- sequence of six numeric digits.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AtokenCode%3AGetSessionToken%27"><span class="annot"><span class="annottext">GetSessionToken -&gt; Maybe Text
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AtokenCode%3AGetSessionToken%27"><span class="hs-identifier hs-var hs-var">tokenCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The identification number of the MFA device that is associated with the</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- IAM user who is making the @GetSessionToken@ call. Specify this value if</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- the IAM user has a policy that requires MFA authentication. The value is</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- either the serial number for a hardware device (such as @GAHT12345678@)</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- or an Amazon Resource Name (ARN) for a virtual device (such as</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- IAM user by going to the Management Console and viewing the user\'s</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- security credentials.</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- consisting of upper- and lower-case alphanumeric characters with no</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
-</span><span id="line-135"></span><span>    </span><span id="%24sel%3AserialNumber%3AGetSessionToken%27"><span class="annot"><span class="annottext">GetSessionToken -&gt; Maybe Text
-</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AserialNumber%3AGetSessionToken%27"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, that the credentials should remain valid.</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- Acceptable durations for IAM user sessions range from 900 seconds (15</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- as the default. Sessions for Amazon Web Services account owners are</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- restricted to a maximum of 3,600 seconds (one hour). If the duration is</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- longer than one hour, the session for Amazon Web Services account owners</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- defaults to one hour.</span><span>
-</span><span id="line-143"></span><span>    </span><span id="%24sel%3AdurationSeconds%3AGetSessionToken%27"><span class="annot"><span class="annottext">GetSessionToken -&gt; Maybe Natural
-</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AdurationSeconds%3AGetSessionToken%27"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, that the credentials should remain valid.</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- Acceptable durations for IAM user sessions range from 900 seconds (15</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- as the default. Sessions for Amazon Web Services account owners are</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- restricted to a maximum of 3,600 seconds (one hour). If the duration is</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- longer than one hour, the session for Amazon Web Services account owners</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- defaults to one hour.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AdurationSeconds%3AGetSessionToken%27"><span class="annot"><span class="annottext">GetSessionToken -&gt; Maybe Natural
+</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AdurationSeconds%3AGetSessionToken%27"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The identification number of the MFA device that is associated with the</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- IAM user who is making the @GetSessionToken@ call. Specify this value if</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- the IAM user has a policy that requires MFA authentication. The value is</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- either the serial number for a hardware device (such as @GAHT12345678@)</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- or an Amazon Resource Name (ARN) for a virtual device (such as</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- IAM user by going to the Management Console and viewing the user\'s</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- security credentials.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- consisting of upper- and lower-case alphanumeric characters with no</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AserialNumber%3AGetSessionToken%27"><span class="annot"><span class="annottext">GetSessionToken -&gt; Maybe Text
+</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AserialNumber%3AGetSessionToken%27"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151553"><span id="local-6989586621679151555"><span class="annot"><span class="annottext">GetSessionToken -&gt; GetSessionToken -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151580"><span id="local-6989586621679151582"><span class="annot"><span class="annottext">GetSessionToken -&gt; GetSessionToken -&gt; Bool
 (GetSessionToken -&gt; GetSessionToken -&gt; Bool)
 -&gt; (GetSessionToken -&gt; GetSessionToken -&gt; Bool)
 -&gt; Eq GetSessionToken
@@ -154,7 +154,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSessionToken -&gt; GetSessionToken -&gt; Bool
 == :: GetSessionToken -&gt; GetSessionToken -&gt; Bool
 $c== :: GetSessionToken -&gt; GetSessionToken -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151544"><span id="local-6989586621679151546"><span id="local-6989586621679151548"><span id="local-6989586621679151550"><span class="annot"><span class="annottext">ReadPrec [GetSessionToken]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151571"><span id="local-6989586621679151573"><span id="local-6989586621679151575"><span id="local-6989586621679151577"><span class="annot"><span class="annottext">ReadPrec [GetSessionToken]
 ReadPrec GetSessionToken
 Int -&gt; ReadS GetSessionToken
 ReadS [GetSessionToken]
@@ -174,7 +174,7 @@ readList :: ReadS [GetSessionToken]
 $creadList :: ReadS [GetSessionToken]
 readsPrec :: Int -&gt; ReadS GetSessionToken
 $creadsPrec :: Int -&gt; ReadS GetSessionToken
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151537"><span id="local-6989586621679151539"><span id="local-6989586621679151541"><span class="annot"><span class="annottext">Int -&gt; GetSessionToken -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151564"><span id="local-6989586621679151566"><span id="local-6989586621679151568"><span class="annot"><span class="annottext">Int -&gt; GetSessionToken -&gt; ShowS
 [GetSessionToken] -&gt; ShowS
 GetSessionToken -&gt; String
 (Int -&gt; GetSessionToken -&gt; ShowS)
@@ -218,43 +218,43 @@ $cfrom :: forall x. GetSessionToken -&gt; Rep GetSessionToken x
 </span><span id="line-162"></span><span class="hs-comment">-- The format for this parameter, as described by its regex pattern, is a</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- sequence of six numeric digits.</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'serialNumber', 'getSessionToken_serialNumber' - The identification number of the MFA device that is associated with the</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- IAM user who is making the @GetSessionToken@ call. Specify this value if</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- the IAM user has a policy that requires MFA authentication. The value is</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- either the serial number for a hardware device (such as @GAHT12345678@)</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- or an Amazon Resource Name (ARN) for a virtual device (such as</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- IAM user by going to the Management Console and viewing the user\'s</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- security credentials.</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- consisting of upper- and lower-case alphanumeric characters with no</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'durationSeconds', 'getSessionToken_durationSeconds' - The duration, in seconds, that the credentials should remain valid.</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- Acceptable durations for IAM user sessions range from 900 seconds (15</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- as the default. Sessions for Amazon Web Services account owners are</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- restricted to a maximum of 3,600 seconds (one hour). If the duration is</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- longer than one hour, the session for Amazon Web Services account owners</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- defaults to one hour.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'durationSeconds', 'getSessionToken_durationSeconds' - The duration, in seconds, that the credentials should remain valid.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Acceptable durations for IAM user sessions range from 900 seconds (15</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- as the default. Sessions for Amazon Web Services account owners are</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- restricted to a maximum of 3,600 seconds (one hour). If the duration is</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- longer than one hour, the session for Amazon Web Services account owners</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- defaults to one hour.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'serialNumber', 'getSessionToken_serialNumber' - The identification number of the MFA device that is associated with the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- IAM user who is making the @GetSessionToken@ call. Specify this value if</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- the IAM user has a policy that requires MFA authentication. The value is</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- either the serial number for a hardware device (such as @GAHT12345678@)</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- or an Amazon Resource Name (ARN) for a virtual device (such as</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- IAM user by going to the Management Console and viewing the user\'s</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- security credentials.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- consisting of upper- and lower-case alphanumeric characters with no</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#newGetSessionToken"><span class="hs-identifier hs-type">newGetSessionToken</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span>
 </span><span id="line-188"></span><span id="newGetSessionToken"><span class="annot"><span class="annottext">newGetSessionToken :: GetSessionToken
 </span><a href="Network.AWS.STS.GetSessionToken.html#newGetSessionToken"><span class="hs-identifier hs-var hs-var">newGetSessionToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">GetSessionToken' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; GetSessionToken
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">GetSessionToken' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; GetSessionToken
 </span><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tokenCode:GetSessionToken' :: Maybe Text
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AtokenCode%3AGetSessionToken%27"><span class="hs-identifier hs-var">tokenCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:serialNumber:GetSessionToken' :: Maybe Text
-</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AserialNumber%3AGetSessionToken%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationSeconds:GetSessionToken' :: Maybe Natural
+</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AdurationSeconds%3AGetSessionToken%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationSeconds:GetSessionToken' :: Maybe Natural
-</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AdurationSeconds%3AGetSessionToken%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:serialNumber:GetSessionToken' :: Maybe Text
+</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AserialNumber%3AGetSessionToken%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
@@ -275,84 +275,84 @@ forall a. Maybe a
 -&gt; (GetSessionToken -&gt; Maybe Text -&gt; GetSessionToken)
 -&gt; Lens GetSessionToken GetSessionToken (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151530"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151557"><span class="annot"><span class="annottext">Maybe Text
 tokenCode :: Maybe Text
 $sel:tokenCode:GetSessionToken' :: GetSessionToken -&gt; Maybe Text
-</span><a href="#local-6989586621679151530"><span class="hs-identifier hs-var hs-var">tokenCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151530"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151529"><span class="annot"><span class="annottext">s :: GetSessionToken
-</span><a href="#local-6989586621679151529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151528"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionToken
-</span><a href="#local-6989586621679151529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenCode:GetSessionToken' :: Maybe Text
+</span><a href="#local-6989586621679151557"><span class="hs-identifier hs-var hs-var">tokenCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151557"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151556"><span class="annot"><span class="annottext">s :: GetSessionToken
+</span><a href="#local-6989586621679151556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151555"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionToken
+</span><a href="#local-6989586621679151556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenCode:GetSessionToken' :: Maybe Text
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AtokenCode%3AGetSessionToken%27"><span class="hs-identifier hs-var">tokenCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The identification number of the MFA device that is associated with the</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- IAM user who is making the @GetSessionToken@ call. Specify this value if</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- the IAM user has a policy that requires MFA authentication. The value is</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- either the serial number for a hardware device (such as @GAHT12345678@)</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- or an Amazon Resource Name (ARN) for a virtual device (such as</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- IAM user by going to the Management Console and viewing the user\'s</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- security credentials.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- consisting of upper- and lower-case alphanumeric characters with no</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
-</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_serialNumber"><span class="hs-identifier hs-type">getSessionToken_serialNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-221"></span><span id="getSessionToken_serialNumber"><span class="annot"><span class="annottext">getSessionToken_serialNumber :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetSessionToken -&gt; f GetSessionToken
-</span><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_serialNumber"><span class="hs-identifier hs-var hs-var">getSessionToken_serialNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionToken -&gt; Maybe Text)
--&gt; (GetSessionToken -&gt; Maybe Text -&gt; GetSessionToken)
--&gt; Lens GetSessionToken GetSessionToken (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151527"><span class="annot"><span class="annottext">Maybe Text
-serialNumber :: Maybe Text
-$sel:serialNumber:GetSessionToken' :: GetSessionToken -&gt; Maybe Text
-</span><a href="#local-6989586621679151527"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151527"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151526"><span class="annot"><span class="annottext">s :: GetSessionToken
-</span><a href="#local-6989586621679151526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151525"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionToken
-</span><a href="#local-6989586621679151526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:GetSessionToken' :: Maybe Text
-</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AserialNumber%3AGetSessionToken%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- | The duration, in seconds, that the credentials should remain valid.</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- Acceptable durations for IAM user sessions range from 900 seconds (15</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- as the default. Sessions for Amazon Web Services account owners are</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- restricted to a maximum of 3,600 seconds (one hour). If the duration is</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- longer than one hour, the session for Amazon Web Services account owners</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- defaults to one hour.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_durationSeconds"><span class="hs-identifier hs-type">getSessionToken_durationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="getSessionToken_durationSeconds"><span class="annot"><span class="annottext">getSessionToken_durationSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-207"></span><span class="hs-comment">-- | The duration, in seconds, that the credentials should remain valid.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Acceptable durations for IAM user sessions range from 900 seconds (15</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- as the default. Sessions for Amazon Web Services account owners are</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- restricted to a maximum of 3,600 seconds (one hour). If the duration is</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- longer than one hour, the session for Amazon Web Services account owners</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- defaults to one hour.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_durationSeconds"><span class="hs-identifier hs-type">getSessionToken_durationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="getSessionToken_durationSeconds"><span class="annot"><span class="annottext">getSessionToken_durationSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; GetSessionToken -&gt; f GetSessionToken
 </span><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_durationSeconds"><span class="hs-identifier hs-var hs-var">getSessionToken_durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionToken -&gt; Maybe Natural)
 -&gt; (GetSessionToken -&gt; Maybe Natural -&gt; GetSessionToken)
 -&gt; Lens
      GetSessionToken GetSessionToken (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151524"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151554"><span class="annot"><span class="annottext">Maybe Natural
 durationSeconds :: Maybe Natural
 $sel:durationSeconds:GetSessionToken' :: GetSessionToken -&gt; Maybe Natural
-</span><a href="#local-6989586621679151524"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679151524"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151523"><span class="annot"><span class="annottext">s :: GetSessionToken
-</span><a href="#local-6989586621679151523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151522"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679151522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionToken
-</span><a href="#local-6989586621679151523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:GetSessionToken' :: Maybe Natural
+</span><a href="#local-6989586621679151554"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679151554"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151553"><span class="annot"><span class="annottext">s :: GetSessionToken
+</span><a href="#local-6989586621679151553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151552"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679151552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionToken
+</span><a href="#local-6989586621679151553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:GetSessionToken' :: Maybe Natural
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AdurationSeconds%3AGetSessionToken%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679151522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The identification number of the MFA device that is associated with the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- IAM user who is making the @GetSessionToken@ call. Specify this value if</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- the IAM user has a policy that requires MFA authentication. The value is</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- either the serial number for a hardware device (such as @GAHT12345678@)</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- or an Amazon Resource Name (ARN) for a virtual device (such as</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- IAM user by going to the Management Console and viewing the user\'s</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- security credentials.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- The regex used to validate this parameter is a string of characters</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- consisting of upper- and lower-case alphanumeric characters with no</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- spaces. You can also include underscores or any of the following</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- characters: =,.\@:\/-</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_serialNumber"><span class="hs-identifier hs-type">getSessionToken_serialNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="getSessionToken_serialNumber"><span class="annot"><span class="annottext">getSessionToken_serialNumber :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSessionToken -&gt; f GetSessionToken
+</span><a href="Network.AWS.STS.GetSessionToken.html#getSessionToken_serialNumber"><span class="hs-identifier hs-var hs-var">getSessionToken_serialNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSessionToken -&gt; Maybe Text)
+-&gt; (GetSessionToken -&gt; Maybe Text -&gt; GetSessionToken)
+-&gt; Lens GetSessionToken GetSessionToken (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151551"><span class="annot"><span class="annottext">Maybe Text
+serialNumber :: Maybe Text
+$sel:serialNumber:GetSessionToken' :: GetSessionToken -&gt; Maybe Text
+</span><a href="#local-6989586621679151551"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151551"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151550"><span class="annot"><span class="annottext">s :: GetSessionToken
+</span><a href="#local-6989586621679151550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionToken
+</span><a href="#local-6989586621679151550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:GetSessionToken' :: Maybe Text
+</span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AserialNumber%3AGetSessionToken%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-235"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-236"></span><span>      </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679151518"><span class="annot"><span class="annottext">request :: GetSessionToken -&gt; Request GetSessionToken
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679151545"><span class="annot"><span class="annottext">request :: GetSessionToken -&gt; Request GetSessionToken
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSessionToken -&gt; Request GetSessionToken
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.STS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679151514"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679151541"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSessionToken
 -&gt; ClientResponse ClientBody
@@ -381,10 +381,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetSessionTokenResult&quot;</span></span><span>
-</span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151511"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151511"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679151510"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679151510"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679151509"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679151509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151538"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151538"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679151537"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679151537"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679151536"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679151536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuthEnv -&gt; Int -&gt; GetSessionTokenResponse
 </span><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-var">GetSessionTokenResponse'</span></a></span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AuthEnv -&gt; Int -&gt; GetSessionTokenResponse)
@@ -392,7 +392,7 @@ Text
 -&gt; Either String (Int -&gt; GetSessionTokenResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679151509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AuthEnv)
+</span><a href="#local-6989586621679151536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AuthEnv)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Credentials&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,15 +404,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151511"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151538"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151501"><span id="local-6989586621679151503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span></span></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151528"><span id="local-6989586621679151530"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span></span></span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span></span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679151494"><span class="annot"><span class="annottext">toHeaders :: GetSessionToken -&gt; ResponseHeaders
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679151521"><span class="annot"><span class="annottext">toHeaders :: GetSessionToken -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSessionToken -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -420,23 +420,23 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679151489"><span class="annot"><span class="annottext">toPath :: GetSessionToken -&gt; ByteString
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679151516"><span class="annot"><span class="annottext">toPath :: GetSessionToken -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSessionToken -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken"><span class="hs-identifier hs-type">GetSessionToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679151485"><span class="annot"><span class="annottext">toQuery :: GetSessionToken -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151481"><span id="local-6989586621679151482"><span id="local-6989586621679151483"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679151512"><span class="annot"><span class="annottext">toQuery :: GetSessionToken -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionToken%27"><span class="hs-identifier hs-type">GetSessionToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151508"><span id="local-6989586621679151509"><span id="local-6989586621679151510"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
-durationSeconds :: Maybe Natural
 serialNumber :: Maybe Text
+durationSeconds :: Maybe Natural
 tokenCode :: Maybe Text
-$sel:durationSeconds:GetSessionToken' :: GetSessionToken -&gt; Maybe Natural
 $sel:serialNumber:GetSessionToken' :: GetSessionToken -&gt; Maybe Text
+$sel:durationSeconds:GetSessionToken' :: GetSessionToken -&gt; Maybe Natural
 $sel:tokenCode:GetSessionToken' :: GetSessionToken -&gt; Maybe Text
-</span><a href="#local-6989586621679151481"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679151508"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -456,17 +456,17 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TokenCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151483"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151510"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679151482"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679151481"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span>
+</span><a href="#local-6989586621679151509"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679151508"><span class="hs-identifier hs-var">serialNumber</span></a></span><span>
 </span><span id="line-267"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | Contains the response to a successful GetSessionToken request, including</span><span>
@@ -474,7 +474,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-271"></span><span class="hs-comment">-- Amazon Web Services requests.</span><span>
 </span><span id="line-272"></span><span class="hs-comment">--</span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- /See:/ 'newGetSessionTokenResponse' smart constructor.</span><span>
-</span><span id="line-274"></span><span id="local-6989586621679151478"><span id="local-6989586621679151479"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSessionTokenResponse"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-var">GetSessionTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSessionTokenResponse%27"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-var">GetSessionTokenResponse'</span></a></span></span><span>
+</span><span id="line-274"></span><span id="local-6989586621679151505"><span id="local-6989586621679151506"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSessionTokenResponse"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-var">GetSessionTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSessionTokenResponse%27"><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-var">GetSessionTokenResponse'</span></a></span></span><span>
 </span><span id="line-275"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The temporary security credentials, which include an access key ID, a</span><span>
 </span><span id="line-276"></span><span>    </span><span class="hs-comment">-- secret access key, and a security (or session) token.</span><span>
 </span><span id="line-277"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -487,7 +487,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-283"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSessionTokenResponse%27"><span class="annot"><span class="annottext">GetSessionTokenResponse -&gt; Int
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AhttpStatus%3AGetSessionTokenResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-284"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151472"><span id="local-6989586621679151474"><span class="annot"><span class="annottext">GetSessionTokenResponse -&gt; GetSessionTokenResponse -&gt; Bool
+</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151499"><span id="local-6989586621679151501"><span class="annot"><span class="annottext">GetSessionTokenResponse -&gt; GetSessionTokenResponse -&gt; Bool
 (GetSessionTokenResponse -&gt; GetSessionTokenResponse -&gt; Bool)
 -&gt; (GetSessionTokenResponse -&gt; GetSessionTokenResponse -&gt; Bool)
 -&gt; Eq GetSessionTokenResponse
@@ -496,7 +496,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSessionTokenResponse -&gt; GetSessionTokenResponse -&gt; Bool
 == :: GetSessionTokenResponse -&gt; GetSessionTokenResponse -&gt; Bool
 $c== :: GetSessionTokenResponse -&gt; GetSessionTokenResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151466"><span id="local-6989586621679151468"><span id="local-6989586621679151470"><span class="annot"><span class="annottext">Int -&gt; GetSessionTokenResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151493"><span id="local-6989586621679151495"><span id="local-6989586621679151497"><span class="annot"><span class="annottext">Int -&gt; GetSessionTokenResponse -&gt; ShowS
 [GetSessionTokenResponse] -&gt; ShowS
 GetSessionTokenResponse -&gt; String
 (Int -&gt; GetSessionTokenResponse -&gt; ShowS)
@@ -545,8 +545,8 @@ $cfrom :: forall x. GetSessionTokenResponse -&gt; Rep GetSessionTokenResponse x
 </span><span id="line-305"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-306"></span><span>  </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span><span>
 </span><span id="line-307"></span><span id="newGetSessionTokenResponse"><span class="annot"><span class="annottext">newGetSessionTokenResponse :: Int -&gt; GetSessionTokenResponse
-</span><a href="Network.AWS.STS.GetSessionToken.html#newGetSessionTokenResponse"><span class="hs-identifier hs-var hs-var">newGetSessionTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679151463"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151463"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.STS.GetSessionToken.html#newGetSessionTokenResponse"><span class="hs-identifier hs-var hs-var">newGetSessionTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679151490"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-308"></span><span>  </span><span class="annot"><span class="annottext">GetSessionTokenResponse' :: Maybe AuthEnv -&gt; Int -&gt; GetSessionTokenResponse
 </span><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span>
 </span><span id="line-309"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:credentials:GetSessionTokenResponse' :: Maybe AuthEnv
@@ -556,7 +556,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSessionTokenResponse' :: Int
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AhttpStatus%3AGetSessionTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151463"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679151490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-312"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | The temporary security credentials, which include an access key ID, a</span><span>
@@ -577,16 +577,16 @@ forall a. Maybe a
      (Maybe AuthEnv)
      (Maybe AuthEnv)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151462"><span class="annot"><span class="annottext">Maybe AuthEnv
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151489"><span class="annot"><span class="annottext">Maybe AuthEnv
 credentials :: Maybe AuthEnv
 $sel:credentials:GetSessionTokenResponse' :: GetSessionTokenResponse -&gt; Maybe AuthEnv
-</span><a href="#local-6989586621679151462"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthEnv
-</span><a href="#local-6989586621679151462"><span class="hs-identifier hs-var">credentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151461"><span class="annot"><span class="annottext">s :: GetSessionTokenResponse
-</span><a href="#local-6989586621679151461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151460"><span class="annot"><span class="annottext">Maybe AuthEnv
-</span><a href="#local-6989586621679151460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionTokenResponse
-</span><a href="#local-6989586621679151461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentials:GetSessionTokenResponse' :: Maybe AuthEnv
+</span><a href="#local-6989586621679151489"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthEnv
+</span><a href="#local-6989586621679151489"><span class="hs-identifier hs-var">credentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151488"><span class="annot"><span class="annottext">s :: GetSessionTokenResponse
+</span><a href="#local-6989586621679151488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151487"><span class="annot"><span class="annottext">Maybe AuthEnv
+</span><a href="#local-6989586621679151487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionTokenResponse
+</span><a href="#local-6989586621679151488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentials:GetSessionTokenResponse' :: Maybe AuthEnv
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3Acredentials%3AGetSessionTokenResponse%27"><span class="hs-identifier hs-var">credentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthEnv
-</span><a href="#local-6989586621679151460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-322"></span><span>
 </span><span id="line-323"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-324"></span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#getSessionTokenResponse_httpStatus"><span class="hs-identifier hs-type">getSessionTokenResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -596,16 +596,16 @@ $sel:credentials:GetSessionTokenResponse' :: GetSessionTokenResponse -&gt; Maybe
 -&gt; (GetSessionTokenResponse -&gt; Int -&gt; GetSessionTokenResponse)
 -&gt; Lens GetSessionTokenResponse GetSessionTokenResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151459"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151486"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSessionTokenResponse' :: GetSessionTokenResponse -&gt; Int
-</span><a href="#local-6989586621679151459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151458"><span class="annot"><span class="annottext">s :: GetSessionTokenResponse
-</span><a href="#local-6989586621679151458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionTokenResponse
-</span><a href="#local-6989586621679151458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSessionTokenResponse' :: Int
+</span><a href="#local-6989586621679151486"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151486"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151485"><span class="annot"><span class="annottext">s :: GetSessionTokenResponse
+</span><a href="#local-6989586621679151485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse%27"><span class="hs-identifier hs-type">GetSessionTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151484"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSessionTokenResponse
+</span><a href="#local-6989586621679151485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSessionTokenResponse' :: Int
 </span><a href="Network.AWS.STS.GetSessionToken.html#%24sel%3AhttpStatus%3AGetSessionTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-326"></span><span>
-</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.GetSessionToken.html#GetSessionTokenResponse"><span class="hs-identifier hs-type">GetSessionTokenResponse</span></a></span></span><span>
 </span><span id="line-328"></span></pre></body></html>

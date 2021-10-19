@@ -27,43 +27,43 @@
 </span><span id="line-27"></span><span class="hs-comment">-- service) sandbox channel for an application.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAPNSSandboxChannelRequest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679588945"><span id="local-6989586621679588946"></span></span><span class="hs-keyword">data</span><span> </span><span id="APNSSandboxChannelRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-var">APNSSandboxChannelRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="APNSSandboxChannelRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">APNSSandboxChannelRequest'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default authentication method that you want Amazon Pinpoint to use</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- when authenticating with the APNs sandbox environment, key or</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- certificate.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">defaultAuthenticationMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The authentication key to use for APNs tokens.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtokenKey%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679589369"><span id="local-6989586621679589370"></span></span><span class="hs-keyword">data</span><span> </span><span id="APNSSandboxChannelRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-var">APNSSandboxChannelRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="APNSSandboxChannelRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">APNSSandboxChannelRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authentication key to use for APNs tokens.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtokenKey%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">tokenKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The bundle identifier that\'s assigned to your iOS app. This identifier</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- is used for APNs tokens.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The identifier that\'s assigned to your Apple developer account team.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- This identifier is used for APNs tokens.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AteamId%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AteamId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">teamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Specifies whether to enable the APNs sandbox channel for the</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- application.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The private key for the APNs client certificate that you want Amazon</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Pinpoint to use to communicate with the APNs sandbox environment.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AprivateKey%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The private key for the APNs client certificate that you want Amazon</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Pinpoint to use to communicate with the APNs sandbox environment.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprivateKey%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AprivateKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The key identifier that\'s assigned to your APNs signing key, if you</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- want Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- using APNs tokens.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">tokenKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The APNs client certificate that you received from Apple, if you want</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- using an APNs certificate.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Acertificate%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Acertificate%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies whether to enable the APNs sandbox channel for the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The identifier that\'s assigned to your Apple developer account team.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- This identifier is used for APNs tokens.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AteamId%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AteamId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">teamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The bundle identifier that\'s assigned to your iOS app. This identifier</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- is used for APNs tokens.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The default authentication method that you want Amazon Pinpoint to use</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- when authenticating with the APNs sandbox environment, key or</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- certificate.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">defaultAuthenticationMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The APNs client certificate that you received from Apple, if you want</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- using an APNs certificate.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Acertificate%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Acertificate%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The key identifier that\'s assigned to your APNs signing key, if you</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- want Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- using APNs tokens.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var hs-var">tokenKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679588932"><span id="local-6989586621679588934"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; APNSSandboxChannelRequest -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679589356"><span id="local-6989586621679589358"><span class="annot"><span class="annottext">APNSSandboxChannelRequest -&gt; APNSSandboxChannelRequest -&gt; Bool
 (APNSSandboxChannelRequest -&gt; APNSSandboxChannelRequest -&gt; Bool)
 -&gt; (APNSSandboxChannelRequest -&gt; APNSSandboxChannelRequest -&gt; Bool)
 -&gt; Eq APNSSandboxChannelRequest
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: APNSSandboxChannelRequest -&gt; APNSSandboxChannelRequest -&gt; Bool
 == :: APNSSandboxChannelRequest -&gt; APNSSandboxChannelRequest -&gt; Bool
 $c== :: APNSSandboxChannelRequest -&gt; APNSSandboxChannelRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679588923"><span id="local-6989586621679588925"><span id="local-6989586621679588927"><span id="local-6989586621679588929"><span class="annot"><span class="annottext">ReadPrec [APNSSandboxChannelRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679589347"><span id="local-6989586621679589349"><span id="local-6989586621679589351"><span id="local-6989586621679589353"><span class="annot"><span class="annottext">ReadPrec [APNSSandboxChannelRequest]
 ReadPrec APNSSandboxChannelRequest
 Int -&gt; ReadS APNSSandboxChannelRequest
 ReadS [APNSSandboxChannelRequest]
@@ -92,7 +92,7 @@ readList :: ReadS [APNSSandboxChannelRequest]
 $creadList :: ReadS [APNSSandboxChannelRequest]
 readsPrec :: Int -&gt; ReadS APNSSandboxChannelRequest
 $creadsPrec :: Int -&gt; ReadS APNSSandboxChannelRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679588916"><span id="local-6989586621679588918"><span id="local-6989586621679588920"><span class="annot"><span class="annottext">Int -&gt; APNSSandboxChannelRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679589340"><span id="local-6989586621679589342"><span id="local-6989586621679589344"><span class="annot"><span class="annottext">Int -&gt; APNSSandboxChannelRequest -&gt; ShowS
 [APNSSandboxChannelRequest] -&gt; ShowS
 APNSSandboxChannelRequest -&gt; String
 (Int -&gt; APNSSandboxChannelRequest -&gt; ShowS)
@@ -132,109 +132,83 @@ APNSSandboxChannelRequest -&gt; Rep APNSSandboxChannelRequest x
 </span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'defaultAuthenticationMethod', 'aPNSSandboxChannelRequest_defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- when authenticating with the APNs sandbox environment, key or</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- certificate.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'tokenKey', 'aPNSSandboxChannelRequest_tokenKey' - The authentication key to use for APNs tokens.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'bundleId', 'aPNSSandboxChannelRequest_bundleId' - The bundle identifier that\'s assigned to your iOS app. This identifier</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- is used for APNs tokens.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'teamId', 'aPNSSandboxChannelRequest_teamId' - The identifier that\'s assigned to your Apple developer account team.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- This identifier is used for APNs tokens.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'enabled', 'aPNSSandboxChannelRequest_enabled' - Specifies whether to enable the APNs sandbox channel for the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- application.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'privateKey', 'aPNSSandboxChannelRequest_privateKey' - The private key for the APNs client certificate that you want Amazon</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- Pinpoint to use to communicate with the APNs sandbox environment.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'tokenKey', 'aPNSSandboxChannelRequest_tokenKey' - The authentication key to use for APNs tokens.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'privateKey', 'aPNSSandboxChannelRequest_privateKey' - The private key for the APNs client certificate that you want Amazon</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Pinpoint to use to communicate with the APNs sandbox environment.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'enabled', 'aPNSSandboxChannelRequest_enabled' - Specifies whether to enable the APNs sandbox channel for the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'teamId', 'aPNSSandboxChannelRequest_teamId' - The identifier that\'s assigned to your Apple developer account team.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- This identifier is used for APNs tokens.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'bundleId', 'aPNSSandboxChannelRequest_bundleId' - The bundle identifier that\'s assigned to your iOS app. This identifier</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- is used for APNs tokens.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'defaultAuthenticationMethod', 'aPNSSandboxChannelRequest_defaultAuthenticationMethod' - The default authentication method that you want Amazon Pinpoint to use</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- when authenticating with the APNs sandbox environment, key or</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- certificate.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'tokenKeyId', 'aPNSSandboxChannelRequest_tokenKeyId' - The key identifier that\'s assigned to your APNs signing key, if you</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- want Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- using APNs tokens.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'certificate', 'aPNSSandboxChannelRequest_certificate' - The APNs client certificate that you received from Apple, if you want</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- using an APNs certificate.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'certificate', 'aPNSSandboxChannelRequest_certificate' - The APNs client certificate that you received from Apple, if you want</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- using an APNs certificate.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'tokenKeyId', 'aPNSSandboxChannelRequest_tokenKeyId' - The key identifier that\'s assigned to your APNs signing key, if you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- want Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- using APNs tokens.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#newAPNSSandboxChannelRequest"><span class="hs-identifier hs-type">newAPNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span>
 </span><span id="line-95"></span><span id="newAPNSSandboxChannelRequest"><span class="annot"><span class="annottext">newAPNSSandboxChannelRequest :: APNSSandboxChannelRequest
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#newAPNSSandboxChannelRequest"><span class="hs-identifier hs-var hs-var">newAPNSSandboxChannelRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; APNSSandboxChannelRequest
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tokenKey:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">tokenKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenKey:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">tokenKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateKey:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AprivateKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:APNSSandboxChannelRequest' :: Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:teamId:APNSSandboxChannelRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AteamId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">teamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:APNSSandboxChannelRequest' :: Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:bundleId:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:privateKey:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AprivateKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenKeyId:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificate:APNSSandboxChannelRequest' :: Maybe Text
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificate:APNSSandboxChannelRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Acertificate%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenKeyId:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The default authentication method that you want Amazon Pinpoint to use</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- when authenticating with the APNs sandbox environment, key or</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- certificate.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_defaultAuthenticationMethod"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_defaultAuthenticationMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="aPNSSandboxChannelRequest_defaultAuthenticationMethod"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_defaultAuthenticationMethod :: (Maybe Text -&gt; f (Maybe Text))
--&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_defaultAuthenticationMethod"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_defaultAuthenticationMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
--&gt; (APNSSandboxChannelRequest
-    -&gt; Maybe Text -&gt; APNSSandboxChannelRequest)
--&gt; Lens
-     APNSSandboxChannelRequest
-     APNSSandboxChannelRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588907"><span class="annot"><span class="annottext">Maybe Text
-defaultAuthenticationMethod :: Maybe Text
-$sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588907"><span class="hs-identifier hs-var hs-var">defaultAuthenticationMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588907"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588906"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588905"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The authentication key to use for APNs tokens.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_tokenKey"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_tokenKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="aPNSSandboxChannelRequest_tokenKey"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_tokenKey :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-108"></span><span class="hs-comment">-- | The authentication key to use for APNs tokens.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_tokenKey"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_tokenKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="aPNSSandboxChannelRequest_tokenKey"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_tokenKey :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_tokenKey"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_tokenKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
 -&gt; (APNSSandboxChannelRequest
@@ -245,96 +219,21 @@ $sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: APNSSandboxChanne
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588903"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589331"><span class="annot"><span class="annottext">Maybe Text
 tokenKey :: Maybe Text
 $sel:tokenKey:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588903"><span class="hs-identifier hs-var hs-var">tokenKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588903"><span class="hs-identifier hs-var">tokenKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588902"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588901"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenKey:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="#local-6989586621679589331"><span class="hs-identifier hs-var hs-var">tokenKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589331"><span class="hs-identifier hs-var">tokenKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589330"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenKey:APNSSandboxChannelRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">tokenKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The bundle identifier that\'s assigned to your iOS app. This identifier</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- is used for APNs tokens.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_bundleId"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="aPNSSandboxChannelRequest_bundleId"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_bundleId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_bundleId"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
--&gt; (APNSSandboxChannelRequest
-    -&gt; Maybe Text -&gt; APNSSandboxChannelRequest)
--&gt; Lens
-     APNSSandboxChannelRequest
-     APNSSandboxChannelRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588899"><span class="annot"><span class="annottext">Maybe Text
-bundleId :: Maybe Text
-$sel:bundleId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588899"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588899"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588898"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588897"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The identifier that\'s assigned to your Apple developer account team.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- This identifier is used for APNs tokens.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_teamId"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_teamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="aPNSSandboxChannelRequest_teamId"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_teamId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_teamId"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_teamId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
--&gt; (APNSSandboxChannelRequest
-    -&gt; Maybe Text -&gt; APNSSandboxChannelRequest)
--&gt; Lens
-     APNSSandboxChannelRequest
-     APNSSandboxChannelRequest
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588895"><span class="annot"><span class="annottext">Maybe Text
-teamId :: Maybe Text
-$sel:teamId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588895"><span class="hs-identifier hs-var hs-var">teamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588895"><span class="hs-identifier hs-var">teamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588894"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588893"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:teamId:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AteamId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">teamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Specifies whether to enable the APNs sandbox channel for the</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- application.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_enabled"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="aPNSSandboxChannelRequest_enabled"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_enabled"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Bool)
--&gt; (APNSSandboxChannelRequest
-    -&gt; Maybe Bool -&gt; APNSSandboxChannelRequest)
--&gt; Lens
-     APNSSandboxChannelRequest
-     APNSSandboxChannelRequest
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588891"><span class="annot"><span class="annottext">Maybe Bool
-enabled :: Maybe Bool
-$sel:enabled:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Bool
-</span><a href="#local-6989586621679588891"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679588891"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588890"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588889"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679588889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:APNSSandboxChannelRequest' :: Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679588889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The private key for the APNs client certificate that you want Amazon</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- Pinpoint to use to communicate with the APNs sandbox environment.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_privateKey"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_privateKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="aPNSSandboxChannelRequest_privateKey"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_privateKey :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679589329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The private key for the APNs client certificate that you want Amazon</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Pinpoint to use to communicate with the APNs sandbox environment.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_privateKey"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_privateKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="aPNSSandboxChannelRequest_privateKey"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_privateKey :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_privateKey"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_privateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
 -&gt; (APNSSandboxChannelRequest
@@ -345,24 +244,48 @@ $sel:enabled:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588887"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589327"><span class="annot"><span class="annottext">Maybe Text
 privateKey :: Maybe Text
 $sel:privateKey:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588887"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588887"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588886"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588885"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="#local-6989586621679589327"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589327"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589326"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:APNSSandboxChannelRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AprivateKey%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The key identifier that\'s assigned to your APNs signing key, if you</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- want Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- using APNs tokens.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_tokenKeyId"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_tokenKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="aPNSSandboxChannelRequest_tokenKeyId"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_tokenKeyId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679589325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Specifies whether to enable the APNs sandbox channel for the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_enabled"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="aPNSSandboxChannelRequest_enabled"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_tokenKeyId"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_tokenKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_enabled"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Bool)
+-&gt; (APNSSandboxChannelRequest
+    -&gt; Maybe Bool -&gt; APNSSandboxChannelRequest)
+-&gt; Lens
+     APNSSandboxChannelRequest
+     APNSSandboxChannelRequest
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589323"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Bool
+</span><a href="#local-6989586621679589323"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679589323"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589322"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589321"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679589321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:APNSSandboxChannelRequest' :: Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Aenabled%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679589321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The identifier that\'s assigned to your Apple developer account team.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- This identifier is used for APNs tokens.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_teamId"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_teamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="aPNSSandboxChannelRequest_teamId"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_teamId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_teamId"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_teamId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
 -&gt; (APNSSandboxChannelRequest
     -&gt; Maybe Text -&gt; APNSSandboxChannelRequest)
 -&gt; Lens
@@ -371,22 +294,73 @@ $sel:privateKey:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588883"><span class="annot"><span class="annottext">Maybe Text
-tokenKeyId :: Maybe Text
-$sel:tokenKeyId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588883"><span class="hs-identifier hs-var hs-var">tokenKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588883"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588882"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588881"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenKeyId:APNSSandboxChannelRequest' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The APNs client certificate that you received from Apple, if you want</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- using an APNs certificate.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_certificate"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_certificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="aPNSSandboxChannelRequest_certificate"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_certificate :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589319"><span class="annot"><span class="annottext">Maybe Text
+teamId :: Maybe Text
+$sel:teamId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679589319"><span class="hs-identifier hs-var hs-var">teamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589319"><span class="hs-identifier hs-var">teamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589318"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:teamId:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AteamId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">teamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The bundle identifier that\'s assigned to your iOS app. This identifier</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- is used for APNs tokens.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_bundleId"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="aPNSSandboxChannelRequest_bundleId"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_bundleId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_bundleId"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_bundleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
+-&gt; (APNSSandboxChannelRequest
+    -&gt; Maybe Text -&gt; APNSSandboxChannelRequest)
+-&gt; Lens
+     APNSSandboxChannelRequest
+     APNSSandboxChannelRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589315"><span class="annot"><span class="annottext">Maybe Text
+bundleId :: Maybe Text
+$sel:bundleId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679589315"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589315"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589314"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AbundleId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The default authentication method that you want Amazon Pinpoint to use</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- when authenticating with the APNs sandbox environment, key or</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- certificate.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_defaultAuthenticationMethod"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_defaultAuthenticationMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="aPNSSandboxChannelRequest_defaultAuthenticationMethod"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_defaultAuthenticationMethod :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_defaultAuthenticationMethod"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_defaultAuthenticationMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
+-&gt; (APNSSandboxChannelRequest
+    -&gt; Maybe Text -&gt; APNSSandboxChannelRequest)
+-&gt; Lens
+     APNSSandboxChannelRequest
+     APNSSandboxChannelRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589311"><span class="annot"><span class="annottext">Maybe Text
+defaultAuthenticationMethod :: Maybe Text
+$sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679589311"><span class="hs-identifier hs-var hs-var">defaultAuthenticationMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589311"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589310"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589309"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AdefaultAuthenticationMethod%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The APNs client certificate that you received from Apple, if you want</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- using an APNs certificate.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_certificate"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_certificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="aPNSSandboxChannelRequest_certificate"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_certificate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_certificate"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_certificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
 -&gt; (APNSSandboxChannelRequest
@@ -397,104 +371,130 @@ $sel:tokenKeyId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588879"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589307"><span class="annot"><span class="annottext">Maybe Text
 certificate :: Maybe Text
 $sel:certificate:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588879"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588879"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679588878"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679588877"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
-</span><a href="#local-6989586621679588878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="#local-6989586621679589307"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589307"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589306"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:APNSSandboxChannelRequest' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3Acertificate%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679588873"><span id="local-6989586621679588875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span></span></span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679588870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span></span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679588862"><span id="local-6989586621679588864"><span id="local-6989586621679588866"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679588860"><span class="annot"><span class="annottext">toJSON :: APNSSandboxChannelRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679588851"><span id="local-6989586621679588852"><span id="local-6989586621679588853"><span id="local-6989586621679588854"><span id="local-6989586621679588855"><span id="local-6989586621679588856"><span id="local-6989586621679588857"><span id="local-6989586621679588858"><span class="annot"><span class="annottext">Maybe Bool
-Maybe Text
-certificate :: Maybe Text
+</span><a href="#local-6989586621679589305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The key identifier that\'s assigned to your APNs signing key, if you</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- want Amazon Pinpoint to communicate with the APNs sandbox environment by</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- using APNs tokens.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_tokenKeyId"><span class="hs-identifier hs-type">aPNSSandboxChannelRequest_tokenKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="aPNSSandboxChannelRequest_tokenKeyId"><span class="annot"><span class="annottext">aPNSSandboxChannelRequest_tokenKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; APNSSandboxChannelRequest -&gt; f APNSSandboxChannelRequest
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#aPNSSandboxChannelRequest_tokenKeyId"><span class="hs-identifier hs-var hs-var">aPNSSandboxChannelRequest_tokenKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(APNSSandboxChannelRequest -&gt; Maybe Text)
+-&gt; (APNSSandboxChannelRequest
+    -&gt; Maybe Text -&gt; APNSSandboxChannelRequest)
+-&gt; Lens
+     APNSSandboxChannelRequest
+     APNSSandboxChannelRequest
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589303"><span class="annot"><span class="annottext">Maybe Text
 tokenKeyId :: Maybe Text
-privateKey :: Maybe Text
-enabled :: Maybe Bool
-teamId :: Maybe Text
-bundleId :: Maybe Text
-tokenKey :: Maybe Text
-defaultAuthenticationMethod :: Maybe Text
-$sel:certificate:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
 $sel:tokenKeyId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-$sel:privateKey:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-$sel:enabled:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Bool
-$sel:teamId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-$sel:bundleId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-$sel:tokenKey:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679589303"><span class="hs-identifier hs-var hs-var">tokenKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589303"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679589302"><span class="annot"><span class="annottext">s :: APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679589301"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">APNSSandboxChannelRequest
+</span><a href="#local-6989586621679589302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenKeyId:APNSSandboxChannelRequest' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#%24sel%3AtokenKeyId%3AAPNSSandboxChannelRequest%27"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679589297"><span id="local-6989586621679589299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679589294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679589286"><span id="local-6989586621679589288"><span id="local-6989586621679589290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest"><span class="hs-identifier hs-type">APNSSandboxChannelRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679589284"><span class="annot"><span class="annottext">toJSON :: APNSSandboxChannelRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.APNSSandboxChannelRequest.html#APNSSandboxChannelRequest%27"><span class="hs-identifier hs-type">APNSSandboxChannelRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679589275"><span id="local-6989586621679589276"><span id="local-6989586621679589277"><span id="local-6989586621679589278"><span id="local-6989586621679589279"><span id="local-6989586621679589280"><span id="local-6989586621679589281"><span id="local-6989586621679589282"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+tokenKeyId :: Maybe Text
+certificate :: Maybe Text
+defaultAuthenticationMethod :: Maybe Text
+bundleId :: Maybe Text
+teamId :: Maybe Text
+enabled :: Maybe Bool
+privateKey :: Maybe Text
+tokenKey :: Maybe Text
+$sel:tokenKeyId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+$sel:certificate:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
 $sel:defaultAuthenticationMethod:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679588851"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:bundleId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+$sel:teamId:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+$sel:enabled:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Bool
+$sel:privateKey:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+$sel:tokenKey:APNSSandboxChannelRequest' :: APNSSandboxChannelRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679589275"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DefaultAuthenticationMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588858"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TokenKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588857"><span class="hs-identifier hs-var">tokenKey</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BundleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588856"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TeamId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588855"><span class="hs-identifier hs-var">teamId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679588854"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679589282"><span class="hs-identifier hs-var">tokenKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrivateKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588853"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TokenKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679589281"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679589280"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TeamId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588852"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679589279"><span class="hs-identifier hs-var">teamId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BundleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589278"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DefaultAuthenticationMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589277"><span class="hs-identifier hs-var">defaultAuthenticationMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679588851"><span class="hs-identifier hs-var">certificate</span></a></span><span>
+</span><a href="#local-6989586621679589276"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TokenKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679589275"><span class="hs-identifier hs-var">tokenKeyId</span></a></span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span></pre></body></html>

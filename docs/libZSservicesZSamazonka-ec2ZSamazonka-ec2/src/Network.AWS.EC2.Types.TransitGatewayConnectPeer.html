@@ -30,28 +30,28 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Describes a transit gateway Connect peer.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTransitGatewayConnectPeer' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681136027"><span id="local-6989586621681136028"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayConnectPeer"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-var">TransitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayConnectPeer%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">TransitGatewayConnectPeer'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation time.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AcreationTime%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Connect peer details.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconnectPeerConfiguration%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer
+</span><span id="line-33"></span><span id="local-6989586621681171161"><span id="local-6989586621681171162"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayConnectPeer"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-var">TransitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayConnectPeer%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">TransitGatewayConnectPeer'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Connect peer details.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AconnectPeerConfiguration%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer
 -&gt; Maybe TransitGatewayConnectPeerConfiguration
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AconnectPeerConfiguration%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">connectPeerConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeerConfiguration.html#TransitGatewayConnectPeerConfiguration"><span class="hs-identifier hs-type">TransitGatewayConnectPeerConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the Connect peer.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The state of the Connect peer.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Astate%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe TransitGatewayConnectPeerState
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The creation time.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationTime%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AcreationTime%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The state of the Connect peer.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astate%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe TransitGatewayConnectPeerState
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Astate%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeerState.html#TransitGatewayConnectPeerState"><span class="hs-identifier hs-type">TransitGatewayConnectPeerState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The tags for the Connect peer.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atags%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Atags%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of the Connect attachment.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the Connect peer.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the Connect attachment.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The tags for the Connect peer.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atags%3ATransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Atags%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681136016"><span id="local-6989586621681136018"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; TransitGatewayConnectPeer -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681171150"><span id="local-6989586621681171152"><span class="annot"><span class="annottext">TransitGatewayConnectPeer -&gt; TransitGatewayConnectPeer -&gt; Bool
 (TransitGatewayConnectPeer -&gt; TransitGatewayConnectPeer -&gt; Bool)
 -&gt; (TransitGatewayConnectPeer -&gt; TransitGatewayConnectPeer -&gt; Bool)
 -&gt; Eq TransitGatewayConnectPeer
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransitGatewayConnectPeer -&gt; TransitGatewayConnectPeer -&gt; Bool
 == :: TransitGatewayConnectPeer -&gt; TransitGatewayConnectPeer -&gt; Bool
 $c== :: TransitGatewayConnectPeer -&gt; TransitGatewayConnectPeer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136007"><span id="local-6989586621681136009"><span id="local-6989586621681136011"><span id="local-6989586621681136013"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayConnectPeer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171141"><span id="local-6989586621681171143"><span id="local-6989586621681171145"><span id="local-6989586621681171147"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayConnectPeer]
 ReadPrec TransitGatewayConnectPeer
 Int -&gt; ReadS TransitGatewayConnectPeer
 ReadS [TransitGatewayConnectPeer]
@@ -80,7 +80,7 @@ readList :: ReadS [TransitGatewayConnectPeer]
 $creadList :: ReadS [TransitGatewayConnectPeer]
 readsPrec :: Int -&gt; ReadS TransitGatewayConnectPeer
 $creadsPrec :: Int -&gt; ReadS TransitGatewayConnectPeer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136000"><span id="local-6989586621681136002"><span id="local-6989586621681136004"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayConnectPeer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171134"><span id="local-6989586621681171136"><span id="local-6989586621681171138"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayConnectPeer -&gt; ShowS
 [TransitGatewayConnectPeer] -&gt; ShowS
 TransitGatewayConnectPeer -&gt; String
 (Int -&gt; TransitGatewayConnectPeer -&gt; ShowS)
@@ -120,59 +120,87 @@ TransitGatewayConnectPeer -&gt; Rep TransitGatewayConnectPeer x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'creationTime', 'transitGatewayConnectPeer_creationTime' - The creation time.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'connectPeerConfiguration', 'transitGatewayConnectPeer_connectPeerConfiguration' - The Connect peer details.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'connectPeerConfiguration', 'transitGatewayConnectPeer_connectPeerConfiguration' - The Connect peer details.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'creationTime', 'transitGatewayConnectPeer_creationTime' - The creation time.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'transitGatewayConnectPeerId', 'transitGatewayConnectPeer_transitGatewayConnectPeerId' - The ID of the Connect peer.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'state', 'transitGatewayConnectPeer_state' - The state of the Connect peer.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'state', 'transitGatewayConnectPeer_state' - The state of the Connect peer.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'transitGatewayConnectPeerId', 'transitGatewayConnectPeer_transitGatewayConnectPeerId' - The ID of the Connect peer.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'tags', 'transitGatewayConnectPeer_tags' - The tags for the Connect peer.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'transitGatewayConnectPeer_transitGatewayAttachmentId' - The ID of the Connect attachment.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'transitGatewayAttachmentId', 'transitGatewayConnectPeer_transitGatewayAttachmentId' - The ID of the Connect attachment.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'tags', 'transitGatewayConnectPeer_tags' - The tags for the Connect peer.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#newTransitGatewayConnectPeer"><span class="hs-identifier hs-type">newTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span>
 </span><span id="line-70"></span><span id="newTransitGatewayConnectPeer"><span class="annot"><span class="annottext">newTransitGatewayConnectPeer :: TransitGatewayConnectPeer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#newTransitGatewayConnectPeer"><span class="hs-identifier hs-var hs-var">newTransitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer' :: Maybe ISO8601
--&gt; Maybe TransitGatewayConnectPeerConfiguration
--&gt; Maybe Text
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerConfiguration
+-&gt; Maybe ISO8601
 -&gt; Maybe TransitGatewayConnectPeerState
--&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; TransitGatewayConnectPeer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:TransitGatewayConnectPeer' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AcreationTime%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectPeerConfiguration:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerConfiguration
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AconnectPeerConfiguration%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">connectPeerConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectPeerConfiguration:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerConfiguration
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AconnectPeerConfiguration%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">connectPeerConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:TransitGatewayConnectPeer' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AcreationTime%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerId:TransitGatewayConnectPeer' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerState
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerState
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Astate%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayConnectPeer' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Atags%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerId:TransitGatewayConnectPeer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayConnectPeer' :: Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayConnectPeer' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayConnectPeer' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Atags%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The creation time.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_creationTime"><span class="hs-identifier hs-type">transitGatewayConnectPeer_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="transitGatewayConnectPeer_creationTime"><span class="annot"><span class="annottext">transitGatewayConnectPeer_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-81"></span><span class="hs-comment">-- | The Connect peer details.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_connectPeerConfiguration"><span class="hs-identifier hs-type">transitGatewayConnectPeer_connectPeerConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeerConfiguration.html#TransitGatewayConnectPeerConfiguration"><span class="hs-identifier hs-type">TransitGatewayConnectPeerConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="transitGatewayConnectPeer_connectPeerConfiguration"><span class="annot"><span class="annottext">transitGatewayConnectPeer_connectPeerConfiguration :: (Maybe TransitGatewayConnectPeerConfiguration
+ -&gt; f (Maybe TransitGatewayConnectPeerConfiguration))
+-&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_connectPeerConfiguration"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_connectPeerConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer
+ -&gt; Maybe TransitGatewayConnectPeerConfiguration)
+-&gt; (TransitGatewayConnectPeer
+    -&gt; Maybe TransitGatewayConnectPeerConfiguration
+    -&gt; TransitGatewayConnectPeer)
+-&gt; Lens
+     TransitGatewayConnectPeer
+     TransitGatewayConnectPeer
+     (Maybe TransitGatewayConnectPeerConfiguration)
+     (Maybe TransitGatewayConnectPeerConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171125"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
+connectPeerConfiguration :: Maybe TransitGatewayConnectPeerConfiguration
+$sel:connectPeerConfiguration:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer
+-&gt; Maybe TransitGatewayConnectPeerConfiguration
+</span><a href="#local-6989586621681171125"><span class="hs-identifier hs-var hs-var">connectPeerConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
+</span><a href="#local-6989586621681171125"><span class="hs-identifier hs-var">connectPeerConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171124"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171123"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
+</span><a href="#local-6989586621681171123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectPeerConfiguration:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerConfiguration
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AconnectPeerConfiguration%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">connectPeerConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
+</span><a href="#local-6989586621681171123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The creation time.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_creationTime"><span class="hs-identifier hs-type">transitGatewayConnectPeer_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="transitGatewayConnectPeer_creationTime"><span class="annot"><span class="annottext">transitGatewayConnectPeer_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_creationTime"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer -&gt; Maybe ISO8601)
 -&gt; (TransitGatewayConnectPeer
@@ -183,16 +211,16 @@ forall a. Maybe a
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135991"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171121"><span class="annot"><span class="annottext">Maybe ISO8601
 creationTime :: Maybe ISO8601
 $sel:creationTime:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681135991"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681135991"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135990"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135989"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681135989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TransitGatewayConnectPeer' :: Maybe ISO8601
+</span><a href="#local-6989586621681171121"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681171121"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171120"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171119"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681171119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TransitGatewayConnectPeer' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AcreationTime%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681135989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681171119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -209,62 +237,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The Connect peer details.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_connectPeerConfiguration"><span class="hs-identifier hs-type">transitGatewayConnectPeer_connectPeerConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeerConfiguration.html#TransitGatewayConnectPeerConfiguration"><span class="hs-identifier hs-type">TransitGatewayConnectPeerConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="transitGatewayConnectPeer_connectPeerConfiguration"><span class="annot"><span class="annottext">transitGatewayConnectPeer_connectPeerConfiguration :: (Maybe TransitGatewayConnectPeerConfiguration
- -&gt; f (Maybe TransitGatewayConnectPeerConfiguration))
--&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_connectPeerConfiguration"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_connectPeerConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer
- -&gt; Maybe TransitGatewayConnectPeerConfiguration)
--&gt; (TransitGatewayConnectPeer
-    -&gt; Maybe TransitGatewayConnectPeerConfiguration
-    -&gt; TransitGatewayConnectPeer)
--&gt; Lens
-     TransitGatewayConnectPeer
-     TransitGatewayConnectPeer
-     (Maybe TransitGatewayConnectPeerConfiguration)
-     (Maybe TransitGatewayConnectPeerConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135984"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
-connectPeerConfiguration :: Maybe TransitGatewayConnectPeerConfiguration
-$sel:connectPeerConfiguration:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer
--&gt; Maybe TransitGatewayConnectPeerConfiguration
-</span><a href="#local-6989586621681135984"><span class="hs-identifier hs-var hs-var">connectPeerConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
-</span><a href="#local-6989586621681135984"><span class="hs-identifier hs-var">connectPeerConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135983"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135982"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
-</span><a href="#local-6989586621681135982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectPeerConfiguration:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerConfiguration
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AconnectPeerConfiguration%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">connectPeerConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
-</span><a href="#local-6989586621681135982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The ID of the Connect peer.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayConnectPeerId"><span class="hs-identifier hs-type">transitGatewayConnectPeer_transitGatewayConnectPeerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="transitGatewayConnectPeer_transitGatewayConnectPeerId"><span class="annot"><span class="annottext">transitGatewayConnectPeer_transitGatewayConnectPeerId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayConnectPeerId"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_transitGatewayConnectPeerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer -&gt; Maybe Text)
--&gt; (TransitGatewayConnectPeer
-    -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
--&gt; Lens
-     TransitGatewayConnectPeer
-     TransitGatewayConnectPeer
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135980"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayConnectPeerId :: Maybe Text
-$sel:transitGatewayConnectPeerId:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe Text
-</span><a href="#local-6989586621681135980"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681135980"><span class="hs-identifier hs-var">transitGatewayConnectPeerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135979"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135978"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681135978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerId:TransitGatewayConnectPeer' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681135978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The state of the Connect peer.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_state"><span class="hs-identifier hs-type">transitGatewayConnectPeer_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeerState.html#TransitGatewayConnectPeerState"><span class="hs-identifier hs-type">TransitGatewayConnectPeerState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="transitGatewayConnectPeer_state"><span class="annot"><span class="annottext">transitGatewayConnectPeer_state :: (Maybe TransitGatewayConnectPeerState
+</span><span id="line-89"></span><span class="hs-comment">-- | The state of the Connect peer.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_state"><span class="hs-identifier hs-type">transitGatewayConnectPeer_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeerState.html#TransitGatewayConnectPeerState"><span class="hs-identifier hs-type">TransitGatewayConnectPeerState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="transitGatewayConnectPeer_state"><span class="annot"><span class="annottext">transitGatewayConnectPeer_state :: (Maybe TransitGatewayConnectPeerState
  -&gt; f (Maybe TransitGatewayConnectPeerState))
 -&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_state"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer -&gt; Maybe TransitGatewayConnectPeerState)
@@ -277,20 +253,68 @@ $sel:transitGatewayConnectPeerId:TransitGatewayConnectPeer' :: TransitGatewayCon
      (Maybe TransitGatewayConnectPeerState)
      (Maybe TransitGatewayConnectPeerState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135976"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171114"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
 state :: Maybe TransitGatewayConnectPeerState
 $sel:state:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe TransitGatewayConnectPeerState
-</span><a href="#local-6989586621681135976"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
-</span><a href="#local-6989586621681135976"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135975"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135974"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
-</span><a href="#local-6989586621681135974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerState
+</span><a href="#local-6989586621681171114"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
+</span><a href="#local-6989586621681171114"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171113"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171112"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
+</span><a href="#local-6989586621681171112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TransitGatewayConnectPeer' :: Maybe TransitGatewayConnectPeerState
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Astate%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerState
-</span><a href="#local-6989586621681135974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681171112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ID of the Connect peer.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayConnectPeerId"><span class="hs-identifier hs-type">transitGatewayConnectPeer_transitGatewayConnectPeerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="transitGatewayConnectPeer_transitGatewayConnectPeerId"><span class="annot"><span class="annottext">transitGatewayConnectPeer_transitGatewayConnectPeerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayConnectPeerId"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_transitGatewayConnectPeerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer -&gt; Maybe Text)
+-&gt; (TransitGatewayConnectPeer
+    -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
+-&gt; Lens
+     TransitGatewayConnectPeer
+     TransitGatewayConnectPeer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171110"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayConnectPeerId :: Maybe Text
+$sel:transitGatewayConnectPeerId:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="#local-6989586621681171110"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171110"><span class="hs-identifier hs-var">transitGatewayConnectPeerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171109"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerId:TransitGatewayConnectPeer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The tags for the Connect peer.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_tags"><span class="hs-identifier hs-type">transitGatewayConnectPeer_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="transitGatewayConnectPeer_tags"><span class="annot"><span class="annottext">transitGatewayConnectPeer_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the Connect attachment.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayAttachmentId"><span class="hs-identifier hs-type">transitGatewayConnectPeer_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="transitGatewayConnectPeer_transitGatewayAttachmentId"><span class="annot"><span class="annottext">transitGatewayConnectPeer_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer -&gt; Maybe Text)
+-&gt; (TransitGatewayConnectPeer
+    -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
+-&gt; Lens
+     TransitGatewayConnectPeer
+     TransitGatewayConnectPeer
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171106"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayAttachmentId :: Maybe Text
+$sel:transitGatewayAttachmentId:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe Text
+</span><a href="#local-6989586621681171106"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171106"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171105"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayConnectPeer' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The tags for the Connect peer.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_tags"><span class="hs-identifier hs-type">transitGatewayConnectPeer_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="transitGatewayConnectPeer_tags"><span class="annot"><span class="annottext">transitGatewayConnectPeer_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_tags"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer -&gt; Maybe [Tag])
 -&gt; (TransitGatewayConnectPeer
@@ -301,16 +325,16 @@ $sel:state:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe T
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135972"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171102"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681135972"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681135972"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135971"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135970"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681135970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayConnectPeer' :: Maybe [Tag]
+</span><a href="#local-6989586621681171102"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681171102"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171101"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171100"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681171100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
+</span><a href="#local-6989586621681171101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TransitGatewayConnectPeer' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3Atags%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681135970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681171100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -324,130 +348,115 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the Connect attachment.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayAttachmentId"><span class="hs-identifier hs-type">transitGatewayConnectPeer_transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="transitGatewayConnectPeer_transitGatewayAttachmentId"><span class="annot"><span class="annottext">transitGatewayConnectPeer_transitGatewayAttachmentId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGatewayConnectPeer -&gt; f TransitGatewayConnectPeer
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#transitGatewayConnectPeer_transitGatewayAttachmentId"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeer_transitGatewayAttachmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayConnectPeer -&gt; Maybe Text)
--&gt; (TransitGatewayConnectPeer
-    -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
--&gt; Lens
-     TransitGatewayConnectPeer
-     TransitGatewayConnectPeer
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135967"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayAttachmentId :: Maybe Text
-$sel:transitGatewayAttachmentId:TransitGatewayConnectPeer' :: TransitGatewayConnectPeer -&gt; Maybe Text
-</span><a href="#local-6989586621681135967"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681135967"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135966"><span class="annot"><span class="annottext">s :: TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">TransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135965"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681135965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayConnectPeer
-</span><a href="#local-6989586621681135966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAttachmentId:TransitGatewayConnectPeer' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#%24sel%3AtransitGatewayAttachmentId%3ATransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayAttachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681135965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621681135962"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayConnectPeer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681135960"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
--&gt; Maybe TransitGatewayConnectPeerConfiguration
--&gt; Maybe Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621681171096"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayConnectPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681171094"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerConfiguration
+-&gt; Maybe ISO8601
 -&gt; Maybe TransitGatewayConnectPeerState
--&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; TransitGatewayConnectPeer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">TransitGatewayConnectPeer'</span></a></span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
- -&gt; Maybe TransitGatewayConnectPeerConfiguration
- -&gt; Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">(Maybe TransitGatewayConnectPeerConfiguration
+ -&gt; Maybe ISO8601
  -&gt; Maybe TransitGatewayConnectPeerState
- -&gt; Maybe [Tag]
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
  -&gt; TransitGatewayConnectPeer)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe TransitGatewayConnectPeerConfiguration
-      -&gt; Maybe Text
-      -&gt; Maybe TransitGatewayConnectPeerState
-      -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; TransitGatewayConnectPeer)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe TransitGatewayConnectPeerConfiguration
-   -&gt; Maybe Text
-   -&gt; Maybe TransitGatewayConnectPeerState
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; TransitGatewayConnectPeer)
 -&gt; Either String (Maybe TransitGatewayConnectPeerConfiguration)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe ISO8601
       -&gt; Maybe TransitGatewayConnectPeerState
-      -&gt; Maybe [Tag]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
       -&gt; TransitGatewayConnectPeer)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either String (Maybe TransitGatewayConnectPeerConfiguration)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectPeerConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe ISO8601
    -&gt; Maybe TransitGatewayConnectPeerState
-   -&gt; Maybe [Tag]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
    -&gt; TransitGatewayConnectPeer)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe TransitGatewayConnectPeerState
-      -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; TransitGatewayConnectPeer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681171094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transitGatewayConnectPeerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe TransitGatewayConnectPeerState
-   -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; TransitGatewayConnectPeer)
 -&gt; Either String (Maybe TransitGatewayConnectPeerState)
 -&gt; Either
-     String (Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayConnectPeer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe TransitGatewayConnectPeerState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayConnectPeer)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayConnectPeer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayConnectPeerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe [Tag] -&gt; Maybe Text -&gt; TransitGatewayConnectPeer)
+  String (Maybe Text -&gt; Maybe [Tag] -&gt; TransitGatewayConnectPeer)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; TransitGatewayConnectPeer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transitGatewayAttachmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; TransitGatewayConnectPeer)
 -&gt; Either String (Maybe [Tag])
--&gt; Either String (Maybe Text -&gt; TransitGatewayConnectPeer)
+-&gt; Either String TransitGatewayConnectPeer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681171094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -455,7 +464,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-113"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-114"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -468,18 +477,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; TransitGatewayConnectPeer)
--&gt; Either String (Maybe Text)
--&gt; Either String TransitGatewayConnectPeer
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681135960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transitGatewayAttachmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135951"><span id="local-6989586621681135953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681171085"><span id="local-6989586621681171087"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681171082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayConnectPeer.html#TransitGatewayConnectPeer"><span class="hs-identifier hs-type">TransitGatewayConnectPeer</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

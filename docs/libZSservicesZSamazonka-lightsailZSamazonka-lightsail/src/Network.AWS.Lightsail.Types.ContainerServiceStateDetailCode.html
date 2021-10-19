@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679607995"><span id="local-6989586621679607996"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerServiceStateDetailCode"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode"><span class="hs-identifier hs-var">ContainerServiceStateDetailCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceStateDetailCode%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode%27"><span class="hs-identifier hs-var">ContainerServiceStateDetailCode'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679608885"><span id="local-6989586621679608886"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerServiceStateDetailCode"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode"><span class="hs-identifier hs-var">ContainerServiceStateDetailCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceStateDetailCode%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#ContainerServiceStateDetailCode%27"><span class="hs-identifier hs-var">ContainerServiceStateDetailCode'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerServiceStateDetailCode"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceStateDetailCode.html#fromContainerServiceStateDetailCode"><span class="hs-identifier hs-var hs-var">fromContainerServiceStateDetailCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607987"><span id="local-6989586621679607989"><span id="local-6989586621679607991"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceStateDetailCode -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679608877"><span id="local-6989586621679608879"><span id="local-6989586621679608881"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceStateDetailCode -&gt; ShowS
 [ContainerServiceStateDetailCode] -&gt; ShowS
 ContainerServiceStateDetailCode -&gt; String
 (Int -&gt; ContainerServiceStateDetailCode -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ContainerServiceStateDetailCode -&gt; String
 showsPrec :: Int -&gt; ContainerServiceStateDetailCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerServiceStateDetailCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679607978"><span id="local-6989586621679607980"><span id="local-6989586621679607982"><span id="local-6989586621679607984"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceStateDetailCode]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679608868"><span id="local-6989586621679608870"><span id="local-6989586621679608872"><span id="local-6989586621679608874"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceStateDetailCode]
 ReadPrec ContainerServiceStateDetailCode
 Int -&gt; ReadS ContainerServiceStateDetailCode
 ReadS [ContainerServiceStateDetailCode]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ContainerServiceStateDetailCode]
 readsPrec :: Int -&gt; ReadS ContainerServiceStateDetailCode
 $creadsPrec :: Int -&gt; ReadS ContainerServiceStateDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679607973"><span id="local-6989586621679607975"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679608863"><span id="local-6989586621679608865"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode
 -&gt; ContainerServiceStateDetailCode -&gt; Bool
 (ContainerServiceStateDetailCode
  -&gt; ContainerServiceStateDetailCode -&gt; Bool)
@@ -96,7 +96,7 @@ $c/= :: ContainerServiceStateDetailCode
 $c== :: ContainerServiceStateDetailCode
 -&gt; ContainerServiceStateDetailCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679607957"><span id="local-6989586621679607959"><span id="local-6989586621679607961"><span id="local-6989586621679607963"><span id="local-6989586621679607965"><span id="local-6989586621679607967"><span id="local-6989586621679607969"><span class="annot"><span class="annottext">Eq ContainerServiceStateDetailCode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679608847"><span id="local-6989586621679608849"><span id="local-6989586621679608851"><span id="local-6989586621679608853"><span id="local-6989586621679608855"><span id="local-6989586621679608857"><span id="local-6989586621679608859"><span class="annot"><span class="annottext">Eq ContainerServiceStateDetailCode
 Eq ContainerServiceStateDetailCode
 -&gt; (ContainerServiceStateDetailCode
     -&gt; ContainerServiceStateDetailCode -&gt; Ordering)
@@ -190,7 +190,7 @@ ContainerServiceStateDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679607949"><span id="local-6989586621679607951"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceStateDetailCode -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679608839"><span id="local-6989586621679608841"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceStateDetailCode -&gt; Int
 ContainerServiceStateDetailCode -&gt; Int
 (Int -&gt; ContainerServiceStateDetailCode -&gt; Int)
 -&gt; (ContainerServiceStateDetailCode -&gt; Int)
@@ -201,56 +201,56 @@ $chash :: ContainerServiceStateDetailCode -&gt; Int
 hashWithSalt :: Int -&gt; ContainerServiceStateDetailCode -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerServiceStateDetailCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679607946"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679608836"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; ()
 (ContainerServiceStateDetailCode -&gt; ())
 -&gt; NFData ContainerServiceStateDetailCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerServiceStateDetailCode -&gt; ()
 $crnf :: ContainerServiceStateDetailCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679607943"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerServiceStateDetailCode
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679608833"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerServiceStateDetailCode
 (Text -&gt; Either String ContainerServiceStateDetailCode)
 -&gt; FromText ContainerServiceStateDetailCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerServiceStateDetailCode
 $cfromText :: Text -&gt; Either String ContainerServiceStateDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679607940"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679608830"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; Text
 (ContainerServiceStateDetailCode -&gt; Text)
 -&gt; ToText ContainerServiceStateDetailCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerServiceStateDetailCode -&gt; Text
 $ctoText :: ContainerServiceStateDetailCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679607937"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679608827"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; ByteString
 (ContainerServiceStateDetailCode -&gt; ByteString)
 -&gt; ToByteString ContainerServiceStateDetailCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerServiceStateDetailCode -&gt; ByteString
 $ctoBS :: ContainerServiceStateDetailCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679607934"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679608824"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; ByteStringBuilder
 (ContainerServiceStateDetailCode -&gt; ByteStringBuilder)
 -&gt; ToLog ContainerServiceStateDetailCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerServiceStateDetailCode -&gt; ByteStringBuilder
 $cbuild :: ContainerServiceStateDetailCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679607931"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerServiceStateDetailCode -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679608821"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerServiceStateDetailCode -&gt; [Header]
 (HeaderName -&gt; ContainerServiceStateDetailCode -&gt; [Header])
 -&gt; ToHeader ContainerServiceStateDetailCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerServiceStateDetailCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerServiceStateDetailCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679607928"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679608818"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; QueryString
 (ContainerServiceStateDetailCode -&gt; QueryString)
 -&gt; ToQuery ContainerServiceStateDetailCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerServiceStateDetailCode -&gt; QueryString
 $ctoQuery :: ContainerServiceStateDetailCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679607923"><span id="local-6989586621679607925"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerServiceStateDetailCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679608813"><span id="local-6989586621679608815"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerServiceStateDetailCode]
 Value -&gt; Parser ContainerServiceStateDetailCode
 (Value -&gt; Parser ContainerServiceStateDetailCode)
 -&gt; (Value -&gt; Parser [ContainerServiceStateDetailCode])
@@ -262,7 +262,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerServiceStateDetailCode]
 parseJSON :: Value -&gt; Parser ContainerServiceStateDetailCode
 $cparseJSON :: Value -&gt; Parser ContainerServiceStateDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679607918"><span id="local-6989586621679607920"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerServiceStateDetailCode]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679608808"><span id="local-6989586621679608810"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerServiceStateDetailCode]
 FromJSONKeyFunction ContainerServiceStateDetailCode
 FromJSONKeyFunction ContainerServiceStateDetailCode
 -&gt; FromJSONKeyFunction [ContainerServiceStateDetailCode]
@@ -274,7 +274,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerServiceStateDetailCode]
 fromJSONKey :: FromJSONKeyFunction ContainerServiceStateDetailCode
 $cfromJSONKey :: FromJSONKeyFunction ContainerServiceStateDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679607909"><span id="local-6989586621679607911"><span id="local-6989586621679607913"><span id="local-6989586621679607915"><span class="annot"><span class="annottext">[ContainerServiceStateDetailCode] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679608799"><span id="local-6989586621679608801"><span id="local-6989586621679608803"><span id="local-6989586621679608805"><span class="annot"><span class="annottext">[ContainerServiceStateDetailCode] -&gt; Encoding
 [ContainerServiceStateDetailCode] -&gt; Value
 ContainerServiceStateDetailCode -&gt; Encoding
 ContainerServiceStateDetailCode -&gt; Value
@@ -298,7 +298,7 @@ $ctoEncoding :: ContainerServiceStateDetailCode -&gt; Encoding
 toJSON :: ContainerServiceStateDetailCode -&gt; Value
 $ctoJSON :: ContainerServiceStateDetailCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679607904"><span id="local-6989586621679607906"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerServiceStateDetailCode]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679608794"><span id="local-6989586621679608796"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerServiceStateDetailCode]
 ToJSONKeyFunction ContainerServiceStateDetailCode
 ToJSONKeyFunction ContainerServiceStateDetailCode
 -&gt; ToJSONKeyFunction [ContainerServiceStateDetailCode]
@@ -310,14 +310,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerServiceStateDetailCode]
 toJSONKey :: ToJSONKeyFunction ContainerServiceStateDetailCode
 $ctoJSONKey :: ToJSONKeyFunction ContainerServiceStateDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679607901"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerServiceStateDetailCode
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679608791"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerServiceStateDetailCode
 ([Node] -&gt; Either String ContainerServiceStateDetailCode)
 -&gt; FromXML ContainerServiceStateDetailCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerServiceStateDetailCode
 $cparseXML :: [Node] -&gt; Either String ContainerServiceStateDetailCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679607898"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679608788"><span class="annot"><span class="annottext">ContainerServiceStateDetailCode -&gt; XML
 (ContainerServiceStateDetailCode -&gt; XML)
 -&gt; ToXML ContainerServiceStateDetailCode
 forall a. (a -&gt; XML) -&gt; ToXML a

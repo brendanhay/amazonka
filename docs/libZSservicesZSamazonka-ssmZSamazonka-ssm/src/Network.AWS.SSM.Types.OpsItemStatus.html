@@ -46,13 +46,13 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-48"></span><span>
-</span><span id="line-49"></span><span id="local-6989586621679803369"><span id="local-6989586621679803370"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OpsItemStatus"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemStatus.html#OpsItemStatus"><span class="hs-identifier hs-var">OpsItemStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemStatus.html#OpsItemStatus%27"><span class="hs-identifier hs-var">OpsItemStatus'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679805035"><span id="local-6989586621679805036"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OpsItemStatus"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemStatus.html#OpsItemStatus"><span class="hs-identifier hs-var">OpsItemStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemStatus.html#OpsItemStatus%27"><span class="hs-identifier hs-var">OpsItemStatus'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOpsItemStatus"><span class="annot"><span class="annottext">OpsItemStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.OpsItemStatus.html#fromOpsItemStatus"><span class="hs-identifier hs-var hs-var">fromOpsItemStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803361"><span id="local-6989586621679803363"><span id="local-6989586621679803365"><span class="annot"><span class="annottext">Int -&gt; OpsItemStatus -&gt; ShowS
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679805027"><span id="local-6989586621679805029"><span id="local-6989586621679805031"><span class="annot"><span class="annottext">Int -&gt; OpsItemStatus -&gt; ShowS
 [OpsItemStatus] -&gt; ShowS
 OpsItemStatus -&gt; String
 (Int -&gt; OpsItemStatus -&gt; ShowS)
@@ -68,7 +68,7 @@ $cshow :: OpsItemStatus -&gt; String
 showsPrec :: Int -&gt; OpsItemStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; OpsItemStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679803352"><span id="local-6989586621679803354"><span id="local-6989586621679803356"><span id="local-6989586621679803358"><span class="annot"><span class="annottext">ReadPrec [OpsItemStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679805018"><span id="local-6989586621679805020"><span id="local-6989586621679805022"><span id="local-6989586621679805024"><span class="annot"><span class="annottext">ReadPrec [OpsItemStatus]
 ReadPrec OpsItemStatus
 Int -&gt; ReadS OpsItemStatus
 ReadS [OpsItemStatus]
@@ -89,7 +89,7 @@ $creadList :: ReadS [OpsItemStatus]
 readsPrec :: Int -&gt; ReadS OpsItemStatus
 $creadsPrec :: Int -&gt; ReadS OpsItemStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679803347"><span id="local-6989586621679803349"><span class="annot"><span class="annottext">OpsItemStatus -&gt; OpsItemStatus -&gt; Bool
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679805013"><span id="local-6989586621679805015"><span class="annot"><span class="annottext">OpsItemStatus -&gt; OpsItemStatus -&gt; Bool
 (OpsItemStatus -&gt; OpsItemStatus -&gt; Bool)
 -&gt; (OpsItemStatus -&gt; OpsItemStatus -&gt; Bool) -&gt; Eq OpsItemStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -98,7 +98,7 @@ $c/= :: OpsItemStatus -&gt; OpsItemStatus -&gt; Bool
 == :: OpsItemStatus -&gt; OpsItemStatus -&gt; Bool
 $c== :: OpsItemStatus -&gt; OpsItemStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679803331"><span id="local-6989586621679803333"><span id="local-6989586621679803335"><span id="local-6989586621679803337"><span id="local-6989586621679803339"><span id="local-6989586621679803341"><span id="local-6989586621679803343"><span class="annot"><span class="annottext">Eq OpsItemStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679804997"><span id="local-6989586621679804999"><span id="local-6989586621679805001"><span id="local-6989586621679805003"><span id="local-6989586621679805005"><span id="local-6989586621679805007"><span id="local-6989586621679805009"><span class="annot"><span class="annottext">Eq OpsItemStatus
 Eq OpsItemStatus
 -&gt; (OpsItemStatus -&gt; OpsItemStatus -&gt; Ordering)
 -&gt; (OpsItemStatus -&gt; OpsItemStatus -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. OpsItemStatus -&gt; Rep OpsItemStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803323"><span id="local-6989586621679803325"><span class="annot"><span class="annottext">Int -&gt; OpsItemStatus -&gt; Int
+</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679804989"><span id="local-6989586621679804991"><span class="annot"><span class="annottext">Int -&gt; OpsItemStatus -&gt; Int
 OpsItemStatus -&gt; Int
 (Int -&gt; OpsItemStatus -&gt; Int)
 -&gt; (OpsItemStatus -&gt; Int) -&gt; Hashable OpsItemStatus
@@ -159,49 +159,49 @@ $chash :: OpsItemStatus -&gt; Int
 hashWithSalt :: Int -&gt; OpsItemStatus -&gt; Int
 $chashWithSalt :: Int -&gt; OpsItemStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679803320"><span class="annot"><span class="annottext">OpsItemStatus -&gt; ()
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679804986"><span class="annot"><span class="annottext">OpsItemStatus -&gt; ()
 (OpsItemStatus -&gt; ()) -&gt; NFData OpsItemStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OpsItemStatus -&gt; ()
 $crnf :: OpsItemStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679803317"><span class="annot"><span class="annottext">Text -&gt; Either String OpsItemStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679804983"><span class="annot"><span class="annottext">Text -&gt; Either String OpsItemStatus
 (Text -&gt; Either String OpsItemStatus) -&gt; FromText OpsItemStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OpsItemStatus
 $cfromText :: Text -&gt; Either String OpsItemStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679803314"><span class="annot"><span class="annottext">OpsItemStatus -&gt; Text
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679804980"><span class="annot"><span class="annottext">OpsItemStatus -&gt; Text
 (OpsItemStatus -&gt; Text) -&gt; ToText OpsItemStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OpsItemStatus -&gt; Text
 $ctoText :: OpsItemStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679803311"><span class="annot"><span class="annottext">OpsItemStatus -&gt; ByteString
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679804977"><span class="annot"><span class="annottext">OpsItemStatus -&gt; ByteString
 (OpsItemStatus -&gt; ByteString) -&gt; ToByteString OpsItemStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OpsItemStatus -&gt; ByteString
 $ctoBS :: OpsItemStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679803308"><span class="annot"><span class="annottext">OpsItemStatus -&gt; ByteStringBuilder
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679804974"><span class="annot"><span class="annottext">OpsItemStatus -&gt; ByteStringBuilder
 (OpsItemStatus -&gt; ByteStringBuilder) -&gt; ToLog OpsItemStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OpsItemStatus -&gt; ByteStringBuilder
 $cbuild :: OpsItemStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679803305"><span class="annot"><span class="annottext">HeaderName -&gt; OpsItemStatus -&gt; [Header]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679804971"><span class="annot"><span class="annottext">HeaderName -&gt; OpsItemStatus -&gt; [Header]
 (HeaderName -&gt; OpsItemStatus -&gt; [Header]) -&gt; ToHeader OpsItemStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OpsItemStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OpsItemStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679803302"><span class="annot"><span class="annottext">OpsItemStatus -&gt; QueryString
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679804968"><span class="annot"><span class="annottext">OpsItemStatus -&gt; QueryString
 (OpsItemStatus -&gt; QueryString) -&gt; ToQuery OpsItemStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OpsItemStatus -&gt; QueryString
 $ctoQuery :: OpsItemStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679803297"><span id="local-6989586621679803299"><span class="annot"><span class="annottext">Value -&gt; Parser [OpsItemStatus]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679804963"><span id="local-6989586621679804965"><span class="annot"><span class="annottext">Value -&gt; Parser [OpsItemStatus]
 Value -&gt; Parser OpsItemStatus
 (Value -&gt; Parser OpsItemStatus)
 -&gt; (Value -&gt; Parser [OpsItemStatus]) -&gt; FromJSON OpsItemStatus
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [OpsItemStatus]
 parseJSON :: Value -&gt; Parser OpsItemStatus
 $cparseJSON :: Value -&gt; Parser OpsItemStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679803292"><span id="local-6989586621679803294"><span class="annot"><span class="annottext">FromJSONKeyFunction [OpsItemStatus]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679804958"><span id="local-6989586621679804960"><span class="annot"><span class="annottext">FromJSONKeyFunction [OpsItemStatus]
 FromJSONKeyFunction OpsItemStatus
 FromJSONKeyFunction OpsItemStatus
 -&gt; FromJSONKeyFunction [OpsItemStatus] -&gt; FromJSONKey OpsItemStatus
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OpsItemStatus]
 fromJSONKey :: FromJSONKeyFunction OpsItemStatus
 $cfromJSONKey :: FromJSONKeyFunction OpsItemStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679803283"><span id="local-6989586621679803285"><span id="local-6989586621679803287"><span id="local-6989586621679803289"><span class="annot"><span class="annottext">[OpsItemStatus] -&gt; Encoding
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679804949"><span id="local-6989586621679804951"><span id="local-6989586621679804953"><span id="local-6989586621679804955"><span class="annot"><span class="annottext">[OpsItemStatus] -&gt; Encoding
 [OpsItemStatus] -&gt; Value
 OpsItemStatus -&gt; Encoding
 OpsItemStatus -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: OpsItemStatus -&gt; Encoding
 toJSON :: OpsItemStatus -&gt; Value
 $ctoJSON :: OpsItemStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679803278"><span id="local-6989586621679803280"><span class="annot"><span class="annottext">ToJSONKeyFunction [OpsItemStatus]
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679804944"><span id="local-6989586621679804946"><span class="annot"><span class="annottext">ToJSONKeyFunction [OpsItemStatus]
 ToJSONKeyFunction OpsItemStatus
 ToJSONKeyFunction OpsItemStatus
 -&gt; ToJSONKeyFunction [OpsItemStatus] -&gt; ToJSONKey OpsItemStatus
@@ -258,13 +258,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OpsItemStatus]
 toJSONKey :: ToJSONKeyFunction OpsItemStatus
 $ctoJSONKey :: ToJSONKeyFunction OpsItemStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679803275"><span class="annot"><span class="annottext">[Node] -&gt; Either String OpsItemStatus
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679804941"><span class="annot"><span class="annottext">[Node] -&gt; Either String OpsItemStatus
 ([Node] -&gt; Either String OpsItemStatus) -&gt; FromXML OpsItemStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OpsItemStatus
 $cparseXML :: [Node] -&gt; Either String OpsItemStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679803272"><span class="annot"><span class="annottext">OpsItemStatus -&gt; XML
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679804938"><span class="annot"><span class="annottext">OpsItemStatus -&gt; XML
 (OpsItemStatus -&gt; XML) -&gt; ToXML OpsItemStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OpsItemStatus -&gt; XML

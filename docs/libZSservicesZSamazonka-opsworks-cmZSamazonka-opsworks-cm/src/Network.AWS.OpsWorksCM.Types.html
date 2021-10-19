@@ -17,12 +17,12 @@
 </span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-18"></span><span>
 </span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
-</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidStateException"><span class="hs-identifier">_InvalidStateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier">_ResourceAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidNextTokenException"><span class="hs-identifier">_InvalidNextTokenException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidStateException"><span class="hs-identifier">_InvalidStateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BackupStatus</span></span><span>
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.BackupStatus.html#BackupStatus"><span class="hs-identifier">BackupStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -43,78 +43,78 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier">AccountAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.AccountAttribute.html#newAccountAttribute"><span class="hs-identifier">newAccountAttribute</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.AccountAttribute.html#accountAttribute_used"><span class="hs-identifier">accountAttribute_used</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.AccountAttribute.html#accountAttribute_name"><span class="hs-identifier">accountAttribute_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.AccountAttribute.html#accountAttribute_maximum"><span class="hs-identifier">accountAttribute_maximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.AccountAttribute.html#accountAttribute_maximum"><span class="hs-identifier">accountAttribute_maximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.AccountAttribute.html#accountAttribute_name"><span class="hs-identifier">accountAttribute_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Backup</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#Backup"><span class="hs-identifier">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#newBackup"><span class="hs-identifier">newBackup</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_instanceProfileArn"><span class="hs-identifier">backup_instanceProfileArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_preferredBackupWindow"><span class="hs-identifier">backup_preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_securityGroupIds"><span class="hs-identifier">backup_securityGroupIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_serviceRoleArn"><span class="hs-identifier">backup_serviceRoleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_status"><span class="hs-identifier">backup_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_userArn"><span class="hs-identifier">backup_userArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_instanceType"><span class="hs-identifier">backup_instanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_backupType"><span class="hs-identifier">backup_backupType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_s3DataUrl"><span class="hs-identifier">backup_s3DataUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_backupArn"><span class="hs-identifier">backup_backupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_engineVersion"><span class="hs-identifier">backup_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_serviceRoleArn"><span class="hs-identifier">backup_serviceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_status"><span class="hs-identifier">backup_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_instanceProfileArn"><span class="hs-identifier">backup_instanceProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_securityGroupIds"><span class="hs-identifier">backup_securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_statusDescription"><span class="hs-identifier">backup_statusDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_serverName"><span class="hs-identifier">backup_serverName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_subnetIds"><span class="hs-identifier">backup_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_keyPair"><span class="hs-identifier">backup_keyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_createdAt"><span class="hs-identifier">backup_createdAt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_backupId"><span class="hs-identifier">backup_backupId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_createdAt"><span class="hs-identifier">backup_createdAt</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_subnetIds"><span class="hs-identifier">backup_subnetIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_s3DataSize"><span class="hs-identifier">backup_s3DataSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_keyPair"><span class="hs-identifier">backup_keyPair</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_serverName"><span class="hs-identifier">backup_serverName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_s3LogUrl"><span class="hs-identifier">backup_s3LogUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_engineVersion"><span class="hs-identifier">backup_engineVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_preferredMaintenanceWindow"><span class="hs-identifier">backup_preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_toolsVersion"><span class="hs-identifier">backup_toolsVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_engineModel"><span class="hs-identifier">backup_engineModel</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_engine"><span class="hs-identifier">backup_engine</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_description"><span class="hs-identifier">backup_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_statusDescription"><span class="hs-identifier">backup_statusDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_engine"><span class="hs-identifier">backup_engine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_instanceType"><span class="hs-identifier">backup_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_engineModel"><span class="hs-identifier">backup_engineModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_preferredMaintenanceWindow"><span class="hs-identifier">backup_preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_userArn"><span class="hs-identifier">backup_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_preferredBackupWindow"><span class="hs-identifier">backup_preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_s3LogUrl"><span class="hs-identifier">backup_s3LogUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_s3DataSize"><span class="hs-identifier">backup_s3DataSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_backupArn"><span class="hs-identifier">backup_backupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_s3DataUrl"><span class="hs-identifier">backup_s3DataUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_description"><span class="hs-identifier">backup_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_backupType"><span class="hs-identifier">backup_backupType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Backup.html#backup_toolsVersion"><span class="hs-identifier">backup_toolsVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EngineAttribute</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#EngineAttribute"><span class="hs-identifier">EngineAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#newEngineAttribute"><span class="hs-identifier">newEngineAttribute</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#engineAttribute_name"><span class="hs-identifier">engineAttribute_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#engineAttribute_value"><span class="hs-identifier">engineAttribute_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#engineAttribute_value"><span class="hs-identifier">engineAttribute_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.EngineAttribute.html#engineAttribute_name"><span class="hs-identifier">engineAttribute_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Server</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#Server"><span class="hs-identifier">Server</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#newServer"><span class="hs-identifier">newServer</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_instanceProfileArn"><span class="hs-identifier">server_instanceProfileArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_preferredBackupWindow"><span class="hs-identifier">server_preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_securityGroupIds"><span class="hs-identifier">server_securityGroupIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_serviceRoleArn"><span class="hs-identifier">server_serviceRoleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_status"><span class="hs-identifier">server_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_disableAutomatedBackup"><span class="hs-identifier">server_disableAutomatedBackup</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engineAttributes"><span class="hs-identifier">server_engineAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_instanceType"><span class="hs-identifier">server_instanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_customDomain"><span class="hs-identifier">server_customDomain</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_createdAt"><span class="hs-identifier">server_createdAt</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_subnetIds"><span class="hs-identifier">server_subnetIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_keyPair"><span class="hs-identifier">server_keyPair</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_associatePublicIpAddress"><span class="hs-identifier">server_associatePublicIpAddress</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_serverName"><span class="hs-identifier">server_serverName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engineVersion"><span class="hs-identifier">server_engineVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_preferredMaintenanceWindow"><span class="hs-identifier">server_preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_cloudFormationStackArn"><span class="hs-identifier">server_cloudFormationStackArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_maintenanceStatus"><span class="hs-identifier">server_maintenanceStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engineModel"><span class="hs-identifier">server_engineModel</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_backupRetentionCount"><span class="hs-identifier">server_backupRetentionCount</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engine"><span class="hs-identifier">server_engine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engineVersion"><span class="hs-identifier">server_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_serviceRoleArn"><span class="hs-identifier">server_serviceRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_disableAutomatedBackup"><span class="hs-identifier">server_disableAutomatedBackup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_status"><span class="hs-identifier">server_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_instanceProfileArn"><span class="hs-identifier">server_instanceProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_securityGroupIds"><span class="hs-identifier">server_securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_associatePublicIpAddress"><span class="hs-identifier">server_associatePublicIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_serverName"><span class="hs-identifier">server_serverName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_subnetIds"><span class="hs-identifier">server_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_keyPair"><span class="hs-identifier">server_keyPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_createdAt"><span class="hs-identifier">server_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_serverArn"><span class="hs-identifier">server_serverArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_customDomain"><span class="hs-identifier">server_customDomain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engine"><span class="hs-identifier">server_engine</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_maintenanceStatus"><span class="hs-identifier">server_maintenanceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_instanceType"><span class="hs-identifier">server_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engineModel"><span class="hs-identifier">server_engineModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_engineAttributes"><span class="hs-identifier">server_engineAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_preferredMaintenanceWindow"><span class="hs-identifier">server_preferredMaintenanceWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_preferredBackupWindow"><span class="hs-identifier">server_preferredBackupWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_statusReason"><span class="hs-identifier">server_statusReason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_endpoint"><span class="hs-identifier">server_endpoint</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_statusReason"><span class="hs-identifier">server_statusReason</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_serverArn"><span class="hs-identifier">server_serverArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_cloudFormationStackArn"><span class="hs-identifier">server_cloudFormationStackArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Server.html#server_backupRetentionCount"><span class="hs-identifier">server_backupRetentionCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServerEvent</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#ServerEvent"><span class="hs-identifier">ServerEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#newServerEvent"><span class="hs-identifier">newServerEvent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#serverEvent_logUrl"><span class="hs-identifier">serverEvent_logUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#serverEvent_message"><span class="hs-identifier">serverEvent_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#serverEvent_serverName"><span class="hs-identifier">serverEvent_serverName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#serverEvent_createdAt"><span class="hs-identifier">serverEvent_createdAt</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#serverEvent_serverName"><span class="hs-identifier">serverEvent_serverName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.ServerEvent.html#serverEvent_message"><span class="hs-identifier">serverEvent_message</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -191,11 +191,11 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OpsWorksCM&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
 </span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
-</span><a href="#local-6989586621679191582"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><a href="#local-6989586621679191677"><span class="hs-identifier hs-var">retry</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>    </span><span id="local-6989586621679191582"><span class="annot"><span class="annottext">retry :: Retry
-</span><a href="#local-6989586621679191582"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span id="local-6989586621679191677"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679191677"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
 </span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
 </span><span id="line-163"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
@@ -210,35 +210,21 @@ forall a. a -&gt; Maybe a
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
 </span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
 forall a. IsString a =&gt; ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679191576"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><a href="#local-6989586621679191671"><span class="hs-identifier hs-var">check</span></a></span><span>
 </span><span id="line-167"></span><span>        </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>    </span><span id="local-6989586621679191576"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679191576"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679191575"><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-168"></span><span>    </span><span id="local-6989586621679191671"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679191671"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679191670"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-172"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-170"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
-</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
-</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -248,40 +234,14 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">400</span></span><span>
-</span><span id="line-175"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><span id="line-172"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
-</span><span id="line-178"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
-</span><span id="line-180"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
@@ -289,21 +249,21 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span id="line-177"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-185"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-178"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
-</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -313,22 +273,49 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">400</span></span><span>
-</span><span id="line-187"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><span id="line-180"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
-</span><span id="line-190"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-191"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-184"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
 </span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
@@ -341,11 +328,11 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-193"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
@@ -353,13 +340,65 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
@@ -367,129 +406,90 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
-</span><span id="line-200"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span id="line-210"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-201"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
-</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">400</span></span><span>
-</span><span id="line-203"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
-</span><span id="line-206"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-207"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
-</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">400</span></span><span>
-</span><span id="line-209"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679191575"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679191670"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- | The resource is in a state that does not allow you to perform a</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- specified action.</span><span>
-</span><span id="line-216"></span><span id="local-6989586621679191570"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidStateException"><span class="hs-identifier hs-type">_InvalidStateException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191570"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191570"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-217"></span><span id="_InvalidStateException"><span class="annot"><span class="annottext">_InvalidStateException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidStateException"><span class="hs-identifier hs-var hs-var">_InvalidStateException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-forall a.
-AsError a =&gt;
-Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">Service
-</span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;InvalidStateException&quot;</span></span><span>
-</span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- | The requested resource cannot be created because it already exists.</span><span>
-</span><span id="line-223"></span><span id="local-6989586621679191568"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-type">_ResourceAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191568"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191568"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-224"></span><span id="_ResourceAlreadyExistsException"><span class="annot"><span class="annottext">_ResourceAlreadyExistsException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_ResourceAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-forall a.
-AsError a =&gt;
-Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">Service
-</span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ResourceAlreadyExistsException&quot;</span></span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | This occurs when the provided nextToken is not valid.</span><span>
-</span><span id="line-230"></span><span id="local-6989586621679191567"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-type">_InvalidNextTokenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191567"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191567"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-231"></span><span id="_InvalidNextTokenException"><span class="annot"><span class="annottext">_InvalidNextTokenException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-var hs-var">_InvalidNextTokenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-232"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-forall a.
-AsError a =&gt;
-Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
-</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">Service
-</span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;InvalidNextTokenException&quot;</span></span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | One or more of the provided request parameters are not valid.</span><span>
-</span><span id="line-237"></span><span id="local-6989586621679191566"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191566"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-238"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><span id="line-214"></span><span class="hs-comment">-- | One or more of the provided request parameters are not valid.</span><span>
+</span><span id="line-215"></span><span id="local-6989586621679191665"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191665"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191665"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-216"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
 </span><a href="Network.AWS.OpsWorksCM.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-239"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
 Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
-</span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
 </span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- | The limit of servers or backups has been reached.</span><span>
-</span><span id="line-244"></span><span id="local-6989586621679191565"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191565"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191565"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-245"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.OpsWorksCM.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The requested resource cannot be created because it already exists.</span><span>
+</span><span id="line-222"></span><span id="local-6989586621679191663"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-type">_ResourceAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191663"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191663"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-223"></span><span id="_ResourceAlreadyExistsException"><span class="annot"><span class="annottext">_ResourceAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_ResourceAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceAlreadyExistsException&quot;</span></span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | This occurs when the provided nextToken is not valid.</span><span>
+</span><span id="line-229"></span><span id="local-6989586621679191662"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-type">_InvalidNextTokenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191662"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191662"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-230"></span><span id="_InvalidNextTokenException"><span class="annot"><span class="annottext">_InvalidNextTokenException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-var hs-var">_InvalidNextTokenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidNextTokenException&quot;</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The requested resource does not exist, or access was denied.</span><span>
+</span><span id="line-236"></span><span id="local-6989586621679191661"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191661"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191661"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-237"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The resource is in a state that does not allow you to perform a</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- specified action.</span><span>
+</span><span id="line-244"></span><span id="local-6989586621679191660"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidStateException"><span class="hs-identifier hs-type">_InvalidStateException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191660"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191660"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-245"></span><span id="_InvalidStateException"><span class="annot"><span class="annottext">_InvalidStateException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.OpsWorksCM.Types.html#_InvalidStateException"><span class="hs-identifier hs-var hs-var">_InvalidStateException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -498,12 +498,12 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span class="hs-string">&quot;InvalidStateException&quot;</span></span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- | The requested resource does not exist, or access was denied.</span><span>
-</span><span id="line-251"></span><span id="local-6989586621679191564"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191564"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-252"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.OpsWorksCM.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The limit of servers or backups has been reached.</span><span>
+</span><span id="line-251"></span><span id="local-6989586621679191659"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679191659"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679191659"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-252"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.OpsWorksCM.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -512,5 +512,5 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
 </span><span id="line-256"></span></pre></body></html>

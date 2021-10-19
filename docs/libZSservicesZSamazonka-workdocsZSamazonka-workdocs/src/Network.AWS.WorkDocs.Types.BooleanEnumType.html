@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679259514"><span id="local-6989586621679259515"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BooleanEnumType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.BooleanEnumType.html#BooleanEnumType"><span class="hs-identifier hs-var">BooleanEnumType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BooleanEnumType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.BooleanEnumType.html#BooleanEnumType%27"><span class="hs-identifier hs-var">BooleanEnumType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679259632"><span id="local-6989586621679259633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BooleanEnumType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.BooleanEnumType.html#BooleanEnumType"><span class="hs-identifier hs-var">BooleanEnumType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BooleanEnumType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.BooleanEnumType.html#BooleanEnumType%27"><span class="hs-identifier hs-var">BooleanEnumType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBooleanEnumType"><span class="annot"><span class="annottext">BooleanEnumType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.BooleanEnumType.html#fromBooleanEnumType"><span class="hs-identifier hs-var hs-var">fromBooleanEnumType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259506"><span id="local-6989586621679259508"><span id="local-6989586621679259510"><span class="annot"><span class="annottext">Int -&gt; BooleanEnumType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259624"><span id="local-6989586621679259626"><span id="local-6989586621679259628"><span class="annot"><span class="annottext">Int -&gt; BooleanEnumType -&gt; ShowS
 [BooleanEnumType] -&gt; ShowS
 BooleanEnumType -&gt; String
 (Int -&gt; BooleanEnumType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BooleanEnumType -&gt; String
 showsPrec :: Int -&gt; BooleanEnumType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BooleanEnumType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679259497"><span id="local-6989586621679259499"><span id="local-6989586621679259501"><span id="local-6989586621679259503"><span class="annot"><span class="annottext">ReadPrec [BooleanEnumType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679259615"><span id="local-6989586621679259617"><span id="local-6989586621679259619"><span id="local-6989586621679259621"><span class="annot"><span class="annottext">ReadPrec [BooleanEnumType]
 ReadPrec BooleanEnumType
 Int -&gt; ReadS BooleanEnumType
 ReadS [BooleanEnumType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BooleanEnumType]
 readsPrec :: Int -&gt; ReadS BooleanEnumType
 $creadsPrec :: Int -&gt; ReadS BooleanEnumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679259492"><span id="local-6989586621679259494"><span class="annot"><span class="annottext">BooleanEnumType -&gt; BooleanEnumType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679259610"><span id="local-6989586621679259612"><span class="annot"><span class="annottext">BooleanEnumType -&gt; BooleanEnumType -&gt; Bool
 (BooleanEnumType -&gt; BooleanEnumType -&gt; Bool)
 -&gt; (BooleanEnumType -&gt; BooleanEnumType -&gt; Bool)
 -&gt; Eq BooleanEnumType
@@ -82,7 +82,7 @@ $c/= :: BooleanEnumType -&gt; BooleanEnumType -&gt; Bool
 == :: BooleanEnumType -&gt; BooleanEnumType -&gt; Bool
 $c== :: BooleanEnumType -&gt; BooleanEnumType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259476"><span id="local-6989586621679259478"><span id="local-6989586621679259480"><span id="local-6989586621679259482"><span id="local-6989586621679259484"><span id="local-6989586621679259486"><span id="local-6989586621679259488"><span class="annot"><span class="annottext">Eq BooleanEnumType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259594"><span id="local-6989586621679259596"><span id="local-6989586621679259598"><span id="local-6989586621679259600"><span id="local-6989586621679259602"><span id="local-6989586621679259604"><span id="local-6989586621679259606"><span class="annot"><span class="annottext">Eq BooleanEnumType
 Eq BooleanEnumType
 -&gt; (BooleanEnumType -&gt; BooleanEnumType -&gt; Ordering)
 -&gt; (BooleanEnumType -&gt; BooleanEnumType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. BooleanEnumType -&gt; Rep BooleanEnumType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259468"><span id="local-6989586621679259470"><span class="annot"><span class="annottext">Int -&gt; BooleanEnumType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259586"><span id="local-6989586621679259588"><span class="annot"><span class="annottext">Int -&gt; BooleanEnumType -&gt; Int
 BooleanEnumType -&gt; Int
 (Int -&gt; BooleanEnumType -&gt; Int)
 -&gt; (BooleanEnumType -&gt; Int) -&gt; Hashable BooleanEnumType
@@ -143,50 +143,50 @@ $chash :: BooleanEnumType -&gt; Int
 hashWithSalt :: Int -&gt; BooleanEnumType -&gt; Int
 $chashWithSalt :: Int -&gt; BooleanEnumType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679259465"><span class="annot"><span class="annottext">BooleanEnumType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679259583"><span class="annot"><span class="annottext">BooleanEnumType -&gt; ()
 (BooleanEnumType -&gt; ()) -&gt; NFData BooleanEnumType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BooleanEnumType -&gt; ()
 $crnf :: BooleanEnumType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259462"><span class="annot"><span class="annottext">Text -&gt; Either String BooleanEnumType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259580"><span class="annot"><span class="annottext">Text -&gt; Either String BooleanEnumType
 (Text -&gt; Either String BooleanEnumType) -&gt; FromText BooleanEnumType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BooleanEnumType
 $cfromText :: Text -&gt; Either String BooleanEnumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259459"><span class="annot"><span class="annottext">BooleanEnumType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259577"><span class="annot"><span class="annottext">BooleanEnumType -&gt; Text
 (BooleanEnumType -&gt; Text) -&gt; ToText BooleanEnumType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BooleanEnumType -&gt; Text
 $ctoText :: BooleanEnumType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259456"><span class="annot"><span class="annottext">BooleanEnumType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259574"><span class="annot"><span class="annottext">BooleanEnumType -&gt; ByteString
 (BooleanEnumType -&gt; ByteString) -&gt; ToByteString BooleanEnumType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BooleanEnumType -&gt; ByteString
 $ctoBS :: BooleanEnumType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259453"><span class="annot"><span class="annottext">BooleanEnumType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259571"><span class="annot"><span class="annottext">BooleanEnumType -&gt; ByteStringBuilder
 (BooleanEnumType -&gt; ByteStringBuilder) -&gt; ToLog BooleanEnumType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BooleanEnumType -&gt; ByteStringBuilder
 $cbuild :: BooleanEnumType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259450"><span class="annot"><span class="annottext">HeaderName -&gt; BooleanEnumType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259568"><span class="annot"><span class="annottext">HeaderName -&gt; BooleanEnumType -&gt; [Header]
 (HeaderName -&gt; BooleanEnumType -&gt; [Header])
 -&gt; ToHeader BooleanEnumType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BooleanEnumType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BooleanEnumType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259447"><span class="annot"><span class="annottext">BooleanEnumType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259565"><span class="annot"><span class="annottext">BooleanEnumType -&gt; QueryString
 (BooleanEnumType -&gt; QueryString) -&gt; ToQuery BooleanEnumType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BooleanEnumType -&gt; QueryString
 $ctoQuery :: BooleanEnumType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259442"><span id="local-6989586621679259444"><span class="annot"><span class="annottext">Value -&gt; Parser [BooleanEnumType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259560"><span id="local-6989586621679259562"><span class="annot"><span class="annottext">Value -&gt; Parser [BooleanEnumType]
 Value -&gt; Parser BooleanEnumType
 (Value -&gt; Parser BooleanEnumType)
 -&gt; (Value -&gt; Parser [BooleanEnumType]) -&gt; FromJSON BooleanEnumType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [BooleanEnumType]
 parseJSON :: Value -&gt; Parser BooleanEnumType
 $cparseJSON :: Value -&gt; Parser BooleanEnumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259437"><span id="local-6989586621679259439"><span class="annot"><span class="annottext">FromJSONKeyFunction [BooleanEnumType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259555"><span id="local-6989586621679259557"><span class="annot"><span class="annottext">FromJSONKeyFunction [BooleanEnumType]
 FromJSONKeyFunction BooleanEnumType
 FromJSONKeyFunction BooleanEnumType
 -&gt; FromJSONKeyFunction [BooleanEnumType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BooleanEnumType]
 fromJSONKey :: FromJSONKeyFunction BooleanEnumType
 $cfromJSONKey :: FromJSONKeyFunction BooleanEnumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259428"><span id="local-6989586621679259430"><span id="local-6989586621679259432"><span id="local-6989586621679259434"><span class="annot"><span class="annottext">[BooleanEnumType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259546"><span id="local-6989586621679259548"><span id="local-6989586621679259550"><span id="local-6989586621679259552"><span class="annot"><span class="annottext">[BooleanEnumType] -&gt; Encoding
 [BooleanEnumType] -&gt; Value
 BooleanEnumType -&gt; Encoding
 BooleanEnumType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: BooleanEnumType -&gt; Encoding
 toJSON :: BooleanEnumType -&gt; Value
 $ctoJSON :: BooleanEnumType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259423"><span id="local-6989586621679259425"><span class="annot"><span class="annottext">ToJSONKeyFunction [BooleanEnumType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259541"><span id="local-6989586621679259543"><span class="annot"><span class="annottext">ToJSONKeyFunction [BooleanEnumType]
 ToJSONKeyFunction BooleanEnumType
 ToJSONKeyFunction BooleanEnumType
 -&gt; ToJSONKeyFunction [BooleanEnumType] -&gt; ToJSONKey BooleanEnumType
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BooleanEnumType]
 toJSONKey :: ToJSONKeyFunction BooleanEnumType
 $ctoJSONKey :: ToJSONKeyFunction BooleanEnumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259420"><span class="annot"><span class="annottext">[Node] -&gt; Either String BooleanEnumType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259538"><span class="annot"><span class="annottext">[Node] -&gt; Either String BooleanEnumType
 ([Node] -&gt; Either String BooleanEnumType)
 -&gt; FromXML BooleanEnumType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BooleanEnumType
 $cparseXML :: [Node] -&gt; Either String BooleanEnumType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259417"><span class="annot"><span class="annottext">BooleanEnumType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259535"><span class="annot"><span class="annottext">BooleanEnumType -&gt; XML
 (BooleanEnumType -&gt; XML) -&gt; ToXML BooleanEnumType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BooleanEnumType -&gt; XML

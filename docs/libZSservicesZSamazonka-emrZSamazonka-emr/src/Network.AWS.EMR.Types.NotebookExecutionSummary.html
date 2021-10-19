@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- as the unique ID and status of the notebook execution.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNotebookExecutionSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679372518"><span id="local-6989586621679372519"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotebookExecutionSummary"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-var">NotebookExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookExecutionSummary%27"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-var">NotebookExecutionSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679372870"><span id="local-6989586621679372871"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotebookExecutionSummary"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-var">NotebookExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookExecutionSummary%27"><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-var">NotebookExecutionSummary'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the notebook execution.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @START_PENDING@ indicates that the cluster has received the</span><span>
@@ -59,24 +59,24 @@
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">--     @StopNotebookExecution@ request.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Astatus%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe NotebookExecutionStatus
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3Astatus%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionStatus.html#NotebookExecutionStatus"><span class="hs-identifier hs-type">NotebookExecutionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the notebook execution.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe Text
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">notebookExecutionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the editor associated with the notebook</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AeditorId%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the editor associated with the notebook</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AeditorId%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AeditorId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">editorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The timestamp when notebook execution started.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AstartTime%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AstartTime%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the notebook execution.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AnotebookExecutionId%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">notebookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The timestamp when notebook execution started.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AstartTime%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AstartTime%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the notebook execution.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">notebookExecutionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The timestamp when notebook execution started.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AendTime%3ANotebookExecutionSummary%27"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AendTime%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372507"><span id="local-6989586621679372509"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; NotebookExecutionSummary -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372859"><span id="local-6989586621679372861"><span class="annot"><span class="annottext">NotebookExecutionSummary -&gt; NotebookExecutionSummary -&gt; Bool
 (NotebookExecutionSummary -&gt; NotebookExecutionSummary -&gt; Bool)
 -&gt; (NotebookExecutionSummary -&gt; NotebookExecutionSummary -&gt; Bool)
 -&gt; Eq NotebookExecutionSummary
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NotebookExecutionSummary -&gt; NotebookExecutionSummary -&gt; Bool
 == :: NotebookExecutionSummary -&gt; NotebookExecutionSummary -&gt; Bool
 $c== :: NotebookExecutionSummary -&gt; NotebookExecutionSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372498"><span id="local-6989586621679372500"><span id="local-6989586621679372502"><span id="local-6989586621679372504"><span class="annot"><span class="annottext">ReadPrec [NotebookExecutionSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372850"><span id="local-6989586621679372852"><span id="local-6989586621679372854"><span id="local-6989586621679372856"><span class="annot"><span class="annottext">ReadPrec [NotebookExecutionSummary]
 ReadPrec NotebookExecutionSummary
 Int -&gt; ReadS NotebookExecutionSummary
 ReadS [NotebookExecutionSummary]
@@ -105,7 +105,7 @@ readList :: ReadS [NotebookExecutionSummary]
 $creadList :: ReadS [NotebookExecutionSummary]
 readsPrec :: Int -&gt; ReadS NotebookExecutionSummary
 $creadsPrec :: Int -&gt; ReadS NotebookExecutionSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372491"><span id="local-6989586621679372493"><span id="local-6989586621679372495"><span class="annot"><span class="annottext">Int -&gt; NotebookExecutionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372843"><span id="local-6989586621679372845"><span id="local-6989586621679372847"><span class="annot"><span class="annottext">Int -&gt; NotebookExecutionSummary -&gt; ShowS
 [NotebookExecutionSummary] -&gt; ShowS
 NotebookExecutionSummary -&gt; String
 (Int -&gt; NotebookExecutionSummary -&gt; ShowS)
@@ -174,14 +174,14 @@ NotebookExecutionSummary -&gt; Rep NotebookExecutionSummary x
 </span><span id="line-109"></span><span class="hs-comment">-- -   @STOPPED@ indicates that the execution stopped because of a</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--     @StopNotebookExecution@ request.</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- 'notebookExecutionName', 'notebookExecutionSummary_notebookExecutionName' - The name of the notebook execution.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- 'editorId', 'notebookExecutionSummary_editorId' - The unique identifier of the editor associated with the notebook</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'editorId', 'notebookExecutionSummary_editorId' - The unique identifier of the editor associated with the notebook</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'startTime', 'notebookExecutionSummary_startTime' - The timestamp when notebook execution started.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- 'notebookExecutionId', 'notebookExecutionSummary_notebookExecutionId' - The unique identifier of the notebook execution.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'startTime', 'notebookExecutionSummary_startTime' - The timestamp when notebook execution started.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'notebookExecutionName', 'notebookExecutionSummary_notebookExecutionName' - The name of the notebook execution.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- 'endTime', 'notebookExecutionSummary_endTime' - The timestamp when notebook execution started.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#newNotebookExecutionSummary"><span class="hs-identifier hs-type">newNotebookExecutionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -190,9 +190,9 @@ NotebookExecutionSummary -&gt; Rep NotebookExecutionSummary x
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#newNotebookExecutionSummary"><span class="hs-identifier hs-var hs-var">newNotebookExecutionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">NotebookExecutionSummary' :: Maybe NotebookExecutionStatus
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; NotebookExecutionSummary
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span>
@@ -200,20 +200,20 @@ NotebookExecutionSummary -&gt; Rep NotebookExecutionSummary x
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3Astatus%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:notebookExecutionName:NotebookExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">notebookExecutionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:editorId:NotebookExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AeditorId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">editorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:editorId:NotebookExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AeditorId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">editorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:NotebookExecutionSummary' :: Maybe POSIX
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AstartTime%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:notebookExecutionId:NotebookExecutionSummary' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:NotebookExecutionSummary' :: Maybe POSIX
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AstartTime%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:notebookExecutionName:NotebookExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">notebookExecutionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:NotebookExecutionSummary' :: Maybe POSIX
@@ -263,45 +263,21 @@ forall a. Maybe a
      (Maybe NotebookExecutionStatus)
      (Maybe NotebookExecutionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372482"><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372834"><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
 status :: Maybe NotebookExecutionStatus
 $sel:status:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe NotebookExecutionStatus
-</span><a href="#local-6989586621679372482"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
-</span><a href="#local-6989586621679372482"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372481"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
-</span><a href="#local-6989586621679372481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372480"><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
-</span><a href="#local-6989586621679372480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
-</span><a href="#local-6989586621679372481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:NotebookExecutionSummary' :: Maybe NotebookExecutionStatus
+</span><a href="#local-6989586621679372834"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
+</span><a href="#local-6989586621679372834"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372833"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
+</span><a href="#local-6989586621679372833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372832"><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
+</span><a href="#local-6989586621679372832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
+</span><a href="#local-6989586621679372833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:NotebookExecutionSummary' :: Maybe NotebookExecutionStatus
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3Astatus%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
-</span><a href="#local-6989586621679372480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | The name of the notebook execution.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionName"><span class="hs-identifier hs-type">notebookExecutionSummary_notebookExecutionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="notebookExecutionSummary_notebookExecutionName"><span class="annot"><span class="annottext">notebookExecutionSummary_notebookExecutionName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionName"><span class="hs-identifier hs-var hs-var">notebookExecutionSummary_notebookExecutionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotebookExecutionSummary -&gt; Maybe Text)
--&gt; (NotebookExecutionSummary
-    -&gt; Maybe Text -&gt; NotebookExecutionSummary)
--&gt; Lens
-     NotebookExecutionSummary
-     NotebookExecutionSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372478"><span class="annot"><span class="annottext">Maybe Text
-notebookExecutionName :: Maybe Text
-$sel:notebookExecutionName:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679372478"><span class="hs-identifier hs-var hs-var">notebookExecutionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372478"><span class="hs-identifier hs-var">notebookExecutionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372477"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
-</span><a href="#local-6989586621679372477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372476"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
-</span><a href="#local-6989586621679372477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookExecutionName:NotebookExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">notebookExecutionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The unique identifier of the editor associated with the notebook</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- execution.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_editorId"><span class="hs-identifier hs-type">notebookExecutionSummary_editorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="notebookExecutionSummary_editorId"><span class="annot"><span class="annottext">notebookExecutionSummary_editorId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-165"></span><span class="hs-comment">-- | The unique identifier of the editor associated with the notebook</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- execution.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_editorId"><span class="hs-identifier hs-type">notebookExecutionSummary_editorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="notebookExecutionSummary_editorId"><span class="annot"><span class="annottext">notebookExecutionSummary_editorId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_editorId"><span class="hs-identifier hs-var hs-var">notebookExecutionSummary_editorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotebookExecutionSummary -&gt; Maybe Text)
 -&gt; (NotebookExecutionSummary
@@ -312,44 +288,20 @@ $sel:notebookExecutionName:NotebookExecutionSummary' :: NotebookExecutionSummary
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372474"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372830"><span class="annot"><span class="annottext">Maybe Text
 editorId :: Maybe Text
 $sel:editorId:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679372474"><span class="hs-identifier hs-var hs-var">editorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372474"><span class="hs-identifier hs-var">editorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372473"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
-</span><a href="#local-6989586621679372473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372472"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
-</span><a href="#local-6989586621679372473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:editorId:NotebookExecutionSummary' :: Maybe Text
+</span><a href="#local-6989586621679372830"><span class="hs-identifier hs-var hs-var">editorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372830"><span class="hs-identifier hs-var">editorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372829"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
+</span><a href="#local-6989586621679372829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372828"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
+</span><a href="#local-6989586621679372829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:editorId:NotebookExecutionSummary' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AeditorId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">editorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The unique identifier of the notebook execution.</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionId"><span class="hs-identifier hs-type">notebookExecutionSummary_notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="notebookExecutionSummary_notebookExecutionId"><span class="annot"><span class="annottext">notebookExecutionSummary_notebookExecutionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionId"><span class="hs-identifier hs-var hs-var">notebookExecutionSummary_notebookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotebookExecutionSummary -&gt; Maybe Text)
--&gt; (NotebookExecutionSummary
-    -&gt; Maybe Text -&gt; NotebookExecutionSummary)
--&gt; Lens
-     NotebookExecutionSummary
-     NotebookExecutionSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372470"><span class="annot"><span class="annottext">Maybe Text
-notebookExecutionId :: Maybe Text
-$sel:notebookExecutionId:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679372470"><span class="hs-identifier hs-var hs-var">notebookExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372470"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372469"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
-</span><a href="#local-6989586621679372469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372468"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
-</span><a href="#local-6989586621679372469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookExecutionId:NotebookExecutionSummary' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- | The timestamp when notebook execution started.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_startTime"><span class="hs-identifier hs-type">notebookExecutionSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="notebookExecutionSummary_startTime"><span class="annot"><span class="annottext">notebookExecutionSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679372828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The timestamp when notebook execution started.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_startTime"><span class="hs-identifier hs-type">notebookExecutionSummary_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="notebookExecutionSummary_startTime"><span class="annot"><span class="annottext">notebookExecutionSummary_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_startTime"><span class="hs-identifier hs-var hs-var">notebookExecutionSummary_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotebookExecutionSummary -&gt; Maybe POSIX)
 -&gt; (NotebookExecutionSummary
@@ -360,16 +312,16 @@ $sel:notebookExecutionId:NotebookExecutionSummary' :: NotebookExecutionSummary -
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372466"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372826"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679372466"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679372466"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372465"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
-</span><a href="#local-6989586621679372465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372464"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679372464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
-</span><a href="#local-6989586621679372465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:NotebookExecutionSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679372826"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679372826"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372825"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
+</span><a href="#local-6989586621679372825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372824"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679372824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
+</span><a href="#local-6989586621679372825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:NotebookExecutionSummary' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AstartTime%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679372464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679372824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -385,6 +337,54 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The unique identifier of the notebook execution.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionId"><span class="hs-identifier hs-type">notebookExecutionSummary_notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="notebookExecutionSummary_notebookExecutionId"><span class="annot"><span class="annottext">notebookExecutionSummary_notebookExecutionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionId"><span class="hs-identifier hs-var hs-var">notebookExecutionSummary_notebookExecutionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotebookExecutionSummary -&gt; Maybe Text)
+-&gt; (NotebookExecutionSummary
+    -&gt; Maybe Text -&gt; NotebookExecutionSummary)
+-&gt; Lens
+     NotebookExecutionSummary
+     NotebookExecutionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372819"><span class="annot"><span class="annottext">Maybe Text
+notebookExecutionId :: Maybe Text
+$sel:notebookExecutionId:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679372819"><span class="hs-identifier hs-var hs-var">notebookExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372819"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372818"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
+</span><a href="#local-6989586621679372818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
+</span><a href="#local-6989586621679372818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookExecutionId:NotebookExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionId%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">notebookExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The name of the notebook execution.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionName"><span class="hs-identifier hs-type">notebookExecutionSummary_notebookExecutionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="notebookExecutionSummary_notebookExecutionName"><span class="annot"><span class="annottext">notebookExecutionSummary_notebookExecutionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_notebookExecutionName"><span class="hs-identifier hs-var hs-var">notebookExecutionSummary_notebookExecutionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotebookExecutionSummary -&gt; Maybe Text)
+-&gt; (NotebookExecutionSummary
+    -&gt; Maybe Text -&gt; NotebookExecutionSummary)
+-&gt; Lens
+     NotebookExecutionSummary
+     NotebookExecutionSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372815"><span class="annot"><span class="annottext">Maybe Text
+notebookExecutionName :: Maybe Text
+$sel:notebookExecutionName:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679372815"><span class="hs-identifier hs-var hs-var">notebookExecutionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372815"><span class="hs-identifier hs-var">notebookExecutionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372814"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
+</span><a href="#local-6989586621679372814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
+</span><a href="#local-6989586621679372814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookExecutionName:NotebookExecutionSummary' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AnotebookExecutionName%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">notebookExecutionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679372813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The timestamp when notebook execution started.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#notebookExecutionSummary_endTime"><span class="hs-identifier hs-type">notebookExecutionSummary_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -399,16 +399,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372459"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372811"><span class="annot"><span class="annottext">Maybe POSIX
 endTime :: Maybe POSIX
 $sel:endTime:NotebookExecutionSummary' :: NotebookExecutionSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679372459"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679372459"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372458"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
-</span><a href="#local-6989586621679372458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372457"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679372457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
-</span><a href="#local-6989586621679372458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:NotebookExecutionSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679372811"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679372811"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372810"><span class="annot"><span class="annottext">s :: NotebookExecutionSummary
+</span><a href="#local-6989586621679372810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-type">NotebookExecutionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372809"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679372809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotebookExecutionSummary
+</span><a href="#local-6989586621679372810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:NotebookExecutionSummary' :: Maybe POSIX
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#%24sel%3AendTime%3ANotebookExecutionSummary%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679372457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679372809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; NotebookExecutionSummary -&gt; f NotebookExecutionSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -425,8 +425,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372454"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679372452"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotebookExecutionSummary
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372806"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679372804"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotebookExecutionSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NotebookExecutionSummary)
@@ -436,104 +436,104 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NotebookExecutionSummary&quot;</span></span><span>
-</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372449"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372449"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372801"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372801"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Maybe NotebookExecutionStatus
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; NotebookExecutionSummary
 </span><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary%27"><span class="hs-identifier hs-var">NotebookExecutionSummary'</span></a></span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NotebookExecutionStatus
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; NotebookExecutionSummary)
 -&gt; Parser (Maybe NotebookExecutionStatus)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; NotebookExecutionSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotebookExecutionStatus)
+</span><a href="#local-6989586621679372801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotebookExecutionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; NotebookExecutionSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; NotebookExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotebookExecutionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; NotebookExecutionSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679372801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EditorId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotebookExecutionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; NotebookExecutionSummary)
 -&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe POSIX -&gt; NotebookExecutionSummary)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679372801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotebookExecutionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; NotebookExecutionSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; NotebookExecutionSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotebookExecutionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; NotebookExecutionSummary)
 -&gt; Parser (Maybe POSIX) -&gt; Parser NotebookExecutionSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679372801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372443"><span id="local-6989586621679372445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372795"><span id="local-6989586621679372797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span></span></span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.NotebookExecutionSummary.html#NotebookExecutionSummary"><span class="hs-identifier hs-type">NotebookExecutionSummary</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

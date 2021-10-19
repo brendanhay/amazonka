@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681050794"><span id="local-6989586621681050795"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.AccountAttributeName.html#AccountAttributeName"><span class="hs-identifier hs-var">AccountAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.AccountAttributeName.html#AccountAttributeName%27"><span class="hs-identifier hs-var">AccountAttributeName'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681083988"><span id="local-6989586621681083989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.AccountAttributeName.html#AccountAttributeName"><span class="hs-identifier hs-var">AccountAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.AccountAttributeName.html#AccountAttributeName%27"><span class="hs-identifier hs-var">AccountAttributeName'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccountAttributeName"><span class="annot"><span class="annottext">AccountAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AccountAttributeName.html#fromAccountAttributeName"><span class="hs-identifier hs-var hs-var">fromAccountAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681050786"><span id="local-6989586621681050788"><span id="local-6989586621681050790"><span class="annot"><span class="annottext">Int -&gt; AccountAttributeName -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681083980"><span id="local-6989586621681083982"><span id="local-6989586621681083984"><span class="annot"><span class="annottext">Int -&gt; AccountAttributeName -&gt; ShowS
 [AccountAttributeName] -&gt; ShowS
 AccountAttributeName -&gt; String
 (Int -&gt; AccountAttributeName -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AccountAttributeName -&gt; String
 showsPrec :: Int -&gt; AccountAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; AccountAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681050777"><span id="local-6989586621681050779"><span id="local-6989586621681050781"><span id="local-6989586621681050783"><span class="annot"><span class="annottext">ReadPrec [AccountAttributeName]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681083971"><span id="local-6989586621681083973"><span id="local-6989586621681083975"><span id="local-6989586621681083977"><span class="annot"><span class="annottext">ReadPrec [AccountAttributeName]
 ReadPrec AccountAttributeName
 Int -&gt; ReadS AccountAttributeName
 ReadS [AccountAttributeName]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AccountAttributeName]
 readsPrec :: Int -&gt; ReadS AccountAttributeName
 $creadsPrec :: Int -&gt; ReadS AccountAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681050772"><span id="local-6989586621681050774"><span class="annot"><span class="annottext">AccountAttributeName -&gt; AccountAttributeName -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681083966"><span id="local-6989586621681083968"><span class="annot"><span class="annottext">AccountAttributeName -&gt; AccountAttributeName -&gt; Bool
 (AccountAttributeName -&gt; AccountAttributeName -&gt; Bool)
 -&gt; (AccountAttributeName -&gt; AccountAttributeName -&gt; Bool)
 -&gt; Eq AccountAttributeName
@@ -83,7 +83,7 @@ $c/= :: AccountAttributeName -&gt; AccountAttributeName -&gt; Bool
 == :: AccountAttributeName -&gt; AccountAttributeName -&gt; Bool
 $c== :: AccountAttributeName -&gt; AccountAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681050756"><span id="local-6989586621681050758"><span id="local-6989586621681050760"><span id="local-6989586621681050762"><span id="local-6989586621681050764"><span id="local-6989586621681050766"><span id="local-6989586621681050768"><span class="annot"><span class="annottext">Eq AccountAttributeName
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681083950"><span id="local-6989586621681083952"><span id="local-6989586621681083954"><span id="local-6989586621681083956"><span id="local-6989586621681083958"><span id="local-6989586621681083960"><span id="local-6989586621681083962"><span class="annot"><span class="annottext">Eq AccountAttributeName
 Eq AccountAttributeName
 -&gt; (AccountAttributeName -&gt; AccountAttributeName -&gt; Ordering)
 -&gt; (AccountAttributeName -&gt; AccountAttributeName -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. AccountAttributeName -&gt; Rep AccountAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681050748"><span id="local-6989586621681050750"><span class="annot"><span class="annottext">Int -&gt; AccountAttributeName -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681083942"><span id="local-6989586621681083944"><span class="annot"><span class="annottext">Int -&gt; AccountAttributeName -&gt; Int
 AccountAttributeName -&gt; Int
 (Int -&gt; AccountAttributeName -&gt; Int)
 -&gt; (AccountAttributeName -&gt; Int) -&gt; Hashable AccountAttributeName
@@ -151,54 +151,54 @@ $chash :: AccountAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; AccountAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; AccountAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681050745"><span class="annot"><span class="annottext">AccountAttributeName -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681083939"><span class="annot"><span class="annottext">AccountAttributeName -&gt; ()
 (AccountAttributeName -&gt; ()) -&gt; NFData AccountAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AccountAttributeName -&gt; ()
 $crnf :: AccountAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681050742"><span class="annot"><span class="annottext">Text -&gt; Either String AccountAttributeName
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681083936"><span class="annot"><span class="annottext">Text -&gt; Either String AccountAttributeName
 (Text -&gt; Either String AccountAttributeName)
 -&gt; FromText AccountAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AccountAttributeName
 $cfromText :: Text -&gt; Either String AccountAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681050739"><span class="annot"><span class="annottext">AccountAttributeName -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681083933"><span class="annot"><span class="annottext">AccountAttributeName -&gt; Text
 (AccountAttributeName -&gt; Text) -&gt; ToText AccountAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AccountAttributeName -&gt; Text
 $ctoText :: AccountAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681050736"><span class="annot"><span class="annottext">AccountAttributeName -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681083930"><span class="annot"><span class="annottext">AccountAttributeName -&gt; ByteString
 (AccountAttributeName -&gt; ByteString)
 -&gt; ToByteString AccountAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AccountAttributeName -&gt; ByteString
 $ctoBS :: AccountAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681050733"><span class="annot"><span class="annottext">AccountAttributeName -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681083927"><span class="annot"><span class="annottext">AccountAttributeName -&gt; ByteStringBuilder
 (AccountAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog AccountAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AccountAttributeName -&gt; ByteStringBuilder
 $cbuild :: AccountAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681050730"><span class="annot"><span class="annottext">HeaderName -&gt; AccountAttributeName -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681083924"><span class="annot"><span class="annottext">HeaderName -&gt; AccountAttributeName -&gt; [Header]
 (HeaderName -&gt; AccountAttributeName -&gt; [Header])
 -&gt; ToHeader AccountAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AccountAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AccountAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681050727"><span class="annot"><span class="annottext">AccountAttributeName -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681083921"><span class="annot"><span class="annottext">AccountAttributeName -&gt; QueryString
 (AccountAttributeName -&gt; QueryString)
 -&gt; ToQuery AccountAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AccountAttributeName -&gt; QueryString
 $ctoQuery :: AccountAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681050722"><span id="local-6989586621681050724"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountAttributeName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681083916"><span id="local-6989586621681083918"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountAttributeName]
 Value -&gt; Parser AccountAttributeName
 (Value -&gt; Parser AccountAttributeName)
 -&gt; (Value -&gt; Parser [AccountAttributeName])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [AccountAttributeName]
 parseJSON :: Value -&gt; Parser AccountAttributeName
 $cparseJSON :: Value -&gt; Parser AccountAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681050717"><span id="local-6989586621681050719"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountAttributeName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681083911"><span id="local-6989586621681083913"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountAttributeName]
 FromJSONKeyFunction AccountAttributeName
 FromJSONKeyFunction AccountAttributeName
 -&gt; FromJSONKeyFunction [AccountAttributeName]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AccountAttributeName]
 fromJSONKey :: FromJSONKeyFunction AccountAttributeName
 $cfromJSONKey :: FromJSONKeyFunction AccountAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681050708"><span id="local-6989586621681050710"><span id="local-6989586621681050712"><span id="local-6989586621681050714"><span class="annot"><span class="annottext">[AccountAttributeName] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681083902"><span id="local-6989586621681083904"><span id="local-6989586621681083906"><span id="local-6989586621681083908"><span class="annot"><span class="annottext">[AccountAttributeName] -&gt; Encoding
 [AccountAttributeName] -&gt; Value
 AccountAttributeName -&gt; Encoding
 AccountAttributeName -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: AccountAttributeName -&gt; Encoding
 toJSON :: AccountAttributeName -&gt; Value
 $ctoJSON :: AccountAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681050703"><span id="local-6989586621681050705"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountAttributeName]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681083897"><span id="local-6989586621681083899"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountAttributeName]
 ToJSONKeyFunction AccountAttributeName
 ToJSONKeyFunction AccountAttributeName
 -&gt; ToJSONKeyFunction [AccountAttributeName]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AccountAttributeName]
 toJSONKey :: ToJSONKeyFunction AccountAttributeName
 $ctoJSONKey :: ToJSONKeyFunction AccountAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681050700"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountAttributeName
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681083894"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountAttributeName
 ([Node] -&gt; Either String AccountAttributeName)
 -&gt; FromXML AccountAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AccountAttributeName
 $cparseXML :: [Node] -&gt; Either String AccountAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681050697"><span class="annot"><span class="annottext">AccountAttributeName -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681083891"><span class="annot"><span class="annottext">AccountAttributeName -&gt; XML
 (AccountAttributeName -&gt; XML) -&gt; ToXML AccountAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AccountAttributeName -&gt; XML

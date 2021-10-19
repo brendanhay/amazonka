@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an error for BundleInstance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBundleTaskError' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681056455"><span id="local-6989586621681056456"></span></span><span class="hs-keyword">data</span><span> </span><span id="BundleTaskError"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-var">BundleTaskError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BundleTaskError%27"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-var">BundleTaskError'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3ABundleTaskError%27"><span class="annot"><span class="annottext">BundleTaskError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Amessage%3ABundleTaskError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The error code.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acode%3ABundleTaskError%27"><span class="annot"><span class="annottext">BundleTaskError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Acode%3ABundleTaskError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681089654"><span id="local-6989586621681089655"></span></span><span class="hs-keyword">data</span><span> </span><span id="BundleTaskError"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-var">BundleTaskError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BundleTaskError%27"><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-var">BundleTaskError'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Acode%3ABundleTaskError%27"><span class="annot"><span class="annottext">BundleTaskError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Acode%3ABundleTaskError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3ABundleTaskError%27"><span class="annot"><span class="annottext">BundleTaskError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Amessage%3ABundleTaskError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681056448"><span id="local-6989586621681056450"><span class="annot"><span class="annottext">BundleTaskError -&gt; BundleTaskError -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681089647"><span id="local-6989586621681089649"><span class="annot"><span class="annottext">BundleTaskError -&gt; BundleTaskError -&gt; Bool
 (BundleTaskError -&gt; BundleTaskError -&gt; Bool)
 -&gt; (BundleTaskError -&gt; BundleTaskError -&gt; Bool)
 -&gt; Eq BundleTaskError
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BundleTaskError -&gt; BundleTaskError -&gt; Bool
 == :: BundleTaskError -&gt; BundleTaskError -&gt; Bool
 $c== :: BundleTaskError -&gt; BundleTaskError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681056439"><span id="local-6989586621681056441"><span id="local-6989586621681056443"><span id="local-6989586621681056445"><span class="annot"><span class="annottext">ReadPrec [BundleTaskError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681089638"><span id="local-6989586621681089640"><span id="local-6989586621681089642"><span id="local-6989586621681089644"><span class="annot"><span class="annottext">ReadPrec [BundleTaskError]
 ReadPrec BundleTaskError
 Int -&gt; ReadS BundleTaskError
 ReadS [BundleTaskError]
@@ -64,7 +64,7 @@ readList :: ReadS [BundleTaskError]
 $creadList :: ReadS [BundleTaskError]
 readsPrec :: Int -&gt; ReadS BundleTaskError
 $creadsPrec :: Int -&gt; ReadS BundleTaskError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681056432"><span id="local-6989586621681056434"><span id="local-6989586621681056436"><span class="annot"><span class="annottext">Int -&gt; BundleTaskError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681089631"><span id="local-6989586621681089633"><span id="local-6989586621681089635"><span class="annot"><span class="annottext">Int -&gt; BundleTaskError -&gt; ShowS
 [BundleTaskError] -&gt; ShowS
 BundleTaskError -&gt; String
 (Int -&gt; BundleTaskError -&gt; ShowS)
@@ -98,67 +98,67 @@ $cfrom :: forall x. BundleTaskError -&gt; Rep BundleTaskError x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'message', 'bundleTaskError_message' - The error message.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'code', 'bundleTaskError_code' - The error code.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'code', 'bundleTaskError_code' - The error code.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'message', 'bundleTaskError_message' - The error message.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#newBundleTaskError"><span class="hs-identifier hs-type">newBundleTaskError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span>
 </span><span id="line-51"></span><span id="newBundleTaskError"><span class="annot"><span class="annottext">newBundleTaskError :: BundleTaskError
 </span><a href="Network.AWS.EC2.Types.BundleTaskError.html#newBundleTaskError"><span class="hs-identifier hs-var hs-var">newBundleTaskError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">BundleTaskError' :: Maybe Text -&gt; Maybe Text -&gt; BundleTaskError
 </span><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:BundleTaskError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Amessage%3ABundleTaskError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:BundleTaskError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Acode%3ABundleTaskError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:BundleTaskError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Acode%3ABundleTaskError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:BundleTaskError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Amessage%3ABundleTaskError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The error message.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#bundleTaskError_message"><span class="hs-identifier hs-type">bundleTaskError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="bundleTaskError_message"><span class="annot"><span class="annottext">bundleTaskError_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BundleTaskError -&gt; f BundleTaskError
-</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#bundleTaskError_message"><span class="hs-identifier hs-var hs-var">bundleTaskError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTaskError -&gt; Maybe Text)
--&gt; (BundleTaskError -&gt; Maybe Text -&gt; BundleTaskError)
--&gt; Lens BundleTaskError BundleTaskError (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681056423"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:BundleTaskError' :: BundleTaskError -&gt; Maybe Text
-</span><a href="#local-6989586621681056423"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681056423"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681056422"><span class="annot"><span class="annottext">s :: BundleTaskError
-</span><a href="#local-6989586621681056422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681056421"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681056421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTaskError
-</span><a href="#local-6989586621681056422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:BundleTaskError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Amessage%3ABundleTaskError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681056421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The error code.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#bundleTaskError_code"><span class="hs-identifier hs-type">bundleTaskError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="bundleTaskError_code"><span class="annot"><span class="annottext">bundleTaskError_code :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-57"></span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#bundleTaskError_code"><span class="hs-identifier hs-type">bundleTaskError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="bundleTaskError_code"><span class="annot"><span class="annottext">bundleTaskError_code :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; BundleTaskError -&gt; f BundleTaskError
 </span><a href="Network.AWS.EC2.Types.BundleTaskError.html#bundleTaskError_code"><span class="hs-identifier hs-var hs-var">bundleTaskError_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTaskError -&gt; Maybe Text)
 -&gt; (BundleTaskError -&gt; Maybe Text -&gt; BundleTaskError)
 -&gt; Lens BundleTaskError BundleTaskError (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681056419"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681089622"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:BundleTaskError' :: BundleTaskError -&gt; Maybe Text
-</span><a href="#local-6989586621681056419"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681056419"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681056418"><span class="annot"><span class="annottext">s :: BundleTaskError
-</span><a href="#local-6989586621681056418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681056417"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681056417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTaskError
-</span><a href="#local-6989586621681056418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:BundleTaskError' :: Maybe Text
+</span><a href="#local-6989586621681089622"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681089622"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681089621"><span class="annot"><span class="annottext">s :: BundleTaskError
+</span><a href="#local-6989586621681089621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681089620"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681089620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTaskError
+</span><a href="#local-6989586621681089621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:BundleTaskError' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Acode%3ABundleTaskError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681056417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681089620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#bundleTaskError_message"><span class="hs-identifier hs-type">bundleTaskError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="bundleTaskError_message"><span class="annot"><span class="annottext">bundleTaskError_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BundleTaskError -&gt; f BundleTaskError
+</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#bundleTaskError_message"><span class="hs-identifier hs-var hs-var">bundleTaskError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BundleTaskError -&gt; Maybe Text)
+-&gt; (BundleTaskError -&gt; Maybe Text -&gt; BundleTaskError)
+-&gt; Lens BundleTaskError BundleTaskError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681089618"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:BundleTaskError' :: BundleTaskError -&gt; Maybe Text
+</span><a href="#local-6989586621681089618"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681089618"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681089617"><span class="annot"><span class="annottext">s :: BundleTaskError
+</span><a href="#local-6989586621681089617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-type">BundleTaskError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681089616"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681089616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BundleTaskError
+</span><a href="#local-6989586621681089617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:BundleTaskError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.BundleTaskError.html#%24sel%3Amessage%3ABundleTaskError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681089616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621681056414"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BundleTaskError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681056412"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681056412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621681089613"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BundleTaskError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681089611"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681089611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; BundleTaskError
 </span><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError%27"><span class="hs-identifier hs-var">BundleTaskError'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; BundleTaskError)
@@ -166,20 +166,20 @@ $sel:code:BundleTaskError' :: BundleTaskError -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; BundleTaskError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681056412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681089611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; BundleTaskError)
 -&gt; Either String (Maybe Text) -&gt; Either String BundleTaskError
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681056412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681089611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681056406"><span id="local-6989586621681056408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681089605"><span id="local-6989586621681089607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681056403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681089602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BundleTaskError.html#BundleTaskError"><span class="hs-identifier hs-type">BundleTaskError</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

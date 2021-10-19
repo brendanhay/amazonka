@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- by the application or resource being monitored.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputLogEvent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679221035"><span id="local-6989586621679221036"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputLogEvent"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-var">InputLogEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputLogEvent%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-var">InputLogEvent'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679221172"><span id="local-6989586621679221173"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputLogEvent"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-var">InputLogEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputLogEvent%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-var">InputLogEvent'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the event occurred, expressed as the number of milliseconds</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atimestamp%3AInputLogEvent%27"><span class="annot"><span class="annottext">InputLogEvent -&gt; Natural
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AInputLogEvent%27"><span class="annot"><span class="annottext">InputLogEvent -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#%24sel%3Amessage%3AInputLogEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221028"><span id="local-6989586621679221030"><span class="annot"><span class="annottext">InputLogEvent -&gt; InputLogEvent -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221165"><span id="local-6989586621679221167"><span class="annot"><span class="annottext">InputLogEvent -&gt; InputLogEvent -&gt; Bool
 (InputLogEvent -&gt; InputLogEvent -&gt; Bool)
 -&gt; (InputLogEvent -&gt; InputLogEvent -&gt; Bool) -&gt; Eq InputLogEvent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputLogEvent -&gt; InputLogEvent -&gt; Bool
 == :: InputLogEvent -&gt; InputLogEvent -&gt; Bool
 $c== :: InputLogEvent -&gt; InputLogEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221019"><span id="local-6989586621679221021"><span id="local-6989586621679221023"><span id="local-6989586621679221025"><span class="annot"><span class="annottext">ReadPrec [InputLogEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221156"><span id="local-6989586621679221158"><span id="local-6989586621679221160"><span id="local-6989586621679221162"><span class="annot"><span class="annottext">ReadPrec [InputLogEvent]
 ReadPrec InputLogEvent
 Int -&gt; ReadS InputLogEvent
 ReadS [InputLogEvent]
@@ -64,7 +64,7 @@ readList :: ReadS [InputLogEvent]
 $creadList :: ReadS [InputLogEvent]
 readsPrec :: Int -&gt; ReadS InputLogEvent
 $creadsPrec :: Int -&gt; ReadS InputLogEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221012"><span id="local-6989586621679221014"><span id="local-6989586621679221016"><span class="annot"><span class="annottext">Int -&gt; InputLogEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221149"><span id="local-6989586621679221151"><span id="local-6989586621679221153"><span class="annot"><span class="annottext">Int -&gt; InputLogEvent -&gt; ShowS
 [InputLogEvent] -&gt; ShowS
 InputLogEvent -&gt; String
 (Int -&gt; InputLogEvent -&gt; ShowS)
@@ -109,17 +109,17 @@ $cfrom :: forall x. InputLogEvent -&gt; Rep InputLogEvent x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span><span>
 </span><span id="line-57"></span><span id="newInputLogEvent"><span class="annot"><span class="annottext">newInputLogEvent :: Natural -&gt; Text -&gt; InputLogEvent
-</span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#newInputLogEvent"><span class="hs-identifier hs-var hs-var">newInputLogEvent</span></a></span></span><span> </span><span id="local-6989586621679221006"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679221006"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span id="local-6989586621679221005"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221005"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#newInputLogEvent"><span class="hs-identifier hs-var hs-var">newInputLogEvent</span></a></span></span><span> </span><span id="local-6989586621679221143"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679221143"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span id="local-6989586621679221142"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221142"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">InputLogEvent' :: Natural -&gt; Text -&gt; InputLogEvent
 </span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:InputLogEvent' :: Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#%24sel%3Atimestamp%3AInputLogEvent%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679221006"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221143"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:InputLogEvent' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#%24sel%3Amessage%3AInputLogEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221005"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
+</span><a href="#local-6989586621679221142"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The time the event occurred, expressed as the number of milliseconds</span><span>
@@ -130,16 +130,16 @@ $cfrom :: forall x. InputLogEvent -&gt; Rep InputLogEvent x
 -&gt; (InputLogEvent -&gt; Natural -&gt; InputLogEvent)
 -&gt; Lens InputLogEvent InputLogEvent Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221001"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221138"><span class="annot"><span class="annottext">Natural
 timestamp :: Natural
 $sel:timestamp:InputLogEvent' :: InputLogEvent -&gt; Natural
-</span><a href="#local-6989586621679221001"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679221001"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221000"><span class="annot"><span class="annottext">s :: InputLogEvent
-</span><a href="#local-6989586621679221000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220999"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679220999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLogEvent
-</span><a href="#local-6989586621679221000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:InputLogEvent' :: Natural
+</span><a href="#local-6989586621679221138"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679221138"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221137"><span class="annot"><span class="annottext">s :: InputLogEvent
+</span><a href="#local-6989586621679221137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221136"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679221136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLogEvent
+</span><a href="#local-6989586621679221137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:InputLogEvent' :: Natural
 </span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#%24sel%3Atimestamp%3AInputLogEvent%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679220999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The raw event message.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#inputLogEvent_message"><span class="hs-identifier hs-type">inputLogEvent_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -148,30 +148,30 @@ $sel:timestamp:InputLogEvent' :: InputLogEvent -&gt; Natural
 -&gt; (InputLogEvent -&gt; Text -&gt; InputLogEvent)
 -&gt; Lens InputLogEvent InputLogEvent Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220997"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221134"><span class="annot"><span class="annottext">Text
 message :: Text
 $sel:message:InputLogEvent' :: InputLogEvent -&gt; Text
-</span><a href="#local-6989586621679220997"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220997"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220996"><span class="annot"><span class="annottext">s :: InputLogEvent
-</span><a href="#local-6989586621679220996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220995"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLogEvent
-</span><a href="#local-6989586621679220996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InputLogEvent' :: Text
+</span><a href="#local-6989586621679221134"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221134"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221133"><span class="annot"><span class="annottext">s :: InputLogEvent
+</span><a href="#local-6989586621679221133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLogEvent
+</span><a href="#local-6989586621679221133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InputLogEvent' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#%24sel%3Amessage%3AInputLogEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220991"><span id="local-6989586621679220993"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221128"><span id="local-6989586621679221130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220980"><span id="local-6989586621679220982"><span id="local-6989586621679220984"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679220978"><span class="annot"><span class="annottext">toJSON :: InputLogEvent -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220975"><span id="local-6989586621679220976"><span class="annot"><span class="annottext">Natural
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221117"><span id="local-6989586621679221119"><span id="local-6989586621679221121"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent"><span class="hs-identifier hs-type">InputLogEvent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679221115"><span class="annot"><span class="annottext">toJSON :: InputLogEvent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.InputLogEvent.html#InputLogEvent%27"><span class="hs-identifier hs-type">InputLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221112"><span id="local-6989586621679221113"><span class="annot"><span class="annottext">Natural
 Text
 message :: Text
 timestamp :: Natural
 $sel:message:InputLogEvent' :: InputLogEvent -&gt; Text
 $sel:timestamp:InputLogEvent' :: InputLogEvent -&gt; Natural
-</span><a href="#local-6989586621679220975"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679221112"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,14 +183,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679220976"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679221113"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220975"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221112"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

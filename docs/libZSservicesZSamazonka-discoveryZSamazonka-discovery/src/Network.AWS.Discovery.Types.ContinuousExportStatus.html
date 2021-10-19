@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679202287"><span id="local-6989586621679202288"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContinuousExportStatus"><span class="annot"><a href="Network.AWS.Discovery.Types.ContinuousExportStatus.html#ContinuousExportStatus"><span class="hs-identifier hs-var">ContinuousExportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinuousExportStatus%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ContinuousExportStatus.html#ContinuousExportStatus%27"><span class="hs-identifier hs-var">ContinuousExportStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679202481"><span id="local-6989586621679202482"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContinuousExportStatus"><span class="annot"><a href="Network.AWS.Discovery.Types.ContinuousExportStatus.html#ContinuousExportStatus"><span class="hs-identifier hs-var">ContinuousExportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinuousExportStatus%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ContinuousExportStatus.html#ContinuousExportStatus%27"><span class="hs-identifier hs-var">ContinuousExportStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContinuousExportStatus"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.ContinuousExportStatus.html#fromContinuousExportStatus"><span class="hs-identifier hs-var hs-var">fromContinuousExportStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202279"><span id="local-6989586621679202281"><span id="local-6989586621679202283"><span class="annot"><span class="annottext">Int -&gt; ContinuousExportStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202473"><span id="local-6989586621679202475"><span id="local-6989586621679202477"><span class="annot"><span class="annottext">Int -&gt; ContinuousExportStatus -&gt; ShowS
 [ContinuousExportStatus] -&gt; ShowS
 ContinuousExportStatus -&gt; String
 (Int -&gt; ContinuousExportStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: ContinuousExportStatus -&gt; String
 showsPrec :: Int -&gt; ContinuousExportStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContinuousExportStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679202270"><span id="local-6989586621679202272"><span id="local-6989586621679202274"><span id="local-6989586621679202276"><span class="annot"><span class="annottext">ReadPrec [ContinuousExportStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679202464"><span id="local-6989586621679202466"><span id="local-6989586621679202468"><span id="local-6989586621679202470"><span class="annot"><span class="annottext">ReadPrec [ContinuousExportStatus]
 ReadPrec ContinuousExportStatus
 Int -&gt; ReadS ContinuousExportStatus
 ReadS [ContinuousExportStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [ContinuousExportStatus]
 readsPrec :: Int -&gt; ReadS ContinuousExportStatus
 $creadsPrec :: Int -&gt; ReadS ContinuousExportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679202265"><span id="local-6989586621679202267"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679202459"><span id="local-6989586621679202461"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool
 (ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool)
 -&gt; (ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool)
 -&gt; Eq ContinuousExportStatus
@@ -87,7 +87,7 @@ $c/= :: ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool
 == :: ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool
 $c== :: ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679202249"><span id="local-6989586621679202251"><span id="local-6989586621679202253"><span id="local-6989586621679202255"><span id="local-6989586621679202257"><span id="local-6989586621679202259"><span id="local-6989586621679202261"><span class="annot"><span class="annottext">Eq ContinuousExportStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679202443"><span id="local-6989586621679202445"><span id="local-6989586621679202447"><span id="local-6989586621679202449"><span id="local-6989586621679202451"><span id="local-6989586621679202453"><span id="local-6989586621679202455"><span class="annot"><span class="annottext">Eq ContinuousExportStatus
 Eq ContinuousExportStatus
 -&gt; (ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Ordering)
 -&gt; (ContinuousExportStatus -&gt; ContinuousExportStatus -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. ContinuousExportStatus -&gt; Rep ContinuousExportStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202241"><span id="local-6989586621679202243"><span class="annot"><span class="annottext">Int -&gt; ContinuousExportStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679202435"><span id="local-6989586621679202437"><span class="annot"><span class="annottext">Int -&gt; ContinuousExportStatus -&gt; Int
 ContinuousExportStatus -&gt; Int
 (Int -&gt; ContinuousExportStatus -&gt; Int)
 -&gt; (ContinuousExportStatus -&gt; Int)
@@ -157,54 +157,54 @@ $chash :: ContinuousExportStatus -&gt; Int
 hashWithSalt :: Int -&gt; ContinuousExportStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ContinuousExportStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202238"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679202432"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ()
 (ContinuousExportStatus -&gt; ()) -&gt; NFData ContinuousExportStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContinuousExportStatus -&gt; ()
 $crnf :: ContinuousExportStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202235"><span class="annot"><span class="annottext">Text -&gt; Either String ContinuousExportStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679202429"><span class="annot"><span class="annottext">Text -&gt; Either String ContinuousExportStatus
 (Text -&gt; Either String ContinuousExportStatus)
 -&gt; FromText ContinuousExportStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContinuousExportStatus
 $cfromText :: Text -&gt; Either String ContinuousExportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202232"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679202426"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; Text
 (ContinuousExportStatus -&gt; Text) -&gt; ToText ContinuousExportStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContinuousExportStatus -&gt; Text
 $ctoText :: ContinuousExportStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202229"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679202423"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ByteString
 (ContinuousExportStatus -&gt; ByteString)
 -&gt; ToByteString ContinuousExportStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContinuousExportStatus -&gt; ByteString
 $ctoBS :: ContinuousExportStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202226"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679202420"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; ByteStringBuilder
 (ContinuousExportStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ContinuousExportStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContinuousExportStatus -&gt; ByteStringBuilder
 $cbuild :: ContinuousExportStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202223"><span class="annot"><span class="annottext">HeaderName -&gt; ContinuousExportStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679202417"><span class="annot"><span class="annottext">HeaderName -&gt; ContinuousExportStatus -&gt; [Header]
 (HeaderName -&gt; ContinuousExportStatus -&gt; [Header])
 -&gt; ToHeader ContinuousExportStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContinuousExportStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContinuousExportStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202220"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679202414"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; QueryString
 (ContinuousExportStatus -&gt; QueryString)
 -&gt; ToQuery ContinuousExportStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContinuousExportStatus -&gt; QueryString
 $ctoQuery :: ContinuousExportStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202215"><span id="local-6989586621679202217"><span class="annot"><span class="annottext">Value -&gt; Parser [ContinuousExportStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679202409"><span id="local-6989586621679202411"><span class="annot"><span class="annottext">Value -&gt; Parser [ContinuousExportStatus]
 Value -&gt; Parser ContinuousExportStatus
 (Value -&gt; Parser ContinuousExportStatus)
 -&gt; (Value -&gt; Parser [ContinuousExportStatus])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [ContinuousExportStatus]
 parseJSON :: Value -&gt; Parser ContinuousExportStatus
 $cparseJSON :: Value -&gt; Parser ContinuousExportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202210"><span id="local-6989586621679202212"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContinuousExportStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679202404"><span id="local-6989586621679202406"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContinuousExportStatus]
 FromJSONKeyFunction ContinuousExportStatus
 FromJSONKeyFunction ContinuousExportStatus
 -&gt; FromJSONKeyFunction [ContinuousExportStatus]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContinuousExportStatus]
 fromJSONKey :: FromJSONKeyFunction ContinuousExportStatus
 $cfromJSONKey :: FromJSONKeyFunction ContinuousExportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679202201"><span id="local-6989586621679202203"><span id="local-6989586621679202205"><span id="local-6989586621679202207"><span class="annot"><span class="annottext">[ContinuousExportStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679202395"><span id="local-6989586621679202397"><span id="local-6989586621679202399"><span id="local-6989586621679202401"><span class="annot"><span class="annottext">[ContinuousExportStatus] -&gt; Encoding
 [ContinuousExportStatus] -&gt; Value
 ContinuousExportStatus -&gt; Encoding
 ContinuousExportStatus -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: ContinuousExportStatus -&gt; Encoding
 toJSON :: ContinuousExportStatus -&gt; Value
 $ctoJSON :: ContinuousExportStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679202196"><span id="local-6989586621679202198"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContinuousExportStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679202390"><span id="local-6989586621679202392"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContinuousExportStatus]
 ToJSONKeyFunction ContinuousExportStatus
 ToJSONKeyFunction ContinuousExportStatus
 -&gt; ToJSONKeyFunction [ContinuousExportStatus]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContinuousExportStatus]
 toJSONKey :: ToJSONKeyFunction ContinuousExportStatus
 $ctoJSONKey :: ToJSONKeyFunction ContinuousExportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679202193"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContinuousExportStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679202387"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContinuousExportStatus
 ([Node] -&gt; Either String ContinuousExportStatus)
 -&gt; FromXML ContinuousExportStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContinuousExportStatus
 $cparseXML :: [Node] -&gt; Either String ContinuousExportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679202190"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679202384"><span class="annot"><span class="annottext">ContinuousExportStatus -&gt; XML
 (ContinuousExportStatus -&gt; XML) -&gt; ToXML ContinuousExportStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContinuousExportStatus -&gt; XML

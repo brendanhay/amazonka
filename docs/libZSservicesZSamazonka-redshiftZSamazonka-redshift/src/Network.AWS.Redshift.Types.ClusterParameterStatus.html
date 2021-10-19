@@ -27,42 +27,42 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the status of a parameter group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newClusterParameterStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679490106"><span id="local-6989586621679490107"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterParameterStatus"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-var">ClusterParameterStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterParameterStatus%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-var">ClusterParameterStatus'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the parameter that indicates whether the parameter is in</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- sync with the database, waiting for a cluster reboot, or encountered an</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- error when being applied.</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- The following are possible statuses and descriptions.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @in-sync@: The parameter value is in sync with the database.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @pending-reboot@: The parameter value will be applied after the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     cluster reboots.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @applying@: The parameter value is being applied to the database.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @invalid-parameter@: Cannot apply the parameter value because it has</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     an invalid value or syntax.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @apply-deferred@: The parameter contains static property changes.</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     The changes are deferred until the cluster reboots.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @apply-error@: Cannot connect to the cluster. The parameter change</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     will be applied after the cluster reboots.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @unknown-error@: Cannot apply the parameter change right now. The</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     change will be applied after the cluster reboots.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The name of the parameter.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AparameterName%3AClusterParameterStatus%27"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679490744"><span id="local-6989586621679490745"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterParameterStatus"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-var">ClusterParameterStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterParameterStatus%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-var">ClusterParameterStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error that prevented the parameter from being applied to the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AparameterApplyErrorDescription%3AClusterParameterStatus%27"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyErrorDescription%3AClusterParameterStatus%27"><span class="hs-identifier hs-var hs-var">parameterApplyErrorDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the parameter.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AparameterName%3AClusterParameterStatus%27"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterName%3AClusterParameterStatus%27"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The error that prevented the parameter from being applied to the</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- database.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AparameterApplyErrorDescription%3AClusterParameterStatus%27"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyErrorDescription%3AClusterParameterStatus%27"><span class="hs-identifier hs-var hs-var">parameterApplyErrorDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of the parameter that indicates whether the parameter is in</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- sync with the database, waiting for a cluster reboot, or encountered an</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- error when being applied.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The following are possible statuses and descriptions.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @in-sync@: The parameter value is in sync with the database.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @pending-reboot@: The parameter value will be applied after the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     cluster reboots.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @applying@: The parameter value is being applied to the database.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   @invalid-parameter@: Cannot apply the parameter value because it has</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     an invalid value or syntax.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   @apply-deferred@: The parameter contains static property changes.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     The changes are deferred until the cluster reboots.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   @apply-error@: Cannot connect to the cluster. The parameter change</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     will be applied after the cluster reboots.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @unknown-error@: Cannot apply the parameter change right now. The</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     change will be applied after the cluster reboots.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679490098"><span id="local-6989586621679490100"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; ClusterParameterStatus -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679490736"><span id="local-6989586621679490738"><span class="annot"><span class="annottext">ClusterParameterStatus -&gt; ClusterParameterStatus -&gt; Bool
 (ClusterParameterStatus -&gt; ClusterParameterStatus -&gt; Bool)
 -&gt; (ClusterParameterStatus -&gt; ClusterParameterStatus -&gt; Bool)
 -&gt; Eq ClusterParameterStatus
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClusterParameterStatus -&gt; ClusterParameterStatus -&gt; Bool
 == :: ClusterParameterStatus -&gt; ClusterParameterStatus -&gt; Bool
 $c== :: ClusterParameterStatus -&gt; ClusterParameterStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490089"><span id="local-6989586621679490091"><span id="local-6989586621679490093"><span id="local-6989586621679490095"><span class="annot"><span class="annottext">ReadPrec [ClusterParameterStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490727"><span id="local-6989586621679490729"><span id="local-6989586621679490731"><span id="local-6989586621679490733"><span class="annot"><span class="annottext">ReadPrec [ClusterParameterStatus]
 ReadPrec ClusterParameterStatus
 Int -&gt; ReadS ClusterParameterStatus
 ReadS [ClusterParameterStatus]
@@ -91,7 +91,7 @@ readList :: ReadS [ClusterParameterStatus]
 $creadList :: ReadS [ClusterParameterStatus]
 readsPrec :: Int -&gt; ReadS ClusterParameterStatus
 $creadsPrec :: Int -&gt; ReadS ClusterParameterStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490082"><span id="local-6989586621679490084"><span id="local-6989586621679490086"><span class="annot"><span class="annottext">Int -&gt; ClusterParameterStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490720"><span id="local-6989586621679490722"><span id="local-6989586621679490724"><span class="annot"><span class="annottext">Int -&gt; ClusterParameterStatus -&gt; ShowS
 [ClusterParameterStatus] -&gt; ShowS
 ClusterParameterStatus -&gt; String
 (Int -&gt; ClusterParameterStatus -&gt; ShowS)
@@ -126,43 +126,43 @@ $cfrom :: forall x. ClusterParameterStatus -&gt; Rep ClusterParameterStatus x
 </span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'parameterApplyStatus', 'clusterParameterStatus_parameterApplyStatus' - The status of the parameter that indicates whether the parameter is in</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- sync with the database, waiting for a cluster reboot, or encountered an</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- error when being applied.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- The following are possible statuses and descriptions.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- -   @in-sync@: The parameter value is in sync with the database.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- -   @pending-reboot@: The parameter value will be applied after the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--     cluster reboots.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'parameterApplyErrorDescription', 'clusterParameterStatus_parameterApplyErrorDescription' - The error that prevented the parameter from being applied to the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'parameterName', 'clusterParameterStatus_parameterName' - The name of the parameter.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'parameterApplyStatus', 'clusterParameterStatus_parameterApplyStatus' - The status of the parameter that indicates whether the parameter is in</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- sync with the database, waiting for a cluster reboot, or encountered an</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- error when being applied.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following are possible statuses and descriptions.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- -   @applying@: The parameter value is being applied to the database.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @in-sync@: The parameter value is in sync with the database.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- -   @invalid-parameter@: Cannot apply the parameter value because it has</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--     an invalid value or syntax.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @pending-reboot@: The parameter value will be applied after the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     cluster reboots.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   @apply-deferred@: The parameter contains static property changes.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--     The changes are deferred until the cluster reboots.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- -   @apply-error@: Cannot connect to the cluster. The parameter change</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--     will be applied after the cluster reboots.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @unknown-error@: Cannot apply the parameter change right now. The</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--     change will be applied after the cluster reboots.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'parameterName', 'clusterParameterStatus_parameterName' - The name of the parameter.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- -   @applying@: The parameter value is being applied to the database.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   @invalid-parameter@: Cannot apply the parameter value because it has</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     an invalid value or syntax.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- -   @apply-deferred@: The parameter contains static property changes.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--     The changes are deferred until the cluster reboots.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @apply-error@: Cannot connect to the cluster. The parameter change</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     will be applied after the cluster reboots.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'parameterApplyErrorDescription', 'clusterParameterStatus_parameterApplyErrorDescription' - The error that prevented the parameter from being applied to the</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- -   @unknown-error@: Cannot apply the parameter change right now. The</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     change will be applied after the cluster reboots.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#newClusterParameterStatus"><span class="hs-identifier hs-type">newClusterParameterStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span>
 </span><span id="line-103"></span><span id="newClusterParameterStatus"><span class="annot"><span class="annottext">newClusterParameterStatus :: ClusterParameterStatus
 </span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#newClusterParameterStatus"><span class="hs-identifier hs-var hs-var">newClusterParameterStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">ClusterParameterStatus' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ClusterParameterStatus
 </span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:ClusterParameterStatus' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterApplyErrorDescription:ClusterParameterStatus' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyErrorDescription%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterApplyErrorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -170,85 +170,16 @@ forall a. Maybe a
 </span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterName%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterApplyErrorDescription:ClusterParameterStatus' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyErrorDescription%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterApplyErrorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:ClusterParameterStatus' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The status of the parameter that indicates whether the parameter is in</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- sync with the database, waiting for a cluster reboot, or encountered an</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- error when being applied.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- The following are possible statuses and descriptions.</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- -   @in-sync@: The parameter value is in sync with the database.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- -   @pending-reboot@: The parameter value will be applied after the</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--     cluster reboots.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- -   @applying@: The parameter value is being applied to the database.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- -   @invalid-parameter@: Cannot apply the parameter value because it has</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--     an invalid value or syntax.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- -   @apply-deferred@: The parameter contains static property changes.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--     The changes are deferred until the cluster reboots.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- -   @apply-error@: Cannot connect to the cluster. The parameter change</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--     will be applied after the cluster reboots.</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- -   @unknown-error@: Cannot apply the parameter change right now. The</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--     change will be applied after the cluster reboots.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterApplyStatus"><span class="hs-identifier hs-type">clusterParameterStatus_parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="clusterParameterStatus_parameterApplyStatus"><span class="annot"><span class="annottext">clusterParameterStatus_parameterApplyStatus :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ClusterParameterStatus -&gt; f ClusterParameterStatus
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterApplyStatus"><span class="hs-identifier hs-var hs-var">clusterParameterStatus_parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterParameterStatus -&gt; Maybe Text)
--&gt; (ClusterParameterStatus -&gt; Maybe Text -&gt; ClusterParameterStatus)
--&gt; Lens
-     ClusterParameterStatus
-     ClusterParameterStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490073"><span class="annot"><span class="annottext">Maybe Text
-parameterApplyStatus :: Maybe Text
-$sel:parameterApplyStatus:ClusterParameterStatus' :: ClusterParameterStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679490073"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490073"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490072"><span class="annot"><span class="annottext">s :: ClusterParameterStatus
-</span><a href="#local-6989586621679490072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490071"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterParameterStatus
-</span><a href="#local-6989586621679490072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:ClusterParameterStatus' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The name of the parameter.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterName"><span class="hs-identifier hs-type">clusterParameterStatus_parameterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="clusterParameterStatus_parameterName"><span class="annot"><span class="annottext">clusterParameterStatus_parameterName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ClusterParameterStatus -&gt; f ClusterParameterStatus
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterName"><span class="hs-identifier hs-var hs-var">clusterParameterStatus_parameterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterParameterStatus -&gt; Maybe Text)
--&gt; (ClusterParameterStatus -&gt; Maybe Text -&gt; ClusterParameterStatus)
--&gt; Lens
-     ClusterParameterStatus
-     ClusterParameterStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490069"><span class="annot"><span class="annottext">Maybe Text
-parameterName :: Maybe Text
-$sel:parameterName:ClusterParameterStatus' :: ClusterParameterStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679490069"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490069"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490068"><span class="annot"><span class="annottext">s :: ClusterParameterStatus
-</span><a href="#local-6989586621679490068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490067"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterParameterStatus
-</span><a href="#local-6989586621679490068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterName:ClusterParameterStatus' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterName%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The error that prevented the parameter from being applied to the</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- database.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterApplyErrorDescription"><span class="hs-identifier hs-type">clusterParameterStatus_parameterApplyErrorDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="clusterParameterStatus_parameterApplyErrorDescription"><span class="annot"><span class="annottext">clusterParameterStatus_parameterApplyErrorDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-111"></span><span class="hs-comment">-- | The error that prevented the parameter from being applied to the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- database.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterApplyErrorDescription"><span class="hs-identifier hs-type">clusterParameterStatus_parameterApplyErrorDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="clusterParameterStatus_parameterApplyErrorDescription"><span class="annot"><span class="annottext">clusterParameterStatus_parameterApplyErrorDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ClusterParameterStatus -&gt; f ClusterParameterStatus
 </span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterApplyErrorDescription"><span class="hs-identifier hs-var hs-var">clusterParameterStatus_parameterApplyErrorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterParameterStatus -&gt; Maybe Text)
 -&gt; (ClusterParameterStatus -&gt; Maybe Text -&gt; ClusterParameterStatus)
@@ -258,21 +189,90 @@ $sel:parameterName:ClusterParameterStatus' :: ClusterParameterStatus -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490065"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490711"><span class="annot"><span class="annottext">Maybe Text
 parameterApplyErrorDescription :: Maybe Text
 $sel:parameterApplyErrorDescription:ClusterParameterStatus' :: ClusterParameterStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679490065"><span class="hs-identifier hs-var hs-var">parameterApplyErrorDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490065"><span class="hs-identifier hs-var">parameterApplyErrorDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490064"><span class="annot"><span class="annottext">s :: ClusterParameterStatus
-</span><a href="#local-6989586621679490064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490063"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterParameterStatus
-</span><a href="#local-6989586621679490064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterApplyErrorDescription:ClusterParameterStatus' :: Maybe Text
+</span><a href="#local-6989586621679490711"><span class="hs-identifier hs-var hs-var">parameterApplyErrorDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490711"><span class="hs-identifier hs-var">parameterApplyErrorDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490710"><span class="annot"><span class="annottext">s :: ClusterParameterStatus
+</span><a href="#local-6989586621679490710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterParameterStatus
+</span><a href="#local-6989586621679490710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterApplyErrorDescription:ClusterParameterStatus' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyErrorDescription%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterApplyErrorDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679490709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the parameter.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterName"><span class="hs-identifier hs-type">clusterParameterStatus_parameterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="clusterParameterStatus_parameterName"><span class="annot"><span class="annottext">clusterParameterStatus_parameterName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterParameterStatus -&gt; f ClusterParameterStatus
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterName"><span class="hs-identifier hs-var hs-var">clusterParameterStatus_parameterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterParameterStatus -&gt; Maybe Text)
+-&gt; (ClusterParameterStatus -&gt; Maybe Text -&gt; ClusterParameterStatus)
+-&gt; Lens
+     ClusterParameterStatus
+     ClusterParameterStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490707"><span class="annot"><span class="annottext">Maybe Text
+parameterName :: Maybe Text
+$sel:parameterName:ClusterParameterStatus' :: ClusterParameterStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679490707"><span class="hs-identifier hs-var hs-var">parameterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490707"><span class="hs-identifier hs-var">parameterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490706"><span class="annot"><span class="annottext">s :: ClusterParameterStatus
+</span><a href="#local-6989586621679490706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490705"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterParameterStatus
+</span><a href="#local-6989586621679490706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterName:ClusterParameterStatus' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterName%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The status of the parameter that indicates whether the parameter is in</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- sync with the database, waiting for a cluster reboot, or encountered an</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- error when being applied.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following are possible statuses and descriptions.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @in-sync@: The parameter value is in sync with the database.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @pending-reboot@: The parameter value will be applied after the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     cluster reboots.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @applying@: The parameter value is being applied to the database.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @invalid-parameter@: Cannot apply the parameter value because it has</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     an invalid value or syntax.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @apply-deferred@: The parameter contains static property changes.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--     The changes are deferred until the cluster reboots.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   @apply-error@: Cannot connect to the cluster. The parameter change</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     will be applied after the cluster reboots.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @unknown-error@: Cannot apply the parameter change right now. The</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     change will be applied after the cluster reboots.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterApplyStatus"><span class="hs-identifier hs-type">clusterParameterStatus_parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="clusterParameterStatus_parameterApplyStatus"><span class="annot"><span class="annottext">clusterParameterStatus_parameterApplyStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterParameterStatus -&gt; f ClusterParameterStatus
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#clusterParameterStatus_parameterApplyStatus"><span class="hs-identifier hs-var hs-var">clusterParameterStatus_parameterApplyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterParameterStatus -&gt; Maybe Text)
+-&gt; (ClusterParameterStatus -&gt; Maybe Text -&gt; ClusterParameterStatus)
+-&gt; Lens
+     ClusterParameterStatus
+     ClusterParameterStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490703"><span class="annot"><span class="annottext">Maybe Text
+parameterApplyStatus :: Maybe Text
+$sel:parameterApplyStatus:ClusterParameterStatus' :: ClusterParameterStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679490703"><span class="hs-identifier hs-var hs-var">parameterApplyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490703"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490702"><span class="annot"><span class="annottext">s :: ClusterParameterStatus
+</span><a href="#local-6989586621679490702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-type">ClusterParameterStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490701"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterParameterStatus
+</span><a href="#local-6989586621679490702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterApplyStatus:ClusterParameterStatus' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#%24sel%3AparameterApplyStatus%3AClusterParameterStatus%27"><span class="hs-identifier hs-var">parameterApplyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679490060"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClusterParameterStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679490058"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679490698"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClusterParameterStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679490696"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679490696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ClusterParameterStatus
 </span><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus%27"><span class="hs-identifier hs-var">ClusterParameterStatus'</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ClusterParameterStatus)
@@ -281,16 +281,16 @@ $sel:parameterApplyErrorDescription:ClusterParameterStatus' :: ClusterParameterS
      String (Maybe Text -&gt; Maybe Text -&gt; ClusterParameterStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679490696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParameterApplyStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ParameterApplyErrorDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ClusterParameterStatus)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; ClusterParameterStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679490696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterName&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,12 +299,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String ClusterParameterStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679490696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParameterApplyErrorDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ParameterApplyStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490052"><span id="local-6989586621679490054"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490690"><span id="local-6989586621679490692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterParameterStatus.html#ClusterParameterStatus"><span class="hs-identifier hs-type">ClusterParameterStatus</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

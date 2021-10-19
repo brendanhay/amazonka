@@ -30,40 +30,40 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Lex V2.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newMigrationSummary' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679313979"><span id="local-6989586621679313980"></span></span><span class="hs-keyword">data</span><span> </span><span id="MigrationSummary"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-var">MigrationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationSummary%27"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-var">MigrationSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679314267"><span id="local-6989586621679314268"></span></span><span class="hs-keyword">data</span><span> </span><span id="MigrationSummary"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-var">MigrationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationSummary%27"><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-var">MigrationSummary'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the Amazon Lex V1 bot that is the source of the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- migration.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Av1BotVersion%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotVersion%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v1BotVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The unique identifier that Amazon Lex assigned to the migration.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmigrationId%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationId%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The locale of the Amazon Lex V1 bot that is the source of the migration.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Locale
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v1BotLocale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date and time that the migration started.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AmigrationTimestamp%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationTimestamp%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">migrationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The strategy used to conduct the migration.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AmigrationStrategy%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe MigrationStrategy
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The strategy used to conduct the migration.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmigrationStrategy%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe MigrationStrategy
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStrategy%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">migrationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationStrategy.html#MigrationStrategy"><span class="hs-identifier hs-type">MigrationStrategy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v2BotRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Lex V1 bot that is the source of the migration.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Av1BotName%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotName%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v1BotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the Amazon Lex V2 that is the destination of</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the migration.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Av2BotId%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date and time that the migration started.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmigrationTimestamp%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationTimestamp%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">migrationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The status of the operation. When the status is @COMPLETE@ the bot is</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- available in Amazon Lex V2. There may be alerts and warnings that need</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- to be resolved to complete the migration.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AmigrationStatus%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe MigrationStatus
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStatus%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">migrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the Amazon Lex V2 that is the destination of</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the migration.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Av2BotId%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotId%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v2BotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The status of the operation. When the status is @COMPLETE@ the bot is</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- available in Amazon Lex V2. There may be alerts and warnings that need</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- to be resolved to complete the migration.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AmigrationStatus%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe MigrationStatus
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStatus%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">migrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The locale of the Amazon Lex V1 bot that is the source of the migration.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Locale
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v1BotLocale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Lex V1 bot that is the source of the migration.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Av1BotName%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotName%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v1BotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">v2BotRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The unique identifier that Amazon Lex assigned to the migration.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AmigrationId%3AMigrationSummary%27"><span class="annot"><span class="annottext">MigrationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationId%3AMigrationSummary%27"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313965"><span id="local-6989586621679313967"><span class="annot"><span class="annottext">MigrationSummary -&gt; MigrationSummary -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314253"><span id="local-6989586621679314255"><span class="annot"><span class="annottext">MigrationSummary -&gt; MigrationSummary -&gt; Bool
 (MigrationSummary -&gt; MigrationSummary -&gt; Bool)
 -&gt; (MigrationSummary -&gt; MigrationSummary -&gt; Bool)
 -&gt; Eq MigrationSummary
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MigrationSummary -&gt; MigrationSummary -&gt; Bool
 == :: MigrationSummary -&gt; MigrationSummary -&gt; Bool
 $c== :: MigrationSummary -&gt; MigrationSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313956"><span id="local-6989586621679313958"><span id="local-6989586621679313960"><span id="local-6989586621679313962"><span class="annot"><span class="annottext">ReadPrec [MigrationSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314244"><span id="local-6989586621679314246"><span id="local-6989586621679314248"><span id="local-6989586621679314250"><span class="annot"><span class="annottext">ReadPrec [MigrationSummary]
 ReadPrec MigrationSummary
 Int -&gt; ReadS MigrationSummary
 ReadS [MigrationSummary]
@@ -92,7 +92,7 @@ readList :: ReadS [MigrationSummary]
 $creadList :: ReadS [MigrationSummary]
 readsPrec :: Int -&gt; ReadS MigrationSummary
 $creadsPrec :: Int -&gt; ReadS MigrationSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313949"><span id="local-6989586621679313951"><span id="local-6989586621679313953"><span class="annot"><span class="annottext">Int -&gt; MigrationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314237"><span id="local-6989586621679314239"><span id="local-6989586621679314241"><span class="annot"><span class="annottext">Int -&gt; MigrationSummary -&gt; ShowS
 [MigrationSummary] -&gt; ShowS
 MigrationSummary -&gt; String
 (Int -&gt; MigrationSummary -&gt; ShowS)
@@ -129,73 +129,73 @@ $cfrom :: forall x. MigrationSummary -&gt; Rep MigrationSummary x
 </span><span id="line-67"></span><span class="hs-comment">-- 'v1BotVersion', 'migrationSummary_v1BotVersion' - The version of the Amazon Lex V1 bot that is the source of the</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- migration.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'migrationId', 'migrationSummary_migrationId' - The unique identifier that Amazon Lex assigned to the migration.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'migrationStrategy', 'migrationSummary_migrationStrategy' - The strategy used to conduct the migration.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'v1BotLocale', 'migrationSummary_v1BotLocale' - The locale of the Amazon Lex V1 bot that is the source of the migration.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'migrationTimestamp', 'migrationSummary_migrationTimestamp' - The date and time that the migration started.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'migrationTimestamp', 'migrationSummary_migrationTimestamp' - The date and time that the migration started.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'migrationStrategy', 'migrationSummary_migrationStrategy' - The strategy used to conduct the migration.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'migrationStatus', 'migrationSummary_migrationStatus' - The status of the operation. When the status is @COMPLETE@ the bot is</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- available in Amazon Lex V2. There may be alerts and warnings that need</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- to be resolved to complete the migration.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'v2BotRole', 'migrationSummary_v2BotRole' - The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'v1BotName', 'migrationSummary_v1BotName' - The name of the Amazon Lex V1 bot that is the source of the migration.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'v2BotId', 'migrationSummary_v2BotId' - The unique identifier of the Amazon Lex V2 that is the destination of</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- the migration.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'v2BotId', 'migrationSummary_v2BotId' - The unique identifier of the Amazon Lex V2 that is the destination of</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the migration.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'v1BotLocale', 'migrationSummary_v1BotLocale' - The locale of the Amazon Lex V1 bot that is the source of the migration.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'v1BotName', 'migrationSummary_v1BotName' - The name of the Amazon Lex V1 bot that is the source of the migration.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'migrationStatus', 'migrationSummary_migrationStatus' - The status of the operation. When the status is @COMPLETE@ the bot is</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- available in Amazon Lex V2. There may be alerts and warnings that need</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- to be resolved to complete the migration.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'v2BotRole', 'migrationSummary_v2BotRole' - The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'migrationId', 'migrationSummary_migrationId' - The unique identifier that Amazon Lex assigned to the migration.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#newMigrationSummary"><span class="hs-identifier hs-type">newMigrationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span>
 </span><span id="line-90"></span><span id="newMigrationSummary"><span class="annot"><span class="annottext">newMigrationSummary :: MigrationSummary
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#newMigrationSummary"><span class="hs-identifier hs-var hs-var">newMigrationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">MigrationSummary' :: Maybe Text
+-&gt; Maybe MigrationStrategy
+-&gt; Maybe POSIX
+-&gt; Maybe MigrationStatus
 -&gt; Maybe Text
 -&gt; Maybe Locale
--&gt; Maybe POSIX
--&gt; Maybe MigrationStrategy
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe MigrationStatus
 -&gt; MigrationSummary
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:v1BotVersion:MigrationSummary' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotVersion%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationId:MigrationSummary' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationId%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:v1BotLocale:MigrationSummary' :: Maybe Locale
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationTimestamp:MigrationSummary' :: Maybe POSIX
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationTimestamp%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationStrategy:MigrationSummary' :: Maybe MigrationStrategy
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationStrategy:MigrationSummary' :: Maybe MigrationStrategy
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStrategy%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:v2BotRole:MigrationSummary' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationTimestamp:MigrationSummary' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationTimestamp%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationStatus:MigrationSummary' :: Maybe MigrationStatus
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStatus%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:v2BotId:MigrationSummary' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotId%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:v1BotLocale:MigrationSummary' :: Maybe Locale
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:v1BotName:MigrationSummary' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotName%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:v2BotId:MigrationSummary' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotId%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:v2BotRole:MigrationSummary' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationStatus:MigrationSummary' :: Maybe MigrationStatus
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStatus%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:migrationId:MigrationSummary' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationId%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
@@ -209,75 +209,60 @@ forall a. Maybe a
 -&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
 -&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313940"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314228"><span class="annot"><span class="annottext">Maybe Text
 v1BotVersion :: Maybe Text
 $sel:v1BotVersion:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679313940"><span class="hs-identifier hs-var hs-var">v1BotVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313940"><span class="hs-identifier hs-var">v1BotVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313939"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313938"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotVersion:MigrationSummary' :: Maybe Text
+</span><a href="#local-6989586621679314228"><span class="hs-identifier hs-var hs-var">v1BotVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314228"><span class="hs-identifier hs-var">v1BotVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314227"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314226"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotVersion:MigrationSummary' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotVersion%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The unique identifier that Amazon Lex assigned to the migration.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationId"><span class="hs-identifier hs-type">migrationSummary_migrationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="migrationSummary_migrationId"><span class="annot"><span class="annottext">migrationSummary_migrationId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-108"></span><span class="hs-comment">-- | The strategy used to conduct the migration.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationStrategy"><span class="hs-identifier hs-type">migrationSummary_migrationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationStrategy.html#MigrationStrategy"><span class="hs-identifier hs-type">MigrationStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="migrationSummary_migrationStrategy"><span class="annot"><span class="annottext">migrationSummary_migrationStrategy :: (Maybe MigrationStrategy -&gt; f (Maybe MigrationStrategy))
 -&gt; MigrationSummary -&gt; f MigrationSummary
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationId"><span class="hs-identifier hs-var hs-var">migrationSummary_migrationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
--&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
--&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313936"><span class="annot"><span class="annottext">Maybe Text
-migrationId :: Maybe Text
-$sel:migrationId:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679313936"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313936"><span class="hs-identifier hs-var">migrationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313935"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313934"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationId:MigrationSummary' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationId%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The locale of the Amazon Lex V1 bot that is the source of the migration.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotLocale"><span class="hs-identifier hs-type">migrationSummary_v1BotLocale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="migrationSummary_v1BotLocale"><span class="annot"><span class="annottext">migrationSummary_v1BotLocale :: (Maybe Locale -&gt; f (Maybe Locale))
--&gt; MigrationSummary -&gt; f MigrationSummary
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotLocale"><span class="hs-identifier hs-var hs-var">migrationSummary_v1BotLocale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Locale)
--&gt; (MigrationSummary -&gt; Maybe Locale -&gt; MigrationSummary)
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationStrategy"><span class="hs-identifier hs-var hs-var">migrationSummary_migrationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe MigrationStrategy)
+-&gt; (MigrationSummary
+    -&gt; Maybe MigrationStrategy -&gt; MigrationSummary)
 -&gt; Lens
-     MigrationSummary MigrationSummary (Maybe Locale) (Maybe Locale)
+     MigrationSummary
+     MigrationSummary
+     (Maybe MigrationStrategy)
+     (Maybe MigrationStrategy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313932"><span class="annot"><span class="annottext">Maybe Locale
-v1BotLocale :: Maybe Locale
-$sel:v1BotLocale:MigrationSummary' :: MigrationSummary -&gt; Maybe Locale
-</span><a href="#local-6989586621679313932"><span class="hs-identifier hs-var hs-var">v1BotLocale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
-</span><a href="#local-6989586621679313932"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313931"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313930"><span class="annot"><span class="annottext">Maybe Locale
-</span><a href="#local-6989586621679313930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotLocale:MigrationSummary' :: Maybe Locale
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
-</span><a href="#local-6989586621679313930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The date and time that the migration started.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationTimestamp"><span class="hs-identifier hs-type">migrationSummary_migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="migrationSummary_migrationTimestamp"><span class="annot"><span class="annottext">migrationSummary_migrationTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314224"><span class="annot"><span class="annottext">Maybe MigrationStrategy
+migrationStrategy :: Maybe MigrationStrategy
+$sel:migrationStrategy:MigrationSummary' :: MigrationSummary -&gt; Maybe MigrationStrategy
+</span><a href="#local-6989586621679314224"><span class="hs-identifier hs-var hs-var">migrationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
+</span><a href="#local-6989586621679314224"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314223"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314222"><span class="annot"><span class="annottext">Maybe MigrationStrategy
+</span><a href="#local-6989586621679314222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationStrategy:MigrationSummary' :: Maybe MigrationStrategy
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStrategy%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
+</span><a href="#local-6989586621679314222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The date and time that the migration started.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationTimestamp"><span class="hs-identifier hs-type">migrationSummary_migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="migrationSummary_migrationTimestamp"><span class="annot"><span class="annottext">migrationSummary_migrationTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; MigrationSummary -&gt; f MigrationSummary
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationTimestamp"><span class="hs-identifier hs-var hs-var">migrationSummary_migrationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe POSIX)
 -&gt; (MigrationSummary -&gt; Maybe POSIX -&gt; MigrationSummary)
 -&gt; Lens
      MigrationSummary MigrationSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313928"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314220"><span class="annot"><span class="annottext">Maybe POSIX
 migrationTimestamp :: Maybe POSIX
 $sel:migrationTimestamp:MigrationSummary' :: MigrationSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679313928"><span class="hs-identifier hs-var hs-var">migrationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679313928"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313927"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313926"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679313926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTimestamp:MigrationSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679314220"><span class="hs-identifier hs-var hs-var">migrationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679314220"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314219"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314218"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679314218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationTimestamp:MigrationSummary' :: Maybe POSIX
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationTimestamp%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679313926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679314218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; MigrationSummary -&gt; f MigrationSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -293,94 +278,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The strategy used to conduct the migration.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationStrategy"><span class="hs-identifier hs-type">migrationSummary_migrationStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationStrategy.html#MigrationStrategy"><span class="hs-identifier hs-type">MigrationStrategy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="migrationSummary_migrationStrategy"><span class="annot"><span class="annottext">migrationSummary_migrationStrategy :: (Maybe MigrationStrategy -&gt; f (Maybe MigrationStrategy))
--&gt; MigrationSummary -&gt; f MigrationSummary
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationStrategy"><span class="hs-identifier hs-var hs-var">migrationSummary_migrationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe MigrationStrategy)
--&gt; (MigrationSummary
-    -&gt; Maybe MigrationStrategy -&gt; MigrationSummary)
--&gt; Lens
-     MigrationSummary
-     MigrationSummary
-     (Maybe MigrationStrategy)
-     (Maybe MigrationStrategy)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313921"><span class="annot"><span class="annottext">Maybe MigrationStrategy
-migrationStrategy :: Maybe MigrationStrategy
-$sel:migrationStrategy:MigrationSummary' :: MigrationSummary -&gt; Maybe MigrationStrategy
-</span><a href="#local-6989586621679313921"><span class="hs-identifier hs-var hs-var">migrationStrategy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
-</span><a href="#local-6989586621679313921"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313920"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313919"><span class="annot"><span class="annottext">Maybe MigrationStrategy
-</span><a href="#local-6989586621679313919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationStrategy:MigrationSummary' :: Maybe MigrationStrategy
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStrategy%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStrategy
-</span><a href="#local-6989586621679313919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotRole"><span class="hs-identifier hs-type">migrationSummary_v2BotRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="migrationSummary_v2BotRole"><span class="annot"><span class="annottext">migrationSummary_v2BotRole :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MigrationSummary -&gt; f MigrationSummary
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotRole"><span class="hs-identifier hs-var hs-var">migrationSummary_v2BotRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
--&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
--&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313917"><span class="annot"><span class="annottext">Maybe Text
-v2BotRole :: Maybe Text
-$sel:v2BotRole:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679313917"><span class="hs-identifier hs-var hs-var">v2BotRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313917"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313916"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313915"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v2BotRole:MigrationSummary' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The name of the Amazon Lex V1 bot that is the source of the migration.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotName"><span class="hs-identifier hs-type">migrationSummary_v1BotName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="migrationSummary_v1BotName"><span class="annot"><span class="annottext">migrationSummary_v1BotName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MigrationSummary -&gt; f MigrationSummary
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotName"><span class="hs-identifier hs-var hs-var">migrationSummary_v1BotName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
--&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
--&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313913"><span class="annot"><span class="annottext">Maybe Text
-v1BotName :: Maybe Text
-$sel:v1BotName:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679313913"><span class="hs-identifier hs-var hs-var">v1BotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313913"><span class="hs-identifier hs-var">v1BotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313912"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313911"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotName:MigrationSummary' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotName%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The unique identifier of the Amazon Lex V2 that is the destination of</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- the migration.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotId"><span class="hs-identifier hs-type">migrationSummary_v2BotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="migrationSummary_v2BotId"><span class="annot"><span class="annottext">migrationSummary_v2BotId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MigrationSummary -&gt; f MigrationSummary
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotId"><span class="hs-identifier hs-var hs-var">migrationSummary_v2BotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
--&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
--&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313909"><span class="annot"><span class="annottext">Maybe Text
-v2BotId :: Maybe Text
-$sel:v2BotId:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679313909"><span class="hs-identifier hs-var hs-var">v2BotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313909"><span class="hs-identifier hs-var">v2BotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313908"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313907"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v2BotId:MigrationSummary' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotId%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679313907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The status of the operation. When the status is @COMPLETE@ the bot is</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- available in Amazon Lex V2. There may be alerts and warnings that need</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- to be resolved to complete the migration.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationStatus"><span class="hs-identifier hs-type">migrationSummary_migrationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="migrationSummary_migrationStatus"><span class="annot"><span class="annottext">migrationSummary_migrationStatus :: (Maybe MigrationStatus -&gt; f (Maybe MigrationStatus))
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The status of the operation. When the status is @COMPLETE@ the bot is</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- available in Amazon Lex V2. There may be alerts and warnings that need</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- to be resolved to complete the migration.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationStatus"><span class="hs-identifier hs-type">migrationSummary_migrationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="migrationSummary_migrationStatus"><span class="annot"><span class="annottext">migrationSummary_migrationStatus :: (Maybe MigrationStatus -&gt; f (Maybe MigrationStatus))
 -&gt; MigrationSummary -&gt; f MigrationSummary
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationStatus"><span class="hs-identifier hs-var hs-var">migrationSummary_migrationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe MigrationStatus)
 -&gt; (MigrationSummary -&gt; Maybe MigrationStatus -&gt; MigrationSummary)
@@ -390,19 +293,116 @@ $sel:v2BotId:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
      (Maybe MigrationStatus)
      (Maybe MigrationStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313905"><span class="annot"><span class="annottext">Maybe MigrationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314213"><span class="annot"><span class="annottext">Maybe MigrationStatus
 migrationStatus :: Maybe MigrationStatus
 $sel:migrationStatus:MigrationSummary' :: MigrationSummary -&gt; Maybe MigrationStatus
-</span><a href="#local-6989586621679313905"><span class="hs-identifier hs-var hs-var">migrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
-</span><a href="#local-6989586621679313905"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313904"><span class="annot"><span class="annottext">s :: MigrationSummary
-</span><a href="#local-6989586621679313904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313903"><span class="annot"><span class="annottext">Maybe MigrationStatus
-</span><a href="#local-6989586621679313903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
-</span><a href="#local-6989586621679313904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationStatus:MigrationSummary' :: Maybe MigrationStatus
+</span><a href="#local-6989586621679314213"><span class="hs-identifier hs-var hs-var">migrationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
+</span><a href="#local-6989586621679314213"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314212"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314211"><span class="annot"><span class="annottext">Maybe MigrationStatus
+</span><a href="#local-6989586621679314211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationStatus:MigrationSummary' :: Maybe MigrationStatus
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationStatus%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MigrationStatus
-</span><a href="#local-6989586621679313903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The unique identifier of the Amazon Lex V2 that is the destination of</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- the migration.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotId"><span class="hs-identifier hs-type">migrationSummary_v2BotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="migrationSummary_v2BotId"><span class="annot"><span class="annottext">migrationSummary_v2BotId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MigrationSummary -&gt; f MigrationSummary
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotId"><span class="hs-identifier hs-var hs-var">migrationSummary_v2BotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
+-&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
+-&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314209"><span class="annot"><span class="annottext">Maybe Text
+v2BotId :: Maybe Text
+$sel:v2BotId:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679314209"><span class="hs-identifier hs-var hs-var">v2BotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314209"><span class="hs-identifier hs-var">v2BotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314208"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314207"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v2BotId:MigrationSummary' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotId%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The locale of the Amazon Lex V1 bot that is the source of the migration.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotLocale"><span class="hs-identifier hs-type">migrationSummary_v1BotLocale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="migrationSummary_v1BotLocale"><span class="annot"><span class="annottext">migrationSummary_v1BotLocale :: (Maybe Locale -&gt; f (Maybe Locale))
+-&gt; MigrationSummary -&gt; f MigrationSummary
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotLocale"><span class="hs-identifier hs-var hs-var">migrationSummary_v1BotLocale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Locale)
+-&gt; (MigrationSummary -&gt; Maybe Locale -&gt; MigrationSummary)
+-&gt; Lens
+     MigrationSummary MigrationSummary (Maybe Locale) (Maybe Locale)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314205"><span class="annot"><span class="annottext">Maybe Locale
+v1BotLocale :: Maybe Locale
+$sel:v1BotLocale:MigrationSummary' :: MigrationSummary -&gt; Maybe Locale
+</span><a href="#local-6989586621679314205"><span class="hs-identifier hs-var hs-var">v1BotLocale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679314205"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314204"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314203"><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679314203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotLocale:MigrationSummary' :: Maybe Locale
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotLocale%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotLocale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Locale
+</span><a href="#local-6989586621679314203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The name of the Amazon Lex V1 bot that is the source of the migration.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotName"><span class="hs-identifier hs-type">migrationSummary_v1BotName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="migrationSummary_v1BotName"><span class="annot"><span class="annottext">migrationSummary_v1BotName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MigrationSummary -&gt; f MigrationSummary
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v1BotName"><span class="hs-identifier hs-var hs-var">migrationSummary_v1BotName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
+-&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
+-&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314201"><span class="annot"><span class="annottext">Maybe Text
+v1BotName :: Maybe Text
+$sel:v1BotName:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679314201"><span class="hs-identifier hs-var hs-var">v1BotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314201"><span class="hs-identifier hs-var">v1BotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314200"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v1BotName:MigrationSummary' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av1BotName%3AMigrationSummary%27"><span class="hs-identifier hs-var">v1BotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The IAM role that Amazon Lex uses to run the Amazon Lex V2 bot.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotRole"><span class="hs-identifier hs-type">migrationSummary_v2BotRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="migrationSummary_v2BotRole"><span class="annot"><span class="annottext">migrationSummary_v2BotRole :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MigrationSummary -&gt; f MigrationSummary
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_v2BotRole"><span class="hs-identifier hs-var hs-var">migrationSummary_v2BotRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
+-&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
+-&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314197"><span class="annot"><span class="annottext">Maybe Text
+v2BotRole :: Maybe Text
+$sel:v2BotRole:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679314197"><span class="hs-identifier hs-var hs-var">v2BotRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314197"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314196"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:v2BotRole:MigrationSummary' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3Av2BotRole%3AMigrationSummary%27"><span class="hs-identifier hs-var">v2BotRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The unique identifier that Amazon Lex assigned to the migration.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationId"><span class="hs-identifier hs-type">migrationSummary_migrationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="migrationSummary_migrationId"><span class="annot"><span class="annottext">migrationSummary_migrationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MigrationSummary -&gt; f MigrationSummary
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#migrationSummary_migrationId"><span class="hs-identifier hs-var hs-var">migrationSummary_migrationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MigrationSummary -&gt; Maybe Text)
+-&gt; (MigrationSummary -&gt; Maybe Text -&gt; MigrationSummary)
+-&gt; Lens MigrationSummary MigrationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314193"><span class="annot"><span class="annottext">Maybe Text
+migrationId :: Maybe Text
+$sel:migrationId:MigrationSummary' :: MigrationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679314193"><span class="hs-identifier hs-var hs-var">migrationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314193"><span class="hs-identifier hs-var">migrationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314192"><span class="annot"><span class="annottext">s :: MigrationSummary
+</span><a href="#local-6989586621679314192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-type">MigrationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationSummary
+</span><a href="#local-6989586621679314192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:migrationId:MigrationSummary' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#%24sel%3AmigrationId%3AMigrationSummary%27"><span class="hs-identifier hs-var">migrationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313900"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679313898"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MigrationSummary
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314188"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679314186"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MigrationSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MigrationSummary)
@@ -412,185 +412,175 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MigrationSummary&quot;</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313895"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314183"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe MigrationStrategy
+-&gt; Maybe POSIX
+-&gt; Maybe MigrationStatus
 -&gt; Maybe Text
 -&gt; Maybe Locale
--&gt; Maybe POSIX
--&gt; Maybe MigrationStrategy
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe MigrationStatus
 -&gt; MigrationSummary
 </span><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary%27"><span class="hs-identifier hs-var">MigrationSummary'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe MigrationStrategy
+ -&gt; Maybe POSIX
+ -&gt; Maybe MigrationStatus
  -&gt; Maybe Text
  -&gt; Maybe Locale
- -&gt; Maybe POSIX
- -&gt; Maybe MigrationStrategy
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe MigrationStatus
  -&gt; MigrationSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Locale
+     (Maybe MigrationStrategy
       -&gt; Maybe POSIX
-      -&gt; Maybe MigrationStrategy
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe MigrationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; MigrationSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;v1BotVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MigrationStrategy
+   -&gt; Maybe POSIX
+   -&gt; Maybe MigrationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MigrationSummary)
+-&gt; Parser (Maybe MigrationStrategy)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe MigrationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MigrationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MigrationStrategy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationStrategy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe MigrationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MigrationSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe MigrationStatus
+      -&gt; Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MigrationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MigrationStatus
+   -&gt; Maybe Text
+   -&gt; Maybe Locale
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MigrationSummary)
+-&gt; Parser (Maybe MigrationStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Locale
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MigrationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MigrationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Locale
-   -&gt; Maybe POSIX
-   -&gt; Maybe MigrationStrategy
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe MigrationStatus
    -&gt; MigrationSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Locale
-      -&gt; Maybe POSIX
-      -&gt; Maybe MigrationStrategy
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe MigrationStatus
-      -&gt; MigrationSummary)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MigrationSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;migrationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Locale
-   -&gt; Maybe POSIX
-   -&gt; Maybe MigrationStrategy
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe MigrationStatus
-   -&gt; MigrationSummary)
--&gt; Parser (Maybe Locale)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe MigrationStrategy
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe MigrationStatus
-      -&gt; MigrationSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Locale)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;v1BotLocale&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe MigrationStrategy
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe MigrationStatus
-   -&gt; MigrationSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe MigrationStrategy
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe MigrationStatus
-      -&gt; MigrationSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;migrationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MigrationStrategy
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe MigrationStatus
-   -&gt; MigrationSummary)
--&gt; Parser (Maybe MigrationStrategy)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe MigrationStatus
-      -&gt; MigrationSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MigrationStrategy)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;migrationStrategy&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe MigrationStatus
-   -&gt; MigrationSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe MigrationStatus -&gt; MigrationSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;v2BotRole&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe MigrationStatus -&gt; MigrationSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe MigrationStatus -&gt; MigrationSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;v1BotName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe MigrationStatus -&gt; MigrationSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe MigrationStatus -&gt; MigrationSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;v2BotId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe MigrationStatus -&gt; MigrationSummary)
--&gt; Parser (Maybe MigrationStatus) -&gt; Parser MigrationSummary
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Locale
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MigrationSummary)
+-&gt; Parser (Maybe Locale)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MigrationSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MigrationStatus)
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Locale)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;migrationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;v1BotLocale&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MigrationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MigrationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;v1BotName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MigrationSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MigrationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;v2BotRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MigrationSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser MigrationSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;migrationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313889"><span id="local-6989586621679313891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314177"><span id="local-6989586621679314179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.MigrationSummary.html#MigrationSummary"><span class="hs-identifier hs-type">MigrationSummary</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679422817"><span id="local-6989586621679422818"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackResourceDriftStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftStatus.html#StackResourceDriftStatus"><span class="hs-identifier hs-var">StackResourceDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackResourceDriftStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftStatus.html#StackResourceDriftStatus%27"><span class="hs-identifier hs-var">StackResourceDriftStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679423226"><span id="local-6989586621679423227"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackResourceDriftStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftStatus.html#StackResourceDriftStatus"><span class="hs-identifier hs-var">StackResourceDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackResourceDriftStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDriftStatus.html#StackResourceDriftStatus%27"><span class="hs-identifier hs-var">StackResourceDriftStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackResourceDriftStatus"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDriftStatus.html#fromStackResourceDriftStatus"><span class="hs-identifier hs-var hs-var">fromStackResourceDriftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679422809"><span id="local-6989586621679422811"><span id="local-6989586621679422813"><span class="annot"><span class="annottext">Int -&gt; StackResourceDriftStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679423218"><span id="local-6989586621679423220"><span id="local-6989586621679423222"><span class="annot"><span class="annottext">Int -&gt; StackResourceDriftStatus -&gt; ShowS
 [StackResourceDriftStatus] -&gt; ShowS
 StackResourceDriftStatus -&gt; String
 (Int -&gt; StackResourceDriftStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: StackResourceDriftStatus -&gt; String
 showsPrec :: Int -&gt; StackResourceDriftStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StackResourceDriftStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679422800"><span id="local-6989586621679422802"><span id="local-6989586621679422804"><span id="local-6989586621679422806"><span class="annot"><span class="annottext">ReadPrec [StackResourceDriftStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679423209"><span id="local-6989586621679423211"><span id="local-6989586621679423213"><span id="local-6989586621679423215"><span class="annot"><span class="annottext">ReadPrec [StackResourceDriftStatus]
 ReadPrec StackResourceDriftStatus
 Int -&gt; ReadS StackResourceDriftStatus
 ReadS [StackResourceDriftStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [StackResourceDriftStatus]
 readsPrec :: Int -&gt; ReadS StackResourceDriftStatus
 $creadsPrec :: Int -&gt; ReadS StackResourceDriftStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679422795"><span id="local-6989586621679422797"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; StackResourceDriftStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679423204"><span id="local-6989586621679423206"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; StackResourceDriftStatus -&gt; Bool
 (StackResourceDriftStatus -&gt; StackResourceDriftStatus -&gt; Bool)
 -&gt; (StackResourceDriftStatus -&gt; StackResourceDriftStatus -&gt; Bool)
 -&gt; Eq StackResourceDriftStatus
@@ -84,7 +84,7 @@ $c/= :: StackResourceDriftStatus -&gt; StackResourceDriftStatus -&gt; Bool
 == :: StackResourceDriftStatus -&gt; StackResourceDriftStatus -&gt; Bool
 $c== :: StackResourceDriftStatus -&gt; StackResourceDriftStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679422779"><span id="local-6989586621679422781"><span id="local-6989586621679422783"><span id="local-6989586621679422785"><span id="local-6989586621679422787"><span id="local-6989586621679422789"><span id="local-6989586621679422791"><span class="annot"><span class="annottext">Eq StackResourceDriftStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679423188"><span id="local-6989586621679423190"><span id="local-6989586621679423192"><span id="local-6989586621679423194"><span id="local-6989586621679423196"><span id="local-6989586621679423198"><span id="local-6989586621679423200"><span class="annot"><span class="annottext">Eq StackResourceDriftStatus
 Eq StackResourceDriftStatus
 -&gt; (StackResourceDriftStatus
     -&gt; StackResourceDriftStatus -&gt; Ordering)
@@ -149,7 +149,7 @@ StackResourceDriftStatus -&gt; Rep StackResourceDriftStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679422771"><span id="local-6989586621679422773"><span class="annot"><span class="annottext">Int -&gt; StackResourceDriftStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679423180"><span id="local-6989586621679423182"><span class="annot"><span class="annottext">Int -&gt; StackResourceDriftStatus -&gt; Int
 StackResourceDriftStatus -&gt; Int
 (Int -&gt; StackResourceDriftStatus -&gt; Int)
 -&gt; (StackResourceDriftStatus -&gt; Int)
@@ -160,55 +160,55 @@ $chash :: StackResourceDriftStatus -&gt; Int
 hashWithSalt :: Int -&gt; StackResourceDriftStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StackResourceDriftStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679422768"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679423177"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; ()
 (StackResourceDriftStatus -&gt; ()) -&gt; NFData StackResourceDriftStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StackResourceDriftStatus -&gt; ()
 $crnf :: StackResourceDriftStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679422765"><span class="annot"><span class="annottext">Text -&gt; Either String StackResourceDriftStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679423174"><span class="annot"><span class="annottext">Text -&gt; Either String StackResourceDriftStatus
 (Text -&gt; Either String StackResourceDriftStatus)
 -&gt; FromText StackResourceDriftStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StackResourceDriftStatus
 $cfromText :: Text -&gt; Either String StackResourceDriftStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679422762"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679423171"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; Text
 (StackResourceDriftStatus -&gt; Text)
 -&gt; ToText StackResourceDriftStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StackResourceDriftStatus -&gt; Text
 $ctoText :: StackResourceDriftStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679422759"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679423168"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; ByteString
 (StackResourceDriftStatus -&gt; ByteString)
 -&gt; ToByteString StackResourceDriftStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StackResourceDriftStatus -&gt; ByteString
 $ctoBS :: StackResourceDriftStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679422756"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679423165"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; ByteStringBuilder
 (StackResourceDriftStatus -&gt; ByteStringBuilder)
 -&gt; ToLog StackResourceDriftStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StackResourceDriftStatus -&gt; ByteStringBuilder
 $cbuild :: StackResourceDriftStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679422753"><span class="annot"><span class="annottext">HeaderName -&gt; StackResourceDriftStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679423162"><span class="annot"><span class="annottext">HeaderName -&gt; StackResourceDriftStatus -&gt; [Header]
 (HeaderName -&gt; StackResourceDriftStatus -&gt; [Header])
 -&gt; ToHeader StackResourceDriftStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StackResourceDriftStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StackResourceDriftStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679422750"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679423159"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; QueryString
 (StackResourceDriftStatus -&gt; QueryString)
 -&gt; ToQuery StackResourceDriftStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StackResourceDriftStatus -&gt; QueryString
 $ctoQuery :: StackResourceDriftStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679422745"><span id="local-6989586621679422747"><span class="annot"><span class="annottext">Value -&gt; Parser [StackResourceDriftStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679423154"><span id="local-6989586621679423156"><span class="annot"><span class="annottext">Value -&gt; Parser [StackResourceDriftStatus]
 Value -&gt; Parser StackResourceDriftStatus
 (Value -&gt; Parser StackResourceDriftStatus)
 -&gt; (Value -&gt; Parser [StackResourceDriftStatus])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [StackResourceDriftStatus]
 parseJSON :: Value -&gt; Parser StackResourceDriftStatus
 $cparseJSON :: Value -&gt; Parser StackResourceDriftStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679422740"><span id="local-6989586621679422742"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackResourceDriftStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679423149"><span id="local-6989586621679423151"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackResourceDriftStatus]
 FromJSONKeyFunction StackResourceDriftStatus
 FromJSONKeyFunction StackResourceDriftStatus
 -&gt; FromJSONKeyFunction [StackResourceDriftStatus]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StackResourceDriftStatus]
 fromJSONKey :: FromJSONKeyFunction StackResourceDriftStatus
 $cfromJSONKey :: FromJSONKeyFunction StackResourceDriftStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679422731"><span id="local-6989586621679422733"><span id="local-6989586621679422735"><span id="local-6989586621679422737"><span class="annot"><span class="annottext">[StackResourceDriftStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679423140"><span id="local-6989586621679423142"><span id="local-6989586621679423144"><span id="local-6989586621679423146"><span class="annot"><span class="annottext">[StackResourceDriftStatus] -&gt; Encoding
 [StackResourceDriftStatus] -&gt; Value
 StackResourceDriftStatus -&gt; Encoding
 StackResourceDriftStatus -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: StackResourceDriftStatus -&gt; Encoding
 toJSON :: StackResourceDriftStatus -&gt; Value
 $ctoJSON :: StackResourceDriftStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679422726"><span id="local-6989586621679422728"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackResourceDriftStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679423135"><span id="local-6989586621679423137"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackResourceDriftStatus]
 ToJSONKeyFunction StackResourceDriftStatus
 ToJSONKeyFunction StackResourceDriftStatus
 -&gt; ToJSONKeyFunction [StackResourceDriftStatus]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StackResourceDriftStatus]
 toJSONKey :: ToJSONKeyFunction StackResourceDriftStatus
 $ctoJSONKey :: ToJSONKeyFunction StackResourceDriftStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679422723"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackResourceDriftStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679423132"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackResourceDriftStatus
 ([Node] -&gt; Either String StackResourceDriftStatus)
 -&gt; FromXML StackResourceDriftStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StackResourceDriftStatus
 $cparseXML :: [Node] -&gt; Either String StackResourceDriftStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679422720"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679423129"><span class="annot"><span class="annottext">StackResourceDriftStatus -&gt; XML
 (StackResourceDriftStatus -&gt; XML) -&gt; ToXML StackResourceDriftStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StackResourceDriftStatus -&gt; XML

@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The description of an Amazon EC2 instance.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInstance' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679302149"><span id="local-6989586621679302150"></span></span><span class="hs-keyword">data</span><span> </span><span id="Instance"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-var">Instance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instance%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679302428"><span id="local-6989586621679302429"></span></span><span class="hs-keyword">data</span><span> </span><span id="Instance"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-var">Instance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instance%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon EC2 instance.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aid%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#%24sel%3Aid%3AInstance%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302143"><span id="local-6989586621679302145"><span class="annot"><span class="annottext">Instance -&gt; Instance -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302422"><span id="local-6989586621679302424"><span class="annot"><span class="annottext">Instance -&gt; Instance -&gt; Bool
 (Instance -&gt; Instance -&gt; Bool)
 -&gt; (Instance -&gt; Instance -&gt; Bool) -&gt; Eq Instance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Instance -&gt; Instance -&gt; Bool
 == :: Instance -&gt; Instance -&gt; Bool
 $c== :: Instance -&gt; Instance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302134"><span id="local-6989586621679302136"><span id="local-6989586621679302138"><span id="local-6989586621679302140"><span class="annot"><span class="annottext">ReadPrec [Instance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302413"><span id="local-6989586621679302415"><span id="local-6989586621679302417"><span id="local-6989586621679302419"><span class="annot"><span class="annottext">ReadPrec [Instance]
 ReadPrec Instance
 Int -&gt; ReadS Instance
 ReadS [Instance]
@@ -59,7 +59,7 @@ readList :: ReadS [Instance]
 $creadList :: ReadS [Instance]
 readsPrec :: Int -&gt; ReadS Instance
 $creadsPrec :: Int -&gt; ReadS Instance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302127"><span id="local-6989586621679302129"><span id="local-6989586621679302131"><span class="annot"><span class="annottext">Int -&gt; Instance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302406"><span id="local-6989586621679302408"><span id="local-6989586621679302410"><span class="annot"><span class="annottext">Int -&gt; Instance -&gt; ShowS
 [Instance] -&gt; ShowS
 Instance -&gt; String
 (Int -&gt; Instance -&gt; ShowS)
@@ -107,31 +107,31 @@ forall a. Maybe a
 -&gt; (Instance -&gt; Maybe Text -&gt; Instance)
 -&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302118"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302397"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679302118"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302118"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302117"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679302117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302116"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679302117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Instance' :: Maybe Text
+</span><a href="#local-6989586621679302397"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302397"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302396"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679302396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679302396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Instance' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#%24sel%3Aid%3AInstance%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679302113"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Instance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679302111"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302111"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Instance
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679302392"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Instance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679302390"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679302390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Instance
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Instance)
 -&gt; Either String (Maybe Text) -&gt; Either String Instance
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679302390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302105"><span id="local-6989586621679302107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302384"><span id="local-6989586621679302386"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span>
 </span><span id="line-58"></span></pre></body></html>

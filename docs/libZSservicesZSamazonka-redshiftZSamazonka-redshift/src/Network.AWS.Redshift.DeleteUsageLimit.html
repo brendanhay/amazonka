@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteUsageLimit' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679521353"><span id="local-6989586621679521354"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsageLimit"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-var">DeleteUsageLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsageLimit%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-var">DeleteUsageLimit'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679522086"><span id="local-6989586621679522087"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsageLimit"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-var">DeleteUsageLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsageLimit%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-var">DeleteUsageLimit'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the usage limit to delete.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AusageLimitId%3ADeleteUsageLimit%27"><span class="annot"><span class="annottext">DeleteUsageLimit -&gt; Text
 </span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#%24sel%3AusageLimitId%3ADeleteUsageLimit%27"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521347"><span id="local-6989586621679521349"><span class="annot"><span class="annottext">DeleteUsageLimit -&gt; DeleteUsageLimit -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522080"><span id="local-6989586621679522082"><span class="annot"><span class="annottext">DeleteUsageLimit -&gt; DeleteUsageLimit -&gt; Bool
 (DeleteUsageLimit -&gt; DeleteUsageLimit -&gt; Bool)
 -&gt; (DeleteUsageLimit -&gt; DeleteUsageLimit -&gt; Bool)
 -&gt; Eq DeleteUsageLimit
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUsageLimit -&gt; DeleteUsageLimit -&gt; Bool
 == :: DeleteUsageLimit -&gt; DeleteUsageLimit -&gt; Bool
 $c== :: DeleteUsageLimit -&gt; DeleteUsageLimit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521338"><span id="local-6989586621679521340"><span id="local-6989586621679521342"><span id="local-6989586621679521344"><span class="annot"><span class="annottext">ReadPrec [DeleteUsageLimit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522071"><span id="local-6989586621679522073"><span id="local-6989586621679522075"><span id="local-6989586621679522077"><span class="annot"><span class="annottext">ReadPrec [DeleteUsageLimit]
 ReadPrec DeleteUsageLimit
 Int -&gt; ReadS DeleteUsageLimit
 ReadS [DeleteUsageLimit]
@@ -77,7 +77,7 @@ readList :: ReadS [DeleteUsageLimit]
 $creadList :: ReadS [DeleteUsageLimit]
 readsPrec :: Int -&gt; ReadS DeleteUsageLimit
 $creadsPrec :: Int -&gt; ReadS DeleteUsageLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521331"><span id="local-6989586621679521333"><span id="local-6989586621679521335"><span class="annot"><span class="annottext">Int -&gt; DeleteUsageLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522064"><span id="local-6989586621679522066"><span id="local-6989586621679522068"><span class="annot"><span class="annottext">Int -&gt; DeleteUsageLimit -&gt; ShowS
 [DeleteUsageLimit] -&gt; ShowS
 DeleteUsageLimit -&gt; String
 (Int -&gt; DeleteUsageLimit -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. DeleteUsageLimit -&gt; Rep DeleteUsageLimit x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span>
 </span><span id="line-65"></span><span id="newDeleteUsageLimit"><span class="annot"><span class="annottext">newDeleteUsageLimit :: Text -&gt; DeleteUsageLimit
-</span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#newDeleteUsageLimit"><span class="hs-identifier hs-var hs-var">newDeleteUsageLimit</span></a></span></span><span> </span><span id="local-6989586621679521326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521326"><span class="hs-identifier hs-var">pUsageLimitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#newDeleteUsageLimit"><span class="hs-identifier hs-var hs-var">newDeleteUsageLimit</span></a></span></span><span> </span><span id="local-6989586621679522059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522059"><span class="hs-identifier hs-var">pUsageLimitId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteUsageLimit' :: Text -&gt; DeleteUsageLimit
 </span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-type">DeleteUsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimitId:DeleteUsageLimit' :: Text
 </span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#%24sel%3AusageLimitId%3ADeleteUsageLimit%27"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521326"><span class="hs-identifier hs-var">pUsageLimitId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679522059"><span class="hs-identifier hs-var">pUsageLimitId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The identifier of the usage limit to delete.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#deleteUsageLimit_usageLimitId"><span class="hs-identifier hs-type">deleteUsageLimit_usageLimitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -131,27 +131,27 @@ $cfrom :: forall x. DeleteUsageLimit -&gt; Rep DeleteUsageLimit x
 -&gt; (DeleteUsageLimit -&gt; Text -&gt; DeleteUsageLimit)
 -&gt; Lens DeleteUsageLimit DeleteUsageLimit Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-type">DeleteUsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521323"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-type">DeleteUsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522056"><span class="annot"><span class="annottext">Text
 usageLimitId :: Text
 $sel:usageLimitId:DeleteUsageLimit' :: DeleteUsageLimit -&gt; Text
-</span><a href="#local-6989586621679521323"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521323"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521322"><span class="annot"><span class="annottext">s :: DeleteUsageLimit
-</span><a href="#local-6989586621679521322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-type">DeleteUsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521321"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUsageLimit
-</span><a href="#local-6989586621679521322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimitId:DeleteUsageLimit' :: Text
+</span><a href="#local-6989586621679522056"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522056"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679522055"><span class="annot"><span class="annottext">s :: DeleteUsageLimit
+</span><a href="#local-6989586621679522055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-type">DeleteUsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679522054"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUsageLimit
+</span><a href="#local-6989586621679522055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimitId:DeleteUsageLimit' :: Text
 </span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#%24sel%3AusageLimitId%3ADeleteUsageLimit%27"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679522054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-74"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse"><span class="hs-identifier hs-type">DeleteUsageLimitResponse</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679521317"><span class="annot"><span class="annottext">request :: DeleteUsageLimit -&gt; Request DeleteUsageLimit
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679522050"><span class="annot"><span class="annottext">request :: DeleteUsageLimit -&gt; Request DeleteUsageLimit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUsageLimit -&gt; Request DeleteUsageLimit
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679521313"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679522046"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUsageLimit
 -&gt; ClientResponse ClientBody
@@ -175,12 +175,12 @@ AWSResponse a
 DeleteUsageLimitResponse
 </span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse%27"><span class="hs-identifier hs-var">DeleteUsageLimitResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521306"><span id="local-6989586621679521308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522039"><span id="local-6989586621679522041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679521299"><span class="annot"><span class="annottext">toHeaders :: DeleteUsageLimit -&gt; [Header]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679522032"><span class="annot"><span class="annottext">toHeaders :: DeleteUsageLimit -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteUsageLimit -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -188,18 +188,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679521294"><span class="annot"><span class="annottext">toPath :: DeleteUsageLimit -&gt; ByteString
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679522027"><span class="annot"><span class="annottext">toPath :: DeleteUsageLimit -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUsageLimit -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit"><span class="hs-identifier hs-type">DeleteUsageLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679521290"><span class="annot"><span class="annottext">toQuery :: DeleteUsageLimit -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-type">DeleteUsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521288"><span class="annot"><span class="annottext">Text
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679522023"><span class="annot"><span class="annottext">toQuery :: DeleteUsageLimit -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimit%27"><span class="hs-identifier hs-type">DeleteUsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522021"><span class="annot"><span class="annottext">Text
 usageLimitId :: Text
 $sel:usageLimitId:DeleteUsageLimit' :: DeleteUsageLimit -&gt; Text
-</span><a href="#local-6989586621679521288"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679522021"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -219,14 +219,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;UsageLimitId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521288"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span>
+</span><a href="#local-6989586621679522021"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | /See:/ 'newDeleteUsageLimitResponse' smart constructor.</span><span>
-</span><span id="line-101"></span><span id="local-6989586621679521285"><span id="local-6989586621679521286"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsageLimitResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse"><span class="hs-identifier hs-var">DeleteUsageLimitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsageLimitResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse%27"><span class="hs-identifier hs-var">DeleteUsageLimitResponse'</span></a></span></span><span>
+</span><span id="line-101"></span><span id="local-6989586621679522018"><span id="local-6989586621679522019"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUsageLimitResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse"><span class="hs-identifier hs-var">DeleteUsageLimitResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUsageLimitResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse%27"><span class="hs-identifier hs-var">DeleteUsageLimitResponse'</span></a></span></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521281"><span id="local-6989586621679521283"><span class="annot"><span class="annottext">DeleteUsageLimitResponse -&gt; DeleteUsageLimitResponse -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522014"><span id="local-6989586621679522016"><span class="annot"><span class="annottext">DeleteUsageLimitResponse -&gt; DeleteUsageLimitResponse -&gt; Bool
 (DeleteUsageLimitResponse -&gt; DeleteUsageLimitResponse -&gt; Bool)
 -&gt; (DeleteUsageLimitResponse -&gt; DeleteUsageLimitResponse -&gt; Bool)
 -&gt; Eq DeleteUsageLimitResponse
@@ -235,7 +235,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUsageLimitResponse -&gt; DeleteUsageLimitResponse -&gt; Bool
 == :: DeleteUsageLimitResponse -&gt; DeleteUsageLimitResponse -&gt; Bool
 $c== :: DeleteUsageLimitResponse -&gt; DeleteUsageLimitResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521273"><span id="local-6989586621679521275"><span id="local-6989586621679521277"><span id="local-6989586621679521279"><span class="annot"><span class="annottext">ReadPrec [DeleteUsageLimitResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522006"><span id="local-6989586621679522008"><span id="local-6989586621679522010"><span id="local-6989586621679522012"><span class="annot"><span class="annottext">ReadPrec [DeleteUsageLimitResponse]
 ReadPrec DeleteUsageLimitResponse
 Int -&gt; ReadS DeleteUsageLimitResponse
 ReadS [DeleteUsageLimitResponse]
@@ -255,7 +255,7 @@ readList :: ReadS [DeleteUsageLimitResponse]
 $creadList :: ReadS [DeleteUsageLimitResponse]
 readsPrec :: Int -&gt; ReadS DeleteUsageLimitResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUsageLimitResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521267"><span id="local-6989586621679521269"><span id="local-6989586621679521271"><span class="annot"><span class="annottext">Int -&gt; DeleteUsageLimitResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522000"><span id="local-6989586621679522002"><span id="local-6989586621679522004"><span class="annot"><span class="annottext">Int -&gt; DeleteUsageLimitResponse -&gt; ShowS
 [DeleteUsageLimitResponse] -&gt; ShowS
 DeleteUsageLimitResponse -&gt; String
 (Int -&gt; DeleteUsageLimitResponse -&gt; ShowS)
@@ -298,5 +298,5 @@ DeleteUsageLimitResponse -&gt; Rep DeleteUsageLimitResponse x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">DeleteUsageLimitResponse
 </span><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse%27"><span class="hs-identifier hs-var">DeleteUsageLimitResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse"><span class="hs-identifier hs-type">DeleteUsageLimitResponse</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteUsageLimit.html#DeleteUsageLimitResponse"><span class="hs-identifier hs-type">DeleteUsageLimitResponse</span></a></span></span><span>
 </span><span id="line-116"></span></pre></body></html>

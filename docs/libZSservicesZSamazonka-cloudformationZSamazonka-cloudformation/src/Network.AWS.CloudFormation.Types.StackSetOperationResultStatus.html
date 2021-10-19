@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679424738"><span id="local-6989586621679424739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackSetOperationResultStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#StackSetOperationResultStatus"><span class="hs-identifier hs-var">StackSetOperationResultStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackSetOperationResultStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#StackSetOperationResultStatus%27"><span class="hs-identifier hs-var">StackSetOperationResultStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679425150"><span id="local-6989586621679425151"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackSetOperationResultStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#StackSetOperationResultStatus"><span class="hs-identifier hs-var">StackSetOperationResultStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackSetOperationResultStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#StackSetOperationResultStatus%27"><span class="hs-identifier hs-var">StackSetOperationResultStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackSetOperationResultStatus"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#fromStackSetOperationResultStatus"><span class="hs-identifier hs-var hs-var">fromStackSetOperationResultStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424730"><span id="local-6989586621679424732"><span id="local-6989586621679424734"><span class="annot"><span class="annottext">Int -&gt; StackSetOperationResultStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425142"><span id="local-6989586621679425144"><span id="local-6989586621679425146"><span class="annot"><span class="annottext">Int -&gt; StackSetOperationResultStatus -&gt; ShowS
 [StackSetOperationResultStatus] -&gt; ShowS
 StackSetOperationResultStatus -&gt; String
 (Int -&gt; StackSetOperationResultStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: StackSetOperationResultStatus -&gt; String
 showsPrec :: Int -&gt; StackSetOperationResultStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StackSetOperationResultStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679424721"><span id="local-6989586621679424723"><span id="local-6989586621679424725"><span id="local-6989586621679424727"><span class="annot"><span class="annottext">ReadPrec [StackSetOperationResultStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679425133"><span id="local-6989586621679425135"><span id="local-6989586621679425137"><span id="local-6989586621679425139"><span class="annot"><span class="annottext">ReadPrec [StackSetOperationResultStatus]
 ReadPrec StackSetOperationResultStatus
 Int -&gt; ReadS StackSetOperationResultStatus
 ReadS [StackSetOperationResultStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [StackSetOperationResultStatus]
 readsPrec :: Int -&gt; ReadS StackSetOperationResultStatus
 $creadsPrec :: Int -&gt; ReadS StackSetOperationResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679424716"><span id="local-6989586621679424718"><span class="annot"><span class="annottext">StackSetOperationResultStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679425128"><span id="local-6989586621679425130"><span class="annot"><span class="annottext">StackSetOperationResultStatus
 -&gt; StackSetOperationResultStatus -&gt; Bool
 (StackSetOperationResultStatus
  -&gt; StackSetOperationResultStatus -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: StackSetOperationResultStatus
 $c== :: StackSetOperationResultStatus
 -&gt; StackSetOperationResultStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679424700"><span id="local-6989586621679424702"><span id="local-6989586621679424704"><span id="local-6989586621679424706"><span id="local-6989586621679424708"><span id="local-6989586621679424710"><span id="local-6989586621679424712"><span class="annot"><span class="annottext">Eq StackSetOperationResultStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679425112"><span id="local-6989586621679425114"><span id="local-6989586621679425116"><span id="local-6989586621679425118"><span id="local-6989586621679425120"><span id="local-6989586621679425122"><span id="local-6989586621679425124"><span class="annot"><span class="annottext">Eq StackSetOperationResultStatus
 Eq StackSetOperationResultStatus
 -&gt; (StackSetOperationResultStatus
     -&gt; StackSetOperationResultStatus -&gt; Ordering)
@@ -179,7 +179,7 @@ StackSetOperationResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424692"><span id="local-6989586621679424694"><span class="annot"><span class="annottext">Int -&gt; StackSetOperationResultStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425104"><span id="local-6989586621679425106"><span class="annot"><span class="annottext">Int -&gt; StackSetOperationResultStatus -&gt; Int
 StackSetOperationResultStatus -&gt; Int
 (Int -&gt; StackSetOperationResultStatus -&gt; Int)
 -&gt; (StackSetOperationResultStatus -&gt; Int)
@@ -190,56 +190,56 @@ $chash :: StackSetOperationResultStatus -&gt; Int
 hashWithSalt :: Int -&gt; StackSetOperationResultStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StackSetOperationResultStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424689"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679425101"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; ()
 (StackSetOperationResultStatus -&gt; ())
 -&gt; NFData StackSetOperationResultStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StackSetOperationResultStatus -&gt; ()
 $crnf :: StackSetOperationResultStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424686"><span class="annot"><span class="annottext">Text -&gt; Either String StackSetOperationResultStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679425098"><span class="annot"><span class="annottext">Text -&gt; Either String StackSetOperationResultStatus
 (Text -&gt; Either String StackSetOperationResultStatus)
 -&gt; FromText StackSetOperationResultStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StackSetOperationResultStatus
 $cfromText :: Text -&gt; Either String StackSetOperationResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424683"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679425095"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; Text
 (StackSetOperationResultStatus -&gt; Text)
 -&gt; ToText StackSetOperationResultStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StackSetOperationResultStatus -&gt; Text
 $ctoText :: StackSetOperationResultStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679424680"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679425092"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; ByteString
 (StackSetOperationResultStatus -&gt; ByteString)
 -&gt; ToByteString StackSetOperationResultStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StackSetOperationResultStatus -&gt; ByteString
 $ctoBS :: StackSetOperationResultStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679424677"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679425089"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; ByteStringBuilder
 (StackSetOperationResultStatus -&gt; ByteStringBuilder)
 -&gt; ToLog StackSetOperationResultStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StackSetOperationResultStatus -&gt; ByteStringBuilder
 $cbuild :: StackSetOperationResultStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679424674"><span class="annot"><span class="annottext">HeaderName -&gt; StackSetOperationResultStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679425086"><span class="annot"><span class="annottext">HeaderName -&gt; StackSetOperationResultStatus -&gt; [Header]
 (HeaderName -&gt; StackSetOperationResultStatus -&gt; [Header])
 -&gt; ToHeader StackSetOperationResultStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StackSetOperationResultStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StackSetOperationResultStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679424671"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679425083"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; QueryString
 (StackSetOperationResultStatus -&gt; QueryString)
 -&gt; ToQuery StackSetOperationResultStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StackSetOperationResultStatus -&gt; QueryString
 $ctoQuery :: StackSetOperationResultStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424666"><span id="local-6989586621679424668"><span class="annot"><span class="annottext">Value -&gt; Parser [StackSetOperationResultStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679425078"><span id="local-6989586621679425080"><span class="annot"><span class="annottext">Value -&gt; Parser [StackSetOperationResultStatus]
 Value -&gt; Parser StackSetOperationResultStatus
 (Value -&gt; Parser StackSetOperationResultStatus)
 -&gt; (Value -&gt; Parser [StackSetOperationResultStatus])
@@ -251,7 +251,7 @@ $cparseJSONList :: Value -&gt; Parser [StackSetOperationResultStatus]
 parseJSON :: Value -&gt; Parser StackSetOperationResultStatus
 $cparseJSON :: Value -&gt; Parser StackSetOperationResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424661"><span id="local-6989586621679424663"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackSetOperationResultStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679425073"><span id="local-6989586621679425075"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackSetOperationResultStatus]
 FromJSONKeyFunction StackSetOperationResultStatus
 FromJSONKeyFunction StackSetOperationResultStatus
 -&gt; FromJSONKeyFunction [StackSetOperationResultStatus]
@@ -263,7 +263,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StackSetOperationResultStatus]
 fromJSONKey :: FromJSONKeyFunction StackSetOperationResultStatus
 $cfromJSONKey :: FromJSONKeyFunction StackSetOperationResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424652"><span id="local-6989586621679424654"><span id="local-6989586621679424656"><span id="local-6989586621679424658"><span class="annot"><span class="annottext">[StackSetOperationResultStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679425064"><span id="local-6989586621679425066"><span id="local-6989586621679425068"><span id="local-6989586621679425070"><span class="annot"><span class="annottext">[StackSetOperationResultStatus] -&gt; Encoding
 [StackSetOperationResultStatus] -&gt; Value
 StackSetOperationResultStatus -&gt; Encoding
 StackSetOperationResultStatus -&gt; Value
@@ -287,7 +287,7 @@ $ctoEncoding :: StackSetOperationResultStatus -&gt; Encoding
 toJSON :: StackSetOperationResultStatus -&gt; Value
 $ctoJSON :: StackSetOperationResultStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424647"><span id="local-6989586621679424649"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackSetOperationResultStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679425059"><span id="local-6989586621679425061"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackSetOperationResultStatus]
 ToJSONKeyFunction StackSetOperationResultStatus
 ToJSONKeyFunction StackSetOperationResultStatus
 -&gt; ToJSONKeyFunction [StackSetOperationResultStatus]
@@ -299,14 +299,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StackSetOperationResultStatus]
 toJSONKey :: ToJSONKeyFunction StackSetOperationResultStatus
 $ctoJSONKey :: ToJSONKeyFunction StackSetOperationResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679424644"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackSetOperationResultStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679425056"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackSetOperationResultStatus
 ([Node] -&gt; Either String StackSetOperationResultStatus)
 -&gt; FromXML StackSetOperationResultStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StackSetOperationResultStatus
 $cparseXML :: [Node] -&gt; Either String StackSetOperationResultStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679424641"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679425053"><span class="annot"><span class="annottext">StackSetOperationResultStatus -&gt; XML
 (StackSetOperationResultStatus -&gt; XML)
 -&gt; ToXML StackSetOperationResultStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -26,27 +26,27 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains details of a table archival operation.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newArchivalSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679366541"><span id="local-6989586621679366542"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchivalSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-var">ArchivalSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchivalSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-var">ArchivalSummary'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup the table was archived to,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- when applicable in the archival reason. If you wish to restore this</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- backup to the same table name, you will need to delete the original</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AarchivalBackupArn%3AArchivalSummary%27"><span class="annot"><span class="annottext">ArchivalSummary -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalBackupArn%3AArchivalSummary%27"><span class="hs-identifier hs-var hs-var">archivalBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The reason DynamoDB archived the table. Currently, the only possible</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- value is:</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     to the table\'s AWS KMS key being inaccessible for more than seven</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     days. An On-Demand backup was created at the archival time.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AarchivalReason%3AArchivalSummary%27"><span class="annot"><span class="annottext">ArchivalSummary -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679367197"><span id="local-6989586621679367198"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchivalSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-var">ArchivalSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchivalSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-var">ArchivalSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason DynamoDB archived the table. Currently, the only possible</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- value is:</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--     to the table\'s AWS KMS key being inaccessible for more than seven</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--     days. An On-Demand backup was created at the archival time.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AarchivalReason%3AArchivalSummary%27"><span class="annot"><span class="annottext">ArchivalSummary -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalReason%3AArchivalSummary%27"><span class="hs-identifier hs-var hs-var">archivalReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The date and time when table archival was initiated by DynamoDB, in UNIX</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- epoch time format.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AarchivalDateTime%3AArchivalSummary%27"><span class="annot"><span class="annottext">ArchivalSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalDateTime%3AArchivalSummary%27"><span class="hs-identifier hs-var hs-var">archivalDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date and time when table archival was initiated by DynamoDB, in UNIX</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AarchivalDateTime%3AArchivalSummary%27"><span class="annot"><span class="annottext">ArchivalSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalDateTime%3AArchivalSummary%27"><span class="hs-identifier hs-var hs-var">archivalDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup the table was archived to,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- when applicable in the archival reason. If you wish to restore this</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- backup to the same table name, you will need to delete the original</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AarchivalBackupArn%3AArchivalSummary%27"><span class="annot"><span class="annottext">ArchivalSummary -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalBackupArn%3AArchivalSummary%27"><span class="hs-identifier hs-var hs-var">archivalBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366533"><span id="local-6989586621679366535"><span class="annot"><span class="annottext">ArchivalSummary -&gt; ArchivalSummary -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367189"><span id="local-6989586621679367191"><span class="annot"><span class="annottext">ArchivalSummary -&gt; ArchivalSummary -&gt; Bool
 (ArchivalSummary -&gt; ArchivalSummary -&gt; Bool)
 -&gt; (ArchivalSummary -&gt; ArchivalSummary -&gt; Bool)
 -&gt; Eq ArchivalSummary
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArchivalSummary -&gt; ArchivalSummary -&gt; Bool
 == :: ArchivalSummary -&gt; ArchivalSummary -&gt; Bool
 $c== :: ArchivalSummary -&gt; ArchivalSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366524"><span id="local-6989586621679366526"><span id="local-6989586621679366528"><span id="local-6989586621679366530"><span class="annot"><span class="annottext">ReadPrec [ArchivalSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367180"><span id="local-6989586621679367182"><span id="local-6989586621679367184"><span id="local-6989586621679367186"><span class="annot"><span class="annottext">ReadPrec [ArchivalSummary]
 ReadPrec ArchivalSummary
 Int -&gt; ReadS ArchivalSummary
 ReadS [ArchivalSummary]
@@ -75,7 +75,7 @@ readList :: ReadS [ArchivalSummary]
 $creadList :: ReadS [ArchivalSummary]
 readsPrec :: Int -&gt; ReadS ArchivalSummary
 $creadsPrec :: Int -&gt; ReadS ArchivalSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366517"><span id="local-6989586621679366519"><span id="local-6989586621679366521"><span class="annot"><span class="annottext">Int -&gt; ArchivalSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367173"><span id="local-6989586621679367175"><span id="local-6989586621679367177"><span class="annot"><span class="annottext">Int -&gt; ArchivalSummary -&gt; ShowS
 [ArchivalSummary] -&gt; ShowS
 ArchivalSummary -&gt; String
 (Int -&gt; ArchivalSummary -&gt; ShowS)
@@ -109,106 +109,83 @@ $cfrom :: forall x. ArchivalSummary -&gt; Rep ArchivalSummary x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'archivalBackupArn', 'archivalSummary_archivalBackupArn' - The Amazon Resource Name (ARN) of the backup the table was archived to,</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- when applicable in the archival reason. If you wish to restore this</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- backup to the same table name, you will need to delete the original</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'archivalReason', 'archivalSummary_archivalReason' - The reason DynamoDB archived the table. Currently, the only possible</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- value is:</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--     to the table\'s AWS KMS key being inaccessible for more than seven</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--     days. An On-Demand backup was created at the archival time.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'archivalDateTime', 'archivalSummary_archivalDateTime' - The date and time when table archival was initiated by DynamoDB, in UNIX</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'archivalReason', 'archivalSummary_archivalReason' - The reason DynamoDB archived the table. Currently, the only possible</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- value is:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--     to the table\'s AWS KMS key being inaccessible for more than seven</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--     days. An On-Demand backup was created at the archival time.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'archivalDateTime', 'archivalSummary_archivalDateTime' - The date and time when table archival was initiated by DynamoDB, in UNIX</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'archivalBackupArn', 'archivalSummary_archivalBackupArn' - The Amazon Resource Name (ARN) of the backup the table was archived to,</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- when applicable in the archival reason. If you wish to restore this</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- backup to the same table name, you will need to delete the original</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- table.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#newArchivalSummary"><span class="hs-identifier hs-type">newArchivalSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span>
 </span><span id="line-72"></span><span id="newArchivalSummary"><span class="annot"><span class="annottext">newArchivalSummary :: ArchivalSummary
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#newArchivalSummary"><span class="hs-identifier hs-var hs-var">newArchivalSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ArchivalSummary' :: Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ArchivalSummary
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ArchivalSummary' :: Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ArchivalSummary
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:archivalBackupArn:ArchivalSummary' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalBackupArn%3AArchivalSummary%27"><span class="hs-identifier hs-var">archivalBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:archivalReason:ArchivalSummary' :: Maybe Text
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:archivalReason:ArchivalSummary' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalReason%3AArchivalSummary%27"><span class="hs-identifier hs-var">archivalReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:archivalDateTime:ArchivalSummary' :: Maybe POSIX
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:archivalDateTime:ArchivalSummary' :: Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalDateTime%3AArchivalSummary%27"><span class="hs-identifier hs-var">archivalDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup the table was archived to,</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- when applicable in the archival reason. If you wish to restore this</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- backup to the same table name, you will need to delete the original</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalBackupArn"><span class="hs-identifier hs-type">archivalSummary_archivalBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="archivalSummary_archivalBackupArn"><span class="annot"><span class="annottext">archivalSummary_archivalBackupArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ArchivalSummary -&gt; f ArchivalSummary
-</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalBackupArn"><span class="hs-identifier hs-var hs-var">archivalSummary_archivalBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchivalSummary -&gt; Maybe Text)
--&gt; (ArchivalSummary -&gt; Maybe Text -&gt; ArchivalSummary)
--&gt; Lens ArchivalSummary ArchivalSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366508"><span class="annot"><span class="annottext">Maybe Text
-archivalBackupArn :: Maybe Text
-$sel:archivalBackupArn:ArchivalSummary' :: ArchivalSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679366508"><span class="hs-identifier hs-var hs-var">archivalBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366508"><span class="hs-identifier hs-var">archivalBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366507"><span class="annot"><span class="annottext">s :: ArchivalSummary
-</span><a href="#local-6989586621679366507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366506"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchivalSummary
-</span><a href="#local-6989586621679366507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archivalBackupArn:ArchivalSummary' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:archivalBackupArn:ArchivalSummary' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalBackupArn%3AArchivalSummary%27"><span class="hs-identifier hs-var">archivalBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The reason DynamoDB archived the table. Currently, the only possible</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- value is:</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--     to the table\'s AWS KMS key being inaccessible for more than seven</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--     days. An On-Demand backup was created at the archival time.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalReason"><span class="hs-identifier hs-type">archivalSummary_archivalReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="archivalSummary_archivalReason"><span class="annot"><span class="annottext">archivalSummary_archivalReason :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The reason DynamoDB archived the table. Currently, the only possible</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- value is:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The table was archived due</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     to the table\'s AWS KMS key being inaccessible for more than seven</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     days. An On-Demand backup was created at the archival time.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalReason"><span class="hs-identifier hs-type">archivalSummary_archivalReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="archivalSummary_archivalReason"><span class="annot"><span class="annottext">archivalSummary_archivalReason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ArchivalSummary -&gt; f ArchivalSummary
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalReason"><span class="hs-identifier hs-var hs-var">archivalSummary_archivalReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchivalSummary -&gt; Maybe Text)
 -&gt; (ArchivalSummary -&gt; Maybe Text -&gt; ArchivalSummary)
 -&gt; Lens ArchivalSummary ArchivalSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366504"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367164"><span class="annot"><span class="annottext">Maybe Text
 archivalReason :: Maybe Text
 $sel:archivalReason:ArchivalSummary' :: ArchivalSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679366504"><span class="hs-identifier hs-var hs-var">archivalReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366504"><span class="hs-identifier hs-var">archivalReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366503"><span class="annot"><span class="annottext">s :: ArchivalSummary
-</span><a href="#local-6989586621679366503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366502"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchivalSummary
-</span><a href="#local-6989586621679366503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archivalReason:ArchivalSummary' :: Maybe Text
+</span><a href="#local-6989586621679367164"><span class="hs-identifier hs-var hs-var">archivalReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367164"><span class="hs-identifier hs-var">archivalReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367163"><span class="annot"><span class="annottext">s :: ArchivalSummary
+</span><a href="#local-6989586621679367163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367162"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchivalSummary
+</span><a href="#local-6989586621679367163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archivalReason:ArchivalSummary' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalReason%3AArchivalSummary%27"><span class="hs-identifier hs-var">archivalReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679366502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The date and time when table archival was initiated by DynamoDB, in UNIX</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- epoch time format.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalDateTime"><span class="hs-identifier hs-type">archivalSummary_archivalDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="archivalSummary_archivalDateTime"><span class="annot"><span class="annottext">archivalSummary_archivalDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679367162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The date and time when table archival was initiated by DynamoDB, in UNIX</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- epoch time format.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalDateTime"><span class="hs-identifier hs-type">archivalSummary_archivalDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="archivalSummary_archivalDateTime"><span class="annot"><span class="annottext">archivalSummary_archivalDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ArchivalSummary -&gt; f ArchivalSummary
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalDateTime"><span class="hs-identifier hs-var hs-var">archivalSummary_archivalDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchivalSummary -&gt; Maybe POSIX)
 -&gt; (ArchivalSummary -&gt; Maybe POSIX -&gt; ArchivalSummary)
 -&gt; Lens ArchivalSummary ArchivalSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366500"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367160"><span class="annot"><span class="annottext">Maybe POSIX
 archivalDateTime :: Maybe POSIX
 $sel:archivalDateTime:ArchivalSummary' :: ArchivalSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679366500"><span class="hs-identifier hs-var hs-var">archivalDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679366500"><span class="hs-identifier hs-var">archivalDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366499"><span class="annot"><span class="annottext">s :: ArchivalSummary
-</span><a href="#local-6989586621679366499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366498"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679366498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchivalSummary
-</span><a href="#local-6989586621679366499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archivalDateTime:ArchivalSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679367160"><span class="hs-identifier hs-var hs-var">archivalDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679367160"><span class="hs-identifier hs-var">archivalDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367159"><span class="annot"><span class="annottext">s :: ArchivalSummary
+</span><a href="#local-6989586621679367159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367158"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679367158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchivalSummary
+</span><a href="#local-6989586621679367159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archivalDateTime:ArchivalSummary' :: Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalDateTime%3AArchivalSummary%27"><span class="hs-identifier hs-var">archivalDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679366498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679367158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ArchivalSummary -&gt; f ArchivalSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -224,50 +201,72 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366492"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679366490"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchivalSummary
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup the table was archived to,</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- when applicable in the archival reason. If you wish to restore this</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- backup to the same table name, you will need to delete the original</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalBackupArn"><span class="hs-identifier hs-type">archivalSummary_archivalBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="archivalSummary_archivalBackupArn"><span class="annot"><span class="annottext">archivalSummary_archivalBackupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ArchivalSummary -&gt; f ArchivalSummary
+</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#archivalSummary_archivalBackupArn"><span class="hs-identifier hs-var hs-var">archivalSummary_archivalBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchivalSummary -&gt; Maybe Text)
+-&gt; (ArchivalSummary -&gt; Maybe Text -&gt; ArchivalSummary)
+-&gt; Lens ArchivalSummary ArchivalSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367153"><span class="annot"><span class="annottext">Maybe Text
+archivalBackupArn :: Maybe Text
+$sel:archivalBackupArn:ArchivalSummary' :: ArchivalSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679367153"><span class="hs-identifier hs-var hs-var">archivalBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367153"><span class="hs-identifier hs-var">archivalBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367152"><span class="annot"><span class="annottext">s :: ArchivalSummary
+</span><a href="#local-6989586621679367152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-type">ArchivalSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchivalSummary
+</span><a href="#local-6989586621679367152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archivalBackupArn:ArchivalSummary' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#%24sel%3AarchivalBackupArn%3AArchivalSummary%27"><span class="hs-identifier hs-var">archivalBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367148"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679367146"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchivalSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArchivalSummary)
 -&gt; Value
 -&gt; Parser ArchivalSummary
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArchivalSummary&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366487"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ArchivalSummary
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367143"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ArchivalSummary
 </span><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary%27"><span class="hs-identifier hs-var">ArchivalSummary'</span></a></span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ArchivalSummary)
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ArchivalSummary)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; ArchivalSummary)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; ArchivalSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ArchivalBackupArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; ArchivalSummary)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; ArchivalSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ArchivalReason&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ArchivalSummary)
--&gt; Parser (Maybe POSIX) -&gt; Parser ArchivalSummary
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; ArchivalSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; ArchivalSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679367143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ArchivalDateTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366481"><span id="local-6989586621679366483"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span></span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span></span><span>
-</span><span id="line-115"></span></pre></body></html>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ArchivalSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser ArchivalSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArchivalBackupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367137"><span id="local-6989586621679367139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ArchivalSummary.html#ArchivalSummary"><span class="hs-identifier hs-type">ArchivalSummary</span></a></span></span><span>
+</span><span id="line-114"></span></pre></body></html>

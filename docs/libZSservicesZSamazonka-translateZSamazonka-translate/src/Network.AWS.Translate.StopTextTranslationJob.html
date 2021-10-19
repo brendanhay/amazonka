@@ -44,8 +44,8 @@
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#newStopTextTranslationJobResponse"><span class="hs-identifier">newStopTextTranslationJobResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobStatus"><span class="hs-identifier">stopTextTranslationJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobId"><span class="hs-identifier">stopTextTranslationJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobId"><span class="hs-identifier">stopTextTranslationJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobStatus"><span class="hs-identifier">stopTextTranslationJobResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_httpStatus"><span class="hs-identifier">stopTextTranslationJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span class="hs-keyword">where</span><span>
@@ -58,12 +58,12 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.html"><span class="hs-identifier">Network.AWS.Translate.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newStopTextTranslationJob' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679185607"><span id="local-6989586621679185608"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTextTranslationJob"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-var">StopTextTranslationJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTextTranslationJob%27"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-var">StopTextTranslationJob'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679185672"><span id="local-6989586621679185673"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTextTranslationJob"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-var">StopTextTranslationJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTextTranslationJob%27"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-var">StopTextTranslationJob'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job ID of the job to be stopped.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AjobId%3AStopTextTranslationJob%27"><span class="annot"><span class="annottext">StopTextTranslationJob -&gt; Text
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobId%3AStopTextTranslationJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185601"><span id="local-6989586621679185603"><span class="annot"><span class="annottext">StopTextTranslationJob -&gt; StopTextTranslationJob -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185666"><span id="local-6989586621679185668"><span class="annot"><span class="annottext">StopTextTranslationJob -&gt; StopTextTranslationJob -&gt; Bool
 (StopTextTranslationJob -&gt; StopTextTranslationJob -&gt; Bool)
 -&gt; (StopTextTranslationJob -&gt; StopTextTranslationJob -&gt; Bool)
 -&gt; Eq StopTextTranslationJob
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopTextTranslationJob -&gt; StopTextTranslationJob -&gt; Bool
 == :: StopTextTranslationJob -&gt; StopTextTranslationJob -&gt; Bool
 $c== :: StopTextTranslationJob -&gt; StopTextTranslationJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185592"><span id="local-6989586621679185594"><span id="local-6989586621679185596"><span id="local-6989586621679185598"><span class="annot"><span class="annottext">ReadPrec [StopTextTranslationJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185657"><span id="local-6989586621679185659"><span id="local-6989586621679185661"><span id="local-6989586621679185663"><span class="annot"><span class="annottext">ReadPrec [StopTextTranslationJob]
 ReadPrec StopTextTranslationJob
 Int -&gt; ReadS StopTextTranslationJob
 ReadS [StopTextTranslationJob]
@@ -92,7 +92,7 @@ readList :: ReadS [StopTextTranslationJob]
 $creadList :: ReadS [StopTextTranslationJob]
 readsPrec :: Int -&gt; ReadS StopTextTranslationJob
 $creadsPrec :: Int -&gt; ReadS StopTextTranslationJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185585"><span id="local-6989586621679185587"><span id="local-6989586621679185589"><span class="annot"><span class="annottext">Int -&gt; StopTextTranslationJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185650"><span id="local-6989586621679185652"><span id="local-6989586621679185654"><span class="annot"><span class="annottext">Int -&gt; StopTextTranslationJob -&gt; ShowS
 [StopTextTranslationJob] -&gt; ShowS
 StopTextTranslationJob -&gt; String
 (Int -&gt; StopTextTranslationJob -&gt; ShowS)
@@ -133,12 +133,12 @@ $cfrom :: forall x. StopTextTranslationJob -&gt; Rep StopTextTranslationJob x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span>
 </span><span id="line-80"></span><span id="newStopTextTranslationJob"><span class="annot"><span class="annottext">newStopTextTranslationJob :: Text -&gt; StopTextTranslationJob
-</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#newStopTextTranslationJob"><span class="hs-identifier hs-var hs-var">newStopTextTranslationJob</span></a></span></span><span> </span><span id="local-6989586621679185580"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185580"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#newStopTextTranslationJob"><span class="hs-identifier hs-var hs-var">newStopTextTranslationJob</span></a></span></span><span> </span><span id="local-6989586621679185645"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185645"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">StopTextTranslationJob' :: Text -&gt; StopTextTranslationJob
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-type">StopTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopTextTranslationJob' :: Text
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobId%3AStopTextTranslationJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185580"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679185645"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The job ID of the job to be stopped.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJob_jobId"><span class="hs-identifier hs-type">stopTextTranslationJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -148,27 +148,27 @@ $cfrom :: forall x. StopTextTranslationJob -&gt; Rep StopTextTranslationJob x
 -&gt; (StopTextTranslationJob -&gt; Text -&gt; StopTextTranslationJob)
 -&gt; Lens StopTextTranslationJob StopTextTranslationJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-type">StopTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185577"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-type">StopTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185642"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:StopTextTranslationJob' :: StopTextTranslationJob -&gt; Text
-</span><a href="#local-6989586621679185577"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185577"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185576"><span class="annot"><span class="annottext">s :: StopTextTranslationJob
-</span><a href="#local-6989586621679185576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-type">StopTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJob
-</span><a href="#local-6989586621679185576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopTextTranslationJob' :: Text
+</span><a href="#local-6989586621679185642"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185642"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185641"><span class="annot"><span class="annottext">s :: StopTextTranslationJob
+</span><a href="#local-6989586621679185641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-type">StopTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185640"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJob
+</span><a href="#local-6989586621679185641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopTextTranslationJob' :: Text
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobId%3AStopTextTranslationJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679185571"><span class="annot"><span class="annottext">request :: StopTextTranslationJob -&gt; Request StopTextTranslationJob
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679185636"><span class="annot"><span class="annottext">request :: StopTextTranslationJob -&gt; Request StopTextTranslationJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopTextTranslationJob -&gt; Request StopTextTranslationJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Translate.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679185567"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679185632"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopTextTranslationJob
 -&gt; ClientResponse ClientBody
@@ -194,33 +194,34 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185564"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185564"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185563"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679185563"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185562"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe JobStatus
--&gt; Maybe Text -&gt; Int -&gt; StopTextTranslationJobResponse
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185629"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185629"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185628"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185628"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185627"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe JobStatus -&gt; Int -&gt; StopTextTranslationJobResponse
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">StopTextTranslationJobResponse'</span></a></span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JobStatus
- -&gt; Maybe Text -&gt; Int -&gt; StopTextTranslationJobResponse)
--&gt; Either String (Maybe JobStatus)
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe JobStatus -&gt; Int -&gt; StopTextTranslationJobResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; StopTextTranslationJobResponse)
+     String (Maybe JobStatus -&gt; Int -&gt; StopTextTranslationJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StopTextTranslationJobResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; StopTextTranslationJobResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679185627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe JobStatus -&gt; Int -&gt; StopTextTranslationJobResponse)
+-&gt; Either String (Maybe JobStatus)
+-&gt; Either String (Int -&gt; StopTextTranslationJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe JobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopTextTranslationJobResponse)
 -&gt; Either String Int
 -&gt; Either String StopTextTranslationJobResponse
@@ -230,15 +231,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185564"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185629"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185554"><span id="local-6989586621679185556"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185619"><span id="local-6989586621679185621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679185547"><span class="annot"><span class="annottext">toHeaders :: StopTextTranslationJob -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679185612"><span class="annot"><span class="annottext">toHeaders :: StopTextTranslationJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopTextTranslationJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -265,12 +266,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185537"><span id="local-6989586621679185539"><span id="local-6989586621679185541"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679185535"><span class="annot"><span class="annottext">toJSON :: StopTextTranslationJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-type">StopTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185533"><span class="annot"><span class="annottext">Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185602"><span id="local-6989586621679185604"><span id="local-6989586621679185606"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679185600"><span class="annot"><span class="annottext">toJSON :: StopTextTranslationJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob%27"><span class="hs-identifier hs-type">StopTextTranslationJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185598"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:StopTextTranslationJob' :: StopTextTranslationJob -&gt; Text
-</span><a href="#local-6989586621679185533"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185598"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,18 +283,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185533"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679185598"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679185527"><span class="annot"><span class="annottext">toPath :: StopTextTranslationJob -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679185592"><span class="annot"><span class="annottext">toPath :: StopTextTranslationJob -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopTextTranslationJob -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJob"><span class="hs-identifier hs-type">StopTextTranslationJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679185523"><span class="annot"><span class="annottext">toQuery :: StopTextTranslationJob -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679185588"><span class="annot"><span class="annottext">toQuery :: StopTextTranslationJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopTextTranslationJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -301,19 +302,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newStopTextTranslationJobResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679185520"><span id="local-6989586621679185521"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTextTranslationJobResponse"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-var">StopTextTranslationJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTextTranslationJobResponse%27"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">StopTextTranslationJobResponse'</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the designated job. Upon successful completion, the job\'s</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- status will be @STOPPED@.</span><span>
-</span><span id="line-137"></span><span>    </span><span id="%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="annot"><span class="annottext">StopTextTranslationJobResponse -&gt; Maybe JobStatus
-</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The job ID of the stopped batch translation job.</span><span>
-</span><span id="line-139"></span><span>    </span><span id="%24sel%3AjobId%3AStopTextTranslationJobResponse%27"><span class="annot"><span class="annottext">StopTextTranslationJobResponse -&gt; Maybe Text
+</span><span id="line-134"></span><span id="local-6989586621679185585"><span id="local-6989586621679185586"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTextTranslationJobResponse"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-var">StopTextTranslationJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTextTranslationJobResponse%27"><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">StopTextTranslationJobResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job ID of the stopped batch translation job.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AjobId%3AStopTextTranslationJobResponse%27"><span class="annot"><span class="annottext">StopTextTranslationJobResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobId%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The status of the designated job. Upon successful completion, the job\'s</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- status will be @STOPPED@.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="annot"><span class="annottext">StopTextTranslationJobResponse -&gt; Maybe JobStatus
+</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopTextTranslationJobResponse%27"><span class="annot"><span class="annottext">StopTextTranslationJobResponse -&gt; Int
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AhttpStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185513"><span id="local-6989586621679185515"><span class="annot"><span class="annottext">StopTextTranslationJobResponse
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185578"><span id="local-6989586621679185580"><span class="annot"><span class="annottext">StopTextTranslationJobResponse
 -&gt; StopTextTranslationJobResponse -&gt; Bool
 (StopTextTranslationJobResponse
  -&gt; StopTextTranslationJobResponse -&gt; Bool)
@@ -329,7 +330,7 @@ $c/= :: StopTextTranslationJobResponse
 -&gt; StopTextTranslationJobResponse -&gt; Bool
 $c== :: StopTextTranslationJobResponse
 -&gt; StopTextTranslationJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185505"><span id="local-6989586621679185507"><span id="local-6989586621679185509"><span id="local-6989586621679185511"><span class="annot"><span class="annottext">ReadPrec [StopTextTranslationJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185570"><span id="local-6989586621679185572"><span id="local-6989586621679185574"><span id="local-6989586621679185576"><span class="annot"><span class="annottext">ReadPrec [StopTextTranslationJobResponse]
 ReadPrec StopTextTranslationJobResponse
 Int -&gt; ReadS StopTextTranslationJobResponse
 ReadS [StopTextTranslationJobResponse]
@@ -349,7 +350,7 @@ readList :: ReadS [StopTextTranslationJobResponse]
 $creadList :: ReadS [StopTextTranslationJobResponse]
 readsPrec :: Int -&gt; ReadS StopTextTranslationJobResponse
 $creadsPrec :: Int -&gt; ReadS StopTextTranslationJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185499"><span id="local-6989586621679185501"><span id="local-6989586621679185503"><span class="annot"><span class="annottext">Int -&gt; StopTextTranslationJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185564"><span id="local-6989586621679185566"><span id="local-6989586621679185568"><span class="annot"><span class="annottext">Int -&gt; StopTextTranslationJobResponse -&gt; ShowS
 [StopTextTranslationJobResponse] -&gt; ShowS
 StopTextTranslationJobResponse -&gt; String
 (Int -&gt; StopTextTranslationJobResponse -&gt; ShowS)
@@ -395,10 +396,10 @@ StopTextTranslationJobResponse
 </span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'jobStatus', 'stopTextTranslationJobResponse_jobStatus' - The status of the designated job. Upon successful completion, the job\'s</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- status will be @STOPPED@.</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'jobId', 'stopTextTranslationJobResponse_jobId' - The job ID of the stopped batch translation job.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'jobId', 'stopTextTranslationJobResponse_jobId' - The job ID of the stopped batch translation job.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'jobStatus', 'stopTextTranslationJobResponse_jobStatus' - The status of the designated job. Upon successful completion, the job\'s</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- status will be @STOPPED@.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'stopTextTranslationJobResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#newStopTextTranslationJobResponse"><span class="hs-identifier hs-type">newStopTextTranslationJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -406,54 +407,28 @@ StopTextTranslationJobResponse
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newStopTextTranslationJobResponse"><span class="annot"><span class="annottext">newStopTextTranslationJobResponse :: Int -&gt; StopTextTranslationJobResponse
-</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#newStopTextTranslationJobResponse"><span class="hs-identifier hs-var hs-var">newStopTextTranslationJobResponse</span></a></span></span><span> </span><span id="local-6989586621679185496"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse' :: Maybe JobStatus
--&gt; Maybe Text -&gt; Int -&gt; StopTextTranslationJobResponse
+</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#newStopTextTranslationJobResponse"><span class="hs-identifier hs-var hs-var">newStopTextTranslationJobResponse</span></a></span></span><span> </span><span id="local-6989586621679185561"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse' :: Maybe Text
+-&gt; Maybe JobStatus -&gt; Int -&gt; StopTextTranslationJobResponse
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobStatus:StopTextTranslationJobResponse' :: Maybe JobStatus
-</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StopTextTranslationJobResponse' :: Maybe Text
+</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobId%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:StopTextTranslationJobResponse' :: Maybe Text
-</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobId%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:StopTextTranslationJobResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopTextTranslationJobResponse' :: Int
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AhttpStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679185561"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | The status of the designated job. Upon successful completion, the job\'s</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- status will be @STOPPED@.</span><span>
-</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobStatus"><span class="hs-identifier hs-type">stopTextTranslationJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span id="stopTextTranslationJobResponse_jobStatus"><span class="annot"><span class="annottext">stopTextTranslationJobResponse_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
--&gt; StopTextTranslationJobResponse
--&gt; f StopTextTranslationJobResponse
-</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">stopTextTranslationJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopTextTranslationJobResponse -&gt; Maybe JobStatus)
--&gt; (StopTextTranslationJobResponse
-    -&gt; Maybe JobStatus -&gt; StopTextTranslationJobResponse)
--&gt; Lens
-     StopTextTranslationJobResponse
-     StopTextTranslationJobResponse
-     (Maybe JobStatus)
-     (Maybe JobStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185495"><span class="annot"><span class="annottext">Maybe JobStatus
-jobStatus :: Maybe JobStatus
-$sel:jobStatus:StopTextTranslationJobResponse' :: StopTextTranslationJobResponse -&gt; Maybe JobStatus
-</span><a href="#local-6989586621679185495"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679185495"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185494"><span class="annot"><span class="annottext">s :: StopTextTranslationJobResponse
-</span><a href="#local-6989586621679185494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185493"><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679185493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse
-</span><a href="#local-6989586621679185494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StopTextTranslationJobResponse' :: Maybe JobStatus
-</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
-</span><a href="#local-6989586621679185493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- | The job ID of the stopped batch translation job.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobId"><span class="hs-identifier hs-type">stopTextTranslationJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="stopTextTranslationJobResponse_jobId"><span class="annot"><span class="annottext">stopTextTranslationJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-171"></span><span class="hs-comment">-- | The job ID of the stopped batch translation job.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobId"><span class="hs-identifier hs-type">stopTextTranslationJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="stopTextTranslationJobResponse_jobId"><span class="annot"><span class="annottext">stopTextTranslationJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StopTextTranslationJobResponse
 -&gt; f StopTextTranslationJobResponse
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobId"><span class="hs-identifier hs-var hs-var">stopTextTranslationJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopTextTranslationJobResponse -&gt; Maybe Text)
@@ -465,16 +440,42 @@ $sel:jobStatus:StopTextTranslationJobResponse' :: StopTextTranslationJobResponse
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185492"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185560"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:StopTextTranslationJobResponse' :: StopTextTranslationJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679185492"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185492"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185491"><span class="annot"><span class="annottext">s :: StopTextTranslationJobResponse
-</span><a href="#local-6989586621679185491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185490"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse
-</span><a href="#local-6989586621679185491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopTextTranslationJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679185560"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185560"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185559"><span class="annot"><span class="annottext">s :: StopTextTranslationJobResponse
+</span><a href="#local-6989586621679185559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse
+</span><a href="#local-6989586621679185559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StopTextTranslationJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobId%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The status of the designated job. Upon successful completion, the job\'s</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- status will be @STOPPED@.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobStatus"><span class="hs-identifier hs-type">stopTextTranslationJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="stopTextTranslationJobResponse_jobStatus"><span class="annot"><span class="annottext">stopTextTranslationJobResponse_jobStatus :: (Maybe JobStatus -&gt; f (Maybe JobStatus))
+-&gt; StopTextTranslationJobResponse
+-&gt; f StopTextTranslationJobResponse
+</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">stopTextTranslationJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopTextTranslationJobResponse -&gt; Maybe JobStatus)
+-&gt; (StopTextTranslationJobResponse
+    -&gt; Maybe JobStatus -&gt; StopTextTranslationJobResponse)
+-&gt; Lens
+     StopTextTranslationJobResponse
+     StopTextTranslationJobResponse
+     (Maybe JobStatus)
+     (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185557"><span class="annot"><span class="annottext">Maybe JobStatus
+jobStatus :: Maybe JobStatus
+$sel:jobStatus:StopTextTranslationJobResponse' :: StopTextTranslationJobResponse -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679185557"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679185557"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185556"><span class="annot"><span class="annottext">s :: StopTextTranslationJobResponse
+</span><a href="#local-6989586621679185556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185555"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679185555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse
+</span><a href="#local-6989586621679185556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:StopTextTranslationJobResponse' :: Maybe JobStatus
+</span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AjobStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679185555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#stopTextTranslationJobResponse_httpStatus"><span class="hs-identifier hs-type">stopTextTranslationJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -490,18 +491,18 @@ $sel:jobId:StopTextTranslationJobResponse' :: StopTextTranslationJobResponse -&g
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185489"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185554"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopTextTranslationJobResponse' :: StopTextTranslationJobResponse -&gt; Int
-</span><a href="#local-6989586621679185489"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185489"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185488"><span class="annot"><span class="annottext">s :: StopTextTranslationJobResponse
-</span><a href="#local-6989586621679185488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185487"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse
-</span><a href="#local-6989586621679185488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopTextTranslationJobResponse' :: Int
+</span><a href="#local-6989586621679185554"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185554"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185553"><span class="annot"><span class="annottext">s :: StopTextTranslationJobResponse
+</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse%27"><span class="hs-identifier hs-type">StopTextTranslationJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTextTranslationJobResponse
+</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopTextTranslationJobResponse' :: Int
 </span><a href="Network.AWS.Translate.StopTextTranslationJob.html#%24sel%3AhttpStatus%3AStopTextTranslationJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679185485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679185550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.Translate.StopTextTranslationJob.html#StopTextTranslationJobResponse"><span class="hs-identifier hs-type">StopTextTranslationJobResponse</span></a></span></span><span>
 </span><span id="line-187"></span></pre></body></html>

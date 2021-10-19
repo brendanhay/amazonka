@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679379483"><span id="local-6989586621679379484"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeType"><span class="annot"><a href="Network.AWS.OpsWorks.Types.VolumeType.html#VolumeType"><span class="hs-identifier hs-var">VolumeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeType%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.VolumeType.html#VolumeType%27"><span class="hs-identifier hs-var">VolumeType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679379884"><span id="local-6989586621679379885"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VolumeType"><span class="annot"><a href="Network.AWS.OpsWorks.Types.VolumeType.html#VolumeType"><span class="hs-identifier hs-var">VolumeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeType%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.VolumeType.html#VolumeType%27"><span class="hs-identifier hs-var">VolumeType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVolumeType"><span class="annot"><span class="annottext">VolumeType -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.VolumeType.html#fromVolumeType"><span class="hs-identifier hs-var hs-var">fromVolumeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379475"><span id="local-6989586621679379477"><span id="local-6989586621679379479"><span class="annot"><span class="annottext">Int -&gt; VolumeType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379876"><span id="local-6989586621679379878"><span id="local-6989586621679379880"><span class="annot"><span class="annottext">Int -&gt; VolumeType -&gt; ShowS
 [VolumeType] -&gt; ShowS
 VolumeType -&gt; String
 (Int -&gt; VolumeType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: VolumeType -&gt; String
 showsPrec :: Int -&gt; VolumeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; VolumeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679379466"><span id="local-6989586621679379468"><span id="local-6989586621679379470"><span id="local-6989586621679379472"><span class="annot"><span class="annottext">ReadPrec [VolumeType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679379867"><span id="local-6989586621679379869"><span id="local-6989586621679379871"><span id="local-6989586621679379873"><span class="annot"><span class="annottext">ReadPrec [VolumeType]
 ReadPrec VolumeType
 Int -&gt; ReadS VolumeType
 ReadS [VolumeType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [VolumeType]
 readsPrec :: Int -&gt; ReadS VolumeType
 $creadsPrec :: Int -&gt; ReadS VolumeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679379461"><span id="local-6989586621679379463"><span class="annot"><span class="annottext">VolumeType -&gt; VolumeType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679379862"><span id="local-6989586621679379864"><span class="annot"><span class="annottext">VolumeType -&gt; VolumeType -&gt; Bool
 (VolumeType -&gt; VolumeType -&gt; Bool)
 -&gt; (VolumeType -&gt; VolumeType -&gt; Bool) -&gt; Eq VolumeType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: VolumeType -&gt; VolumeType -&gt; Bool
 == :: VolumeType -&gt; VolumeType -&gt; Bool
 $c== :: VolumeType -&gt; VolumeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679379445"><span id="local-6989586621679379447"><span id="local-6989586621679379449"><span id="local-6989586621679379451"><span id="local-6989586621679379453"><span id="local-6989586621679379455"><span id="local-6989586621679379457"><span class="annot"><span class="annottext">Eq VolumeType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679379846"><span id="local-6989586621679379848"><span id="local-6989586621679379850"><span id="local-6989586621679379852"><span id="local-6989586621679379854"><span id="local-6989586621679379856"><span id="local-6989586621679379858"><span class="annot"><span class="annottext">Eq VolumeType
 Eq VolumeType
 -&gt; (VolumeType -&gt; VolumeType -&gt; Ordering)
 -&gt; (VolumeType -&gt; VolumeType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. VolumeType -&gt; Rep VolumeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379437"><span id="local-6989586621679379439"><span class="annot"><span class="annottext">Int -&gt; VolumeType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379838"><span id="local-6989586621679379840"><span class="annot"><span class="annottext">Int -&gt; VolumeType -&gt; Int
 VolumeType -&gt; Int
 (Int -&gt; VolumeType -&gt; Int)
 -&gt; (VolumeType -&gt; Int) -&gt; Hashable VolumeType
@@ -142,49 +142,49 @@ $chash :: VolumeType -&gt; Int
 hashWithSalt :: Int -&gt; VolumeType -&gt; Int
 $chashWithSalt :: Int -&gt; VolumeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679379434"><span class="annot"><span class="annottext">VolumeType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679379835"><span class="annot"><span class="annottext">VolumeType -&gt; ()
 (VolumeType -&gt; ()) -&gt; NFData VolumeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VolumeType -&gt; ()
 $crnf :: VolumeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679379431"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679379832"><span class="annot"><span class="annottext">Text -&gt; Either String VolumeType
 (Text -&gt; Either String VolumeType) -&gt; FromText VolumeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VolumeType
 $cfromText :: Text -&gt; Either String VolumeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679379428"><span class="annot"><span class="annottext">VolumeType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679379829"><span class="annot"><span class="annottext">VolumeType -&gt; Text
 (VolumeType -&gt; Text) -&gt; ToText VolumeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VolumeType -&gt; Text
 $ctoText :: VolumeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679379425"><span class="annot"><span class="annottext">VolumeType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679379826"><span class="annot"><span class="annottext">VolumeType -&gt; ByteString
 (VolumeType -&gt; ByteString) -&gt; ToByteString VolumeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VolumeType -&gt; ByteString
 $ctoBS :: VolumeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679379422"><span class="annot"><span class="annottext">VolumeType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679379823"><span class="annot"><span class="annottext">VolumeType -&gt; ByteStringBuilder
 (VolumeType -&gt; ByteStringBuilder) -&gt; ToLog VolumeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VolumeType -&gt; ByteStringBuilder
 $cbuild :: VolumeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679379419"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679379820"><span class="annot"><span class="annottext">HeaderName -&gt; VolumeType -&gt; [Header]
 (HeaderName -&gt; VolumeType -&gt; [Header]) -&gt; ToHeader VolumeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VolumeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VolumeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679379416"><span class="annot"><span class="annottext">VolumeType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679379817"><span class="annot"><span class="annottext">VolumeType -&gt; QueryString
 (VolumeType -&gt; QueryString) -&gt; ToQuery VolumeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VolumeType -&gt; QueryString
 $ctoQuery :: VolumeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679379411"><span id="local-6989586621679379413"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679379812"><span id="local-6989586621679379814"><span class="annot"><span class="annottext">Value -&gt; Parser [VolumeType]
 Value -&gt; Parser VolumeType
 (Value -&gt; Parser VolumeType)
 -&gt; (Value -&gt; Parser [VolumeType]) -&gt; FromJSON VolumeType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [VolumeType]
 parseJSON :: Value -&gt; Parser VolumeType
 $cparseJSON :: Value -&gt; Parser VolumeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379406"><span id="local-6989586621679379408"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379807"><span id="local-6989586621679379809"><span class="annot"><span class="annottext">FromJSONKeyFunction [VolumeType]
 FromJSONKeyFunction VolumeType
 FromJSONKeyFunction VolumeType
 -&gt; FromJSONKeyFunction [VolumeType] -&gt; FromJSONKey VolumeType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VolumeType]
 fromJSONKey :: FromJSONKeyFunction VolumeType
 $cfromJSONKey :: FromJSONKeyFunction VolumeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379397"><span id="local-6989586621679379399"><span id="local-6989586621679379401"><span id="local-6989586621679379403"><span class="annot"><span class="annottext">[VolumeType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379798"><span id="local-6989586621679379800"><span id="local-6989586621679379802"><span id="local-6989586621679379804"><span class="annot"><span class="annottext">[VolumeType] -&gt; Encoding
 [VolumeType] -&gt; Value
 VolumeType -&gt; Encoding
 VolumeType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: VolumeType -&gt; Encoding
 toJSON :: VolumeType -&gt; Value
 $ctoJSON :: VolumeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379392"><span id="local-6989586621679379394"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379793"><span id="local-6989586621679379795"><span class="annot"><span class="annottext">ToJSONKeyFunction [VolumeType]
 ToJSONKeyFunction VolumeType
 ToJSONKeyFunction VolumeType
 -&gt; ToJSONKeyFunction [VolumeType] -&gt; ToJSONKey VolumeType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VolumeType]
 toJSONKey :: ToJSONKeyFunction VolumeType
 $ctoJSONKey :: ToJSONKeyFunction VolumeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679379389"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679379790"><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeType
 ([Node] -&gt; Either String VolumeType) -&gt; FromXML VolumeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VolumeType
 $cparseXML :: [Node] -&gt; Either String VolumeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679379386"><span class="annot"><span class="annottext">VolumeType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679379787"><span class="annot"><span class="annottext">VolumeType -&gt; XML
 (VolumeType -&gt; XML) -&gt; ToXML VolumeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VolumeType -&gt; XML

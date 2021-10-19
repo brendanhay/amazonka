@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains a list of values defining partitions.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPartitionValueList' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679691087"><span id="local-6989586621679691088"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartitionValueList"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-var">PartitionValueList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionValueList%27"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-var">PartitionValueList'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679692747"><span id="local-6989586621679692748"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartitionValueList"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-var">PartitionValueList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionValueList%27"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-var">PartitionValueList'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of values.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalues%3APartitionValueList%27"><span class="annot"><span class="annottext">PartitionValueList -&gt; [Text]
 </span><a href="Network.AWS.Glue.Types.PartitionValueList.html#%24sel%3Avalues%3APartitionValueList%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691081"><span id="local-6989586621679691083"><span class="annot"><span class="annottext">PartitionValueList -&gt; PartitionValueList -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692741"><span id="local-6989586621679692743"><span class="annot"><span class="annottext">PartitionValueList -&gt; PartitionValueList -&gt; Bool
 (PartitionValueList -&gt; PartitionValueList -&gt; Bool)
 -&gt; (PartitionValueList -&gt; PartitionValueList -&gt; Bool)
 -&gt; Eq PartitionValueList
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PartitionValueList -&gt; PartitionValueList -&gt; Bool
 == :: PartitionValueList -&gt; PartitionValueList -&gt; Bool
 $c== :: PartitionValueList -&gt; PartitionValueList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691072"><span id="local-6989586621679691074"><span id="local-6989586621679691076"><span id="local-6989586621679691078"><span class="annot"><span class="annottext">ReadPrec [PartitionValueList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692732"><span id="local-6989586621679692734"><span id="local-6989586621679692736"><span id="local-6989586621679692738"><span class="annot"><span class="annottext">ReadPrec [PartitionValueList]
 ReadPrec PartitionValueList
 Int -&gt; ReadS PartitionValueList
 ReadS [PartitionValueList]
@@ -60,7 +60,7 @@ readList :: ReadS [PartitionValueList]
 $creadList :: ReadS [PartitionValueList]
 readsPrec :: Int -&gt; ReadS PartitionValueList
 $creadsPrec :: Int -&gt; ReadS PartitionValueList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691065"><span id="local-6989586621679691067"><span id="local-6989586621679691069"><span class="annot"><span class="annottext">Int -&gt; PartitionValueList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692725"><span id="local-6989586621679692727"><span id="local-6989586621679692729"><span class="annot"><span class="annottext">Int -&gt; PartitionValueList -&gt; ShowS
 [PartitionValueList] -&gt; ShowS
 PartitionValueList -&gt; String
 (Int -&gt; PartitionValueList -&gt; ShowS)
@@ -112,16 +112,16 @@ forall a. Monoid a =&gt; a
 -&gt; (PartitionValueList -&gt; [Text] -&gt; PartitionValueList)
 -&gt; Lens PartitionValueList PartitionValueList [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691056"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692716"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:PartitionValueList' :: PartitionValueList -&gt; [Text]
-</span><a href="#local-6989586621679691056"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679691056"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691055"><span class="annot"><span class="annottext">s :: PartitionValueList
-</span><a href="#local-6989586621679691055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691054"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679691054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionValueList
-</span><a href="#local-6989586621679691055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:PartitionValueList' :: [Text]
+</span><a href="#local-6989586621679692716"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679692716"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692715"><span class="annot"><span class="annottext">s :: PartitionValueList
+</span><a href="#local-6989586621679692715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692714"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679692714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionValueList
+</span><a href="#local-6989586621679692715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:PartitionValueList' :: [Text]
 </span><a href="Network.AWS.Glue.Types.PartitionValueList.html#%24sel%3Avalues%3APartitionValueList%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679691054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679692714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; PartitionValueList -&gt; f PartitionValueList)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -129,11 +129,11 @@ $sel:values:PartitionValueList' :: PartitionValueList -&gt; [Text]
 -&gt; f PartitionValueList
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691049"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679691047"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartitionValueList
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692709"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679692707"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartitionValueList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PartitionValueList)
@@ -143,15 +143,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PartitionValueList&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679691044"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691044"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692704"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692704"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">[Text] -&gt; PartitionValueList
 </span><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-var">PartitionValueList'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">([Text] -&gt; PartitionValueList)
 -&gt; Parser [Text] -&gt; Parser PartitionValueList
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691044"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679692704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -161,16 +161,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691037"><span id="local-6989586621679691039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692697"><span id="local-6989586621679692699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691026"><span id="local-6989586621679691028"><span id="local-6989586621679691030"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679691024"><span class="annot"><span class="annottext">toJSON :: PartitionValueList -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691022"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692686"><span id="local-6989586621679692688"><span id="local-6989586621679692690"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679692684"><span class="annot"><span class="annottext">toJSON :: PartitionValueList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList%27"><span class="hs-identifier hs-type">PartitionValueList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692682"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:PartitionValueList' :: PartitionValueList -&gt; [Text]
-</span><a href="#local-6989586621679691022"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679692682"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -182,6 +182,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679691022"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679692682"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

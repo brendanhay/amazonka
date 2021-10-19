@@ -30,9 +30,9 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#newCreateImage"><span class="hs-identifier">newCreateImage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_tags"><span class="hs-identifier">createImage_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_displayName"><span class="hs-identifier">createImage_displayName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_description"><span class="hs-identifier">createImage_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_displayName"><span class="hs-identifier">createImage_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_tags"><span class="hs-identifier">createImage_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_imageName"><span class="hs-identifier">createImage_imageName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_roleArn"><span class="hs-identifier">createImage_roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
@@ -54,17 +54,17 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCreateImage' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621680417168"><span id="local-6989586621680417169"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateImage"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-var">CreateImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateImage%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-var">CreateImage'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags to apply to the image.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Atags%3ACreateImage%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The description of the image.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Adescription%3ACreateImage%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The display name of the image. If not provided, @ImageName@ is</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- displayed.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Maybe Text
+</span><span id="line-57"></span><span id="local-6989586621680418815"><span id="local-6989586621680418816"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateImage"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-var">CreateImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateImage%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-var">CreateImage'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The display name of the image. If not provided, @ImageName@ is</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AdisplayName%3ACreateImage%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The description of the image.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adescription%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Adescription%3ACreateImage%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A list of tags to apply to the image.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atags%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Atags%3ACreateImage%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the image. Must be unique to your account.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AimageName%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AimageName%3ACreateImage%27"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateImage%27"><span class="annot"><span class="annottext">CreateImage -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AroleArn%3ACreateImage%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417158"><span id="local-6989586621680417160"><span class="annot"><span class="annottext">CreateImage -&gt; CreateImage -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680418805"><span id="local-6989586621680418807"><span class="annot"><span class="annottext">CreateImage -&gt; CreateImage -&gt; Bool
 (CreateImage -&gt; CreateImage -&gt; Bool)
 -&gt; (CreateImage -&gt; CreateImage -&gt; Bool) -&gt; Eq CreateImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateImage -&gt; CreateImage -&gt; Bool
 == :: CreateImage -&gt; CreateImage -&gt; Bool
 $c== :: CreateImage -&gt; CreateImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417149"><span id="local-6989586621680417151"><span id="local-6989586621680417153"><span id="local-6989586621680417155"><span class="annot"><span class="annottext">ReadPrec [CreateImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680418796"><span id="local-6989586621680418798"><span id="local-6989586621680418800"><span id="local-6989586621680418802"><span class="annot"><span class="annottext">ReadPrec [CreateImage]
 ReadPrec CreateImage
 Int -&gt; ReadS CreateImage
 ReadS [CreateImage]
@@ -101,7 +101,7 @@ readList :: ReadS [CreateImage]
 $creadList :: ReadS [CreateImage]
 readsPrec :: Int -&gt; ReadS CreateImage
 $creadsPrec :: Int -&gt; ReadS CreateImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417142"><span id="local-6989586621680417144"><span id="local-6989586621680417146"><span class="annot"><span class="annottext">Int -&gt; CreateImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680418789"><span id="local-6989586621680418791"><span id="local-6989586621680418793"><span class="annot"><span class="annottext">Int -&gt; CreateImage -&gt; ShowS
 [CreateImage] -&gt; ShowS
 CreateImage -&gt; String
 (Int -&gt; CreateImage -&gt; ShowS)
@@ -135,12 +135,12 @@ $cfrom :: forall x. CreateImage -&gt; Rep CreateImage x
 </span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'tags', 'createImage_tags' - A list of tags to apply to the image.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'createImage_description' - The description of the image.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'displayName', 'createImage_displayName' - The display name of the image. If not provided, @ImageName@ is</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'displayName', 'createImage_displayName' - The display name of the image. If not provided, @ImageName@ is</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'description', 'createImage_description' - The description of the image.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'tags', 'createImage_tags' - A list of tags to apply to the image.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- 'imageName', 'createImage_imageName' - The name of the image. Must be unique to your account.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
@@ -153,49 +153,86 @@ $cfrom :: forall x. CreateImage -&gt; Rep CreateImage x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span>
 </span><span id="line-98"></span><span id="newCreateImage"><span class="annot"><span class="annottext">newCreateImage :: Text -&gt; Text -&gt; CreateImage
-</span><a href="Network.AWS.SageMaker.CreateImage.html#newCreateImage"><span class="hs-identifier hs-var hs-var">newCreateImage</span></a></span></span><span> </span><span id="local-6989586621680417137"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417137"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span> </span><span id="local-6989586621680417136"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417136"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">CreateImage' :: Maybe [Tag]
--&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; CreateImage
+</span><a href="Network.AWS.SageMaker.CreateImage.html#newCreateImage"><span class="hs-identifier hs-var hs-var">newCreateImage</span></a></span></span><span> </span><span id="local-6989586621680418784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680418784"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span> </span><span id="local-6989586621680418783"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680418783"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">CreateImage' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Text -&gt; Text -&gt; CreateImage
 </span><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateImage' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Atags%3ACreateImage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:displayName:CreateImage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AdisplayName%3ACreateImage%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateImage' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Adescription%3ACreateImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateImage' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AdisplayName%3ACreateImage%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateImage' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Atags%3ACreateImage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageName:CreateImage' :: Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AimageName%3ACreateImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417137"><span class="hs-identifier hs-var">pImageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680418784"><span class="hs-identifier hs-var">pImageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:CreateImage' :: Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AroleArn%3ACreateImage%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417136"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621680418783"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | A list of tags to apply to the image.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_tags"><span class="hs-identifier hs-type">createImage_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="createImage_tags"><span class="annot"><span class="annottext">createImage_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateImage -&gt; f CreateImage
+</span><span id="line-107"></span><span class="hs-comment">-- | The display name of the image. If not provided, @ImageName@ is</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- displayed.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_displayName"><span class="hs-identifier hs-type">createImage_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="createImage_displayName"><span class="annot"><span class="annottext">createImage_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateImage -&gt; f CreateImage
+</span><a href="Network.AWS.SageMaker.CreateImage.html#createImage_displayName"><span class="hs-identifier hs-var hs-var">createImage_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateImage -&gt; Maybe Text)
+-&gt; (CreateImage -&gt; Maybe Text -&gt; CreateImage)
+-&gt; Lens CreateImage CreateImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418780"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:CreateImage' :: CreateImage -&gt; Maybe Text
+</span><a href="#local-6989586621680418780"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418780"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680418779"><span class="annot"><span class="annottext">s :: CreateImage
+</span><a href="#local-6989586621680418779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680418778"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
+</span><a href="#local-6989586621680418779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateImage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AdisplayName%3ACreateImage%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The description of the image.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_description"><span class="hs-identifier hs-type">createImage_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="createImage_description"><span class="annot"><span class="annottext">createImage_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateImage -&gt; f CreateImage
+</span><a href="Network.AWS.SageMaker.CreateImage.html#createImage_description"><span class="hs-identifier hs-var hs-var">createImage_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateImage -&gt; Maybe Text)
+-&gt; (CreateImage -&gt; Maybe Text -&gt; CreateImage)
+-&gt; Lens CreateImage CreateImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418777"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateImage' :: CreateImage -&gt; Maybe Text
+</span><a href="#local-6989586621680418777"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418777"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680418776"><span class="annot"><span class="annottext">s :: CreateImage
+</span><a href="#local-6989586621680418776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680418775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
+</span><a href="#local-6989586621680418776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateImage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Adescription%3ACreateImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | A list of tags to apply to the image.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_tags"><span class="hs-identifier hs-type">createImage_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="createImage_tags"><span class="annot"><span class="annottext">createImage_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateImage -&gt; f CreateImage
 </span><a href="Network.AWS.SageMaker.CreateImage.html#createImage_tags"><span class="hs-identifier hs-var hs-var">createImage_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateImage -&gt; Maybe [Tag])
 -&gt; (CreateImage -&gt; Maybe [Tag] -&gt; CreateImage)
 -&gt; Lens CreateImage CreateImage (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417133"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418774"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateImage' :: CreateImage -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680417133"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417133"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417132"><span class="annot"><span class="annottext">s :: CreateImage
-</span><a href="#local-6989586621680417132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417131"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
-</span><a href="#local-6989586621680417132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateImage' :: Maybe [Tag]
+</span><a href="#local-6989586621680418774"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680418774"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680418773"><span class="annot"><span class="annottext">s :: CreateImage
+</span><a href="#local-6989586621680418773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680418772"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680418772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
+</span><a href="#local-6989586621680418773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateImage' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Atags%3ACreateImage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateImage -&gt; f CreateImage)
+</span><a href="#local-6989586621680418772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateImage -&gt; f CreateImage)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -208,45 +245,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The description of the image.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_description"><span class="hs-identifier hs-type">createImage_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="createImage_description"><span class="annot"><span class="annottext">createImage_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateImage -&gt; f CreateImage
-</span><a href="Network.AWS.SageMaker.CreateImage.html#createImage_description"><span class="hs-identifier hs-var hs-var">createImage_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateImage -&gt; Maybe Text)
--&gt; (CreateImage -&gt; Maybe Text -&gt; CreateImage)
--&gt; Lens CreateImage CreateImage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417127"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreateImage' :: CreateImage -&gt; Maybe Text
-</span><a href="#local-6989586621680417127"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417127"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417126"><span class="annot"><span class="annottext">s :: CreateImage
-</span><a href="#local-6989586621680417126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417125"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
-</span><a href="#local-6989586621680417126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateImage' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3Adescription%3ACreateImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The display name of the image. If not provided, @ImageName@ is</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- displayed.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_displayName"><span class="hs-identifier hs-type">createImage_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="createImage_displayName"><span class="annot"><span class="annottext">createImage_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateImage -&gt; f CreateImage
-</span><a href="Network.AWS.SageMaker.CreateImage.html#createImage_displayName"><span class="hs-identifier hs-var hs-var">createImage_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateImage -&gt; Maybe Text)
--&gt; (CreateImage -&gt; Maybe Text -&gt; CreateImage)
--&gt; Lens CreateImage CreateImage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417124"><span class="annot"><span class="annottext">Maybe Text
-displayName :: Maybe Text
-$sel:displayName:CreateImage' :: CreateImage -&gt; Maybe Text
-</span><a href="#local-6989586621680417124"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417124"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417123"><span class="annot"><span class="annottext">s :: CreateImage
-</span><a href="#local-6989586621680417123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417122"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
-</span><a href="#local-6989586621680417123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateImage' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AdisplayName%3ACreateImage%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The name of the image. Must be unique to your account.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImage_imageName"><span class="hs-identifier hs-type">createImage_imageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -255,16 +255,16 @@ $sel:displayName:CreateImage' :: CreateImage -&gt; Maybe Text
 -&gt; (CreateImage -&gt; Text -&gt; CreateImage)
 -&gt; Lens CreateImage CreateImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417121"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418768"><span class="annot"><span class="annottext">Text
 imageName :: Text
 $sel:imageName:CreateImage' :: CreateImage -&gt; Text
-</span><a href="#local-6989586621680417121"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417121"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417120"><span class="annot"><span class="annottext">s :: CreateImage
-</span><a href="#local-6989586621680417120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
-</span><a href="#local-6989586621680417120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:CreateImage' :: Text
+</span><a href="#local-6989586621680418768"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680418768"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680418767"><span class="annot"><span class="annottext">s :: CreateImage
+</span><a href="#local-6989586621680418767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680418766"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680418766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
+</span><a href="#local-6989586621680418767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:CreateImage' :: Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AimageName%3ACreateImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680418766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- SageMaker to perform tasks on your behalf.</span><span>
@@ -274,25 +274,25 @@ $sel:imageName:CreateImage' :: CreateImage -&gt; Text
 -&gt; (CreateImage -&gt; Text -&gt; CreateImage)
 -&gt; Lens CreateImage CreateImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417118"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418765"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CreateImage' :: CreateImage -&gt; Text
-</span><a href="#local-6989586621680417118"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417118"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417117"><span class="annot"><span class="annottext">s :: CreateImage
-</span><a href="#local-6989586621680417117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417116"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
-</span><a href="#local-6989586621680417117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateImage' :: Text
+</span><a href="#local-6989586621680418765"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680418765"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680418764"><span class="annot"><span class="annottext">s :: CreateImage
+</span><a href="#local-6989586621680418764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680418763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680418763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImage
+</span><a href="#local-6989586621680418764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateImage' :: Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AroleArn%3ACreateImage%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680418763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621680417112"><span class="annot"><span class="annottext">request :: CreateImage -&gt; Request CreateImage
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680418759"><span class="annot"><span class="annottext">request :: CreateImage -&gt; Request CreateImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateImage -&gt; Request CreateImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621680417108"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621680418755"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateImage
 -&gt; ClientResponse ClientBody
@@ -316,10 +316,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680417105"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417105"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680417104"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680417104"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680417103"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680417103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680418752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680418752"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680418751"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680418751"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680418750"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680418750"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateImageResponse
 </span><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-var">CreateImageResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateImageResponse)
@@ -327,7 +327,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680417103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680418750"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,15 +339,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417105"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680418752"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417095"><span id="local-6989586621680417097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680418742"><span id="local-6989586621680418744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680418739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621680417088"><span class="annot"><span class="annottext">toHeaders :: CreateImage -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621680418735"><span class="annot"><span class="annottext">toHeaders :: CreateImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -372,74 +372,74 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417078"><span id="local-6989586621680417080"><span id="local-6989586621680417082"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621680417076"><span class="annot"><span class="annottext">toJSON :: CreateImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417070"><span id="local-6989586621680417071"><span id="local-6989586621680417072"><span id="local-6989586621680417073"><span id="local-6989586621680417074"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680418725"><span id="local-6989586621680418727"><span id="local-6989586621680418729"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621680418723"><span class="annot"><span class="annottext">toJSON :: CreateImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage%27"><span class="hs-identifier hs-type">CreateImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418717"><span id="local-6989586621680418718"><span id="local-6989586621680418719"><span id="local-6989586621680418720"><span id="local-6989586621680418721"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Text
 roleArn :: Text
 imageName :: Text
-displayName :: Maybe Text
-description :: Maybe Text
 tags :: Maybe [Tag]
+description :: Maybe Text
+displayName :: Maybe Text
 $sel:roleArn:CreateImage' :: CreateImage -&gt; Text
 $sel:imageName:CreateImage' :: CreateImage -&gt; Text
-$sel:displayName:CreateImage' :: CreateImage -&gt; Maybe Text
-$sel:description:CreateImage' :: CreateImage -&gt; Maybe Text
 $sel:tags:CreateImage' :: CreateImage -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680417070"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:description:CreateImage' :: CreateImage -&gt; Maybe Text
+$sel:displayName:CreateImage' :: CreateImage -&gt; Maybe Text
+</span><a href="#local-6989586621680418717"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417074"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418721"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417073"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680418720"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417072"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680418719"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417071"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680418718"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417070"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680418717"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621680417064"><span class="annot"><span class="annottext">toPath :: CreateImage -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621680418711"><span class="annot"><span class="annottext">toPath :: CreateImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImage"><span class="hs-identifier hs-type">CreateImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621680417060"><span class="annot"><span class="annottext">toQuery :: CreateImage -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621680418707"><span class="annot"><span class="annottext">toQuery :: CreateImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -447,7 +447,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newCreateImageResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621680417057"><span id="local-6989586621680417058"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateImageResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-var">CreateImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateImageResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-var">CreateImageResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621680418704"><span id="local-6989586621680418705"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateImageResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-var">CreateImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateImageResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-var">CreateImageResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AimageArn%3ACreateImageResponse%27"><span class="annot"><span class="annottext">CreateImageResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AimageArn%3ACreateImageResponse%27"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -455,7 +455,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateImageResponse%27"><span class="annot"><span class="annottext">CreateImageResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AhttpStatus%3ACreateImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417051"><span id="local-6989586621680417053"><span class="annot"><span class="annottext">CreateImageResponse -&gt; CreateImageResponse -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680418698"><span id="local-6989586621680418700"><span class="annot"><span class="annottext">CreateImageResponse -&gt; CreateImageResponse -&gt; Bool
 (CreateImageResponse -&gt; CreateImageResponse -&gt; Bool)
 -&gt; (CreateImageResponse -&gt; CreateImageResponse -&gt; Bool)
 -&gt; Eq CreateImageResponse
@@ -464,7 +464,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateImageResponse -&gt; CreateImageResponse -&gt; Bool
 == :: CreateImageResponse -&gt; CreateImageResponse -&gt; Bool
 $c== :: CreateImageResponse -&gt; CreateImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417043"><span id="local-6989586621680417045"><span id="local-6989586621680417047"><span id="local-6989586621680417049"><span class="annot"><span class="annottext">ReadPrec [CreateImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680418690"><span id="local-6989586621680418692"><span id="local-6989586621680418694"><span id="local-6989586621680418696"><span class="annot"><span class="annottext">ReadPrec [CreateImageResponse]
 ReadPrec CreateImageResponse
 Int -&gt; ReadS CreateImageResponse
 ReadS [CreateImageResponse]
@@ -484,7 +484,7 @@ readList :: ReadS [CreateImageResponse]
 $creadList :: ReadS [CreateImageResponse]
 readsPrec :: Int -&gt; ReadS CreateImageResponse
 $creadsPrec :: Int -&gt; ReadS CreateImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417037"><span id="local-6989586621680417039"><span id="local-6989586621680417041"><span class="annot"><span class="annottext">Int -&gt; CreateImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680418684"><span id="local-6989586621680418686"><span id="local-6989586621680418688"><span class="annot"><span class="annottext">Int -&gt; CreateImageResponse -&gt; ShowS
 [CreateImageResponse] -&gt; ShowS
 CreateImageResponse -&gt; String
 (Int -&gt; CreateImageResponse -&gt; ShowS)
@@ -526,8 +526,8 @@ $cfrom :: forall x. CreateImageResponse -&gt; Rep CreateImageResponse x
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span><span>
 </span><span id="line-199"></span><span id="newCreateImageResponse"><span class="annot"><span class="annottext">newCreateImageResponse :: Int -&gt; CreateImageResponse
-</span><a href="Network.AWS.SageMaker.CreateImage.html#newCreateImageResponse"><span class="hs-identifier hs-var hs-var">newCreateImageResponse</span></a></span></span><span> </span><span id="local-6989586621680417034"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417034"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.CreateImage.html#newCreateImageResponse"><span class="hs-identifier hs-var hs-var">newCreateImageResponse</span></a></span></span><span> </span><span id="local-6989586621680418681"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680418681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">CreateImageResponse' :: Maybe Text -&gt; Int -&gt; CreateImageResponse
 </span><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageArn:CreateImageResponse' :: Maybe Text
@@ -536,7 +536,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateImageResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AhttpStatus%3ACreateImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417034"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680418681"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image.</span><span>
@@ -548,16 +548,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateImageResponse CreateImageResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417033"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418680"><span class="annot"><span class="annottext">Maybe Text
 imageArn :: Maybe Text
 $sel:imageArn:CreateImageResponse' :: CreateImageResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680417033"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417033"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417032"><span class="annot"><span class="annottext">s :: CreateImageResponse
-</span><a href="#local-6989586621680417032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417031"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImageResponse
-</span><a href="#local-6989586621680417032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:CreateImageResponse' :: Maybe Text
+</span><a href="#local-6989586621680418680"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418680"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680418679"><span class="annot"><span class="annottext">s :: CreateImageResponse
+</span><a href="#local-6989586621680418679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680418678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680418678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImageResponse
+</span><a href="#local-6989586621680418679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:CreateImageResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AimageArn%3ACreateImageResponse%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680417031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680418678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#createImageResponse_httpStatus"><span class="hs-identifier hs-type">createImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -566,16 +566,16 @@ $sel:imageArn:CreateImageResponse' :: CreateImageResponse -&gt; Maybe Text
 -&gt; (CreateImageResponse -&gt; Int -&gt; CreateImageResponse)
 -&gt; Lens CreateImageResponse CreateImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417030"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680418677"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateImageResponse' :: CreateImageResponse -&gt; Int
-</span><a href="#local-6989586621680417030"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417030"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417029"><span class="annot"><span class="annottext">s :: CreateImageResponse
-</span><a href="#local-6989586621680417029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417028"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImageResponse
-</span><a href="#local-6989586621680417029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateImageResponse' :: Int
+</span><a href="#local-6989586621680418677"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680418677"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680418676"><span class="annot"><span class="annottext">s :: CreateImageResponse
+</span><a href="#local-6989586621680418676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse%27"><span class="hs-identifier hs-type">CreateImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680418675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680418675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateImageResponse
+</span><a href="#local-6989586621680418676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateImageResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateImage.html#%24sel%3AhttpStatus%3ACreateImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680418675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680418673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateImage.html#CreateImageResponse"><span class="hs-identifier hs-type">CreateImageResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

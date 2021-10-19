@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681063940"><span id="local-6989586621681063941"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CurrencyCodeValues"><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues"><span class="hs-identifier hs-var">CurrencyCodeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrencyCodeValues%27"><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues%27"><span class="hs-identifier hs-var">CurrencyCodeValues'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681097515"><span id="local-6989586621681097516"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CurrencyCodeValues"><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues"><span class="hs-identifier hs-var">CurrencyCodeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrencyCodeValues%27"><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues%27"><span class="hs-identifier hs-var">CurrencyCodeValues'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCurrencyCodeValues"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; Text
 </span><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#fromCurrencyCodeValues"><span class="hs-identifier hs-var hs-var">fromCurrencyCodeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063932"><span id="local-6989586621681063934"><span id="local-6989586621681063936"><span class="annot"><span class="annottext">Int -&gt; CurrencyCodeValues -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681097507"><span id="local-6989586621681097509"><span id="local-6989586621681097511"><span class="annot"><span class="annottext">Int -&gt; CurrencyCodeValues -&gt; ShowS
 [CurrencyCodeValues] -&gt; ShowS
 CurrencyCodeValues -&gt; String
 (Int -&gt; CurrencyCodeValues -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CurrencyCodeValues -&gt; String
 showsPrec :: Int -&gt; CurrencyCodeValues -&gt; ShowS
 $cshowsPrec :: Int -&gt; CurrencyCodeValues -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681063923"><span id="local-6989586621681063925"><span id="local-6989586621681063927"><span id="local-6989586621681063929"><span class="annot"><span class="annottext">ReadPrec [CurrencyCodeValues]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681097498"><span id="local-6989586621681097500"><span id="local-6989586621681097502"><span id="local-6989586621681097504"><span class="annot"><span class="annottext">ReadPrec [CurrencyCodeValues]
 ReadPrec CurrencyCodeValues
 Int -&gt; ReadS CurrencyCodeValues
 ReadS [CurrencyCodeValues]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CurrencyCodeValues]
 readsPrec :: Int -&gt; ReadS CurrencyCodeValues
 $creadsPrec :: Int -&gt; ReadS CurrencyCodeValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681063918"><span id="local-6989586621681063920"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681097493"><span id="local-6989586621681097495"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool
 (CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool)
 -&gt; (CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool)
 -&gt; Eq CurrencyCodeValues
@@ -82,7 +82,7 @@ $c/= :: CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool
 == :: CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool
 $c== :: CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681063902"><span id="local-6989586621681063904"><span id="local-6989586621681063906"><span id="local-6989586621681063908"><span id="local-6989586621681063910"><span id="local-6989586621681063912"><span id="local-6989586621681063914"><span class="annot"><span class="annottext">Eq CurrencyCodeValues
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681097477"><span id="local-6989586621681097479"><span id="local-6989586621681097481"><span id="local-6989586621681097483"><span id="local-6989586621681097485"><span id="local-6989586621681097487"><span id="local-6989586621681097489"><span class="annot"><span class="annottext">Eq CurrencyCodeValues
 Eq CurrencyCodeValues
 -&gt; (CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Ordering)
 -&gt; (CurrencyCodeValues -&gt; CurrencyCodeValues -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CurrencyCodeValues -&gt; Rep CurrencyCodeValues x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063894"><span id="local-6989586621681063896"><span class="annot"><span class="annottext">Int -&gt; CurrencyCodeValues -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681097469"><span id="local-6989586621681097471"><span class="annot"><span class="annottext">Int -&gt; CurrencyCodeValues -&gt; Int
 CurrencyCodeValues -&gt; Int
 (Int -&gt; CurrencyCodeValues -&gt; Int)
 -&gt; (CurrencyCodeValues -&gt; Int) -&gt; Hashable CurrencyCodeValues
@@ -143,53 +143,53 @@ $chash :: CurrencyCodeValues -&gt; Int
 hashWithSalt :: Int -&gt; CurrencyCodeValues -&gt; Int
 $chashWithSalt :: Int -&gt; CurrencyCodeValues -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681063891"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681097466"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; ()
 (CurrencyCodeValues -&gt; ()) -&gt; NFData CurrencyCodeValues
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CurrencyCodeValues -&gt; ()
 $crnf :: CurrencyCodeValues -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681063888"><span class="annot"><span class="annottext">Text -&gt; Either String CurrencyCodeValues
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681097463"><span class="annot"><span class="annottext">Text -&gt; Either String CurrencyCodeValues
 (Text -&gt; Either String CurrencyCodeValues)
 -&gt; FromText CurrencyCodeValues
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CurrencyCodeValues
 $cfromText :: Text -&gt; Either String CurrencyCodeValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681063885"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681097460"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; Text
 (CurrencyCodeValues -&gt; Text) -&gt; ToText CurrencyCodeValues
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CurrencyCodeValues -&gt; Text
 $ctoText :: CurrencyCodeValues -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681063882"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681097457"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; ByteString
 (CurrencyCodeValues -&gt; ByteString)
 -&gt; ToByteString CurrencyCodeValues
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CurrencyCodeValues -&gt; ByteString
 $ctoBS :: CurrencyCodeValues -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681063879"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681097454"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; ByteStringBuilder
 (CurrencyCodeValues -&gt; ByteStringBuilder)
 -&gt; ToLog CurrencyCodeValues
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CurrencyCodeValues -&gt; ByteStringBuilder
 $cbuild :: CurrencyCodeValues -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681063876"><span class="annot"><span class="annottext">HeaderName -&gt; CurrencyCodeValues -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681097451"><span class="annot"><span class="annottext">HeaderName -&gt; CurrencyCodeValues -&gt; [Header]
 (HeaderName -&gt; CurrencyCodeValues -&gt; [Header])
 -&gt; ToHeader CurrencyCodeValues
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CurrencyCodeValues -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CurrencyCodeValues -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681063873"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681097448"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; QueryString
 (CurrencyCodeValues -&gt; QueryString) -&gt; ToQuery CurrencyCodeValues
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CurrencyCodeValues -&gt; QueryString
 $ctoQuery :: CurrencyCodeValues -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681063868"><span id="local-6989586621681063870"><span class="annot"><span class="annottext">Value -&gt; Parser [CurrencyCodeValues]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681097443"><span id="local-6989586621681097445"><span class="annot"><span class="annottext">Value -&gt; Parser [CurrencyCodeValues]
 Value -&gt; Parser CurrencyCodeValues
 (Value -&gt; Parser CurrencyCodeValues)
 -&gt; (Value -&gt; Parser [CurrencyCodeValues])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [CurrencyCodeValues]
 parseJSON :: Value -&gt; Parser CurrencyCodeValues
 $cparseJSON :: Value -&gt; Parser CurrencyCodeValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681063863"><span id="local-6989586621681063865"><span class="annot"><span class="annottext">FromJSONKeyFunction [CurrencyCodeValues]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681097438"><span id="local-6989586621681097440"><span class="annot"><span class="annottext">FromJSONKeyFunction [CurrencyCodeValues]
 FromJSONKeyFunction CurrencyCodeValues
 FromJSONKeyFunction CurrencyCodeValues
 -&gt; FromJSONKeyFunction [CurrencyCodeValues]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CurrencyCodeValues]
 fromJSONKey :: FromJSONKeyFunction CurrencyCodeValues
 $cfromJSONKey :: FromJSONKeyFunction CurrencyCodeValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681063854"><span id="local-6989586621681063856"><span id="local-6989586621681063858"><span id="local-6989586621681063860"><span class="annot"><span class="annottext">[CurrencyCodeValues] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681097429"><span id="local-6989586621681097431"><span id="local-6989586621681097433"><span id="local-6989586621681097435"><span class="annot"><span class="annottext">[CurrencyCodeValues] -&gt; Encoding
 [CurrencyCodeValues] -&gt; Value
 CurrencyCodeValues -&gt; Encoding
 CurrencyCodeValues -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: CurrencyCodeValues -&gt; Encoding
 toJSON :: CurrencyCodeValues -&gt; Value
 $ctoJSON :: CurrencyCodeValues -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681063849"><span id="local-6989586621681063851"><span class="annot"><span class="annottext">ToJSONKeyFunction [CurrencyCodeValues]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681097424"><span id="local-6989586621681097426"><span class="annot"><span class="annottext">ToJSONKeyFunction [CurrencyCodeValues]
 ToJSONKeyFunction CurrencyCodeValues
 ToJSONKeyFunction CurrencyCodeValues
 -&gt; ToJSONKeyFunction [CurrencyCodeValues]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CurrencyCodeValues]
 toJSONKey :: ToJSONKeyFunction CurrencyCodeValues
 $ctoJSONKey :: ToJSONKeyFunction CurrencyCodeValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681063846"><span class="annot"><span class="annottext">[Node] -&gt; Either String CurrencyCodeValues
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681097421"><span class="annot"><span class="annottext">[Node] -&gt; Either String CurrencyCodeValues
 ([Node] -&gt; Either String CurrencyCodeValues)
 -&gt; FromXML CurrencyCodeValues
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CurrencyCodeValues
 $cparseXML :: [Node] -&gt; Either String CurrencyCodeValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681063843"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681097418"><span class="annot"><span class="annottext">CurrencyCodeValues -&gt; XML
 (CurrencyCodeValues -&gt; XML) -&gt; ToXML CurrencyCodeValues
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CurrencyCodeValues -&gt; XML

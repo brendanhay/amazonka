@@ -41,9 +41,9 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#newContinueUpdateRollback"><span class="hs-identifier">newContinueUpdateRollback</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_roleARN"><span class="hs-identifier">continueUpdateRollback_roleARN</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_resourcesToSkip"><span class="hs-identifier">continueUpdateRollback_resourcesToSkip</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_clientRequestToken"><span class="hs-identifier">continueUpdateRollback_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_resourcesToSkip"><span class="hs-identifier">continueUpdateRollback_resourcesToSkip</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_clientRequestToken"><span class="hs-identifier">continueUpdateRollback_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_roleARN"><span class="hs-identifier">continueUpdateRollback_roleARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_stackName"><span class="hs-identifier">continueUpdateRollback_stackName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -65,66 +65,66 @@
 </span><span id="line-65"></span><span class="hs-comment">-- | The input for the ContinueUpdateRollback action.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newContinueUpdateRollback' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679443016"><span id="local-6989586621679443017"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueUpdateRollback"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-var">ContinueUpdateRollback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueUpdateRollback%27"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-var">ContinueUpdateRollback'</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an Identity and Access Management</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- (IAM) role that CloudFormation assumes to roll back the stack.</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- CloudFormation uses the role\'s credentials to make calls on your</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- behalf. CloudFormation always uses this role for all future operations</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- on the stack. As long as users have permission to operate on the stack,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- CloudFormation uses this role even if the users don\'t have permission</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- to pass it. Ensure that the role grants least privilege.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679443464"><span id="local-6989586621679443465"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueUpdateRollback"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-var">ContinueUpdateRollback</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueUpdateRollback%27"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-var">ContinueUpdateRollback'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the logical IDs of the resources that CloudFormation skips</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- during the continue update rollback operation. You can specify only</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- resources that are in the @UPDATE_FAILED@ state because a rollback</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- failed. You can\'t specify resources that are in the @UPDATE_FAILED@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- state for other reasons, for example, because an update was cancelled.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- To check why a resource update failed, use the DescribeStackResources</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- action, and view the resource status reason.</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value, CloudFormation uses the role that was</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- previously associated with the stack. If no role is available,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- CloudFormation uses a temporary session that is generated from your user</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- credentials.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3AroleARN%3AContinueUpdateRollback%27"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AroleARN%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | A list of the logical IDs of the resources that CloudFormation skips</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- during the continue update rollback operation. You can specify only</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- resources that are in the @UPDATE_FAILED@ state because a rollback</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- failed. You can\'t specify resources that are in the @UPDATE_FAILED@</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- state for other reasons, for example, because an update was cancelled.</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- To check why a resource update failed, use the DescribeStackResources</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- action, and view the resource status reason.</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Specify this property to skip rolling back resources that CloudFormation</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- can\'t successfully roll back. We recommend that you</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot&gt;</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- resources before skipping them. CloudFormation sets the status of the</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- specified resources to @UPDATE_COMPLETE@ and continues to roll back the</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- stack. After the rollback is complete, the state of the skipped</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- resources will be inconsistent with the state of the resources in the</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- stack template. Before performing another stack update, you must update</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- the stack or resources to be consistent with each other. If you don\'t,</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- subsequent stack updates might fail, and the stack will become</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- unrecoverable.</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Specify the minimum number of resources required to successfully roll</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- back your stack. For example, a failed resource update might cause</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- dependent resources to fail. In this case, it might not be necessary to</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- skip the dependent resources.</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- To skip resources that are part of nested stacks, use the following</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- format: @NestedStackName.ResourceLogicalID@. If you want to specify the</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- logical ID of a stack resource (@Type: AWS::CloudFormation::Stack@) in</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- the @ResourcesToSkip@ list, then its corresponding embedded stack must</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- be in one of the following states: @DELETE_IN_PROGRESS@,</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- @DELETE_COMPLETE@, or @DELETE_FAILED@.</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- Don\'t confuse a child stack\'s name with its corresponding logical ID</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- defined in the parent stack. For an example of a continue update</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- rollback operation with nested stacks, see</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy&gt;.</span><span>
-</span><span id="line-118"></span><span>    </span><span id="%24sel%3AresourcesToSkip%3AContinueUpdateRollback%27"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; Maybe [Text]
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Specify this property to skip rolling back resources that CloudFormation</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- can\'t successfully roll back. We recommend that you</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot&gt;</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- resources before skipping them. CloudFormation sets the status of the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- specified resources to @UPDATE_COMPLETE@ and continues to roll back the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- stack. After the rollback is complete, the state of the skipped</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- resources will be inconsistent with the state of the resources in the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- stack template. Before performing another stack update, you must update</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- the stack or resources to be consistent with each other. If you don\'t,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- subsequent stack updates might fail, and the stack will become</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- unrecoverable.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Specify the minimum number of resources required to successfully roll</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- back your stack. For example, a failed resource update might cause</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- dependent resources to fail. In this case, it might not be necessary to</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- skip the dependent resources.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- To skip resources that are part of nested stacks, use the following</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- format: @NestedStackName.ResourceLogicalID@. If you want to specify the</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- logical ID of a stack resource (@Type: AWS::CloudFormation::Stack@) in</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- the @ResourcesToSkip@ list, then its corresponding embedded stack must</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- be in one of the following states: @DELETE_IN_PROGRESS@,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- @DELETE_COMPLETE@, or @DELETE_FAILED@.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- Don\'t confuse a child stack\'s name with its corresponding logical ID</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- defined in the parent stack. For an example of a continue update</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- rollback operation with nested stacks, see</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy&gt;.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AresourcesToSkip%3AContinueUpdateRollback%27"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AresourcesToSkip%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var hs-var">resourcesToSkip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | A unique identifier for this @ContinueUpdateRollback@ request. Specify</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- this token if you plan to retry requests so that CloudFormationknows</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- that you\'re not attempting to continue the rollback to a stack with the</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- same name. You might retry @ContinueUpdateRollback@ requests to ensure</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- that CloudFormation successfully received them.</span><span>
-</span><span id="line-124"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AContinueUpdateRollback%27"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; Maybe Text
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | A unique identifier for this @ContinueUpdateRollback@ request. Specify</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- this token if you plan to retry requests so that CloudFormationknows</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- that you\'re not attempting to continue the rollback to a stack with the</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- same name. You might retry @ContinueUpdateRollback@ requests to ensure</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- that CloudFormation successfully received them.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AContinueUpdateRollback%27"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AclientRequestToken%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an Identity and Access Management</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- (IAM) role that CloudFormation assumes to roll back the stack.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- CloudFormation uses the role\'s credentials to make calls on your</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- behalf. CloudFormation always uses this role for all future operations</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- on the stack. As long as users have permission to operate on the stack,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- CloudFormation uses this role even if the users don\'t have permission</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- to pass it. Ensure that the role grants least privilege.</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- If you don\'t specify a value, CloudFormation uses the role that was</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- previously associated with the stack. If no role is available,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- CloudFormation uses a temporary session that is generated from your user</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AroleARN%3AContinueUpdateRollback%27"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AroleARN%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The name or the unique ID of the stack that you want to continue rolling</span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-comment">-- back.</span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -135,7 +135,7 @@
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AstackName%3AContinueUpdateRollback%27"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; Text
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AstackName%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443007"><span id="local-6989586621679443009"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; ContinueUpdateRollback -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443455"><span id="local-6989586621679443457"><span class="annot"><span class="annottext">ContinueUpdateRollback -&gt; ContinueUpdateRollback -&gt; Bool
 (ContinueUpdateRollback -&gt; ContinueUpdateRollback -&gt; Bool)
 -&gt; (ContinueUpdateRollback -&gt; ContinueUpdateRollback -&gt; Bool)
 -&gt; Eq ContinueUpdateRollback
@@ -144,7 +144,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContinueUpdateRollback -&gt; ContinueUpdateRollback -&gt; Bool
 == :: ContinueUpdateRollback -&gt; ContinueUpdateRollback -&gt; Bool
 $c== :: ContinueUpdateRollback -&gt; ContinueUpdateRollback -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442998"><span id="local-6989586621679443000"><span id="local-6989586621679443002"><span id="local-6989586621679443004"><span class="annot"><span class="annottext">ReadPrec [ContinueUpdateRollback]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443446"><span id="local-6989586621679443448"><span id="local-6989586621679443450"><span id="local-6989586621679443452"><span class="annot"><span class="annottext">ReadPrec [ContinueUpdateRollback]
 ReadPrec ContinueUpdateRollback
 Int -&gt; ReadS ContinueUpdateRollback
 ReadS [ContinueUpdateRollback]
@@ -164,7 +164,7 @@ readList :: ReadS [ContinueUpdateRollback]
 $creadList :: ReadS [ContinueUpdateRollback]
 readsPrec :: Int -&gt; ReadS ContinueUpdateRollback
 $creadsPrec :: Int -&gt; ReadS ContinueUpdateRollback
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442991"><span id="local-6989586621679442993"><span id="local-6989586621679442995"><span class="annot"><span class="annottext">Int -&gt; ContinueUpdateRollback -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443439"><span id="local-6989586621679443441"><span id="local-6989586621679443443"><span class="annot"><span class="annottext">Int -&gt; ContinueUpdateRollback -&gt; ShowS
 [ContinueUpdateRollback] -&gt; ShowS
 ContinueUpdateRollback -&gt; String
 (Int -&gt; ContinueUpdateRollback -&gt; ShowS)
@@ -199,61 +199,61 @@ $cfrom :: forall x. ContinueUpdateRollback -&gt; Rep ContinueUpdateRollback x
 </span><span id="line-141"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- 'roleARN', 'continueUpdateRollback_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- (IAM) role that CloudFormation assumes to roll back the stack.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- CloudFormation uses the role\'s credentials to make calls on your</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- behalf. CloudFormation always uses this role for all future operations</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- on the stack. As long as users have permission to operate on the stack,</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- CloudFormation uses this role even if the users don\'t have permission</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- to pass it. Ensure that the role grants least privilege.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'resourcesToSkip', 'continueUpdateRollback_resourcesToSkip' - A list of the logical IDs of the resources that CloudFormation skips</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- during the continue update rollback operation. You can specify only</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- resources that are in the @UPDATE_FAILED@ state because a rollback</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- failed. You can\'t specify resources that are in the @UPDATE_FAILED@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- state for other reasons, for example, because an update was cancelled.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- To check why a resource update failed, use the DescribeStackResources</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- action, and view the resource status reason.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- If you don\'t specify a value, CloudFormation uses the role that was</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- previously associated with the stack. If no role is available,</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- CloudFormation uses a temporary session that is generated from your user</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- credentials.</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- 'resourcesToSkip', 'continueUpdateRollback_resourcesToSkip' - A list of the logical IDs of the resources that CloudFormation skips</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- during the continue update rollback operation. You can specify only</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- resources that are in the @UPDATE_FAILED@ state because a rollback</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- failed. You can\'t specify resources that are in the @UPDATE_FAILED@</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- state for other reasons, for example, because an update was cancelled.</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- To check why a resource update failed, use the DescribeStackResources</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- action, and view the resource status reason.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- Specify this property to skip rolling back resources that CloudFormation</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- can\'t successfully roll back. We recommend that you</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot&gt;</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- resources before skipping them. CloudFormation sets the status of the</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- specified resources to @UPDATE_COMPLETE@ and continues to roll back the</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- stack. After the rollback is complete, the state of the skipped</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- resources will be inconsistent with the state of the resources in the</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- stack template. Before performing another stack update, you must update</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- the stack or resources to be consistent with each other. If you don\'t,</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- subsequent stack updates might fail, and the stack will become</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- unrecoverable.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- Specify the minimum number of resources required to successfully roll</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- back your stack. For example, a failed resource update might cause</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- dependent resources to fail. In this case, it might not be necessary to</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- skip the dependent resources.</span><span>
-</span><span id="line-181"></span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- To skip resources that are part of nested stacks, use the following</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- format: @NestedStackName.ResourceLogicalID@. If you want to specify the</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- logical ID of a stack resource (@Type: AWS::CloudFormation::Stack@) in</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- the @ResourcesToSkip@ list, then its corresponding embedded stack must</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- be in one of the following states: @DELETE_IN_PROGRESS@,</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- @DELETE_COMPLETE@, or @DELETE_FAILED@.</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- Don\'t confuse a child stack\'s name with its corresponding logical ID</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- defined in the parent stack. For an example of a continue update</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- rollback operation with nested stacks, see</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy&gt;.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'clientRequestToken', 'continueUpdateRollback_clientRequestToken' - A unique identifier for this @ContinueUpdateRollback@ request. Specify</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- this token if you plan to retry requests so that CloudFormationknows</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- that you\'re not attempting to continue the rollback to a stack with the</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- same name. You might retry @ContinueUpdateRollback@ requests to ensure</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- that CloudFormation successfully received them.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Specify this property to skip rolling back resources that CloudFormation</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- can\'t successfully roll back. We recommend that you</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot&gt;</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- resources before skipping them. CloudFormation sets the status of the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- specified resources to @UPDATE_COMPLETE@ and continues to roll back the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- stack. After the rollback is complete, the state of the skipped</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- resources will be inconsistent with the state of the resources in the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- stack template. Before performing another stack update, you must update</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- the stack or resources to be consistent with each other. If you don\'t,</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- subsequent stack updates might fail, and the stack will become</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- unrecoverable.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Specify the minimum number of resources required to successfully roll</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- back your stack. For example, a failed resource update might cause</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- dependent resources to fail. In this case, it might not be necessary to</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- skip the dependent resources.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- To skip resources that are part of nested stacks, use the following</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- format: @NestedStackName.ResourceLogicalID@. If you want to specify the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- logical ID of a stack resource (@Type: AWS::CloudFormation::Stack@) in</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- the @ResourcesToSkip@ list, then its corresponding embedded stack must</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- be in one of the following states: @DELETE_IN_PROGRESS@,</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @DELETE_COMPLETE@, or @DELETE_FAILED@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Don\'t confuse a child stack\'s name with its corresponding logical ID</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- defined in the parent stack. For an example of a continue update</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- rollback operation with nested stacks, see</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy&gt;.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'clientRequestToken', 'continueUpdateRollback_clientRequestToken' - A unique identifier for this @ContinueUpdateRollback@ request. Specify</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- this token if you plan to retry requests so that CloudFormationknows</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- that you\'re not attempting to continue the rollback to a stack with the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- same name. You might retry @ContinueUpdateRollback@ requests to ensure</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- that CloudFormation successfully received them.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'roleARN', 'continueUpdateRollback_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- (IAM) role that CloudFormation assumes to roll back the stack.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- CloudFormation uses the role\'s credentials to make calls on your</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- behalf. CloudFormation always uses this role for all future operations</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- on the stack. As long as users have permission to operate on the stack,</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- CloudFormation uses this role even if the users don\'t have permission</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- to pass it. Ensure that the role grants least privilege.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- If you don\'t specify a value, CloudFormation uses the role that was</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- previously associated with the stack. If no role is available,</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- CloudFormation uses a temporary session that is generated from your user</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- credentials.</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- 'stackName', 'continueUpdateRollback_stackName' - The name or the unique ID of the stack that you want to continue rolling</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- back.</span><span>
@@ -267,100 +267,67 @@ $cfrom :: forall x. ContinueUpdateRollback -&gt; Rep ContinueUpdateRollback x
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span>
 </span><span id="line-211"></span><span id="newContinueUpdateRollback"><span class="annot"><span class="annottext">newContinueUpdateRollback :: Text -&gt; ContinueUpdateRollback
-</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#newContinueUpdateRollback"><span class="hs-identifier hs-var hs-var">newContinueUpdateRollback</span></a></span></span><span> </span><span id="local-6989586621679442986"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442986"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">ContinueUpdateRollback' :: Maybe Text
--&gt; Maybe [Text] -&gt; Maybe Text -&gt; Text -&gt; ContinueUpdateRollback
+</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#newContinueUpdateRollback"><span class="hs-identifier hs-var hs-var">newContinueUpdateRollback</span></a></span></span><span> </span><span id="local-6989586621679443434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443434"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">ContinueUpdateRollback' :: Maybe [Text]
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ContinueUpdateRollback
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span>
-</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleARN:ContinueUpdateRollback' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AroleARN%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourcesToSkip:ContinueUpdateRollback' :: Maybe [Text]
-</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AresourcesToSkip%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">resourcesToSkip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourcesToSkip:ContinueUpdateRollback' :: Maybe [Text]
+</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AresourcesToSkip%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">resourcesToSkip</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:ContinueUpdateRollback' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AclientRequestToken%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:ContinueUpdateRollback' :: Text
-</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AstackName%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442986"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
-</span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an Identity and Access Management</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- (IAM) role that CloudFormation assumes to roll back the stack.</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- CloudFormation uses the role\'s credentials to make calls on your</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- behalf. CloudFormation always uses this role for all future operations</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- on the stack. As long as users have permission to operate on the stack,</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- CloudFormation uses this role even if the users don\'t have permission</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- to pass it. Ensure that the role grants least privilege.</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- If you don\'t specify a value, CloudFormation uses the role that was</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- previously associated with the stack. If no role is available,</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- CloudFormation uses a temporary session that is generated from your user</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- credentials.</span><span>
-</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_roleARN"><span class="hs-identifier hs-type">continueUpdateRollback_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span id="continueUpdateRollback_roleARN"><span class="annot"><span class="annottext">continueUpdateRollback_roleARN :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ContinueUpdateRollback -&gt; f ContinueUpdateRollback
-</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_roleARN"><span class="hs-identifier hs-var hs-var">continueUpdateRollback_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinueUpdateRollback -&gt; Maybe Text)
--&gt; (ContinueUpdateRollback -&gt; Maybe Text -&gt; ContinueUpdateRollback)
--&gt; Lens
-     ContinueUpdateRollback
-     ContinueUpdateRollback
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442983"><span class="annot"><span class="annottext">Maybe Text
-roleARN :: Maybe Text
-$sel:roleARN:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe Text
-</span><a href="#local-6989586621679442983"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442983"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442982"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
-</span><a href="#local-6989586621679442982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442981"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
-</span><a href="#local-6989586621679442982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ContinueUpdateRollback' :: Maybe Text
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleARN:ContinueUpdateRollback' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AroleARN%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- | A list of the logical IDs of the resources that CloudFormation skips</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- during the continue update rollback operation. You can specify only</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- resources that are in the @UPDATE_FAILED@ state because a rollback</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- failed. You can\'t specify resources that are in the @UPDATE_FAILED@</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- state for other reasons, for example, because an update was cancelled.</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- To check why a resource update failed, use the DescribeStackResources</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- action, and view the resource status reason.</span><span>
-</span><span id="line-241"></span><span class="hs-comment">--</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- Specify this property to skip rolling back resources that CloudFormation</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- can\'t successfully roll back. We recommend that you</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot&gt;</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- resources before skipping them. CloudFormation sets the status of the</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- specified resources to @UPDATE_COMPLETE@ and continues to roll back the</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- stack. After the rollback is complete, the state of the skipped</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- resources will be inconsistent with the state of the resources in the</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- stack template. Before performing another stack update, you must update</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- the stack or resources to be consistent with each other. If you don\'t,</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- subsequent stack updates might fail, and the stack will become</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- unrecoverable.</span><span>
-</span><span id="line-253"></span><span class="hs-comment">--</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- Specify the minimum number of resources required to successfully roll</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- back your stack. For example, a failed resource update might cause</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- dependent resources to fail. In this case, it might not be necessary to</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- skip the dependent resources.</span><span>
-</span><span id="line-258"></span><span class="hs-comment">--</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- To skip resources that are part of nested stacks, use the following</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- format: @NestedStackName.ResourceLogicalID@. If you want to specify the</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- logical ID of a stack resource (@Type: AWS::CloudFormation::Stack@) in</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- the @ResourcesToSkip@ list, then its corresponding embedded stack must</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- be in one of the following states: @DELETE_IN_PROGRESS@,</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- @DELETE_COMPLETE@, or @DELETE_FAILED@.</span><span>
-</span><span id="line-265"></span><span class="hs-comment">--</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- Don\'t confuse a child stack\'s name with its corresponding logical ID</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- defined in the parent stack. For an example of a continue update</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- rollback operation with nested stacks, see</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy&gt;.</span><span>
-</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_resourcesToSkip"><span class="hs-identifier hs-type">continueUpdateRollback_resourcesToSkip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span id="continueUpdateRollback_resourcesToSkip"><span class="annot"><span class="annottext">continueUpdateRollback_resourcesToSkip :: (Maybe [Text] -&gt; f (Maybe [Text]))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:ContinueUpdateRollback' :: Text
+</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AstackName%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443434"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | A list of the logical IDs of the resources that CloudFormation skips</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- during the continue update rollback operation. You can specify only</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- resources that are in the @UPDATE_FAILED@ state because a rollback</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- failed. You can\'t specify resources that are in the @UPDATE_FAILED@</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- state for other reasons, for example, because an update was cancelled.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- To check why a resource update failed, use the DescribeStackResources</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- action, and view the resource status reason.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Specify this property to skip rolling back resources that CloudFormation</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- can\'t successfully roll back. We recommend that you</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed troubleshoot&gt;</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- resources before skipping them. CloudFormation sets the status of the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- specified resources to @UPDATE_COMPLETE@ and continues to roll back the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- stack. After the rollback is complete, the state of the skipped</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- resources will be inconsistent with the state of the resources in the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- stack template. Before performing another stack update, you must update</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- the stack or resources to be consistent with each other. If you don\'t,</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- subsequent stack updates might fail, and the stack will become</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- unrecoverable.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Specify the minimum number of resources required to successfully roll</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- back your stack. For example, a failed resource update might cause</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- dependent resources to fail. In this case, it might not be necessary to</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- skip the dependent resources.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- To skip resources that are part of nested stacks, use the following</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- format: @NestedStackName.ResourceLogicalID@. If you want to specify the</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- logical ID of a stack resource (@Type: AWS::CloudFormation::Stack@) in</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- the @ResourcesToSkip@ list, then its corresponding embedded stack must</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- be in one of the following states: @DELETE_IN_PROGRESS@,</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- @DELETE_COMPLETE@, or @DELETE_FAILED@.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- Don\'t confuse a child stack\'s name with its corresponding logical ID</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- defined in the parent stack. For an example of a continue update</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- rollback operation with nested stacks, see</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy&gt;.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_resourcesToSkip"><span class="hs-identifier hs-type">continueUpdateRollback_resourcesToSkip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="continueUpdateRollback_resourcesToSkip"><span class="annot"><span class="annottext">continueUpdateRollback_resourcesToSkip :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ContinueUpdateRollback -&gt; f ContinueUpdateRollback
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_resourcesToSkip"><span class="hs-identifier hs-var hs-var">continueUpdateRollback_resourcesToSkip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinueUpdateRollback -&gt; Maybe [Text])
 -&gt; (ContinueUpdateRollback
@@ -371,16 +338,16 @@ $sel:roleARN:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442980"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443431"><span class="annot"><span class="annottext">Maybe [Text]
 resourcesToSkip :: Maybe [Text]
 $sel:resourcesToSkip:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe [Text]
-</span><a href="#local-6989586621679442980"><span class="hs-identifier hs-var hs-var">resourcesToSkip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679442980"><span class="hs-identifier hs-var">resourcesToSkip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442979"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
-</span><a href="#local-6989586621679442979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442978"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679442978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
-</span><a href="#local-6989586621679442979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcesToSkip:ContinueUpdateRollback' :: Maybe [Text]
+</span><a href="#local-6989586621679443431"><span class="hs-identifier hs-var hs-var">resourcesToSkip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679443431"><span class="hs-identifier hs-var">resourcesToSkip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443430"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
+</span><a href="#local-6989586621679443430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443429"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679443429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
+</span><a href="#local-6989586621679443430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcesToSkip:ContinueUpdateRollback' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AresourcesToSkip%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">resourcesToSkip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679442978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679443429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ContinueUpdateRollback -&gt; f ContinueUpdateRollback)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -394,16 +361,16 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-272"></span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- | A unique identifier for this @ContinueUpdateRollback@ request. Specify</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- this token if you plan to retry requests so that CloudFormationknows</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- that you\'re not attempting to continue the rollback to a stack with the</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- same name. You might retry @ContinueUpdateRollback@ requests to ensure</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- that CloudFormation successfully received them.</span><span>
-</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_clientRequestToken"><span class="hs-identifier hs-type">continueUpdateRollback_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span id="continueUpdateRollback_clientRequestToken"><span class="annot"><span class="annottext">continueUpdateRollback_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | A unique identifier for this @ContinueUpdateRollback@ request. Specify</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- this token if you plan to retry requests so that CloudFormationknows</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- that you\'re not attempting to continue the rollback to a stack with the</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- same name. You might retry @ContinueUpdateRollback@ requests to ensure</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- that CloudFormation successfully received them.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_clientRequestToken"><span class="hs-identifier hs-type">continueUpdateRollback_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="continueUpdateRollback_clientRequestToken"><span class="annot"><span class="annottext">continueUpdateRollback_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ContinueUpdateRollback -&gt; f ContinueUpdateRollback
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_clientRequestToken"><span class="hs-identifier hs-var hs-var">continueUpdateRollback_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinueUpdateRollback -&gt; Maybe Text)
 -&gt; (ContinueUpdateRollback -&gt; Maybe Text -&gt; ContinueUpdateRollback)
@@ -413,59 +380,93 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442974"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443425"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe Text
-</span><a href="#local-6989586621679442974"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442974"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442973"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
-</span><a href="#local-6989586621679442973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442972"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
-</span><a href="#local-6989586621679442973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:ContinueUpdateRollback' :: Maybe Text
+</span><a href="#local-6989586621679443425"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443425"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443424"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
+</span><a href="#local-6989586621679443424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443423"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
+</span><a href="#local-6989586621679443424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:ContinueUpdateRollback' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AclientRequestToken%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-280"></span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- | The name or the unique ID of the stack that you want to continue rolling</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- back.</span><span>
-</span><span id="line-283"></span><span class="hs-comment">--</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- Don\'t specify the name of a nested stack (a stack that was created by</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- using the @AWS::CloudFormation::Stack@ resource). Instead, use this</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- operation on the parent stack (the stack that contains the</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- @AWS::CloudFormation::Stack@ resource).</span><span>
-</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_stackName"><span class="hs-identifier hs-type">continueUpdateRollback_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-289"></span><span id="continueUpdateRollback_stackName"><span class="annot"><span class="annottext">continueUpdateRollback_stackName :: (Text -&gt; f Text)
+</span><a href="#local-6989586621679443423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an Identity and Access Management</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- (IAM) role that CloudFormation assumes to roll back the stack.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- CloudFormation uses the role\'s credentials to make calls on your</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- behalf. CloudFormation always uses this role for all future operations</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- on the stack. As long as users have permission to operate on the stack,</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- CloudFormation uses this role even if the users don\'t have permission</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- to pass it. Ensure that the role grants least privilege.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- If you don\'t specify a value, CloudFormation uses the role that was</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- previously associated with the stack. If no role is available,</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- CloudFormation uses a temporary session that is generated from your user</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- credentials.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_roleARN"><span class="hs-identifier hs-type">continueUpdateRollback_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="continueUpdateRollback_roleARN"><span class="annot"><span class="annottext">continueUpdateRollback_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContinueUpdateRollback -&gt; f ContinueUpdateRollback
+</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_roleARN"><span class="hs-identifier hs-var hs-var">continueUpdateRollback_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinueUpdateRollback -&gt; Maybe Text)
+-&gt; (ContinueUpdateRollback -&gt; Maybe Text -&gt; ContinueUpdateRollback)
+-&gt; Lens
+     ContinueUpdateRollback
+     ContinueUpdateRollback
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443422"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe Text
+</span><a href="#local-6989586621679443422"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443422"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443421"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
+</span><a href="#local-6989586621679443421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443420"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
+</span><a href="#local-6989586621679443421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ContinueUpdateRollback' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AroleARN%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The name or the unique ID of the stack that you want to continue rolling</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- back.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Don\'t specify the name of a nested stack (a stack that was created by</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- using the @AWS::CloudFormation::Stack@ resource). Instead, use this</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- operation on the parent stack (the stack that contains the</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- @AWS::CloudFormation::Stack@ resource).</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_stackName"><span class="hs-identifier hs-type">continueUpdateRollback_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-290"></span><span id="continueUpdateRollback_stackName"><span class="annot"><span class="annottext">continueUpdateRollback_stackName :: (Text -&gt; f Text)
 -&gt; ContinueUpdateRollback -&gt; f ContinueUpdateRollback
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollback_stackName"><span class="hs-identifier hs-var hs-var">continueUpdateRollback_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinueUpdateRollback -&gt; Text)
 -&gt; (ContinueUpdateRollback -&gt; Text -&gt; ContinueUpdateRollback)
 -&gt; Lens ContinueUpdateRollback ContinueUpdateRollback Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442971"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443419"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Text
-</span><a href="#local-6989586621679442971"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442971"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442970"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
-</span><a href="#local-6989586621679442970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
-</span><a href="#local-6989586621679442970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ContinueUpdateRollback' :: Text
+</span><a href="#local-6989586621679443419"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443419"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443418"><span class="annot"><span class="annottext">s :: ContinueUpdateRollback
+</span><a href="#local-6989586621679443418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollback
+</span><a href="#local-6989586621679443418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ContinueUpdateRollback' :: Text
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AstackName%3AContinueUpdateRollback%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-292"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-293"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-294"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span>
-</span><span id="line-295"></span><span>  </span><span id="local-6989586621679442965"><span class="annot"><span class="annottext">request :: ContinueUpdateRollback -&gt; Request ContinueUpdateRollback
+</span><a href="#local-6989586621679443417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-294"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679443413"><span class="annot"><span class="annottext">request :: ContinueUpdateRollback -&gt; Request ContinueUpdateRollback
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ContinueUpdateRollback -&gt; Request ContinueUpdateRollback
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-296"></span><span>  </span><span id="local-6989586621679442961"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621679443409"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ContinueUpdateRollback
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse ContinueUpdateRollback)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-297"></span><span>    </span><span class="annot"><span class="annottext">Text
+</span><span id="line-298"></span><span>    </span><span class="annot"><span class="annottext">Text
 -&gt; (Int
     -&gt; ResponseHeaders
     -&gt; [Node]
@@ -487,15 +488,15 @@ Text
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
-</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContinueUpdateRollbackResult&quot;</span></span><span>
-</span><span id="line-299"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679442958"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442958"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679442957"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679442957"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679442956"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679442956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-300"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ContinueUpdateRollbackResponse
+</span><span id="line-300"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443406"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443405"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679443405"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443404"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679443404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-301"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ContinueUpdateRollbackResponse
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-var">ContinueUpdateRollbackResponse'</span></a></span><span>
-</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ContinueUpdateRollbackResponse)
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ContinueUpdateRollbackResponse)
 -&gt; Either String Int
 -&gt; Either String ContinueUpdateRollbackResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
@@ -504,62 +505,57 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442958"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-302"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-303"></span><span>
-</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442949"><span id="local-6989586621679442951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span></span></span><span>
-</span><span id="line-305"></span><span>
-</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679442946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span></span><span>
-</span><span id="line-307"></span><span>
-</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-309"></span><span>  </span><span id="local-6989586621679442942"><span class="annot"><span class="annottext">toHeaders :: ContinueUpdateRollback -&gt; ResponseHeaders
+</span><a href="#local-6989586621679443406"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443397"><span id="local-6989586621679443399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span></span></span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span></span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621679443390"><span class="annot"><span class="annottext">toHeaders :: ContinueUpdateRollback -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ContinueUpdateRollback -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-310"></span><span>
-</span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-312"></span><span>  </span><span id="local-6989586621679442937"><span class="annot"><span class="annottext">toPath :: ContinueUpdateRollback -&gt; ByteString
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-313"></span><span>  </span><span id="local-6989586621679443385"><span class="annot"><span class="annottext">toPath :: ContinueUpdateRollback -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ContinueUpdateRollback -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-315"></span><span>  </span><span id="local-6989586621679442933"><span class="annot"><span class="annottext">toQuery :: ContinueUpdateRollback -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442928"><span id="local-6989586621679442929"><span id="local-6989586621679442930"><span id="local-6989586621679442931"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback"><span class="hs-identifier hs-type">ContinueUpdateRollback</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679443381"><span class="annot"><span class="annottext">toQuery :: ContinueUpdateRollback -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollback%27"><span class="hs-identifier hs-type">ContinueUpdateRollback'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443376"><span id="local-6989586621679443377"><span id="local-6989586621679443378"><span id="local-6989586621679443379"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 stackName :: Text
+roleARN :: Maybe Text
 clientRequestToken :: Maybe Text
 resourcesToSkip :: Maybe [Text]
-roleARN :: Maybe Text
 $sel:stackName:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Text
+$sel:roleARN:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe Text
 $sel:clientRequestToken:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe Text
 $sel:resourcesToSkip:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe [Text]
-$sel:roleARN:ContinueUpdateRollback' :: ContinueUpdateRollback -&gt; Maybe Text
-</span><a href="#local-6989586621679442928"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><a href="#local-6989586621679443376"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-317"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-318"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-318"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-319"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ContinueUpdateRollback&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-319"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-320"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Version&quot;</span></span><span>
-</span><span id="line-320"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-321"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442931"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ResourcesToSkip&quot;</span></span><span>
 </span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -576,29 +572,34 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-325"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679442930"><span class="hs-identifier hs-var">resourcesToSkip</span></a></span><span>
+</span><a href="#local-6989586621679443379"><span class="hs-identifier hs-var">resourcesToSkip</span></a></span><span>
 </span><span id="line-326"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679442929"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443378"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443377"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679442928"><span class="hs-identifier hs-var">stackName</span></a></span><span>
-</span><span id="line-329"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-330"></span><span>
-</span><span id="line-331"></span><span class="hs-comment">-- | The output for a ContinueUpdateRollback action.</span><span>
-</span><span id="line-332"></span><span class="hs-comment">--</span><span>
-</span><span id="line-333"></span><span class="hs-comment">-- /See:/ 'newContinueUpdateRollbackResponse' smart constructor.</span><span>
-</span><span id="line-334"></span><span id="local-6989586621679442924"><span id="local-6989586621679442925"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueUpdateRollbackResponse"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-var">ContinueUpdateRollbackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueUpdateRollbackResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-var">ContinueUpdateRollbackResponse'</span></a></span></span><span>
-</span><span id="line-335"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-336"></span><span>    </span><span id="%24sel%3AhttpStatus%3AContinueUpdateRollbackResponse%27"><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse -&gt; Int
+</span><a href="#local-6989586621679443376"><span class="hs-identifier hs-var">stackName</span></a></span><span>
+</span><span id="line-330"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | The output for a ContinueUpdateRollback action.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- /See:/ 'newContinueUpdateRollbackResponse' smart constructor.</span><span>
+</span><span id="line-335"></span><span id="local-6989586621679443372"><span id="local-6989586621679443373"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinueUpdateRollbackResponse"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-var">ContinueUpdateRollbackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinueUpdateRollbackResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-var">ContinueUpdateRollbackResponse'</span></a></span></span><span>
+</span><span id="line-336"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-337"></span><span>    </span><span id="%24sel%3AhttpStatus%3AContinueUpdateRollbackResponse%27"><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AhttpStatus%3AContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-337"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-338"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679442919"><span id="local-6989586621679442921"><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse
+</span><span id="line-338"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-339"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443367"><span id="local-6989586621679443369"><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse
 -&gt; ContinueUpdateRollbackResponse -&gt; Bool
 (ContinueUpdateRollbackResponse
  -&gt; ContinueUpdateRollbackResponse -&gt; Bool)
@@ -614,7 +615,7 @@ $c/= :: ContinueUpdateRollbackResponse
 -&gt; ContinueUpdateRollbackResponse -&gt; Bool
 $c== :: ContinueUpdateRollbackResponse
 -&gt; ContinueUpdateRollbackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442911"><span id="local-6989586621679442913"><span id="local-6989586621679442915"><span id="local-6989586621679442917"><span class="annot"><span class="annottext">ReadPrec [ContinueUpdateRollbackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443359"><span id="local-6989586621679443361"><span id="local-6989586621679443363"><span id="local-6989586621679443365"><span class="annot"><span class="annottext">ReadPrec [ContinueUpdateRollbackResponse]
 ReadPrec ContinueUpdateRollbackResponse
 Int -&gt; ReadS ContinueUpdateRollbackResponse
 ReadS [ContinueUpdateRollbackResponse]
@@ -634,7 +635,7 @@ readList :: ReadS [ContinueUpdateRollbackResponse]
 $creadList :: ReadS [ContinueUpdateRollbackResponse]
 readsPrec :: Int -&gt; ReadS ContinueUpdateRollbackResponse
 $creadsPrec :: Int -&gt; ReadS ContinueUpdateRollbackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679442905"><span id="local-6989586621679442907"><span id="local-6989586621679442909"><span class="annot"><span class="annottext">Int -&gt; ContinueUpdateRollbackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443353"><span id="local-6989586621679443355"><span id="local-6989586621679443357"><span class="annot"><span class="annottext">Int -&gt; ContinueUpdateRollbackResponse -&gt; ShowS
 [ContinueUpdateRollbackResponse] -&gt; ShowS
 ContinueUpdateRollbackResponse -&gt; String
 (Int -&gt; ContinueUpdateRollbackResponse -&gt; ShowS)
@@ -671,34 +672,34 @@ $cfrom :: forall x.
 ContinueUpdateRollbackResponse
 -&gt; Rep ContinueUpdateRollbackResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-339"></span><span>
-</span><span id="line-340"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-341"></span><span class="hs-comment">-- Create a value of 'ContinueUpdateRollbackResponse' with all optional fields omitted.</span><span>
-</span><span id="line-342"></span><span class="hs-comment">--</span><span>
-</span><span id="line-343"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-344"></span><span class="hs-comment">--</span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-346"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-347"></span><span class="hs-comment">--</span><span>
-</span><span id="line-348"></span><span class="hs-comment">-- 'httpStatus', 'continueUpdateRollbackResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-349"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#newContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">newContinueUpdateRollbackResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-350"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-351"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-352"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span>
-</span><span id="line-353"></span><span id="newContinueUpdateRollbackResponse"><span class="annot"><span class="annottext">newContinueUpdateRollbackResponse :: Int -&gt; ContinueUpdateRollbackResponse
-</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#newContinueUpdateRollbackResponse"><span class="hs-identifier hs-var hs-var">newContinueUpdateRollbackResponse</span></a></span></span><span> </span><span id="local-6989586621679442902"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-354"></span><span>  </span><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse' :: Int -&gt; ContinueUpdateRollbackResponse
+</span><span id="line-340"></span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- Create a value of 'ContinueUpdateRollbackResponse' with all optional fields omitted.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- 'httpStatus', 'continueUpdateRollbackResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#newContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">newContinueUpdateRollbackResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-351"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-352"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-353"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span>
+</span><span id="line-354"></span><span id="newContinueUpdateRollbackResponse"><span class="annot"><span class="annottext">newContinueUpdateRollbackResponse :: Int -&gt; ContinueUpdateRollbackResponse
+</span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#newContinueUpdateRollbackResponse"><span class="hs-identifier hs-var hs-var">newContinueUpdateRollbackResponse</span></a></span></span><span> </span><span id="local-6989586621679443350"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443350"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-355"></span><span>  </span><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse' :: Int -&gt; ContinueUpdateRollbackResponse
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse'</span></a></span><span>
-</span><span id="line-355"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ContinueUpdateRollbackResponse' :: Int
+</span><span id="line-356"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ContinueUpdateRollbackResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AhttpStatus%3AContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-356"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-357"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-358"></span><span>
-</span><span id="line-359"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-360"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollbackResponse_httpStatus"><span class="hs-identifier hs-type">continueUpdateRollbackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-361"></span><span id="continueUpdateRollbackResponse_httpStatus"><span class="annot"><span class="annottext">continueUpdateRollbackResponse_httpStatus :: (Int -&gt; f Int)
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443350"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-358"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollbackResponse_httpStatus"><span class="hs-identifier hs-type">continueUpdateRollbackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-362"></span><span id="continueUpdateRollbackResponse_httpStatus"><span class="annot"><span class="annottext">continueUpdateRollbackResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ContinueUpdateRollbackResponse
 -&gt; f ContinueUpdateRollbackResponse
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#continueUpdateRollbackResponse_httpStatus"><span class="hs-identifier hs-var hs-var">continueUpdateRollbackResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinueUpdateRollbackResponse -&gt; Int)
@@ -710,18 +711,18 @@ ContinueUpdateRollbackResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679442901"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443349"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ContinueUpdateRollbackResponse' :: ContinueUpdateRollbackResponse -&gt; Int
-</span><a href="#local-6989586621679442901"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442901"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679442900"><span class="annot"><span class="annottext">s :: ContinueUpdateRollbackResponse
-</span><a href="#local-6989586621679442900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679442899"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse
-</span><a href="#local-6989586621679442900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ContinueUpdateRollbackResponse' :: Int
+</span><a href="#local-6989586621679443349"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443349"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443348"><span class="annot"><span class="annottext">s :: ContinueUpdateRollbackResponse
+</span><a href="#local-6989586621679443348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443347"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinueUpdateRollbackResponse
+</span><a href="#local-6989586621679443348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ContinueUpdateRollbackResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#%24sel%3AhttpStatus%3AContinueUpdateRollbackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679442899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-362"></span><span>
-</span><span id="line-363"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-364"></span><span>  </span><span id="local-6989586621679442897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-365"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span></span><span>
-</span><span id="line-366"></span></pre></body></html>
+</span><a href="#local-6989586621679443347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-365"></span><span>  </span><span id="local-6989586621679443345"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.ContinueUpdateRollback.html#ContinueUpdateRollbackResponse"><span class="hs-identifier hs-type">ContinueUpdateRollbackResponse</span></a></span></span><span>
+</span><span id="line-367"></span></pre></body></html>

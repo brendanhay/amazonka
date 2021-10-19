@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#newCreateIndex"><span class="hs-identifier">newCreateIndex</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_linkName"><span class="hs-identifier">createIndex_linkName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_parentReference"><span class="hs-identifier">createIndex_parentReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_parentReference"><span class="hs-identifier">createIndex_parentReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_linkName"><span class="hs-identifier">createIndex_linkName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_directoryArn"><span class="hs-identifier">createIndex_directoryArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_orderedIndexedAttributeList"><span class="hs-identifier">createIndex_orderedIndexedAttributeList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_isUnique"><span class="hs-identifier">createIndex_isUnique</span></a></span><span class="hs-special">,</span><span>
@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateIndex' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679347012"><span id="local-6989586621679347013"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIndex"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-var">CreateIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIndex%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-var">CreateIndex'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the link between the parent object and the index object.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AlinkName%3ACreateIndex%27"><span class="annot"><span class="annottext">CreateIndex -&gt; Maybe Text
-</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AlinkName%3ACreateIndex%27"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A reference to the parent object that contains the index object.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AparentReference%3ACreateIndex%27"><span class="annot"><span class="annottext">CreateIndex -&gt; Maybe ObjectReference
+</span><span id="line-56"></span><span id="local-6989586621679347428"><span id="local-6989586621679347429"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIndex"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-var">CreateIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIndex%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-var">CreateIndex'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A reference to the parent object that contains the index object.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AparentReference%3ACreateIndex%27"><span class="annot"><span class="annottext">CreateIndex -&gt; Maybe ObjectReference
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AparentReference%3ACreateIndex%27"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the link between the parent object and the index object.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlinkName%3ACreateIndex%27"><span class="annot"><span class="annottext">CreateIndex -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AlinkName%3ACreateIndex%27"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ARN of the directory where the index should be created.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ACreateIndex%27"><span class="annot"><span class="annottext">CreateIndex -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AdirectoryArn%3ACreateIndex%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AisUnique%3ACreateIndex%27"><span class="annot"><span class="annottext">CreateIndex -&gt; Bool
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AisUnique%3ACreateIndex%27"><span class="hs-identifier hs-var hs-var">isUnique</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347002"><span id="local-6989586621679347004"><span class="annot"><span class="annottext">CreateIndex -&gt; CreateIndex -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347418"><span id="local-6989586621679347420"><span class="annot"><span class="annottext">CreateIndex -&gt; CreateIndex -&gt; Bool
 (CreateIndex -&gt; CreateIndex -&gt; Bool)
 -&gt; (CreateIndex -&gt; CreateIndex -&gt; Bool) -&gt; Eq CreateIndex
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateIndex -&gt; CreateIndex -&gt; Bool
 == :: CreateIndex -&gt; CreateIndex -&gt; Bool
 $c== :: CreateIndex -&gt; CreateIndex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346993"><span id="local-6989586621679346995"><span id="local-6989586621679346997"><span id="local-6989586621679346999"><span class="annot"><span class="annottext">ReadPrec [CreateIndex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347409"><span id="local-6989586621679347411"><span id="local-6989586621679347413"><span id="local-6989586621679347415"><span class="annot"><span class="annottext">ReadPrec [CreateIndex]
 ReadPrec CreateIndex
 Int -&gt; ReadS CreateIndex
 ReadS [CreateIndex]
@@ -100,7 +100,7 @@ readList :: ReadS [CreateIndex]
 $creadList :: ReadS [CreateIndex]
 readsPrec :: Int -&gt; ReadS CreateIndex
 $creadsPrec :: Int -&gt; ReadS CreateIndex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346986"><span id="local-6989586621679346988"><span id="local-6989586621679346990"><span class="annot"><span class="annottext">Int -&gt; CreateIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347402"><span id="local-6989586621679347404"><span id="local-6989586621679347406"><span class="annot"><span class="annottext">Int -&gt; CreateIndex -&gt; ShowS
 [CreateIndex] -&gt; ShowS
 CreateIndex -&gt; String
 (Int -&gt; CreateIndex -&gt; ShowS)
@@ -134,9 +134,9 @@ $cfrom :: forall x. CreateIndex -&gt; Rep CreateIndex x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'linkName', 'createIndex_linkName' - The name of the link between the parent object and the index object.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'parentReference', 'createIndex_parentReference' - A reference to the parent object that contains the index object.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'parentReference', 'createIndex_parentReference' - A reference to the parent object that contains the index object.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'linkName', 'createIndex_linkName' - The name of the link between the parent object and the index object.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'directoryArn', 'createIndex_directoryArn' - The ARN of the directory where the index should be created.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
@@ -152,57 +152,35 @@ $cfrom :: forall x. CreateIndex -&gt; Rep CreateIndex x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span>
 </span><span id="line-97"></span><span id="newCreateIndex"><span class="annot"><span class="annottext">newCreateIndex :: Text -&gt; Bool -&gt; CreateIndex
-</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#newCreateIndex"><span class="hs-identifier hs-var hs-var">newCreateIndex</span></a></span></span><span> </span><span id="local-6989586621679346981"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346981"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span id="local-6989586621679346980"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679346980"><span class="hs-identifier hs-var">pIsUnique_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">CreateIndex' :: Maybe Text
--&gt; Maybe ObjectReference
--&gt; Text
--&gt; [AttributeKey]
--&gt; Bool
--&gt; CreateIndex
+</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#newCreateIndex"><span class="hs-identifier hs-var hs-var">newCreateIndex</span></a></span></span><span> </span><span id="local-6989586621679347397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347397"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span id="local-6989586621679347396"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679347396"><span class="hs-identifier hs-var">pIsUnique_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">CreateIndex' :: Maybe ObjectReference
+-&gt; Maybe Text -&gt; Text -&gt; [AttributeKey] -&gt; Bool -&gt; CreateIndex
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:linkName:CreateIndex' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AlinkName%3ACreateIndex%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parentReference:CreateIndex' :: Maybe ObjectReference
+</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AparentReference%3ACreateIndex%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentReference:CreateIndex' :: Maybe ObjectReference
-</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AparentReference%3ACreateIndex%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:linkName:CreateIndex' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AlinkName%3ACreateIndex%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryArn:CreateIndex' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AdirectoryArn%3ACreateIndex%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346981"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347397"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:orderedIndexedAttributeList:CreateIndex' :: [AttributeKey]
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AorderedIndexedAttributeList%3ACreateIndex%27"><span class="hs-identifier hs-var">orderedIndexedAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeKey]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:isUnique:CreateIndex' :: Bool
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AisUnique%3ACreateIndex%27"><span class="hs-identifier hs-var">isUnique</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679346980"><span class="hs-identifier hs-var">pIsUnique_</span></a></span><span>
+</span><a href="#local-6989586621679347396"><span class="hs-identifier hs-var">pIsUnique_</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The name of the link between the parent object and the index object.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_linkName"><span class="hs-identifier hs-type">createIndex_linkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="createIndex_linkName"><span class="annot"><span class="annottext">createIndex_linkName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateIndex -&gt; f CreateIndex
-</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_linkName"><span class="hs-identifier hs-var hs-var">createIndex_linkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIndex -&gt; Maybe Text)
--&gt; (CreateIndex -&gt; Maybe Text -&gt; CreateIndex)
--&gt; Lens CreateIndex CreateIndex (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346977"><span class="annot"><span class="annottext">Maybe Text
-linkName :: Maybe Text
-$sel:linkName:CreateIndex' :: CreateIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679346977"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346977"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346976"><span class="annot"><span class="annottext">s :: CreateIndex
-</span><a href="#local-6989586621679346976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346975"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
-</span><a href="#local-6989586621679346976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkName:CreateIndex' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AlinkName%3ACreateIndex%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | A reference to the parent object that contains the index object.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_parentReference"><span class="hs-identifier hs-type">createIndex_parentReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="createIndex_parentReference"><span class="annot"><span class="annottext">createIndex_parentReference :: (Maybe ObjectReference -&gt; f (Maybe ObjectReference))
+</span><span id="line-106"></span><span class="hs-comment">-- | A reference to the parent object that contains the index object.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_parentReference"><span class="hs-identifier hs-type">createIndex_parentReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="createIndex_parentReference"><span class="annot"><span class="annottext">createIndex_parentReference :: (Maybe ObjectReference -&gt; f (Maybe ObjectReference))
 -&gt; CreateIndex -&gt; f CreateIndex
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_parentReference"><span class="hs-identifier hs-var hs-var">createIndex_parentReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIndex -&gt; Maybe ObjectReference)
 -&gt; (CreateIndex -&gt; Maybe ObjectReference -&gt; CreateIndex)
@@ -212,16 +190,34 @@ $sel:linkName:CreateIndex' :: CreateIndex -&gt; Maybe Text
      (Maybe ObjectReference)
      (Maybe ObjectReference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346974"><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347393"><span class="annot"><span class="annottext">Maybe ObjectReference
 parentReference :: Maybe ObjectReference
 $sel:parentReference:CreateIndex' :: CreateIndex -&gt; Maybe ObjectReference
-</span><a href="#local-6989586621679346974"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
-</span><a href="#local-6989586621679346974"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346973"><span class="annot"><span class="annottext">s :: CreateIndex
-</span><a href="#local-6989586621679346973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346972"><span class="annot"><span class="annottext">Maybe ObjectReference
-</span><a href="#local-6989586621679346972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
-</span><a href="#local-6989586621679346973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentReference:CreateIndex' :: Maybe ObjectReference
+</span><a href="#local-6989586621679347393"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><a href="#local-6989586621679347393"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347392"><span class="annot"><span class="annottext">s :: CreateIndex
+</span><a href="#local-6989586621679347392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347391"><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><a href="#local-6989586621679347391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
+</span><a href="#local-6989586621679347392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentReference:CreateIndex' :: Maybe ObjectReference
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AparentReference%3ACreateIndex%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
-</span><a href="#local-6989586621679346972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name of the link between the parent object and the index object.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_linkName"><span class="hs-identifier hs-type">createIndex_linkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="createIndex_linkName"><span class="annot"><span class="annottext">createIndex_linkName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateIndex -&gt; f CreateIndex
+</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_linkName"><span class="hs-identifier hs-var hs-var">createIndex_linkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateIndex -&gt; Maybe Text)
+-&gt; (CreateIndex -&gt; Maybe Text -&gt; CreateIndex)
+-&gt; Lens CreateIndex CreateIndex (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347390"><span class="annot"><span class="annottext">Maybe Text
+linkName :: Maybe Text
+$sel:linkName:CreateIndex' :: CreateIndex -&gt; Maybe Text
+</span><a href="#local-6989586621679347390"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347390"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347389"><span class="annot"><span class="annottext">s :: CreateIndex
+</span><a href="#local-6989586621679347389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347388"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
+</span><a href="#local-6989586621679347389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkName:CreateIndex' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AlinkName%3ACreateIndex%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The ARN of the directory where the index should be created.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndex_directoryArn"><span class="hs-identifier hs-type">createIndex_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -230,16 +226,16 @@ $sel:parentReference:CreateIndex' :: CreateIndex -&gt; Maybe ObjectReference
 -&gt; (CreateIndex -&gt; Text -&gt; CreateIndex)
 -&gt; Lens CreateIndex CreateIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346971"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347387"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:CreateIndex' :: CreateIndex -&gt; Text
-</span><a href="#local-6989586621679346971"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346971"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346970"><span class="annot"><span class="annottext">s :: CreateIndex
-</span><a href="#local-6989586621679346970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
-</span><a href="#local-6989586621679346970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:CreateIndex' :: Text
+</span><a href="#local-6989586621679347387"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347387"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347386"><span class="annot"><span class="annottext">s :: CreateIndex
+</span><a href="#local-6989586621679347386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
+</span><a href="#local-6989586621679347386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:CreateIndex' :: Text
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AdirectoryArn%3ACreateIndex%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Specifies the attributes that should be indexed on. Currently only a</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- single attribute is supported.</span><span>
@@ -250,16 +246,16 @@ $sel:directoryArn:CreateIndex' :: CreateIndex -&gt; Text
 -&gt; (CreateIndex -&gt; [AttributeKey] -&gt; CreateIndex)
 -&gt; Lens CreateIndex CreateIndex [AttributeKey] [AttributeKey]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346968"><span class="annot"><span class="annottext">[AttributeKey]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347384"><span class="annot"><span class="annottext">[AttributeKey]
 orderedIndexedAttributeList :: [AttributeKey]
 $sel:orderedIndexedAttributeList:CreateIndex' :: CreateIndex -&gt; [AttributeKey]
-</span><a href="#local-6989586621679346968"><span class="hs-identifier hs-var hs-var">orderedIndexedAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeKey]
-</span><a href="#local-6989586621679346968"><span class="hs-identifier hs-var">orderedIndexedAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346967"><span class="annot"><span class="annottext">s :: CreateIndex
-</span><a href="#local-6989586621679346967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346966"><span class="annot"><span class="annottext">[AttributeKey]
-</span><a href="#local-6989586621679346966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
-</span><a href="#local-6989586621679346967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderedIndexedAttributeList:CreateIndex' :: [AttributeKey]
+</span><a href="#local-6989586621679347384"><span class="hs-identifier hs-var hs-var">orderedIndexedAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AttributeKey]
+</span><a href="#local-6989586621679347384"><span class="hs-identifier hs-var">orderedIndexedAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347383"><span class="annot"><span class="annottext">s :: CreateIndex
+</span><a href="#local-6989586621679347383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347382"><span class="annot"><span class="annottext">[AttributeKey]
+</span><a href="#local-6989586621679347382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
+</span><a href="#local-6989586621679347383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderedIndexedAttributeList:CreateIndex' :: [AttributeKey]
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AorderedIndexedAttributeList%3ACreateIndex%27"><span class="hs-identifier hs-var">orderedIndexedAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AttributeKey]
-</span><a href="#local-6989586621679346966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeKey] -&gt; f [AttributeKey])
+</span><a href="#local-6989586621679347382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AttributeKey] -&gt; f [AttributeKey])
  -&gt; CreateIndex -&gt; f CreateIndex)
 -&gt; (([AttributeKey] -&gt; f [AttributeKey])
     -&gt; [AttributeKey] -&gt; f [AttributeKey])
@@ -269,8 +265,8 @@ $sel:orderedIndexedAttributeList:CreateIndex' :: CreateIndex -&gt; [AttributeKey
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AttributeKey] -&gt; f [AttributeKey])
 -&gt; [AttributeKey] -&gt; f [AttributeKey]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | Indicates whether the attribute that is being indexed has unique values</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- or not.</span><span>
@@ -280,25 +276,25 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateIndex -&gt; Bool -&gt; CreateIndex)
 -&gt; Lens CreateIndex CreateIndex Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346963"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347379"><span class="annot"><span class="annottext">Bool
 isUnique :: Bool
 $sel:isUnique:CreateIndex' :: CreateIndex -&gt; Bool
-</span><a href="#local-6989586621679346963"><span class="hs-identifier hs-var hs-var">isUnique</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679346963"><span class="hs-identifier hs-var">isUnique</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346962"><span class="annot"><span class="annottext">s :: CreateIndex
-</span><a href="#local-6989586621679346962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346961"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679346961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
-</span><a href="#local-6989586621679346962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isUnique:CreateIndex' :: Bool
+</span><a href="#local-6989586621679347379"><span class="hs-identifier hs-var hs-var">isUnique</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679347379"><span class="hs-identifier hs-var">isUnique</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347378"><span class="annot"><span class="annottext">s :: CreateIndex
+</span><a href="#local-6989586621679347378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347377"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679347377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndex
+</span><a href="#local-6989586621679347378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isUnique:CreateIndex' :: Bool
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AisUnique%3ACreateIndex%27"><span class="hs-identifier hs-var">isUnique</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679346961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679346957"><span class="annot"><span class="annottext">request :: CreateIndex -&gt; Request CreateIndex
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679347373"><span class="annot"><span class="annottext">request :: CreateIndex -&gt; Request CreateIndex
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateIndex -&gt; Request CreateIndex
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679346953"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679347369"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateIndex
 -&gt; ClientResponse ClientBody
@@ -322,10 +318,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346950"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346949"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679346949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346948"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347366"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347366"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679347365"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679347365"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679347364"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateIndexResponse
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-var">CreateIndexResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateIndexResponse)
@@ -333,7 +329,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateIndexResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679347364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,16 +341,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347366"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346940"><span id="local-6989586621679346942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347356"><span id="local-6989586621679347358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679346933"><span class="annot"><span class="annottext">toHeaders :: CreateIndex -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346927"><span id="local-6989586621679346928"><span id="local-6989586621679346929"><span id="local-6989586621679346930"><span id="local-6989586621679346931"><span class="annot"><span class="annottext">Bool
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679347349"><span class="annot"><span class="annottext">toHeaders :: CreateIndex -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347343"><span id="local-6989586621679347344"><span id="local-6989586621679347345"><span id="local-6989586621679347346"><span id="local-6989586621679347347"><span class="annot"><span class="annottext">Bool
 [AttributeKey]
 Maybe Text
 Maybe ObjectReference
@@ -362,14 +358,14 @@ Text
 isUnique :: Bool
 orderedIndexedAttributeList :: [AttributeKey]
 directoryArn :: Text
-parentReference :: Maybe ObjectReference
 linkName :: Maybe Text
+parentReference :: Maybe ObjectReference
 $sel:isUnique:CreateIndex' :: CreateIndex -&gt; Bool
 $sel:orderedIndexedAttributeList:CreateIndex' :: CreateIndex -&gt; [AttributeKey]
 $sel:directoryArn:CreateIndex' :: CreateIndex -&gt; Text
-$sel:parentReference:CreateIndex' :: CreateIndex -&gt; Maybe ObjectReference
 $sel:linkName:CreateIndex' :: CreateIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679346927"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:parentReference:CreateIndex' :: CreateIndex -&gt; Maybe ObjectReference
+</span><a href="#local-6989586621679347343"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -377,11 +373,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346929"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679347345"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346919"><span id="local-6989586621679346921"><span id="local-6989586621679346923"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679346917"><span class="annot"><span class="annottext">toJSON :: CreateIndex -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346911"><span id="local-6989586621679346912"><span id="local-6989586621679346913"><span id="local-6989586621679346914"><span id="local-6989586621679346915"><span class="annot"><span class="annottext">Bool
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347335"><span id="local-6989586621679347337"><span id="local-6989586621679347339"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679347333"><span class="annot"><span class="annottext">toJSON :: CreateIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex%27"><span class="hs-identifier hs-type">CreateIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347327"><span id="local-6989586621679347328"><span id="local-6989586621679347329"><span id="local-6989586621679347330"><span id="local-6989586621679347331"><span class="annot"><span class="annottext">Bool
 [AttributeKey]
 Maybe Text
 Maybe ObjectReference
@@ -389,34 +385,34 @@ Text
 isUnique :: Bool
 orderedIndexedAttributeList :: [AttributeKey]
 directoryArn :: Text
-parentReference :: Maybe ObjectReference
 linkName :: Maybe Text
+parentReference :: Maybe ObjectReference
 $sel:isUnique:CreateIndex' :: CreateIndex -&gt; Bool
 $sel:orderedIndexedAttributeList:CreateIndex' :: CreateIndex -&gt; [AttributeKey]
 $sel:directoryArn:CreateIndex' :: CreateIndex -&gt; Text
-$sel:parentReference:CreateIndex' :: CreateIndex -&gt; Maybe ObjectReference
 $sel:linkName:CreateIndex' :: CreateIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679346911"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:parentReference:CreateIndex' :: CreateIndex -&gt; Maybe ObjectReference
+</span><a href="#local-6989586621679347327"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParentReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(ObjectReference -&gt; Pair) -&gt; Maybe ObjectReference -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
+</span><a href="#local-6989586621679347331"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LinkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346915"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParentReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(ObjectReference -&gt; Pair) -&gt; Maybe ObjectReference -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectReference
-</span><a href="#local-6989586621679346914"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347330"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -425,7 +421,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-157"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [AttributeKey] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AttributeKey]
-</span><a href="#local-6989586621679346912"><span class="hs-identifier hs-var">orderedIndexedAttributeList</span></a></span><span>
+</span><a href="#local-6989586621679347328"><span class="hs-identifier hs-var">orderedIndexedAttributeList</span></a></span><span>
 </span><span id="line-158"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -433,12 +429,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IsUnique&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679346911"><span class="hs-identifier hs-var">isUnique</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347327"><span class="hs-identifier hs-var">isUnique</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679346905"><span class="annot"><span class="annottext">toPath :: CreateIndex -&gt; ByteString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679347321"><span class="annot"><span class="annottext">toPath :: CreateIndex -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; CreateIndex -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -447,7 +443,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/index&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndex"><span class="hs-identifier hs-type">CreateIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679346900"><span class="annot"><span class="annottext">toQuery :: CreateIndex -&gt; QueryString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679347316"><span class="annot"><span class="annottext">toQuery :: CreateIndex -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateIndex -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -455,7 +451,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newCreateIndexResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679346897"><span id="local-6989586621679346898"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIndexResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-var">CreateIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIndexResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-var">CreateIndexResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span id="local-6989586621679347313"><span id="local-6989586621679347314"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateIndexResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-var">CreateIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateIndexResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-var">CreateIndexResponse'</span></a></span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ObjectIdentifier@ of the index created by this operation.</span><span>
 </span><span id="line-174"></span><span>    </span><span id="%24sel%3AobjectIdentifier%3ACreateIndexResponse%27"><span class="annot"><span class="annottext">CreateIndexResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AobjectIdentifier%3ACreateIndexResponse%27"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -463,7 +459,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateIndexResponse%27"><span class="annot"><span class="annottext">CreateIndexResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AhttpStatus%3ACreateIndexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346891"><span id="local-6989586621679346893"><span class="annot"><span class="annottext">CreateIndexResponse -&gt; CreateIndexResponse -&gt; Bool
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347307"><span id="local-6989586621679347309"><span class="annot"><span class="annottext">CreateIndexResponse -&gt; CreateIndexResponse -&gt; Bool
 (CreateIndexResponse -&gt; CreateIndexResponse -&gt; Bool)
 -&gt; (CreateIndexResponse -&gt; CreateIndexResponse -&gt; Bool)
 -&gt; Eq CreateIndexResponse
@@ -472,7 +468,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateIndexResponse -&gt; CreateIndexResponse -&gt; Bool
 == :: CreateIndexResponse -&gt; CreateIndexResponse -&gt; Bool
 $c== :: CreateIndexResponse -&gt; CreateIndexResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346883"><span id="local-6989586621679346885"><span id="local-6989586621679346887"><span id="local-6989586621679346889"><span class="annot"><span class="annottext">ReadPrec [CreateIndexResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347299"><span id="local-6989586621679347301"><span id="local-6989586621679347303"><span id="local-6989586621679347305"><span class="annot"><span class="annottext">ReadPrec [CreateIndexResponse]
 ReadPrec CreateIndexResponse
 Int -&gt; ReadS CreateIndexResponse
 ReadS [CreateIndexResponse]
@@ -492,7 +488,7 @@ readList :: ReadS [CreateIndexResponse]
 $creadList :: ReadS [CreateIndexResponse]
 readsPrec :: Int -&gt; ReadS CreateIndexResponse
 $creadsPrec :: Int -&gt; ReadS CreateIndexResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346877"><span id="local-6989586621679346879"><span id="local-6989586621679346881"><span class="annot"><span class="annottext">Int -&gt; CreateIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347293"><span id="local-6989586621679347295"><span id="local-6989586621679347297"><span class="annot"><span class="annottext">Int -&gt; CreateIndexResponse -&gt; ShowS
 [CreateIndexResponse] -&gt; ShowS
 CreateIndexResponse -&gt; String
 (Int -&gt; CreateIndexResponse -&gt; ShowS)
@@ -534,8 +530,8 @@ $cfrom :: forall x. CreateIndexResponse -&gt; Rep CreateIndexResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newCreateIndexResponse"><span class="annot"><span class="annottext">newCreateIndexResponse :: Int -&gt; CreateIndexResponse
-</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#newCreateIndexResponse"><span class="hs-identifier hs-var hs-var">newCreateIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679346874"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.CreateIndex.html#newCreateIndexResponse"><span class="hs-identifier hs-var hs-var">newCreateIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679347290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">CreateIndexResponse' :: Maybe Text -&gt; Int -&gt; CreateIndexResponse
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:objectIdentifier:CreateIndexResponse' :: Maybe Text
@@ -545,7 +541,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIndexResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AhttpStatus%3ACreateIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346874"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679347290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The @ObjectIdentifier@ of the index created by this operation.</span><span>
@@ -557,16 +553,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateIndexResponse CreateIndexResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346873"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347289"><span class="annot"><span class="annottext">Maybe Text
 objectIdentifier :: Maybe Text
 $sel:objectIdentifier:CreateIndexResponse' :: CreateIndexResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679346873"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346873"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346872"><span class="annot"><span class="annottext">s :: CreateIndexResponse
-</span><a href="#local-6989586621679346872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346871"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndexResponse
-</span><a href="#local-6989586621679346872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:CreateIndexResponse' :: Maybe Text
+</span><a href="#local-6989586621679347289"><span class="hs-identifier hs-var hs-var">objectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347289"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347288"><span class="annot"><span class="annottext">s :: CreateIndexResponse
+</span><a href="#local-6989586621679347288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndexResponse
+</span><a href="#local-6989586621679347288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectIdentifier:CreateIndexResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AobjectIdentifier%3ACreateIndexResponse%27"><span class="hs-identifier hs-var">objectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#createIndexResponse_httpStatus"><span class="hs-identifier hs-type">createIndexResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -575,16 +571,16 @@ $sel:objectIdentifier:CreateIndexResponse' :: CreateIndexResponse -&gt; Maybe Te
 -&gt; (CreateIndexResponse -&gt; Int -&gt; CreateIndexResponse)
 -&gt; Lens CreateIndexResponse CreateIndexResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346870"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347286"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateIndexResponse' :: CreateIndexResponse -&gt; Int
-</span><a href="#local-6989586621679346870"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346870"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346869"><span class="annot"><span class="annottext">s :: CreateIndexResponse
-</span><a href="#local-6989586621679346869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346868"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndexResponse
-</span><a href="#local-6989586621679346869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIndexResponse' :: Int
+</span><a href="#local-6989586621679347286"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347286"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347285"><span class="annot"><span class="annottext">s :: CreateIndexResponse
+</span><a href="#local-6989586621679347285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse%27"><span class="hs-identifier hs-type">CreateIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347284"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679347284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateIndexResponse
+</span><a href="#local-6989586621679347285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateIndexResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.CreateIndex.html#%24sel%3AhttpStatus%3ACreateIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.CreateIndex.html#CreateIndexResponse"><span class="hs-identifier hs-type">CreateIndexResponse</span></a></span></span><span>
 </span><span id="line-211"></span></pre></body></html>

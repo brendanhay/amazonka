@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides summary information about a training job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTrainingJobSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680349186"><span id="local-6989586621680349187"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrainingJobSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-var">TrainingJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingJobSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-var">TrainingJobSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timestamp when the training job was last modified.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A timestamp that shows when the training job ended. This field is set</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- only if the training job has one of the terminal statuses (@Completed@,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @Failed@, or @Stopped@).</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtrainingEndTime%3ATrainingJobSummary%27"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; Maybe POSIX
+</span><span id="line-30"></span><span id="local-6989586621680350615"><span id="local-6989586621680350616"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrainingJobSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-var">TrainingJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingJobSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-var">TrainingJobSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A timestamp that shows when the training job ended. This field is set</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- only if the training job has one of the terminal statuses (@Completed@,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @Failed@, or @Stopped@).</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtrainingEndTime%3ATrainingJobSummary%27"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingEndTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var hs-var">trainingEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Timestamp when the training job was last modified.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the training job that you want a summary for.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AtrainingJobName%3ATrainingJobSummary%27"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobName%3ATrainingJobSummary%27"><span class="hs-identifier hs-var hs-var">trainingJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AtrainingJobStatus%3ATrainingJobSummary%27"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; TrainingJobStatus
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobStatus%3ATrainingJobSummary%27"><span class="hs-identifier hs-var hs-var">trainingJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobStatus.html#TrainingJobStatus"><span class="hs-identifier hs-type">TrainingJobStatus</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680349175"><span id="local-6989586621680349177"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; TrainingJobSummary -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680350604"><span id="local-6989586621680350606"><span class="annot"><span class="annottext">TrainingJobSummary -&gt; TrainingJobSummary -&gt; Bool
 (TrainingJobSummary -&gt; TrainingJobSummary -&gt; Bool)
 -&gt; (TrainingJobSummary -&gt; TrainingJobSummary -&gt; Bool)
 -&gt; Eq TrainingJobSummary
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TrainingJobSummary -&gt; TrainingJobSummary -&gt; Bool
 == :: TrainingJobSummary -&gt; TrainingJobSummary -&gt; Bool
 $c== :: TrainingJobSummary -&gt; TrainingJobSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349166"><span id="local-6989586621680349168"><span id="local-6989586621680349170"><span id="local-6989586621680349172"><span class="annot"><span class="annottext">ReadPrec [TrainingJobSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680350595"><span id="local-6989586621680350597"><span id="local-6989586621680350599"><span id="local-6989586621680350601"><span class="annot"><span class="annottext">ReadPrec [TrainingJobSummary]
 ReadPrec TrainingJobSummary
 Int -&gt; ReadS TrainingJobSummary
 ReadS [TrainingJobSummary]
@@ -78,7 +78,7 @@ readList :: ReadS [TrainingJobSummary]
 $creadList :: ReadS [TrainingJobSummary]
 readsPrec :: Int -&gt; ReadS TrainingJobSummary
 $creadsPrec :: Int -&gt; ReadS TrainingJobSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349159"><span id="local-6989586621680349161"><span id="local-6989586621680349163"><span class="annot"><span class="annottext">Int -&gt; TrainingJobSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680350588"><span id="local-6989586621680350590"><span id="local-6989586621680350592"><span class="annot"><span class="annottext">Int -&gt; TrainingJobSummary -&gt; ShowS
 [TrainingJobSummary] -&gt; ShowS
 TrainingJobSummary -&gt; String
 (Int -&gt; TrainingJobSummary -&gt; ShowS)
@@ -112,11 +112,11 @@ $cfrom :: forall x. TrainingJobSummary -&gt; Rep TrainingJobSummary x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'lastModifiedTime', 'trainingJobSummary_lastModifiedTime' - Timestamp when the training job was last modified.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'trainingEndTime', 'trainingJobSummary_trainingEndTime' - A timestamp that shows when the training job ended. This field is set</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- only if the training job has one of the terminal statuses (@Completed@,</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- @Failed@, or @Stopped@).</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'trainingEndTime', 'trainingJobSummary_trainingEndTime' - A timestamp that shows when the training job ended. This field is set</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- only if the training job has one of the terminal statuses (@Completed@,</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @Failed@, or @Stopped@).</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'lastModifiedTime', 'trainingJobSummary_lastModifiedTime' - Timestamp when the training job was last modified.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- 'trainingJobName', 'trainingJobSummary_trainingJobName' - The name of the training job that you want a summary for.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
@@ -137,14 +137,14 @@ $cfrom :: forall x. TrainingJobSummary -&gt; Rep TrainingJobSummary x
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span>
 </span><span id="line-79"></span><span id="newTrainingJobSummary"><span class="annot"><span class="annottext">newTrainingJobSummary :: Text -&gt; Text -&gt; UTCTime -&gt; TrainingJobStatus -&gt; TrainingJobSummary
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#newTrainingJobSummary"><span class="hs-identifier hs-var hs-var">newTrainingJobSummary</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680349153"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349153"><span class="hs-identifier hs-var">pTrainingJobName_</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621680349152"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349152"><span class="hs-identifier hs-var">pTrainingJobArn_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621680349151"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680349151"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621680349150"><span class="annot"><span class="annottext">TrainingJobStatus
-</span><a href="#local-6989586621680349150"><span class="hs-identifier hs-var">pTrainingJobStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680350582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680350582"><span class="hs-identifier hs-var">pTrainingJobName_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621680350581"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680350581"><span class="hs-identifier hs-var">pTrainingJobArn_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621680350580"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680350580"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621680350579"><span class="annot"><span class="annottext">TrainingJobStatus
+</span><a href="#local-6989586621680350579"><span class="hs-identifier hs-var">pTrainingJobStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">TrainingJobSummary' :: Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Text
@@ -153,21 +153,21 @@ $cfrom :: forall x. TrainingJobSummary -&gt; Rep TrainingJobSummary x
 -&gt; TrainingJobStatus
 -&gt; TrainingJobSummary
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:TrainingJobSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trainingEndTime:TrainingJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingEndTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:trainingEndTime:TrainingJobSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingEndTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:TrainingJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:trainingJobName:TrainingJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobName%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349153"><span class="hs-identifier hs-var">pTrainingJobName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680350582"><span class="hs-identifier hs-var">pTrainingJobName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:trainingJobArn:TrainingJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobArn%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349152"><span class="hs-identifier hs-var">pTrainingJobArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680350581"><span class="hs-identifier hs-var">pTrainingJobArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:TrainingJobSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AcreationTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -176,31 +176,33 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680349151"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680350580"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:trainingJobStatus:TrainingJobSummary' :: TrainingJobStatus
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobStatus%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatus
-</span><a href="#local-6989586621680349150"><span class="hs-identifier hs-var">pTrainingJobStatus_</span></a></span><span>
+</span><a href="#local-6989586621680350579"><span class="hs-identifier hs-var">pTrainingJobStatus_</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | Timestamp when the training job was last modified.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_lastModifiedTime"><span class="hs-identifier hs-type">trainingJobSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="trainingJobSummary_lastModifiedTime"><span class="annot"><span class="annottext">trainingJobSummary_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-94"></span><span class="hs-comment">-- | A timestamp that shows when the training job ended. This field is set</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- only if the training job has one of the terminal statuses (@Completed@,</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @Failed@, or @Stopped@).</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_trainingEndTime"><span class="hs-identifier hs-type">trainingJobSummary_trainingEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="trainingJobSummary_trainingEndTime"><span class="annot"><span class="annottext">trainingJobSummary_trainingEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TrainingJobSummary -&gt; f TrainingJobSummary
-</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_lastModifiedTime"><span class="hs-identifier hs-var hs-var">trainingJobSummary_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_trainingEndTime"><span class="hs-identifier hs-var hs-var">trainingJobSummary_trainingEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobSummary -&gt; Maybe POSIX)
 -&gt; (TrainingJobSummary -&gt; Maybe POSIX -&gt; TrainingJobSummary)
 -&gt; Lens
      TrainingJobSummary TrainingJobSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349144"><span class="annot"><span class="annottext">Maybe POSIX
-lastModifiedTime :: Maybe POSIX
-$sel:lastModifiedTime:TrainingJobSummary' :: TrainingJobSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680349144"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680349144"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349143"><span class="annot"><span class="annottext">s :: TrainingJobSummary
-</span><a href="#local-6989586621680349143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349142"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680349142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
-</span><a href="#local-6989586621680349143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:TrainingJobSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680349142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350573"><span class="annot"><span class="annottext">Maybe POSIX
+trainingEndTime :: Maybe POSIX
+$sel:trainingEndTime:TrainingJobSummary' :: TrainingJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621680350573"><span class="hs-identifier hs-var hs-var">trainingEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680350573"><span class="hs-identifier hs-var">trainingEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350572"><span class="annot"><span class="annottext">s :: TrainingJobSummary
+</span><a href="#local-6989586621680350572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350571"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680350571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
+</span><a href="#local-6989586621680350572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingEndTime:TrainingJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingEndTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680350571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TrainingJobSummary -&gt; f TrainingJobSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -216,28 +218,26 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | A timestamp that shows when the training job ended. This field is set</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- only if the training job has one of the terminal statuses (@Completed@,</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- @Failed@, or @Stopped@).</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_trainingEndTime"><span class="hs-identifier hs-type">trainingJobSummary_trainingEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="trainingJobSummary_trainingEndTime"><span class="annot"><span class="annottext">trainingJobSummary_trainingEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Timestamp when the training job was last modified.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_lastModifiedTime"><span class="hs-identifier hs-type">trainingJobSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="trainingJobSummary_lastModifiedTime"><span class="annot"><span class="annottext">trainingJobSummary_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TrainingJobSummary -&gt; f TrainingJobSummary
-</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_trainingEndTime"><span class="hs-identifier hs-var hs-var">trainingJobSummary_trainingEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobSummary -&gt; Maybe POSIX)
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_lastModifiedTime"><span class="hs-identifier hs-var hs-var">trainingJobSummary_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TrainingJobSummary -&gt; Maybe POSIX)
 -&gt; (TrainingJobSummary -&gt; Maybe POSIX -&gt; TrainingJobSummary)
 -&gt; Lens
      TrainingJobSummary TrainingJobSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349138"><span class="annot"><span class="annottext">Maybe POSIX
-trainingEndTime :: Maybe POSIX
-$sel:trainingEndTime:TrainingJobSummary' :: TrainingJobSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680349138"><span class="hs-identifier hs-var hs-var">trainingEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680349138"><span class="hs-identifier hs-var">trainingEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349137"><span class="annot"><span class="annottext">s :: TrainingJobSummary
-</span><a href="#local-6989586621680349137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349136"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680349136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
-</span><a href="#local-6989586621680349137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingEndTime:TrainingJobSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingEndTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680349136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350567"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:TrainingJobSummary' :: TrainingJobSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621680350567"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680350567"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350566"><span class="annot"><span class="annottext">s :: TrainingJobSummary
+</span><a href="#local-6989586621680350566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350565"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680350565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
+</span><a href="#local-6989586621680350566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:TrainingJobSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AlastModifiedTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680350565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TrainingJobSummary -&gt; f TrainingJobSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -261,16 +261,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (TrainingJobSummary -&gt; Text -&gt; TrainingJobSummary)
 -&gt; Lens TrainingJobSummary TrainingJobSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349134"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350563"><span class="annot"><span class="annottext">Text
 trainingJobName :: Text
 $sel:trainingJobName:TrainingJobSummary' :: TrainingJobSummary -&gt; Text
-</span><a href="#local-6989586621680349134"><span class="hs-identifier hs-var hs-var">trainingJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349134"><span class="hs-identifier hs-var">trainingJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349133"><span class="annot"><span class="annottext">s :: TrainingJobSummary
-</span><a href="#local-6989586621680349133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349132"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
-</span><a href="#local-6989586621680349133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobName:TrainingJobSummary' :: Text
+</span><a href="#local-6989586621680350563"><span class="hs-identifier hs-var hs-var">trainingJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680350563"><span class="hs-identifier hs-var">trainingJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350562"><span class="annot"><span class="annottext">s :: TrainingJobSummary
+</span><a href="#local-6989586621680350562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680350561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
+</span><a href="#local-6989586621680350562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobName:TrainingJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobName%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680350561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the training job.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_trainingJobArn"><span class="hs-identifier hs-type">trainingJobSummary_trainingJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -279,16 +279,16 @@ $sel:trainingJobName:TrainingJobSummary' :: TrainingJobSummary -&gt; Text
 -&gt; (TrainingJobSummary -&gt; Text -&gt; TrainingJobSummary)
 -&gt; Lens TrainingJobSummary TrainingJobSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349130"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350559"><span class="annot"><span class="annottext">Text
 trainingJobArn :: Text
 $sel:trainingJobArn:TrainingJobSummary' :: TrainingJobSummary -&gt; Text
-</span><a href="#local-6989586621680349130"><span class="hs-identifier hs-var hs-var">trainingJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349130"><span class="hs-identifier hs-var">trainingJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349129"><span class="annot"><span class="annottext">s :: TrainingJobSummary
-</span><a href="#local-6989586621680349129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349128"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
-</span><a href="#local-6989586621680349129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobArn:TrainingJobSummary' :: Text
+</span><a href="#local-6989586621680350559"><span class="hs-identifier hs-var hs-var">trainingJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680350559"><span class="hs-identifier hs-var">trainingJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350558"><span class="annot"><span class="annottext">s :: TrainingJobSummary
+</span><a href="#local-6989586621680350558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680350557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
+</span><a href="#local-6989586621680350558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobArn:TrainingJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobArn%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680349128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680350557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | A timestamp that shows when the training job was created.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#trainingJobSummary_creationTime"><span class="hs-identifier hs-type">trainingJobSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -298,16 +298,16 @@ $sel:trainingJobArn:TrainingJobSummary' :: TrainingJobSummary -&gt; Text
 -&gt; (TrainingJobSummary -&gt; POSIX -&gt; TrainingJobSummary)
 -&gt; Lens TrainingJobSummary TrainingJobSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349126"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350555"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:TrainingJobSummary' :: TrainingJobSummary -&gt; POSIX
-</span><a href="#local-6989586621680349126"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680349126"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349125"><span class="annot"><span class="annottext">s :: TrainingJobSummary
-</span><a href="#local-6989586621680349125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349124"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680349124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
-</span><a href="#local-6989586621680349125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TrainingJobSummary' :: POSIX
+</span><a href="#local-6989586621680350555"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680350555"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350554"><span class="annot"><span class="annottext">s :: TrainingJobSummary
+</span><a href="#local-6989586621680350554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350553"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680350553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
+</span><a href="#local-6989586621680350554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TrainingJobSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AcreationTime%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680349124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TrainingJobSummary -&gt; f TrainingJobSummary)
+</span><a href="#local-6989586621680350553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; TrainingJobSummary -&gt; f TrainingJobSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; TrainingJobSummary
@@ -329,19 +329,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      TrainingJobStatus
      TrainingJobStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349122"><span class="annot"><span class="annottext">TrainingJobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350551"><span class="annot"><span class="annottext">TrainingJobStatus
 trainingJobStatus :: TrainingJobStatus
 $sel:trainingJobStatus:TrainingJobSummary' :: TrainingJobSummary -&gt; TrainingJobStatus
-</span><a href="#local-6989586621680349122"><span class="hs-identifier hs-var hs-var">trainingJobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatus
-</span><a href="#local-6989586621680349122"><span class="hs-identifier hs-var">trainingJobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349121"><span class="annot"><span class="annottext">s :: TrainingJobSummary
-</span><a href="#local-6989586621680349121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349120"><span class="annot"><span class="annottext">TrainingJobStatus
-</span><a href="#local-6989586621680349120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
-</span><a href="#local-6989586621680349121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobStatus:TrainingJobSummary' :: TrainingJobStatus
+</span><a href="#local-6989586621680350551"><span class="hs-identifier hs-var hs-var">trainingJobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatus
+</span><a href="#local-6989586621680350551"><span class="hs-identifier hs-var">trainingJobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350550"><span class="annot"><span class="annottext">s :: TrainingJobSummary
+</span><a href="#local-6989586621680350550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary%27"><span class="hs-identifier hs-type">TrainingJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350549"><span class="annot"><span class="annottext">TrainingJobStatus
+</span><a href="#local-6989586621680350549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingJobSummary
+</span><a href="#local-6989586621680350550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingJobStatus:TrainingJobSummary' :: TrainingJobStatus
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#%24sel%3AtrainingJobStatus%3ATrainingJobSummary%27"><span class="hs-identifier hs-var">trainingJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingJobStatus
-</span><a href="#local-6989586621680349120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680350549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349117"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621680349115"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrainingJobSummary
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350546"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621680350544"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrainingJobSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrainingJobSummary)
@@ -351,8 +351,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrainingJobSummary&quot;</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680349112"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680350541"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680350541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Text
@@ -378,10 +378,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; TrainingJobSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680350541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TrainingEndTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
    -&gt; Text
@@ -394,10 +394,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; Text -&gt; POSIX -&gt; TrainingJobStatus -&gt; TrainingJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680350541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TrainingEndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text -&gt; Text -&gt; POSIX -&gt; TrainingJobStatus -&gt; TrainingJobSummary)
 -&gt; Parser Text
@@ -405,7 +405,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; POSIX -&gt; TrainingJobStatus -&gt; TrainingJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680350541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingJobName&quot;</span></span><span class="hs-special">)</span><span>
@@ -414,7 +414,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; TrainingJobStatus -&gt; TrainingJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680350541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingJobArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -422,7 +422,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser (TrainingJobStatus -&gt; TrainingJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680350541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -430,13 +430,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser TrainingJobStatus -&gt; Parser TrainingJobSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingJobStatus
+</span><a href="#local-6989586621680350541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingJobStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingJobStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349105"><span id="local-6989586621680349107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350534"><span id="local-6989586621680350536"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350531"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSummary.html#TrainingJobSummary"><span class="hs-identifier hs-type">TrainingJobSummary</span></a></span></span><span>
 </span><span id="line-137"></span></pre></body></html>

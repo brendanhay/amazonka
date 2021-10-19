@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679244899"><span id="local-6989586621679244900"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectorCapability"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-var">ConnectorCapability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorCapability%27"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-var">ConnectorCapability'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679245028"><span id="local-6989586621679245029"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectorCapability"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-var">ConnectorCapability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorCapability%27"><span class="annot"><a href="Network.AWS.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-var">ConnectorCapability'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectorCapability"><span class="annot"><span class="annottext">ConnectorCapability -&gt; Text
 </span><a href="Network.AWS.SMS.Types.ConnectorCapability.html#fromConnectorCapability"><span class="hs-identifier hs-var hs-var">fromConnectorCapability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244891"><span id="local-6989586621679244893"><span id="local-6989586621679244895"><span class="annot"><span class="annottext">Int -&gt; ConnectorCapability -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245020"><span id="local-6989586621679245022"><span id="local-6989586621679245024"><span class="annot"><span class="annottext">Int -&gt; ConnectorCapability -&gt; ShowS
 [ConnectorCapability] -&gt; ShowS
 ConnectorCapability -&gt; String
 (Int -&gt; ConnectorCapability -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ConnectorCapability -&gt; String
 showsPrec :: Int -&gt; ConnectorCapability -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConnectorCapability -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679244882"><span id="local-6989586621679244884"><span id="local-6989586621679244886"><span id="local-6989586621679244888"><span class="annot"><span class="annottext">ReadPrec [ConnectorCapability]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679245011"><span id="local-6989586621679245013"><span id="local-6989586621679245015"><span id="local-6989586621679245017"><span class="annot"><span class="annottext">ReadPrec [ConnectorCapability]
 ReadPrec ConnectorCapability
 Int -&gt; ReadS ConnectorCapability
 ReadS [ConnectorCapability]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ConnectorCapability]
 readsPrec :: Int -&gt; ReadS ConnectorCapability
 $creadsPrec :: Int -&gt; ReadS ConnectorCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244877"><span id="local-6989586621679244879"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679245006"><span id="local-6989586621679245008"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
 (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
 -&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
 -&gt; Eq ConnectorCapability
@@ -85,7 +85,7 @@ $c/= :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
 == :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
 $c== :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679244861"><span id="local-6989586621679244863"><span id="local-6989586621679244865"><span id="local-6989586621679244867"><span id="local-6989586621679244869"><span id="local-6989586621679244871"><span id="local-6989586621679244873"><span class="annot"><span class="annottext">Eq ConnectorCapability
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679244990"><span id="local-6989586621679244992"><span id="local-6989586621679244994"><span id="local-6989586621679244996"><span id="local-6989586621679244998"><span id="local-6989586621679245000"><span id="local-6989586621679245002"><span class="annot"><span class="annottext">Eq ConnectorCapability
 Eq ConnectorCapability
 -&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Ordering)
 -&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. ConnectorCapability -&gt; Rep ConnectorCapability x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244853"><span id="local-6989586621679244855"><span class="annot"><span class="annottext">Int -&gt; ConnectorCapability -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244982"><span id="local-6989586621679244984"><span class="annot"><span class="annottext">Int -&gt; ConnectorCapability -&gt; Int
 ConnectorCapability -&gt; Int
 (Int -&gt; ConnectorCapability -&gt; Int)
 -&gt; (ConnectorCapability -&gt; Int) -&gt; Hashable ConnectorCapability
@@ -148,53 +148,53 @@ $chash :: ConnectorCapability -&gt; Int
 hashWithSalt :: Int -&gt; ConnectorCapability -&gt; Int
 $chashWithSalt :: Int -&gt; ConnectorCapability -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244850"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244979"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ()
 (ConnectorCapability -&gt; ()) -&gt; NFData ConnectorCapability
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConnectorCapability -&gt; ()
 $crnf :: ConnectorCapability -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244847"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectorCapability
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244976"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectorCapability
 (Text -&gt; Either String ConnectorCapability)
 -&gt; FromText ConnectorCapability
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConnectorCapability
 $cfromText :: Text -&gt; Either String ConnectorCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244844"><span class="annot"><span class="annottext">ConnectorCapability -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244973"><span class="annot"><span class="annottext">ConnectorCapability -&gt; Text
 (ConnectorCapability -&gt; Text) -&gt; ToText ConnectorCapability
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConnectorCapability -&gt; Text
 $ctoText :: ConnectorCapability -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244841"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244970"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ByteString
 (ConnectorCapability -&gt; ByteString)
 -&gt; ToByteString ConnectorCapability
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConnectorCapability -&gt; ByteString
 $ctoBS :: ConnectorCapability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244838"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244967"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ByteStringBuilder
 (ConnectorCapability -&gt; ByteStringBuilder)
 -&gt; ToLog ConnectorCapability
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConnectorCapability -&gt; ByteStringBuilder
 $cbuild :: ConnectorCapability -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244835"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectorCapability -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244964"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectorCapability -&gt; [Header]
 (HeaderName -&gt; ConnectorCapability -&gt; [Header])
 -&gt; ToHeader ConnectorCapability
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConnectorCapability -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConnectorCapability -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244832"><span class="annot"><span class="annottext">ConnectorCapability -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244961"><span class="annot"><span class="annottext">ConnectorCapability -&gt; QueryString
 (ConnectorCapability -&gt; QueryString) -&gt; ToQuery ConnectorCapability
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConnectorCapability -&gt; QueryString
 $ctoQuery :: ConnectorCapability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244827"><span id="local-6989586621679244829"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectorCapability]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244956"><span id="local-6989586621679244958"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectorCapability]
 Value -&gt; Parser ConnectorCapability
 (Value -&gt; Parser ConnectorCapability)
 -&gt; (Value -&gt; Parser [ConnectorCapability])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [ConnectorCapability]
 parseJSON :: Value -&gt; Parser ConnectorCapability
 $cparseJSON :: Value -&gt; Parser ConnectorCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244822"><span id="local-6989586621679244824"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectorCapability]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244951"><span id="local-6989586621679244953"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectorCapability]
 FromJSONKeyFunction ConnectorCapability
 FromJSONKeyFunction ConnectorCapability
 -&gt; FromJSONKeyFunction [ConnectorCapability]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConnectorCapability]
 fromJSONKey :: FromJSONKeyFunction ConnectorCapability
 $cfromJSONKey :: FromJSONKeyFunction ConnectorCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244813"><span id="local-6989586621679244815"><span id="local-6989586621679244817"><span id="local-6989586621679244819"><span class="annot"><span class="annottext">[ConnectorCapability] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244942"><span id="local-6989586621679244944"><span id="local-6989586621679244946"><span id="local-6989586621679244948"><span class="annot"><span class="annottext">[ConnectorCapability] -&gt; Encoding
 [ConnectorCapability] -&gt; Value
 ConnectorCapability -&gt; Encoding
 ConnectorCapability -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: ConnectorCapability -&gt; Encoding
 toJSON :: ConnectorCapability -&gt; Value
 $ctoJSON :: ConnectorCapability -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244808"><span id="local-6989586621679244810"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectorCapability]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244937"><span id="local-6989586621679244939"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectorCapability]
 ToJSONKeyFunction ConnectorCapability
 ToJSONKeyFunction ConnectorCapability
 -&gt; ToJSONKeyFunction [ConnectorCapability]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConnectorCapability]
 toJSONKey :: ToJSONKeyFunction ConnectorCapability
 $ctoJSONKey :: ToJSONKeyFunction ConnectorCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244805"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectorCapability
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244934"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectorCapability
 ([Node] -&gt; Either String ConnectorCapability)
 -&gt; FromXML ConnectorCapability
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConnectorCapability
 $cparseXML :: [Node] -&gt; Either String ConnectorCapability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244802"><span class="annot"><span class="annottext">ConnectorCapability -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244931"><span class="annot"><span class="annottext">ConnectorCapability -&gt; XML
 (ConnectorCapability -&gt; XML) -&gt; ToXML ConnectorCapability
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConnectorCapability -&gt; XML

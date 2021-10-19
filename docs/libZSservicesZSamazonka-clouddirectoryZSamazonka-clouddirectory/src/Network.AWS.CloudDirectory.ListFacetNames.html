@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListFacetNames' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679340520"><span id="local-6989586621679340521"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFacetNames"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-var">ListFacetNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFacetNames%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-var">ListFacetNames'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679340924"><span id="local-6989586621679340925"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFacetNames"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-var">ListFacetNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFacetNames%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-var">ListFacetNames'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListFacetNames%27"><span class="annot"><span class="annottext">ListFacetNames -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AnextToken%3AListFacetNames%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AschemaArn%3AListFacetNames%27"><span class="annot"><span class="annottext">ListFacetNames -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AschemaArn%3AListFacetNames%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340512"><span id="local-6989586621679340514"><span class="annot"><span class="annottext">ListFacetNames -&gt; ListFacetNames -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340916"><span id="local-6989586621679340918"><span class="annot"><span class="annottext">ListFacetNames -&gt; ListFacetNames -&gt; Bool
 (ListFacetNames -&gt; ListFacetNames -&gt; Bool)
 -&gt; (ListFacetNames -&gt; ListFacetNames -&gt; Bool) -&gt; Eq ListFacetNames
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFacetNames -&gt; ListFacetNames -&gt; Bool
 == :: ListFacetNames -&gt; ListFacetNames -&gt; Bool
 $c== :: ListFacetNames -&gt; ListFacetNames -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340503"><span id="local-6989586621679340505"><span id="local-6989586621679340507"><span id="local-6989586621679340509"><span class="annot"><span class="annottext">ReadPrec [ListFacetNames]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340907"><span id="local-6989586621679340909"><span id="local-6989586621679340911"><span id="local-6989586621679340913"><span class="annot"><span class="annottext">ReadPrec [ListFacetNames]
 ReadPrec ListFacetNames
 Int -&gt; ReadS ListFacetNames
 ReadS [ListFacetNames]
@@ -91,7 +91,7 @@ readList :: ReadS [ListFacetNames]
 $creadList :: ReadS [ListFacetNames]
 readsPrec :: Int -&gt; ReadS ListFacetNames
 $creadsPrec :: Int -&gt; ReadS ListFacetNames
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340496"><span id="local-6989586621679340498"><span id="local-6989586621679340500"><span class="annot"><span class="annottext">Int -&gt; ListFacetNames -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340900"><span id="local-6989586621679340902"><span id="local-6989586621679340904"><span class="annot"><span class="annottext">Int -&gt; ListFacetNames -&gt; ShowS
 [ListFacetNames] -&gt; ShowS
 ListFacetNames -&gt; String
 (Int -&gt; ListFacetNames -&gt; ShowS)
@@ -135,8 +135,8 @@ $cfrom :: forall x. ListFacetNames -&gt; Rep ListFacetNames x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span>
 </span><span id="line-82"></span><span id="newListFacetNames"><span class="annot"><span class="annottext">newListFacetNames :: Text -&gt; ListFacetNames
-</span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#newListFacetNames"><span class="hs-identifier hs-var hs-var">newListFacetNames</span></a></span></span><span> </span><span id="local-6989586621679340491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340491"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#newListFacetNames"><span class="hs-identifier hs-var hs-var">newListFacetNames</span></a></span></span><span> </span><span id="local-6989586621679340895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340895"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ListFacetNames' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListFacetNames
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFacetNames' :: Maybe Text
@@ -149,7 +149,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaArn:ListFacetNames' :: Text
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AschemaArn%3AListFacetNames%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340491"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span>
+</span><a href="#local-6989586621679340895"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The pagination token.</span><span>
@@ -160,16 +160,16 @@ forall a. Maybe a
 -&gt; (ListFacetNames -&gt; Maybe Text -&gt; ListFacetNames)
 -&gt; Lens ListFacetNames ListFacetNames (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340489"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340893"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListFacetNames' :: ListFacetNames -&gt; Maybe Text
-</span><a href="#local-6989586621679340489"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340489"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340488"><span class="annot"><span class="annottext">s :: ListFacetNames
-</span><a href="#local-6989586621679340488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340487"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNames
-</span><a href="#local-6989586621679340488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFacetNames' :: Maybe Text
+</span><a href="#local-6989586621679340893"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340893"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340892"><span class="annot"><span class="annottext">s :: ListFacetNames
+</span><a href="#local-6989586621679340892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNames
+</span><a href="#local-6989586621679340892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFacetNames' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AnextToken%3AListFacetNames%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The maximum number of results to retrieve.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#listFacetNames_maxResults"><span class="hs-identifier hs-type">listFacetNames_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -180,16 +180,16 @@ $sel:nextToken:ListFacetNames' :: ListFacetNames -&gt; Maybe Text
 -&gt; Lens
      ListFacetNames ListFacetNames (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340486"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340890"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListFacetNames' :: ListFacetNames -&gt; Maybe Natural
-</span><a href="#local-6989586621679340486"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340486"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340485"><span class="annot"><span class="annottext">s :: ListFacetNames
-</span><a href="#local-6989586621679340485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340484"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNames
-</span><a href="#local-6989586621679340485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFacetNames' :: Maybe Natural
+</span><a href="#local-6989586621679340890"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679340890"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340889"><span class="annot"><span class="annottext">s :: ListFacetNames
+</span><a href="#local-6989586621679340889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340888"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679340888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNames
+</span><a href="#local-6989586621679340889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFacetNames' :: Maybe Natural
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AmaxResults%3AListFacetNames%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) to retrieve facet names from.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#listFacetNames_schemaArn"><span class="hs-identifier hs-type">listFacetNames_schemaArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,29 +198,29 @@ $sel:maxResults:ListFacetNames' :: ListFacetNames -&gt; Maybe Natural
 -&gt; (ListFacetNames -&gt; Text -&gt; ListFacetNames)
 -&gt; Lens ListFacetNames ListFacetNames Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340483"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340887"><span class="annot"><span class="annottext">Text
 schemaArn :: Text
 $sel:schemaArn:ListFacetNames' :: ListFacetNames -&gt; Text
-</span><a href="#local-6989586621679340483"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340483"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340482"><span class="annot"><span class="annottext">s :: ListFacetNames
-</span><a href="#local-6989586621679340482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340481"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNames
-</span><a href="#local-6989586621679340482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:ListFacetNames' :: Text
+</span><a href="#local-6989586621679340887"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340887"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340886"><span class="annot"><span class="annottext">s :: ListFacetNames
+</span><a href="#local-6989586621679340886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340885"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679340885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNames
+</span><a href="#local-6989586621679340886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:ListFacetNames' :: Text
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AschemaArn%3AListFacetNames%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679340477"><span class="annot"><span class="annottext">page :: ListFacetNames
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679340881"><span class="annot"><span class="annottext">page :: ListFacetNames
 -&gt; AWSResponse ListFacetNames -&gt; Maybe ListFacetNames
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679340475"><span class="annot"><span class="annottext">ListFacetNames
-</span><a href="#local-6989586621679340475"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679340474"><span class="annot"><span class="annottext">AWSResponse ListFacetNames
-</span><a href="#local-6989586621679340474"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679340879"><span class="annot"><span class="annottext">ListFacetNames
+</span><a href="#local-6989586621679340879"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679340878"><span class="annot"><span class="annottext">AWSResponse ListFacetNames
+</span><a href="#local-6989586621679340878"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFacetNames
 ListFacetNamesResponse
-</span><a href="#local-6989586621679340474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679340878"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListFacetNamesResponse
 -&gt; Getting (First Text) ListFacetNamesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -249,7 +249,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFacetNames
 ListFacetNamesResponse
-</span><a href="#local-6989586621679340474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679340878"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListFacetNamesResponse
 -&gt; Getting (First [Text]) ListFacetNamesResponse [Text]
 -&gt; Maybe [Text]
@@ -283,7 +283,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ListFacetNames
-</span><a href="#local-6989586621679340475"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679340879"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListFacetNames
 -&gt; (ListFacetNames -&gt; ListFacetNames) -&gt; ListFacetNames
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -297,7 +297,7 @@ Lens ListFacetNames ListFacetNames (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFacetNames
 ListFacetNamesResponse
-</span><a href="#local-6989586621679340474"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679340878"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListFacetNamesResponse
 -&gt; Getting (First Text) ListFacetNamesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -321,12 +321,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679340464"><span class="annot"><span class="annottext">request :: ListFacetNames -&gt; Request ListFacetNames
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679340868"><span class="annot"><span class="annottext">request :: ListFacetNames -&gt; Request ListFacetNames
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListFacetNames -&gt; Request ListFacetNames
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679340460"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679340864"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListFacetNames
 -&gt; ClientResponse ClientBody
@@ -350,10 +350,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679340456"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679340456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679340455"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340861"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679340860"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679340860"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679340859"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListFacetNamesResponse
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-var">ListFacetNamesResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListFacetNamesResponse)
@@ -361,7 +361,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ListFacetNamesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679340859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -370,7 +370,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListFacetNamesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679340455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679340859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FacetNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -387,16 +387,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340861"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340446"><span id="local-6989586621679340448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340850"><span id="local-6989586621679340852"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340847"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679340439"><span class="annot"><span class="annottext">toHeaders :: ListFacetNames -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340435"><span id="local-6989586621679340436"><span id="local-6989586621679340437"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679340843"><span class="annot"><span class="annottext">toHeaders :: ListFacetNames -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340839"><span id="local-6989586621679340840"><span id="local-6989586621679340841"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 schemaArn :: Text
@@ -405,7 +405,7 @@ nextToken :: Maybe Text
 $sel:schemaArn:ListFacetNames' :: ListFacetNames -&gt; Text
 $sel:maxResults:ListFacetNames' :: ListFacetNames -&gt; Maybe Natural
 $sel:nextToken:ListFacetNames' :: ListFacetNames -&gt; Maybe Text
-</span><a href="#local-6989586621679340435"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679340839"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -413,11 +413,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679340435"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679340839"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340427"><span id="local-6989586621679340429"><span id="local-6989586621679340431"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679340425"><span class="annot"><span class="annottext">toJSON :: ListFacetNames -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340421"><span id="local-6989586621679340422"><span id="local-6989586621679340423"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340831"><span id="local-6989586621679340833"><span id="local-6989586621679340835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679340829"><span class="annot"><span class="annottext">toJSON :: ListFacetNames -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames%27"><span class="hs-identifier hs-type">ListFacetNames'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340825"><span id="local-6989586621679340826"><span id="local-6989586621679340827"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 schemaArn :: Text
@@ -426,7 +426,7 @@ nextToken :: Maybe Text
 $sel:schemaArn:ListFacetNames' :: ListFacetNames -&gt; Text
 $sel:maxResults:ListFacetNames' :: ListFacetNames -&gt; Maybe Natural
 $sel:nextToken:ListFacetNames' :: ListFacetNames -&gt; Maybe Text
-</span><a href="#local-6989586621679340421"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679340825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -438,19 +438,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340423"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679340827"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679340422"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679340826"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679340415"><span class="annot"><span class="annottext">toPath :: ListFacetNames -&gt; ByteString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679340819"><span class="annot"><span class="annottext">toPath :: ListFacetNames -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListFacetNames -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -459,7 +459,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/facet/list&quot;</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNames"><span class="hs-identifier hs-type">ListFacetNames</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679340410"><span class="annot"><span class="annottext">toQuery :: ListFacetNames -&gt; QueryString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679340814"><span class="annot"><span class="annottext">toQuery :: ListFacetNames -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListFacetNames -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -467,7 +467,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newListFacetNamesResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679340407"><span id="local-6989586621679340408"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFacetNamesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-var">ListFacetNamesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFacetNamesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-var">ListFacetNamesResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679340811"><span id="local-6989586621679340812"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFacetNamesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-var">ListFacetNamesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFacetNamesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-var">ListFacetNamesResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
 </span><span id="line-165"></span><span>    </span><span id="%24sel%3AnextToken%3AListFacetNamesResponse%27"><span class="annot"><span class="annottext">ListFacetNamesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AnextToken%3AListFacetNamesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -478,7 +478,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFacetNamesResponse%27"><span class="annot"><span class="annottext">ListFacetNamesResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AhttpStatus%3AListFacetNamesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340400"><span id="local-6989586621679340402"><span class="annot"><span class="annottext">ListFacetNamesResponse -&gt; ListFacetNamesResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340804"><span id="local-6989586621679340806"><span class="annot"><span class="annottext">ListFacetNamesResponse -&gt; ListFacetNamesResponse -&gt; Bool
 (ListFacetNamesResponse -&gt; ListFacetNamesResponse -&gt; Bool)
 -&gt; (ListFacetNamesResponse -&gt; ListFacetNamesResponse -&gt; Bool)
 -&gt; Eq ListFacetNamesResponse
@@ -487,7 +487,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListFacetNamesResponse -&gt; ListFacetNamesResponse -&gt; Bool
 == :: ListFacetNamesResponse -&gt; ListFacetNamesResponse -&gt; Bool
 $c== :: ListFacetNamesResponse -&gt; ListFacetNamesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340392"><span id="local-6989586621679340394"><span id="local-6989586621679340396"><span id="local-6989586621679340398"><span class="annot"><span class="annottext">ReadPrec [ListFacetNamesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340796"><span id="local-6989586621679340798"><span id="local-6989586621679340800"><span id="local-6989586621679340802"><span class="annot"><span class="annottext">ReadPrec [ListFacetNamesResponse]
 ReadPrec ListFacetNamesResponse
 Int -&gt; ReadS ListFacetNamesResponse
 ReadS [ListFacetNamesResponse]
@@ -507,7 +507,7 @@ readList :: ReadS [ListFacetNamesResponse]
 $creadList :: ReadS [ListFacetNamesResponse]
 readsPrec :: Int -&gt; ReadS ListFacetNamesResponse
 $creadsPrec :: Int -&gt; ReadS ListFacetNamesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340386"><span id="local-6989586621679340388"><span id="local-6989586621679340390"><span class="annot"><span class="annottext">Int -&gt; ListFacetNamesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340790"><span id="local-6989586621679340792"><span id="local-6989586621679340794"><span class="annot"><span class="annottext">Int -&gt; ListFacetNamesResponse -&gt; ShowS
 [ListFacetNamesResponse] -&gt; ShowS
 ListFacetNamesResponse -&gt; String
 (Int -&gt; ListFacetNamesResponse -&gt; ShowS)
@@ -552,8 +552,8 @@ $cfrom :: forall x. ListFacetNamesResponse -&gt; Rep ListFacetNamesResponse x
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newListFacetNamesResponse"><span class="annot"><span class="annottext">newListFacetNamesResponse :: Int -&gt; ListFacetNamesResponse
-</span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#newListFacetNamesResponse"><span class="hs-identifier hs-var hs-var">newListFacetNamesResponse</span></a></span></span><span> </span><span id="local-6989586621679340383"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#newListFacetNamesResponse"><span class="hs-identifier hs-var hs-var">newListFacetNamesResponse</span></a></span></span><span> </span><span id="local-6989586621679340787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ListFacetNamesResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListFacetNamesResponse
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFacetNamesResponse' :: Maybe Text
@@ -567,7 +567,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFacetNamesResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AhttpStatus%3AListFacetNamesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679340787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The pagination token.</span><span>
@@ -578,16 +578,16 @@ forall a. Maybe a
 -&gt; (ListFacetNamesResponse -&gt; Maybe Text -&gt; ListFacetNamesResponse)
 -&gt; Lens' ListFacetNamesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340382"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340786"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListFacetNamesResponse' :: ListFacetNamesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679340382"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340382"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340381"><span class="annot"><span class="annottext">s :: ListFacetNamesResponse
-</span><a href="#local-6989586621679340381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340380"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNamesResponse
-</span><a href="#local-6989586621679340381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFacetNamesResponse' :: Maybe Text
+</span><a href="#local-6989586621679340786"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340786"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340785"><span class="annot"><span class="annottext">s :: ListFacetNamesResponse
+</span><a href="#local-6989586621679340785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340784"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679340784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNamesResponse
+</span><a href="#local-6989586621679340785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFacetNamesResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AnextToken%3AListFacetNamesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The names of facets that exist within the schema.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#listFacetNamesResponse_facetNames"><span class="hs-identifier hs-type">listFacetNamesResponse_facetNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -598,16 +598,16 @@ $sel:nextToken:ListFacetNamesResponse' :: ListFacetNamesResponse -&gt; Maybe Tex
     -&gt; Maybe [Text] -&gt; ListFacetNamesResponse)
 -&gt; Lens' ListFacetNamesResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340379"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340783"><span class="annot"><span class="annottext">Maybe [Text]
 facetNames :: Maybe [Text]
 $sel:facetNames:ListFacetNamesResponse' :: ListFacetNamesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679340379"><span class="hs-identifier hs-var hs-var">facetNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679340379"><span class="hs-identifier hs-var">facetNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340378"><span class="annot"><span class="annottext">s :: ListFacetNamesResponse
-</span><a href="#local-6989586621679340378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340377"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679340377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNamesResponse
-</span><a href="#local-6989586621679340378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetNames:ListFacetNamesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679340783"><span class="hs-identifier hs-var hs-var">facetNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679340783"><span class="hs-identifier hs-var">facetNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340782"><span class="annot"><span class="annottext">s :: ListFacetNamesResponse
+</span><a href="#local-6989586621679340782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340781"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679340781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNamesResponse
+</span><a href="#local-6989586621679340782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetNames:ListFacetNamesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AfacetNames%3AListFacetNamesResponse%27"><span class="hs-identifier hs-var">facetNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679340377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679340781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListFacetNamesResponse -&gt; f ListFacetNamesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -621,8 +621,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#listFacetNamesResponse_httpStatus"><span class="hs-identifier hs-type">listFacetNamesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -632,16 +632,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListFacetNamesResponse -&gt; Int -&gt; ListFacetNamesResponse)
 -&gt; Lens ListFacetNamesResponse ListFacetNamesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340374"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340778"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListFacetNamesResponse' :: ListFacetNamesResponse -&gt; Int
-</span><a href="#local-6989586621679340374"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340374"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340373"><span class="annot"><span class="annottext">s :: ListFacetNamesResponse
-</span><a href="#local-6989586621679340373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340372"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNamesResponse
-</span><a href="#local-6989586621679340373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFacetNamesResponse' :: Int
+</span><a href="#local-6989586621679340778"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340778"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340777"><span class="annot"><span class="annottext">s :: ListFacetNamesResponse
+</span><a href="#local-6989586621679340777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse%27"><span class="hs-identifier hs-type">ListFacetNamesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340776"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679340776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFacetNamesResponse
+</span><a href="#local-6989586621679340777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFacetNamesResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.ListFacetNames.html#%24sel%3AhttpStatus%3AListFacetNamesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.ListFacetNames.html#ListFacetNamesResponse"><span class="hs-identifier hs-type">ListFacetNamesResponse</span></a></span></span><span>
 </span><span id="line-211"></span></pre></body></html>

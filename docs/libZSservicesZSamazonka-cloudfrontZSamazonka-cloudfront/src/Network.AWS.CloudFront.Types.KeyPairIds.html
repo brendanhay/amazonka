@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of CloudFront key pair identifiers.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKeyPairIds' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679393825"><span id="local-6989586621679393826"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPairIds"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-var">KeyPairIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPairIds%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-var">KeyPairIds'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679394066"><span id="local-6989586621679394067"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPairIds"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-var">KeyPairIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPairIds%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-var">KeyPairIds'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of CloudFront key pair identifiers.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aitems%3AKeyPairIds%27"><span class="annot"><span class="annottext">KeyPairIds -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#%24sel%3Aitems%3AKeyPairIds%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aquantity%3AKeyPairIds%27"><span class="annot"><span class="annottext">KeyPairIds -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#%24sel%3Aquantity%3AKeyPairIds%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393818"><span id="local-6989586621679393820"><span class="annot"><span class="annottext">KeyPairIds -&gt; KeyPairIds -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394059"><span id="local-6989586621679394061"><span class="annot"><span class="annottext">KeyPairIds -&gt; KeyPairIds -&gt; Bool
 (KeyPairIds -&gt; KeyPairIds -&gt; Bool)
 -&gt; (KeyPairIds -&gt; KeyPairIds -&gt; Bool) -&gt; Eq KeyPairIds
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyPairIds -&gt; KeyPairIds -&gt; Bool
 == :: KeyPairIds -&gt; KeyPairIds -&gt; Bool
 $c== :: KeyPairIds -&gt; KeyPairIds -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393809"><span id="local-6989586621679393811"><span id="local-6989586621679393813"><span id="local-6989586621679393815"><span class="annot"><span class="annottext">ReadPrec [KeyPairIds]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394050"><span id="local-6989586621679394052"><span id="local-6989586621679394054"><span id="local-6989586621679394056"><span class="annot"><span class="annottext">ReadPrec [KeyPairIds]
 ReadPrec KeyPairIds
 Int -&gt; ReadS KeyPairIds
 ReadS [KeyPairIds]
@@ -62,7 +62,7 @@ readList :: ReadS [KeyPairIds]
 $creadList :: ReadS [KeyPairIds]
 readsPrec :: Int -&gt; ReadS KeyPairIds
 $creadsPrec :: Int -&gt; ReadS KeyPairIds
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393802"><span id="local-6989586621679393804"><span id="local-6989586621679393806"><span class="annot"><span class="annottext">Int -&gt; KeyPairIds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394043"><span id="local-6989586621679394045"><span id="local-6989586621679394047"><span class="annot"><span class="annottext">Int -&gt; KeyPairIds -&gt; ShowS
 [KeyPairIds] -&gt; ShowS
 KeyPairIds -&gt; String
 (Int -&gt; KeyPairIds -&gt; ShowS)
@@ -103,8 +103,8 @@ $cfrom :: forall x. KeyPairIds -&gt; Rep KeyPairIds x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span>
 </span><span id="line-52"></span><span id="newKeyPairIds"><span class="annot"><span class="annottext">newKeyPairIds :: Int -&gt; KeyPairIds
-</span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#newKeyPairIds"><span class="hs-identifier hs-var hs-var">newKeyPairIds</span></a></span></span><span> </span><span id="local-6989586621679393796"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393796"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#newKeyPairIds"><span class="hs-identifier hs-var hs-var">newKeyPairIds</span></a></span></span><span> </span><span id="local-6989586621679394037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394037"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">KeyPairIds' :: Maybe [Text] -&gt; Int -&gt; KeyPairIds
 </span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:KeyPairIds' :: Maybe [Text]
@@ -113,7 +113,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:KeyPairIds' :: Int
 </span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#%24sel%3Aquantity%3AKeyPairIds%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393796"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679394037"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | A list of CloudFront key pair identifiers.</span><span>
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (KeyPairIds -&gt; Maybe [Text] -&gt; KeyPairIds)
 -&gt; Lens KeyPairIds KeyPairIds (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393792"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394033"><span class="annot"><span class="annottext">Maybe [Text]
 items :: Maybe [Text]
 $sel:items:KeyPairIds' :: KeyPairIds -&gt; Maybe [Text]
-</span><a href="#local-6989586621679393792"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679393792"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393791"><span class="annot"><span class="annottext">s :: KeyPairIds
-</span><a href="#local-6989586621679393791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393790"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679393790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairIds
-</span><a href="#local-6989586621679393791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:KeyPairIds' :: Maybe [Text]
+</span><a href="#local-6989586621679394033"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394033"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394032"><span class="annot"><span class="annottext">s :: KeyPairIds
+</span><a href="#local-6989586621679394032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394031"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679394031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairIds
+</span><a href="#local-6989586621679394032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:KeyPairIds' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#%24sel%3Aitems%3AKeyPairIds%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679393790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; KeyPairIds -&gt; f KeyPairIds)
+</span><a href="#local-6989586621679394031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; KeyPairIds -&gt; f KeyPairIds)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -145,8 +145,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The number of key pair identifiers in the list.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#keyPairIds_quantity"><span class="hs-identifier hs-type">keyPairIds_quantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -155,21 +155,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (KeyPairIds -&gt; Int -&gt; KeyPairIds)
 -&gt; Lens KeyPairIds KeyPairIds Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393785"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394026"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:KeyPairIds' :: KeyPairIds -&gt; Int
-</span><a href="#local-6989586621679393785"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393785"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393784"><span class="annot"><span class="annottext">s :: KeyPairIds
-</span><a href="#local-6989586621679393784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393783"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairIds
-</span><a href="#local-6989586621679393784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:KeyPairIds' :: Int
+</span><a href="#local-6989586621679394026"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394026"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394025"><span class="annot"><span class="annottext">s :: KeyPairIds
+</span><a href="#local-6989586621679394025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-type">KeyPairIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairIds
+</span><a href="#local-6989586621679394025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:KeyPairIds' :: Int
 </span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#%24sel%3Aquantity%3AKeyPairIds%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679393780"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyPairIds
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393778"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393778"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679394021"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyPairIds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679394019"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394019"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; KeyPairIds
 </span><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds%27"><span class="hs-identifier hs-var">KeyPairIds'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; KeyPairIds)
@@ -177,7 +177,7 @@ $sel:quantity:KeyPairIds' :: KeyPairIds -&gt; Int
 -&gt; Either String (Int -&gt; KeyPairIds)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679394019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -203,12 +203,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Int -&gt; Either String KeyPairIds
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679394019"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393768"><span id="local-6989586621679393770"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394009"><span id="local-6989586621679394011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

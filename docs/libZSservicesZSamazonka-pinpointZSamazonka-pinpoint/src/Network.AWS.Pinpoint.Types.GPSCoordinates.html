@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the GPS coordinates of a location.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGPSCoordinates' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679599204"><span id="local-6989586621679599205"></span></span><span class="hs-keyword">data</span><span> </span><span id="GPSCoordinates"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-var">GPSCoordinates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GPSCoordinates%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-var">GPSCoordinates'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679599657"><span id="local-6989586621679599658"></span></span><span class="hs-keyword">data</span><span> </span><span id="GPSCoordinates"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-var">GPSCoordinates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GPSCoordinates%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-var">GPSCoordinates'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The latitude coordinate of the location.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Alatitude%3AGPSCoordinates%27"><span class="annot"><span class="annottext">GPSCoordinates -&gt; Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#%24sel%3Alatitude%3AGPSCoordinates%27"><span class="hs-identifier hs-var hs-var">latitude</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Alongitude%3AGPSCoordinates%27"><span class="annot"><span class="annottext">GPSCoordinates -&gt; Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#%24sel%3Alongitude%3AGPSCoordinates%27"><span class="hs-identifier hs-var hs-var">longitude</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679599197"><span id="local-6989586621679599199"><span class="annot"><span class="annottext">GPSCoordinates -&gt; GPSCoordinates -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679599650"><span id="local-6989586621679599652"><span class="annot"><span class="annottext">GPSCoordinates -&gt; GPSCoordinates -&gt; Bool
 (GPSCoordinates -&gt; GPSCoordinates -&gt; Bool)
 -&gt; (GPSCoordinates -&gt; GPSCoordinates -&gt; Bool) -&gt; Eq GPSCoordinates
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GPSCoordinates -&gt; GPSCoordinates -&gt; Bool
 == :: GPSCoordinates -&gt; GPSCoordinates -&gt; Bool
 $c== :: GPSCoordinates -&gt; GPSCoordinates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599188"><span id="local-6989586621679599190"><span id="local-6989586621679599192"><span id="local-6989586621679599194"><span class="annot"><span class="annottext">ReadPrec [GPSCoordinates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599641"><span id="local-6989586621679599643"><span id="local-6989586621679599645"><span id="local-6989586621679599647"><span class="annot"><span class="annottext">ReadPrec [GPSCoordinates]
 ReadPrec GPSCoordinates
 Int -&gt; ReadS GPSCoordinates
 ReadS [GPSCoordinates]
@@ -62,7 +62,7 @@ readList :: ReadS [GPSCoordinates]
 $creadList :: ReadS [GPSCoordinates]
 readsPrec :: Int -&gt; ReadS GPSCoordinates
 $creadsPrec :: Int -&gt; ReadS GPSCoordinates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599181"><span id="local-6989586621679599183"><span id="local-6989586621679599185"><span class="annot"><span class="annottext">Int -&gt; GPSCoordinates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599634"><span id="local-6989586621679599636"><span id="local-6989586621679599638"><span class="annot"><span class="annottext">Int -&gt; GPSCoordinates -&gt; ShowS
 [GPSCoordinates] -&gt; ShowS
 GPSCoordinates -&gt; String
 (Int -&gt; GPSCoordinates -&gt; ShowS)
@@ -106,17 +106,17 @@ $cfrom :: forall x. GPSCoordinates -&gt; Rep GPSCoordinates x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span>
 </span><span id="line-54"></span><span id="newGPSCoordinates"><span class="annot"><span class="annottext">newGPSCoordinates :: Double -&gt; Double -&gt; GPSCoordinates
-</span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#newGPSCoordinates"><span class="hs-identifier hs-var hs-var">newGPSCoordinates</span></a></span></span><span> </span><span id="local-6989586621679599175"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599175"><span class="hs-identifier hs-var">pLatitude_</span></a></span></span><span> </span><span id="local-6989586621679599174"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599174"><span class="hs-identifier hs-var">pLongitude_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#newGPSCoordinates"><span class="hs-identifier hs-var hs-var">newGPSCoordinates</span></a></span></span><span> </span><span id="local-6989586621679599628"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679599628"><span class="hs-identifier hs-var">pLatitude_</span></a></span></span><span> </span><span id="local-6989586621679599627"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679599627"><span class="hs-identifier hs-var">pLongitude_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">GPSCoordinates' :: Double -&gt; Double -&gt; GPSCoordinates
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:latitude:GPSCoordinates' :: Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#%24sel%3Alatitude%3AGPSCoordinates%27"><span class="hs-identifier hs-var">latitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599175"><span class="hs-identifier hs-var">pLatitude_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679599628"><span class="hs-identifier hs-var">pLatitude_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:longitude:GPSCoordinates' :: Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#%24sel%3Alongitude%3AGPSCoordinates%27"><span class="hs-identifier hs-var">longitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599174"><span class="hs-identifier hs-var">pLongitude_</span></a></span><span>
+</span><a href="#local-6989586621679599627"><span class="hs-identifier hs-var">pLongitude_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The latitude coordinate of the location.</span><span>
@@ -126,16 +126,16 @@ $cfrom :: forall x. GPSCoordinates -&gt; Rep GPSCoordinates x
 -&gt; (GPSCoordinates -&gt; Double -&gt; GPSCoordinates)
 -&gt; Lens GPSCoordinates GPSCoordinates Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599170"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599623"><span class="annot"><span class="annottext">Double
 latitude :: Double
 $sel:latitude:GPSCoordinates' :: GPSCoordinates -&gt; Double
-</span><a href="#local-6989586621679599170"><span class="hs-identifier hs-var hs-var">latitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599170"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599169"><span class="annot"><span class="annottext">s :: GPSCoordinates
-</span><a href="#local-6989586621679599169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599168"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latitude:GPSCoordinates' :: Double
+</span><a href="#local-6989586621679599623"><span class="hs-identifier hs-var hs-var">latitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679599623"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599622"><span class="annot"><span class="annottext">s :: GPSCoordinates
+</span><a href="#local-6989586621679599622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599621"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679599621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
+</span><a href="#local-6989586621679599622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latitude:GPSCoordinates' :: Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#%24sel%3Alatitude%3AGPSCoordinates%27"><span class="hs-identifier hs-var">latitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The longitude coordinate of the location.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#gPSCoordinates_longitude"><span class="hs-identifier hs-type">gPSCoordinates_longitude</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
@@ -144,19 +144,19 @@ $sel:latitude:GPSCoordinates' :: GPSCoordinates -&gt; Double
 -&gt; (GPSCoordinates -&gt; Double -&gt; GPSCoordinates)
 -&gt; Lens GPSCoordinates GPSCoordinates Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599166"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599619"><span class="annot"><span class="annottext">Double
 longitude :: Double
 $sel:longitude:GPSCoordinates' :: GPSCoordinates -&gt; Double
-</span><a href="#local-6989586621679599166"><span class="hs-identifier hs-var hs-var">longitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599166"><span class="hs-identifier hs-var">longitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599165"><span class="annot"><span class="annottext">s :: GPSCoordinates
-</span><a href="#local-6989586621679599165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599164"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
-</span><a href="#local-6989586621679599165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:longitude:GPSCoordinates' :: Double
+</span><a href="#local-6989586621679599619"><span class="hs-identifier hs-var hs-var">longitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679599619"><span class="hs-identifier hs-var">longitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599618"><span class="annot"><span class="annottext">s :: GPSCoordinates
+</span><a href="#local-6989586621679599618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599617"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679599617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GPSCoordinates
+</span><a href="#local-6989586621679599618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:longitude:GPSCoordinates' :: Double
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#%24sel%3Alongitude%3AGPSCoordinates%27"><span class="hs-identifier hs-var">longitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599161"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679599159"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GPSCoordinates
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599614"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679599612"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GPSCoordinates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GPSCoordinates)
@@ -166,15 +166,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GPSCoordinates&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679599156"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679599156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679599609"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679599609"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Double -&gt; Double -&gt; GPSCoordinates
 </span><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-var">GPSCoordinates'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Double -&gt; Double -&gt; GPSCoordinates)
 -&gt; Parser Double -&gt; Parser (Double -&gt; GPSCoordinates)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679599156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679599609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Latitude&quot;</span></span><span class="hs-special">)</span><span>
@@ -182,24 +182,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Double -&gt; Parser GPSCoordinates
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679599156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679599609"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Longitude&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599150"><span id="local-6989586621679599152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599603"><span id="local-6989586621679599605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599139"><span id="local-6989586621679599141"><span id="local-6989586621679599143"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679599137"><span class="annot"><span class="annottext">toJSON :: GPSCoordinates -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599134"><span id="local-6989586621679599135"><span class="annot"><span class="annottext">Double
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599592"><span id="local-6989586621679599594"><span id="local-6989586621679599596"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates"><span class="hs-identifier hs-type">GPSCoordinates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679599590"><span class="annot"><span class="annottext">toJSON :: GPSCoordinates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.GPSCoordinates.html#GPSCoordinates%27"><span class="hs-identifier hs-type">GPSCoordinates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599587"><span id="local-6989586621679599588"><span class="annot"><span class="annottext">Double
 longitude :: Double
 latitude :: Double
 $sel:longitude:GPSCoordinates' :: GPSCoordinates -&gt; Double
 $sel:latitude:GPSCoordinates' :: GPSCoordinates -&gt; Double
-</span><a href="#local-6989586621679599134"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679599587"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -211,14 +211,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Latitude&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599135"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679599588"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Longitude&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679599134"><span class="hs-identifier hs-var">longitude</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679599587"><span class="hs-identifier hs-var">longitude</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

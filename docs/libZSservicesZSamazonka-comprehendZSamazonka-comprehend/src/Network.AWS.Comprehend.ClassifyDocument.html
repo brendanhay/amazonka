@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#newClassifyDocumentResponse"><span class="hs-identifier">newClassifyDocumentResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_classes"><span class="hs-identifier">classifyDocumentResponse_classes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_labels"><span class="hs-identifier">classifyDocumentResponse_labels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_labels"><span class="hs-identifier">classifyDocumentResponse_labels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_classes"><span class="hs-identifier">classifyDocumentResponse_classes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_httpStatus"><span class="hs-identifier">classifyDocumentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newClassifyDocument' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679365742"><span id="local-6989586621679365743"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassifyDocument"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-var">ClassifyDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassifyDocument%27"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-var">ClassifyDocument'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679366056"><span id="local-6989586621679366057"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassifyDocument"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-var">ClassifyDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassifyDocument%27"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-var">ClassifyDocument'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The document text to be analyzed.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Atext%3AClassifyDocument%27"><span class="annot"><span class="annottext">ClassifyDocument -&gt; Sensitive Text
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Atext%3AClassifyDocument%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AendpointArn%3AClassifyDocument%27"><span class="annot"><span class="annottext">ClassifyDocument -&gt; Text
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3AendpointArn%3AClassifyDocument%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365735"><span id="local-6989586621679365737"><span class="annot"><span class="annottext">ClassifyDocument -&gt; ClassifyDocument -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366049"><span id="local-6989586621679366051"><span class="annot"><span class="annottext">ClassifyDocument -&gt; ClassifyDocument -&gt; Bool
 (ClassifyDocument -&gt; ClassifyDocument -&gt; Bool)
 -&gt; (ClassifyDocument -&gt; ClassifyDocument -&gt; Bool)
 -&gt; Eq ClassifyDocument
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClassifyDocument -&gt; ClassifyDocument -&gt; Bool
 == :: ClassifyDocument -&gt; ClassifyDocument -&gt; Bool
 $c== :: ClassifyDocument -&gt; ClassifyDocument -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365728"><span id="local-6989586621679365730"><span id="local-6989586621679365732"><span class="annot"><span class="annottext">Int -&gt; ClassifyDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366042"><span id="local-6989586621679366044"><span id="local-6989586621679366046"><span class="annot"><span class="annottext">Int -&gt; ClassifyDocument -&gt; ShowS
 [ClassifyDocument] -&gt; ShowS
 ClassifyDocument -&gt; String
 (Int -&gt; ClassifyDocument -&gt; ShowS)
@@ -112,9 +112,9 @@ $cfrom :: forall x. ClassifyDocument -&gt; Rep ClassifyDocument x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span>
 </span><span id="line-79"></span><span id="newClassifyDocument"><span class="annot"><span class="annottext">newClassifyDocument :: Text -&gt; Text -&gt; ClassifyDocument
-</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#newClassifyDocument"><span class="hs-identifier hs-var hs-var">newClassifyDocument</span></a></span></span><span> </span><span id="local-6989586621679365723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365723"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span id="local-6989586621679365722"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365722"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#newClassifyDocument"><span class="hs-identifier hs-var hs-var">newClassifyDocument</span></a></span></span><span> </span><span id="local-6989586621679366037"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366037"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span id="local-6989586621679366036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366036"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ClassifyDocument' :: Sensitive Text -&gt; Text -&gt; ClassifyDocument
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:text:ClassifyDocument' :: Sensitive Text
@@ -127,10 +127,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365723"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679366037"><span class="hs-identifier hs-var">pText_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointArn:ClassifyDocument' :: Text
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3AendpointArn%3AClassifyDocument%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365722"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span>
+</span><a href="#local-6989586621679366036"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The document text to be analyzed.</span><span>
@@ -141,16 +141,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      ClassifyDocument ClassifyDocument (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365717"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366031"><span class="annot"><span class="annottext">Sensitive Text
 text :: Sensitive Text
 $sel:text:ClassifyDocument' :: ClassifyDocument -&gt; Sensitive Text
-</span><a href="#local-6989586621679365717"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679365717"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365716"><span class="annot"><span class="annottext">s :: ClassifyDocument
-</span><a href="#local-6989586621679365716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365715"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679365715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocument
-</span><a href="#local-6989586621679365716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:ClassifyDocument' :: Sensitive Text
+</span><a href="#local-6989586621679366031"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679366031"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366030"><span class="annot"><span class="annottext">s :: ClassifyDocument
+</span><a href="#local-6989586621679366030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366029"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679366029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocument
+</span><a href="#local-6989586621679366030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:ClassifyDocument' :: Sensitive Text
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Atext%3AClassifyDocument%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679365715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679366029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; ClassifyDocument -&gt; f ClassifyDocument)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -168,27 +168,27 @@ forall a. Iso' (Sensitive a) a
 -&gt; (ClassifyDocument -&gt; Text -&gt; ClassifyDocument)
 -&gt; Lens ClassifyDocument ClassifyDocument Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365713"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366027"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:ClassifyDocument' :: ClassifyDocument -&gt; Text
-</span><a href="#local-6989586621679365713"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365713"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365712"><span class="annot"><span class="annottext">s :: ClassifyDocument
-</span><a href="#local-6989586621679365712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365711"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocument
-</span><a href="#local-6989586621679365712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:ClassifyDocument' :: Text
+</span><a href="#local-6989586621679366027"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366027"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366026"><span class="annot"><span class="annottext">s :: ClassifyDocument
+</span><a href="#local-6989586621679366026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366025"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679366025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocument
+</span><a href="#local-6989586621679366026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:ClassifyDocument' :: Text
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3AendpointArn%3AClassifyDocument%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679365707"><span class="annot"><span class="annottext">request :: ClassifyDocument -&gt; Request ClassifyDocument
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679366021"><span class="annot"><span class="annottext">request :: ClassifyDocument -&gt; Request ClassifyDocument
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ClassifyDocument -&gt; Request ClassifyDocument
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679365703"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679366017"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ClassifyDocument
 -&gt; ClientResponse ClientBody
@@ -212,42 +212,42 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365700"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679365699"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679365699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679365698"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
--&gt; Maybe [DocumentLabel] -&gt; Int -&gt; ClassifyDocumentResponse
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679366014"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679366013"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679366013"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679366012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DocumentLabel]
+-&gt; Maybe [DocumentClass] -&gt; Int -&gt; ClassifyDocumentResponse
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-var">ClassifyDocumentResponse'</span></a></span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DocumentClass]
- -&gt; Maybe [DocumentLabel] -&gt; Int -&gt; ClassifyDocumentResponse)
--&gt; Either String (Maybe [DocumentClass])
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DocumentLabel]
+ -&gt; Maybe [DocumentClass] -&gt; Int -&gt; ClassifyDocumentResponse)
+-&gt; Either String (Maybe [DocumentLabel])
 -&gt; Either
-     String (Maybe [DocumentLabel] -&gt; Int -&gt; ClassifyDocumentResponse)
+     String (Maybe [DocumentClass] -&gt; Int -&gt; ClassifyDocumentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DocumentClass]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Classes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DocumentClass]))
--&gt; Maybe [DocumentClass] -&gt; Either String (Maybe [DocumentClass])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [DocumentLabel] -&gt; Int -&gt; ClassifyDocumentResponse)
--&gt; Either String (Maybe [DocumentLabel])
--&gt; Either String (Int -&gt; ClassifyDocumentResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679365698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DocumentLabel]))
+</span><a href="#local-6989586621679366012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DocumentLabel]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Labels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DocumentLabel]))
 -&gt; Maybe [DocumentLabel] -&gt; Either String (Maybe [DocumentLabel])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentLabel]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [DocumentClass] -&gt; Int -&gt; ClassifyDocumentResponse)
+-&gt; Either String (Maybe [DocumentClass])
+-&gt; Either String (Int -&gt; ClassifyDocumentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679366012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DocumentClass]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Classes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DocumentClass]))
+-&gt; Maybe [DocumentClass] -&gt; Either String (Maybe [DocumentClass])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ClassifyDocumentResponse)
@@ -258,15 +258,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679366014"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365689"><span id="local-6989586621679365691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366003"><span id="local-6989586621679366005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679365682"><span class="annot"><span class="annottext">toHeaders :: ClassifyDocument -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679365996"><span class="annot"><span class="annottext">toHeaders :: ClassifyDocument -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ClassifyDocument -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -293,15 +293,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365672"><span id="local-6989586621679365674"><span id="local-6989586621679365676"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679365670"><span class="annot"><span class="annottext">toJSON :: ClassifyDocument -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365667"><span id="local-6989586621679365668"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365986"><span id="local-6989586621679365988"><span id="local-6989586621679365990"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679365984"><span class="annot"><span class="annottext">toJSON :: ClassifyDocument -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument%27"><span class="hs-identifier hs-type">ClassifyDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365981"><span id="local-6989586621679365982"><span class="annot"><span class="annottext">Text
 Sensitive Text
 endpointArn :: Text
 text :: Sensitive Text
 $sel:endpointArn:ClassifyDocument' :: ClassifyDocument -&gt; Text
 $sel:text:ClassifyDocument' :: ClassifyDocument -&gt; Sensitive Text
-</span><a href="#local-6989586621679365667"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679365981"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,26 +313,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679365668"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679365982"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679365667"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679365981"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679365661"><span class="annot"><span class="annottext">toPath :: ClassifyDocument -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679365975"><span class="annot"><span class="annottext">toPath :: ClassifyDocument -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ClassifyDocument -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocument"><span class="hs-identifier hs-type">ClassifyDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679365657"><span class="annot"><span class="annottext">toQuery :: ClassifyDocument -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679365971"><span class="annot"><span class="annottext">toQuery :: ClassifyDocument -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ClassifyDocument -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -340,27 +340,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newClassifyDocumentResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679365654"><span id="local-6989586621679365655"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassifyDocumentResponse"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-var">ClassifyDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassifyDocumentResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-var">ClassifyDocumentResponse'</span></a></span></span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The classes used by the document being analyzed. These are used for</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- multi-class trained models. Individual classes are mutually exclusive</span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- and each document is expected to have only a single class assigned to</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- it. For example, an animal can be a dog or a cat, but not both at the</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- same time.</span><span>
-</span><span id="line-149"></span><span>    </span><span id="%24sel%3Aclasses%3AClassifyDocumentResponse%27"><span class="annot"><span class="annottext">ClassifyDocumentResponse -&gt; Maybe [DocumentClass]
-</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Aclasses%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var hs-var">classes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The labels used the document being analyzed. These are used for</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- multi-label trained models. Individual labels represent different</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- categories that are related in some manner and are not mutually</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- exclusive. For example, a movie can be just an action movie, or it can</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- be an action movie, a science fiction movie, and a comedy, all at the</span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- same time.</span><span>
-</span><span id="line-156"></span><span>    </span><span id="%24sel%3Alabels%3AClassifyDocumentResponse%27"><span class="annot"><span class="annottext">ClassifyDocumentResponse -&gt; Maybe [DocumentLabel]
+</span><span id="line-143"></span><span id="local-6989586621679365968"><span id="local-6989586621679365969"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassifyDocumentResponse"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-var">ClassifyDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassifyDocumentResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-var">ClassifyDocumentResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The labels used the document being analyzed. These are used for</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- multi-label trained models. Individual labels represent different</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- categories that are related in some manner and are not mutually</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- exclusive. For example, a movie can be just an action movie, or it can</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- be an action movie, a science fiction movie, and a comedy, all at the</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3Alabels%3AClassifyDocumentResponse%27"><span class="annot"><span class="annottext">ClassifyDocumentResponse -&gt; Maybe [DocumentLabel]
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Alabels%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentLabel.html#DocumentLabel"><span class="hs-identifier hs-type">DocumentLabel</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The classes used by the document being analyzed. These are used for</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- multi-class trained models. Individual classes are mutually exclusive</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- and each document is expected to have only a single class assigned to</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- it. For example, an animal can be a dog or a cat, but not both at the</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Aclasses%3AClassifyDocumentResponse%27"><span class="annot"><span class="annottext">ClassifyDocumentResponse -&gt; Maybe [DocumentClass]
+</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Aclasses%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var hs-var">classes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AClassifyDocumentResponse%27"><span class="annot"><span class="annottext">ClassifyDocumentResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3AhttpStatus%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365647"><span id="local-6989586621679365649"><span class="annot"><span class="annottext">ClassifyDocumentResponse -&gt; ClassifyDocumentResponse -&gt; Bool
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365961"><span id="local-6989586621679365963"><span class="annot"><span class="annottext">ClassifyDocumentResponse -&gt; ClassifyDocumentResponse -&gt; Bool
 (ClassifyDocumentResponse -&gt; ClassifyDocumentResponse -&gt; Bool)
 -&gt; (ClassifyDocumentResponse -&gt; ClassifyDocumentResponse -&gt; Bool)
 -&gt; Eq ClassifyDocumentResponse
@@ -369,7 +369,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClassifyDocumentResponse -&gt; ClassifyDocumentResponse -&gt; Bool
 == :: ClassifyDocumentResponse -&gt; ClassifyDocumentResponse -&gt; Bool
 $c== :: ClassifyDocumentResponse -&gt; ClassifyDocumentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365641"><span id="local-6989586621679365643"><span id="local-6989586621679365645"><span class="annot"><span class="annottext">Int -&gt; ClassifyDocumentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365955"><span id="local-6989586621679365957"><span id="local-6989586621679365959"><span class="annot"><span class="annottext">Int -&gt; ClassifyDocumentResponse -&gt; ShowS
 [ClassifyDocumentResponse] -&gt; ShowS
 ClassifyDocumentResponse -&gt; String
 (Int -&gt; ClassifyDocumentResponse -&gt; ShowS)
@@ -409,17 +409,17 @@ ClassifyDocumentResponse -&gt; Rep ClassifyDocumentResponse x
 </span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- 'classes', 'classifyDocumentResponse_classes' - The classes used by the document being analyzed. These are used for</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- multi-class trained models. Individual classes are mutually exclusive</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- and each document is expected to have only a single class assigned to</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- it. For example, an animal can be a dog or a cat, but not both at the</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- same time.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'labels', 'classifyDocumentResponse_labels' - The labels used the document being analyzed. These are used for</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- multi-label trained models. Individual labels represent different</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- categories that are related in some manner and are not mutually</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- exclusive. For example, a movie can be just an action movie, or it can</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- be an action movie, a science fiction movie, and a comedy, all at the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'labels', 'classifyDocumentResponse_labels' - The labels used the document being analyzed. These are used for</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- multi-label trained models. Individual labels represent different</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- categories that are related in some manner and are not mutually</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- exclusive. For example, a movie can be just an action movie, or it can</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- be an action movie, a science fiction movie, and a comedy, all at the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'classes', 'classifyDocumentResponse_classes' - The classes used by the document being analyzed. These are used for</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- multi-class trained models. Individual classes are mutually exclusive</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- and each document is expected to have only a single class assigned to</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- it. For example, an animal can be a dog or a cat, but not both at the</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- same time.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'classifyDocumentResponse_httpStatus' - The response's http status code.</span><span>
@@ -428,82 +428,32 @@ ClassifyDocumentResponse -&gt; Rep ClassifyDocumentResponse x
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newClassifyDocumentResponse"><span class="annot"><span class="annottext">newClassifyDocumentResponse :: Int -&gt; ClassifyDocumentResponse
-</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#newClassifyDocumentResponse"><span class="hs-identifier hs-var hs-var">newClassifyDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679365638"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">ClassifyDocumentResponse' :: Maybe [DocumentClass]
--&gt; Maybe [DocumentLabel] -&gt; Int -&gt; ClassifyDocumentResponse
+</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#newClassifyDocumentResponse"><span class="hs-identifier hs-var hs-var">newClassifyDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679365952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">ClassifyDocumentResponse' :: Maybe [DocumentLabel]
+-&gt; Maybe [DocumentClass] -&gt; Int -&gt; ClassifyDocumentResponse
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span>
-</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:classes:ClassifyDocumentResponse' :: Maybe [DocumentClass]
-</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Aclasses%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">classes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:labels:ClassifyDocumentResponse' :: Maybe [DocumentLabel]
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:labels:ClassifyDocumentResponse' :: Maybe [DocumentLabel]
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Alabels%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentLabel]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ClassifyDocumentResponse' :: Int
-</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3AhttpStatus%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365638"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- | The classes used by the document being analyzed. These are used for</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- multi-class trained models. Individual classes are mutually exclusive</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- and each document is expected to have only a single class assigned to</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- it. For example, an animal can be a dog or a cat, but not both at the</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- same time.</span><span>
-</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_classes"><span class="hs-identifier hs-type">classifyDocumentResponse_classes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span id="classifyDocumentResponse_classes"><span class="annot"><span class="annottext">classifyDocumentResponse_classes :: (Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
--&gt; ClassifyDocumentResponse -&gt; f ClassifyDocumentResponse
-</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_classes"><span class="hs-identifier hs-var hs-var">classifyDocumentResponse_classes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassifyDocumentResponse -&gt; Maybe [DocumentClass])
--&gt; (ClassifyDocumentResponse
-    -&gt; Maybe [DocumentClass] -&gt; ClassifyDocumentResponse)
--&gt; Lens
-     ClassifyDocumentResponse
-     ClassifyDocumentResponse
-     (Maybe [DocumentClass])
-     (Maybe [DocumentClass])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365637"><span class="annot"><span class="annottext">Maybe [DocumentClass]
-classes :: Maybe [DocumentClass]
-$sel:classes:ClassifyDocumentResponse' :: ClassifyDocumentResponse -&gt; Maybe [DocumentClass]
-</span><a href="#local-6989586621679365637"><span class="hs-identifier hs-var hs-var">classes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
-</span><a href="#local-6989586621679365637"><span class="hs-identifier hs-var">classes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365636"><span class="annot"><span class="annottext">s :: ClassifyDocumentResponse
-</span><a href="#local-6989586621679365636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365635"><span class="annot"><span class="annottext">Maybe [DocumentClass]
-</span><a href="#local-6989586621679365635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocumentResponse
-</span><a href="#local-6989586621679365636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classes:ClassifyDocumentResponse' :: Maybe [DocumentClass]
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:classes:ClassifyDocumentResponse' :: Maybe [DocumentClass]
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Aclasses%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">classes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
-</span><a href="#local-6989586621679365635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
- -&gt; ClassifyDocumentResponse -&gt; f ClassifyDocumentResponse)
--&gt; ((Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
-    -&gt; Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
--&gt; (Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
--&gt; ClassifyDocumentResponse
--&gt; f ClassifyDocumentResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [DocumentClass] [DocumentClass] [DocumentClass] [DocumentClass]
--&gt; Iso
-     (Maybe [DocumentClass])
-     (Maybe [DocumentClass])
-     (Maybe [DocumentClass])
-     (Maybe [DocumentClass])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [DocumentClass] [DocumentClass] [DocumentClass] [DocumentClass]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The labels used the document being analyzed. These are used for</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- multi-label trained models. Individual labels represent different</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- categories that are related in some manner and are not mutually</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- exclusive. For example, a movie can be just an action movie, or it can</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- be an action movie, a science fiction movie, and a comedy, all at the</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- same time.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_labels"><span class="hs-identifier hs-type">classifyDocumentResponse_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentLabel.html#DocumentLabel"><span class="hs-identifier hs-type">DocumentLabel</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="classifyDocumentResponse_labels"><span class="annot"><span class="annottext">classifyDocumentResponse_labels :: (Maybe [DocumentLabel] -&gt; f (Maybe [DocumentLabel]))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ClassifyDocumentResponse' :: Int
+</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3AhttpStatus%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The labels used the document being analyzed. These are used for</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- multi-label trained models. Individual labels represent different</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- categories that are related in some manner and are not mutually</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- exclusive. For example, a movie can be just an action movie, or it can</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- be an action movie, a science fiction movie, and a comedy, all at the</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_labels"><span class="hs-identifier hs-type">classifyDocumentResponse_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentLabel.html#DocumentLabel"><span class="hs-identifier hs-type">DocumentLabel</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="classifyDocumentResponse_labels"><span class="annot"><span class="annottext">classifyDocumentResponse_labels :: (Maybe [DocumentLabel] -&gt; f (Maybe [DocumentLabel]))
 -&gt; ClassifyDocumentResponse -&gt; f ClassifyDocumentResponse
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_labels"><span class="hs-identifier hs-var hs-var">classifyDocumentResponse_labels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassifyDocumentResponse -&gt; Maybe [DocumentLabel])
 -&gt; (ClassifyDocumentResponse
@@ -514,16 +464,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [DocumentLabel])
      (Maybe [DocumentLabel])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365632"><span class="annot"><span class="annottext">Maybe [DocumentLabel]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365951"><span class="annot"><span class="annottext">Maybe [DocumentLabel]
 labels :: Maybe [DocumentLabel]
 $sel:labels:ClassifyDocumentResponse' :: ClassifyDocumentResponse -&gt; Maybe [DocumentLabel]
-</span><a href="#local-6989586621679365632"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentLabel]
-</span><a href="#local-6989586621679365632"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365631"><span class="annot"><span class="annottext">s :: ClassifyDocumentResponse
-</span><a href="#local-6989586621679365631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365630"><span class="annot"><span class="annottext">Maybe [DocumentLabel]
-</span><a href="#local-6989586621679365630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocumentResponse
-</span><a href="#local-6989586621679365631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:ClassifyDocumentResponse' :: Maybe [DocumentLabel]
+</span><a href="#local-6989586621679365951"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentLabel]
+</span><a href="#local-6989586621679365951"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365950"><span class="annot"><span class="annottext">s :: ClassifyDocumentResponse
+</span><a href="#local-6989586621679365950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365949"><span class="annot"><span class="annottext">Maybe [DocumentLabel]
+</span><a href="#local-6989586621679365949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocumentResponse
+</span><a href="#local-6989586621679365950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:ClassifyDocumentResponse' :: Maybe [DocumentLabel]
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Alabels%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentLabel]
-</span><a href="#local-6989586621679365630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentLabel] -&gt; f (Maybe [DocumentLabel]))
+</span><a href="#local-6989586621679365949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentLabel] -&gt; f (Maybe [DocumentLabel]))
  -&gt; ClassifyDocumentResponse -&gt; f ClassifyDocumentResponse)
 -&gt; ((Maybe [DocumentLabel] -&gt; f (Maybe [DocumentLabel]))
     -&gt; Maybe [DocumentLabel] -&gt; f (Maybe [DocumentLabel]))
@@ -543,27 +493,76 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [DocumentLabel] [DocumentLabel] [DocumentLabel] [DocumentLabel]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_httpStatus"><span class="hs-identifier hs-type">classifyDocumentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-215"></span><span id="classifyDocumentResponse_httpStatus"><span class="annot"><span class="annottext">classifyDocumentResponse_httpStatus :: (Int -&gt; f Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The classes used by the document being analyzed. These are used for</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- multi-class trained models. Individual classes are mutually exclusive</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- and each document is expected to have only a single class assigned to</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- it. For example, an animal can be a dog or a cat, but not both at the</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- same time.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_classes"><span class="hs-identifier hs-type">classifyDocumentResponse_classes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClass.html#DocumentClass"><span class="hs-identifier hs-type">DocumentClass</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="classifyDocumentResponse_classes"><span class="annot"><span class="annottext">classifyDocumentResponse_classes :: (Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
+-&gt; ClassifyDocumentResponse -&gt; f ClassifyDocumentResponse
+</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_classes"><span class="hs-identifier hs-var hs-var">classifyDocumentResponse_classes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassifyDocumentResponse -&gt; Maybe [DocumentClass])
+-&gt; (ClassifyDocumentResponse
+    -&gt; Maybe [DocumentClass] -&gt; ClassifyDocumentResponse)
+-&gt; Lens
+     ClassifyDocumentResponse
+     ClassifyDocumentResponse
+     (Maybe [DocumentClass])
+     (Maybe [DocumentClass])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365946"><span class="annot"><span class="annottext">Maybe [DocumentClass]
+classes :: Maybe [DocumentClass]
+$sel:classes:ClassifyDocumentResponse' :: ClassifyDocumentResponse -&gt; Maybe [DocumentClass]
+</span><a href="#local-6989586621679365946"><span class="hs-identifier hs-var hs-var">classes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
+</span><a href="#local-6989586621679365946"><span class="hs-identifier hs-var">classes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365945"><span class="annot"><span class="annottext">s :: ClassifyDocumentResponse
+</span><a href="#local-6989586621679365945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365944"><span class="annot"><span class="annottext">Maybe [DocumentClass]
+</span><a href="#local-6989586621679365944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocumentResponse
+</span><a href="#local-6989586621679365945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classes:ClassifyDocumentResponse' :: Maybe [DocumentClass]
+</span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3Aclasses%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">classes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DocumentClass]
+</span><a href="#local-6989586621679365944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
+ -&gt; ClassifyDocumentResponse -&gt; f ClassifyDocumentResponse)
+-&gt; ((Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
+    -&gt; Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
+-&gt; (Maybe [DocumentClass] -&gt; f (Maybe [DocumentClass]))
+-&gt; ClassifyDocumentResponse
+-&gt; f ClassifyDocumentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DocumentClass] [DocumentClass] [DocumentClass] [DocumentClass]
+-&gt; Iso
+     (Maybe [DocumentClass])
+     (Maybe [DocumentClass])
+     (Maybe [DocumentClass])
+     (Maybe [DocumentClass])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DocumentClass] [DocumentClass] [DocumentClass] [DocumentClass]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_httpStatus"><span class="hs-identifier hs-type">classifyDocumentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span id="classifyDocumentResponse_httpStatus"><span class="annot"><span class="annottext">classifyDocumentResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ClassifyDocumentResponse -&gt; f ClassifyDocumentResponse
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#classifyDocumentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">classifyDocumentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassifyDocumentResponse -&gt; Int)
 -&gt; (ClassifyDocumentResponse -&gt; Int -&gt; ClassifyDocumentResponse)
 -&gt; Lens ClassifyDocumentResponse ClassifyDocumentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365629"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365943"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ClassifyDocumentResponse' :: ClassifyDocumentResponse -&gt; Int
-</span><a href="#local-6989586621679365629"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365629"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365628"><span class="annot"><span class="annottext">s :: ClassifyDocumentResponse
-</span><a href="#local-6989586621679365628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365627"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocumentResponse
-</span><a href="#local-6989586621679365628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ClassifyDocumentResponse' :: Int
+</span><a href="#local-6989586621679365943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365942"><span class="annot"><span class="annottext">s :: ClassifyDocumentResponse
+</span><a href="#local-6989586621679365942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse%27"><span class="hs-identifier hs-type">ClassifyDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679365941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassifyDocumentResponse
+</span><a href="#local-6989586621679365942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ClassifyDocumentResponse' :: Int
 </span><a href="Network.AWS.Comprehend.ClassifyDocument.html#%24sel%3AhttpStatus%3AClassifyDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679365627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span></span><span>
-</span><span id="line-218"></span></pre></body></html>
+</span><a href="#local-6989586621679365941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.ClassifyDocument.html#ClassifyDocumentResponse"><span class="hs-identifier hs-type">ClassifyDocumentResponse</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

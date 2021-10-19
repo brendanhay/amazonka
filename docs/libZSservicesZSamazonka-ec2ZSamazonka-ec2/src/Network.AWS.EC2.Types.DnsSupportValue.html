@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681067412"><span id="local-6989586621681067413"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DnsSupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.DnsSupportValue.html#DnsSupportValue"><span class="hs-identifier hs-var">DnsSupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsSupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.DnsSupportValue.html#DnsSupportValue%27"><span class="hs-identifier hs-var">DnsSupportValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681101346"><span id="local-6989586621681101347"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DnsSupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.DnsSupportValue.html#DnsSupportValue"><span class="hs-identifier hs-var">DnsSupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsSupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.DnsSupportValue.html#DnsSupportValue%27"><span class="hs-identifier hs-var">DnsSupportValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDnsSupportValue"><span class="annot"><span class="annottext">DnsSupportValue -&gt; Text
 </span><a href="Network.AWS.EC2.Types.DnsSupportValue.html#fromDnsSupportValue"><span class="hs-identifier hs-var hs-var">fromDnsSupportValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681067404"><span id="local-6989586621681067406"><span id="local-6989586621681067408"><span class="annot"><span class="annottext">Int -&gt; DnsSupportValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681101338"><span id="local-6989586621681101340"><span id="local-6989586621681101342"><span class="annot"><span class="annottext">Int -&gt; DnsSupportValue -&gt; ShowS
 [DnsSupportValue] -&gt; ShowS
 DnsSupportValue -&gt; String
 (Int -&gt; DnsSupportValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DnsSupportValue -&gt; String
 showsPrec :: Int -&gt; DnsSupportValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; DnsSupportValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681067395"><span id="local-6989586621681067397"><span id="local-6989586621681067399"><span id="local-6989586621681067401"><span class="annot"><span class="annottext">ReadPrec [DnsSupportValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681101329"><span id="local-6989586621681101331"><span id="local-6989586621681101333"><span id="local-6989586621681101335"><span class="annot"><span class="annottext">ReadPrec [DnsSupportValue]
 ReadPrec DnsSupportValue
 Int -&gt; ReadS DnsSupportValue
 ReadS [DnsSupportValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DnsSupportValue]
 readsPrec :: Int -&gt; ReadS DnsSupportValue
 $creadsPrec :: Int -&gt; ReadS DnsSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681067390"><span id="local-6989586621681067392"><span class="annot"><span class="annottext">DnsSupportValue -&gt; DnsSupportValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681101324"><span id="local-6989586621681101326"><span class="annot"><span class="annottext">DnsSupportValue -&gt; DnsSupportValue -&gt; Bool
 (DnsSupportValue -&gt; DnsSupportValue -&gt; Bool)
 -&gt; (DnsSupportValue -&gt; DnsSupportValue -&gt; Bool)
 -&gt; Eq DnsSupportValue
@@ -83,7 +83,7 @@ $c/= :: DnsSupportValue -&gt; DnsSupportValue -&gt; Bool
 == :: DnsSupportValue -&gt; DnsSupportValue -&gt; Bool
 $c== :: DnsSupportValue -&gt; DnsSupportValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681067374"><span id="local-6989586621681067376"><span id="local-6989586621681067378"><span id="local-6989586621681067380"><span id="local-6989586621681067382"><span id="local-6989586621681067384"><span id="local-6989586621681067386"><span class="annot"><span class="annottext">Eq DnsSupportValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681101308"><span id="local-6989586621681101310"><span id="local-6989586621681101312"><span id="local-6989586621681101314"><span id="local-6989586621681101316"><span id="local-6989586621681101318"><span id="local-6989586621681101320"><span class="annot"><span class="annottext">Eq DnsSupportValue
 Eq DnsSupportValue
 -&gt; (DnsSupportValue -&gt; DnsSupportValue -&gt; Ordering)
 -&gt; (DnsSupportValue -&gt; DnsSupportValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. DnsSupportValue -&gt; Rep DnsSupportValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681067366"><span id="local-6989586621681067368"><span class="annot"><span class="annottext">Int -&gt; DnsSupportValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681101300"><span id="local-6989586621681101302"><span class="annot"><span class="annottext">Int -&gt; DnsSupportValue -&gt; Int
 DnsSupportValue -&gt; Int
 (Int -&gt; DnsSupportValue -&gt; Int)
 -&gt; (DnsSupportValue -&gt; Int) -&gt; Hashable DnsSupportValue
@@ -144,50 +144,50 @@ $chash :: DnsSupportValue -&gt; Int
 hashWithSalt :: Int -&gt; DnsSupportValue -&gt; Int
 $chashWithSalt :: Int -&gt; DnsSupportValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681067363"><span class="annot"><span class="annottext">DnsSupportValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681101297"><span class="annot"><span class="annottext">DnsSupportValue -&gt; ()
 (DnsSupportValue -&gt; ()) -&gt; NFData DnsSupportValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DnsSupportValue -&gt; ()
 $crnf :: DnsSupportValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681067360"><span class="annot"><span class="annottext">Text -&gt; Either String DnsSupportValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681101294"><span class="annot"><span class="annottext">Text -&gt; Either String DnsSupportValue
 (Text -&gt; Either String DnsSupportValue) -&gt; FromText DnsSupportValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DnsSupportValue
 $cfromText :: Text -&gt; Either String DnsSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681067357"><span class="annot"><span class="annottext">DnsSupportValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681101291"><span class="annot"><span class="annottext">DnsSupportValue -&gt; Text
 (DnsSupportValue -&gt; Text) -&gt; ToText DnsSupportValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DnsSupportValue -&gt; Text
 $ctoText :: DnsSupportValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681067354"><span class="annot"><span class="annottext">DnsSupportValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681101288"><span class="annot"><span class="annottext">DnsSupportValue -&gt; ByteString
 (DnsSupportValue -&gt; ByteString) -&gt; ToByteString DnsSupportValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DnsSupportValue -&gt; ByteString
 $ctoBS :: DnsSupportValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681067351"><span class="annot"><span class="annottext">DnsSupportValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681101285"><span class="annot"><span class="annottext">DnsSupportValue -&gt; ByteStringBuilder
 (DnsSupportValue -&gt; ByteStringBuilder) -&gt; ToLog DnsSupportValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DnsSupportValue -&gt; ByteStringBuilder
 $cbuild :: DnsSupportValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681067348"><span class="annot"><span class="annottext">HeaderName -&gt; DnsSupportValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681101282"><span class="annot"><span class="annottext">HeaderName -&gt; DnsSupportValue -&gt; [Header]
 (HeaderName -&gt; DnsSupportValue -&gt; [Header])
 -&gt; ToHeader DnsSupportValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DnsSupportValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DnsSupportValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681067345"><span class="annot"><span class="annottext">DnsSupportValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681101279"><span class="annot"><span class="annottext">DnsSupportValue -&gt; QueryString
 (DnsSupportValue -&gt; QueryString) -&gt; ToQuery DnsSupportValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DnsSupportValue -&gt; QueryString
 $ctoQuery :: DnsSupportValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681067340"><span id="local-6989586621681067342"><span class="annot"><span class="annottext">Value -&gt; Parser [DnsSupportValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681101274"><span id="local-6989586621681101276"><span class="annot"><span class="annottext">Value -&gt; Parser [DnsSupportValue]
 Value -&gt; Parser DnsSupportValue
 (Value -&gt; Parser DnsSupportValue)
 -&gt; (Value -&gt; Parser [DnsSupportValue]) -&gt; FromJSON DnsSupportValue
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [DnsSupportValue]
 parseJSON :: Value -&gt; Parser DnsSupportValue
 $cparseJSON :: Value -&gt; Parser DnsSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681067335"><span id="local-6989586621681067337"><span class="annot"><span class="annottext">FromJSONKeyFunction [DnsSupportValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681101269"><span id="local-6989586621681101271"><span class="annot"><span class="annottext">FromJSONKeyFunction [DnsSupportValue]
 FromJSONKeyFunction DnsSupportValue
 FromJSONKeyFunction DnsSupportValue
 -&gt; FromJSONKeyFunction [DnsSupportValue]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DnsSupportValue]
 fromJSONKey :: FromJSONKeyFunction DnsSupportValue
 $cfromJSONKey :: FromJSONKeyFunction DnsSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681067326"><span id="local-6989586621681067328"><span id="local-6989586621681067330"><span id="local-6989586621681067332"><span class="annot"><span class="annottext">[DnsSupportValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681101260"><span id="local-6989586621681101262"><span id="local-6989586621681101264"><span id="local-6989586621681101266"><span class="annot"><span class="annottext">[DnsSupportValue] -&gt; Encoding
 [DnsSupportValue] -&gt; Value
 DnsSupportValue -&gt; Encoding
 DnsSupportValue -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: DnsSupportValue -&gt; Encoding
 toJSON :: DnsSupportValue -&gt; Value
 $ctoJSON :: DnsSupportValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681067321"><span id="local-6989586621681067323"><span class="annot"><span class="annottext">ToJSONKeyFunction [DnsSupportValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681101255"><span id="local-6989586621681101257"><span class="annot"><span class="annottext">ToJSONKeyFunction [DnsSupportValue]
 ToJSONKeyFunction DnsSupportValue
 ToJSONKeyFunction DnsSupportValue
 -&gt; ToJSONKeyFunction [DnsSupportValue] -&gt; ToJSONKey DnsSupportValue
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DnsSupportValue]
 toJSONKey :: ToJSONKeyFunction DnsSupportValue
 $ctoJSONKey :: ToJSONKeyFunction DnsSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681067318"><span class="annot"><span class="annottext">[Node] -&gt; Either String DnsSupportValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681101252"><span class="annot"><span class="annottext">[Node] -&gt; Either String DnsSupportValue
 ([Node] -&gt; Either String DnsSupportValue)
 -&gt; FromXML DnsSupportValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DnsSupportValue
 $cparseXML :: [Node] -&gt; Either String DnsSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681067315"><span class="annot"><span class="annottext">DnsSupportValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681101249"><span class="annot"><span class="annottext">DnsSupportValue -&gt; XML
 (DnsSupportValue -&gt; XML) -&gt; ToXML DnsSupportValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DnsSupportValue -&gt; XML

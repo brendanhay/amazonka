@@ -122,13 +122,13 @@
 </span><span id="line-122"></span><span class="hs-comment">-- | Specifies the encoding of the log file so that the file can be read</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- correctly. The default is @utf_8@. Encodings supported by Python</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- @codecs.decode()@ can be used here.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679372531"><span id="local-6989586621679372532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchLogsEncoding"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding.html#CloudWatchLogsEncoding"><span class="hs-identifier hs-var">CloudWatchLogsEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsEncoding%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding.html#CloudWatchLogsEncoding%27"><span class="hs-identifier hs-var">CloudWatchLogsEncoding'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679372923"><span id="local-6989586621679372924"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchLogsEncoding"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding.html#CloudWatchLogsEncoding"><span class="hs-identifier hs-var">CloudWatchLogsEncoding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsEncoding%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding.html#CloudWatchLogsEncoding%27"><span class="hs-identifier hs-var">CloudWatchLogsEncoding'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudWatchLogsEncoding"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding.html#fromCloudWatchLogsEncoding"><span class="hs-identifier hs-var hs-var">fromCloudWatchLogsEncoding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372523"><span id="local-6989586621679372525"><span id="local-6989586621679372527"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsEncoding -&gt; ShowS
+</span><span id="line-130"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372915"><span id="local-6989586621679372917"><span id="local-6989586621679372919"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsEncoding -&gt; ShowS
 [CloudWatchLogsEncoding] -&gt; ShowS
 CloudWatchLogsEncoding -&gt; String
 (Int -&gt; CloudWatchLogsEncoding -&gt; ShowS)
@@ -144,7 +144,7 @@ $cshow :: CloudWatchLogsEncoding -&gt; String
 showsPrec :: Int -&gt; CloudWatchLogsEncoding -&gt; ShowS
 $cshowsPrec :: Int -&gt; CloudWatchLogsEncoding -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span id="local-6989586621679372514"><span id="local-6989586621679372516"><span id="local-6989586621679372518"><span id="local-6989586621679372520"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsEncoding]
+</span><span id="line-131"></span><span>      </span><span id="local-6989586621679372906"><span id="local-6989586621679372908"><span id="local-6989586621679372910"><span id="local-6989586621679372912"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsEncoding]
 ReadPrec CloudWatchLogsEncoding
 Int -&gt; ReadS CloudWatchLogsEncoding
 ReadS [CloudWatchLogsEncoding]
@@ -165,7 +165,7 @@ $creadList :: ReadS [CloudWatchLogsEncoding]
 readsPrec :: Int -&gt; ReadS CloudWatchLogsEncoding
 $creadsPrec :: Int -&gt; ReadS CloudWatchLogsEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>      </span><span id="local-6989586621679372509"><span id="local-6989586621679372511"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool
+</span><span id="line-132"></span><span>      </span><span id="local-6989586621679372901"><span id="local-6989586621679372903"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool
 (CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool)
 -&gt; (CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool)
 -&gt; Eq CloudWatchLogsEncoding
@@ -175,7 +175,7 @@ $c/= :: CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool
 == :: CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool
 $c== :: CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>      </span><span id="local-6989586621679372493"><span id="local-6989586621679372495"><span id="local-6989586621679372497"><span id="local-6989586621679372499"><span id="local-6989586621679372501"><span id="local-6989586621679372503"><span id="local-6989586621679372505"><span class="annot"><span class="annottext">Eq CloudWatchLogsEncoding
+</span><span id="line-133"></span><span>      </span><span id="local-6989586621679372885"><span id="local-6989586621679372887"><span id="local-6989586621679372889"><span id="local-6989586621679372891"><span id="local-6989586621679372893"><span id="local-6989586621679372895"><span id="local-6989586621679372897"><span class="annot"><span class="annottext">Eq CloudWatchLogsEncoding
 Eq CloudWatchLogsEncoding
 -&gt; (CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Ordering)
 -&gt; (CloudWatchLogsEncoding -&gt; CloudWatchLogsEncoding -&gt; Bool)
@@ -234,7 +234,7 @@ $cfrom :: forall x. CloudWatchLogsEncoding -&gt; Rep CloudWatchLogsEncoding x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372485"><span id="local-6989586621679372487"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsEncoding -&gt; Int
+</span><span id="line-137"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372877"><span id="local-6989586621679372879"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsEncoding -&gt; Int
 CloudWatchLogsEncoding -&gt; Int
 (Int -&gt; CloudWatchLogsEncoding -&gt; Int)
 -&gt; (CloudWatchLogsEncoding -&gt; Int)
@@ -245,54 +245,54 @@ $chash :: CloudWatchLogsEncoding -&gt; Int
 hashWithSalt :: Int -&gt; CloudWatchLogsEncoding -&gt; Int
 $chashWithSalt :: Int -&gt; CloudWatchLogsEncoding -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>      </span><span id="local-6989586621679372482"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; ()
+</span><span id="line-138"></span><span>      </span><span id="local-6989586621679372874"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; ()
 (CloudWatchLogsEncoding -&gt; ()) -&gt; NFData CloudWatchLogsEncoding
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CloudWatchLogsEncoding -&gt; ()
 $crnf :: CloudWatchLogsEncoding -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>      </span><span id="local-6989586621679372479"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchLogsEncoding
+</span><span id="line-139"></span><span>      </span><span id="local-6989586621679372871"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchLogsEncoding
 (Text -&gt; Either String CloudWatchLogsEncoding)
 -&gt; FromText CloudWatchLogsEncoding
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CloudWatchLogsEncoding
 $cfromText :: Text -&gt; Either String CloudWatchLogsEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>      </span><span id="local-6989586621679372476"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; Text
+</span><span id="line-140"></span><span>      </span><span id="local-6989586621679372868"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; Text
 (CloudWatchLogsEncoding -&gt; Text) -&gt; ToText CloudWatchLogsEncoding
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CloudWatchLogsEncoding -&gt; Text
 $ctoText :: CloudWatchLogsEncoding -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>      </span><span id="local-6989586621679372473"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; ByteString
+</span><span id="line-141"></span><span>      </span><span id="local-6989586621679372865"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; ByteString
 (CloudWatchLogsEncoding -&gt; ByteString)
 -&gt; ToByteString CloudWatchLogsEncoding
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CloudWatchLogsEncoding -&gt; ByteString
 $ctoBS :: CloudWatchLogsEncoding -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span id="local-6989586621679372470"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; ByteStringBuilder
+</span><span id="line-142"></span><span>      </span><span id="local-6989586621679372862"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; ByteStringBuilder
 (CloudWatchLogsEncoding -&gt; ByteStringBuilder)
 -&gt; ToLog CloudWatchLogsEncoding
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CloudWatchLogsEncoding -&gt; ByteStringBuilder
 $cbuild :: CloudWatchLogsEncoding -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>      </span><span id="local-6989586621679372467"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchLogsEncoding -&gt; [Header]
+</span><span id="line-143"></span><span>      </span><span id="local-6989586621679372859"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchLogsEncoding -&gt; [Header]
 (HeaderName -&gt; CloudWatchLogsEncoding -&gt; [Header])
 -&gt; ToHeader CloudWatchLogsEncoding
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CloudWatchLogsEncoding -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CloudWatchLogsEncoding -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>      </span><span id="local-6989586621679372464"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; QueryString
+</span><span id="line-144"></span><span>      </span><span id="local-6989586621679372856"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; QueryString
 (CloudWatchLogsEncoding -&gt; QueryString)
 -&gt; ToQuery CloudWatchLogsEncoding
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CloudWatchLogsEncoding -&gt; QueryString
 $ctoQuery :: CloudWatchLogsEncoding -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>      </span><span id="local-6989586621679372459"><span id="local-6989586621679372461"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchLogsEncoding]
+</span><span id="line-145"></span><span>      </span><span id="local-6989586621679372851"><span id="local-6989586621679372853"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchLogsEncoding]
 Value -&gt; Parser CloudWatchLogsEncoding
 (Value -&gt; Parser CloudWatchLogsEncoding)
 -&gt; (Value -&gt; Parser [CloudWatchLogsEncoding])
@@ -304,7 +304,7 @@ $cparseJSONList :: Value -&gt; Parser [CloudWatchLogsEncoding]
 parseJSON :: Value -&gt; Parser CloudWatchLogsEncoding
 $cparseJSON :: Value -&gt; Parser CloudWatchLogsEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>      </span><span id="local-6989586621679372454"><span id="local-6989586621679372456"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchLogsEncoding]
+</span><span id="line-146"></span><span>      </span><span id="local-6989586621679372846"><span id="local-6989586621679372848"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchLogsEncoding]
 FromJSONKeyFunction CloudWatchLogsEncoding
 FromJSONKeyFunction CloudWatchLogsEncoding
 -&gt; FromJSONKeyFunction [CloudWatchLogsEncoding]
@@ -316,7 +316,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CloudWatchLogsEncoding]
 fromJSONKey :: FromJSONKeyFunction CloudWatchLogsEncoding
 $cfromJSONKey :: FromJSONKeyFunction CloudWatchLogsEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>      </span><span id="local-6989586621679372445"><span id="local-6989586621679372447"><span id="local-6989586621679372449"><span id="local-6989586621679372451"><span class="annot"><span class="annottext">[CloudWatchLogsEncoding] -&gt; Encoding
+</span><span id="line-147"></span><span>      </span><span id="local-6989586621679372837"><span id="local-6989586621679372839"><span id="local-6989586621679372841"><span id="local-6989586621679372843"><span class="annot"><span class="annottext">[CloudWatchLogsEncoding] -&gt; Encoding
 [CloudWatchLogsEncoding] -&gt; Value
 CloudWatchLogsEncoding -&gt; Encoding
 CloudWatchLogsEncoding -&gt; Value
@@ -340,7 +340,7 @@ $ctoEncoding :: CloudWatchLogsEncoding -&gt; Encoding
 toJSON :: CloudWatchLogsEncoding -&gt; Value
 $ctoJSON :: CloudWatchLogsEncoding -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>      </span><span id="local-6989586621679372440"><span id="local-6989586621679372442"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchLogsEncoding]
+</span><span id="line-148"></span><span>      </span><span id="local-6989586621679372832"><span id="local-6989586621679372834"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchLogsEncoding]
 ToJSONKeyFunction CloudWatchLogsEncoding
 ToJSONKeyFunction CloudWatchLogsEncoding
 -&gt; ToJSONKeyFunction [CloudWatchLogsEncoding]
@@ -352,14 +352,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CloudWatchLogsEncoding]
 toJSONKey :: ToJSONKeyFunction CloudWatchLogsEncoding
 $ctoJSONKey :: ToJSONKeyFunction CloudWatchLogsEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>      </span><span id="local-6989586621679372437"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchLogsEncoding
+</span><span id="line-149"></span><span>      </span><span id="local-6989586621679372829"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchLogsEncoding
 ([Node] -&gt; Either String CloudWatchLogsEncoding)
 -&gt; FromXML CloudWatchLogsEncoding
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CloudWatchLogsEncoding
 $cparseXML :: [Node] -&gt; Either String CloudWatchLogsEncoding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>      </span><span id="local-6989586621679372434"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; XML
+</span><span id="line-150"></span><span>      </span><span id="local-6989586621679372826"><span class="annot"><span class="annottext">CloudWatchLogsEncoding -&gt; XML
 (CloudWatchLogsEncoding -&gt; XML) -&gt; ToXML CloudWatchLogsEncoding
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CloudWatchLogsEncoding -&gt; XML

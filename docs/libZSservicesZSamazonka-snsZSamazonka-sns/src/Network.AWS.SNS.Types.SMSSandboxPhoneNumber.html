@@ -37,16 +37,16 @@
 </span><span id="line-37"></span><span class="hs-comment">-- in the /Amazon SNS Developer Guide/.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newSMSSandboxPhoneNumber' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679192225"><span id="local-6989586621679192226"></span></span><span class="hs-keyword">data</span><span> </span><span id="SMSSandboxPhoneNumber"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-var">SMSSandboxPhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSSandboxPhoneNumber%27"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">SMSSandboxPhoneNumber'</span></a></span></span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The destination phone number.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AphoneNumber%3ASMSSandboxPhoneNumber%27"><span class="annot"><span class="annottext">SMSSandboxPhoneNumber -&gt; Maybe Text
-</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3AphoneNumber%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The destination phone number\'s verification status.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Astatus%3ASMSSandboxPhoneNumber%27"><span class="annot"><span class="annottext">SMSSandboxPhoneNumber
+</span><span id="line-40"></span><span id="local-6989586621679192354"><span id="local-6989586621679192355"></span></span><span class="hs-keyword">data</span><span> </span><span id="SMSSandboxPhoneNumber"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-var">SMSSandboxPhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSSandboxPhoneNumber%27"><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">SMSSandboxPhoneNumber'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The destination phone number\'s verification status.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Astatus%3ASMSSandboxPhoneNumber%27"><span class="annot"><span class="annottext">SMSSandboxPhoneNumber
 -&gt; Maybe SMSSandboxPhoneNumberVerificationStatus
-</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3Astatus%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus</span></a></span><span>
+</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3Astatus%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The destination phone number.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AphoneNumber%3ASMSSandboxPhoneNumber%27"><span class="annot"><span class="annottext">SMSSandboxPhoneNumber -&gt; Maybe Text
+</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3AphoneNumber%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192218"><span id="local-6989586621679192220"><span class="annot"><span class="annottext">SMSSandboxPhoneNumber -&gt; SMSSandboxPhoneNumber -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192347"><span id="local-6989586621679192349"><span class="annot"><span class="annottext">SMSSandboxPhoneNumber -&gt; SMSSandboxPhoneNumber -&gt; Bool
 (SMSSandboxPhoneNumber -&gt; SMSSandboxPhoneNumber -&gt; Bool)
 -&gt; (SMSSandboxPhoneNumber -&gt; SMSSandboxPhoneNumber -&gt; Bool)
 -&gt; Eq SMSSandboxPhoneNumber
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SMSSandboxPhoneNumber -&gt; SMSSandboxPhoneNumber -&gt; Bool
 == :: SMSSandboxPhoneNumber -&gt; SMSSandboxPhoneNumber -&gt; Bool
 $c== :: SMSSandboxPhoneNumber -&gt; SMSSandboxPhoneNumber -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192209"><span id="local-6989586621679192211"><span id="local-6989586621679192213"><span id="local-6989586621679192215"><span class="annot"><span class="annottext">ReadPrec [SMSSandboxPhoneNumber]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192338"><span id="local-6989586621679192340"><span id="local-6989586621679192342"><span id="local-6989586621679192344"><span class="annot"><span class="annottext">ReadPrec [SMSSandboxPhoneNumber]
 ReadPrec SMSSandboxPhoneNumber
 Int -&gt; ReadS SMSSandboxPhoneNumber
 ReadS [SMSSandboxPhoneNumber]
@@ -75,7 +75,7 @@ readList :: ReadS [SMSSandboxPhoneNumber]
 $creadList :: ReadS [SMSSandboxPhoneNumber]
 readsPrec :: Int -&gt; ReadS SMSSandboxPhoneNumber
 $creadsPrec :: Int -&gt; ReadS SMSSandboxPhoneNumber
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192202"><span id="local-6989586621679192204"><span id="local-6989586621679192206"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumber -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192331"><span id="local-6989586621679192333"><span id="local-6989586621679192335"><span class="annot"><span class="annottext">Int -&gt; SMSSandboxPhoneNumber -&gt; ShowS
 [SMSSandboxPhoneNumber] -&gt; ShowS
 SMSSandboxPhoneNumber -&gt; String
 (Int -&gt; SMSSandboxPhoneNumber -&gt; ShowS)
@@ -109,54 +109,29 @@ $cfrom :: forall x. SMSSandboxPhoneNumber -&gt; Rep SMSSandboxPhoneNumber x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'phoneNumber', 'sMSSandboxPhoneNumber_phoneNumber' - The destination phone number.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'status', 'sMSSandboxPhoneNumber_status' - The destination phone number\'s verification status.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'status', 'sMSSandboxPhoneNumber_status' - The destination phone number\'s verification status.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'phoneNumber', 'sMSSandboxPhoneNumber_phoneNumber' - The destination phone number.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#newSMSSandboxPhoneNumber"><span class="hs-identifier hs-type">newSMSSandboxPhoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span>
 </span><span id="line-61"></span><span id="newSMSSandboxPhoneNumber"><span class="annot"><span class="annottext">newSMSSandboxPhoneNumber :: SMSSandboxPhoneNumber
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#newSMSSandboxPhoneNumber"><span class="hs-identifier hs-var hs-var">newSMSSandboxPhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">SMSSandboxPhoneNumber' :: Maybe Text
--&gt; Maybe SMSSandboxPhoneNumberVerificationStatus
--&gt; SMSSandboxPhoneNumber
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">SMSSandboxPhoneNumber' :: Maybe SMSSandboxPhoneNumberVerificationStatus
+-&gt; Maybe Text -&gt; SMSSandboxPhoneNumber
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumber:SMSSandboxPhoneNumber' :: Maybe Text
-</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3AphoneNumber%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:SMSSandboxPhoneNumber' :: Maybe SMSSandboxPhoneNumberVerificationStatus
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:SMSSandboxPhoneNumber' :: Maybe SMSSandboxPhoneNumberVerificationStatus
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3Astatus%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The destination phone number.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#sMSSandboxPhoneNumber_phoneNumber"><span class="hs-identifier hs-type">sMSSandboxPhoneNumber_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="sMSSandboxPhoneNumber_phoneNumber"><span class="annot"><span class="annottext">sMSSandboxPhoneNumber_phoneNumber :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SMSSandboxPhoneNumber -&gt; f SMSSandboxPhoneNumber
-</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#sMSSandboxPhoneNumber_phoneNumber"><span class="hs-identifier hs-var hs-var">sMSSandboxPhoneNumber_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSSandboxPhoneNumber -&gt; Maybe Text)
--&gt; (SMSSandboxPhoneNumber -&gt; Maybe Text -&gt; SMSSandboxPhoneNumber)
--&gt; Lens
-     SMSSandboxPhoneNumber
-     SMSSandboxPhoneNumber
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192193"><span class="annot"><span class="annottext">Maybe Text
-phoneNumber :: Maybe Text
-$sel:phoneNumber:SMSSandboxPhoneNumber' :: SMSSandboxPhoneNumber -&gt; Maybe Text
-</span><a href="#local-6989586621679192193"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192193"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192192"><span class="annot"><span class="annottext">s :: SMSSandboxPhoneNumber
-</span><a href="#local-6989586621679192192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192191"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSSandboxPhoneNumber
-</span><a href="#local-6989586621679192192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:SMSSandboxPhoneNumber' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumber:SMSSandboxPhoneNumber' :: Maybe Text
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3AphoneNumber%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679192191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The destination phone number\'s verification status.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#sMSSandboxPhoneNumber_status"><span class="hs-identifier hs-type">sMSSandboxPhoneNumber_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="sMSSandboxPhoneNumber_status"><span class="annot"><span class="annottext">sMSSandboxPhoneNumber_status :: (Maybe SMSSandboxPhoneNumberVerificationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The destination phone number\'s verification status.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#sMSSandboxPhoneNumber_status"><span class="hs-identifier hs-type">sMSSandboxPhoneNumber_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus.html#SMSSandboxPhoneNumberVerificationStatus"><span class="hs-identifier hs-type">SMSSandboxPhoneNumberVerificationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="sMSSandboxPhoneNumber_status"><span class="annot"><span class="annottext">sMSSandboxPhoneNumber_status :: (Maybe SMSSandboxPhoneNumberVerificationStatus
  -&gt; f (Maybe SMSSandboxPhoneNumberVerificationStatus))
 -&gt; SMSSandboxPhoneNumber -&gt; f SMSSandboxPhoneNumber
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#sMSSandboxPhoneNumber_status"><span class="hs-identifier hs-var hs-var">sMSSandboxPhoneNumber_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSSandboxPhoneNumber
@@ -170,56 +145,71 @@ $sel:phoneNumber:SMSSandboxPhoneNumber' :: SMSSandboxPhoneNumber -&gt; Maybe Tex
      (Maybe SMSSandboxPhoneNumberVerificationStatus)
      (Maybe SMSSandboxPhoneNumberVerificationStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192189"><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192322"><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
 status :: Maybe SMSSandboxPhoneNumberVerificationStatus
 $sel:status:SMSSandboxPhoneNumber' :: SMSSandboxPhoneNumber
 -&gt; Maybe SMSSandboxPhoneNumberVerificationStatus
-</span><a href="#local-6989586621679192189"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
-</span><a href="#local-6989586621679192189"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192188"><span class="annot"><span class="annottext">s :: SMSSandboxPhoneNumber
-</span><a href="#local-6989586621679192188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192187"><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
-</span><a href="#local-6989586621679192187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSSandboxPhoneNumber
-</span><a href="#local-6989586621679192188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SMSSandboxPhoneNumber' :: Maybe SMSSandboxPhoneNumberVerificationStatus
+</span><a href="#local-6989586621679192322"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
+</span><a href="#local-6989586621679192322"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192321"><span class="annot"><span class="annottext">s :: SMSSandboxPhoneNumber
+</span><a href="#local-6989586621679192321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192320"><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
+</span><a href="#local-6989586621679192320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSSandboxPhoneNumber
+</span><a href="#local-6989586621679192321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SMSSandboxPhoneNumber' :: Maybe SMSSandboxPhoneNumberVerificationStatus
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3Astatus%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
-</span><a href="#local-6989586621679192187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679192184"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SMSSandboxPhoneNumber
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679192182"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679192182"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe SMSSandboxPhoneNumberVerificationStatus
--&gt; SMSSandboxPhoneNumber
+</span><a href="#local-6989586621679192320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The destination phone number.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#sMSSandboxPhoneNumber_phoneNumber"><span class="hs-identifier hs-type">sMSSandboxPhoneNumber_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="sMSSandboxPhoneNumber_phoneNumber"><span class="annot"><span class="annottext">sMSSandboxPhoneNumber_phoneNumber :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SMSSandboxPhoneNumber -&gt; f SMSSandboxPhoneNumber
+</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#sMSSandboxPhoneNumber_phoneNumber"><span class="hs-identifier hs-var hs-var">sMSSandboxPhoneNumber_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SMSSandboxPhoneNumber -&gt; Maybe Text)
+-&gt; (SMSSandboxPhoneNumber -&gt; Maybe Text -&gt; SMSSandboxPhoneNumber)
+-&gt; Lens
+     SMSSandboxPhoneNumber
+     SMSSandboxPhoneNumber
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192318"><span class="annot"><span class="annottext">Maybe Text
+phoneNumber :: Maybe Text
+$sel:phoneNumber:SMSSandboxPhoneNumber' :: SMSSandboxPhoneNumber -&gt; Maybe Text
+</span><a href="#local-6989586621679192318"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192318"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192317"><span class="annot"><span class="annottext">s :: SMSSandboxPhoneNumber
+</span><a href="#local-6989586621679192317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSSandboxPhoneNumber
+</span><a href="#local-6989586621679192317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:SMSSandboxPhoneNumber' :: Maybe Text
+</span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#%24sel%3AphoneNumber%3ASMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679192316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679192313"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SMSSandboxPhoneNumber
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679192311"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679192311"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe SMSSandboxPhoneNumberVerificationStatus
+-&gt; Maybe Text -&gt; SMSSandboxPhoneNumber
 </span><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber%27"><span class="hs-identifier hs-var">SMSSandboxPhoneNumber'</span></a></span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe SMSSandboxPhoneNumberVerificationStatus
- -&gt; SMSSandboxPhoneNumber)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe SMSSandboxPhoneNumberVerificationStatus
-      -&gt; SMSSandboxPhoneNumber)
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SMSSandboxPhoneNumberVerificationStatus
+ -&gt; Maybe Text -&gt; SMSSandboxPhoneNumber)
+-&gt; Either String (Maybe SMSSandboxPhoneNumberVerificationStatus)
+-&gt; Either String (Maybe Text -&gt; SMSSandboxPhoneNumber)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679192182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe SMSSandboxPhoneNumberVerificationStatus
-   -&gt; SMSSandboxPhoneNumber)
--&gt; Either String (Maybe SMSSandboxPhoneNumberVerificationStatus)
--&gt; Either String SMSSandboxPhoneNumber
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679192182"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679192311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either String (Maybe SMSSandboxPhoneNumberVerificationStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192176"><span id="local-6989586621679192178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span></span></span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span></span><span>
-</span><span id="line-85"></span></pre></body></html>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; SMSSandboxPhoneNumber)
+-&gt; Either String (Maybe Text)
+-&gt; Either String SMSSandboxPhoneNumber
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679192311"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192305"><span id="local-6989586621679192307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.SMSSandboxPhoneNumber.html#SMSSandboxPhoneNumber"><span class="hs-identifier hs-type">SMSSandboxPhoneNumber</span></a></span></span><span>
+</span><span id="line-84"></span></pre></body></html>

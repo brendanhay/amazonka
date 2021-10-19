@@ -27,21 +27,21 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Details about the input device that is being transferred.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTransferringInputDeviceSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679919970"><span id="local-6989586621679919971"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferringInputDeviceSummary"><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-var">TransferringInputDeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferringInputDeviceSummary%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">TransferringInputDeviceSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The optional message that the sender has attached to the transfer.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The type (direction) of the input device transfer.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtransferType%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe InputDeviceTransferType
+</span><span id="line-30"></span><span id="local-6989586621679927481"><span id="local-6989586621679927482"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferringInputDeviceSummary"><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-var">TransferringInputDeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferringInputDeviceSummary%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">TransferringInputDeviceSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type (direction) of the input device transfer.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtransferType%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe InputDeviceTransferType
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtransferType%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">transferType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceTransferType.html#InputDeviceTransferType"><span class="hs-identifier hs-type">InputDeviceTransferType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aid%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe Text
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Aid%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The AWS account ID for the recipient of the input device transfer.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtargetCustomerId%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtargetCustomerId%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">targetCustomerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The AWS account ID for the recipient of the input device transfer.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtargetCustomerId%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtargetCustomerId%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">targetCustomerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The optional message that the sender has attached to the transfer.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="annot"><span class="annottext">TransferringInputDeviceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919961"><span id="local-6989586621679919963"><span class="annot"><span class="annottext">TransferringInputDeviceSummary
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679927472"><span id="local-6989586621679927474"><span class="annot"><span class="annottext">TransferringInputDeviceSummary
 -&gt; TransferringInputDeviceSummary -&gt; Bool
 (TransferringInputDeviceSummary
  -&gt; TransferringInputDeviceSummary -&gt; Bool)
@@ -57,7 +57,7 @@ $c/= :: TransferringInputDeviceSummary
 -&gt; TransferringInputDeviceSummary -&gt; Bool
 $c== :: TransferringInputDeviceSummary
 -&gt; TransferringInputDeviceSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919952"><span id="local-6989586621679919954"><span id="local-6989586621679919956"><span id="local-6989586621679919958"><span class="annot"><span class="annottext">ReadPrec [TransferringInputDeviceSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927463"><span id="local-6989586621679927465"><span id="local-6989586621679927467"><span id="local-6989586621679927469"><span class="annot"><span class="annottext">ReadPrec [TransferringInputDeviceSummary]
 ReadPrec TransferringInputDeviceSummary
 Int -&gt; ReadS TransferringInputDeviceSummary
 ReadS [TransferringInputDeviceSummary]
@@ -77,7 +77,7 @@ readList :: ReadS [TransferringInputDeviceSummary]
 $creadList :: ReadS [TransferringInputDeviceSummary]
 readsPrec :: Int -&gt; ReadS TransferringInputDeviceSummary
 $creadsPrec :: Int -&gt; ReadS TransferringInputDeviceSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919945"><span id="local-6989586621679919947"><span id="local-6989586621679919949"><span class="annot"><span class="annottext">Int -&gt; TransferringInputDeviceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679927456"><span id="local-6989586621679927458"><span id="local-6989586621679927460"><span class="annot"><span class="annottext">Int -&gt; TransferringInputDeviceSummary -&gt; ShowS
 [TransferringInputDeviceSummary] -&gt; ShowS
 TransferringInputDeviceSummary -&gt; String
 (Int -&gt; TransferringInputDeviceSummary -&gt; ShowS)
@@ -123,70 +123,45 @@ TransferringInputDeviceSummary
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'message', 'transferringInputDeviceSummary_message' - The optional message that the sender has attached to the transfer.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'transferType', 'transferringInputDeviceSummary_transferType' - The type (direction) of the input device transfer.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'transferType', 'transferringInputDeviceSummary_transferType' - The type (direction) of the input device transfer.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'id', 'transferringInputDeviceSummary_id' - The unique ID of the input device.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'id', 'transferringInputDeviceSummary_id' - The unique ID of the input device.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'targetCustomerId', 'transferringInputDeviceSummary_targetCustomerId' - The AWS account ID for the recipient of the input device transfer.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'targetCustomerId', 'transferringInputDeviceSummary_targetCustomerId' - The AWS account ID for the recipient of the input device transfer.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'message', 'transferringInputDeviceSummary_message' - The optional message that the sender has attached to the transfer.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#newTransferringInputDeviceSummary"><span class="hs-identifier hs-type">newTransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span>
 </span><span id="line-59"></span><span id="newTransferringInputDeviceSummary"><span class="annot"><span class="annottext">newTransferringInputDeviceSummary :: TransferringInputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#newTransferringInputDeviceSummary"><span class="hs-identifier hs-var hs-var">newTransferringInputDeviceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary' :: Maybe Text
--&gt; Maybe InputDeviceTransferType
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary' :: Maybe InputDeviceTransferType
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; TransferringInputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:TransferringInputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transferType:TransferringInputDeviceSummary' :: Maybe InputDeviceTransferType
+</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtransferType%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">transferType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:transferType:TransferringInputDeviceSummary' :: Maybe InputDeviceTransferType
-</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtransferType%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">transferType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:TransferringInputDeviceSummary' :: Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:TransferringInputDeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Aid%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetCustomerId:TransferringInputDeviceSummary' :: Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetCustomerId:TransferringInputDeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtargetCustomerId%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">targetCustomerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:TransferringInputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The optional message that the sender has attached to the transfer.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_message"><span class="hs-identifier hs-type">transferringInputDeviceSummary_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="transferringInputDeviceSummary_message"><span class="annot"><span class="annottext">transferringInputDeviceSummary_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransferringInputDeviceSummary
--&gt; f TransferringInputDeviceSummary
-</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_message"><span class="hs-identifier hs-var hs-var">transferringInputDeviceSummary_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransferringInputDeviceSummary -&gt; Maybe Text)
--&gt; (TransferringInputDeviceSummary
-    -&gt; Maybe Text -&gt; TransferringInputDeviceSummary)
--&gt; Lens
-     TransferringInputDeviceSummary
-     TransferringInputDeviceSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919936"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:TransferringInputDeviceSummary' :: TransferringInputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679919936"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919936"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919935"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919934"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:TransferringInputDeviceSummary' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The type (direction) of the input device transfer.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_transferType"><span class="hs-identifier hs-type">transferringInputDeviceSummary_transferType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceTransferType.html#InputDeviceTransferType"><span class="hs-identifier hs-type">InputDeviceTransferType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="transferringInputDeviceSummary_transferType"><span class="annot"><span class="annottext">transferringInputDeviceSummary_transferType :: (Maybe InputDeviceTransferType
+</span><span id="line-68"></span><span class="hs-comment">-- | The type (direction) of the input device transfer.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_transferType"><span class="hs-identifier hs-type">transferringInputDeviceSummary_transferType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceTransferType.html#InputDeviceTransferType"><span class="hs-identifier hs-type">InputDeviceTransferType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="transferringInputDeviceSummary_transferType"><span class="annot"><span class="annottext">transferringInputDeviceSummary_transferType :: (Maybe InputDeviceTransferType
  -&gt; f (Maybe InputDeviceTransferType))
 -&gt; TransferringInputDeviceSummary
 -&gt; f TransferringInputDeviceSummary
@@ -199,20 +174,20 @@ $sel:message:TransferringInputDeviceSummary' :: TransferringInputDeviceSummary -
      (Maybe InputDeviceTransferType)
      (Maybe InputDeviceTransferType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919932"><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927447"><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
 transferType :: Maybe InputDeviceTransferType
 $sel:transferType:TransferringInputDeviceSummary' :: TransferringInputDeviceSummary -&gt; Maybe InputDeviceTransferType
-</span><a href="#local-6989586621679919932"><span class="hs-identifier hs-var hs-var">transferType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
-</span><a href="#local-6989586621679919932"><span class="hs-identifier hs-var">transferType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919931"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919930"><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
-</span><a href="#local-6989586621679919930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferType:TransferringInputDeviceSummary' :: Maybe InputDeviceTransferType
+</span><a href="#local-6989586621679927447"><span class="hs-identifier hs-var hs-var">transferType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
+</span><a href="#local-6989586621679927447"><span class="hs-identifier hs-var">transferType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927446"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927445"><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
+</span><a href="#local-6989586621679927445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transferType:TransferringInputDeviceSummary' :: Maybe InputDeviceTransferType
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtransferType%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">transferType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
-</span><a href="#local-6989586621679919930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_id"><span class="hs-identifier hs-type">transferringInputDeviceSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="transferringInputDeviceSummary_id"><span class="annot"><span class="annottext">transferringInputDeviceSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679927445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The unique ID of the input device.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_id"><span class="hs-identifier hs-type">transferringInputDeviceSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="transferringInputDeviceSummary_id"><span class="annot"><span class="annottext">transferringInputDeviceSummary_id :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TransferringInputDeviceSummary
 -&gt; f TransferringInputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_id"><span class="hs-identifier hs-var hs-var">transferringInputDeviceSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransferringInputDeviceSummary -&gt; Maybe Text)
@@ -224,20 +199,20 @@ $sel:transferType:TransferringInputDeviceSummary' :: TransferringInputDeviceSumm
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919928"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927443"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:TransferringInputDeviceSummary' :: TransferringInputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679919928"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919928"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919927"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919926"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TransferringInputDeviceSummary' :: Maybe Text
+</span><a href="#local-6989586621679927443"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679927443"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927442"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679927441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:TransferringInputDeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Aid%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The AWS account ID for the recipient of the input device transfer.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_targetCustomerId"><span class="hs-identifier hs-type">transferringInputDeviceSummary_targetCustomerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="transferringInputDeviceSummary_targetCustomerId"><span class="annot"><span class="annottext">transferringInputDeviceSummary_targetCustomerId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679927441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The AWS account ID for the recipient of the input device transfer.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_targetCustomerId"><span class="hs-identifier hs-type">transferringInputDeviceSummary_targetCustomerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="transferringInputDeviceSummary_targetCustomerId"><span class="annot"><span class="annottext">transferringInputDeviceSummary_targetCustomerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TransferringInputDeviceSummary
 -&gt; f TransferringInputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_targetCustomerId"><span class="hs-identifier hs-var hs-var">transferringInputDeviceSummary_targetCustomerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransferringInputDeviceSummary -&gt; Maybe Text)
@@ -249,19 +224,44 @@ $sel:id:TransferringInputDeviceSummary' :: TransferringInputDeviceSummary -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919924"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927439"><span class="annot"><span class="annottext">Maybe Text
 targetCustomerId :: Maybe Text
 $sel:targetCustomerId:TransferringInputDeviceSummary' :: TransferringInputDeviceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679919924"><span class="hs-identifier hs-var hs-var">targetCustomerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919924"><span class="hs-identifier hs-var">targetCustomerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919923"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919922"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
-</span><a href="#local-6989586621679919923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetCustomerId:TransferringInputDeviceSummary' :: Maybe Text
+</span><a href="#local-6989586621679927439"><span class="hs-identifier hs-var hs-var">targetCustomerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679927439"><span class="hs-identifier hs-var">targetCustomerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927438"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679927437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetCustomerId:TransferringInputDeviceSummary' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3AtargetCustomerId%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">targetCustomerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679919922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679927437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The optional message that the sender has attached to the transfer.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_message"><span class="hs-identifier hs-type">transferringInputDeviceSummary_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="transferringInputDeviceSummary_message"><span class="annot"><span class="annottext">transferringInputDeviceSummary_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransferringInputDeviceSummary
+-&gt; f TransferringInputDeviceSummary
+</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#transferringInputDeviceSummary_message"><span class="hs-identifier hs-var hs-var">transferringInputDeviceSummary_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransferringInputDeviceSummary -&gt; Maybe Text)
+-&gt; (TransferringInputDeviceSummary
+    -&gt; Maybe Text -&gt; TransferringInputDeviceSummary)
+-&gt; Lens
+     TransferringInputDeviceSummary
+     TransferringInputDeviceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679927435"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:TransferringInputDeviceSummary' :: TransferringInputDeviceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679927435"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679927435"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679927434"><span class="annot"><span class="annottext">s :: TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-type">TransferringInputDeviceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679927433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679927433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferringInputDeviceSummary
+</span><a href="#local-6989586621679927434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:TransferringInputDeviceSummary' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#%24sel%3Amessage%3ATransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679927433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919919"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679919917"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransferringInputDeviceSummary
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679927430"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679927428"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransferringInputDeviceSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TransferringInputDeviceSummary)
@@ -271,65 +271,65 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TransferringInputDeviceSummary&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919914"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe InputDeviceTransferType
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679927425"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679927425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputDeviceTransferType
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; TransferringInputDeviceSummary
 </span><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary%27"><span class="hs-identifier hs-var">TransferringInputDeviceSummary'</span></a></span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe InputDeviceTransferType
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InputDeviceTransferType
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; TransferringInputDeviceSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe InputDeviceTransferType)
 -&gt; Parser
-     (Maybe InputDeviceTransferType
+     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; TransferringInputDeviceSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679927425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceTransferType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;transferType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InputDeviceTransferType
+  (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; TransferringInputDeviceSummary)
--&gt; Parser (Maybe InputDeviceTransferType)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text -&gt; Maybe Text -&gt; TransferringInputDeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputDeviceTransferType)
+</span><a href="#local-6989586621679927425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transferType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; TransferringInputDeviceSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; TransferringInputDeviceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679927425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;targetCustomerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TransferringInputDeviceSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser TransferringInputDeviceSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679927425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;targetCustomerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679919908"><span id="local-6989586621679919910"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679927419"><span id="local-6989586621679927421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679919905"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679927416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.TransferringInputDeviceSummary.html#TransferringInputDeviceSummary"><span class="hs-identifier hs-type">TransferringInputDeviceSummary</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

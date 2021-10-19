@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679400519"><span id="local-6989586621679400520"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MaximumExecutionFrequency"><span class="annot"><a href="Network.AWS.Config.Types.MaximumExecutionFrequency.html#MaximumExecutionFrequency"><span class="hs-identifier hs-var">MaximumExecutionFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaximumExecutionFrequency%27"><span class="annot"><a href="Network.AWS.Config.Types.MaximumExecutionFrequency.html#MaximumExecutionFrequency%27"><span class="hs-identifier hs-var">MaximumExecutionFrequency'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679401102"><span id="local-6989586621679401103"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MaximumExecutionFrequency"><span class="annot"><a href="Network.AWS.Config.Types.MaximumExecutionFrequency.html#MaximumExecutionFrequency"><span class="hs-identifier hs-var">MaximumExecutionFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaximumExecutionFrequency%27"><span class="annot"><a href="Network.AWS.Config.Types.MaximumExecutionFrequency.html#MaximumExecutionFrequency%27"><span class="hs-identifier hs-var">MaximumExecutionFrequency'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMaximumExecutionFrequency"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; Text
 </span><a href="Network.AWS.Config.Types.MaximumExecutionFrequency.html#fromMaximumExecutionFrequency"><span class="hs-identifier hs-var hs-var">fromMaximumExecutionFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400511"><span id="local-6989586621679400513"><span id="local-6989586621679400515"><span class="annot"><span class="annottext">Int -&gt; MaximumExecutionFrequency -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401094"><span id="local-6989586621679401096"><span id="local-6989586621679401098"><span class="annot"><span class="annottext">Int -&gt; MaximumExecutionFrequency -&gt; ShowS
 [MaximumExecutionFrequency] -&gt; ShowS
 MaximumExecutionFrequency -&gt; String
 (Int -&gt; MaximumExecutionFrequency -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: MaximumExecutionFrequency -&gt; String
 showsPrec :: Int -&gt; MaximumExecutionFrequency -&gt; ShowS
 $cshowsPrec :: Int -&gt; MaximumExecutionFrequency -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679400502"><span id="local-6989586621679400504"><span id="local-6989586621679400506"><span id="local-6989586621679400508"><span class="annot"><span class="annottext">ReadPrec [MaximumExecutionFrequency]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679401085"><span id="local-6989586621679401087"><span id="local-6989586621679401089"><span id="local-6989586621679401091"><span class="annot"><span class="annottext">ReadPrec [MaximumExecutionFrequency]
 ReadPrec MaximumExecutionFrequency
 Int -&gt; ReadS MaximumExecutionFrequency
 ReadS [MaximumExecutionFrequency]
@@ -75,7 +75,7 @@ $creadList :: ReadS [MaximumExecutionFrequency]
 readsPrec :: Int -&gt; ReadS MaximumExecutionFrequency
 $creadsPrec :: Int -&gt; ReadS MaximumExecutionFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679400497"><span id="local-6989586621679400499"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; MaximumExecutionFrequency -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679401080"><span id="local-6989586621679401082"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; MaximumExecutionFrequency -&gt; Bool
 (MaximumExecutionFrequency -&gt; MaximumExecutionFrequency -&gt; Bool)
 -&gt; (MaximumExecutionFrequency -&gt; MaximumExecutionFrequency -&gt; Bool)
 -&gt; Eq MaximumExecutionFrequency
@@ -85,7 +85,7 @@ $c/= :: MaximumExecutionFrequency -&gt; MaximumExecutionFrequency -&gt; Bool
 == :: MaximumExecutionFrequency -&gt; MaximumExecutionFrequency -&gt; Bool
 $c== :: MaximumExecutionFrequency -&gt; MaximumExecutionFrequency -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679400481"><span id="local-6989586621679400483"><span id="local-6989586621679400485"><span id="local-6989586621679400487"><span id="local-6989586621679400489"><span id="local-6989586621679400491"><span id="local-6989586621679400493"><span class="annot"><span class="annottext">Eq MaximumExecutionFrequency
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679401064"><span id="local-6989586621679401066"><span id="local-6989586621679401068"><span id="local-6989586621679401070"><span id="local-6989586621679401072"><span id="local-6989586621679401074"><span id="local-6989586621679401076"><span class="annot"><span class="annottext">Eq MaximumExecutionFrequency
 Eq MaximumExecutionFrequency
 -&gt; (MaximumExecutionFrequency
     -&gt; MaximumExecutionFrequency -&gt; Ordering)
@@ -150,7 +150,7 @@ MaximumExecutionFrequency -&gt; Rep MaximumExecutionFrequency x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400473"><span id="local-6989586621679400475"><span class="annot"><span class="annottext">Int -&gt; MaximumExecutionFrequency -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401056"><span id="local-6989586621679401058"><span class="annot"><span class="annottext">Int -&gt; MaximumExecutionFrequency -&gt; Int
 MaximumExecutionFrequency -&gt; Int
 (Int -&gt; MaximumExecutionFrequency -&gt; Int)
 -&gt; (MaximumExecutionFrequency -&gt; Int)
@@ -161,56 +161,56 @@ $chash :: MaximumExecutionFrequency -&gt; Int
 hashWithSalt :: Int -&gt; MaximumExecutionFrequency -&gt; Int
 $chashWithSalt :: Int -&gt; MaximumExecutionFrequency -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679400470"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401053"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; ()
 (MaximumExecutionFrequency -&gt; ())
 -&gt; NFData MaximumExecutionFrequency
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MaximumExecutionFrequency -&gt; ()
 $crnf :: MaximumExecutionFrequency -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679400467"><span class="annot"><span class="annottext">Text -&gt; Either String MaximumExecutionFrequency
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401050"><span class="annot"><span class="annottext">Text -&gt; Either String MaximumExecutionFrequency
 (Text -&gt; Either String MaximumExecutionFrequency)
 -&gt; FromText MaximumExecutionFrequency
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MaximumExecutionFrequency
 $cfromText :: Text -&gt; Either String MaximumExecutionFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679400464"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401047"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; Text
 (MaximumExecutionFrequency -&gt; Text)
 -&gt; ToText MaximumExecutionFrequency
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MaximumExecutionFrequency -&gt; Text
 $ctoText :: MaximumExecutionFrequency -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679400461"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401044"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; ByteString
 (MaximumExecutionFrequency -&gt; ByteString)
 -&gt; ToByteString MaximumExecutionFrequency
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MaximumExecutionFrequency -&gt; ByteString
 $ctoBS :: MaximumExecutionFrequency -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679400458"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401041"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; ByteStringBuilder
 (MaximumExecutionFrequency -&gt; ByteStringBuilder)
 -&gt; ToLog MaximumExecutionFrequency
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MaximumExecutionFrequency -&gt; ByteStringBuilder
 $cbuild :: MaximumExecutionFrequency -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679400455"><span class="annot"><span class="annottext">HeaderName -&gt; MaximumExecutionFrequency -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401038"><span class="annot"><span class="annottext">HeaderName -&gt; MaximumExecutionFrequency -&gt; [Header]
 (HeaderName -&gt; MaximumExecutionFrequency -&gt; [Header])
 -&gt; ToHeader MaximumExecutionFrequency
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MaximumExecutionFrequency -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MaximumExecutionFrequency -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679400452"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401035"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; QueryString
 (MaximumExecutionFrequency -&gt; QueryString)
 -&gt; ToQuery MaximumExecutionFrequency
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MaximumExecutionFrequency -&gt; QueryString
 $ctoQuery :: MaximumExecutionFrequency -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679400447"><span id="local-6989586621679400449"><span class="annot"><span class="annottext">Value -&gt; Parser [MaximumExecutionFrequency]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401030"><span id="local-6989586621679401032"><span class="annot"><span class="annottext">Value -&gt; Parser [MaximumExecutionFrequency]
 Value -&gt; Parser MaximumExecutionFrequency
 (Value -&gt; Parser MaximumExecutionFrequency)
 -&gt; (Value -&gt; Parser [MaximumExecutionFrequency])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [MaximumExecutionFrequency]
 parseJSON :: Value -&gt; Parser MaximumExecutionFrequency
 $cparseJSON :: Value -&gt; Parser MaximumExecutionFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679400442"><span id="local-6989586621679400444"><span class="annot"><span class="annottext">FromJSONKeyFunction [MaximumExecutionFrequency]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401025"><span id="local-6989586621679401027"><span class="annot"><span class="annottext">FromJSONKeyFunction [MaximumExecutionFrequency]
 FromJSONKeyFunction MaximumExecutionFrequency
 FromJSONKeyFunction MaximumExecutionFrequency
 -&gt; FromJSONKeyFunction [MaximumExecutionFrequency]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MaximumExecutionFrequency]
 fromJSONKey :: FromJSONKeyFunction MaximumExecutionFrequency
 $cfromJSONKey :: FromJSONKeyFunction MaximumExecutionFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679400433"><span id="local-6989586621679400435"><span id="local-6989586621679400437"><span id="local-6989586621679400439"><span class="annot"><span class="annottext">[MaximumExecutionFrequency] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401016"><span id="local-6989586621679401018"><span id="local-6989586621679401020"><span id="local-6989586621679401022"><span class="annot"><span class="annottext">[MaximumExecutionFrequency] -&gt; Encoding
 [MaximumExecutionFrequency] -&gt; Value
 MaximumExecutionFrequency -&gt; Encoding
 MaximumExecutionFrequency -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: MaximumExecutionFrequency -&gt; Encoding
 toJSON :: MaximumExecutionFrequency -&gt; Value
 $ctoJSON :: MaximumExecutionFrequency -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679400428"><span id="local-6989586621679400430"><span class="annot"><span class="annottext">ToJSONKeyFunction [MaximumExecutionFrequency]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679401011"><span id="local-6989586621679401013"><span class="annot"><span class="annottext">ToJSONKeyFunction [MaximumExecutionFrequency]
 ToJSONKeyFunction MaximumExecutionFrequency
 ToJSONKeyFunction MaximumExecutionFrequency
 -&gt; ToJSONKeyFunction [MaximumExecutionFrequency]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MaximumExecutionFrequency]
 toJSONKey :: ToJSONKeyFunction MaximumExecutionFrequency
 $ctoJSONKey :: ToJSONKeyFunction MaximumExecutionFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679400425"><span class="annot"><span class="annottext">[Node] -&gt; Either String MaximumExecutionFrequency
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679401008"><span class="annot"><span class="annottext">[Node] -&gt; Either String MaximumExecutionFrequency
 ([Node] -&gt; Either String MaximumExecutionFrequency)
 -&gt; FromXML MaximumExecutionFrequency
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MaximumExecutionFrequency
 $cparseXML :: [Node] -&gt; Either String MaximumExecutionFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679400422"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679401005"><span class="annot"><span class="annottext">MaximumExecutionFrequency -&gt; XML
 (MaximumExecutionFrequency -&gt; XML)
 -&gt; ToXML MaximumExecutionFrequency
 forall a. (a -&gt; XML) -&gt; ToXML a

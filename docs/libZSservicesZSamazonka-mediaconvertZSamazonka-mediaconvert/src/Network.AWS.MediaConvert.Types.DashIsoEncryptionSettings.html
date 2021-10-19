@@ -28,25 +28,25 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Specifies DRM settings for DASH outputs.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDashIsoEncryptionSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680000175"><span id="local-6989586621680000176"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashIsoEncryptionSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-var">DashIsoEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoEncryptionSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">DashIsoEncryptionSettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- instead.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="annot"><span class="annottext">DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | This setting can improve the compatibility of your output with video</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- players on obsolete devices. It applies only to DASH H.264 outputs with</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- problems with playback on older devices. Otherwise, keep the default</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- output, the service will exclude the access unit delimiter and will</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- leave the SEI NAL units unencrypted.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AplaybackDeviceCompatibility%3ADashIsoEncryptionSettings%27"><span class="annot"><span class="annottext">DashIsoEncryptionSettings
+</span><span id="line-31"></span><span id="local-6989586621680005101"><span id="local-6989586621680005102"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashIsoEncryptionSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-var">DashIsoEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoEncryptionSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">DashIsoEncryptionSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This setting can improve the compatibility of your output with video</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- players on obsolete devices. It applies only to DASH H.264 outputs with</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- problems with playback on older devices. Otherwise, keep the default</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- output, the service will exclude the access unit delimiter and will</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- leave the SEI NAL units unencrypted.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AplaybackDeviceCompatibility%3ADashIsoEncryptionSettings%27"><span class="annot"><span class="annottext">DashIsoEncryptionSettings
 -&gt; Maybe DashIsoPlaybackDeviceCompatibility
-</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AplaybackDeviceCompatibility%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">playbackDeviceCompatibility</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility"><span class="hs-identifier hs-type">DashIsoPlaybackDeviceCompatibility</span></a></span><span>
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AplaybackDeviceCompatibility%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">playbackDeviceCompatibility</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility"><span class="hs-identifier hs-type">DashIsoPlaybackDeviceCompatibility</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- instead.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="annot"><span class="annottext">DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680000168"><span id="local-6989586621680000170"><span class="annot"><span class="annottext">DashIsoEncryptionSettings -&gt; DashIsoEncryptionSettings -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680005094"><span id="local-6989586621680005096"><span class="annot"><span class="annottext">DashIsoEncryptionSettings -&gt; DashIsoEncryptionSettings -&gt; Bool
 (DashIsoEncryptionSettings -&gt; DashIsoEncryptionSettings -&gt; Bool)
 -&gt; (DashIsoEncryptionSettings -&gt; DashIsoEncryptionSettings -&gt; Bool)
 -&gt; Eq DashIsoEncryptionSettings
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DashIsoEncryptionSettings -&gt; DashIsoEncryptionSettings -&gt; Bool
 == :: DashIsoEncryptionSettings -&gt; DashIsoEncryptionSettings -&gt; Bool
 $c== :: DashIsoEncryptionSettings -&gt; DashIsoEncryptionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000159"><span id="local-6989586621680000161"><span id="local-6989586621680000163"><span id="local-6989586621680000165"><span class="annot"><span class="annottext">ReadPrec [DashIsoEncryptionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005085"><span id="local-6989586621680005087"><span id="local-6989586621680005089"><span id="local-6989586621680005091"><span class="annot"><span class="annottext">ReadPrec [DashIsoEncryptionSettings]
 ReadPrec DashIsoEncryptionSettings
 Int -&gt; ReadS DashIsoEncryptionSettings
 ReadS [DashIsoEncryptionSettings]
@@ -75,7 +75,7 @@ readList :: ReadS [DashIsoEncryptionSettings]
 $creadList :: ReadS [DashIsoEncryptionSettings]
 readsPrec :: Int -&gt; ReadS DashIsoEncryptionSettings
 $creadsPrec :: Int -&gt; ReadS DashIsoEncryptionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000152"><span id="local-6989586621680000154"><span id="local-6989586621680000156"><span class="annot"><span class="annottext">Int -&gt; DashIsoEncryptionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005078"><span id="local-6989586621680005080"><span id="local-6989586621680005082"><span class="annot"><span class="annottext">Int -&gt; DashIsoEncryptionSettings -&gt; ShowS
 [DashIsoEncryptionSettings] -&gt; ShowS
 DashIsoEncryptionSettings -&gt; String
 (Int -&gt; DashIsoEncryptionSettings -&gt; ShowS)
@@ -115,73 +115,45 @@ DashIsoEncryptionSettings -&gt; Rep DashIsoEncryptionSettings x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'spekeKeyProvider', 'dashIsoEncryptionSettings_spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- instead.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'playbackDeviceCompatibility', 'dashIsoEncryptionSettings_playbackDeviceCompatibility' - This setting can improve the compatibility of your output with video</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- players on obsolete devices. It applies only to DASH H.264 outputs with</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- problems with playback on older devices. Otherwise, keep the default</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- output, the service will exclude the access unit delimiter and will</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- leave the SEI NAL units unencrypted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'playbackDeviceCompatibility', 'dashIsoEncryptionSettings_playbackDeviceCompatibility' - This setting can improve the compatibility of your output with video</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- players on obsolete devices. It applies only to DASH H.264 outputs with</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- problems with playback on older devices. Otherwise, keep the default</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- output, the service will exclude the access unit delimiter and will</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- leave the SEI NAL units unencrypted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'spekeKeyProvider', 'dashIsoEncryptionSettings_spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- instead.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#newDashIsoEncryptionSettings"><span class="hs-identifier hs-type">newDashIsoEncryptionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span>
 </span><span id="line-70"></span><span id="newDashIsoEncryptionSettings"><span class="annot"><span class="annottext">newDashIsoEncryptionSettings :: DashIsoEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#newDashIsoEncryptionSettings"><span class="hs-identifier hs-var hs-var">newDashIsoEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DashIsoEncryptionSettings' :: Maybe SpekeKeyProvider
--&gt; Maybe DashIsoPlaybackDeviceCompatibility
--&gt; DashIsoEncryptionSettings
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DashIsoEncryptionSettings' :: Maybe DashIsoPlaybackDeviceCompatibility
+-&gt; Maybe SpekeKeyProvider -&gt; DashIsoEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: Maybe SpekeKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playbackDeviceCompatibility:DashIsoEncryptionSettings' :: Maybe DashIsoPlaybackDeviceCompatibility
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AplaybackDeviceCompatibility%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">playbackDeviceCompatibility</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:playbackDeviceCompatibility:DashIsoEncryptionSettings' :: Maybe DashIsoPlaybackDeviceCompatibility
-</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AplaybackDeviceCompatibility%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">playbackDeviceCompatibility</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: Maybe SpekeKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- instead.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#dashIsoEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-type">dashIsoEncryptionSettings_spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="dashIsoEncryptionSettings_spekeKeyProvider"><span class="annot"><span class="annottext">dashIsoEncryptionSettings_spekeKeyProvider :: (Maybe SpekeKeyProvider -&gt; f (Maybe SpekeKeyProvider))
--&gt; DashIsoEncryptionSettings -&gt; f DashIsoEncryptionSettings
-</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#dashIsoEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-var hs-var">dashIsoEncryptionSettings_spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider)
--&gt; (DashIsoEncryptionSettings
-    -&gt; Maybe SpekeKeyProvider -&gt; DashIsoEncryptionSettings)
--&gt; Lens
-     DashIsoEncryptionSettings
-     DashIsoEncryptionSettings
-     (Maybe SpekeKeyProvider)
-     (Maybe SpekeKeyProvider)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000143"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-spekeKeyProvider :: Maybe SpekeKeyProvider
-$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680000143"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680000143"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000142"><span class="annot"><span class="annottext">s :: DashIsoEncryptionSettings
-</span><a href="#local-6989586621680000142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000141"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680000141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoEncryptionSettings
-</span><a href="#local-6989586621680000142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: Maybe SpekeKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680000141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | This setting can improve the compatibility of your output with video</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- players on obsolete devices. It applies only to DASH H.264 outputs with</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- problems with playback on older devices. Otherwise, keep the default</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- output, the service will exclude the access unit delimiter and will</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- leave the SEI NAL units unencrypted.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#dashIsoEncryptionSettings_playbackDeviceCompatibility"><span class="hs-identifier hs-type">dashIsoEncryptionSettings_playbackDeviceCompatibility</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility"><span class="hs-identifier hs-type">DashIsoPlaybackDeviceCompatibility</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="dashIsoEncryptionSettings_playbackDeviceCompatibility"><span class="annot"><span class="annottext">dashIsoEncryptionSettings_playbackDeviceCompatibility :: (Maybe DashIsoPlaybackDeviceCompatibility
+</span><span id="line-77"></span><span class="hs-comment">-- | This setting can improve the compatibility of your output with video</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- players on obsolete devices. It applies only to DASH H.264 outputs with</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- problems with playback on older devices. Otherwise, keep the default</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- output, the service will exclude the access unit delimiter and will</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- leave the SEI NAL units unencrypted.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#dashIsoEncryptionSettings_playbackDeviceCompatibility"><span class="hs-identifier hs-type">dashIsoEncryptionSettings_playbackDeviceCompatibility</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility"><span class="hs-identifier hs-type">DashIsoPlaybackDeviceCompatibility</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="dashIsoEncryptionSettings_playbackDeviceCompatibility"><span class="annot"><span class="annottext">dashIsoEncryptionSettings_playbackDeviceCompatibility :: (Maybe DashIsoPlaybackDeviceCompatibility
  -&gt; f (Maybe DashIsoPlaybackDeviceCompatibility))
 -&gt; DashIsoEncryptionSettings -&gt; f DashIsoEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#dashIsoEncryptionSettings_playbackDeviceCompatibility"><span class="hs-identifier hs-var hs-var">dashIsoEncryptionSettings_playbackDeviceCompatibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoEncryptionSettings
@@ -195,20 +167,47 @@ $sel:spekeKeyProvider:DashIsoEncryptionSettings' :: DashIsoEncryptionSettings -&
      (Maybe DashIsoPlaybackDeviceCompatibility)
      (Maybe DashIsoPlaybackDeviceCompatibility)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000139"><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005069"><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
 playbackDeviceCompatibility :: Maybe DashIsoPlaybackDeviceCompatibility
 $sel:playbackDeviceCompatibility:DashIsoEncryptionSettings' :: DashIsoEncryptionSettings
 -&gt; Maybe DashIsoPlaybackDeviceCompatibility
-</span><a href="#local-6989586621680000139"><span class="hs-identifier hs-var hs-var">playbackDeviceCompatibility</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
-</span><a href="#local-6989586621680000139"><span class="hs-identifier hs-var">playbackDeviceCompatibility</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000138"><span class="annot"><span class="annottext">s :: DashIsoEncryptionSettings
-</span><a href="#local-6989586621680000138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000137"><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
-</span><a href="#local-6989586621680000137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoEncryptionSettings
-</span><a href="#local-6989586621680000138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playbackDeviceCompatibility:DashIsoEncryptionSettings' :: Maybe DashIsoPlaybackDeviceCompatibility
+</span><a href="#local-6989586621680005069"><span class="hs-identifier hs-var hs-var">playbackDeviceCompatibility</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
+</span><a href="#local-6989586621680005069"><span class="hs-identifier hs-var">playbackDeviceCompatibility</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005068"><span class="annot"><span class="annottext">s :: DashIsoEncryptionSettings
+</span><a href="#local-6989586621680005068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005067"><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
+</span><a href="#local-6989586621680005067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoEncryptionSettings
+</span><a href="#local-6989586621680005068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playbackDeviceCompatibility:DashIsoEncryptionSettings' :: Maybe DashIsoPlaybackDeviceCompatibility
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AplaybackDeviceCompatibility%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">playbackDeviceCompatibility</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
-</span><a href="#local-6989586621680000137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- instead.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#dashIsoEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-type">dashIsoEncryptionSettings_spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="dashIsoEncryptionSettings_spekeKeyProvider"><span class="annot"><span class="annottext">dashIsoEncryptionSettings_spekeKeyProvider :: (Maybe SpekeKeyProvider -&gt; f (Maybe SpekeKeyProvider))
+-&gt; DashIsoEncryptionSettings -&gt; f DashIsoEncryptionSettings
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#dashIsoEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-var hs-var">dashIsoEncryptionSettings_spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider)
+-&gt; (DashIsoEncryptionSettings
+    -&gt; Maybe SpekeKeyProvider -&gt; DashIsoEncryptionSettings)
+-&gt; Lens
+     DashIsoEncryptionSettings
+     DashIsoEncryptionSettings
+     (Maybe SpekeKeyProvider)
+     (Maybe SpekeKeyProvider)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005065"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+spekeKeyProvider :: Maybe SpekeKeyProvider
+$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680005065"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680005065"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005064"><span class="annot"><span class="annottext">s :: DashIsoEncryptionSettings
+</span><a href="#local-6989586621680005064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005063"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680005063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashIsoEncryptionSettings
+</span><a href="#local-6989586621680005064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: Maybe SpekeKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#%24sel%3AspekeKeyProvider%3ADashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680005063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000134"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621680000132"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DashIsoEncryptionSettings
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005060"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621680005058"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DashIsoEncryptionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DashIsoEncryptionSettings)
@@ -218,74 +217,68 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DashIsoEncryptionSettings&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680000129"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000129"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
--&gt; Maybe DashIsoPlaybackDeviceCompatibility
--&gt; DashIsoEncryptionSettings
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680005055"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680005055"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
+-&gt; Maybe SpekeKeyProvider -&gt; DashIsoEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-var">DashIsoEncryptionSettings'</span></a></span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SpekeKeyProvider
- -&gt; Maybe DashIsoPlaybackDeviceCompatibility
- -&gt; DashIsoEncryptionSettings)
--&gt; Parser (Maybe SpekeKeyProvider)
--&gt; Parser
-     (Maybe DashIsoPlaybackDeviceCompatibility
-      -&gt; DashIsoEncryptionSettings)
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DashIsoPlaybackDeviceCompatibility
+ -&gt; Maybe SpekeKeyProvider -&gt; DashIsoEncryptionSettings)
+-&gt; Parser (Maybe DashIsoPlaybackDeviceCompatibility)
+-&gt; Parser (Maybe SpekeKeyProvider -&gt; DashIsoEncryptionSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpekeKeyProvider)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DashIsoPlaybackDeviceCompatibility
-   -&gt; DashIsoEncryptionSettings)
--&gt; Parser (Maybe DashIsoPlaybackDeviceCompatibility)
--&gt; Parser DashIsoEncryptionSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000129"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DashIsoPlaybackDeviceCompatibility)
+</span><a href="#local-6989586621680005055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DashIsoPlaybackDeviceCompatibility)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;playbackDeviceCompatibility&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SpekeKeyProvider -&gt; DashIsoEncryptionSettings)
+-&gt; Parser (Maybe SpekeKeyProvider)
+-&gt; Parser DashIsoEncryptionSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680005055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpekeKeyProvider)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000123"><span id="local-6989586621680000125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005049"><span id="local-6989586621680005051"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005046"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000112"><span id="local-6989586621680000114"><span id="local-6989586621680000116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621680000110"><span class="annot"><span class="annottext">toJSON :: DashIsoEncryptionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000107"><span id="local-6989586621680000108"><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005038"><span id="local-6989586621680005040"><span id="local-6989586621680005042"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings"><span class="hs-identifier hs-type">DashIsoEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621680005036"><span class="annot"><span class="annottext">toJSON :: DashIsoEncryptionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings.html#DashIsoEncryptionSettings%27"><span class="hs-identifier hs-type">DashIsoEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005033"><span id="local-6989586621680005034"><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
 Maybe SpekeKeyProvider
-playbackDeviceCompatibility :: Maybe DashIsoPlaybackDeviceCompatibility
 spekeKeyProvider :: Maybe SpekeKeyProvider
+playbackDeviceCompatibility :: Maybe DashIsoPlaybackDeviceCompatibility
+$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider
 $sel:playbackDeviceCompatibility:DashIsoEncryptionSettings' :: DashIsoEncryptionSettings
 -&gt; Maybe DashIsoPlaybackDeviceCompatibility
-$sel:spekeKeyProvider:DashIsoEncryptionSettings' :: DashIsoEncryptionSettings -&gt; Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680000107"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680005033"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpekeKeyProvider -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Pair) -&gt; Maybe SpekeKeyProvider -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680000108"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;playbackDeviceCompatibility&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(DashIsoPlaybackDeviceCompatibility -&gt; Pair)
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(DashIsoPlaybackDeviceCompatibility -&gt; Pair)
 -&gt; Maybe DashIsoPlaybackDeviceCompatibility -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DashIsoPlaybackDeviceCompatibility
-</span><a href="#local-6989586621680000107"><span class="hs-identifier hs-var">playbackDeviceCompatibility</span></a></span><span>
+</span><a href="#local-6989586621680005034"><span class="hs-identifier hs-var">playbackDeviceCompatibility</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpekeKeyProvider -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Pair) -&gt; Maybe SpekeKeyProvider -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680005033"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the storage for a user.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUserStorageMetadata' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679265515"><span id="local-6989586621679265516"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserStorageMetadata"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-var">UserStorageMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStorageMetadata%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-var">UserStorageMetadata'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The storage for a user.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstorageRule%3AUserStorageMetadata%27"><span class="annot"><span class="annottext">UserStorageMetadata -&gt; Maybe StorageRuleType
-</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageRule%3AUserStorageMetadata%27"><span class="hs-identifier hs-var hs-var">storageRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The amount of storage used, in bytes.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="annot"><span class="annottext">UserStorageMetadata -&gt; Maybe Integer
-</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="hs-identifier hs-var hs-var">storageUtilizedInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679265644"><span id="local-6989586621679265645"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserStorageMetadata"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-var">UserStorageMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserStorageMetadata%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-var">UserStorageMetadata'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of storage used, in bytes.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="annot"><span class="annottext">UserStorageMetadata -&gt; Maybe Integer
+</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="hs-identifier hs-var hs-var">storageUtilizedInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The storage for a user.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstorageRule%3AUserStorageMetadata%27"><span class="annot"><span class="annottext">UserStorageMetadata -&gt; Maybe StorageRuleType
+</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageRule%3AUserStorageMetadata%27"><span class="hs-identifier hs-var hs-var">storageRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265508"><span id="local-6989586621679265510"><span class="annot"><span class="annottext">UserStorageMetadata -&gt; UserStorageMetadata -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265637"><span id="local-6989586621679265639"><span class="annot"><span class="annottext">UserStorageMetadata -&gt; UserStorageMetadata -&gt; Bool
 (UserStorageMetadata -&gt; UserStorageMetadata -&gt; Bool)
 -&gt; (UserStorageMetadata -&gt; UserStorageMetadata -&gt; Bool)
 -&gt; Eq UserStorageMetadata
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserStorageMetadata -&gt; UserStorageMetadata -&gt; Bool
 == :: UserStorageMetadata -&gt; UserStorageMetadata -&gt; Bool
 $c== :: UserStorageMetadata -&gt; UserStorageMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265499"><span id="local-6989586621679265501"><span id="local-6989586621679265503"><span id="local-6989586621679265505"><span class="annot"><span class="annottext">ReadPrec [UserStorageMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265628"><span id="local-6989586621679265630"><span id="local-6989586621679265632"><span id="local-6989586621679265634"><span class="annot"><span class="annottext">ReadPrec [UserStorageMetadata]
 ReadPrec UserStorageMetadata
 Int -&gt; ReadS UserStorageMetadata
 ReadS [UserStorageMetadata]
@@ -64,7 +64,7 @@ readList :: ReadS [UserStorageMetadata]
 $creadList :: ReadS [UserStorageMetadata]
 readsPrec :: Int -&gt; ReadS UserStorageMetadata
 $creadsPrec :: Int -&gt; ReadS UserStorageMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265492"><span id="local-6989586621679265494"><span id="local-6989586621679265496"><span class="annot"><span class="annottext">Int -&gt; UserStorageMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265621"><span id="local-6989586621679265623"><span id="local-6989586621679265625"><span class="annot"><span class="annottext">Int -&gt; UserStorageMetadata -&gt; ShowS
 [UserStorageMetadata] -&gt; ShowS
 UserStorageMetadata -&gt; String
 (Int -&gt; UserStorageMetadata -&gt; ShowS)
@@ -98,28 +98,52 @@ $cfrom :: forall x. UserStorageMetadata -&gt; Rep UserStorageMetadata x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'storageRule', 'userStorageMetadata_storageRule' - The storage for a user.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'storageUtilizedInBytes', 'userStorageMetadata_storageUtilizedInBytes' - The amount of storage used, in bytes.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'storageUtilizedInBytes', 'userStorageMetadata_storageUtilizedInBytes' - The amount of storage used, in bytes.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'storageRule', 'userStorageMetadata_storageRule' - The storage for a user.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#newUserStorageMetadata"><span class="hs-identifier hs-type">newUserStorageMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span>
 </span><span id="line-51"></span><span id="newUserStorageMetadata"><span class="annot"><span class="annottext">newUserStorageMetadata :: UserStorageMetadata
 </span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#newUserStorageMetadata"><span class="hs-identifier hs-var hs-var">newUserStorageMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">UserStorageMetadata' :: Maybe StorageRuleType -&gt; Maybe Integer -&gt; UserStorageMetadata
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">UserStorageMetadata' :: Maybe Integer -&gt; Maybe StorageRuleType -&gt; UserStorageMetadata
 </span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:storageRule:UserStorageMetadata' :: Maybe StorageRuleType
-</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageRule%3AUserStorageMetadata%27"><span class="hs-identifier hs-var">storageRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageRuleType
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:storageUtilizedInBytes:UserStorageMetadata' :: Maybe Integer
+</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="hs-identifier hs-var">storageUtilizedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageUtilizedInBytes:UserStorageMetadata' :: Maybe Integer
-</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="hs-identifier hs-var">storageUtilizedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:storageRule:UserStorageMetadata' :: Maybe StorageRuleType
+</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageRule%3AUserStorageMetadata%27"><span class="hs-identifier hs-var">storageRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageRuleType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The storage for a user.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#userStorageMetadata_storageRule"><span class="hs-identifier hs-type">userStorageMetadata_storageRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="userStorageMetadata_storageRule"><span class="annot"><span class="annottext">userStorageMetadata_storageRule :: (Maybe StorageRuleType -&gt; f (Maybe StorageRuleType))
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The amount of storage used, in bytes.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#userStorageMetadata_storageUtilizedInBytes"><span class="hs-identifier hs-type">userStorageMetadata_storageUtilizedInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="userStorageMetadata_storageUtilizedInBytes"><span class="annot"><span class="annottext">userStorageMetadata_storageUtilizedInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; UserStorageMetadata -&gt; f UserStorageMetadata
+</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#userStorageMetadata_storageUtilizedInBytes"><span class="hs-identifier hs-var hs-var">userStorageMetadata_storageUtilizedInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserStorageMetadata -&gt; Maybe Integer)
+-&gt; (UserStorageMetadata -&gt; Maybe Integer -&gt; UserStorageMetadata)
+-&gt; Lens
+     UserStorageMetadata
+     UserStorageMetadata
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265612"><span class="annot"><span class="annottext">Maybe Integer
+storageUtilizedInBytes :: Maybe Integer
+$sel:storageUtilizedInBytes:UserStorageMetadata' :: UserStorageMetadata -&gt; Maybe Integer
+</span><a href="#local-6989586621679265612"><span class="hs-identifier hs-var hs-var">storageUtilizedInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679265612"><span class="hs-identifier hs-var">storageUtilizedInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265611"><span class="annot"><span class="annottext">s :: UserStorageMetadata
+</span><a href="#local-6989586621679265611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265610"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679265610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStorageMetadata
+</span><a href="#local-6989586621679265611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageUtilizedInBytes:UserStorageMetadata' :: Maybe Integer
+</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="hs-identifier hs-var">storageUtilizedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679265610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The storage for a user.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#userStorageMetadata_storageRule"><span class="hs-identifier hs-type">userStorageMetadata_storageRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.StorageRuleType.html#StorageRuleType"><span class="hs-identifier hs-type">StorageRuleType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="userStorageMetadata_storageRule"><span class="annot"><span class="annottext">userStorageMetadata_storageRule :: (Maybe StorageRuleType -&gt; f (Maybe StorageRuleType))
 -&gt; UserStorageMetadata -&gt; f UserStorageMetadata
 </span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#userStorageMetadata_storageRule"><span class="hs-identifier hs-var hs-var">userStorageMetadata_storageRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserStorageMetadata -&gt; Maybe StorageRuleType)
 -&gt; (UserStorageMetadata
@@ -130,75 +154,52 @@ forall a. Maybe a
      (Maybe StorageRuleType)
      (Maybe StorageRuleType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265483"><span class="annot"><span class="annottext">Maybe StorageRuleType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265608"><span class="annot"><span class="annottext">Maybe StorageRuleType
 storageRule :: Maybe StorageRuleType
 $sel:storageRule:UserStorageMetadata' :: UserStorageMetadata -&gt; Maybe StorageRuleType
-</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var hs-var">storageRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageRuleType
-</span><a href="#local-6989586621679265483"><span class="hs-identifier hs-var">storageRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265482"><span class="annot"><span class="annottext">s :: UserStorageMetadata
-</span><a href="#local-6989586621679265482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265481"><span class="annot"><span class="annottext">Maybe StorageRuleType
-</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStorageMetadata
-</span><a href="#local-6989586621679265482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageRule:UserStorageMetadata' :: Maybe StorageRuleType
+</span><a href="#local-6989586621679265608"><span class="hs-identifier hs-var hs-var">storageRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StorageRuleType
+</span><a href="#local-6989586621679265608"><span class="hs-identifier hs-var">storageRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265607"><span class="annot"><span class="annottext">s :: UserStorageMetadata
+</span><a href="#local-6989586621679265607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265606"><span class="annot"><span class="annottext">Maybe StorageRuleType
+</span><a href="#local-6989586621679265606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStorageMetadata
+</span><a href="#local-6989586621679265607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageRule:UserStorageMetadata' :: Maybe StorageRuleType
 </span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageRule%3AUserStorageMetadata%27"><span class="hs-identifier hs-var">storageRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StorageRuleType
-</span><a href="#local-6989586621679265481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The amount of storage used, in bytes.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#userStorageMetadata_storageUtilizedInBytes"><span class="hs-identifier hs-type">userStorageMetadata_storageUtilizedInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="userStorageMetadata_storageUtilizedInBytes"><span class="annot"><span class="annottext">userStorageMetadata_storageUtilizedInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; UserStorageMetadata -&gt; f UserStorageMetadata
-</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#userStorageMetadata_storageUtilizedInBytes"><span class="hs-identifier hs-var hs-var">userStorageMetadata_storageUtilizedInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserStorageMetadata -&gt; Maybe Integer)
--&gt; (UserStorageMetadata -&gt; Maybe Integer -&gt; UserStorageMetadata)
--&gt; Lens
-     UserStorageMetadata
-     UserStorageMetadata
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265479"><span class="annot"><span class="annottext">Maybe Integer
-storageUtilizedInBytes :: Maybe Integer
-$sel:storageUtilizedInBytes:UserStorageMetadata' :: UserStorageMetadata -&gt; Maybe Integer
-</span><a href="#local-6989586621679265479"><span class="hs-identifier hs-var hs-var">storageUtilizedInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679265479"><span class="hs-identifier hs-var">storageUtilizedInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265478"><span class="annot"><span class="annottext">s :: UserStorageMetadata
-</span><a href="#local-6989586621679265478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-type">UserStorageMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265477"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679265477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserStorageMetadata
-</span><a href="#local-6989586621679265478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageUtilizedInBytes:UserStorageMetadata' :: Maybe Integer
-</span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#%24sel%3AstorageUtilizedInBytes%3AUserStorageMetadata%27"><span class="hs-identifier hs-var">storageUtilizedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679265477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265474"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679265472"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserStorageMetadata
+</span><a href="#local-6989586621679265606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265603"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679265601"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserStorageMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserStorageMetadata)
 -&gt; Value
 -&gt; Parser UserStorageMetadata
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserStorageMetadata&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265469"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265469"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe StorageRuleType -&gt; Maybe Integer -&gt; UserStorageMetadata
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265598"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265598"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe StorageRuleType -&gt; UserStorageMetadata
 </span><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata%27"><span class="hs-identifier hs-var">UserStorageMetadata'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StorageRuleType -&gt; Maybe Integer -&gt; UserStorageMetadata)
--&gt; Parser (Maybe StorageRuleType)
--&gt; Parser (Maybe Integer -&gt; UserStorageMetadata)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe StorageRuleType -&gt; UserStorageMetadata)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe StorageRuleType -&gt; UserStorageMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265469"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StorageRuleType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StorageRule&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; UserStorageMetadata)
--&gt; Parser (Maybe Integer) -&gt; Parser UserStorageMetadata
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265469"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679265598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageUtilizedInBytes&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265463"><span id="local-6989586621679265465"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span></span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span></span><span>
-</span><span id="line-78"></span></pre></body></html>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StorageRuleType -&gt; UserStorageMetadata)
+-&gt; Parser (Maybe StorageRuleType) -&gt; Parser UserStorageMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StorageRuleType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265592"><span id="local-6989586621679265594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UserStorageMetadata.html#UserStorageMetadata"><span class="hs-identifier hs-type">UserStorageMetadata</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

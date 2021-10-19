@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Permissions granted to a principal.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPrincipalPermissions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679692371"><span id="local-6989586621679692372"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrincipalPermissions"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-var">PrincipalPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrincipalPermissions%27"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-var">PrincipalPermissions'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The permissions that are granted to the principal.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apermissions%3APrincipalPermissions%27"><span class="annot"><span class="annottext">PrincipalPermissions -&gt; Maybe [Permission]
-</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Apermissions%3APrincipalPermissions%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The principal who is granted permissions.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprincipal%3APrincipalPermissions%27"><span class="annot"><span class="annottext">PrincipalPermissions -&gt; Maybe DataLakePrincipal
-</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Aprincipal%3APrincipalPermissions%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679694040"><span id="local-6989586621679694041"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrincipalPermissions"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-var">PrincipalPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrincipalPermissions%27"><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-var">PrincipalPermissions'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The principal who is granted permissions.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aprincipal%3APrincipalPermissions%27"><span class="annot"><span class="annottext">PrincipalPermissions -&gt; Maybe DataLakePrincipal
+</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Aprincipal%3APrincipalPermissions%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The permissions that are granted to the principal.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Apermissions%3APrincipalPermissions%27"><span class="annot"><span class="annottext">PrincipalPermissions -&gt; Maybe [Permission]
+</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Apermissions%3APrincipalPermissions%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692364"><span id="local-6989586621679692366"><span class="annot"><span class="annottext">PrincipalPermissions -&gt; PrincipalPermissions -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694033"><span id="local-6989586621679694035"><span class="annot"><span class="annottext">PrincipalPermissions -&gt; PrincipalPermissions -&gt; Bool
 (PrincipalPermissions -&gt; PrincipalPermissions -&gt; Bool)
 -&gt; (PrincipalPermissions -&gt; PrincipalPermissions -&gt; Bool)
 -&gt; Eq PrincipalPermissions
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PrincipalPermissions -&gt; PrincipalPermissions -&gt; Bool
 == :: PrincipalPermissions -&gt; PrincipalPermissions -&gt; Bool
 $c== :: PrincipalPermissions -&gt; PrincipalPermissions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692355"><span id="local-6989586621679692357"><span id="local-6989586621679692359"><span id="local-6989586621679692361"><span class="annot"><span class="annottext">ReadPrec [PrincipalPermissions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694024"><span id="local-6989586621679694026"><span id="local-6989586621679694028"><span id="local-6989586621679694030"><span class="annot"><span class="annottext">ReadPrec [PrincipalPermissions]
 ReadPrec PrincipalPermissions
 Int -&gt; ReadS PrincipalPermissions
 ReadS [PrincipalPermissions]
@@ -65,7 +65,7 @@ readList :: ReadS [PrincipalPermissions]
 $creadList :: ReadS [PrincipalPermissions]
 readsPrec :: Int -&gt; ReadS PrincipalPermissions
 $creadsPrec :: Int -&gt; ReadS PrincipalPermissions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692348"><span id="local-6989586621679692350"><span id="local-6989586621679692352"><span class="annot"><span class="annottext">Int -&gt; PrincipalPermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694017"><span id="local-6989586621679694019"><span id="local-6989586621679694021"><span class="annot"><span class="annottext">Int -&gt; PrincipalPermissions -&gt; ShowS
 [PrincipalPermissions] -&gt; ShowS
 PrincipalPermissions -&gt; String
 (Int -&gt; PrincipalPermissions -&gt; ShowS)
@@ -99,30 +99,53 @@ $cfrom :: forall x. PrincipalPermissions -&gt; Rep PrincipalPermissions x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'permissions', 'principalPermissions_permissions' - The permissions that are granted to the principal.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'principal', 'principalPermissions_principal' - The principal who is granted permissions.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'principal', 'principalPermissions_principal' - The principal who is granted permissions.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'permissions', 'principalPermissions_permissions' - The permissions that are granted to the principal.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#newPrincipalPermissions"><span class="hs-identifier hs-type">newPrincipalPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span>
 </span><span id="line-52"></span><span id="newPrincipalPermissions"><span class="annot"><span class="annottext">newPrincipalPermissions :: PrincipalPermissions
 </span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#newPrincipalPermissions"><span class="hs-identifier hs-var hs-var">newPrincipalPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">PrincipalPermissions' :: Maybe [Permission]
--&gt; Maybe DataLakePrincipal -&gt; PrincipalPermissions
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">PrincipalPermissions' :: Maybe DataLakePrincipal
+-&gt; Maybe [Permission] -&gt; PrincipalPermissions
 </span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permissions:PrincipalPermissions' :: Maybe [Permission]
-</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Apermissions%3APrincipalPermissions%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Permission]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:principal:PrincipalPermissions' :: Maybe DataLakePrincipal
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principal:PrincipalPermissions' :: Maybe DataLakePrincipal
 </span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Aprincipal%3APrincipalPermissions%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:PrincipalPermissions' :: Maybe [Permission]
+</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Apermissions%3APrincipalPermissions%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The permissions that are granted to the principal.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#principalPermissions_permissions"><span class="hs-identifier hs-type">principalPermissions_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="principalPermissions_permissions"><span class="annot"><span class="annottext">principalPermissions_permissions :: (Maybe [Permission] -&gt; f (Maybe [Permission]))
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The principal who is granted permissions.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#principalPermissions_principal"><span class="hs-identifier hs-type">principalPermissions_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="principalPermissions_principal"><span class="annot"><span class="annottext">principalPermissions_principal :: (Maybe DataLakePrincipal -&gt; f (Maybe DataLakePrincipal))
+-&gt; PrincipalPermissions -&gt; f PrincipalPermissions
+</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#principalPermissions_principal"><span class="hs-identifier hs-var hs-var">principalPermissions_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrincipalPermissions -&gt; Maybe DataLakePrincipal)
+-&gt; (PrincipalPermissions
+    -&gt; Maybe DataLakePrincipal -&gt; PrincipalPermissions)
+-&gt; Lens
+     PrincipalPermissions
+     PrincipalPermissions
+     (Maybe DataLakePrincipal)
+     (Maybe DataLakePrincipal)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694008"><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+principal :: Maybe DataLakePrincipal
+$sel:principal:PrincipalPermissions' :: PrincipalPermissions -&gt; Maybe DataLakePrincipal
+</span><a href="#local-6989586621679694008"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+</span><a href="#local-6989586621679694008"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694007"><span class="annot"><span class="annottext">s :: PrincipalPermissions
+</span><a href="#local-6989586621679694007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694006"><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+</span><a href="#local-6989586621679694006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrincipalPermissions
+</span><a href="#local-6989586621679694007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:PrincipalPermissions' :: Maybe DataLakePrincipal
+</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Aprincipal%3APrincipalPermissions%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+</span><a href="#local-6989586621679694006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The permissions that are granted to the principal.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#principalPermissions_permissions"><span class="hs-identifier hs-type">principalPermissions_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="principalPermissions_permissions"><span class="annot"><span class="annottext">principalPermissions_permissions :: (Maybe [Permission] -&gt; f (Maybe [Permission]))
 -&gt; PrincipalPermissions -&gt; f PrincipalPermissions
 </span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#principalPermissions_permissions"><span class="hs-identifier hs-var hs-var">principalPermissions_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrincipalPermissions -&gt; Maybe [Permission])
 -&gt; (PrincipalPermissions
@@ -133,16 +156,16 @@ forall a. Maybe a
      (Maybe [Permission])
      (Maybe [Permission])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692339"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694004"><span class="annot"><span class="annottext">Maybe [Permission]
 permissions :: Maybe [Permission]
 $sel:permissions:PrincipalPermissions' :: PrincipalPermissions -&gt; Maybe [Permission]
-</span><a href="#local-6989586621679692339"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679692339"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692338"><span class="annot"><span class="annottext">s :: PrincipalPermissions
-</span><a href="#local-6989586621679692338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692337"><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679692337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrincipalPermissions
-</span><a href="#local-6989586621679692338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:PrincipalPermissions' :: Maybe [Permission]
+</span><a href="#local-6989586621679694004"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679694004"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694003"><span class="annot"><span class="annottext">s :: PrincipalPermissions
+</span><a href="#local-6989586621679694003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694002"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679694002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrincipalPermissions
+</span><a href="#local-6989586621679694003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:PrincipalPermissions' :: Maybe [Permission]
 </span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Apermissions%3APrincipalPermissions%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679692337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Permission] -&gt; f (Maybe [Permission]))
+</span><a href="#local-6989586621679694002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Permission] -&gt; f (Maybe [Permission]))
  -&gt; PrincipalPermissions -&gt; f PrincipalPermissions)
 -&gt; ((Maybe [Permission] -&gt; f (Maybe [Permission]))
     -&gt; Maybe [Permission] -&gt; f (Maybe [Permission]))
@@ -160,56 +183,40 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Permission] [Permission] [Permission] [Permission]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The principal who is granted permissions.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#principalPermissions_principal"><span class="hs-identifier hs-type">principalPermissions_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="principalPermissions_principal"><span class="annot"><span class="annottext">principalPermissions_principal :: (Maybe DataLakePrincipal -&gt; f (Maybe DataLakePrincipal))
--&gt; PrincipalPermissions -&gt; f PrincipalPermissions
-</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#principalPermissions_principal"><span class="hs-identifier hs-var hs-var">principalPermissions_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrincipalPermissions -&gt; Maybe DataLakePrincipal)
--&gt; (PrincipalPermissions
-    -&gt; Maybe DataLakePrincipal -&gt; PrincipalPermissions)
--&gt; Lens
-     PrincipalPermissions
-     PrincipalPermissions
-     (Maybe DataLakePrincipal)
-     (Maybe DataLakePrincipal)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692332"><span class="annot"><span class="annottext">Maybe DataLakePrincipal
-principal :: Maybe DataLakePrincipal
-$sel:principal:PrincipalPermissions' :: PrincipalPermissions -&gt; Maybe DataLakePrincipal
-</span><a href="#local-6989586621679692332"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
-</span><a href="#local-6989586621679692332"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692331"><span class="annot"><span class="annottext">s :: PrincipalPermissions
-</span><a href="#local-6989586621679692331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692330"><span class="annot"><span class="annottext">Maybe DataLakePrincipal
-</span><a href="#local-6989586621679692330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrincipalPermissions
-</span><a href="#local-6989586621679692331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:PrincipalPermissions' :: Maybe DataLakePrincipal
-</span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#%24sel%3Aprincipal%3APrincipalPermissions%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
-</span><a href="#local-6989586621679692330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692327"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679692325"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PrincipalPermissions
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693996"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679693994"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PrincipalPermissions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PrincipalPermissions)
 -&gt; Value
 -&gt; Parser PrincipalPermissions
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PrincipalPermissions&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692322"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Permission]
--&gt; Maybe DataLakePrincipal -&gt; PrincipalPermissions
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679693991"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
+-&gt; Maybe [Permission] -&gt; PrincipalPermissions
 </span><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-var">PrincipalPermissions'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Permission]
- -&gt; Maybe DataLakePrincipal -&gt; PrincipalPermissions)
--&gt; Parser (Maybe [Permission])
--&gt; Parser (Maybe DataLakePrincipal -&gt; PrincipalPermissions)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DataLakePrincipal
+ -&gt; Maybe [Permission] -&gt; PrincipalPermissions)
+-&gt; Parser (Maybe DataLakePrincipal)
+-&gt; Parser (Maybe [Permission] -&gt; PrincipalPermissions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Permission]))
+</span><a href="#local-6989586621679693991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataLakePrincipal)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Principal&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Permission] -&gt; PrincipalPermissions)
+-&gt; Parser (Maybe [Permission]) -&gt; Parser PrincipalPermissions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693991"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Permission]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Permission]))
@@ -218,49 +225,41 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DataLakePrincipal -&gt; PrincipalPermissions)
--&gt; Parser (Maybe DataLakePrincipal) -&gt; Parser PrincipalPermissions
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataLakePrincipal)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Principal&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692315"><span id="local-6989586621679692317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span></span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692304"><span id="local-6989586621679692306"><span id="local-6989586621679692308"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679692302"><span class="annot"><span class="annottext">toJSON :: PrincipalPermissions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692299"><span id="local-6989586621679692300"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693984"><span id="local-6989586621679693986"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693981"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693973"><span id="local-6989586621679693975"><span id="local-6989586621679693977"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679693971"><span class="annot"><span class="annottext">toJSON :: PrincipalPermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalPermissions.html#PrincipalPermissions%27"><span class="hs-identifier hs-type">PrincipalPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693968"><span id="local-6989586621679693969"><span class="annot"><span class="annottext">Maybe [Permission]
 Maybe DataLakePrincipal
-principal :: Maybe DataLakePrincipal
 permissions :: Maybe [Permission]
-$sel:principal:PrincipalPermissions' :: PrincipalPermissions -&gt; Maybe DataLakePrincipal
+principal :: Maybe DataLakePrincipal
 $sel:permissions:PrincipalPermissions' :: PrincipalPermissions -&gt; Maybe [Permission]
-</span><a href="#local-6989586621679692299"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:principal:PrincipalPermissions' :: PrincipalPermissions -&gt; Maybe DataLakePrincipal
+</span><a href="#local-6989586621679693968"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Permission] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Permission] -&gt; Pair) -&gt; Maybe [Permission] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679692300"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataLakePrincipal -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DataLakePrincipal -&gt; Pair)
 -&gt; Maybe DataLakePrincipal -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataLakePrincipal
-</span><a href="#local-6989586621679692299"><span class="hs-identifier hs-var">principal</span></a></span><span>
-</span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span></pre></body></html>
+</span><a href="#local-6989586621679693969"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Permission] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Permission] -&gt; Pair) -&gt; Maybe [Permission] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679693968"><span class="hs-identifier hs-var">permissions</span></a></span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span></pre></body></html>

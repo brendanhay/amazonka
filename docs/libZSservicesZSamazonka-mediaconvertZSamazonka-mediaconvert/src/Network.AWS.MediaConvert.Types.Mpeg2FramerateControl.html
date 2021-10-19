@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679986683"><span id="local-6989586621679986684"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateControl.html#Mpeg2FramerateControl"><span class="hs-identifier hs-var">Mpeg2FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateControl.html#Mpeg2FramerateControl%27"><span class="hs-identifier hs-var">Mpeg2FramerateControl'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679991473"><span id="local-6989586621679991474"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateControl.html#Mpeg2FramerateControl"><span class="hs-identifier hs-var">Mpeg2FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateControl.html#Mpeg2FramerateControl%27"><span class="hs-identifier hs-var">Mpeg2FramerateControl'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2FramerateControl"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Mpeg2FramerateControl.html#fromMpeg2FramerateControl"><span class="hs-identifier hs-var hs-var">fromMpeg2FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986675"><span id="local-6989586621679986677"><span id="local-6989586621679986679"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateControl -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991465"><span id="local-6989586621679991467"><span id="local-6989586621679991469"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateControl -&gt; ShowS
 [Mpeg2FramerateControl] -&gt; ShowS
 Mpeg2FramerateControl -&gt; String
 (Int -&gt; Mpeg2FramerateControl -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: Mpeg2FramerateControl -&gt; String
 showsPrec :: Int -&gt; Mpeg2FramerateControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2FramerateControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679986666"><span id="local-6989586621679986668"><span id="local-6989586621679986670"><span id="local-6989586621679986672"><span class="annot"><span class="annottext">ReadPrec [Mpeg2FramerateControl]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679991456"><span id="local-6989586621679991458"><span id="local-6989586621679991460"><span id="local-6989586621679991462"><span class="annot"><span class="annottext">ReadPrec [Mpeg2FramerateControl]
 ReadPrec Mpeg2FramerateControl
 Int -&gt; ReadS Mpeg2FramerateControl
 ReadS [Mpeg2FramerateControl]
@@ -85,7 +85,7 @@ $creadList :: ReadS [Mpeg2FramerateControl]
 readsPrec :: Int -&gt; ReadS Mpeg2FramerateControl
 $creadsPrec :: Int -&gt; ReadS Mpeg2FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679986661"><span id="local-6989586621679986663"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991451"><span id="local-6989586621679991453"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool
 (Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool)
 -&gt; (Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool)
 -&gt; Eq Mpeg2FramerateControl
@@ -95,7 +95,7 @@ $c/= :: Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool
 == :: Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool
 $c== :: Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679986645"><span id="local-6989586621679986647"><span id="local-6989586621679986649"><span id="local-6989586621679986651"><span id="local-6989586621679986653"><span id="local-6989586621679986655"><span id="local-6989586621679986657"><span class="annot"><span class="annottext">Eq Mpeg2FramerateControl
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991435"><span id="local-6989586621679991437"><span id="local-6989586621679991439"><span id="local-6989586621679991441"><span id="local-6989586621679991443"><span id="local-6989586621679991445"><span id="local-6989586621679991447"><span class="annot"><span class="annottext">Eq Mpeg2FramerateControl
 Eq Mpeg2FramerateControl
 -&gt; (Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Ordering)
 -&gt; (Mpeg2FramerateControl -&gt; Mpeg2FramerateControl -&gt; Bool)
@@ -153,7 +153,7 @@ $cfrom :: forall x. Mpeg2FramerateControl -&gt; Rep Mpeg2FramerateControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679986637"><span id="local-6989586621679986639"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateControl -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991427"><span id="local-6989586621679991429"><span class="annot"><span class="annottext">Int -&gt; Mpeg2FramerateControl -&gt; Int
 Mpeg2FramerateControl -&gt; Int
 (Int -&gt; Mpeg2FramerateControl -&gt; Int)
 -&gt; (Mpeg2FramerateControl -&gt; Int) -&gt; Hashable Mpeg2FramerateControl
@@ -163,54 +163,54 @@ $chash :: Mpeg2FramerateControl -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2FramerateControl -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2FramerateControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679986634"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991424"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; ()
 (Mpeg2FramerateControl -&gt; ()) -&gt; NFData Mpeg2FramerateControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2FramerateControl -&gt; ()
 $crnf :: Mpeg2FramerateControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679986631"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2FramerateControl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991421"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2FramerateControl
 (Text -&gt; Either String Mpeg2FramerateControl)
 -&gt; FromText Mpeg2FramerateControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2FramerateControl
 $cfromText :: Text -&gt; Either String Mpeg2FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679986628"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991418"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; Text
 (Mpeg2FramerateControl -&gt; Text) -&gt; ToText Mpeg2FramerateControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2FramerateControl -&gt; Text
 $ctoText :: Mpeg2FramerateControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679986625"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991415"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; ByteString
 (Mpeg2FramerateControl -&gt; ByteString)
 -&gt; ToByteString Mpeg2FramerateControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2FramerateControl -&gt; ByteString
 $ctoBS :: Mpeg2FramerateControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679986622"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679991412"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; ByteStringBuilder
 (Mpeg2FramerateControl -&gt; ByteStringBuilder)
 -&gt; ToLog Mpeg2FramerateControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2FramerateControl -&gt; ByteStringBuilder
 $cbuild :: Mpeg2FramerateControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679986619"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2FramerateControl -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679991409"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2FramerateControl -&gt; [Header]
 (HeaderName -&gt; Mpeg2FramerateControl -&gt; [Header])
 -&gt; ToHeader Mpeg2FramerateControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2FramerateControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2FramerateControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679986616"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679991406"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; QueryString
 (Mpeg2FramerateControl -&gt; QueryString)
 -&gt; ToQuery Mpeg2FramerateControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2FramerateControl -&gt; QueryString
 $ctoQuery :: Mpeg2FramerateControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679986611"><span id="local-6989586621679986613"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2FramerateControl]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679991401"><span id="local-6989586621679991403"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2FramerateControl]
 Value -&gt; Parser Mpeg2FramerateControl
 (Value -&gt; Parser Mpeg2FramerateControl)
 -&gt; (Value -&gt; Parser [Mpeg2FramerateControl])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2FramerateControl]
 parseJSON :: Value -&gt; Parser Mpeg2FramerateControl
 $cparseJSON :: Value -&gt; Parser Mpeg2FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679986606"><span id="local-6989586621679986608"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2FramerateControl]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679991396"><span id="local-6989586621679991398"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2FramerateControl]
 FromJSONKeyFunction Mpeg2FramerateControl
 FromJSONKeyFunction Mpeg2FramerateControl
 -&gt; FromJSONKeyFunction [Mpeg2FramerateControl]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2FramerateControl]
 fromJSONKey :: FromJSONKeyFunction Mpeg2FramerateControl
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679986597"><span id="local-6989586621679986599"><span id="local-6989586621679986601"><span id="local-6989586621679986603"><span class="annot"><span class="annottext">[Mpeg2FramerateControl] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679991387"><span id="local-6989586621679991389"><span id="local-6989586621679991391"><span id="local-6989586621679991393"><span class="annot"><span class="annottext">[Mpeg2FramerateControl] -&gt; Encoding
 [Mpeg2FramerateControl] -&gt; Value
 Mpeg2FramerateControl -&gt; Encoding
 Mpeg2FramerateControl -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: Mpeg2FramerateControl -&gt; Encoding
 toJSON :: Mpeg2FramerateControl -&gt; Value
 $ctoJSON :: Mpeg2FramerateControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679986592"><span id="local-6989586621679986594"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2FramerateControl]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679991382"><span id="local-6989586621679991384"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2FramerateControl]
 ToJSONKeyFunction Mpeg2FramerateControl
 ToJSONKeyFunction Mpeg2FramerateControl
 -&gt; ToJSONKeyFunction [Mpeg2FramerateControl]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2FramerateControl]
 toJSONKey :: ToJSONKeyFunction Mpeg2FramerateControl
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679986589"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2FramerateControl
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679991379"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2FramerateControl
 ([Node] -&gt; Either String Mpeg2FramerateControl)
 -&gt; FromXML Mpeg2FramerateControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2FramerateControl
 $cparseXML :: [Node] -&gt; Either String Mpeg2FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679986586"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679991376"><span class="annot"><span class="annottext">Mpeg2FramerateControl -&gt; XML
 (Mpeg2FramerateControl -&gt; XML) -&gt; ToXML Mpeg2FramerateControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mpeg2FramerateControl -&gt; XML

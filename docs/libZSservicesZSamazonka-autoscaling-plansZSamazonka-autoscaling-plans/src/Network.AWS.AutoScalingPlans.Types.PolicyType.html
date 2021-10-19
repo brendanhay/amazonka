@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679176782"><span id="local-6989586621679176783"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyType"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PolicyType.html#PolicyType"><span class="hs-identifier hs-var">PolicyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyType%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PolicyType.html#PolicyType%27"><span class="hs-identifier hs-var">PolicyType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679176844"><span id="local-6989586621679176845"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyType"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PolicyType.html#PolicyType"><span class="hs-identifier hs-var">PolicyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyType%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.PolicyType.html#PolicyType%27"><span class="hs-identifier hs-var">PolicyType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyType"><span class="annot"><span class="annottext">PolicyType -&gt; Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.PolicyType.html#fromPolicyType"><span class="hs-identifier hs-var hs-var">fromPolicyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176774"><span id="local-6989586621679176776"><span id="local-6989586621679176778"><span class="annot"><span class="annottext">Int -&gt; PolicyType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176836"><span id="local-6989586621679176838"><span id="local-6989586621679176840"><span class="annot"><span class="annottext">Int -&gt; PolicyType -&gt; ShowS
 [PolicyType] -&gt; ShowS
 PolicyType -&gt; String
 (Int -&gt; PolicyType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: PolicyType -&gt; String
 showsPrec :: Int -&gt; PolicyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PolicyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679176765"><span id="local-6989586621679176767"><span id="local-6989586621679176769"><span id="local-6989586621679176771"><span class="annot"><span class="annottext">ReadPrec [PolicyType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679176827"><span id="local-6989586621679176829"><span id="local-6989586621679176831"><span id="local-6989586621679176833"><span class="annot"><span class="annottext">ReadPrec [PolicyType]
 ReadPrec PolicyType
 Int -&gt; ReadS PolicyType
 ReadS [PolicyType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [PolicyType]
 readsPrec :: Int -&gt; ReadS PolicyType
 $creadsPrec :: Int -&gt; ReadS PolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176760"><span id="local-6989586621679176762"><span class="annot"><span class="annottext">PolicyType -&gt; PolicyType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176822"><span id="local-6989586621679176824"><span class="annot"><span class="annottext">PolicyType -&gt; PolicyType -&gt; Bool
 (PolicyType -&gt; PolicyType -&gt; Bool)
 -&gt; (PolicyType -&gt; PolicyType -&gt; Bool) -&gt; Eq PolicyType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: PolicyType -&gt; PolicyType -&gt; Bool
 == :: PolicyType -&gt; PolicyType -&gt; Bool
 $c== :: PolicyType -&gt; PolicyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176744"><span id="local-6989586621679176746"><span id="local-6989586621679176748"><span id="local-6989586621679176750"><span id="local-6989586621679176752"><span id="local-6989586621679176754"><span id="local-6989586621679176756"><span class="annot"><span class="annottext">Eq PolicyType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176806"><span id="local-6989586621679176808"><span id="local-6989586621679176810"><span id="local-6989586621679176812"><span id="local-6989586621679176814"><span id="local-6989586621679176816"><span id="local-6989586621679176818"><span class="annot"><span class="annottext">Eq PolicyType
 Eq PolicyType
 -&gt; (PolicyType -&gt; PolicyType -&gt; Ordering)
 -&gt; (PolicyType -&gt; PolicyType -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. PolicyType -&gt; Rep PolicyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176736"><span id="local-6989586621679176738"><span class="annot"><span class="annottext">Int -&gt; PolicyType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176798"><span id="local-6989586621679176800"><span class="annot"><span class="annottext">Int -&gt; PolicyType -&gt; Int
 PolicyType -&gt; Int
 (Int -&gt; PolicyType -&gt; Int)
 -&gt; (PolicyType -&gt; Int) -&gt; Hashable PolicyType
@@ -140,49 +140,49 @@ $chash :: PolicyType -&gt; Int
 hashWithSalt :: Int -&gt; PolicyType -&gt; Int
 $chashWithSalt :: Int -&gt; PolicyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679176733"><span class="annot"><span class="annottext">PolicyType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679176795"><span class="annot"><span class="annottext">PolicyType -&gt; ()
 (PolicyType -&gt; ()) -&gt; NFData PolicyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PolicyType -&gt; ()
 $crnf :: PolicyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176730"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176792"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyType
 (Text -&gt; Either String PolicyType) -&gt; FromText PolicyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PolicyType
 $cfromText :: Text -&gt; Either String PolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176727"><span class="annot"><span class="annottext">PolicyType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176789"><span class="annot"><span class="annottext">PolicyType -&gt; Text
 (PolicyType -&gt; Text) -&gt; ToText PolicyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PolicyType -&gt; Text
 $ctoText :: PolicyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176724"><span class="annot"><span class="annottext">PolicyType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176786"><span class="annot"><span class="annottext">PolicyType -&gt; ByteString
 (PolicyType -&gt; ByteString) -&gt; ToByteString PolicyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PolicyType -&gt; ByteString
 $ctoBS :: PolicyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176721"><span class="annot"><span class="annottext">PolicyType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176783"><span class="annot"><span class="annottext">PolicyType -&gt; ByteStringBuilder
 (PolicyType -&gt; ByteStringBuilder) -&gt; ToLog PolicyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PolicyType -&gt; ByteStringBuilder
 $cbuild :: PolicyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176718"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176780"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyType -&gt; [Header]
 (HeaderName -&gt; PolicyType -&gt; [Header]) -&gt; ToHeader PolicyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PolicyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PolicyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176715"><span class="annot"><span class="annottext">PolicyType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176777"><span class="annot"><span class="annottext">PolicyType -&gt; QueryString
 (PolicyType -&gt; QueryString) -&gt; ToQuery PolicyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PolicyType -&gt; QueryString
 $ctoQuery :: PolicyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176710"><span id="local-6989586621679176712"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176772"><span id="local-6989586621679176774"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyType]
 Value -&gt; Parser PolicyType
 (Value -&gt; Parser PolicyType)
 -&gt; (Value -&gt; Parser [PolicyType]) -&gt; FromJSON PolicyType
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [PolicyType]
 parseJSON :: Value -&gt; Parser PolicyType
 $cparseJSON :: Value -&gt; Parser PolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176705"><span id="local-6989586621679176707"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176767"><span id="local-6989586621679176769"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyType]
 FromJSONKeyFunction PolicyType
 FromJSONKeyFunction PolicyType
 -&gt; FromJSONKeyFunction [PolicyType] -&gt; FromJSONKey PolicyType
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PolicyType]
 fromJSONKey :: FromJSONKeyFunction PolicyType
 $cfromJSONKey :: FromJSONKeyFunction PolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176696"><span id="local-6989586621679176698"><span id="local-6989586621679176700"><span id="local-6989586621679176702"><span class="annot"><span class="annottext">[PolicyType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176758"><span id="local-6989586621679176760"><span id="local-6989586621679176762"><span id="local-6989586621679176764"><span class="annot"><span class="annottext">[PolicyType] -&gt; Encoding
 [PolicyType] -&gt; Value
 PolicyType -&gt; Encoding
 PolicyType -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: PolicyType -&gt; Encoding
 toJSON :: PolicyType -&gt; Value
 $ctoJSON :: PolicyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176691"><span id="local-6989586621679176693"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176753"><span id="local-6989586621679176755"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyType]
 ToJSONKeyFunction PolicyType
 ToJSONKeyFunction PolicyType
 -&gt; ToJSONKeyFunction [PolicyType] -&gt; ToJSONKey PolicyType
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PolicyType]
 toJSONKey :: ToJSONKeyFunction PolicyType
 $ctoJSONKey :: ToJSONKeyFunction PolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176688"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176750"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyType
 ([Node] -&gt; Either String PolicyType) -&gt; FromXML PolicyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PolicyType
 $cparseXML :: [Node] -&gt; Either String PolicyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176685"><span class="annot"><span class="annottext">PolicyType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176747"><span class="annot"><span class="annottext">PolicyType -&gt; XML
 (PolicyType -&gt; XML) -&gt; ToXML PolicyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PolicyType -&gt; XML

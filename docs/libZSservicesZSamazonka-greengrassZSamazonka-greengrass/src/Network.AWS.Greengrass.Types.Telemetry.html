@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679347273"><span id="local-6989586621679347274"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Telemetry"><span class="annot"><a href="Network.AWS.Greengrass.Types.Telemetry.html#Telemetry"><span class="hs-identifier hs-var">Telemetry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Telemetry%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Telemetry.html#Telemetry%27"><span class="hs-identifier hs-var">Telemetry'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679347534"><span id="local-6989586621679347535"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Telemetry"><span class="annot"><a href="Network.AWS.Greengrass.Types.Telemetry.html#Telemetry"><span class="hs-identifier hs-var">Telemetry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Telemetry%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.Telemetry.html#Telemetry%27"><span class="hs-identifier hs-var">Telemetry'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTelemetry"><span class="annot"><span class="annottext">Telemetry -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.Telemetry.html#fromTelemetry"><span class="hs-identifier hs-var hs-var">fromTelemetry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347265"><span id="local-6989586621679347267"><span id="local-6989586621679347269"><span class="annot"><span class="annottext">Int -&gt; Telemetry -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347526"><span id="local-6989586621679347528"><span id="local-6989586621679347530"><span class="annot"><span class="annottext">Int -&gt; Telemetry -&gt; ShowS
 [Telemetry] -&gt; ShowS
 Telemetry -&gt; String
 (Int -&gt; Telemetry -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Telemetry -&gt; String
 showsPrec :: Int -&gt; Telemetry -&gt; ShowS
 $cshowsPrec :: Int -&gt; Telemetry -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679347256"><span id="local-6989586621679347258"><span id="local-6989586621679347260"><span id="local-6989586621679347262"><span class="annot"><span class="annottext">ReadPrec [Telemetry]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679347517"><span id="local-6989586621679347519"><span id="local-6989586621679347521"><span id="local-6989586621679347523"><span class="annot"><span class="annottext">ReadPrec [Telemetry]
 ReadPrec Telemetry
 Int -&gt; ReadS Telemetry
 ReadS [Telemetry]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Telemetry]
 readsPrec :: Int -&gt; ReadS Telemetry
 $creadsPrec :: Int -&gt; ReadS Telemetry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679347251"><span id="local-6989586621679347253"><span class="annot"><span class="annottext">Telemetry -&gt; Telemetry -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679347512"><span id="local-6989586621679347514"><span class="annot"><span class="annottext">Telemetry -&gt; Telemetry -&gt; Bool
 (Telemetry -&gt; Telemetry -&gt; Bool)
 -&gt; (Telemetry -&gt; Telemetry -&gt; Bool) -&gt; Eq Telemetry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Telemetry -&gt; Telemetry -&gt; Bool
 == :: Telemetry -&gt; Telemetry -&gt; Bool
 $c== :: Telemetry -&gt; Telemetry -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679347235"><span id="local-6989586621679347237"><span id="local-6989586621679347239"><span id="local-6989586621679347241"><span id="local-6989586621679347243"><span id="local-6989586621679347245"><span id="local-6989586621679347247"><span class="annot"><span class="annottext">Eq Telemetry
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679347496"><span id="local-6989586621679347498"><span id="local-6989586621679347500"><span id="local-6989586621679347502"><span id="local-6989586621679347504"><span id="local-6989586621679347506"><span id="local-6989586621679347508"><span class="annot"><span class="annottext">Eq Telemetry
 Eq Telemetry
 -&gt; (Telemetry -&gt; Telemetry -&gt; Ordering)
 -&gt; (Telemetry -&gt; Telemetry -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. Telemetry -&gt; Rep Telemetry x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347227"><span id="local-6989586621679347229"><span class="annot"><span class="annottext">Int -&gt; Telemetry -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347488"><span id="local-6989586621679347490"><span class="annot"><span class="annottext">Int -&gt; Telemetry -&gt; Int
 Telemetry -&gt; Int
 (Int -&gt; Telemetry -&gt; Int)
 -&gt; (Telemetry -&gt; Int) -&gt; Hashable Telemetry
@@ -141,49 +141,49 @@ $chash :: Telemetry -&gt; Int
 hashWithSalt :: Int -&gt; Telemetry -&gt; Int
 $chashWithSalt :: Int -&gt; Telemetry -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679347224"><span class="annot"><span class="annottext">Telemetry -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679347485"><span class="annot"><span class="annottext">Telemetry -&gt; ()
 (Telemetry -&gt; ()) -&gt; NFData Telemetry
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Telemetry -&gt; ()
 $crnf :: Telemetry -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347221"><span class="annot"><span class="annottext">Text -&gt; Either String Telemetry
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347482"><span class="annot"><span class="annottext">Text -&gt; Either String Telemetry
 (Text -&gt; Either String Telemetry) -&gt; FromText Telemetry
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Telemetry
 $cfromText :: Text -&gt; Either String Telemetry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347218"><span class="annot"><span class="annottext">Telemetry -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347479"><span class="annot"><span class="annottext">Telemetry -&gt; Text
 (Telemetry -&gt; Text) -&gt; ToText Telemetry
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Telemetry -&gt; Text
 $ctoText :: Telemetry -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347215"><span class="annot"><span class="annottext">Telemetry -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347476"><span class="annot"><span class="annottext">Telemetry -&gt; ByteString
 (Telemetry -&gt; ByteString) -&gt; ToByteString Telemetry
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Telemetry -&gt; ByteString
 $ctoBS :: Telemetry -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347212"><span class="annot"><span class="annottext">Telemetry -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679347473"><span class="annot"><span class="annottext">Telemetry -&gt; ByteStringBuilder
 (Telemetry -&gt; ByteStringBuilder) -&gt; ToLog Telemetry
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Telemetry -&gt; ByteStringBuilder
 $cbuild :: Telemetry -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347209"><span class="annot"><span class="annottext">HeaderName -&gt; Telemetry -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679347470"><span class="annot"><span class="annottext">HeaderName -&gt; Telemetry -&gt; [Header]
 (HeaderName -&gt; Telemetry -&gt; [Header]) -&gt; ToHeader Telemetry
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Telemetry -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Telemetry -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347206"><span class="annot"><span class="annottext">Telemetry -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679347467"><span class="annot"><span class="annottext">Telemetry -&gt; QueryString
 (Telemetry -&gt; QueryString) -&gt; ToQuery Telemetry
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Telemetry -&gt; QueryString
 $ctoQuery :: Telemetry -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347201"><span id="local-6989586621679347203"><span class="annot"><span class="annottext">Value -&gt; Parser [Telemetry]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679347462"><span id="local-6989586621679347464"><span class="annot"><span class="annottext">Value -&gt; Parser [Telemetry]
 Value -&gt; Parser Telemetry
 (Value -&gt; Parser Telemetry)
 -&gt; (Value -&gt; Parser [Telemetry]) -&gt; FromJSON Telemetry
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [Telemetry]
 parseJSON :: Value -&gt; Parser Telemetry
 $cparseJSON :: Value -&gt; Parser Telemetry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347196"><span id="local-6989586621679347198"><span class="annot"><span class="annottext">FromJSONKeyFunction [Telemetry]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347457"><span id="local-6989586621679347459"><span class="annot"><span class="annottext">FromJSONKeyFunction [Telemetry]
 FromJSONKeyFunction Telemetry
 FromJSONKeyFunction Telemetry
 -&gt; FromJSONKeyFunction [Telemetry] -&gt; FromJSONKey Telemetry
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Telemetry]
 fromJSONKey :: FromJSONKeyFunction Telemetry
 $cfromJSONKey :: FromJSONKeyFunction Telemetry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347187"><span id="local-6989586621679347189"><span id="local-6989586621679347191"><span id="local-6989586621679347193"><span class="annot"><span class="annottext">[Telemetry] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347448"><span id="local-6989586621679347450"><span id="local-6989586621679347452"><span id="local-6989586621679347454"><span class="annot"><span class="annottext">[Telemetry] -&gt; Encoding
 [Telemetry] -&gt; Value
 Telemetry -&gt; Encoding
 Telemetry -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: Telemetry -&gt; Encoding
 toJSON :: Telemetry -&gt; Value
 $ctoJSON :: Telemetry -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347182"><span id="local-6989586621679347184"><span class="annot"><span class="annottext">ToJSONKeyFunction [Telemetry]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347443"><span id="local-6989586621679347445"><span class="annot"><span class="annottext">ToJSONKeyFunction [Telemetry]
 ToJSONKeyFunction Telemetry
 ToJSONKeyFunction Telemetry
 -&gt; ToJSONKeyFunction [Telemetry] -&gt; ToJSONKey Telemetry
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Telemetry]
 toJSONKey :: ToJSONKeyFunction Telemetry
 $ctoJSONKey :: ToJSONKeyFunction Telemetry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347179"><span class="annot"><span class="annottext">[Node] -&gt; Either String Telemetry
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347440"><span class="annot"><span class="annottext">[Node] -&gt; Either String Telemetry
 ([Node] -&gt; Either String Telemetry) -&gt; FromXML Telemetry
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Telemetry
 $cparseXML :: [Node] -&gt; Either String Telemetry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347176"><span class="annot"><span class="annottext">Telemetry -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347437"><span class="annot"><span class="annottext">Telemetry -&gt; XML
 (Telemetry -&gt; XML) -&gt; ToXML Telemetry
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Telemetry -&gt; XML

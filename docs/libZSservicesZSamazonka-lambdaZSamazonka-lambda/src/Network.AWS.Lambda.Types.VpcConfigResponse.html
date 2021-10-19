@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- function.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVpcConfigResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679295538"><span id="local-6989586621679295539"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcConfigResponse"><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-var">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcConfigResponse%27"><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-var">VpcConfigResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679300401"><span id="local-6989586621679300402"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcConfigResponse"><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-var">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcConfigResponse%27"><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-var">VpcConfigResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of VPC security groups IDs.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#%24sel%3AsecurityGroupIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295530"><span id="local-6989586621679295532"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300393"><span id="local-6989586621679300395"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
 (VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool)
 -&gt; (VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool)
 -&gt; Eq VpcConfigResponse
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
 == :: VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
 $c== :: VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295521"><span id="local-6989586621679295523"><span id="local-6989586621679295525"><span id="local-6989586621679295527"><span class="annot"><span class="annottext">ReadPrec [VpcConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300384"><span id="local-6989586621679300386"><span id="local-6989586621679300388"><span id="local-6989586621679300390"><span class="annot"><span class="annottext">ReadPrec [VpcConfigResponse]
 ReadPrec VpcConfigResponse
 Int -&gt; ReadS VpcConfigResponse
 ReadS [VpcConfigResponse]
@@ -67,7 +67,7 @@ readList :: ReadS [VpcConfigResponse]
 $creadList :: ReadS [VpcConfigResponse]
 readsPrec :: Int -&gt; ReadS VpcConfigResponse
 $creadsPrec :: Int -&gt; ReadS VpcConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295514"><span id="local-6989586621679295516"><span id="local-6989586621679295518"><span class="annot"><span class="annottext">Int -&gt; VpcConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300377"><span id="local-6989586621679300379"><span id="local-6989586621679300381"><span class="annot"><span class="annottext">Int -&gt; VpcConfigResponse -&gt; ShowS
 [VpcConfigResponse] -&gt; ShowS
 VpcConfigResponse -&gt; String
 (Int -&gt; VpcConfigResponse -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
 -&gt; Lens
      VpcConfigResponse VpcConfigResponse (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295505"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300368"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:securityGroupIds:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679295505"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679295505"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295504"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679295504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295503"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679295503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679295504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcConfigResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679300368"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300368"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300367"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679300367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300366"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679300367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcConfigResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#%24sel%3AsecurityGroupIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679295503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679300366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcConfigResponse -&gt; f VpcConfigResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -159,8 +159,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | A list of VPC subnet IDs.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#vpcConfigResponse_subnetIds"><span class="hs-identifier hs-type">vpcConfigResponse_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -171,16 +171,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      VpcConfigResponse VpcConfigResponse (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295498"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300361"><span class="annot"><span class="annottext">Maybe [Text]
 subnetIds :: Maybe [Text]
 $sel:subnetIds:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679295498"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679295498"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295497"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679295497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295496"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679295496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679295497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679300361"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300361"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300360"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679300360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300359"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679300360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679295496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679300359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcConfigResponse -&gt; f VpcConfigResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -194,8 +194,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#vpcConfigResponse_vpcId"><span class="hs-identifier hs-type">vpcConfigResponse_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -206,19 +206,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      VpcConfigResponse VpcConfigResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295494"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300357"><span class="annot"><span class="annottext">Maybe Text
 vpcId :: Maybe Text
 $sel:vpcId:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679295494"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295494"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295493"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679295493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295492"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679295493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:VpcConfigResponse' :: Maybe Text
+</span><a href="#local-6989586621679300357"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300357"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300356"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679300356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679300356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:VpcConfigResponse' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295489"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679295487"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcConfigResponse
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300352"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679300350"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcConfigResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VpcConfigResponse)
@@ -228,8 +228,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VpcConfigResponse&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295484"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300347"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300347"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; VpcConfigResponse
 </span><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-var">VpcConfigResponse'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; VpcConfigResponse)
@@ -237,7 +237,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; VpcConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679300347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityGroupIds&quot;</span></span><span>
@@ -253,7 +253,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; VpcConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679300347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -266,13 +266,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser VpcConfigResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679300347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295477"><span id="local-6989586621679295479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300340"><span id="local-6989586621679300342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span>
 </span><span id="line-91"></span></pre></body></html>

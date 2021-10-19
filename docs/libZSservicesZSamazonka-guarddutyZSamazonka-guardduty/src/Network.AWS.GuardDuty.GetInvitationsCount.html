@@ -45,10 +45,10 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newGetInvitationsCount' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679308599"><span id="local-6989586621679308600"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInvitationsCount"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-var">GetInvitationsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInvitationsCount%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount%27"><span class="hs-identifier hs-var">GetInvitationsCount'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679308923"><span id="local-6989586621679308924"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInvitationsCount"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-var">GetInvitationsCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInvitationsCount%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount%27"><span class="hs-identifier hs-var">GetInvitationsCount'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308594"><span id="local-6989586621679308596"><span class="annot"><span class="annottext">GetInvitationsCount -&gt; GetInvitationsCount -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308918"><span id="local-6989586621679308920"><span class="annot"><span class="annottext">GetInvitationsCount -&gt; GetInvitationsCount -&gt; Bool
 (GetInvitationsCount -&gt; GetInvitationsCount -&gt; Bool)
 -&gt; (GetInvitationsCount -&gt; GetInvitationsCount -&gt; Bool)
 -&gt; Eq GetInvitationsCount
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInvitationsCount -&gt; GetInvitationsCount -&gt; Bool
 == :: GetInvitationsCount -&gt; GetInvitationsCount -&gt; Bool
 $c== :: GetInvitationsCount -&gt; GetInvitationsCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308585"><span id="local-6989586621679308587"><span id="local-6989586621679308589"><span id="local-6989586621679308591"><span class="annot"><span class="annottext">ReadPrec [GetInvitationsCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308909"><span id="local-6989586621679308911"><span id="local-6989586621679308913"><span id="local-6989586621679308915"><span class="annot"><span class="annottext">ReadPrec [GetInvitationsCount]
 ReadPrec GetInvitationsCount
 Int -&gt; ReadS GetInvitationsCount
 ReadS [GetInvitationsCount]
@@ -77,7 +77,7 @@ readList :: ReadS [GetInvitationsCount]
 $creadList :: ReadS [GetInvitationsCount]
 readsPrec :: Int -&gt; ReadS GetInvitationsCount
 $creadsPrec :: Int -&gt; ReadS GetInvitationsCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308578"><span id="local-6989586621679308580"><span id="local-6989586621679308582"><span class="annot"><span class="annottext">Int -&gt; GetInvitationsCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308902"><span id="local-6989586621679308904"><span id="local-6989586621679308906"><span class="annot"><span class="annottext">Int -&gt; GetInvitationsCount -&gt; ShowS
 [GetInvitationsCount] -&gt; ShowS
 GetInvitationsCount -&gt; String
 (Int -&gt; GetInvitationsCount -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. GetInvitationsCount -&gt; Rep GetInvitationsCount x
 </span><span id="line-62"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-63"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679308570"><span class="annot"><span class="annottext">request :: GetInvitationsCount -&gt; Request GetInvitationsCount
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679308894"><span class="annot"><span class="annottext">request :: GetInvitationsCount -&gt; Request GetInvitationsCount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetInvitationsCount -&gt; Request GetInvitationsCount
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679308566"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679308890"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInvitationsCount
 -&gt; ClientResponse ClientBody
@@ -148,10 +148,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308563"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308562"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679308562"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308561"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308887"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308887"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308886"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679308886"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308885"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Int -&gt; GetInvitationsCountResponse
 </span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-var">GetInvitationsCountResponse'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Int -&gt; GetInvitationsCountResponse)
@@ -159,7 +159,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetInvitationsCountResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679308885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;invitationsCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -171,15 +171,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308563"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308887"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308553"><span id="local-6989586621679308555"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308877"><span id="local-6989586621679308879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679308546"><span class="annot"><span class="annottext">toHeaders :: GetInvitationsCount -&gt; ResponseHeaders
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679308870"><span class="annot"><span class="annottext">toHeaders :: GetInvitationsCount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInvitationsCount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -199,14 +199,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679308540"><span class="annot"><span class="annottext">toPath :: GetInvitationsCount -&gt; ByteString
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679308864"><span class="annot"><span class="annottext">toPath :: GetInvitationsCount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInvitationsCount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/invitation/count&quot;</span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCount"><span class="hs-identifier hs-type">GetInvitationsCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679308536"><span class="annot"><span class="annottext">toQuery :: GetInvitationsCount -&gt; QueryString
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679308860"><span class="annot"><span class="annottext">toQuery :: GetInvitationsCount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInvitationsCount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -214,7 +214,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newGetInvitationsCountResponse' smart constructor.</span><span>
-</span><span id="line-96"></span><span id="local-6989586621679308533"><span id="local-6989586621679308534"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInvitationsCountResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-var">GetInvitationsCountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInvitationsCountResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-var">GetInvitationsCountResponse'</span></a></span></span><span>
+</span><span id="line-96"></span><span id="local-6989586621679308857"><span id="local-6989586621679308858"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInvitationsCountResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-var">GetInvitationsCountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInvitationsCountResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-var">GetInvitationsCountResponse'</span></a></span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of received invitations.</span><span>
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AinvitationsCount%3AGetInvitationsCountResponse%27"><span class="annot"><span class="annottext">GetInvitationsCountResponse -&gt; Maybe Int
 </span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#%24sel%3AinvitationsCount%3AGetInvitationsCountResponse%27"><span class="hs-identifier hs-var hs-var">invitationsCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -222,7 +222,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInvitationsCountResponse%27"><span class="annot"><span class="annottext">GetInvitationsCountResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#%24sel%3AhttpStatus%3AGetInvitationsCountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308527"><span id="local-6989586621679308529"><span class="annot"><span class="annottext">GetInvitationsCountResponse -&gt; GetInvitationsCountResponse -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308851"><span id="local-6989586621679308853"><span class="annot"><span class="annottext">GetInvitationsCountResponse -&gt; GetInvitationsCountResponse -&gt; Bool
 (GetInvitationsCountResponse
  -&gt; GetInvitationsCountResponse -&gt; Bool)
 -&gt; (GetInvitationsCountResponse
@@ -233,7 +233,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInvitationsCountResponse -&gt; GetInvitationsCountResponse -&gt; Bool
 == :: GetInvitationsCountResponse -&gt; GetInvitationsCountResponse -&gt; Bool
 $c== :: GetInvitationsCountResponse -&gt; GetInvitationsCountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308519"><span id="local-6989586621679308521"><span id="local-6989586621679308523"><span id="local-6989586621679308525"><span class="annot"><span class="annottext">ReadPrec [GetInvitationsCountResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308843"><span id="local-6989586621679308845"><span id="local-6989586621679308847"><span id="local-6989586621679308849"><span class="annot"><span class="annottext">ReadPrec [GetInvitationsCountResponse]
 ReadPrec GetInvitationsCountResponse
 Int -&gt; ReadS GetInvitationsCountResponse
 ReadS [GetInvitationsCountResponse]
@@ -253,7 +253,7 @@ readList :: ReadS [GetInvitationsCountResponse]
 $creadList :: ReadS [GetInvitationsCountResponse]
 readsPrec :: Int -&gt; ReadS GetInvitationsCountResponse
 $creadsPrec :: Int -&gt; ReadS GetInvitationsCountResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308513"><span id="local-6989586621679308515"><span id="local-6989586621679308517"><span class="annot"><span class="annottext">Int -&gt; GetInvitationsCountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308837"><span id="local-6989586621679308839"><span id="local-6989586621679308841"><span class="annot"><span class="annottext">Int -&gt; GetInvitationsCountResponse -&gt; ShowS
 [GetInvitationsCountResponse] -&gt; ShowS
 GetInvitationsCountResponse -&gt; String
 (Int -&gt; GetInvitationsCountResponse -&gt; ShowS)
@@ -301,8 +301,8 @@ GetInvitationsCountResponse -&gt; Rep GetInvitationsCountResponse x
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span><span>
 </span><span id="line-119"></span><span id="newGetInvitationsCountResponse"><span class="annot"><span class="annottext">newGetInvitationsCountResponse :: Int -&gt; GetInvitationsCountResponse
-</span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#newGetInvitationsCountResponse"><span class="hs-identifier hs-var hs-var">newGetInvitationsCountResponse</span></a></span></span><span> </span><span id="local-6989586621679308510"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#newGetInvitationsCountResponse"><span class="hs-identifier hs-var hs-var">newGetInvitationsCountResponse</span></a></span></span><span> </span><span id="local-6989586621679308834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">GetInvitationsCountResponse' :: Maybe Int -&gt; Int -&gt; GetInvitationsCountResponse
 </span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invitationsCount:GetInvitationsCountResponse' :: Maybe Int
@@ -312,7 +312,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInvitationsCountResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#%24sel%3AhttpStatus%3AGetInvitationsCountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679308834"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The number of received invitations.</span><span>
@@ -328,16 +328,16 @@ forall a. Maybe a
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308507"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308831"><span class="annot"><span class="annottext">Maybe Int
 invitationsCount :: Maybe Int
 $sel:invitationsCount:GetInvitationsCountResponse' :: GetInvitationsCountResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679308507"><span class="hs-identifier hs-var hs-var">invitationsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679308507"><span class="hs-identifier hs-var">invitationsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308506"><span class="annot"><span class="annottext">s :: GetInvitationsCountResponse
-</span><a href="#local-6989586621679308506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308505"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679308505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInvitationsCountResponse
-</span><a href="#local-6989586621679308506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitationsCount:GetInvitationsCountResponse' :: Maybe Int
+</span><a href="#local-6989586621679308831"><span class="hs-identifier hs-var hs-var">invitationsCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679308831"><span class="hs-identifier hs-var">invitationsCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308830"><span class="annot"><span class="annottext">s :: GetInvitationsCountResponse
+</span><a href="#local-6989586621679308830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308829"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679308829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInvitationsCountResponse
+</span><a href="#local-6989586621679308830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitationsCount:GetInvitationsCountResponse' :: Maybe Int
 </span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#%24sel%3AinvitationsCount%3AGetInvitationsCountResponse%27"><span class="hs-identifier hs-var">invitationsCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679308505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#getInvitationsCountResponse_httpStatus"><span class="hs-identifier hs-type">getInvitationsCountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -349,16 +349,16 @@ $sel:invitationsCount:GetInvitationsCountResponse' :: GetInvitationsCountRespons
 -&gt; Lens
      GetInvitationsCountResponse GetInvitationsCountResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308504"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308828"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInvitationsCountResponse' :: GetInvitationsCountResponse -&gt; Int
-</span><a href="#local-6989586621679308504"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308504"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308503"><span class="annot"><span class="annottext">s :: GetInvitationsCountResponse
-</span><a href="#local-6989586621679308503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308502"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInvitationsCountResponse
-</span><a href="#local-6989586621679308503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInvitationsCountResponse' :: Int
+</span><a href="#local-6989586621679308828"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308828"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308827"><span class="annot"><span class="annottext">s :: GetInvitationsCountResponse
+</span><a href="#local-6989586621679308827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse%27"><span class="hs-identifier hs-type">GetInvitationsCountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInvitationsCountResponse
+</span><a href="#local-6989586621679308827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInvitationsCountResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#%24sel%3AhttpStatus%3AGetInvitationsCountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetInvitationsCount.html#GetInvitationsCountResponse"><span class="hs-identifier hs-type">GetInvitationsCountResponse</span></a></span></span><span>
 </span><span id="line-135"></span></pre></body></html>

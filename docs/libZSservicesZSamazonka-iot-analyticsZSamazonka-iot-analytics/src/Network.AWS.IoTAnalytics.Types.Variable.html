@@ -30,17 +30,17 @@
 </span><span id="line-30"></span><span class="hs-comment">-- @stringValue@, @datasetContentVersionValue@, or @outputFileUriValue@.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newVariable' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679262250"><span id="local-6989586621679262251"></span></span><span class="hs-keyword">data</span><span> </span><span id="Variable"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-var">Variable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Variable%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-var">Variable'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679262465"><span id="local-6989586621679262466"></span></span><span class="hs-keyword">data</span><span> </span><span id="Variable"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-var">Variable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Variable%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-var">Variable'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the variable as a structure that specifies an output file</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- URI.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AoutputFileUriValue%3AVariable%27"><span class="annot"><span class="annottext">Variable -&gt; Maybe OutputFileUriValue
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AoutputFileUriValue%3AVariable%27"><span class="hs-identifier hs-var hs-var">outputFileUriValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.OutputFileUriValue.html#OutputFileUriValue"><span class="hs-identifier hs-type">OutputFileUriValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The value of the variable as a string.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstringValue%3AVariable%27"><span class="annot"><span class="annottext">Variable -&gt; Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AstringValue%3AVariable%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The value of the variable as a double (numeric).</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdoubleValue%3AVariable%27"><span class="annot"><span class="annottext">Variable -&gt; Maybe Double
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The value of the variable as a double (numeric).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdoubleValue%3AVariable%27"><span class="annot"><span class="annottext">Variable -&gt; Maybe Double
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AdoubleValue%3AVariable%27"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The value of the variable as a string.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AstringValue%3AVariable%27"><span class="annot"><span class="annottext">Variable -&gt; Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AstringValue%3AVariable%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The value of the variable as a structure that specifies a dataset</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- content version.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AdatasetContentVersionValue%3AVariable%27"><span class="annot"><span class="annottext">Variable -&gt; Maybe DatasetContentVersionValue
@@ -49,7 +49,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3AVariable%27"><span class="annot"><span class="annottext">Variable -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3Aname%3AVariable%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262240"><span id="local-6989586621679262242"><span class="annot"><span class="annottext">Variable -&gt; Variable -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262455"><span id="local-6989586621679262457"><span class="annot"><span class="annottext">Variable -&gt; Variable -&gt; Bool
 (Variable -&gt; Variable -&gt; Bool)
 -&gt; (Variable -&gt; Variable -&gt; Bool) -&gt; Eq Variable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Variable -&gt; Variable -&gt; Bool
 == :: Variable -&gt; Variable -&gt; Bool
 $c== :: Variable -&gt; Variable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262231"><span id="local-6989586621679262233"><span id="local-6989586621679262235"><span id="local-6989586621679262237"><span class="annot"><span class="annottext">ReadPrec [Variable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262446"><span id="local-6989586621679262448"><span id="local-6989586621679262450"><span id="local-6989586621679262452"><span class="annot"><span class="annottext">ReadPrec [Variable]
 ReadPrec Variable
 Int -&gt; ReadS Variable
 ReadS [Variable]
@@ -77,7 +77,7 @@ readList :: ReadS [Variable]
 $creadList :: ReadS [Variable]
 readsPrec :: Int -&gt; ReadS Variable
 $creadsPrec :: Int -&gt; ReadS Variable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262224"><span id="local-6989586621679262226"><span id="local-6989586621679262228"><span class="annot"><span class="annottext">Int -&gt; Variable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262439"><span id="local-6989586621679262441"><span id="local-6989586621679262443"><span class="annot"><span class="annottext">Int -&gt; Variable -&gt; ShowS
 [Variable] -&gt; ShowS
 Variable -&gt; String
 (Int -&gt; Variable -&gt; ShowS)
@@ -111,9 +111,9 @@ $cfrom :: forall x. Variable -&gt; Rep Variable x
 </span><span id="line-57"></span><span class="hs-comment">-- 'outputFileUriValue', 'variable_outputFileUriValue' - The value of the variable as a structure that specifies an output file</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- URI.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'stringValue', 'variable_stringValue' - The value of the variable as a string.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'doubleValue', 'variable_doubleValue' - The value of the variable as a double (numeric).</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'doubleValue', 'variable_doubleValue' - The value of the variable as a double (numeric).</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'stringValue', 'variable_stringValue' - The value of the variable as a string.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'datasetContentVersionValue', 'variable_datasetContentVersionValue' - The value of the variable as a structure that specifies a dataset</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- content version.</span><span>
@@ -124,11 +124,11 @@ $cfrom :: forall x. Variable -&gt; Rep Variable x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span>
 </span><span id="line-72"></span><span id="newVariable"><span class="annot"><span class="annottext">newVariable :: Text -&gt; Variable
-</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#newVariable"><span class="hs-identifier hs-var hs-var">newVariable</span></a></span></span><span> </span><span id="local-6989586621679262218"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262218"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#newVariable"><span class="hs-identifier hs-var hs-var">newVariable</span></a></span></span><span> </span><span id="local-6989586621679262433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262433"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">Variable' :: Maybe OutputFileUriValue
--&gt; Maybe Text
 -&gt; Maybe Double
+-&gt; Maybe Text
 -&gt; Maybe DatasetContentVersionValue
 -&gt; Text
 -&gt; Variable
@@ -137,12 +137,12 @@ $cfrom :: forall x. Variable -&gt; Rep Variable x
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AoutputFileUriValue%3AVariable%27"><span class="hs-identifier hs-var">outputFileUriValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputFileUriValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:Variable' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AstringValue%3AVariable%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:doubleValue:Variable' :: Maybe Double
+</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AdoubleValue%3AVariable%27"><span class="hs-identifier hs-var">doubleValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:doubleValue:Variable' :: Maybe Double
-</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AdoubleValue%3AVariable%27"><span class="hs-identifier hs-var">doubleValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:Variable' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AstringValue%3AVariable%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetContentVersionValue:Variable' :: Maybe DatasetContentVersionValue
@@ -151,7 +151,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Variable' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3Aname%3AVariable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262218"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679262433"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The value of the variable as a structure that specifies an output file</span><span>
@@ -167,52 +167,52 @@ forall a. Maybe a
      (Maybe OutputFileUriValue)
      (Maybe OutputFileUriValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262214"><span class="annot"><span class="annottext">Maybe OutputFileUriValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262429"><span class="annot"><span class="annottext">Maybe OutputFileUriValue
 outputFileUriValue :: Maybe OutputFileUriValue
 $sel:outputFileUriValue:Variable' :: Variable -&gt; Maybe OutputFileUriValue
-</span><a href="#local-6989586621679262214"><span class="hs-identifier hs-var hs-var">outputFileUriValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputFileUriValue
-</span><a href="#local-6989586621679262214"><span class="hs-identifier hs-var">outputFileUriValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262213"><span class="annot"><span class="annottext">s :: Variable
-</span><a href="#local-6989586621679262213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262212"><span class="annot"><span class="annottext">Maybe OutputFileUriValue
-</span><a href="#local-6989586621679262212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
-</span><a href="#local-6989586621679262213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFileUriValue:Variable' :: Maybe OutputFileUriValue
+</span><a href="#local-6989586621679262429"><span class="hs-identifier hs-var hs-var">outputFileUriValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputFileUriValue
+</span><a href="#local-6989586621679262429"><span class="hs-identifier hs-var">outputFileUriValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262428"><span class="annot"><span class="annottext">s :: Variable
+</span><a href="#local-6989586621679262428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262427"><span class="annot"><span class="annottext">Maybe OutputFileUriValue
+</span><a href="#local-6989586621679262427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
+</span><a href="#local-6989586621679262428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputFileUriValue:Variable' :: Maybe OutputFileUriValue
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AoutputFileUriValue%3AVariable%27"><span class="hs-identifier hs-var">outputFileUriValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputFileUriValue
-</span><a href="#local-6989586621679262212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The value of the variable as a string.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_stringValue"><span class="hs-identifier hs-type">variable_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="variable_stringValue"><span class="annot"><span class="annottext">variable_stringValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Variable -&gt; f Variable
-</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_stringValue"><span class="hs-identifier hs-var hs-var">variable_stringValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Variable -&gt; Maybe Text)
--&gt; (Variable -&gt; Maybe Text -&gt; Variable)
--&gt; Lens Variable Variable (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262210"><span class="annot"><span class="annottext">Maybe Text
-stringValue :: Maybe Text
-$sel:stringValue:Variable' :: Variable -&gt; Maybe Text
-</span><a href="#local-6989586621679262210"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262210"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262209"><span class="annot"><span class="annottext">s :: Variable
-</span><a href="#local-6989586621679262209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262208"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
-</span><a href="#local-6989586621679262209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:Variable' :: Maybe Text
-</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AstringValue%3AVariable%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The value of the variable as a double (numeric).</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_doubleValue"><span class="hs-identifier hs-type">variable_doubleValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="variable_doubleValue"><span class="annot"><span class="annottext">variable_doubleValue :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Variable -&gt; f Variable
+</span><span id="line-86"></span><span class="hs-comment">-- | The value of the variable as a double (numeric).</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_doubleValue"><span class="hs-identifier hs-type">variable_doubleValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="variable_doubleValue"><span class="annot"><span class="annottext">variable_doubleValue :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Variable -&gt; f Variable
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_doubleValue"><span class="hs-identifier hs-var hs-var">variable_doubleValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Variable -&gt; Maybe Double)
 -&gt; (Variable -&gt; Maybe Double -&gt; Variable)
 -&gt; Lens Variable Variable (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262206"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262425"><span class="annot"><span class="annottext">Maybe Double
 doubleValue :: Maybe Double
 $sel:doubleValue:Variable' :: Variable -&gt; Maybe Double
-</span><a href="#local-6989586621679262206"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679262206"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262205"><span class="annot"><span class="annottext">s :: Variable
-</span><a href="#local-6989586621679262205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262204"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679262204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
-</span><a href="#local-6989586621679262205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:doubleValue:Variable' :: Maybe Double
+</span><a href="#local-6989586621679262425"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679262425"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262424"><span class="annot"><span class="annottext">s :: Variable
+</span><a href="#local-6989586621679262424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262423"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679262423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
+</span><a href="#local-6989586621679262424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:doubleValue:Variable' :: Maybe Double
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AdoubleValue%3AVariable%27"><span class="hs-identifier hs-var">doubleValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679262204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The value of the variable as a string.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_stringValue"><span class="hs-identifier hs-type">variable_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="variable_stringValue"><span class="annot"><span class="annottext">variable_stringValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Variable -&gt; f Variable
+</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_stringValue"><span class="hs-identifier hs-var hs-var">variable_stringValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Variable -&gt; Maybe Text)
+-&gt; (Variable -&gt; Maybe Text -&gt; Variable)
+-&gt; Lens Variable Variable (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262421"><span class="annot"><span class="annottext">Maybe Text
+stringValue :: Maybe Text
+$sel:stringValue:Variable' :: Variable -&gt; Maybe Text
+</span><a href="#local-6989586621679262421"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262421"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262420"><span class="annot"><span class="annottext">s :: Variable
+</span><a href="#local-6989586621679262420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
+</span><a href="#local-6989586621679262420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:Variable' :: Maybe Text
+</span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AstringValue%3AVariable%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The value of the variable as a structure that specifies a dataset</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- content version.</span><span>
@@ -228,16 +228,16 @@ $sel:doubleValue:Variable' :: Variable -&gt; Maybe Double
      (Maybe DatasetContentVersionValue)
      (Maybe DatasetContentVersionValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262202"><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262417"><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
 datasetContentVersionValue :: Maybe DatasetContentVersionValue
 $sel:datasetContentVersionValue:Variable' :: Variable -&gt; Maybe DatasetContentVersionValue
-</span><a href="#local-6989586621679262202"><span class="hs-identifier hs-var hs-var">datasetContentVersionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
-</span><a href="#local-6989586621679262202"><span class="hs-identifier hs-var">datasetContentVersionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262201"><span class="annot"><span class="annottext">s :: Variable
-</span><a href="#local-6989586621679262201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262200"><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
-</span><a href="#local-6989586621679262200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
-</span><a href="#local-6989586621679262201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetContentVersionValue:Variable' :: Maybe DatasetContentVersionValue
+</span><a href="#local-6989586621679262417"><span class="hs-identifier hs-var hs-var">datasetContentVersionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
+</span><a href="#local-6989586621679262417"><span class="hs-identifier hs-var">datasetContentVersionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262416"><span class="annot"><span class="annottext">s :: Variable
+</span><a href="#local-6989586621679262416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262415"><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
+</span><a href="#local-6989586621679262415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
+</span><a href="#local-6989586621679262416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetContentVersionValue:Variable' :: Maybe DatasetContentVersionValue
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3AdatasetContentVersionValue%3AVariable%27"><span class="hs-identifier hs-var">datasetContentVersionValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
-</span><a href="#local-6989586621679262200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The name of the variable.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_name"><span class="hs-identifier hs-type">variable_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -246,120 +246,120 @@ $sel:datasetContentVersionValue:Variable' :: Variable -&gt; Maybe DatasetContent
 -&gt; (Variable -&gt; Text -&gt; Variable)
 -&gt; Lens Variable Variable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262198"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262413"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Variable' :: Variable -&gt; Text
-</span><a href="#local-6989586621679262198"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262198"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262197"><span class="annot"><span class="annottext">s :: Variable
-</span><a href="#local-6989586621679262197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262196"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
-</span><a href="#local-6989586621679262197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Variable' :: Text
+</span><a href="#local-6989586621679262413"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262413"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262412"><span class="annot"><span class="annottext">s :: Variable
+</span><a href="#local-6989586621679262412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Variable
+</span><a href="#local-6989586621679262412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Variable' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#%24sel%3Aname%3AVariable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262193"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679262191"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Variable
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262408"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679262406"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Variable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Variable) -&gt; Value -&gt; Parser Variable
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Variable&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262188"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262188"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262403"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe OutputFileUriValue
--&gt; Maybe Text
 -&gt; Maybe Double
+-&gt; Maybe Text
 -&gt; Maybe DatasetContentVersionValue
 -&gt; Text
 -&gt; Variable
 </span><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-var">Variable'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OutputFileUriValue
- -&gt; Maybe Text
  -&gt; Maybe Double
+ -&gt; Maybe Text
  -&gt; Maybe DatasetContentVersionValue
  -&gt; Text
  -&gt; Variable)
 -&gt; Parser (Maybe OutputFileUriValue)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Double
+     (Maybe Double
+      -&gt; Maybe Text
       -&gt; Maybe DatasetContentVersionValue
       -&gt; Text
       -&gt; Variable)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputFileUriValue)
+</span><a href="#local-6989586621679262403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputFileUriValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;outputFileUriValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Double
+  (Maybe Double
+   -&gt; Maybe Text
    -&gt; Maybe DatasetContentVersionValue
    -&gt; Text
    -&gt; Variable)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Double)
 -&gt; Parser
-     (Maybe Double
+     (Maybe Text
       -&gt; Maybe DatasetContentVersionValue -&gt; Text -&gt; Variable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stringValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double
-   -&gt; Maybe DatasetContentVersionValue -&gt; Text -&gt; Variable)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe DatasetContentVersionValue -&gt; Text -&gt; Variable)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679262403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;doubleValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe DatasetContentVersionValue -&gt; Text -&gt; Variable)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe DatasetContentVersionValue -&gt; Text -&gt; Variable)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stringValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DatasetContentVersionValue -&gt; Text -&gt; Variable)
 -&gt; Parser (Maybe DatasetContentVersionValue)
 -&gt; Parser (Text -&gt; Variable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatasetContentVersionValue)
+</span><a href="#local-6989586621679262403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatasetContentVersionValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;datasetContentVersionValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Variable) -&gt; Parser Text -&gt; Parser Variable
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262188"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679262403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262181"><span id="local-6989586621679262183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262396"><span id="local-6989586621679262398"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262170"><span id="local-6989586621679262172"><span id="local-6989586621679262174"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679262168"><span class="annot"><span class="annottext">toJSON :: Variable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262162"><span id="local-6989586621679262163"><span id="local-6989586621679262164"><span id="local-6989586621679262165"><span id="local-6989586621679262166"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262385"><span id="local-6989586621679262387"><span id="local-6989586621679262389"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679262383"><span class="annot"><span class="annottext">toJSON :: Variable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable%27"><span class="hs-identifier hs-type">Variable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262377"><span id="local-6989586621679262378"><span id="local-6989586621679262379"><span id="local-6989586621679262380"><span id="local-6989586621679262381"><span class="annot"><span class="annottext">Maybe Double
 Maybe Text
 Maybe DatasetContentVersionValue
 Maybe OutputFileUriValue
 Text
 name :: Text
 datasetContentVersionValue :: Maybe DatasetContentVersionValue
-doubleValue :: Maybe Double
 stringValue :: Maybe Text
+doubleValue :: Maybe Double
 outputFileUriValue :: Maybe OutputFileUriValue
 $sel:name:Variable' :: Variable -&gt; Text
 $sel:datasetContentVersionValue:Variable' :: Variable -&gt; Maybe DatasetContentVersionValue
-$sel:doubleValue:Variable' :: Variable -&gt; Maybe Double
 $sel:stringValue:Variable' :: Variable -&gt; Maybe Text
+$sel:doubleValue:Variable' :: Variable -&gt; Maybe Double
 $sel:outputFileUriValue:Variable' :: Variable -&gt; Maybe OutputFileUriValue
-</span><a href="#local-6989586621679262162"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679262377"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -373,21 +373,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OutputFileUriValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OutputFileUriValue
-</span><a href="#local-6989586621679262166"><span class="hs-identifier hs-var">outputFileUriValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262381"><span class="hs-identifier hs-var">outputFileUriValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262165"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;doubleValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679262164"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262380"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262379"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;datasetContentVersionValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatasetContentVersionValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -396,14 +396,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DatasetContentVersionValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DatasetContentVersionValue
-</span><a href="#local-6989586621679262163"><span class="hs-identifier hs-var">datasetContentVersionValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262378"><span class="hs-identifier hs-var">datasetContentVersionValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262162"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262377"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span></pre></body></html>

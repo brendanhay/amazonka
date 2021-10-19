@@ -29,15 +29,15 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUnsuccessfulItemError' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681141648"><span id="local-6989586621681141649"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnsuccessfulItemError"><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-var">UnsuccessfulItemError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnsuccessfulItemError%27"><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-var">UnsuccessfulItemError'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message accompanying the error code.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="annot"><span class="annottext">UnsuccessfulItemError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error code.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acode%3AUnsuccessfulItemError%27"><span class="annot"><span class="annottext">UnsuccessfulItemError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Acode%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681176800"><span id="local-6989586621681176801"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnsuccessfulItemError"><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-var">UnsuccessfulItemError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnsuccessfulItemError%27"><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-var">UnsuccessfulItemError'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acode%3AUnsuccessfulItemError%27"><span class="annot"><span class="annottext">UnsuccessfulItemError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Acode%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The error message accompanying the error code.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="annot"><span class="annottext">UnsuccessfulItemError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681141641"><span id="local-6989586621681141643"><span class="annot"><span class="annottext">UnsuccessfulItemError -&gt; UnsuccessfulItemError -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681176793"><span id="local-6989586621681176795"><span class="annot"><span class="annottext">UnsuccessfulItemError -&gt; UnsuccessfulItemError -&gt; Bool
 (UnsuccessfulItemError -&gt; UnsuccessfulItemError -&gt; Bool)
 -&gt; (UnsuccessfulItemError -&gt; UnsuccessfulItemError -&gt; Bool)
 -&gt; Eq UnsuccessfulItemError
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnsuccessfulItemError -&gt; UnsuccessfulItemError -&gt; Bool
 == :: UnsuccessfulItemError -&gt; UnsuccessfulItemError -&gt; Bool
 $c== :: UnsuccessfulItemError -&gt; UnsuccessfulItemError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141632"><span id="local-6989586621681141634"><span id="local-6989586621681141636"><span id="local-6989586621681141638"><span class="annot"><span class="annottext">ReadPrec [UnsuccessfulItemError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176784"><span id="local-6989586621681176786"><span id="local-6989586621681176788"><span id="local-6989586621681176790"><span class="annot"><span class="annottext">ReadPrec [UnsuccessfulItemError]
 ReadPrec UnsuccessfulItemError
 Int -&gt; ReadS UnsuccessfulItemError
 ReadS [UnsuccessfulItemError]
@@ -66,7 +66,7 @@ readList :: ReadS [UnsuccessfulItemError]
 $creadList :: ReadS [UnsuccessfulItemError]
 readsPrec :: Int -&gt; ReadS UnsuccessfulItemError
 $creadsPrec :: Int -&gt; ReadS UnsuccessfulItemError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141625"><span id="local-6989586621681141627"><span id="local-6989586621681141629"><span class="annot"><span class="annottext">Int -&gt; UnsuccessfulItemError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681176777"><span id="local-6989586621681176779"><span id="local-6989586621681176781"><span class="annot"><span class="annottext">Int -&gt; UnsuccessfulItemError -&gt; ShowS
 [UnsuccessfulItemError] -&gt; ShowS
 UnsuccessfulItemError -&gt; String
 (Int -&gt; UnsuccessfulItemError -&gt; ShowS)
@@ -100,51 +100,28 @@ $cfrom :: forall x. UnsuccessfulItemError -&gt; Rep UnsuccessfulItemError x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'message', 'unsuccessfulItemError_message' - The error message accompanying the error code.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'code', 'unsuccessfulItemError_code' - The error code.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'code', 'unsuccessfulItemError_code' - The error code.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'message', 'unsuccessfulItemError_message' - The error message accompanying the error code.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#newUnsuccessfulItemError"><span class="hs-identifier hs-type">newUnsuccessfulItemError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span>
 </span><span id="line-53"></span><span id="newUnsuccessfulItemError"><span class="annot"><span class="annottext">newUnsuccessfulItemError :: UnsuccessfulItemError
 </span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#newUnsuccessfulItemError"><span class="hs-identifier hs-var hs-var">newUnsuccessfulItemError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">UnsuccessfulItemError' :: Maybe Text -&gt; Maybe Text -&gt; UnsuccessfulItemError
 </span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:UnsuccessfulItemError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:UnsuccessfulItemError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Acode%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:UnsuccessfulItemError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Acode%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:UnsuccessfulItemError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The error message accompanying the error code.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#unsuccessfulItemError_message"><span class="hs-identifier hs-type">unsuccessfulItemError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="unsuccessfulItemError_message"><span class="annot"><span class="annottext">unsuccessfulItemError_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UnsuccessfulItemError -&gt; f UnsuccessfulItemError
-</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#unsuccessfulItemError_message"><span class="hs-identifier hs-var hs-var">unsuccessfulItemError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnsuccessfulItemError -&gt; Maybe Text)
--&gt; (UnsuccessfulItemError -&gt; Maybe Text -&gt; UnsuccessfulItemError)
--&gt; Lens
-     UnsuccessfulItemError
-     UnsuccessfulItemError
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141616"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:UnsuccessfulItemError' :: UnsuccessfulItemError -&gt; Maybe Text
-</span><a href="#local-6989586621681141616"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141616"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141615"><span class="annot"><span class="annottext">s :: UnsuccessfulItemError
-</span><a href="#local-6989586621681141615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141614"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnsuccessfulItemError
-</span><a href="#local-6989586621681141615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UnsuccessfulItemError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The error code.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#unsuccessfulItemError_code"><span class="hs-identifier hs-type">unsuccessfulItemError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="unsuccessfulItemError_code"><span class="annot"><span class="annottext">unsuccessfulItemError_code :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-59"></span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#unsuccessfulItemError_code"><span class="hs-identifier hs-type">unsuccessfulItemError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="unsuccessfulItemError_code"><span class="annot"><span class="annottext">unsuccessfulItemError_code :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UnsuccessfulItemError -&gt; f UnsuccessfulItemError
 </span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#unsuccessfulItemError_code"><span class="hs-identifier hs-var hs-var">unsuccessfulItemError_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnsuccessfulItemError -&gt; Maybe Text)
 -&gt; (UnsuccessfulItemError -&gt; Maybe Text -&gt; UnsuccessfulItemError)
@@ -154,21 +131,44 @@ $sel:message:UnsuccessfulItemError' :: UnsuccessfulItemError -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141612"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176768"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:UnsuccessfulItemError' :: UnsuccessfulItemError -&gt; Maybe Text
-</span><a href="#local-6989586621681141612"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141612"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141611"><span class="annot"><span class="annottext">s :: UnsuccessfulItemError
-</span><a href="#local-6989586621681141611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141610"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnsuccessfulItemError
-</span><a href="#local-6989586621681141611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:UnsuccessfulItemError' :: Maybe Text
+</span><a href="#local-6989586621681176768"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176768"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176767"><span class="annot"><span class="annottext">s :: UnsuccessfulItemError
+</span><a href="#local-6989586621681176767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnsuccessfulItemError
+</span><a href="#local-6989586621681176767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:UnsuccessfulItemError' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Acode%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681176766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The error message accompanying the error code.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#unsuccessfulItemError_message"><span class="hs-identifier hs-type">unsuccessfulItemError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="unsuccessfulItemError_message"><span class="annot"><span class="annottext">unsuccessfulItemError_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UnsuccessfulItemError -&gt; f UnsuccessfulItemError
+</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#unsuccessfulItemError_message"><span class="hs-identifier hs-var hs-var">unsuccessfulItemError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnsuccessfulItemError -&gt; Maybe Text)
+-&gt; (UnsuccessfulItemError -&gt; Maybe Text -&gt; UnsuccessfulItemError)
+-&gt; Lens
+     UnsuccessfulItemError
+     UnsuccessfulItemError
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681176764"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:UnsuccessfulItemError' :: UnsuccessfulItemError -&gt; Maybe Text
+</span><a href="#local-6989586621681176764"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176764"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681176763"><span class="annot"><span class="annottext">s :: UnsuccessfulItemError
+</span><a href="#local-6989586621681176763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-type">UnsuccessfulItemError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681176762"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnsuccessfulItemError
+</span><a href="#local-6989586621681176763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UnsuccessfulItemError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#%24sel%3Amessage%3AUnsuccessfulItemError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681176762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681141607"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UnsuccessfulItemError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681141605"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681141605"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681176759"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UnsuccessfulItemError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681176757"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681176757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; UnsuccessfulItemError
 </span><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError%27"><span class="hs-identifier hs-var">UnsuccessfulItemError'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; UnsuccessfulItemError)
@@ -176,21 +176,21 @@ $sel:code:UnsuccessfulItemError' :: UnsuccessfulItemError -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; UnsuccessfulItemError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681141605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681176757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; UnsuccessfulItemError)
 -&gt; Either String (Maybe Text)
 -&gt; Either String UnsuccessfulItemError
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681141605"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681176757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141599"><span id="local-6989586621681141601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681176751"><span id="local-6989586621681176753"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681176748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UnsuccessfulItemError.html#UnsuccessfulItemError"><span class="hs-identifier hs-type">UnsuccessfulItemError</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- to the first video packet PTS (MediaConvert drops captions and data</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- packets with lesser PTS values). Keep the default value (AUTO) to allow</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- all PTS values.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679979573"><span id="local-6989586621679979574"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsDataPtsControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsDataPtsControl.html#M2tsDataPtsControl"><span class="hs-identifier hs-var">M2tsDataPtsControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsDataPtsControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsDataPtsControl.html#M2tsDataPtsControl%27"><span class="hs-identifier hs-var">M2tsDataPtsControl'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679984363"><span id="local-6989586621679984364"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsDataPtsControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsDataPtsControl.html#M2tsDataPtsControl"><span class="hs-identifier hs-var">M2tsDataPtsControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsDataPtsControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsDataPtsControl.html#M2tsDataPtsControl%27"><span class="hs-identifier hs-var">M2tsDataPtsControl'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsDataPtsControl"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M2tsDataPtsControl.html#fromM2tsDataPtsControl"><span class="hs-identifier hs-var hs-var">fromM2tsDataPtsControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979565"><span id="local-6989586621679979567"><span id="local-6989586621679979569"><span class="annot"><span class="annottext">Int -&gt; M2tsDataPtsControl -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679984355"><span id="local-6989586621679984357"><span id="local-6989586621679984359"><span class="annot"><span class="annottext">Int -&gt; M2tsDataPtsControl -&gt; ShowS
 [M2tsDataPtsControl] -&gt; ShowS
 M2tsDataPtsControl -&gt; String
 (Int -&gt; M2tsDataPtsControl -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: M2tsDataPtsControl -&gt; String
 showsPrec :: Int -&gt; M2tsDataPtsControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsDataPtsControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679979556"><span id="local-6989586621679979558"><span id="local-6989586621679979560"><span id="local-6989586621679979562"><span class="annot"><span class="annottext">ReadPrec [M2tsDataPtsControl]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679984346"><span id="local-6989586621679984348"><span id="local-6989586621679984350"><span id="local-6989586621679984352"><span class="annot"><span class="annottext">ReadPrec [M2tsDataPtsControl]
 ReadPrec M2tsDataPtsControl
 Int -&gt; ReadS M2tsDataPtsControl
 ReadS [M2tsDataPtsControl]
@@ -77,7 +77,7 @@ $creadList :: ReadS [M2tsDataPtsControl]
 readsPrec :: Int -&gt; ReadS M2tsDataPtsControl
 $creadsPrec :: Int -&gt; ReadS M2tsDataPtsControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679979551"><span id="local-6989586621679979553"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679984341"><span id="local-6989586621679984343"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool
 (M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool)
 -&gt; (M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool)
 -&gt; Eq M2tsDataPtsControl
@@ -87,7 +87,7 @@ $c/= :: M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool
 == :: M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool
 $c== :: M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679979535"><span id="local-6989586621679979537"><span id="local-6989586621679979539"><span id="local-6989586621679979541"><span id="local-6989586621679979543"><span id="local-6989586621679979545"><span id="local-6989586621679979547"><span class="annot"><span class="annottext">Eq M2tsDataPtsControl
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679984325"><span id="local-6989586621679984327"><span id="local-6989586621679984329"><span id="local-6989586621679984331"><span id="local-6989586621679984333"><span id="local-6989586621679984335"><span id="local-6989586621679984337"><span class="annot"><span class="annottext">Eq M2tsDataPtsControl
 Eq M2tsDataPtsControl
 -&gt; (M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Ordering)
 -&gt; (M2tsDataPtsControl -&gt; M2tsDataPtsControl -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. M2tsDataPtsControl -&gt; Rep M2tsDataPtsControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979527"><span id="local-6989586621679979529"><span class="annot"><span class="annottext">Int -&gt; M2tsDataPtsControl -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679984317"><span id="local-6989586621679984319"><span class="annot"><span class="annottext">Int -&gt; M2tsDataPtsControl -&gt; Int
 M2tsDataPtsControl -&gt; Int
 (Int -&gt; M2tsDataPtsControl -&gt; Int)
 -&gt; (M2tsDataPtsControl -&gt; Int) -&gt; Hashable M2tsDataPtsControl
@@ -148,53 +148,53 @@ $chash :: M2tsDataPtsControl -&gt; Int
 hashWithSalt :: Int -&gt; M2tsDataPtsControl -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsDataPtsControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679979524"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679984314"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; ()
 (M2tsDataPtsControl -&gt; ()) -&gt; NFData M2tsDataPtsControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsDataPtsControl -&gt; ()
 $crnf :: M2tsDataPtsControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679979521"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsDataPtsControl
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679984311"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsDataPtsControl
 (Text -&gt; Either String M2tsDataPtsControl)
 -&gt; FromText M2tsDataPtsControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsDataPtsControl
 $cfromText :: Text -&gt; Either String M2tsDataPtsControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979518"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679984308"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; Text
 (M2tsDataPtsControl -&gt; Text) -&gt; ToText M2tsDataPtsControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsDataPtsControl -&gt; Text
 $ctoText :: M2tsDataPtsControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979515"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679984305"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; ByteString
 (M2tsDataPtsControl -&gt; ByteString)
 -&gt; ToByteString M2tsDataPtsControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsDataPtsControl -&gt; ByteString
 $ctoBS :: M2tsDataPtsControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979512"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679984302"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; ByteStringBuilder
 (M2tsDataPtsControl -&gt; ByteStringBuilder)
 -&gt; ToLog M2tsDataPtsControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsDataPtsControl -&gt; ByteStringBuilder
 $cbuild :: M2tsDataPtsControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679979509"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsDataPtsControl -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679984299"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsDataPtsControl -&gt; [Header]
 (HeaderName -&gt; M2tsDataPtsControl -&gt; [Header])
 -&gt; ToHeader M2tsDataPtsControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsDataPtsControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsDataPtsControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679979506"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679984296"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; QueryString
 (M2tsDataPtsControl -&gt; QueryString) -&gt; ToQuery M2tsDataPtsControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsDataPtsControl -&gt; QueryString
 $ctoQuery :: M2tsDataPtsControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679979501"><span id="local-6989586621679979503"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsDataPtsControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679984291"><span id="local-6989586621679984293"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsDataPtsControl]
 Value -&gt; Parser M2tsDataPtsControl
 (Value -&gt; Parser M2tsDataPtsControl)
 -&gt; (Value -&gt; Parser [M2tsDataPtsControl])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsDataPtsControl]
 parseJSON :: Value -&gt; Parser M2tsDataPtsControl
 $cparseJSON :: Value -&gt; Parser M2tsDataPtsControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679979496"><span id="local-6989586621679979498"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsDataPtsControl]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679984286"><span id="local-6989586621679984288"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsDataPtsControl]
 FromJSONKeyFunction M2tsDataPtsControl
 FromJSONKeyFunction M2tsDataPtsControl
 -&gt; FromJSONKeyFunction [M2tsDataPtsControl]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsDataPtsControl]
 fromJSONKey :: FromJSONKeyFunction M2tsDataPtsControl
 $cfromJSONKey :: FromJSONKeyFunction M2tsDataPtsControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679979487"><span id="local-6989586621679979489"><span id="local-6989586621679979491"><span id="local-6989586621679979493"><span class="annot"><span class="annottext">[M2tsDataPtsControl] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679984277"><span id="local-6989586621679984279"><span id="local-6989586621679984281"><span id="local-6989586621679984283"><span class="annot"><span class="annottext">[M2tsDataPtsControl] -&gt; Encoding
 [M2tsDataPtsControl] -&gt; Value
 M2tsDataPtsControl -&gt; Encoding
 M2tsDataPtsControl -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: M2tsDataPtsControl -&gt; Encoding
 toJSON :: M2tsDataPtsControl -&gt; Value
 $ctoJSON :: M2tsDataPtsControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679979482"><span id="local-6989586621679979484"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsDataPtsControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679984272"><span id="local-6989586621679984274"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsDataPtsControl]
 ToJSONKeyFunction M2tsDataPtsControl
 ToJSONKeyFunction M2tsDataPtsControl
 -&gt; ToJSONKeyFunction [M2tsDataPtsControl]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsDataPtsControl]
 toJSONKey :: ToJSONKeyFunction M2tsDataPtsControl
 $ctoJSONKey :: ToJSONKeyFunction M2tsDataPtsControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679979479"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsDataPtsControl
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679984269"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsDataPtsControl
 ([Node] -&gt; Either String M2tsDataPtsControl)
 -&gt; FromXML M2tsDataPtsControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsDataPtsControl
 $cparseXML :: [Node] -&gt; Either String M2tsDataPtsControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679979476"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679984266"><span class="annot"><span class="annottext">M2tsDataPtsControl -&gt; XML
 (M2tsDataPtsControl -&gt; XML) -&gt; ToXML M2tsDataPtsControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsDataPtsControl -&gt; XML

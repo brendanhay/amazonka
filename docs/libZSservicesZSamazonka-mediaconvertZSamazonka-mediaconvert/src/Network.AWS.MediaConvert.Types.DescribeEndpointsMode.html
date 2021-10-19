@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- to return your endpoints if any exist, or to create an endpoint for you</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- and return it if one doesn\'t already exist. Specify GET_ONLY to return</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- your endpoints if any exist, or an empty list if none exist.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679950680"><span id="local-6989586621679950681"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DescribeEndpointsMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DescribeEndpointsMode.html#DescribeEndpointsMode"><span class="hs-identifier hs-var">DescribeEndpointsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointsMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DescribeEndpointsMode.html#DescribeEndpointsMode%27"><span class="hs-identifier hs-var">DescribeEndpointsMode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679955304"><span id="local-6989586621679955305"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DescribeEndpointsMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DescribeEndpointsMode.html#DescribeEndpointsMode"><span class="hs-identifier hs-var">DescribeEndpointsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointsMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DescribeEndpointsMode.html#DescribeEndpointsMode%27"><span class="hs-identifier hs-var">DescribeEndpointsMode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDescribeEndpointsMode"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DescribeEndpointsMode.html#fromDescribeEndpointsMode"><span class="hs-identifier hs-var hs-var">fromDescribeEndpointsMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950672"><span id="local-6989586621679950674"><span id="local-6989586621679950676"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsMode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955296"><span id="local-6989586621679955298"><span id="local-6989586621679955300"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsMode -&gt; ShowS
 [DescribeEndpointsMode] -&gt; ShowS
 DescribeEndpointsMode -&gt; String
 (Int -&gt; DescribeEndpointsMode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: DescribeEndpointsMode -&gt; String
 showsPrec :: Int -&gt; DescribeEndpointsMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; DescribeEndpointsMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679950663"><span id="local-6989586621679950665"><span id="local-6989586621679950667"><span id="local-6989586621679950669"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointsMode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679955287"><span id="local-6989586621679955289"><span id="local-6989586621679955291"><span id="local-6989586621679955293"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointsMode]
 ReadPrec DescribeEndpointsMode
 Int -&gt; ReadS DescribeEndpointsMode
 ReadS [DescribeEndpointsMode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [DescribeEndpointsMode]
 readsPrec :: Int -&gt; ReadS DescribeEndpointsMode
 $creadsPrec :: Int -&gt; ReadS DescribeEndpointsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679950658"><span id="local-6989586621679950660"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679955282"><span id="local-6989586621679955284"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool
 (DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool)
 -&gt; (DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool)
 -&gt; Eq DescribeEndpointsMode
@@ -86,7 +86,7 @@ $c/= :: DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool
 == :: DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool
 $c== :: DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679950642"><span id="local-6989586621679950644"><span id="local-6989586621679950646"><span id="local-6989586621679950648"><span id="local-6989586621679950650"><span id="local-6989586621679950652"><span id="local-6989586621679950654"><span class="annot"><span class="annottext">Eq DescribeEndpointsMode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679955266"><span id="local-6989586621679955268"><span id="local-6989586621679955270"><span id="local-6989586621679955272"><span id="local-6989586621679955274"><span id="local-6989586621679955276"><span id="local-6989586621679955278"><span class="annot"><span class="annottext">Eq DescribeEndpointsMode
 Eq DescribeEndpointsMode
 -&gt; (DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Ordering)
 -&gt; (DescribeEndpointsMode -&gt; DescribeEndpointsMode -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. DescribeEndpointsMode -&gt; Rep DescribeEndpointsMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950634"><span id="local-6989586621679950636"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsMode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679955258"><span id="local-6989586621679955260"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsMode -&gt; Int
 DescribeEndpointsMode -&gt; Int
 (Int -&gt; DescribeEndpointsMode -&gt; Int)
 -&gt; (DescribeEndpointsMode -&gt; Int) -&gt; Hashable DescribeEndpointsMode
@@ -154,54 +154,54 @@ $chash :: DescribeEndpointsMode -&gt; Int
 hashWithSalt :: Int -&gt; DescribeEndpointsMode -&gt; Int
 $chashWithSalt :: Int -&gt; DescribeEndpointsMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679950631"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679955255"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; ()
 (DescribeEndpointsMode -&gt; ()) -&gt; NFData DescribeEndpointsMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DescribeEndpointsMode -&gt; ()
 $crnf :: DescribeEndpointsMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679950628"><span class="annot"><span class="annottext">Text -&gt; Either String DescribeEndpointsMode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679955252"><span class="annot"><span class="annottext">Text -&gt; Either String DescribeEndpointsMode
 (Text -&gt; Either String DescribeEndpointsMode)
 -&gt; FromText DescribeEndpointsMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DescribeEndpointsMode
 $cfromText :: Text -&gt; Either String DescribeEndpointsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679950625"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679955249"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; Text
 (DescribeEndpointsMode -&gt; Text) -&gt; ToText DescribeEndpointsMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DescribeEndpointsMode -&gt; Text
 $ctoText :: DescribeEndpointsMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679950622"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679955246"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; ByteString
 (DescribeEndpointsMode -&gt; ByteString)
 -&gt; ToByteString DescribeEndpointsMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DescribeEndpointsMode -&gt; ByteString
 $ctoBS :: DescribeEndpointsMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950619"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679955243"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; ByteStringBuilder
 (DescribeEndpointsMode -&gt; ByteStringBuilder)
 -&gt; ToLog DescribeEndpointsMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DescribeEndpointsMode -&gt; ByteStringBuilder
 $cbuild :: DescribeEndpointsMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950616"><span class="annot"><span class="annottext">HeaderName -&gt; DescribeEndpointsMode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679955240"><span class="annot"><span class="annottext">HeaderName -&gt; DescribeEndpointsMode -&gt; [Header]
 (HeaderName -&gt; DescribeEndpointsMode -&gt; [Header])
 -&gt; ToHeader DescribeEndpointsMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DescribeEndpointsMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DescribeEndpointsMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679950613"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679955237"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; QueryString
 (DescribeEndpointsMode -&gt; QueryString)
 -&gt; ToQuery DescribeEndpointsMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DescribeEndpointsMode -&gt; QueryString
 $ctoQuery :: DescribeEndpointsMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950608"><span id="local-6989586621679950610"><span class="annot"><span class="annottext">Value -&gt; Parser [DescribeEndpointsMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679955232"><span id="local-6989586621679955234"><span class="annot"><span class="annottext">Value -&gt; Parser [DescribeEndpointsMode]
 Value -&gt; Parser DescribeEndpointsMode
 (Value -&gt; Parser DescribeEndpointsMode)
 -&gt; (Value -&gt; Parser [DescribeEndpointsMode])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [DescribeEndpointsMode]
 parseJSON :: Value -&gt; Parser DescribeEndpointsMode
 $cparseJSON :: Value -&gt; Parser DescribeEndpointsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950603"><span id="local-6989586621679950605"><span class="annot"><span class="annottext">FromJSONKeyFunction [DescribeEndpointsMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679955227"><span id="local-6989586621679955229"><span class="annot"><span class="annottext">FromJSONKeyFunction [DescribeEndpointsMode]
 FromJSONKeyFunction DescribeEndpointsMode
 FromJSONKeyFunction DescribeEndpointsMode
 -&gt; FromJSONKeyFunction [DescribeEndpointsMode]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DescribeEndpointsMode]
 fromJSONKey :: FromJSONKeyFunction DescribeEndpointsMode
 $cfromJSONKey :: FromJSONKeyFunction DescribeEndpointsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950594"><span id="local-6989586621679950596"><span id="local-6989586621679950598"><span id="local-6989586621679950600"><span class="annot"><span class="annottext">[DescribeEndpointsMode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679955218"><span id="local-6989586621679955220"><span id="local-6989586621679955222"><span id="local-6989586621679955224"><span class="annot"><span class="annottext">[DescribeEndpointsMode] -&gt; Encoding
 [DescribeEndpointsMode] -&gt; Value
 DescribeEndpointsMode -&gt; Encoding
 DescribeEndpointsMode -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: DescribeEndpointsMode -&gt; Encoding
 toJSON :: DescribeEndpointsMode -&gt; Value
 $ctoJSON :: DescribeEndpointsMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950589"><span id="local-6989586621679950591"><span class="annot"><span class="annottext">ToJSONKeyFunction [DescribeEndpointsMode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679955213"><span id="local-6989586621679955215"><span class="annot"><span class="annottext">ToJSONKeyFunction [DescribeEndpointsMode]
 ToJSONKeyFunction DescribeEndpointsMode
 ToJSONKeyFunction DescribeEndpointsMode
 -&gt; ToJSONKeyFunction [DescribeEndpointsMode]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DescribeEndpointsMode]
 toJSONKey :: ToJSONKeyFunction DescribeEndpointsMode
 $ctoJSONKey :: ToJSONKeyFunction DescribeEndpointsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679950586"><span class="annot"><span class="annottext">[Node] -&gt; Either String DescribeEndpointsMode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679955210"><span class="annot"><span class="annottext">[Node] -&gt; Either String DescribeEndpointsMode
 ([Node] -&gt; Either String DescribeEndpointsMode)
 -&gt; FromXML DescribeEndpointsMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DescribeEndpointsMode
 $cparseXML :: [Node] -&gt; Either String DescribeEndpointsMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679950583"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679955207"><span class="annot"><span class="annottext">DescribeEndpointsMode -&gt; XML
 (DescribeEndpointsMode -&gt; XML) -&gt; ToXML DescribeEndpointsMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DescribeEndpointsMode -&gt; XML

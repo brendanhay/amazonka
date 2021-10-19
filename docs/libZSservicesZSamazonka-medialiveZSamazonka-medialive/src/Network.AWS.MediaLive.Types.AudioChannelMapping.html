@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Audio Channel Mapping</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAudioChannelMapping' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679883883"><span id="local-6989586621679883884"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioChannelMapping"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-var">AudioChannelMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioChannelMapping%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-var">AudioChannelMapping'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679890544"><span id="local-6989586621679890545"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioChannelMapping"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-var">AudioChannelMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioChannelMapping%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-var">AudioChannelMapping'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The index of the output channel being produced.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AoutputChannel%3AAudioChannelMapping%27"><span class="annot"><span class="annottext">AudioChannelMapping -&gt; Natural
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#%24sel%3AoutputChannel%3AAudioChannelMapping%27"><span class="hs-identifier hs-var hs-var">outputChannel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AinputChannelLevels%3AAudioChannelMapping%27"><span class="annot"><span class="annottext">AudioChannelMapping -&gt; [InputChannelLevel]
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#%24sel%3AinputChannelLevels%3AAudioChannelMapping%27"><span class="hs-identifier hs-var hs-var">inputChannelLevels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputChannelLevel.html#InputChannelLevel"><span class="hs-identifier hs-type">InputChannelLevel</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679883876"><span id="local-6989586621679883878"><span class="annot"><span class="annottext">AudioChannelMapping -&gt; AudioChannelMapping -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679890537"><span id="local-6989586621679890539"><span class="annot"><span class="annottext">AudioChannelMapping -&gt; AudioChannelMapping -&gt; Bool
 (AudioChannelMapping -&gt; AudioChannelMapping -&gt; Bool)
 -&gt; (AudioChannelMapping -&gt; AudioChannelMapping -&gt; Bool)
 -&gt; Eq AudioChannelMapping
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioChannelMapping -&gt; AudioChannelMapping -&gt; Bool
 == :: AudioChannelMapping -&gt; AudioChannelMapping -&gt; Bool
 $c== :: AudioChannelMapping -&gt; AudioChannelMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679883867"><span id="local-6989586621679883869"><span id="local-6989586621679883871"><span id="local-6989586621679883873"><span class="annot"><span class="annottext">ReadPrec [AudioChannelMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679890528"><span id="local-6989586621679890530"><span id="local-6989586621679890532"><span id="local-6989586621679890534"><span class="annot"><span class="annottext">ReadPrec [AudioChannelMapping]
 ReadPrec AudioChannelMapping
 Int -&gt; ReadS AudioChannelMapping
 ReadS [AudioChannelMapping]
@@ -65,7 +65,7 @@ readList :: ReadS [AudioChannelMapping]
 $creadList :: ReadS [AudioChannelMapping]
 readsPrec :: Int -&gt; ReadS AudioChannelMapping
 $creadsPrec :: Int -&gt; ReadS AudioChannelMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679883860"><span id="local-6989586621679883862"><span id="local-6989586621679883864"><span class="annot"><span class="annottext">Int -&gt; AudioChannelMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679890521"><span id="local-6989586621679890523"><span id="local-6989586621679890525"><span class="annot"><span class="annottext">Int -&gt; AudioChannelMapping -&gt; ShowS
 [AudioChannelMapping] -&gt; ShowS
 AudioChannelMapping -&gt; String
 (Int -&gt; AudioChannelMapping -&gt; ShowS)
@@ -108,14 +108,14 @@ $cfrom :: forall x. AudioChannelMapping -&gt; Rep AudioChannelMapping x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span><span>
 </span><span id="line-55"></span><span id="newAudioChannelMapping"><span class="annot"><span class="annottext">newAudioChannelMapping :: Natural -&gt; AudioChannelMapping
-</span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#newAudioChannelMapping"><span class="hs-identifier hs-var hs-var">newAudioChannelMapping</span></a></span></span><span> </span><span id="local-6989586621679883854"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679883854"><span class="hs-identifier hs-var">pOutputChannel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#newAudioChannelMapping"><span class="hs-identifier hs-var hs-var">newAudioChannelMapping</span></a></span></span><span> </span><span id="local-6989586621679890515"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679890515"><span class="hs-identifier hs-var">pOutputChannel_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">AudioChannelMapping' :: Natural -&gt; [InputChannelLevel] -&gt; AudioChannelMapping
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:outputChannel:AudioChannelMapping' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#%24sel%3AoutputChannel%3AAudioChannelMapping%27"><span class="hs-identifier hs-var">outputChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679883854"><span class="hs-identifier hs-var">pOutputChannel_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679890515"><span class="hs-identifier hs-var">pOutputChannel_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputChannelLevels:AudioChannelMapping' :: [InputChannelLevel]
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#%24sel%3AinputChannelLevels%3AAudioChannelMapping%27"><span class="hs-identifier hs-var">inputChannelLevels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InputChannelLevel]
 forall a. Monoid a =&gt; a
@@ -130,16 +130,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AudioChannelMapping -&gt; Natural -&gt; AudioChannelMapping)
 -&gt; Lens AudioChannelMapping AudioChannelMapping Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679883850"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679890511"><span class="annot"><span class="annottext">Natural
 outputChannel :: Natural
 $sel:outputChannel:AudioChannelMapping' :: AudioChannelMapping -&gt; Natural
-</span><a href="#local-6989586621679883850"><span class="hs-identifier hs-var hs-var">outputChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679883850"><span class="hs-identifier hs-var">outputChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679883849"><span class="annot"><span class="annottext">s :: AudioChannelMapping
-</span><a href="#local-6989586621679883849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679883848"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679883848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioChannelMapping
-</span><a href="#local-6989586621679883849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputChannel:AudioChannelMapping' :: Natural
+</span><a href="#local-6989586621679890511"><span class="hs-identifier hs-var hs-var">outputChannel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679890511"><span class="hs-identifier hs-var">outputChannel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679890510"><span class="annot"><span class="annottext">s :: AudioChannelMapping
+</span><a href="#local-6989586621679890510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679890509"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679890509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioChannelMapping
+</span><a href="#local-6989586621679890510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputChannel:AudioChannelMapping' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#%24sel%3AoutputChannel%3AAudioChannelMapping%27"><span class="hs-identifier hs-var">outputChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679883848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679890509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Indices and gain values for each input channel that should be remixed</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- into this output channel.</span><span>
@@ -155,16 +155,16 @@ $sel:outputChannel:AudioChannelMapping' :: AudioChannelMapping -&gt; Natural
      [InputChannelLevel]
      [InputChannelLevel]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679883846"><span class="annot"><span class="annottext">[InputChannelLevel]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679890507"><span class="annot"><span class="annottext">[InputChannelLevel]
 inputChannelLevels :: [InputChannelLevel]
 $sel:inputChannelLevels:AudioChannelMapping' :: AudioChannelMapping -&gt; [InputChannelLevel]
-</span><a href="#local-6989586621679883846"><span class="hs-identifier hs-var hs-var">inputChannelLevels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InputChannelLevel]
-</span><a href="#local-6989586621679883846"><span class="hs-identifier hs-var">inputChannelLevels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679883845"><span class="annot"><span class="annottext">s :: AudioChannelMapping
-</span><a href="#local-6989586621679883845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679883844"><span class="annot"><span class="annottext">[InputChannelLevel]
-</span><a href="#local-6989586621679883844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioChannelMapping
-</span><a href="#local-6989586621679883845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputChannelLevels:AudioChannelMapping' :: [InputChannelLevel]
+</span><a href="#local-6989586621679890507"><span class="hs-identifier hs-var hs-var">inputChannelLevels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[InputChannelLevel]
+</span><a href="#local-6989586621679890507"><span class="hs-identifier hs-var">inputChannelLevels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679890506"><span class="annot"><span class="annottext">s :: AudioChannelMapping
+</span><a href="#local-6989586621679890506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679890505"><span class="annot"><span class="annottext">[InputChannelLevel]
+</span><a href="#local-6989586621679890505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioChannelMapping
+</span><a href="#local-6989586621679890506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputChannelLevels:AudioChannelMapping' :: [InputChannelLevel]
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#%24sel%3AinputChannelLevels%3AAudioChannelMapping%27"><span class="hs-identifier hs-var">inputChannelLevels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[InputChannelLevel]
-</span><a href="#local-6989586621679883844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InputChannelLevel] -&gt; f [InputChannelLevel])
+</span><a href="#local-6989586621679890505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([InputChannelLevel] -&gt; f [InputChannelLevel])
  -&gt; AudioChannelMapping -&gt; f AudioChannelMapping)
 -&gt; (([InputChannelLevel] -&gt; f [InputChannelLevel])
     -&gt; [InputChannelLevel] -&gt; f [InputChannelLevel])
@@ -174,11 +174,11 @@ $sel:inputChannelLevels:AudioChannelMapping' :: AudioChannelMapping -&gt; [Input
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([InputChannelLevel] -&gt; f [InputChannelLevel])
 -&gt; [InputChannelLevel] -&gt; f [InputChannelLevel]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679883839"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679883837"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioChannelMapping
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679890500"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679890498"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioChannelMapping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioChannelMapping)
@@ -188,8 +188,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioChannelMapping&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679883834"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679883834"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679890495"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679890495"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; [InputChannelLevel] -&gt; AudioChannelMapping
 </span><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-var">AudioChannelMapping'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; [InputChannelLevel] -&gt; AudioChannelMapping)
@@ -197,7 +197,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ([InputChannelLevel] -&gt; AudioChannelMapping)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679883834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679890495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;outputChannel&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,7 +205,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [InputChannelLevel] -&gt; Parser AudioChannelMapping
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679883834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [InputChannelLevel])
+</span><a href="#local-6989586621679890495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [InputChannelLevel])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputChannelLevels&quot;</span></span><span>
@@ -218,19 +218,19 @@ forall a. Monoid a =&gt; a
 </span><span id="line-80"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679883826"><span id="local-6989586621679883828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679890487"><span id="local-6989586621679890489"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679883823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679890484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679883815"><span id="local-6989586621679883817"><span id="local-6989586621679883819"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679883813"><span class="annot"><span class="annottext">toJSON :: AudioChannelMapping -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679883810"><span id="local-6989586621679883811"><span class="annot"><span class="annottext">Natural
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679890476"><span id="local-6989586621679890478"><span id="local-6989586621679890480"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping"><span class="hs-identifier hs-type">AudioChannelMapping</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679890474"><span class="annot"><span class="annottext">toJSON :: AudioChannelMapping -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioChannelMapping.html#AudioChannelMapping%27"><span class="hs-identifier hs-type">AudioChannelMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679890471"><span id="local-6989586621679890472"><span class="annot"><span class="annottext">Natural
 [InputChannelLevel]
 inputChannelLevels :: [InputChannelLevel]
 outputChannel :: Natural
 $sel:inputChannelLevels:AudioChannelMapping' :: AudioChannelMapping -&gt; [InputChannelLevel]
 $sel:outputChannel:AudioChannelMapping' :: AudioChannelMapping -&gt; Natural
-</span><a href="#local-6989586621679883810"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679890471"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,7 +243,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;outputChannel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679883811"><span class="hs-identifier hs-var">outputChannel</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679890472"><span class="hs-identifier hs-var">outputChannel</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -251,7 +251,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;inputChannelLevels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InputChannelLevel] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[InputChannelLevel]
-</span><a href="#local-6989586621679883810"><span class="hs-identifier hs-var">inputChannelLevels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679890471"><span class="hs-identifier hs-var">inputChannelLevels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span></pre></body></html>

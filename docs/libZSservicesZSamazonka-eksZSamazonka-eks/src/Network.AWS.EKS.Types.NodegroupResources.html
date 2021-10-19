@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- such as Auto Scaling groups and security groups for remote access.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNodegroupResources' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679267184"><span id="local-6989586621679267185"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupResources"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-var">NodegroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupResources%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-var">NodegroupResources'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679267444"><span id="local-6989586621679267445"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupResources"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-var">NodegroupResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupResources%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-var">NodegroupResources'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The remote access security group associated with the node group. This</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- security group controls SSH access to the nodes.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AremoteAccessSecurityGroup%3ANodegroupResources%27"><span class="annot"><span class="annottext">NodegroupResources -&gt; Maybe Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AautoScalingGroups%3ANodegroupResources%27"><span class="annot"><span class="annottext">NodegroupResources -&gt; Maybe [AutoScalingGroup]
 </span><a href="Network.AWS.EKS.Types.NodegroupResources.html#%24sel%3AautoScalingGroups%3ANodegroupResources%27"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267177"><span id="local-6989586621679267179"><span class="annot"><span class="annottext">NodegroupResources -&gt; NodegroupResources -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267437"><span id="local-6989586621679267439"><span class="annot"><span class="annottext">NodegroupResources -&gt; NodegroupResources -&gt; Bool
 (NodegroupResources -&gt; NodegroupResources -&gt; Bool)
 -&gt; (NodegroupResources -&gt; NodegroupResources -&gt; Bool)
 -&gt; Eq NodegroupResources
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodegroupResources -&gt; NodegroupResources -&gt; Bool
 == :: NodegroupResources -&gt; NodegroupResources -&gt; Bool
 $c== :: NodegroupResources -&gt; NodegroupResources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267168"><span id="local-6989586621679267170"><span id="local-6989586621679267172"><span id="local-6989586621679267174"><span class="annot"><span class="annottext">ReadPrec [NodegroupResources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267428"><span id="local-6989586621679267430"><span id="local-6989586621679267432"><span id="local-6989586621679267434"><span class="annot"><span class="annottext">ReadPrec [NodegroupResources]
 ReadPrec NodegroupResources
 Int -&gt; ReadS NodegroupResources
 ReadS [NodegroupResources]
@@ -66,7 +66,7 @@ readList :: ReadS [NodegroupResources]
 $creadList :: ReadS [NodegroupResources]
 readsPrec :: Int -&gt; ReadS NodegroupResources
 $creadsPrec :: Int -&gt; ReadS NodegroupResources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267161"><span id="local-6989586621679267163"><span id="local-6989586621679267165"><span class="annot"><span class="annottext">Int -&gt; NodegroupResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267421"><span id="local-6989586621679267423"><span id="local-6989586621679267425"><span class="annot"><span class="annottext">Int -&gt; NodegroupResources -&gt; ShowS
 [NodegroupResources] -&gt; ShowS
 NodegroupResources -&gt; String
 (Int -&gt; NodegroupResources -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; Lens
      NodegroupResources NodegroupResources (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267152"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267412"><span class="annot"><span class="annottext">Maybe Text
 remoteAccessSecurityGroup :: Maybe Text
 $sel:remoteAccessSecurityGroup:NodegroupResources' :: NodegroupResources -&gt; Maybe Text
-</span><a href="#local-6989586621679267152"><span class="hs-identifier hs-var hs-var">remoteAccessSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267152"><span class="hs-identifier hs-var">remoteAccessSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267151"><span class="annot"><span class="annottext">s :: NodegroupResources
-</span><a href="#local-6989586621679267151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267150"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupResources
-</span><a href="#local-6989586621679267151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessSecurityGroup:NodegroupResources' :: Maybe Text
+</span><a href="#local-6989586621679267412"><span class="hs-identifier hs-var hs-var">remoteAccessSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267412"><span class="hs-identifier hs-var">remoteAccessSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267411"><span class="annot"><span class="annottext">s :: NodegroupResources
+</span><a href="#local-6989586621679267411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267410"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupResources
+</span><a href="#local-6989586621679267411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessSecurityGroup:NodegroupResources' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.NodegroupResources.html#%24sel%3AremoteAccessSecurityGroup%3ANodegroupResources%27"><span class="hs-identifier hs-var">remoteAccessSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679267150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The Auto Scaling groups associated with the node group.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#nodegroupResources_autoScalingGroups"><span class="hs-identifier hs-type">nodegroupResources_autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EKS.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -155,16 +155,16 @@ $sel:remoteAccessSecurityGroup:NodegroupResources' :: NodegroupResources -&gt; M
      (Maybe [AutoScalingGroup])
      (Maybe [AutoScalingGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267148"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267408"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
 autoScalingGroups :: Maybe [AutoScalingGroup]
 $sel:autoScalingGroups:NodegroupResources' :: NodegroupResources -&gt; Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679267148"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679267148"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267147"><span class="annot"><span class="annottext">s :: NodegroupResources
-</span><a href="#local-6989586621679267147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267146"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679267146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupResources
-</span><a href="#local-6989586621679267147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:NodegroupResources' :: Maybe [AutoScalingGroup]
+</span><a href="#local-6989586621679267408"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
+</span><a href="#local-6989586621679267408"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267407"><span class="annot"><span class="annottext">s :: NodegroupResources
+</span><a href="#local-6989586621679267407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-type">NodegroupResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267406"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
+</span><a href="#local-6989586621679267406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupResources
+</span><a href="#local-6989586621679267407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:NodegroupResources' :: Maybe [AutoScalingGroup]
 </span><a href="Network.AWS.EKS.Types.NodegroupResources.html#%24sel%3AautoScalingGroups%3ANodegroupResources%27"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679267146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoScalingGroup] -&gt; f (Maybe [AutoScalingGroup]))
+</span><a href="#local-6989586621679267406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoScalingGroup] -&gt; f (Maybe [AutoScalingGroup]))
  -&gt; NodegroupResources -&gt; f NodegroupResources)
 -&gt; ((Maybe [AutoScalingGroup] -&gt; f (Maybe [AutoScalingGroup]))
     -&gt; Maybe [AutoScalingGroup] -&gt; f (Maybe [AutoScalingGroup]))
@@ -190,11 +190,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AutoScalingGroup]
   [AutoScalingGroup]
   [AutoScalingGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267140"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679267138"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupResources
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267400"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679267398"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupResources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NodegroupResources)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NodegroupResources&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267135"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267395"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [AutoScalingGroup] -&gt; NodegroupResources
 </span><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources%27"><span class="hs-identifier hs-var">NodegroupResources'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [AutoScalingGroup] -&gt; NodegroupResources)
@@ -213,7 +213,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [AutoScalingGroup] -&gt; NodegroupResources)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679267395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;remoteAccessSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,7 +221,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [AutoScalingGroup]) -&gt; Parser NodegroupResources
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AutoScalingGroup]))
+</span><a href="#local-6989586621679267395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AutoScalingGroup]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;autoScalingGroups&quot;</span></span><span>
@@ -234,7 +234,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-79"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267128"><span id="local-6989586621679267130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267388"><span id="local-6989586621679267390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupResources.html#NodegroupResources"><span class="hs-identifier hs-type">NodegroupResources</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

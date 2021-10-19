@@ -20,9 +20,9 @@
 </span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
 </span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
 </span><span id="line-22"></span><span class="hs-comment">--</span><span>
-</span><span id="line-23"></span><span class="hs-comment">-- Lists gateways owned by an account in an Region specified in the</span><span>
-</span><span id="line-24"></span><span class="hs-comment">-- request. The returned list is ordered by gateway Amazon Resource Name</span><span>
-</span><span id="line-25"></span><span class="hs-comment">-- (ARN).</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists gateways owned by an Amazon Web Services account in an Amazon Web</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Services Region specified in the request. The returned list is ordered</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- by gateway Amazon Resource Name (ARN).</span><span>
 </span><span id="line-26"></span><span class="hs-comment">--</span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- By default, the operation returns a maximum of 100 gateways. This</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- operation supports pagination that allows you to optionally reduce the</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-68"></span><span class="hs-comment">-- -   ListGatewaysInput$Marker</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newListGateways' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679376819"><span id="local-6989586621679376820"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGateways"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-var">ListGateways</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGateways%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-var">ListGateways'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679381339"><span id="local-6989586621679381340"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGateways"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-var">ListGateways</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGateways%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-var">ListGateways'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An opaque string that indicates the position at which to begin the</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- returned list of gateways.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Amarker%3AListGateways%27"><span class="annot"><span class="annottext">ListGateways -&gt; Maybe Text
@@ -78,7 +78,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Alimit%3AListGateways%27"><span class="annot"><span class="annottext">ListGateways -&gt; Maybe Natural
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3Alimit%3AListGateways%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376812"><span id="local-6989586621679376814"><span class="annot"><span class="annottext">ListGateways -&gt; ListGateways -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381332"><span id="local-6989586621679381334"><span class="annot"><span class="annottext">ListGateways -&gt; ListGateways -&gt; Bool
 (ListGateways -&gt; ListGateways -&gt; Bool)
 -&gt; (ListGateways -&gt; ListGateways -&gt; Bool) -&gt; Eq ListGateways
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGateways -&gt; ListGateways -&gt; Bool
 == :: ListGateways -&gt; ListGateways -&gt; Bool
 $c== :: ListGateways -&gt; ListGateways -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376803"><span id="local-6989586621679376805"><span id="local-6989586621679376807"><span id="local-6989586621679376809"><span class="annot"><span class="annottext">ReadPrec [ListGateways]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381323"><span id="local-6989586621679381325"><span id="local-6989586621679381327"><span id="local-6989586621679381329"><span class="annot"><span class="annottext">ReadPrec [ListGateways]
 ReadPrec ListGateways
 Int -&gt; ReadS ListGateways
 ReadS [ListGateways]
@@ -106,7 +106,7 @@ readList :: ReadS [ListGateways]
 $creadList :: ReadS [ListGateways]
 readsPrec :: Int -&gt; ReadS ListGateways
 $creadsPrec :: Int -&gt; ReadS ListGateways
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376796"><span id="local-6989586621679376798"><span id="local-6989586621679376800"><span class="annot"><span class="annottext">Int -&gt; ListGateways -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381316"><span id="local-6989586621679381318"><span id="local-6989586621679381320"><span class="annot"><span class="annottext">Int -&gt; ListGateways -&gt; ShowS
 [ListGateways] -&gt; ShowS
 ListGateways -&gt; String
 (Int -&gt; ListGateways -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
 -&gt; (ListGateways -&gt; Maybe Text -&gt; ListGateways)
 -&gt; Lens ListGateways ListGateways (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376790"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381310"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListGateways' :: ListGateways -&gt; Maybe Text
-</span><a href="#local-6989586621679376790"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376790"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376789"><span class="annot"><span class="annottext">s :: ListGateways
-</span><a href="#local-6989586621679376789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGateways
-</span><a href="#local-6989586621679376789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGateways' :: Maybe Text
+</span><a href="#local-6989586621679381310"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381310"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381309"><span class="annot"><span class="annottext">s :: ListGateways
+</span><a href="#local-6989586621679381309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGateways
+</span><a href="#local-6989586621679381309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGateways' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3Amarker%3AListGateways%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Specifies that the list of gateways returned be limited to the specified</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- number of items.</span><span>
@@ -189,28 +189,28 @@ $sel:marker:ListGateways' :: ListGateways -&gt; Maybe Text
 -&gt; (ListGateways -&gt; Maybe Natural -&gt; ListGateways)
 -&gt; Lens ListGateways ListGateways (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376787"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381307"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListGateways' :: ListGateways -&gt; Maybe Natural
-</span><a href="#local-6989586621679376787"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376787"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376786"><span class="annot"><span class="annottext">s :: ListGateways
-</span><a href="#local-6989586621679376786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376785"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGateways
-</span><a href="#local-6989586621679376786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListGateways' :: Maybe Natural
+</span><a href="#local-6989586621679381307"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381307"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381306"><span class="annot"><span class="annottext">s :: ListGateways
+</span><a href="#local-6989586621679381306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381305"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679381305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGateways
+</span><a href="#local-6989586621679381306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListGateways' :: Maybe Natural
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3Alimit%3AListGateways%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679376781"><span class="annot"><span class="annottext">page :: ListGateways -&gt; AWSResponse ListGateways -&gt; Maybe ListGateways
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679376779"><span class="annot"><span class="annottext">ListGateways
-</span><a href="#local-6989586621679376779"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679376778"><span class="annot"><span class="annottext">AWSResponse ListGateways
-</span><a href="#local-6989586621679376778"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679381301"><span class="annot"><span class="annottext">page :: ListGateways -&gt; AWSResponse ListGateways -&gt; Maybe ListGateways
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679381299"><span class="annot"><span class="annottext">ListGateways
+</span><a href="#local-6989586621679381299"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679381298"><span class="annot"><span class="annottext">AWSResponse ListGateways
+</span><a href="#local-6989586621679381298"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGateways
 ListGatewaysResponse
-</span><a href="#local-6989586621679376778"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381298"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListGatewaysResponse
 -&gt; Getting (First Text) ListGatewaysResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -236,7 +236,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGateways
 ListGatewaysResponse
-</span><a href="#local-6989586621679376778"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381298"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">ListGatewaysResponse
 -&gt; Getting (First [GatewayInfo]) ListGatewaysResponse [GatewayInfo]
 -&gt; Maybe [GatewayInfo]
@@ -273,7 +273,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListGateways
-</span><a href="#local-6989586621679376779"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679381299"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListGateways -&gt; (ListGateways -&gt; ListGateways) -&gt; ListGateways
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -286,7 +286,7 @@ Lens ListGateways ListGateways (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGateways
 ListGatewaysResponse
-</span><a href="#local-6989586621679376778"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679381298"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListGatewaysResponse
 -&gt; Getting (First Text) ListGatewaysResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -306,12 +306,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679376768"><span class="annot"><span class="annottext">request :: ListGateways -&gt; Request ListGateways
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679381288"><span class="annot"><span class="annottext">request :: ListGateways -&gt; Request ListGateways
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGateways -&gt; Request ListGateways
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679376764"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679381284"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListGateways
 -&gt; ClientResponse ClientBody
@@ -335,10 +335,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376761"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376761"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679376760"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679376760"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679376759"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376759"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381281"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381281"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381280"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381280"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381279"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [GatewayInfo] -&gt; Int -&gt; ListGatewaysResponse
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-var">ListGatewaysResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [GatewayInfo] -&gt; Int -&gt; ListGatewaysResponse)
@@ -347,7 +347,7 @@ MonadResource m =&gt;
      String (Maybe [GatewayInfo] -&gt; Int -&gt; ListGatewaysResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679381279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -356,7 +356,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListGatewaysResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GatewayInfo]))
+</span><a href="#local-6989586621679381279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GatewayInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Gateways&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GatewayInfo]))
@@ -373,15 +373,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376761"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381281"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376750"><span id="local-6989586621679376752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381270"><span id="local-6989586621679381272"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679376743"><span class="annot"><span class="annottext">toHeaders :: ListGateways -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679381263"><span class="annot"><span class="annottext">toHeaders :: ListGateways -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGateways -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -408,15 +408,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376733"><span id="local-6989586621679376735"><span id="local-6989586621679376737"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679376731"><span class="annot"><span class="annottext">toJSON :: ListGateways -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376728"><span id="local-6989586621679376729"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381253"><span id="local-6989586621679381255"><span id="local-6989586621679381257"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679381251"><span class="annot"><span class="annottext">toJSON :: ListGateways -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways%27"><span class="hs-identifier hs-type">ListGateways'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381248"><span id="local-6989586621679381249"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 marker :: Maybe Text
 $sel:limit:ListGateways' :: ListGateways -&gt; Maybe Natural
 $sel:marker:ListGateways' :: ListGateways -&gt; Maybe Text
-</span><a href="#local-6989586621679376728"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381248"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -428,26 +428,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376729"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381249"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679376728"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679381248"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679376722"><span class="annot"><span class="annottext">toPath :: ListGateways -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679381242"><span class="annot"><span class="annottext">toPath :: ListGateways -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGateways -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGateways"><span class="hs-identifier hs-type">ListGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679376718"><span class="annot"><span class="annottext">toQuery :: ListGateways -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679381238"><span class="annot"><span class="annottext">toQuery :: ListGateways -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListGateways -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -455,7 +455,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newListGatewaysResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679376715"><span id="local-6989586621679376716"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGatewaysResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-var">ListGatewaysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGatewaysResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-var">ListGatewaysResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679381235"><span id="local-6989586621679381236"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGatewaysResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-var">ListGatewaysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGatewaysResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-var">ListGatewaysResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use the marker in your next request to fetch the next set of gateways in</span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-comment">-- the list. If there are no more gateways to list, this field does not</span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-comment">-- appear in the response.</span><span>
@@ -468,7 +468,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGatewaysResponse%27"><span class="annot"><span class="annottext">ListGatewaysResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3AhttpStatus%3AListGatewaysResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376708"><span id="local-6989586621679376710"><span class="annot"><span class="annottext">ListGatewaysResponse -&gt; ListGatewaysResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381228"><span id="local-6989586621679381230"><span class="annot"><span class="annottext">ListGatewaysResponse -&gt; ListGatewaysResponse -&gt; Bool
 (ListGatewaysResponse -&gt; ListGatewaysResponse -&gt; Bool)
 -&gt; (ListGatewaysResponse -&gt; ListGatewaysResponse -&gt; Bool)
 -&gt; Eq ListGatewaysResponse
@@ -477,7 +477,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGatewaysResponse -&gt; ListGatewaysResponse -&gt; Bool
 == :: ListGatewaysResponse -&gt; ListGatewaysResponse -&gt; Bool
 $c== :: ListGatewaysResponse -&gt; ListGatewaysResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376700"><span id="local-6989586621679376702"><span id="local-6989586621679376704"><span id="local-6989586621679376706"><span class="annot"><span class="annottext">ReadPrec [ListGatewaysResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381220"><span id="local-6989586621679381222"><span id="local-6989586621679381224"><span id="local-6989586621679381226"><span class="annot"><span class="annottext">ReadPrec [ListGatewaysResponse]
 ReadPrec ListGatewaysResponse
 Int -&gt; ReadS ListGatewaysResponse
 ReadS [ListGatewaysResponse]
@@ -497,7 +497,7 @@ readList :: ReadS [ListGatewaysResponse]
 $creadList :: ReadS [ListGatewaysResponse]
 readsPrec :: Int -&gt; ReadS ListGatewaysResponse
 $creadsPrec :: Int -&gt; ReadS ListGatewaysResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376694"><span id="local-6989586621679376696"><span id="local-6989586621679376698"><span class="annot"><span class="annottext">Int -&gt; ListGatewaysResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381214"><span id="local-6989586621679381216"><span id="local-6989586621679381218"><span class="annot"><span class="annottext">Int -&gt; ListGatewaysResponse -&gt; ShowS
 [ListGatewaysResponse] -&gt; ShowS
 ListGatewaysResponse -&gt; String
 (Int -&gt; ListGatewaysResponse -&gt; ShowS)
@@ -543,8 +543,8 @@ $cfrom :: forall x. ListGatewaysResponse -&gt; Rep ListGatewaysResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newListGatewaysResponse"><span class="annot"><span class="annottext">newListGatewaysResponse :: Int -&gt; ListGatewaysResponse
-</span><a href="Network.AWS.StorageGateway.ListGateways.html#newListGatewaysResponse"><span class="hs-identifier hs-var hs-var">newListGatewaysResponse</span></a></span></span><span> </span><span id="local-6989586621679376691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.ListGateways.html#newListGatewaysResponse"><span class="hs-identifier hs-var hs-var">newListGatewaysResponse</span></a></span></span><span> </span><span id="local-6989586621679381211"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">ListGatewaysResponse' :: Maybe Text -&gt; Maybe [GatewayInfo] -&gt; Int -&gt; ListGatewaysResponse
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListGatewaysResponse' :: Maybe Text
@@ -557,7 +557,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGatewaysResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3AhttpStatus%3AListGatewaysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376691"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679381211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | Use the marker in your next request to fetch the next set of gateways in</span><span>
@@ -570,16 +570,16 @@ forall a. Maybe a
 -&gt; (ListGatewaysResponse -&gt; Maybe Text -&gt; ListGatewaysResponse)
 -&gt; Lens' ListGatewaysResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376690"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381210"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListGatewaysResponse' :: ListGatewaysResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679376690"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376690"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376689"><span class="annot"><span class="annottext">s :: ListGatewaysResponse
-</span><a href="#local-6989586621679376689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376688"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewaysResponse
-</span><a href="#local-6989586621679376689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGatewaysResponse' :: Maybe Text
+</span><a href="#local-6989586621679381210"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381210"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381209"><span class="annot"><span class="annottext">s :: ListGatewaysResponse
+</span><a href="#local-6989586621679381209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381208"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewaysResponse
+</span><a href="#local-6989586621679381209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListGatewaysResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3Amarker%3AListGatewaysResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | An array of GatewayInfo objects.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#listGatewaysResponse_gateways"><span class="hs-identifier hs-type">listGatewaysResponse_gateways</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.GatewayInfo.html#GatewayInfo"><span class="hs-identifier hs-type">GatewayInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -590,16 +590,16 @@ $sel:marker:ListGatewaysResponse' :: ListGatewaysResponse -&gt; Maybe Text
     -&gt; Maybe [GatewayInfo] -&gt; ListGatewaysResponse)
 -&gt; Lens' ListGatewaysResponse (Maybe [GatewayInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376687"><span class="annot"><span class="annottext">Maybe [GatewayInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381207"><span class="annot"><span class="annottext">Maybe [GatewayInfo]
 gateways :: Maybe [GatewayInfo]
 $sel:gateways:ListGatewaysResponse' :: ListGatewaysResponse -&gt; Maybe [GatewayInfo]
-</span><a href="#local-6989586621679376687"><span class="hs-identifier hs-var hs-var">gateways</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayInfo]
-</span><a href="#local-6989586621679376687"><span class="hs-identifier hs-var">gateways</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376686"><span class="annot"><span class="annottext">s :: ListGatewaysResponse
-</span><a href="#local-6989586621679376686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376685"><span class="annot"><span class="annottext">Maybe [GatewayInfo]
-</span><a href="#local-6989586621679376685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewaysResponse
-</span><a href="#local-6989586621679376686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gateways:ListGatewaysResponse' :: Maybe [GatewayInfo]
+</span><a href="#local-6989586621679381207"><span class="hs-identifier hs-var hs-var">gateways</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayInfo]
+</span><a href="#local-6989586621679381207"><span class="hs-identifier hs-var">gateways</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381206"><span class="annot"><span class="annottext">s :: ListGatewaysResponse
+</span><a href="#local-6989586621679381206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381205"><span class="annot"><span class="annottext">Maybe [GatewayInfo]
+</span><a href="#local-6989586621679381205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewaysResponse
+</span><a href="#local-6989586621679381206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gateways:ListGatewaysResponse' :: Maybe [GatewayInfo]
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3Agateways%3AListGatewaysResponse%27"><span class="hs-identifier hs-var">gateways</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayInfo]
-</span><a href="#local-6989586621679376685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GatewayInfo] -&gt; f (Maybe [GatewayInfo]))
+</span><a href="#local-6989586621679381205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GatewayInfo] -&gt; f (Maybe [GatewayInfo]))
  -&gt; ListGatewaysResponse -&gt; f ListGatewaysResponse)
 -&gt; ((Maybe [GatewayInfo] -&gt; f (Maybe [GatewayInfo]))
     -&gt; Maybe [GatewayInfo] -&gt; f (Maybe [GatewayInfo]))
@@ -617,8 +617,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [GatewayInfo] [GatewayInfo] [GatewayInfo] [GatewayInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#listGatewaysResponse_httpStatus"><span class="hs-identifier hs-type">listGatewaysResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -627,16 +627,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListGatewaysResponse -&gt; Int -&gt; ListGatewaysResponse)
 -&gt; Lens ListGatewaysResponse ListGatewaysResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376682"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381202"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListGatewaysResponse' :: ListGatewaysResponse -&gt; Int
-</span><a href="#local-6989586621679376682"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376682"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376681"><span class="annot"><span class="annottext">s :: ListGatewaysResponse
-</span><a href="#local-6989586621679376681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376680"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewaysResponse
-</span><a href="#local-6989586621679376681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGatewaysResponse' :: Int
+</span><a href="#local-6989586621679381202"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381202"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381201"><span class="annot"><span class="annottext">s :: ListGatewaysResponse
+</span><a href="#local-6989586621679381201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse%27"><span class="hs-identifier hs-type">ListGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewaysResponse
+</span><a href="#local-6989586621679381201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGatewaysResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ListGateways.html#%24sel%3AhttpStatus%3AListGatewaysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListGateways.html#ListGatewaysResponse"><span class="hs-identifier hs-type">ListGatewaysResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

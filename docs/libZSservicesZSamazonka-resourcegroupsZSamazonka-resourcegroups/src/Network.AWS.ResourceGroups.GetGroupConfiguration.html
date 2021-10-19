@@ -55,12 +55,12 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetGroupConfiguration' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679179936"><span id="local-6989586621679179937"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupConfiguration"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-var">GetGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupConfiguration%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-var">GetGroupConfiguration'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679180076"><span id="local-6989586621679180077"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupConfiguration"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-var">GetGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupConfiguration%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-var">GetGroupConfiguration'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the ARN of the resource group.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Agroup%27%3AGetGroupConfiguration%27"><span class="annot"><span class="annottext">GetGroupConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#%24sel%3Agroup%27%3AGetGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179930"><span id="local-6989586621679179932"><span class="annot"><span class="annottext">GetGroupConfiguration -&gt; GetGroupConfiguration -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180070"><span id="local-6989586621679180072"><span class="annot"><span class="annottext">GetGroupConfiguration -&gt; GetGroupConfiguration -&gt; Bool
 (GetGroupConfiguration -&gt; GetGroupConfiguration -&gt; Bool)
 -&gt; (GetGroupConfiguration -&gt; GetGroupConfiguration -&gt; Bool)
 -&gt; Eq GetGroupConfiguration
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroupConfiguration -&gt; GetGroupConfiguration -&gt; Bool
 == :: GetGroupConfiguration -&gt; GetGroupConfiguration -&gt; Bool
 $c== :: GetGroupConfiguration -&gt; GetGroupConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179921"><span id="local-6989586621679179923"><span id="local-6989586621679179925"><span id="local-6989586621679179927"><span class="annot"><span class="annottext">ReadPrec [GetGroupConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180061"><span id="local-6989586621679180063"><span id="local-6989586621679180065"><span id="local-6989586621679180067"><span class="annot"><span class="annottext">ReadPrec [GetGroupConfiguration]
 ReadPrec GetGroupConfiguration
 Int -&gt; ReadS GetGroupConfiguration
 ReadS [GetGroupConfiguration]
@@ -89,7 +89,7 @@ readList :: ReadS [GetGroupConfiguration]
 $creadList :: ReadS [GetGroupConfiguration]
 readsPrec :: Int -&gt; ReadS GetGroupConfiguration
 $creadsPrec :: Int -&gt; ReadS GetGroupConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179914"><span id="local-6989586621679179916"><span id="local-6989586621679179918"><span class="annot"><span class="annottext">Int -&gt; GetGroupConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180054"><span id="local-6989586621679180056"><span id="local-6989586621679180058"><span class="annot"><span class="annottext">Int -&gt; GetGroupConfiguration -&gt; ShowS
 [GetGroupConfiguration] -&gt; ShowS
 GetGroupConfiguration -&gt; String
 (Int -&gt; GetGroupConfiguration -&gt; ShowS)
@@ -146,27 +146,27 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-type">GetGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179907"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-type">GetGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180047"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':GetGroupConfiguration' :: GetGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679179907"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179907"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179906"><span class="annot"><span class="annottext">s :: GetGroupConfiguration
-</span><a href="#local-6989586621679179906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-type">GetGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179905"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupConfiguration
-</span><a href="#local-6989586621679179906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':GetGroupConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679180047"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180047"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180046"><span class="annot"><span class="annottext">s :: GetGroupConfiguration
+</span><a href="#local-6989586621679180046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-type">GetGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180045"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupConfiguration
+</span><a href="#local-6989586621679180046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':GetGroupConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#%24sel%3Agroup%27%3AGetGroupConfiguration%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679179901"><span class="annot"><span class="annottext">request :: GetGroupConfiguration -&gt; Request GetGroupConfiguration
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679180041"><span class="annot"><span class="annottext">request :: GetGroupConfiguration -&gt; Request GetGroupConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGroupConfiguration -&gt; Request GetGroupConfiguration
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679179897"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679180037"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGroupConfiguration
 -&gt; ClientResponse ClientBody
@@ -192,10 +192,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179894"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179894"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179893"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679179893"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179892"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180034"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180034"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679180033"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679180033"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679180032"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe GroupConfiguration -&gt; Int -&gt; GetGroupConfigurationResponse
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-var">GetGroupConfigurationResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GroupConfiguration -&gt; Int -&gt; GetGroupConfigurationResponse)
@@ -203,7 +203,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetGroupConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupConfiguration)
+</span><a href="#local-6989586621679180032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,27 +215,27 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179894"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679180034"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179884"><span id="local-6989586621679179886"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180024"><span id="local-6989586621679180026"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679179877"><span class="annot"><span class="annottext">toHeaders :: GetGroupConfiguration -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679180017"><span class="annot"><span class="annottext">toHeaders :: GetGroupConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGroupConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179868"><span id="local-6989586621679179870"><span id="local-6989586621679179872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679179866"><span class="annot"><span class="annottext">toJSON :: GetGroupConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-type">GetGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179864"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180008"><span id="local-6989586621679180010"><span id="local-6989586621679180012"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679180006"><span class="annot"><span class="annottext">toJSON :: GetGroupConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration%27"><span class="hs-identifier hs-type">GetGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180004"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':GetGroupConfiguration' :: GetGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679179864"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679180004"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -247,18 +247,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179864"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679180004"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679179858"><span class="annot"><span class="annottext">toPath :: GetGroupConfiguration -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679179998"><span class="annot"><span class="annottext">toPath :: GetGroupConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGroupConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/get-group-configuration&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfiguration"><span class="hs-identifier hs-type">GetGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679179854"><span class="annot"><span class="annottext">toQuery :: GetGroupConfiguration -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679179994"><span class="annot"><span class="annottext">toQuery :: GetGroupConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGroupConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -266,7 +266,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newGetGroupConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679179851"><span id="local-6989586621679179852"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupConfigurationResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-var">GetGroupConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupConfigurationResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-var">GetGroupConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679179991"><span id="local-6989586621679179992"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupConfigurationResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-var">GetGroupConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupConfigurationResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-var">GetGroupConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service configuration associated with the specified group. For</span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-comment">-- details about the service configuration syntax, see</span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups&gt;.</span><span>
@@ -276,7 +276,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGroupConfigurationResponse%27"><span class="annot"><span class="annottext">GetGroupConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#%24sel%3AhttpStatus%3AGetGroupConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179845"><span id="local-6989586621679179847"><span class="annot"><span class="annottext">GetGroupConfigurationResponse
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179985"><span id="local-6989586621679179987"><span class="annot"><span class="annottext">GetGroupConfigurationResponse
 -&gt; GetGroupConfigurationResponse -&gt; Bool
 (GetGroupConfigurationResponse
  -&gt; GetGroupConfigurationResponse -&gt; Bool)
@@ -292,7 +292,7 @@ $c/= :: GetGroupConfigurationResponse
 -&gt; GetGroupConfigurationResponse -&gt; Bool
 $c== :: GetGroupConfigurationResponse
 -&gt; GetGroupConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179837"><span id="local-6989586621679179839"><span id="local-6989586621679179841"><span id="local-6989586621679179843"><span class="annot"><span class="annottext">ReadPrec [GetGroupConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179977"><span id="local-6989586621679179979"><span id="local-6989586621679179981"><span id="local-6989586621679179983"><span class="annot"><span class="annottext">ReadPrec [GetGroupConfigurationResponse]
 ReadPrec GetGroupConfigurationResponse
 Int -&gt; ReadS GetGroupConfigurationResponse
 ReadS [GetGroupConfigurationResponse]
@@ -312,7 +312,7 @@ readList :: ReadS [GetGroupConfigurationResponse]
 $creadList :: ReadS [GetGroupConfigurationResponse]
 readsPrec :: Int -&gt; ReadS GetGroupConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS GetGroupConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179831"><span id="local-6989586621679179833"><span id="local-6989586621679179835"><span class="annot"><span class="annottext">Int -&gt; GetGroupConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179971"><span id="local-6989586621679179973"><span id="local-6989586621679179975"><span class="annot"><span class="annottext">Int -&gt; GetGroupConfigurationResponse -&gt; ShowS
 [GetGroupConfigurationResponse] -&gt; ShowS
 GetGroupConfigurationResponse -&gt; String
 (Int -&gt; GetGroupConfigurationResponse -&gt; ShowS)
@@ -368,8 +368,8 @@ GetGroupConfigurationResponse
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span><span>
 </span><span id="line-143"></span><span id="newGetGroupConfigurationResponse"><span class="annot"><span class="annottext">newGetGroupConfigurationResponse :: Int -&gt; GetGroupConfigurationResponse
-</span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#newGetGroupConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetGroupConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679179828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#newGetGroupConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetGroupConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679179968"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">GetGroupConfigurationResponse' :: Maybe GroupConfiguration -&gt; Int -&gt; GetGroupConfigurationResponse
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupConfiguration:GetGroupConfigurationResponse' :: Maybe GroupConfiguration
@@ -379,7 +379,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupConfigurationResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#%24sel%3AhttpStatus%3AGetGroupConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679179968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The service configuration associated with the specified group. For</span><span>
@@ -397,16 +397,16 @@ forall a. Maybe a
      (Maybe GroupConfiguration)
      (Maybe GroupConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179827"><span class="annot"><span class="annottext">Maybe GroupConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179967"><span class="annot"><span class="annottext">Maybe GroupConfiguration
 groupConfiguration :: Maybe GroupConfiguration
 $sel:groupConfiguration:GetGroupConfigurationResponse' :: GetGroupConfigurationResponse -&gt; Maybe GroupConfiguration
-</span><a href="#local-6989586621679179827"><span class="hs-identifier hs-var hs-var">groupConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfiguration
-</span><a href="#local-6989586621679179827"><span class="hs-identifier hs-var">groupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179826"><span class="annot"><span class="annottext">s :: GetGroupConfigurationResponse
-</span><a href="#local-6989586621679179826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179825"><span class="annot"><span class="annottext">Maybe GroupConfiguration
-</span><a href="#local-6989586621679179825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupConfigurationResponse
-</span><a href="#local-6989586621679179826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupConfiguration:GetGroupConfigurationResponse' :: Maybe GroupConfiguration
+</span><a href="#local-6989586621679179967"><span class="hs-identifier hs-var hs-var">groupConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfiguration
+</span><a href="#local-6989586621679179967"><span class="hs-identifier hs-var">groupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179966"><span class="annot"><span class="annottext">s :: GetGroupConfigurationResponse
+</span><a href="#local-6989586621679179966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179965"><span class="annot"><span class="annottext">Maybe GroupConfiguration
+</span><a href="#local-6989586621679179965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupConfigurationResponse
+</span><a href="#local-6989586621679179966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupConfiguration:GetGroupConfigurationResponse' :: Maybe GroupConfiguration
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#%24sel%3AgroupConfiguration%3AGetGroupConfigurationResponse%27"><span class="hs-identifier hs-var">groupConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupConfiguration
-</span><a href="#local-6989586621679179825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#getGroupConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getGroupConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -418,16 +418,16 @@ $sel:groupConfiguration:GetGroupConfigurationResponse' :: GetGroupConfigurationR
 -&gt; Lens
      GetGroupConfigurationResponse GetGroupConfigurationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179824"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179964"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetGroupConfigurationResponse' :: GetGroupConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679179824"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179824"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179823"><span class="annot"><span class="annottext">s :: GetGroupConfigurationResponse
-</span><a href="#local-6989586621679179823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179822"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupConfigurationResponse
-</span><a href="#local-6989586621679179823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupConfigurationResponse' :: Int
+</span><a href="#local-6989586621679179964"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179964"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179963"><span class="annot"><span class="annottext">s :: GetGroupConfigurationResponse
+</span><a href="#local-6989586621679179963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse%27"><span class="hs-identifier hs-type">GetGroupConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupConfigurationResponse
+</span><a href="#local-6989586621679179963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupConfigurationResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#%24sel%3AhttpStatus%3AGetGroupConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupConfiguration.html#GetGroupConfigurationResponse"><span class="hs-identifier hs-type">GetGroupConfigurationResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

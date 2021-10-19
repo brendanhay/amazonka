@@ -28,30 +28,30 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes information about the usage report subscription.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUsageReportSubscription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679290403"><span id="local-6989586621679290404"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageReportSubscription"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-var">UsageReportSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageReportSubscription%27"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-var">UsageReportSubscription'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The errors that were returned if usage reports couldn\'t be generated.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsubscriptionErrors%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription
+</span><span id="line-31"></span><span id="local-6989586621679290654"><span id="local-6989586621679290655"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageReportSubscription"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-var">UsageReportSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageReportSubscription%27"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-var">UsageReportSubscription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the last usage report was generated.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; Maybe POSIX
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="hs-identifier hs-var hs-var">lastGeneratedReportDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The schedule for generating usage reports.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aschedule%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; Maybe UsageReportSchedule
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3Aschedule%3AUsageReportSubscription%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-type">UsageReportSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The errors that were returned if usage reports couldn\'t be generated.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsubscriptionErrors%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription
 -&gt; Maybe [LastReportGenerationExecutionError]
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AsubscriptionErrors%3AUsageReportSubscription%27"><span class="hs-identifier hs-var hs-var">subscriptionErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.LastReportGenerationExecutionError.html#LastReportGenerationExecutionError"><span class="hs-identifier hs-type">LastReportGenerationExecutionError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The time when the last usage report was generated.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; Maybe POSIX
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="hs-identifier hs-var hs-var">lastGeneratedReportDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket where generated reports are stored.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- If you enabled on-instance session scripts and Amazon S3 logging for</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- your session script configuration, AppStream 2.0 created an S3 bucket to</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- store the script output. The bucket is unique to your account and</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Region. When you enable usage reporting in this case, AppStream 2.0 uses</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the same bucket to store your usage reports. If you haven\'t already</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- enabled on-instance session scripts, when you enable usage reports,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- AppStream 2.0 creates a new S3 bucket.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3As3BucketName%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; Maybe Text
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3As3BucketName%3AUsageReportSubscription%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The schedule for generating usage reports.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aschedule%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; Maybe UsageReportSchedule
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3Aschedule%3AUsageReportSubscription%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-type">UsageReportSchedule</span></a></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket where generated reports are stored.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- If you enabled on-instance session scripts and Amazon S3 logging for</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- your session script configuration, AppStream 2.0 created an S3 bucket to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- store the script output. The bucket is unique to your account and</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Region. When you enable usage reporting in this case, AppStream 2.0 uses</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the same bucket to store your usage reports. If you haven\'t already</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- enabled on-instance session scripts, when you enable usage reports,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- AppStream 2.0 creates a new S3 bucket.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3As3BucketName%3AUsageReportSubscription%27"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3As3BucketName%3AUsageReportSubscription%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290394"><span id="local-6989586621679290396"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; UsageReportSubscription -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290645"><span id="local-6989586621679290647"><span class="annot"><span class="annottext">UsageReportSubscription -&gt; UsageReportSubscription -&gt; Bool
 (UsageReportSubscription -&gt; UsageReportSubscription -&gt; Bool)
 -&gt; (UsageReportSubscription -&gt; UsageReportSubscription -&gt; Bool)
 -&gt; Eq UsageReportSubscription
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UsageReportSubscription -&gt; UsageReportSubscription -&gt; Bool
 == :: UsageReportSubscription -&gt; UsageReportSubscription -&gt; Bool
 $c== :: UsageReportSubscription -&gt; UsageReportSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290385"><span id="local-6989586621679290387"><span id="local-6989586621679290389"><span id="local-6989586621679290391"><span class="annot"><span class="annottext">ReadPrec [UsageReportSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290636"><span id="local-6989586621679290638"><span id="local-6989586621679290640"><span id="local-6989586621679290642"><span class="annot"><span class="annottext">ReadPrec [UsageReportSubscription]
 ReadPrec UsageReportSubscription
 Int -&gt; ReadS UsageReportSubscription
 ReadS [UsageReportSubscription]
@@ -80,7 +80,7 @@ readList :: ReadS [UsageReportSubscription]
 $creadList :: ReadS [UsageReportSubscription]
 readsPrec :: Int -&gt; ReadS UsageReportSubscription
 $creadsPrec :: Int -&gt; ReadS UsageReportSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290378"><span id="local-6989586621679290380"><span id="local-6989586621679290382"><span class="annot"><span class="annottext">Int -&gt; UsageReportSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290629"><span id="local-6989586621679290631"><span id="local-6989586621679290633"><span class="annot"><span class="annottext">Int -&gt; UsageReportSubscription -&gt; ShowS
 [UsageReportSubscription] -&gt; ShowS
 UsageReportSubscription -&gt; String
 (Int -&gt; UsageReportSubscription -&gt; ShowS)
@@ -116,53 +116,116 @@ $cfrom :: forall x. UsageReportSubscription -&gt; Rep UsageReportSubscription x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'subscriptionErrors', 'usageReportSubscription_subscriptionErrors' - The errors that were returned if usage reports couldn\'t be generated.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'lastGeneratedReportDate', 'usageReportSubscription_lastGeneratedReportDate' - The time when the last usage report was generated.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'lastGeneratedReportDate', 'usageReportSubscription_lastGeneratedReportDate' - The time when the last usage report was generated.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'schedule', 'usageReportSubscription_schedule' - The schedule for generating usage reports.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 's3BucketName', 'usageReportSubscription_s3BucketName' - The Amazon S3 bucket where generated reports are stored.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'subscriptionErrors', 'usageReportSubscription_subscriptionErrors' - The errors that were returned if usage reports couldn\'t be generated.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- If you enabled on-instance session scripts and Amazon S3 logging for</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- your session script configuration, AppStream 2.0 created an S3 bucket to</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- store the script output. The bucket is unique to your account and</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- Region. When you enable usage reporting in this case, AppStream 2.0 uses</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- the same bucket to store your usage reports. If you haven\'t already</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- enabled on-instance session scripts, when you enable usage reports,</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- AppStream 2.0 creates a new S3 bucket.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'schedule', 'usageReportSubscription_schedule' - The schedule for generating usage reports.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 's3BucketName', 'usageReportSubscription_s3BucketName' - The Amazon S3 bucket where generated reports are stored.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- If you enabled on-instance session scripts and Amazon S3 logging for</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- your session script configuration, AppStream 2.0 created an S3 bucket to</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- store the script output. The bucket is unique to your account and</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Region. When you enable usage reporting in this case, AppStream 2.0 uses</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- the same bucket to store your usage reports. If you haven\'t already</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- enabled on-instance session scripts, when you enable usage reports,</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- AppStream 2.0 creates a new S3 bucket.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#newUsageReportSubscription"><span class="hs-identifier hs-type">newUsageReportSubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span>
 </span><span id="line-76"></span><span id="newUsageReportSubscription"><span class="annot"><span class="annottext">newUsageReportSubscription :: UsageReportSubscription
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#newUsageReportSubscription"><span class="hs-identifier hs-var hs-var">newUsageReportSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">UsageReportSubscription' :: Maybe [LastReportGenerationExecutionError]
--&gt; Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">UsageReportSubscription' :: Maybe POSIX
 -&gt; Maybe UsageReportSchedule
+-&gt; Maybe [LastReportGenerationExecutionError]
+-&gt; Maybe Text
 -&gt; UsageReportSubscription
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionErrors:UsageReportSubscription' :: Maybe [LastReportGenerationExecutionError]
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AsubscriptionErrors%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">subscriptionErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastGeneratedReportDate:UsageReportSubscription' :: Maybe POSIX
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">lastGeneratedReportDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastGeneratedReportDate:UsageReportSubscription' :: Maybe POSIX
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">lastGeneratedReportDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:UsageReportSubscription' :: Maybe Text
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3As3BucketName%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:UsageReportSubscription' :: Maybe UsageReportSchedule
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:UsageReportSubscription' :: Maybe UsageReportSchedule
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3Aschedule%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageReportSchedule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscriptionErrors:UsageReportSubscription' :: Maybe [LastReportGenerationExecutionError]
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AsubscriptionErrors%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">subscriptionErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:UsageReportSubscription' :: Maybe Text
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3As3BucketName%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The errors that were returned if usage reports couldn\'t be generated.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_subscriptionErrors"><span class="hs-identifier hs-type">usageReportSubscription_subscriptionErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.LastReportGenerationExecutionError.html#LastReportGenerationExecutionError"><span class="hs-identifier hs-type">LastReportGenerationExecutionError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="usageReportSubscription_subscriptionErrors"><span class="annot"><span class="annottext">usageReportSubscription_subscriptionErrors :: (Maybe [LastReportGenerationExecutionError]
+</span><span id="line-85"></span><span class="hs-comment">-- | The time when the last usage report was generated.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_lastGeneratedReportDate"><span class="hs-identifier hs-type">usageReportSubscription_lastGeneratedReportDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="usageReportSubscription_lastGeneratedReportDate"><span class="annot"><span class="annottext">usageReportSubscription_lastGeneratedReportDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UsageReportSubscription -&gt; f UsageReportSubscription
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_lastGeneratedReportDate"><span class="hs-identifier hs-var hs-var">usageReportSubscription_lastGeneratedReportDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageReportSubscription -&gt; Maybe POSIX)
+-&gt; (UsageReportSubscription
+    -&gt; Maybe POSIX -&gt; UsageReportSubscription)
+-&gt; Lens
+     UsageReportSubscription
+     UsageReportSubscription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290620"><span class="annot"><span class="annottext">Maybe POSIX
+lastGeneratedReportDate :: Maybe POSIX
+$sel:lastGeneratedReportDate:UsageReportSubscription' :: UsageReportSubscription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679290620"><span class="hs-identifier hs-var hs-var">lastGeneratedReportDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679290620"><span class="hs-identifier hs-var">lastGeneratedReportDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290619"><span class="annot"><span class="annottext">s :: UsageReportSubscription
+</span><a href="#local-6989586621679290619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290618"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679290618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
+</span><a href="#local-6989586621679290619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastGeneratedReportDate:UsageReportSubscription' :: Maybe POSIX
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">lastGeneratedReportDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679290618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UsageReportSubscription -&gt; f UsageReportSubscription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UsageReportSubscription
+-&gt; f UsageReportSubscription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The schedule for generating usage reports.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_schedule"><span class="hs-identifier hs-type">usageReportSubscription_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-type">UsageReportSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="usageReportSubscription_schedule"><span class="annot"><span class="annottext">usageReportSubscription_schedule :: (Maybe UsageReportSchedule -&gt; f (Maybe UsageReportSchedule))
+-&gt; UsageReportSubscription -&gt; f UsageReportSubscription
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_schedule"><span class="hs-identifier hs-var hs-var">usageReportSubscription_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageReportSubscription -&gt; Maybe UsageReportSchedule)
+-&gt; (UsageReportSubscription
+    -&gt; Maybe UsageReportSchedule -&gt; UsageReportSubscription)
+-&gt; Lens
+     UsageReportSubscription
+     UsageReportSubscription
+     (Maybe UsageReportSchedule)
+     (Maybe UsageReportSchedule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290613"><span class="annot"><span class="annottext">Maybe UsageReportSchedule
+schedule :: Maybe UsageReportSchedule
+$sel:schedule:UsageReportSubscription' :: UsageReportSubscription -&gt; Maybe UsageReportSchedule
+</span><a href="#local-6989586621679290613"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageReportSchedule
+</span><a href="#local-6989586621679290613"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290612"><span class="annot"><span class="annottext">s :: UsageReportSubscription
+</span><a href="#local-6989586621679290612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290611"><span class="annot"><span class="annottext">Maybe UsageReportSchedule
+</span><a href="#local-6989586621679290611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
+</span><a href="#local-6989586621679290612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:UsageReportSubscription' :: Maybe UsageReportSchedule
+</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3Aschedule%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageReportSchedule
+</span><a href="#local-6989586621679290611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The errors that were returned if usage reports couldn\'t be generated.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_subscriptionErrors"><span class="hs-identifier hs-type">usageReportSubscription_subscriptionErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.LastReportGenerationExecutionError.html#LastReportGenerationExecutionError"><span class="hs-identifier hs-type">LastReportGenerationExecutionError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="usageReportSubscription_subscriptionErrors"><span class="annot"><span class="annottext">usageReportSubscription_subscriptionErrors :: (Maybe [LastReportGenerationExecutionError]
  -&gt; f (Maybe [LastReportGenerationExecutionError]))
 -&gt; UsageReportSubscription -&gt; f UsageReportSubscription
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_subscriptionErrors"><span class="hs-identifier hs-var hs-var">usageReportSubscription_subscriptionErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageReportSubscription
@@ -176,17 +239,17 @@ forall a. Maybe a
      (Maybe [LastReportGenerationExecutionError])
      (Maybe [LastReportGenerationExecutionError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290369"><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290609"><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
 subscriptionErrors :: Maybe [LastReportGenerationExecutionError]
 $sel:subscriptionErrors:UsageReportSubscription' :: UsageReportSubscription
 -&gt; Maybe [LastReportGenerationExecutionError]
-</span><a href="#local-6989586621679290369"><span class="hs-identifier hs-var hs-var">subscriptionErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
-</span><a href="#local-6989586621679290369"><span class="hs-identifier hs-var">subscriptionErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290368"><span class="annot"><span class="annottext">s :: UsageReportSubscription
-</span><a href="#local-6989586621679290368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290367"><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
-</span><a href="#local-6989586621679290367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
-</span><a href="#local-6989586621679290368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionErrors:UsageReportSubscription' :: Maybe [LastReportGenerationExecutionError]
+</span><a href="#local-6989586621679290609"><span class="hs-identifier hs-var hs-var">subscriptionErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
+</span><a href="#local-6989586621679290609"><span class="hs-identifier hs-var">subscriptionErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290608"><span class="annot"><span class="annottext">s :: UsageReportSubscription
+</span><a href="#local-6989586621679290608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290607"><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
+</span><a href="#local-6989586621679290607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
+</span><a href="#local-6989586621679290608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionErrors:UsageReportSubscription' :: Maybe [LastReportGenerationExecutionError]
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AsubscriptionErrors%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">subscriptionErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
-</span><a href="#local-6989586621679290367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LastReportGenerationExecutionError]
+</span><a href="#local-6989586621679290607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LastReportGenerationExecutionError]
   -&gt; f (Maybe [LastReportGenerationExecutionError]))
  -&gt; UsageReportSubscription -&gt; f UsageReportSubscription)
 -&gt; ((Maybe [LastReportGenerationExecutionError]
@@ -216,59 +279,20 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LastReportGenerationExecutionError]
   [LastReportGenerationExecutionError]
   [LastReportGenerationExecutionError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The time when the last usage report was generated.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_lastGeneratedReportDate"><span class="hs-identifier hs-type">usageReportSubscription_lastGeneratedReportDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="usageReportSubscription_lastGeneratedReportDate"><span class="annot"><span class="annottext">usageReportSubscription_lastGeneratedReportDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; UsageReportSubscription -&gt; f UsageReportSubscription
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_lastGeneratedReportDate"><span class="hs-identifier hs-var hs-var">usageReportSubscription_lastGeneratedReportDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageReportSubscription -&gt; Maybe POSIX)
--&gt; (UsageReportSubscription
-    -&gt; Maybe POSIX -&gt; UsageReportSubscription)
--&gt; Lens
-     UsageReportSubscription
-     UsageReportSubscription
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290362"><span class="annot"><span class="annottext">Maybe POSIX
-lastGeneratedReportDate :: Maybe POSIX
-$sel:lastGeneratedReportDate:UsageReportSubscription' :: UsageReportSubscription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679290362"><span class="hs-identifier hs-var hs-var">lastGeneratedReportDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679290362"><span class="hs-identifier hs-var">lastGeneratedReportDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290361"><span class="annot"><span class="annottext">s :: UsageReportSubscription
-</span><a href="#local-6989586621679290361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290360"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679290360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
-</span><a href="#local-6989586621679290361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastGeneratedReportDate:UsageReportSubscription' :: Maybe POSIX
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3AlastGeneratedReportDate%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">lastGeneratedReportDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679290360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; UsageReportSubscription -&gt; f UsageReportSubscription)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; UsageReportSubscription
--&gt; f UsageReportSubscription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon S3 bucket where generated reports are stored.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- If you enabled on-instance session scripts and Amazon S3 logging for</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- your session script configuration, AppStream 2.0 created an S3 bucket to</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- store the script output. The bucket is unique to your account and</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Region. When you enable usage reporting in this case, AppStream 2.0 uses</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- the same bucket to store your usage reports. If you haven\'t already</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- enabled on-instance session scripts, when you enable usage reports,</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- AppStream 2.0 creates a new S3 bucket.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_s3BucketName"><span class="hs-identifier hs-type">usageReportSubscription_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="usageReportSubscription_s3BucketName"><span class="annot"><span class="annottext">usageReportSubscription_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The Amazon S3 bucket where generated reports are stored.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- If you enabled on-instance session scripts and Amazon S3 logging for</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- your session script configuration, AppStream 2.0 created an S3 bucket to</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- store the script output. The bucket is unique to your account and</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Region. When you enable usage reporting in this case, AppStream 2.0 uses</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the same bucket to store your usage reports. If you haven\'t already</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- enabled on-instance session scripts, when you enable usage reports,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- AppStream 2.0 creates a new S3 bucket.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_s3BucketName"><span class="hs-identifier hs-type">usageReportSubscription_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="usageReportSubscription_s3BucketName"><span class="annot"><span class="annottext">usageReportSubscription_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UsageReportSubscription -&gt; f UsageReportSubscription
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_s3BucketName"><span class="hs-identifier hs-var hs-var">usageReportSubscription_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageReportSubscription -&gt; Maybe Text)
 -&gt; (UsageReportSubscription
@@ -279,43 +303,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290357"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290604"><span class="annot"><span class="annottext">Maybe Text
 s3BucketName :: Maybe Text
 $sel:s3BucketName:UsageReportSubscription' :: UsageReportSubscription -&gt; Maybe Text
-</span><a href="#local-6989586621679290357"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290357"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290356"><span class="annot"><span class="annottext">s :: UsageReportSubscription
-</span><a href="#local-6989586621679290356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290355"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
-</span><a href="#local-6989586621679290356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:UsageReportSubscription' :: Maybe Text
+</span><a href="#local-6989586621679290604"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290604"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290603"><span class="annot"><span class="annottext">s :: UsageReportSubscription
+</span><a href="#local-6989586621679290603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
+</span><a href="#local-6989586621679290603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:UsageReportSubscription' :: Maybe Text
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3As3BucketName%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The schedule for generating usage reports.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_schedule"><span class="hs-identifier hs-type">usageReportSubscription_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-type">UsageReportSchedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="usageReportSubscription_schedule"><span class="annot"><span class="annottext">usageReportSubscription_schedule :: (Maybe UsageReportSchedule -&gt; f (Maybe UsageReportSchedule))
--&gt; UsageReportSubscription -&gt; f UsageReportSubscription
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#usageReportSubscription_schedule"><span class="hs-identifier hs-var hs-var">usageReportSubscription_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageReportSubscription -&gt; Maybe UsageReportSchedule)
--&gt; (UsageReportSubscription
-    -&gt; Maybe UsageReportSchedule -&gt; UsageReportSubscription)
--&gt; Lens
-     UsageReportSubscription
-     UsageReportSubscription
-     (Maybe UsageReportSchedule)
-     (Maybe UsageReportSchedule)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290353"><span class="annot"><span class="annottext">Maybe UsageReportSchedule
-schedule :: Maybe UsageReportSchedule
-$sel:schedule:UsageReportSubscription' :: UsageReportSubscription -&gt; Maybe UsageReportSchedule
-</span><a href="#local-6989586621679290353"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageReportSchedule
-</span><a href="#local-6989586621679290353"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290352"><span class="annot"><span class="annottext">s :: UsageReportSubscription
-</span><a href="#local-6989586621679290352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-type">UsageReportSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290351"><span class="annot"><span class="annottext">Maybe UsageReportSchedule
-</span><a href="#local-6989586621679290351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageReportSubscription
-</span><a href="#local-6989586621679290352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:UsageReportSubscription' :: Maybe UsageReportSchedule
-</span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#%24sel%3Aschedule%3AUsageReportSubscription%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageReportSchedule
-</span><a href="#local-6989586621679290351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290348"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679290346"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageReportSubscription
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290599"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679290597"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageReportSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UsageReportSubscription)
@@ -325,79 +325,78 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UsageReportSubscription&quot;</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290343"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290343"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
--&gt; Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe UsageReportSchedule
+-&gt; Maybe [LastReportGenerationExecutionError]
+-&gt; Maybe Text
 -&gt; UsageReportSubscription
 </span><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription%27"><span class="hs-identifier hs-var">UsageReportSubscription'</span></a></span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LastReportGenerationExecutionError]
- -&gt; Maybe POSIX
- -&gt; Maybe Text
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe UsageReportSchedule
+ -&gt; Maybe [LastReportGenerationExecutionError]
+ -&gt; Maybe Text
  -&gt; UsageReportSubscription)
--&gt; Parser (Maybe [LastReportGenerationExecutionError])
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe UsageReportSchedule
+      -&gt; Maybe [LastReportGenerationExecutionError]
       -&gt; Maybe Text
-      -&gt; Maybe UsageReportSchedule
       -&gt; UsageReportSubscription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastGeneratedReportDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UsageReportSchedule
+   -&gt; Maybe [LastReportGenerationExecutionError]
+   -&gt; Maybe Text
+   -&gt; UsageReportSubscription)
+-&gt; Parser (Maybe UsageReportSchedule)
+-&gt; Parser
+     (Maybe [LastReportGenerationExecutionError]
+      -&gt; Maybe Text -&gt; UsageReportSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UsageReportSchedule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [LastReportGenerationExecutionError]
+   -&gt; Maybe Text -&gt; UsageReportSubscription)
+-&gt; Parser (Maybe [LastReportGenerationExecutionError])
+-&gt; Parser (Maybe Text -&gt; UsageReportSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe [LastReportGenerationExecutionError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscriptionErrors&quot;</span></span><span>
-</span><span id="line-116"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LastReportGenerationExecutionError]))
+</span><span id="line-118"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [LastReportGenerationExecutionError]))
 -&gt; Maybe [LastReportGenerationExecutionError]
 -&gt; Parser (Maybe [LastReportGenerationExecutionError])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LastReportGenerationExecutionError]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-117"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe UsageReportSchedule
-   -&gt; UsageReportSubscription)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe UsageReportSchedule -&gt; UsageReportSubscription)
+</span><span id="line-119"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; UsageReportSubscription)
+-&gt; Parser (Maybe Text) -&gt; Parser UsageReportSubscription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastGeneratedReportDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe UsageReportSchedule -&gt; UsageReportSubscription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe UsageReportSchedule -&gt; UsageReportSubscription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679290594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe UsageReportSchedule -&gt; UsageReportSubscription)
--&gt; Parser (Maybe UsageReportSchedule)
--&gt; Parser UsageReportSubscription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UsageReportSchedule)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290336"><span id="local-6989586621679290338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290587"><span id="local-6989586621679290589"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290584"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSubscription.html#UsageReportSubscription"><span class="hs-identifier hs-type">UsageReportSubscription</span></a></span></span><span>
 </span><span id="line-126"></span></pre></body></html>

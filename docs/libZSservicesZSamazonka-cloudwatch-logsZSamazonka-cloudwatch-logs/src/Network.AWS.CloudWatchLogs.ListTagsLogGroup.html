@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newListTagsLogGroup' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679226593"><span id="local-6989586621679226594"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsLogGroup"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-var">ListTagsLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsLogGroup%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-var">ListTagsLogGroup'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679226743"><span id="local-6989586621679226744"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsLogGroup"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-var">ListTagsLogGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsLogGroup%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-var">ListTagsLogGroup'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AlogGroupName%3AListTagsLogGroup%27"><span class="annot"><span class="annottext">ListTagsLogGroup -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3AlogGroupName%3AListTagsLogGroup%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226587"><span id="local-6989586621679226589"><span class="annot"><span class="annottext">ListTagsLogGroup -&gt; ListTagsLogGroup -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226737"><span id="local-6989586621679226739"><span class="annot"><span class="annottext">ListTagsLogGroup -&gt; ListTagsLogGroup -&gt; Bool
 (ListTagsLogGroup -&gt; ListTagsLogGroup -&gt; Bool)
 -&gt; (ListTagsLogGroup -&gt; ListTagsLogGroup -&gt; Bool)
 -&gt; Eq ListTagsLogGroup
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsLogGroup -&gt; ListTagsLogGroup -&gt; Bool
 == :: ListTagsLogGroup -&gt; ListTagsLogGroup -&gt; Bool
 $c== :: ListTagsLogGroup -&gt; ListTagsLogGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226578"><span id="local-6989586621679226580"><span id="local-6989586621679226582"><span id="local-6989586621679226584"><span class="annot"><span class="annottext">ReadPrec [ListTagsLogGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226728"><span id="local-6989586621679226730"><span id="local-6989586621679226732"><span id="local-6989586621679226734"><span class="annot"><span class="annottext">ReadPrec [ListTagsLogGroup]
 ReadPrec ListTagsLogGroup
 Int -&gt; ReadS ListTagsLogGroup
 ReadS [ListTagsLogGroup]
@@ -81,7 +81,7 @@ readList :: ReadS [ListTagsLogGroup]
 $creadList :: ReadS [ListTagsLogGroup]
 readsPrec :: Int -&gt; ReadS ListTagsLogGroup
 $creadsPrec :: Int -&gt; ReadS ListTagsLogGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226571"><span id="local-6989586621679226573"><span id="local-6989586621679226575"><span class="annot"><span class="annottext">Int -&gt; ListTagsLogGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226721"><span id="local-6989586621679226723"><span id="local-6989586621679226725"><span class="annot"><span class="annottext">Int -&gt; ListTagsLogGroup -&gt; ShowS
 [ListTagsLogGroup] -&gt; ShowS
 ListTagsLogGroup -&gt; String
 (Int -&gt; ListTagsLogGroup -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. ListTagsLogGroup -&gt; Rep ListTagsLogGroup x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span>
 </span><span id="line-69"></span><span id="newListTagsLogGroup"><span class="annot"><span class="annottext">newListTagsLogGroup :: Text -&gt; ListTagsLogGroup
-</span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#newListTagsLogGroup"><span class="hs-identifier hs-var hs-var">newListTagsLogGroup</span></a></span></span><span> </span><span id="local-6989586621679226566"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226566"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#newListTagsLogGroup"><span class="hs-identifier hs-var hs-var">newListTagsLogGroup</span></a></span></span><span> </span><span id="local-6989586621679226716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226716"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">ListTagsLogGroup' :: Text -&gt; ListTagsLogGroup
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-type">ListTagsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:ListTagsLogGroup' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3AlogGroupName%3AListTagsLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226566"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679226716"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#listTagsLogGroup_logGroupName"><span class="hs-identifier hs-type">listTagsLogGroup_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. ListTagsLogGroup -&gt; Rep ListTagsLogGroup x
 -&gt; (ListTagsLogGroup -&gt; Text -&gt; ListTagsLogGroup)
 -&gt; Lens ListTagsLogGroup ListTagsLogGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-type">ListTagsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226563"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-type">ListTagsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226713"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:ListTagsLogGroup' :: ListTagsLogGroup -&gt; Text
-</span><a href="#local-6989586621679226563"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226563"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226562"><span class="annot"><span class="annottext">s :: ListTagsLogGroup
-</span><a href="#local-6989586621679226562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-type">ListTagsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226561"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsLogGroup
-</span><a href="#local-6989586621679226562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:ListTagsLogGroup' :: Text
+</span><a href="#local-6989586621679226713"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226713"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226712"><span class="annot"><span class="annottext">s :: ListTagsLogGroup
+</span><a href="#local-6989586621679226712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-type">ListTagsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsLogGroup
+</span><a href="#local-6989586621679226712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:ListTagsLogGroup' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3AlogGroupName%3AListTagsLogGroup%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679226557"><span class="annot"><span class="annottext">request :: ListTagsLogGroup -&gt; Request ListTagsLogGroup
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679226707"><span class="annot"><span class="annottext">request :: ListTagsLogGroup -&gt; Request ListTagsLogGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTagsLogGroup -&gt; Request ListTagsLogGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679226553"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679226703"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTagsLogGroup
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226550"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226550"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226549"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226549"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226548"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226699"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226698"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsLogGroupResponse
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-var">ListTagsLogGroupResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsLogGroupResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ListTagsLogGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679226698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -208,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226550"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226539"><span id="local-6989586621679226541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226689"><span id="local-6989586621679226691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679226532"><span class="annot"><span class="annottext">toHeaders :: ListTagsLogGroup -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679226682"><span class="annot"><span class="annottext">toHeaders :: ListTagsLogGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTagsLogGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -243,12 +243,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226522"><span id="local-6989586621679226524"><span id="local-6989586621679226526"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679226520"><span class="annot"><span class="annottext">toJSON :: ListTagsLogGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-type">ListTagsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226518"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226672"><span id="local-6989586621679226674"><span id="local-6989586621679226676"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679226670"><span class="annot"><span class="annottext">toJSON :: ListTagsLogGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup%27"><span class="hs-identifier hs-type">ListTagsLogGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226668"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:ListTagsLogGroup' :: ListTagsLogGroup -&gt; Text
-</span><a href="#local-6989586621679226518"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226668"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,18 +260,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226518"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679226668"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679226512"><span class="annot"><span class="annottext">toPath :: ListTagsLogGroup -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679226662"><span class="annot"><span class="annottext">toPath :: ListTagsLogGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTagsLogGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroup"><span class="hs-identifier hs-type">ListTagsLogGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679226508"><span class="annot"><span class="annottext">toQuery :: ListTagsLogGroup -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679226658"><span class="annot"><span class="annottext">toQuery :: ListTagsLogGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTagsLogGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -279,7 +279,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newListTagsLogGroupResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679226505"><span id="local-6989586621679226506"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsLogGroupResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-var">ListTagsLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsLogGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-var">ListTagsLogGroupResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679226655"><span id="local-6989586621679226656"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsLogGroupResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-var">ListTagsLogGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsLogGroupResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-var">ListTagsLogGroupResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags for the log group.</span><span>
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3Atags%3AListTagsLogGroupResponse%27"><span class="annot"><span class="annottext">ListTagsLogGroupResponse -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3Atags%3AListTagsLogGroupResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsLogGroupResponse%27"><span class="annot"><span class="annottext">ListTagsLogGroupResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3AhttpStatus%3AListTagsLogGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226499"><span id="local-6989586621679226501"><span class="annot"><span class="annottext">ListTagsLogGroupResponse -&gt; ListTagsLogGroupResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226649"><span id="local-6989586621679226651"><span class="annot"><span class="annottext">ListTagsLogGroupResponse -&gt; ListTagsLogGroupResponse -&gt; Bool
 (ListTagsLogGroupResponse -&gt; ListTagsLogGroupResponse -&gt; Bool)
 -&gt; (ListTagsLogGroupResponse -&gt; ListTagsLogGroupResponse -&gt; Bool)
 -&gt; Eq ListTagsLogGroupResponse
@@ -296,7 +296,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsLogGroupResponse -&gt; ListTagsLogGroupResponse -&gt; Bool
 == :: ListTagsLogGroupResponse -&gt; ListTagsLogGroupResponse -&gt; Bool
 $c== :: ListTagsLogGroupResponse -&gt; ListTagsLogGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226491"><span id="local-6989586621679226493"><span id="local-6989586621679226495"><span id="local-6989586621679226497"><span class="annot"><span class="annottext">ReadPrec [ListTagsLogGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226641"><span id="local-6989586621679226643"><span id="local-6989586621679226645"><span id="local-6989586621679226647"><span class="annot"><span class="annottext">ReadPrec [ListTagsLogGroupResponse]
 ReadPrec ListTagsLogGroupResponse
 Int -&gt; ReadS ListTagsLogGroupResponse
 ReadS [ListTagsLogGroupResponse]
@@ -316,7 +316,7 @@ readList :: ReadS [ListTagsLogGroupResponse]
 $creadList :: ReadS [ListTagsLogGroupResponse]
 readsPrec :: Int -&gt; ReadS ListTagsLogGroupResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsLogGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226485"><span id="local-6989586621679226487"><span id="local-6989586621679226489"><span class="annot"><span class="annottext">Int -&gt; ListTagsLogGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226635"><span id="local-6989586621679226637"><span id="local-6989586621679226639"><span class="annot"><span class="annottext">Int -&gt; ListTagsLogGroupResponse -&gt; ShowS
 [ListTagsLogGroupResponse] -&gt; ShowS
 ListTagsLogGroupResponse -&gt; String
 (Int -&gt; ListTagsLogGroupResponse -&gt; ShowS)
@@ -364,8 +364,8 @@ ListTagsLogGroupResponse -&gt; Rep ListTagsLogGroupResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newListTagsLogGroupResponse"><span class="annot"><span class="annottext">newListTagsLogGroupResponse :: Int -&gt; ListTagsLogGroupResponse
-</span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#newListTagsLogGroupResponse"><span class="hs-identifier hs-var hs-var">newListTagsLogGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679226482"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#newListTagsLogGroupResponse"><span class="hs-identifier hs-var hs-var">newListTagsLogGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679226632"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">ListTagsLogGroupResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsLogGroupResponse
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:ListTagsLogGroupResponse' :: Maybe (HashMap Text Text)
@@ -374,7 +374,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsLogGroupResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3AhttpStatus%3AListTagsLogGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226482"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679226632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The tags for the log group.</span><span>
@@ -390,16 +390,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226481"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226631"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ListTagsLogGroupResponse' :: ListTagsLogGroupResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226481"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226481"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226480"><span class="annot"><span class="annottext">s :: ListTagsLogGroupResponse
-</span><a href="#local-6989586621679226480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226479"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsLogGroupResponse
-</span><a href="#local-6989586621679226480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsLogGroupResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679226631"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679226631"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226630"><span class="annot"><span class="annottext">s :: ListTagsLogGroupResponse
+</span><a href="#local-6989586621679226630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226629"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679226629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsLogGroupResponse
+</span><a href="#local-6989586621679226630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsLogGroupResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3Atags%3AListTagsLogGroupResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679226479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679226629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ListTagsLogGroupResponse -&gt; f ListTagsLogGroupResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -425,8 +425,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#listTagsLogGroupResponse_httpStatus"><span class="hs-identifier hs-type">listTagsLogGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -436,16 +436,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListTagsLogGroupResponse -&gt; Int -&gt; ListTagsLogGroupResponse)
 -&gt; Lens ListTagsLogGroupResponse ListTagsLogGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226475"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226625"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsLogGroupResponse' :: ListTagsLogGroupResponse -&gt; Int
-</span><a href="#local-6989586621679226475"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226475"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226474"><span class="annot"><span class="annottext">s :: ListTagsLogGroupResponse
-</span><a href="#local-6989586621679226474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226473"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsLogGroupResponse
-</span><a href="#local-6989586621679226474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsLogGroupResponse' :: Int
+</span><a href="#local-6989586621679226625"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226625"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226624"><span class="annot"><span class="annottext">s :: ListTagsLogGroupResponse
+</span><a href="#local-6989586621679226624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse%27"><span class="hs-identifier hs-type">ListTagsLogGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226623"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsLogGroupResponse
+</span><a href="#local-6989586621679226624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsLogGroupResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#%24sel%3AhttpStatus%3AListTagsLogGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.ListTagsLogGroup.html#ListTagsLogGroupResponse"><span class="hs-identifier hs-type">ListTagsLogGroupResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

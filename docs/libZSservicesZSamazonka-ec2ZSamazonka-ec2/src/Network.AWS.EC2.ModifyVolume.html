@@ -59,11 +59,11 @@
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_multiAttachEnabled"><span class="hs-identifier">modifyVolume_multiAttachEnabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_dryRun"><span class="hs-identifier">modifyVolume_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_throughput"><span class="hs-identifier">modifyVolume_throughput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_volumeType"><span class="hs-identifier">modifyVolume_volumeType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_iops"><span class="hs-identifier">modifyVolume_iops</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_size"><span class="hs-identifier">modifyVolume_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_throughput"><span class="hs-identifier">modifyVolume_throughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_size"><span class="hs-identifier">modifyVolume_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_iops"><span class="hs-identifier">modifyVolume_iops</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_volumeType"><span class="hs-identifier">modifyVolume_volumeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_dryRun"><span class="hs-identifier">modifyVolume_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_volumeId"><span class="hs-identifier">modifyVolume_volumeId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | /See:/ 'newModifyVolume' smart constructor.</span><span>
-</span><span id="line-87"></span><span id="local-6989586621681180199"><span id="local-6989586621681180200"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVolume"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-var">ModifyVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVolume%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-var">ModifyVolume'</span></a></span></span><span>
+</span><span id="line-87"></span><span id="local-6989586621681215581"><span id="local-6989586621681215582"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVolume"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-var">ModifyVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVolume%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-var">ModifyVolume'</span></a></span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to enable Amazon EBS Multi-Attach. If you enable</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Multi-Attach, you can attach the volume to up to 16</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances&gt;</span><span>
@@ -94,65 +94,65 @@
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
 </span><span id="line-95"></span><span>    </span><span id="%24sel%3AmultiAttachEnabled%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AmultiAttachEnabled%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">multiAttachEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-100"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AdryRun%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The target throughput of the volume, in MiB\/s. This parameter is valid</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- only for @gp3@ volumes. The maximum value is 1,000.</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- Default: The existing value is retained if the source and target volume</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- type is @gp3@. Otherwise, the default value is 125.</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Valid Range: Minimum value of 125. Maximum value of 1000.</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3Athroughput%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Int
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The target throughput of the volume, in MiB\/s. This parameter is valid</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- only for @gp3@ volumes. The maximum value is 1,000.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Default: The existing value is retained if the source and target volume</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- type is @gp3@. Otherwise, the default value is 125.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Valid Range: Minimum value of 125. Maximum value of 1000.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3Athroughput%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Athroughput%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">throughput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The target EBS volume type of the volume. For more information, see</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types&gt;</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The target size of the volume, in GiB. The target volume size must be</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- greater than or equal to the existing size of the volume.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- The following are the supported volumes sizes for each volume type:</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   @gp2@ and @gp3@: 1-16,384</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   @io1@ and @io2@: 4-16,384</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- Default: The existing type is retained.</span><span>
-</span><span id="line-114"></span><span>    </span><span id="%24sel%3AvolumeType%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe VolumeType
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeType%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeType.html#VolumeType"><span class="hs-identifier hs-type">VolumeType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The target IOPS rate of the volume. This parameter is valid only for</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- @gp3@, @io1@, and @io2@ volumes.</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- The following are the supported values for each volume type:</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- -   @gp3@: 3,000-16,000 IOPS</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- -   @io1@: 100-64,000 IOPS</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @io2@: 100-64,000 IOPS</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- Default: The existing value is retained if you keep the same volume</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- default is 3,000.</span><span>
-</span><span id="line-129"></span><span>    </span><span id="%24sel%3Aiops%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Aiops%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The target size of the volume, in GiB. The target volume size must be</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- greater than or equal to the existing size of the volume.</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- The following are the supported volumes sizes for each volume type:</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   @gp2@ and @gp3@: 1-16,384</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- -   @io1@ and @io2@: 4-16,384</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- -   @st1@ and @sc1@: 125-16,384</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @standard@: 1-1,024</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- Default: The existing size is retained.</span><span>
-</span><span id="line-144"></span><span>    </span><span id="%24sel%3Asize%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Int
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   @st1@ and @sc1@: 125-16,384</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- -   @standard@: 1-1,024</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- Default: The existing size is retained.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Asize%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Asize%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The target IOPS rate of the volume. This parameter is valid only for</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- @gp3@, @io1@, and @io2@ volumes.</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- The following are the supported values for each volume type:</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @gp3@: 3,000-16,000 IOPS</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- -   @io1@: 100-64,000 IOPS</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- -   @io2@: 100-64,000 IOPS</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- Default: The existing value is retained if you keep the same volume</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- default is 3,000.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Aiops%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Aiops%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The target EBS volume type of the volume. For more information, see</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types&gt;</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- Default: The existing type is retained.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AvolumeType%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe VolumeType
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeType%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeType.html#VolumeType"><span class="hs-identifier hs-type">VolumeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AdryRun%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The ID of the volume.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AvolumeId%3AModifyVolume%27"><span class="annot"><span class="annottext">ModifyVolume -&gt; Text
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeId%3AModifyVolume%27"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681180187"><span id="local-6989586621681180189"><span class="annot"><span class="annottext">ModifyVolume -&gt; ModifyVolume -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215569"><span id="local-6989586621681215571"><span class="annot"><span class="annottext">ModifyVolume -&gt; ModifyVolume -&gt; Bool
 (ModifyVolume -&gt; ModifyVolume -&gt; Bool)
 -&gt; (ModifyVolume -&gt; ModifyVolume -&gt; Bool) -&gt; Eq ModifyVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -160,7 +160,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyVolume -&gt; ModifyVolume -&gt; Bool
 == :: ModifyVolume -&gt; ModifyVolume -&gt; Bool
 $c== :: ModifyVolume -&gt; ModifyVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180178"><span id="local-6989586621681180180"><span id="local-6989586621681180182"><span id="local-6989586621681180184"><span class="annot"><span class="annottext">ReadPrec [ModifyVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215560"><span id="local-6989586621681215562"><span id="local-6989586621681215564"><span id="local-6989586621681215566"><span class="annot"><span class="annottext">ReadPrec [ModifyVolume]
 ReadPrec ModifyVolume
 Int -&gt; ReadS ModifyVolume
 ReadS [ModifyVolume]
@@ -180,7 +180,7 @@ readList :: ReadS [ModifyVolume]
 $creadList :: ReadS [ModifyVolume]
 readsPrec :: Int -&gt; ReadS ModifyVolume
 $creadsPrec :: Int -&gt; ReadS ModifyVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180171"><span id="local-6989586621681180173"><span id="local-6989586621681180175"><span class="annot"><span class="annottext">Int -&gt; ModifyVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215553"><span id="local-6989586621681215555"><span id="local-6989586621681215557"><span class="annot"><span class="annottext">Int -&gt; ModifyVolume -&gt; ShowS
 [ModifyVolume] -&gt; ShowS
 ModifyVolume -&gt; String
 (Int -&gt; ModifyVolume -&gt; ShowS)
@@ -222,54 +222,54 @@ $cfrom :: forall x. ModifyVolume -&gt; Rep ModifyVolume x
 </span><span id="line-163"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach&gt;</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'dryRun', 'modifyVolume_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- 'throughput', 'modifyVolume_throughput' - The target throughput of the volume, in MiB\/s. This parameter is valid</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- only for @gp3@ volumes. The maximum value is 1,000.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'throughput', 'modifyVolume_throughput' - The target throughput of the volume, in MiB\/s. This parameter is valid</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- only for @gp3@ volumes. The maximum value is 1,000.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Default: The existing value is retained if the source and target volume</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- type is @gp3@. Otherwise, the default value is 125.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Valid Range: Minimum value of 125. Maximum value of 1000.</span><span>
 </span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- Default: The existing value is retained if the source and target volume</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- type is @gp3@. Otherwise, the default value is 125.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'size', 'modifyVolume_size' - The target size of the volume, in GiB. The target volume size must be</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- greater than or equal to the existing size of the volume.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- Valid Range: Minimum value of 125. Maximum value of 1000.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The following are the supported volumes sizes for each volume type:</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'volumeType', 'modifyVolume_volumeType' - The target EBS volume type of the volume. For more information, see</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types&gt;</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   @gp2@ and @gp3@: 1-16,384</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   @io1@ and @io2@: 4-16,384</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- Default: The existing type is retained.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- -   @st1@ and @sc1@: 125-16,384</span><span>
 </span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- 'iops', 'modifyVolume_iops' - The target IOPS rate of the volume. This parameter is valid only for</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- @gp3@, @io1@, and @io2@ volumes.</span><span>
-</span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- The following are the supported values for each volume type:</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- -   @gp3@: 3,000-16,000 IOPS</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   @standard@: 1-1,024</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Default: The existing size is retained.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'iops', 'modifyVolume_iops' - The target IOPS rate of the volume. This parameter is valid only for</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- @gp3@, @io1@, and @io2@ volumes.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- -   @io1@: 100-64,000 IOPS</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following are the supported values for each volume type:</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- -   @io2@: 100-64,000 IOPS</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   @gp3@: 3,000-16,000 IOPS</span><span>
 </span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- Default: The existing value is retained if you keep the same volume</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- default is 3,000.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- -   @io1@: 100-64,000 IOPS</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   @io2@: 100-64,000 IOPS</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- 'size', 'modifyVolume_size' - The target size of the volume, in GiB. The target volume size must be</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- greater than or equal to the existing size of the volume.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- The following are the supported volumes sizes for each volume type:</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- -   @gp2@ and @gp3@: 1-16,384</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- -   @io1@ and @io2@: 4-16,384</span><span>
-</span><span id="line-208"></span><span class="hs-comment">--</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- -   @st1@ and @sc1@: 125-16,384</span><span>
-</span><span id="line-210"></span><span class="hs-comment">--</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- -   @standard@: 1-1,024</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- Default: The existing size is retained.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Default: The existing value is retained if you keep the same volume</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- default is 3,000.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'volumeType', 'modifyVolume_volumeType' - The target EBS volume type of the volume. For more information, see</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types&gt;</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Default: The existing type is retained.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'dryRun', 'modifyVolume_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- 'volumeId', 'modifyVolume_volumeId' - The ID of the volume.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#newModifyVolume"><span class="hs-identifier hs-type">newModifyVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -277,14 +277,14 @@ $cfrom :: forall x. ModifyVolume -&gt; Rep ModifyVolume x
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span>
 </span><span id="line-220"></span><span id="newModifyVolume"><span class="annot"><span class="annottext">newModifyVolume :: Text -&gt; ModifyVolume
-</span><a href="Network.AWS.EC2.ModifyVolume.html#newModifyVolume"><span class="hs-identifier hs-var hs-var">newModifyVolume</span></a></span></span><span> </span><span id="local-6989586621681180166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180166"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ModifyVolume.html#newModifyVolume"><span class="hs-identifier hs-var hs-var">newModifyVolume</span></a></span></span><span> </span><span id="local-6989586621681215548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215548"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">ModifyVolume' :: Maybe Bool
--&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe VolumeType
--&gt; Maybe Int
--&gt; Maybe Int
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; ModifyVolume
 </span><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span>
@@ -292,29 +292,29 @@ $cfrom :: forall x. ModifyVolume -&gt; Rep ModifyVolume x
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AmultiAttachEnabled%3AModifyVolume%27"><span class="hs-identifier hs-var">multiAttachEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVolume' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AdryRun%3AModifyVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:throughput:ModifyVolume' :: Maybe Int
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:throughput:ModifyVolume' :: Maybe Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Athroughput%3AModifyVolume%27"><span class="hs-identifier hs-var">throughput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeType:ModifyVolume' :: Maybe VolumeType
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeType%3AModifyVolume%27"><span class="hs-identifier hs-var">volumeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:size:ModifyVolume' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Asize%3AModifyVolume%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:iops:ModifyVolume' :: Maybe Int
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:iops:ModifyVolume' :: Maybe Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Aiops%3AModifyVolume%27"><span class="hs-identifier hs-var">iops</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:size:ModifyVolume' :: Maybe Int
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Asize%3AModifyVolume%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeType:ModifyVolume' :: Maybe VolumeType
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeType%3AModifyVolume%27"><span class="hs-identifier hs-var">volumeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVolume' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AdryRun%3AModifyVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeId:ModifyVolume' :: Text
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeId%3AModifyVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180166"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
+</span><a href="#local-6989586621681215548"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
 </span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | Specifies whether to enable Amazon EBS Multi-Attach. If you enable</span><span>
@@ -330,147 +330,147 @@ forall a. Maybe a
 -&gt; (ModifyVolume -&gt; Maybe Bool -&gt; ModifyVolume)
 -&gt; Lens ModifyVolume ModifyVolume (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180163"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215545"><span class="annot"><span class="annottext">Maybe Bool
 multiAttachEnabled :: Maybe Bool
 $sel:multiAttachEnabled:ModifyVolume' :: ModifyVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681180163"><span class="hs-identifier hs-var hs-var">multiAttachEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180163"><span class="hs-identifier hs-var">multiAttachEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180162"><span class="annot"><span class="annottext">s :: ModifyVolume
-</span><a href="#local-6989586621681180162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180161"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
-</span><a href="#local-6989586621681180162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiAttachEnabled:ModifyVolume' :: Maybe Bool
+</span><a href="#local-6989586621681215545"><span class="hs-identifier hs-var hs-var">multiAttachEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215545"><span class="hs-identifier hs-var">multiAttachEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215544"><span class="annot"><span class="annottext">s :: ModifyVolume
+</span><a href="#local-6989586621681215544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215543"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
+</span><a href="#local-6989586621681215544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiAttachEnabled:ModifyVolume' :: Maybe Bool
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AmultiAttachEnabled%3AModifyVolume%27"><span class="hs-identifier hs-var">multiAttachEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_dryRun"><span class="hs-identifier hs-type">modifyVolume_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="modifyVolume_dryRun"><span class="annot"><span class="annottext">modifyVolume_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ModifyVolume -&gt; f ModifyVolume
-</span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_dryRun"><span class="hs-identifier hs-var hs-var">modifyVolume_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe Bool)
--&gt; (ModifyVolume -&gt; Maybe Bool -&gt; ModifyVolume)
--&gt; Lens ModifyVolume ModifyVolume (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180160"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:ModifyVolume' :: ModifyVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681180160"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180160"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180159"><span class="annot"><span class="annottext">s :: ModifyVolume
-</span><a href="#local-6989586621681180159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180158"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
-</span><a href="#local-6989586621681180159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVolume' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AdryRun%3AModifyVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- | The target throughput of the volume, in MiB\/s. This parameter is valid</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- only for @gp3@ volumes. The maximum value is 1,000.</span><span>
-</span><span id="line-250"></span><span class="hs-comment">--</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- Default: The existing value is retained if the source and target volume</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- type is @gp3@. Otherwise, the default value is 125.</span><span>
-</span><span id="line-253"></span><span class="hs-comment">--</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- Valid Range: Minimum value of 125. Maximum value of 1000.</span><span>
-</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_throughput"><span class="hs-identifier hs-type">modifyVolume_throughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span id="modifyVolume_throughput"><span class="annot"><span class="annottext">modifyVolume_throughput :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ModifyVolume -&gt; f ModifyVolume
+</span><span id="line-241"></span><span class="hs-comment">-- | The target throughput of the volume, in MiB\/s. This parameter is valid</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- only for @gp3@ volumes. The maximum value is 1,000.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Default: The existing value is retained if the source and target volume</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- type is @gp3@. Otherwise, the default value is 125.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Valid Range: Minimum value of 125. Maximum value of 1000.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_throughput"><span class="hs-identifier hs-type">modifyVolume_throughput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="modifyVolume_throughput"><span class="annot"><span class="annottext">modifyVolume_throughput :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ModifyVolume -&gt; f ModifyVolume
 </span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_throughput"><span class="hs-identifier hs-var hs-var">modifyVolume_throughput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe Int)
 -&gt; (ModifyVolume -&gt; Maybe Int -&gt; ModifyVolume)
 -&gt; Lens ModifyVolume ModifyVolume (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180157"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215542"><span class="annot"><span class="annottext">Maybe Int
 throughput :: Maybe Int
 $sel:throughput:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
-</span><a href="#local-6989586621681180157"><span class="hs-identifier hs-var hs-var">throughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180157"><span class="hs-identifier hs-var">throughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180156"><span class="annot"><span class="annottext">s :: ModifyVolume
-</span><a href="#local-6989586621681180156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180155"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
-</span><a href="#local-6989586621681180156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throughput:ModifyVolume' :: Maybe Int
+</span><a href="#local-6989586621681215542"><span class="hs-identifier hs-var hs-var">throughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215542"><span class="hs-identifier hs-var">throughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215541"><span class="annot"><span class="annottext">s :: ModifyVolume
+</span><a href="#local-6989586621681215541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215540"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
+</span><a href="#local-6989586621681215541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throughput:ModifyVolume' :: Maybe Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Athroughput%3AModifyVolume%27"><span class="hs-identifier hs-var">throughput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- | The target EBS volume type of the volume. For more information, see</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types&gt;</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><a href="#local-6989586621681215540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The target size of the volume, in GiB. The target volume size must be</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- greater than or equal to the existing size of the volume.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- The following are the supported volumes sizes for each volume type:</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- -   @gp2@ and @gp3@: 1-16,384</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   @io1@ and @io2@: 4-16,384</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- -   @st1@ and @sc1@: 125-16,384</span><span>
 </span><span id="line-261"></span><span class="hs-comment">--</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- Default: The existing type is retained.</span><span>
-</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_volumeType"><span class="hs-identifier hs-type">modifyVolume_volumeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeType.html#VolumeType"><span class="hs-identifier hs-type">VolumeType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span id="modifyVolume_volumeType"><span class="annot"><span class="annottext">modifyVolume_volumeType :: (Maybe VolumeType -&gt; f (Maybe VolumeType))
+</span><span id="line-262"></span><span class="hs-comment">-- -   @standard@: 1-1,024</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Default: The existing size is retained.</span><span>
+</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_size"><span class="hs-identifier hs-type">modifyVolume_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span id="modifyVolume_size"><span class="annot"><span class="annottext">modifyVolume_size :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ModifyVolume -&gt; f ModifyVolume
+</span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_size"><span class="hs-identifier hs-var hs-var">modifyVolume_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe Int)
+-&gt; (ModifyVolume -&gt; Maybe Int -&gt; ModifyVolume)
+-&gt; Lens ModifyVolume ModifyVolume (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215539"><span class="annot"><span class="annottext">Maybe Int
+size :: Maybe Int
+$sel:size:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
+</span><a href="#local-6989586621681215539"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215539"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215538"><span class="annot"><span class="annottext">s :: ModifyVolume
+</span><a href="#local-6989586621681215538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215537"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
+</span><a href="#local-6989586621681215538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ModifyVolume' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Asize%3AModifyVolume%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- | The target IOPS rate of the volume. This parameter is valid only for</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- @gp3@, @io1@, and @io2@ volumes.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- The following are the supported values for each volume type:</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- -   @gp3@: 3,000-16,000 IOPS</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- -   @io1@: 100-64,000 IOPS</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   @io2@: 100-64,000 IOPS</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- Default: The existing value is retained if you keep the same volume</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- default is 3,000.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_iops"><span class="hs-identifier hs-type">modifyVolume_iops</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="modifyVolume_iops"><span class="annot"><span class="annottext">modifyVolume_iops :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ModifyVolume -&gt; f ModifyVolume
+</span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_iops"><span class="hs-identifier hs-var hs-var">modifyVolume_iops</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe Int)
+-&gt; (ModifyVolume -&gt; Maybe Int -&gt; ModifyVolume)
+-&gt; Lens ModifyVolume ModifyVolume (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215536"><span class="annot"><span class="annottext">Maybe Int
+iops :: Maybe Int
+$sel:iops:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
+</span><a href="#local-6989586621681215536"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215536"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215535"><span class="annot"><span class="annottext">s :: ModifyVolume
+</span><a href="#local-6989586621681215535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215534"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
+</span><a href="#local-6989586621681215535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iops:ModifyVolume' :: Maybe Int
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Aiops%3AModifyVolume%27"><span class="hs-identifier hs-var">iops</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The target EBS volume type of the volume. For more information, see</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types&gt;</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- Default: The existing type is retained.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_volumeType"><span class="hs-identifier hs-type">modifyVolume_volumeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeType.html#VolumeType"><span class="hs-identifier hs-type">VolumeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="modifyVolume_volumeType"><span class="annot"><span class="annottext">modifyVolume_volumeType :: (Maybe VolumeType -&gt; f (Maybe VolumeType))
 -&gt; ModifyVolume -&gt; f ModifyVolume
 </span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_volumeType"><span class="hs-identifier hs-var hs-var">modifyVolume_volumeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe VolumeType)
 -&gt; (ModifyVolume -&gt; Maybe VolumeType -&gt; ModifyVolume)
 -&gt; Lens
      ModifyVolume ModifyVolume (Maybe VolumeType) (Maybe VolumeType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180154"><span class="annot"><span class="annottext">Maybe VolumeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215533"><span class="annot"><span class="annottext">Maybe VolumeType
 volumeType :: Maybe VolumeType
 $sel:volumeType:ModifyVolume' :: ModifyVolume -&gt; Maybe VolumeType
-</span><a href="#local-6989586621681180154"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621681180154"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180153"><span class="annot"><span class="annottext">s :: ModifyVolume
-</span><a href="#local-6989586621681180153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180152"><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621681180152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
-</span><a href="#local-6989586621681180153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeType:ModifyVolume' :: Maybe VolumeType
+</span><a href="#local-6989586621681215533"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
+</span><a href="#local-6989586621681215533"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215532"><span class="annot"><span class="annottext">s :: ModifyVolume
+</span><a href="#local-6989586621681215532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215531"><span class="annot"><span class="annottext">Maybe VolumeType
+</span><a href="#local-6989586621681215531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
+</span><a href="#local-6989586621681215532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeType:ModifyVolume' :: Maybe VolumeType
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeType%3AModifyVolume%27"><span class="hs-identifier hs-var">volumeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621681180152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- | The target IOPS rate of the volume. This parameter is valid only for</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- @gp3@, @io1@, and @io2@ volumes.</span><span>
-</span><span id="line-268"></span><span class="hs-comment">--</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- The following are the supported values for each volume type:</span><span>
-</span><span id="line-270"></span><span class="hs-comment">--</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- -   @gp3@: 3,000-16,000 IOPS</span><span>
-</span><span id="line-272"></span><span class="hs-comment">--</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- -   @io1@: 100-64,000 IOPS</span><span>
-</span><span id="line-274"></span><span class="hs-comment">--</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- -   @io2@: 100-64,000 IOPS</span><span>
-</span><span id="line-276"></span><span class="hs-comment">--</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- Default: The existing value is retained if you keep the same volume</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- type. If you change the volume type to @io1@, @io2@, or @gp3@, the</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- default is 3,000.</span><span>
-</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_iops"><span class="hs-identifier hs-type">modifyVolume_iops</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span id="modifyVolume_iops"><span class="annot"><span class="annottext">modifyVolume_iops :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ModifyVolume -&gt; f ModifyVolume
-</span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_iops"><span class="hs-identifier hs-var hs-var">modifyVolume_iops</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe Int)
--&gt; (ModifyVolume -&gt; Maybe Int -&gt; ModifyVolume)
--&gt; Lens ModifyVolume ModifyVolume (Maybe Int) (Maybe Int)
+</span><a href="#local-6989586621681215531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_dryRun"><span class="hs-identifier hs-type">modifyVolume_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="modifyVolume_dryRun"><span class="annot"><span class="annottext">modifyVolume_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ModifyVolume -&gt; f ModifyVolume
+</span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_dryRun"><span class="hs-identifier hs-var hs-var">modifyVolume_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe Bool)
+-&gt; (ModifyVolume -&gt; Maybe Bool -&gt; ModifyVolume)
+-&gt; Lens ModifyVolume ModifyVolume (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180151"><span class="annot"><span class="annottext">Maybe Int
-iops :: Maybe Int
-$sel:iops:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
-</span><a href="#local-6989586621681180151"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180151"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180150"><span class="annot"><span class="annottext">s :: ModifyVolume
-</span><a href="#local-6989586621681180150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180149"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
-</span><a href="#local-6989586621681180150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iops:ModifyVolume' :: Maybe Int
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Aiops%3AModifyVolume%27"><span class="hs-identifier hs-var">iops</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- | The target size of the volume, in GiB. The target volume size must be</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- greater than or equal to the existing size of the volume.</span><span>
-</span><span id="line-285"></span><span class="hs-comment">--</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- The following are the supported volumes sizes for each volume type:</span><span>
-</span><span id="line-287"></span><span class="hs-comment">--</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- -   @gp2@ and @gp3@: 1-16,384</span><span>
-</span><span id="line-289"></span><span class="hs-comment">--</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- -   @io1@ and @io2@: 4-16,384</span><span>
-</span><span id="line-291"></span><span class="hs-comment">--</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- -   @st1@ and @sc1@: 125-16,384</span><span>
-</span><span id="line-293"></span><span class="hs-comment">--</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- -   @standard@: 1-1,024</span><span>
-</span><span id="line-295"></span><span class="hs-comment">--</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- Default: The existing size is retained.</span><span>
-</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_size"><span class="hs-identifier hs-type">modifyVolume_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-298"></span><span id="modifyVolume_size"><span class="annot"><span class="annottext">modifyVolume_size :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ModifyVolume -&gt; f ModifyVolume
-</span><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_size"><span class="hs-identifier hs-var hs-var">modifyVolume_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyVolume -&gt; Maybe Int)
--&gt; (ModifyVolume -&gt; Maybe Int -&gt; ModifyVolume)
--&gt; Lens ModifyVolume ModifyVolume (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180148"><span class="annot"><span class="annottext">Maybe Int
-size :: Maybe Int
-$sel:size:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
-</span><a href="#local-6989586621681180148"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180148"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180147"><span class="annot"><span class="annottext">s :: ModifyVolume
-</span><a href="#local-6989586621681180147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180146"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
-</span><a href="#local-6989586621681180147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ModifyVolume' :: Maybe Int
-</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3Asize%3AModifyVolume%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215530"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyVolume' :: ModifyVolume -&gt; Maybe Bool
+</span><a href="#local-6989586621681215530"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215530"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215529"><span class="annot"><span class="annottext">s :: ModifyVolume
+</span><a href="#local-6989586621681215529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215528"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
+</span><a href="#local-6989586621681215529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyVolume' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AdryRun%3AModifyVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | The ID of the volume.</span><span>
 </span><span id="line-301"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolume_volumeId"><span class="hs-identifier hs-type">modifyVolume_volumeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -479,25 +479,25 @@ $sel:size:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
 -&gt; (ModifyVolume -&gt; Text -&gt; ModifyVolume)
 -&gt; Lens ModifyVolume ModifyVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180145"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215527"><span class="annot"><span class="annottext">Text
 volumeId :: Text
 $sel:volumeId:ModifyVolume' :: ModifyVolume -&gt; Text
-</span><a href="#local-6989586621681180145"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180145"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180144"><span class="annot"><span class="annottext">s :: ModifyVolume
-</span><a href="#local-6989586621681180144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180143"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
-</span><a href="#local-6989586621681180144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:ModifyVolume' :: Text
+</span><a href="#local-6989586621681215527"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215527"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215526"><span class="annot"><span class="annottext">s :: ModifyVolume
+</span><a href="#local-6989586621681215526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681215525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolume
+</span><a href="#local-6989586621681215526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:ModifyVolume' :: Text
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeId%3AModifyVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>
 </span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-305"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621681180139"><span class="annot"><span class="annottext">request :: ModifyVolume -&gt; Request ModifyVolume
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621681215521"><span class="annot"><span class="annottext">request :: ModifyVolume -&gt; Request ModifyVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyVolume -&gt; Request ModifyVolume
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-307"></span><span>  </span><span id="local-6989586621681180135"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621681215517"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyVolume
 -&gt; ClientResponse ClientBody
@@ -521,10 +521,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-309"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681180132"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681180132"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681180131"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681180131"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681180130"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-309"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681215514"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215514"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681215513"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681215513"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681215512"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681215512"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-310"></span><span>          </span><span class="annot"><span class="annottext">Maybe VolumeModification -&gt; Int -&gt; ModifyVolumeResponse
 </span><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-var">ModifyVolumeResponse'</span></a></span><span>
 </span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VolumeModification -&gt; Int -&gt; ModifyVolumeResponse)
@@ -532,7 +532,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ModifyVolumeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681180130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VolumeModification)
+</span><a href="#local-6989586621681215512"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VolumeModification)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;volumeModification&quot;</span></span><span class="hs-special">)</span><span>
@@ -544,15 +544,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681180132"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215514"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>
-</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681180122"><span id="local-6989586621681180124"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span></span></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681215504"><span id="local-6989586621681215506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span></span></span><span>
 </span><span id="line-316"></span><span>
-</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681180119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681215501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span></span><span>
 </span><span id="line-318"></span><span>
 </span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621681180115"><span class="annot"><span class="annottext">toHeaders :: ModifyVolume -&gt; ResponseHeaders
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621681215497"><span class="annot"><span class="annottext">toHeaders :: ModifyVolume -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyVolume -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -560,33 +560,33 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-323"></span><span>  </span><span id="local-6989586621681180110"><span class="annot"><span class="annottext">toPath :: ModifyVolume -&gt; ByteString
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621681215492"><span class="annot"><span class="annottext">toPath :: ModifyVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-324"></span><span>
 </span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume"><span class="hs-identifier hs-type">ModifyVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-326"></span><span>  </span><span id="local-6989586621681180106"><span class="annot"><span class="annottext">toQuery :: ModifyVolume -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180098"><span id="local-6989586621681180099"><span id="local-6989586621681180100"><span id="local-6989586621681180101"><span id="local-6989586621681180102"><span id="local-6989586621681180103"><span id="local-6989586621681180104"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621681215488"><span class="annot"><span class="annottext">toQuery :: ModifyVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolume%27"><span class="hs-identifier hs-type">ModifyVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215480"><span id="local-6989586621681215481"><span id="local-6989586621681215482"><span id="local-6989586621681215483"><span id="local-6989586621681215484"><span id="local-6989586621681215485"><span id="local-6989586621681215486"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe VolumeType
 Text
 volumeId :: Text
-size :: Maybe Int
-iops :: Maybe Int
-volumeType :: Maybe VolumeType
-throughput :: Maybe Int
 dryRun :: Maybe Bool
+volumeType :: Maybe VolumeType
+iops :: Maybe Int
+size :: Maybe Int
+throughput :: Maybe Int
 multiAttachEnabled :: Maybe Bool
 $sel:volumeId:ModifyVolume' :: ModifyVolume -&gt; Text
-$sel:size:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
-$sel:iops:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
-$sel:volumeType:ModifyVolume' :: ModifyVolume -&gt; Maybe VolumeType
-$sel:throughput:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
 $sel:dryRun:ModifyVolume' :: ModifyVolume -&gt; Maybe Bool
+$sel:volumeType:ModifyVolume' :: ModifyVolume -&gt; Maybe VolumeType
+$sel:iops:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
+$sel:size:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
+$sel:throughput:ModifyVolume' :: ModifyVolume -&gt; Maybe Int
 $sel:multiAttachEnabled:ModifyVolume' :: ModifyVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681180098"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681215480"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-327"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -606,41 +606,41 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;MultiAttachEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180104"><span class="hs-identifier hs-var">multiAttachEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681215486"><span class="hs-identifier hs-var">multiAttachEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-333"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681180103"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Throughput&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180102"><span class="hs-identifier hs-var">throughput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-335"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;VolumeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe VolumeType -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621681180101"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Iops&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180100"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-337"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681215485"><span class="hs-identifier hs-var">throughput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Size&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681180099"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681215484"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Iops&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681215483"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VolumeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe VolumeType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
+</span><a href="#local-6989586621681215482"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681215481"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681180098"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
+</span><a href="#local-6989586621681215480"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
 </span><span id="line-339"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-340"></span><span>
 </span><span id="line-341"></span><span class="hs-comment">-- | /See:/ 'newModifyVolumeResponse' smart constructor.</span><span>
-</span><span id="line-342"></span><span id="local-6989586621681180095"><span id="local-6989586621681180096"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVolumeResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-var">ModifyVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVolumeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-var">ModifyVolumeResponse'</span></a></span></span><span>
+</span><span id="line-342"></span><span id="local-6989586621681215477"><span id="local-6989586621681215478"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyVolumeResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-var">ModifyVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyVolumeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-var">ModifyVolumeResponse'</span></a></span></span><span>
 </span><span id="line-343"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the volume modification.</span><span>
 </span><span id="line-344"></span><span>    </span><span id="%24sel%3AvolumeModification%3AModifyVolumeResponse%27"><span class="annot"><span class="annottext">ModifyVolumeResponse -&gt; Maybe VolumeModification
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeModification%3AModifyVolumeResponse%27"><span class="hs-identifier hs-var hs-var">volumeModification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeModification.html#VolumeModification"><span class="hs-identifier hs-type">VolumeModification</span></a></span><span class="hs-special">,</span><span>
@@ -648,7 +648,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-346"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyVolumeResponse%27"><span class="annot"><span class="annottext">ModifyVolumeResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AhttpStatus%3AModifyVolumeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-347"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-348"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681180089"><span id="local-6989586621681180091"><span class="annot"><span class="annottext">ModifyVolumeResponse -&gt; ModifyVolumeResponse -&gt; Bool
+</span><span id="line-348"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681215471"><span id="local-6989586621681215473"><span class="annot"><span class="annottext">ModifyVolumeResponse -&gt; ModifyVolumeResponse -&gt; Bool
 (ModifyVolumeResponse -&gt; ModifyVolumeResponse -&gt; Bool)
 -&gt; (ModifyVolumeResponse -&gt; ModifyVolumeResponse -&gt; Bool)
 -&gt; Eq ModifyVolumeResponse
@@ -657,7 +657,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyVolumeResponse -&gt; ModifyVolumeResponse -&gt; Bool
 == :: ModifyVolumeResponse -&gt; ModifyVolumeResponse -&gt; Bool
 $c== :: ModifyVolumeResponse -&gt; ModifyVolumeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180081"><span id="local-6989586621681180083"><span id="local-6989586621681180085"><span id="local-6989586621681180087"><span class="annot"><span class="annottext">ReadPrec [ModifyVolumeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215463"><span id="local-6989586621681215465"><span id="local-6989586621681215467"><span id="local-6989586621681215469"><span class="annot"><span class="annottext">ReadPrec [ModifyVolumeResponse]
 ReadPrec ModifyVolumeResponse
 Int -&gt; ReadS ModifyVolumeResponse
 ReadS [ModifyVolumeResponse]
@@ -677,7 +677,7 @@ readList :: ReadS [ModifyVolumeResponse]
 $creadList :: ReadS [ModifyVolumeResponse]
 readsPrec :: Int -&gt; ReadS ModifyVolumeResponse
 $creadsPrec :: Int -&gt; ReadS ModifyVolumeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681180075"><span id="local-6989586621681180077"><span id="local-6989586621681180079"><span class="annot"><span class="annottext">Int -&gt; ModifyVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681215457"><span id="local-6989586621681215459"><span id="local-6989586621681215461"><span class="annot"><span class="annottext">Int -&gt; ModifyVolumeResponse -&gt; ShowS
 [ModifyVolumeResponse] -&gt; ShowS
 ModifyVolumeResponse -&gt; String
 (Int -&gt; ModifyVolumeResponse -&gt; ShowS)
@@ -719,8 +719,8 @@ $cfrom :: forall x. ModifyVolumeResponse -&gt; Rep ModifyVolumeResponse x
 </span><span id="line-363"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-364"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span><span>
 </span><span id="line-365"></span><span id="newModifyVolumeResponse"><span class="annot"><span class="annottext">newModifyVolumeResponse :: Int -&gt; ModifyVolumeResponse
-</span><a href="Network.AWS.EC2.ModifyVolume.html#newModifyVolumeResponse"><span class="hs-identifier hs-var hs-var">newModifyVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621681180072"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681180072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ModifyVolume.html#newModifyVolumeResponse"><span class="hs-identifier hs-var hs-var">newModifyVolumeResponse</span></a></span></span><span> </span><span id="local-6989586621681215454"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215454"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-366"></span><span>  </span><span class="annot"><span class="annottext">ModifyVolumeResponse' :: Maybe VolumeModification -&gt; Int -&gt; ModifyVolumeResponse
 </span><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span>
 </span><span id="line-367"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:volumeModification:ModifyVolumeResponse' :: Maybe VolumeModification
@@ -730,7 +730,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-369"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVolumeResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AhttpStatus%3AModifyVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681180072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681215454"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-370"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-371"></span><span>
 </span><span id="line-372"></span><span class="hs-comment">-- | Information about the volume modification.</span><span>
@@ -746,16 +746,16 @@ forall a. Maybe a
      (Maybe VolumeModification)
      (Maybe VolumeModification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180071"><span class="annot"><span class="annottext">Maybe VolumeModification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215453"><span class="annot"><span class="annottext">Maybe VolumeModification
 volumeModification :: Maybe VolumeModification
 $sel:volumeModification:ModifyVolumeResponse' :: ModifyVolumeResponse -&gt; Maybe VolumeModification
-</span><a href="#local-6989586621681180071"><span class="hs-identifier hs-var hs-var">volumeModification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeModification
-</span><a href="#local-6989586621681180071"><span class="hs-identifier hs-var">volumeModification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180070"><span class="annot"><span class="annottext">s :: ModifyVolumeResponse
-</span><a href="#local-6989586621681180070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180069"><span class="annot"><span class="annottext">Maybe VolumeModification
-</span><a href="#local-6989586621681180069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolumeResponse
-</span><a href="#local-6989586621681180070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeModification:ModifyVolumeResponse' :: Maybe VolumeModification
+</span><a href="#local-6989586621681215453"><span class="hs-identifier hs-var hs-var">volumeModification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeModification
+</span><a href="#local-6989586621681215453"><span class="hs-identifier hs-var">volumeModification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215452"><span class="annot"><span class="annottext">s :: ModifyVolumeResponse
+</span><a href="#local-6989586621681215452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215451"><span class="annot"><span class="annottext">Maybe VolumeModification
+</span><a href="#local-6989586621681215451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolumeResponse
+</span><a href="#local-6989586621681215452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeModification:ModifyVolumeResponse' :: Maybe VolumeModification
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AvolumeModification%3AModifyVolumeResponse%27"><span class="hs-identifier hs-var">volumeModification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeModification
-</span><a href="#local-6989586621681180069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-375"></span><span>
 </span><span id="line-376"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-377"></span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#modifyVolumeResponse_httpStatus"><span class="hs-identifier hs-type">modifyVolumeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -764,16 +764,16 @@ $sel:volumeModification:ModifyVolumeResponse' :: ModifyVolumeResponse -&gt; Mayb
 -&gt; (ModifyVolumeResponse -&gt; Int -&gt; ModifyVolumeResponse)
 -&gt; Lens ModifyVolumeResponse ModifyVolumeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681180068"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681215450"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyVolumeResponse' :: ModifyVolumeResponse -&gt; Int
-</span><a href="#local-6989586621681180068"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681180068"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681180067"><span class="annot"><span class="annottext">s :: ModifyVolumeResponse
-</span><a href="#local-6989586621681180067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681180066"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681180066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolumeResponse
-</span><a href="#local-6989586621681180067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVolumeResponse' :: Int
+</span><a href="#local-6989586621681215450"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215450"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681215449"><span class="annot"><span class="annottext">s :: ModifyVolumeResponse
+</span><a href="#local-6989586621681215449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse%27"><span class="hs-identifier hs-type">ModifyVolumeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681215448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681215448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyVolumeResponse
+</span><a href="#local-6989586621681215449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyVolumeResponse' :: Int
 </span><a href="Network.AWS.EC2.ModifyVolume.html#%24sel%3AhttpStatus%3AModifyVolumeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681180066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681215448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-379"></span><span>
-</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681180064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span></span><span>
+</span><span id="line-380"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681215446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyVolume.html#ModifyVolumeResponse"><span class="hs-identifier hs-type">ModifyVolumeResponse</span></a></span></span><span>
 </span><span id="line-381"></span></pre></body></html>

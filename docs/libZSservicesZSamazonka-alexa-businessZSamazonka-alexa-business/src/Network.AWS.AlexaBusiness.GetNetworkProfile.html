@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetNetworkProfile' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679384404"><span id="local-6989586621679384405"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNetworkProfile"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-var">GetNetworkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNetworkProfile%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-var">GetNetworkProfile'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679384762"><span id="local-6989586621679384763"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNetworkProfile"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-var">GetNetworkProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNetworkProfile%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-var">GetNetworkProfile'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the network profile associated with a device.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AnetworkProfileArn%3AGetNetworkProfile%27"><span class="annot"><span class="annottext">GetNetworkProfile -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AnetworkProfileArn%3AGetNetworkProfile%27"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384398"><span id="local-6989586621679384400"><span class="annot"><span class="annottext">GetNetworkProfile -&gt; GetNetworkProfile -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384756"><span id="local-6989586621679384758"><span class="annot"><span class="annottext">GetNetworkProfile -&gt; GetNetworkProfile -&gt; Bool
 (GetNetworkProfile -&gt; GetNetworkProfile -&gt; Bool)
 -&gt; (GetNetworkProfile -&gt; GetNetworkProfile -&gt; Bool)
 -&gt; Eq GetNetworkProfile
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetNetworkProfile -&gt; GetNetworkProfile -&gt; Bool
 == :: GetNetworkProfile -&gt; GetNetworkProfile -&gt; Bool
 $c== :: GetNetworkProfile -&gt; GetNetworkProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384389"><span id="local-6989586621679384391"><span id="local-6989586621679384393"><span id="local-6989586621679384395"><span class="annot"><span class="annottext">ReadPrec [GetNetworkProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384747"><span id="local-6989586621679384749"><span id="local-6989586621679384751"><span id="local-6989586621679384753"><span class="annot"><span class="annottext">ReadPrec [GetNetworkProfile]
 ReadPrec GetNetworkProfile
 Int -&gt; ReadS GetNetworkProfile
 ReadS [GetNetworkProfile]
@@ -81,7 +81,7 @@ readList :: ReadS [GetNetworkProfile]
 $creadList :: ReadS [GetNetworkProfile]
 readsPrec :: Int -&gt; ReadS GetNetworkProfile
 $creadsPrec :: Int -&gt; ReadS GetNetworkProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384382"><span id="local-6989586621679384384"><span id="local-6989586621679384386"><span class="annot"><span class="annottext">Int -&gt; GetNetworkProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384740"><span id="local-6989586621679384742"><span id="local-6989586621679384744"><span class="annot"><span class="annottext">Int -&gt; GetNetworkProfile -&gt; ShowS
 [GetNetworkProfile] -&gt; ShowS
 GetNetworkProfile -&gt; String
 (Int -&gt; GetNetworkProfile -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. GetNetworkProfile -&gt; Rep GetNetworkProfile x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetNetworkProfile"><span class="annot"><span class="annottext">newGetNetworkProfile :: Text -&gt; GetNetworkProfile
-</span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#newGetNetworkProfile"><span class="hs-identifier hs-var hs-var">newGetNetworkProfile</span></a></span></span><span> </span><span id="local-6989586621679384377"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384377"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#newGetNetworkProfile"><span class="hs-identifier hs-var hs-var">newGetNetworkProfile</span></a></span></span><span> </span><span id="local-6989586621679384735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384735"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetNetworkProfile' :: Text -&gt; GetNetworkProfile
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-type">GetNetworkProfile'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkProfileArn:GetNetworkProfile' :: Text
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AnetworkProfileArn%3AGetNetworkProfile%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384377"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span><span>
+</span><a href="#local-6989586621679384735"><span class="hs-identifier hs-var">pNetworkProfileArn_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the network profile associated with a device.</span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. GetNetworkProfile -&gt; Rep GetNetworkProfile x
 -&gt; (GetNetworkProfile -&gt; Text -&gt; GetNetworkProfile)
 -&gt; Lens GetNetworkProfile GetNetworkProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-type">GetNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384374"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-type">GetNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384732"><span class="annot"><span class="annottext">Text
 networkProfileArn :: Text
 $sel:networkProfileArn:GetNetworkProfile' :: GetNetworkProfile -&gt; Text
-</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384374"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384373"><span class="annot"><span class="annottext">s :: GetNetworkProfile
-</span><a href="#local-6989586621679384373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-type">GetNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384372"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNetworkProfile
-</span><a href="#local-6989586621679384373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfileArn:GetNetworkProfile' :: Text
+</span><a href="#local-6989586621679384732"><span class="hs-identifier hs-var hs-var">networkProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384732"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384731"><span class="annot"><span class="annottext">s :: GetNetworkProfile
+</span><a href="#local-6989586621679384731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-type">GetNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNetworkProfile
+</span><a href="#local-6989586621679384731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfileArn:GetNetworkProfile' :: Text
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AnetworkProfileArn%3AGetNetworkProfile%27"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679384368"><span class="annot"><span class="annottext">request :: GetNetworkProfile -&gt; Request GetNetworkProfile
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679384726"><span class="annot"><span class="annottext">request :: GetNetworkProfile -&gt; Request GetNetworkProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetNetworkProfile -&gt; Request GetNetworkProfile
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679384364"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679384722"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetNetworkProfile
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384361"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384361"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384360"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679384360"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384359"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384359"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384719"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384718"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384718"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe NetworkProfile -&gt; Int -&gt; GetNetworkProfileResponse
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-var">GetNetworkProfileResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NetworkProfile -&gt; Int -&gt; GetNetworkProfileResponse)
@@ -195,7 +195,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetNetworkProfileResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NetworkProfile)
+</span><a href="#local-6989586621679384717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe NetworkProfile)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NetworkProfile&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,15 +207,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384361"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384719"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384351"><span id="local-6989586621679384353"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384709"><span id="local-6989586621679384711"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384706"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679384344"><span class="annot"><span class="annottext">toHeaders :: GetNetworkProfile -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679384702"><span class="annot"><span class="annottext">toHeaders :: GetNetworkProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetNetworkProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -242,12 +242,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384334"><span id="local-6989586621679384336"><span id="local-6989586621679384338"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679384332"><span class="annot"><span class="annottext">toJSON :: GetNetworkProfile -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-type">GetNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384330"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384692"><span id="local-6989586621679384694"><span id="local-6989586621679384696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679384690"><span class="annot"><span class="annottext">toJSON :: GetNetworkProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile%27"><span class="hs-identifier hs-type">GetNetworkProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384688"><span class="annot"><span class="annottext">Text
 networkProfileArn :: Text
 $sel:networkProfileArn:GetNetworkProfile' :: GetNetworkProfile -&gt; Text
-</span><a href="#local-6989586621679384330"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384688"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,19 +260,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NetworkProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384330"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384688"><span class="hs-identifier hs-var">networkProfileArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679384324"><span class="annot"><span class="annottext">toPath :: GetNetworkProfile -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679384682"><span class="annot"><span class="annottext">toPath :: GetNetworkProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetNetworkProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfile"><span class="hs-identifier hs-type">GetNetworkProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679384320"><span class="annot"><span class="annottext">toQuery :: GetNetworkProfile -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679384678"><span class="annot"><span class="annottext">toQuery :: GetNetworkProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetNetworkProfile -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newGetNetworkProfileResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679384317"><span id="local-6989586621679384318"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNetworkProfileResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-var">GetNetworkProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNetworkProfileResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-var">GetNetworkProfileResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679384675"><span id="local-6989586621679384676"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetNetworkProfileResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-var">GetNetworkProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetNetworkProfileResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-var">GetNetworkProfileResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The network profile associated with a device.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AnetworkProfile%3AGetNetworkProfileResponse%27"><span class="annot"><span class="annottext">GetNetworkProfileResponse -&gt; Maybe NetworkProfile
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AnetworkProfile%3AGetNetworkProfileResponse%27"><span class="hs-identifier hs-var hs-var">networkProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkProfile.html#NetworkProfile"><span class="hs-identifier hs-type">NetworkProfile</span></a></span><span class="hs-special">,</span><span>
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetNetworkProfileResponse%27"><span class="annot"><span class="annottext">GetNetworkProfileResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AhttpStatus%3AGetNetworkProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384311"><span id="local-6989586621679384313"><span class="annot"><span class="annottext">GetNetworkProfileResponse -&gt; GetNetworkProfileResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384669"><span id="local-6989586621679384671"><span class="annot"><span class="annottext">GetNetworkProfileResponse -&gt; GetNetworkProfileResponse -&gt; Bool
 (GetNetworkProfileResponse -&gt; GetNetworkProfileResponse -&gt; Bool)
 -&gt; (GetNetworkProfileResponse -&gt; GetNetworkProfileResponse -&gt; Bool)
 -&gt; Eq GetNetworkProfileResponse
@@ -297,7 +297,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetNetworkProfileResponse -&gt; GetNetworkProfileResponse -&gt; Bool
 == :: GetNetworkProfileResponse -&gt; GetNetworkProfileResponse -&gt; Bool
 $c== :: GetNetworkProfileResponse -&gt; GetNetworkProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384305"><span id="local-6989586621679384307"><span id="local-6989586621679384309"><span class="annot"><span class="annottext">Int -&gt; GetNetworkProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384663"><span id="local-6989586621679384665"><span id="local-6989586621679384667"><span class="annot"><span class="annottext">Int -&gt; GetNetworkProfileResponse -&gt; ShowS
 [GetNetworkProfileResponse] -&gt; ShowS
 GetNetworkProfileResponse -&gt; String
 (Int -&gt; GetNetworkProfileResponse -&gt; ShowS)
@@ -345,8 +345,8 @@ GetNetworkProfileResponse -&gt; Rep GetNetworkProfileResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newGetNetworkProfileResponse"><span class="annot"><span class="annottext">newGetNetworkProfileResponse :: Int -&gt; GetNetworkProfileResponse
-</span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#newGetNetworkProfileResponse"><span class="hs-identifier hs-var hs-var">newGetNetworkProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679384302"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#newGetNetworkProfileResponse"><span class="hs-identifier hs-var hs-var">newGetNetworkProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679384660"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">GetNetworkProfileResponse' :: Maybe NetworkProfile -&gt; Int -&gt; GetNetworkProfileResponse
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkProfile:GetNetworkProfileResponse' :: Maybe NetworkProfile
@@ -356,7 +356,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetNetworkProfileResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AhttpStatus%3AGetNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679384660"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The network profile associated with a device.</span><span>
@@ -372,16 +372,16 @@ forall a. Maybe a
      (Maybe NetworkProfile)
      (Maybe NetworkProfile)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384301"><span class="annot"><span class="annottext">Maybe NetworkProfile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384659"><span class="annot"><span class="annottext">Maybe NetworkProfile
 networkProfile :: Maybe NetworkProfile
 $sel:networkProfile:GetNetworkProfileResponse' :: GetNetworkProfileResponse -&gt; Maybe NetworkProfile
-</span><a href="#local-6989586621679384301"><span class="hs-identifier hs-var hs-var">networkProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfile
-</span><a href="#local-6989586621679384301"><span class="hs-identifier hs-var">networkProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384300"><span class="annot"><span class="annottext">s :: GetNetworkProfileResponse
-</span><a href="#local-6989586621679384300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384299"><span class="annot"><span class="annottext">Maybe NetworkProfile
-</span><a href="#local-6989586621679384299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNetworkProfileResponse
-</span><a href="#local-6989586621679384300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfile:GetNetworkProfileResponse' :: Maybe NetworkProfile
+</span><a href="#local-6989586621679384659"><span class="hs-identifier hs-var hs-var">networkProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfile
+</span><a href="#local-6989586621679384659"><span class="hs-identifier hs-var">networkProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384658"><span class="annot"><span class="annottext">s :: GetNetworkProfileResponse
+</span><a href="#local-6989586621679384658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384657"><span class="annot"><span class="annottext">Maybe NetworkProfile
+</span><a href="#local-6989586621679384657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNetworkProfileResponse
+</span><a href="#local-6989586621679384658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkProfile:GetNetworkProfileResponse' :: Maybe NetworkProfile
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AnetworkProfile%3AGetNetworkProfileResponse%27"><span class="hs-identifier hs-var">networkProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkProfile
-</span><a href="#local-6989586621679384299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#getNetworkProfileResponse_httpStatus"><span class="hs-identifier hs-type">getNetworkProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -391,16 +391,16 @@ $sel:networkProfile:GetNetworkProfileResponse' :: GetNetworkProfileResponse -&gt
 -&gt; (GetNetworkProfileResponse -&gt; Int -&gt; GetNetworkProfileResponse)
 -&gt; Lens GetNetworkProfileResponse GetNetworkProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384298"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384656"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetNetworkProfileResponse' :: GetNetworkProfileResponse -&gt; Int
-</span><a href="#local-6989586621679384298"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384298"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384297"><span class="annot"><span class="annottext">s :: GetNetworkProfileResponse
-</span><a href="#local-6989586621679384297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384296"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNetworkProfileResponse
-</span><a href="#local-6989586621679384297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetNetworkProfileResponse' :: Int
+</span><a href="#local-6989586621679384656"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384656"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384655"><span class="annot"><span class="annottext">s :: GetNetworkProfileResponse
+</span><a href="#local-6989586621679384655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse%27"><span class="hs-identifier hs-type">GetNetworkProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384654"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetNetworkProfileResponse
+</span><a href="#local-6989586621679384655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetNetworkProfileResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#%24sel%3AhttpStatus%3AGetNetworkProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.GetNetworkProfile.html#GetNetworkProfileResponse"><span class="hs-identifier hs-type">GetNetworkProfileResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

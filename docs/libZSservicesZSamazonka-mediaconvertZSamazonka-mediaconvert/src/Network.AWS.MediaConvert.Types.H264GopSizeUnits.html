@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Indicates if the GOP Size in H264 is specified in frames or seconds. If</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- seconds the system will convert the GOP Size into a frame count at run</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- time.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679962462"><span id="local-6989586621679962463"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264GopSizeUnits"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264GopSizeUnits.html#H264GopSizeUnits"><span class="hs-identifier hs-var">H264GopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264GopSizeUnits%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264GopSizeUnits.html#H264GopSizeUnits%27"><span class="hs-identifier hs-var">H264GopSizeUnits'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679967086"><span id="local-6989586621679967087"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264GopSizeUnits"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264GopSizeUnits.html#H264GopSizeUnits"><span class="hs-identifier hs-var">H264GopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264GopSizeUnits%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H264GopSizeUnits.html#H264GopSizeUnits%27"><span class="hs-identifier hs-var">H264GopSizeUnits'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264GopSizeUnits"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H264GopSizeUnits.html#fromH264GopSizeUnits"><span class="hs-identifier hs-var hs-var">fromH264GopSizeUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962454"><span id="local-6989586621679962456"><span id="local-6989586621679962458"><span class="annot"><span class="annottext">Int -&gt; H264GopSizeUnits -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679967078"><span id="local-6989586621679967080"><span id="local-6989586621679967082"><span class="annot"><span class="annottext">Int -&gt; H264GopSizeUnits -&gt; ShowS
 [H264GopSizeUnits] -&gt; ShowS
 H264GopSizeUnits -&gt; String
 (Int -&gt; H264GopSizeUnits -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: H264GopSizeUnits -&gt; String
 showsPrec :: Int -&gt; H264GopSizeUnits -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264GopSizeUnits -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679962445"><span id="local-6989586621679962447"><span id="local-6989586621679962449"><span id="local-6989586621679962451"><span class="annot"><span class="annottext">ReadPrec [H264GopSizeUnits]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679967069"><span id="local-6989586621679967071"><span id="local-6989586621679967073"><span id="local-6989586621679967075"><span class="annot"><span class="annottext">ReadPrec [H264GopSizeUnits]
 ReadPrec H264GopSizeUnits
 Int -&gt; ReadS H264GopSizeUnits
 ReadS [H264GopSizeUnits]
@@ -75,7 +75,7 @@ $creadList :: ReadS [H264GopSizeUnits]
 readsPrec :: Int -&gt; ReadS H264GopSizeUnits
 $creadsPrec :: Int -&gt; ReadS H264GopSizeUnits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679962440"><span id="local-6989586621679962442"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679967064"><span id="local-6989586621679967066"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool
 (H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool)
 -&gt; (H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool)
 -&gt; Eq H264GopSizeUnits
@@ -85,7 +85,7 @@ $c/= :: H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool
 == :: H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool
 $c== :: H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679962424"><span id="local-6989586621679962426"><span id="local-6989586621679962428"><span id="local-6989586621679962430"><span id="local-6989586621679962432"><span id="local-6989586621679962434"><span id="local-6989586621679962436"><span class="annot"><span class="annottext">Eq H264GopSizeUnits
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679967048"><span id="local-6989586621679967050"><span id="local-6989586621679967052"><span id="local-6989586621679967054"><span id="local-6989586621679967056"><span id="local-6989586621679967058"><span id="local-6989586621679967060"><span class="annot"><span class="annottext">Eq H264GopSizeUnits
 Eq H264GopSizeUnits
 -&gt; (H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Ordering)
 -&gt; (H264GopSizeUnits -&gt; H264GopSizeUnits -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. H264GopSizeUnits -&gt; Rep H264GopSizeUnits x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962416"><span id="local-6989586621679962418"><span class="annot"><span class="annottext">Int -&gt; H264GopSizeUnits -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679967040"><span id="local-6989586621679967042"><span class="annot"><span class="annottext">Int -&gt; H264GopSizeUnits -&gt; Int
 H264GopSizeUnits -&gt; Int
 (Int -&gt; H264GopSizeUnits -&gt; Int)
 -&gt; (H264GopSizeUnits -&gt; Int) -&gt; Hashable H264GopSizeUnits
@@ -146,51 +146,51 @@ $chash :: H264GopSizeUnits -&gt; Int
 hashWithSalt :: Int -&gt; H264GopSizeUnits -&gt; Int
 $chashWithSalt :: Int -&gt; H264GopSizeUnits -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679962413"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679967037"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; ()
 (H264GopSizeUnits -&gt; ()) -&gt; NFData H264GopSizeUnits
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264GopSizeUnits -&gt; ()
 $crnf :: H264GopSizeUnits -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679962410"><span class="annot"><span class="annottext">Text -&gt; Either String H264GopSizeUnits
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679967034"><span class="annot"><span class="annottext">Text -&gt; Either String H264GopSizeUnits
 (Text -&gt; Either String H264GopSizeUnits)
 -&gt; FromText H264GopSizeUnits
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264GopSizeUnits
 $cfromText :: Text -&gt; Either String H264GopSizeUnits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679962407"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679967031"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; Text
 (H264GopSizeUnits -&gt; Text) -&gt; ToText H264GopSizeUnits
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264GopSizeUnits -&gt; Text
 $ctoText :: H264GopSizeUnits -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679962404"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679967028"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; ByteString
 (H264GopSizeUnits -&gt; ByteString) -&gt; ToByteString H264GopSizeUnits
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264GopSizeUnits -&gt; ByteString
 $ctoBS :: H264GopSizeUnits -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679962401"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679967025"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; ByteStringBuilder
 (H264GopSizeUnits -&gt; ByteStringBuilder) -&gt; ToLog H264GopSizeUnits
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264GopSizeUnits -&gt; ByteStringBuilder
 $cbuild :: H264GopSizeUnits -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679962398"><span class="annot"><span class="annottext">HeaderName -&gt; H264GopSizeUnits -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679967022"><span class="annot"><span class="annottext">HeaderName -&gt; H264GopSizeUnits -&gt; [Header]
 (HeaderName -&gt; H264GopSizeUnits -&gt; [Header])
 -&gt; ToHeader H264GopSizeUnits
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264GopSizeUnits -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264GopSizeUnits -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679962395"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679967019"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; QueryString
 (H264GopSizeUnits -&gt; QueryString) -&gt; ToQuery H264GopSizeUnits
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264GopSizeUnits -&gt; QueryString
 $ctoQuery :: H264GopSizeUnits -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679962390"><span id="local-6989586621679962392"><span class="annot"><span class="annottext">Value -&gt; Parser [H264GopSizeUnits]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679967014"><span id="local-6989586621679967016"><span class="annot"><span class="annottext">Value -&gt; Parser [H264GopSizeUnits]
 Value -&gt; Parser H264GopSizeUnits
 (Value -&gt; Parser H264GopSizeUnits)
 -&gt; (Value -&gt; Parser [H264GopSizeUnits])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [H264GopSizeUnits]
 parseJSON :: Value -&gt; Parser H264GopSizeUnits
 $cparseJSON :: Value -&gt; Parser H264GopSizeUnits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679962385"><span id="local-6989586621679962387"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264GopSizeUnits]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679967009"><span id="local-6989586621679967011"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264GopSizeUnits]
 FromJSONKeyFunction H264GopSizeUnits
 FromJSONKeyFunction H264GopSizeUnits
 -&gt; FromJSONKeyFunction [H264GopSizeUnits]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264GopSizeUnits]
 fromJSONKey :: FromJSONKeyFunction H264GopSizeUnits
 $cfromJSONKey :: FromJSONKeyFunction H264GopSizeUnits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679962376"><span id="local-6989586621679962378"><span id="local-6989586621679962380"><span id="local-6989586621679962382"><span class="annot"><span class="annottext">[H264GopSizeUnits] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679967000"><span id="local-6989586621679967002"><span id="local-6989586621679967004"><span id="local-6989586621679967006"><span class="annot"><span class="annottext">[H264GopSizeUnits] -&gt; Encoding
 [H264GopSizeUnits] -&gt; Value
 H264GopSizeUnits -&gt; Encoding
 H264GopSizeUnits -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: H264GopSizeUnits -&gt; Encoding
 toJSON :: H264GopSizeUnits -&gt; Value
 $ctoJSON :: H264GopSizeUnits -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679962371"><span id="local-6989586621679962373"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264GopSizeUnits]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679966995"><span id="local-6989586621679966997"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264GopSizeUnits]
 ToJSONKeyFunction H264GopSizeUnits
 ToJSONKeyFunction H264GopSizeUnits
 -&gt; ToJSONKeyFunction [H264GopSizeUnits]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264GopSizeUnits]
 toJSONKey :: ToJSONKeyFunction H264GopSizeUnits
 $ctoJSONKey :: ToJSONKeyFunction H264GopSizeUnits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679962368"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264GopSizeUnits
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679966992"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264GopSizeUnits
 ([Node] -&gt; Either String H264GopSizeUnits)
 -&gt; FromXML H264GopSizeUnits
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264GopSizeUnits
 $cparseXML :: [Node] -&gt; Either String H264GopSizeUnits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679962365"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679966989"><span class="annot"><span class="annottext">H264GopSizeUnits -&gt; XML
 (H264GopSizeUnits -&gt; XML) -&gt; ToXML H264GopSizeUnits
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264GopSizeUnits -&gt; XML

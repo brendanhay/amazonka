@@ -21,7 +21,7 @@
 </span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
 </span><span id="line-22"></span><span class="hs-comment">--</span><span>
 </span><span id="line-23"></span><span class="hs-comment">-- Lists the existing custom verification email templates for your account</span><span>
-</span><span id="line-24"></span><span class="hs-comment">-- in the current AWS Region.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- in the current Amazon Web Services Region.</span><span>
 </span><span id="line-25"></span><span class="hs-comment">--</span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- For more information about custom verification email templates, see</span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html Using Custom Verification Email Templates&gt;</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- templates for your account.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newListCustomVerificationEmailTemplates' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679341057"><span id="local-6989586621679341058"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCustomVerificationEmailTemplates"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCustomVerificationEmailTemplates%27"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplates'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679343614"><span id="local-6989586621679343615"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCustomVerificationEmailTemplates"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCustomVerificationEmailTemplates%27"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplates'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token returned from a previous call to</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @ListCustomVerificationEmailTemplates@ to indicate the position in the</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- list of custom verification email templates.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3ApageSize%3AListCustomVerificationEmailTemplates%27"><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplates -&gt; Maybe Int
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3ApageSize%3AListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341050"><span id="local-6989586621679341052"><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplates
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343607"><span id="local-6989586621679343609"><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplates
 -&gt; ListCustomVerificationEmailTemplates -&gt; Bool
 (ListCustomVerificationEmailTemplates
  -&gt; ListCustomVerificationEmailTemplates -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: ListCustomVerificationEmailTemplates
 -&gt; ListCustomVerificationEmailTemplates -&gt; Bool
 $c== :: ListCustomVerificationEmailTemplates
 -&gt; ListCustomVerificationEmailTemplates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341041"><span id="local-6989586621679341043"><span id="local-6989586621679341045"><span id="local-6989586621679341047"><span class="annot"><span class="annottext">ReadPrec [ListCustomVerificationEmailTemplates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343598"><span id="local-6989586621679343600"><span id="local-6989586621679343602"><span id="local-6989586621679343604"><span class="annot"><span class="annottext">ReadPrec [ListCustomVerificationEmailTemplates]
 ReadPrec ListCustomVerificationEmailTemplates
 Int -&gt; ReadS ListCustomVerificationEmailTemplates
 ReadS [ListCustomVerificationEmailTemplates]
@@ -111,7 +111,7 @@ readList :: ReadS [ListCustomVerificationEmailTemplates]
 $creadList :: ReadS [ListCustomVerificationEmailTemplates]
 readsPrec :: Int -&gt; ReadS ListCustomVerificationEmailTemplates
 $creadsPrec :: Int -&gt; ReadS ListCustomVerificationEmailTemplates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341034"><span id="local-6989586621679341036"><span id="local-6989586621679341038"><span class="annot"><span class="annottext">Int -&gt; ListCustomVerificationEmailTemplates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343591"><span id="local-6989586621679343593"><span id="local-6989586621679343595"><span class="annot"><span class="annottext">Int -&gt; ListCustomVerificationEmailTemplates -&gt; ShowS
 [ListCustomVerificationEmailTemplates] -&gt; ShowS
 ListCustomVerificationEmailTemplates -&gt; String
 (Int -&gt; ListCustomVerificationEmailTemplates -&gt; ShowS)
@@ -201,16 +201,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341027"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343584"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListCustomVerificationEmailTemplates' :: ListCustomVerificationEmailTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679341027"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341027"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341026"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplates
-</span><a href="#local-6989586621679341026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341025"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplates
-</span><a href="#local-6989586621679341026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCustomVerificationEmailTemplates' :: Maybe Text
+</span><a href="#local-6989586621679343584"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343584"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343583"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplates
+</span><a href="#local-6989586621679343583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343582"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplates
+</span><a href="#local-6989586621679343583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCustomVerificationEmailTemplates' :: Maybe Text
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3AnextToken%3AListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- @ListCustomVerificationEmailTemplates@. If the number of results is</span><span>
@@ -232,16 +232,16 @@ $sel:nextToken:ListCustomVerificationEmailTemplates' :: ListCustomVerificationEm
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341024"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343581"><span class="annot"><span class="annottext">Maybe Int
 pageSize :: Maybe Int
 $sel:pageSize:ListCustomVerificationEmailTemplates' :: ListCustomVerificationEmailTemplates -&gt; Maybe Int
-</span><a href="#local-6989586621679341024"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341024"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341023"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplates
-</span><a href="#local-6989586621679341023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341022"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplates
-</span><a href="#local-6989586621679341023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListCustomVerificationEmailTemplates' :: Maybe Int
+</span><a href="#local-6989586621679343581"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343581"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343580"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplates
+</span><a href="#local-6989586621679343580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343579"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplates
+</span><a href="#local-6989586621679343580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListCustomVerificationEmailTemplates' :: Maybe Int
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3ApageSize%3AListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679341022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -250,7 +250,7 @@ $sel:pageSize:ListCustomVerificationEmailTemplates' :: ListCustomVerificationEma
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679341018"><span class="annot"><span class="annottext">request :: ListCustomVerificationEmailTemplates
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679343575"><span class="annot"><span class="annottext">request :: ListCustomVerificationEmailTemplates
 -&gt; Request ListCustomVerificationEmailTemplates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListCustomVerificationEmailTemplates
@@ -258,7 +258,7 @@ $sel:pageSize:ListCustomVerificationEmailTemplates' :: ListCustomVerificationEma
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679341014"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679343571"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListCustomVerificationEmailTemplates
 -&gt; ClientResponse ClientBody
@@ -289,10 +289,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341011"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341011"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341010"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679341010"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341009"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343568"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343567"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343567"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343566"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343566"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [CustomVerificationEmailTemplateMetadata]
 -&gt; Int
@@ -309,7 +309,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListCustomVerificationEmailTemplatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679343566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -322,7 +322,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; ListCustomVerificationEmailTemplatesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343566"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe [CustomVerificationEmailTemplateMetadata]))
@@ -347,22 +347,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341011"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343568"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679341000"><span id="local-6989586621679341002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679343557"><span id="local-6989586621679343559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679340997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679343554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679340993"><span class="annot"><span class="annottext">toHeaders :: ListCustomVerificationEmailTemplates -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679343550"><span class="annot"><span class="annottext">toHeaders :: ListCustomVerificationEmailTemplates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ListCustomVerificationEmailTemplates -&gt; ResponseHeaders
@@ -386,7 +386,7 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679340987"><span class="annot"><span class="annottext">toPath :: ListCustomVerificationEmailTemplates -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679343544"><span class="annot"><span class="annottext">toPath :: ListCustomVerificationEmailTemplates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListCustomVerificationEmailTemplates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -398,14 +398,14 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates</span></a></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679340983"><span class="annot"><span class="annottext">toQuery :: ListCustomVerificationEmailTemplates -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340980"><span id="local-6989586621679340981"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679343540"><span class="annot"><span class="annottext">toQuery :: ListCustomVerificationEmailTemplates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplates%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343537"><span id="local-6989586621679343538"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 pageSize :: Maybe Int
 nextToken :: Maybe Text
 $sel:pageSize:ListCustomVerificationEmailTemplates' :: ListCustomVerificationEmailTemplates -&gt; Maybe Int
 $sel:nextToken:ListCustomVerificationEmailTemplates' :: ListCustomVerificationEmailTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679340980"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679343537"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -413,18 +413,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340981"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679343538"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679340980"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><a href="#local-6989586621679343537"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The following elements are returned by the service.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- /See:/ 'newListCustomVerificationEmailTemplatesResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679340977"><span id="local-6989586621679340978"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCustomVerificationEmailTemplatesResponse"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCustomVerificationEmailTemplatesResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplatesResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679343534"><span id="local-6989586621679343535"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCustomVerificationEmailTemplatesResponse"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCustomVerificationEmailTemplatesResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-var">ListCustomVerificationEmailTemplatesResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token indicating that there are additional custom verification email</span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-comment">-- templates available to be listed. Pass this token to a subsequent call</span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-comment">-- to @ListCustomVerificationEmailTemplates@ to retrieve the next 50 custom</span><span>
@@ -440,7 +440,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCustomVerificationEmailTemplatesResponse%27"><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3AhttpStatus%3AListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340970"><span id="local-6989586621679340972"><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343527"><span id="local-6989586621679343529"><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
 -&gt; ListCustomVerificationEmailTemplatesResponse -&gt; Bool
 (ListCustomVerificationEmailTemplatesResponse
  -&gt; ListCustomVerificationEmailTemplatesResponse -&gt; Bool)
@@ -456,7 +456,7 @@ $c/= :: ListCustomVerificationEmailTemplatesResponse
 -&gt; ListCustomVerificationEmailTemplatesResponse -&gt; Bool
 $c== :: ListCustomVerificationEmailTemplatesResponse
 -&gt; ListCustomVerificationEmailTemplatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340962"><span id="local-6989586621679340964"><span id="local-6989586621679340966"><span id="local-6989586621679340968"><span class="annot"><span class="annottext">ReadPrec [ListCustomVerificationEmailTemplatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343519"><span id="local-6989586621679343521"><span id="local-6989586621679343523"><span id="local-6989586621679343525"><span class="annot"><span class="annottext">ReadPrec [ListCustomVerificationEmailTemplatesResponse]
 ReadPrec ListCustomVerificationEmailTemplatesResponse
 Int -&gt; ReadS ListCustomVerificationEmailTemplatesResponse
 ReadS [ListCustomVerificationEmailTemplatesResponse]
@@ -476,7 +476,7 @@ readList :: ReadS [ListCustomVerificationEmailTemplatesResponse]
 $creadList :: ReadS [ListCustomVerificationEmailTemplatesResponse]
 readsPrec :: Int -&gt; ReadS ListCustomVerificationEmailTemplatesResponse
 $creadsPrec :: Int -&gt; ReadS ListCustomVerificationEmailTemplatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340956"><span id="local-6989586621679340958"><span id="local-6989586621679340960"><span class="annot"><span class="annottext">Int -&gt; ListCustomVerificationEmailTemplatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343513"><span id="local-6989586621679343515"><span id="local-6989586621679343517"><span class="annot"><span class="annottext">Int -&gt; ListCustomVerificationEmailTemplatesResponse -&gt; ShowS
 [ListCustomVerificationEmailTemplatesResponse] -&gt; ShowS
 ListCustomVerificationEmailTemplatesResponse -&gt; String
 (Int -&gt; ListCustomVerificationEmailTemplatesResponse -&gt; ShowS)
@@ -537,8 +537,8 @@ ListCustomVerificationEmailTemplatesResponse
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newListCustomVerificationEmailTemplatesResponse"><span class="annot"><span class="annottext">newListCustomVerificationEmailTemplatesResponse :: Int -&gt; ListCustomVerificationEmailTemplatesResponse
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#newListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-var hs-var">newListCustomVerificationEmailTemplatesResponse</span></a></span></span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679340953"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679343510"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse' :: Maybe Text
 -&gt; Maybe [CustomVerificationEmailTemplateMetadata]
 -&gt; Int
@@ -556,7 +556,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCustomVerificationEmailTemplatesResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3AhttpStatus%3AListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679343510"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | A token indicating that there are additional custom verification email</span><span>
@@ -576,16 +576,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340952"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343509"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListCustomVerificationEmailTemplatesResponse' :: ListCustomVerificationEmailTemplatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679340952"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340952"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340951"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplatesResponse
-</span><a href="#local-6989586621679340951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340950"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
-</span><a href="#local-6989586621679340951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCustomVerificationEmailTemplatesResponse' :: Maybe Text
+</span><a href="#local-6989586621679343509"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343509"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343508"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplatesResponse
+</span><a href="#local-6989586621679343508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343507"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
+</span><a href="#local-6989586621679343508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCustomVerificationEmailTemplatesResponse' :: Maybe Text
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3AnextToken%3AListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679340950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | A list of the custom verification email templates that exist in your</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- account.</span><span>
@@ -605,17 +605,17 @@ $sel:nextToken:ListCustomVerificationEmailTemplatesResponse' :: ListCustomVerifi
      (Maybe [CustomVerificationEmailTemplateMetadata])
      (Maybe [CustomVerificationEmailTemplateMetadata])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340949"><span class="annot"><span class="annottext">Maybe [CustomVerificationEmailTemplateMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343506"><span class="annot"><span class="annottext">Maybe [CustomVerificationEmailTemplateMetadata]
 customVerificationEmailTemplates :: Maybe [CustomVerificationEmailTemplateMetadata]
 $sel:customVerificationEmailTemplates:ListCustomVerificationEmailTemplatesResponse' :: ListCustomVerificationEmailTemplatesResponse
 -&gt; Maybe [CustomVerificationEmailTemplateMetadata]
-</span><a href="#local-6989586621679340949"><span class="hs-identifier hs-var hs-var">customVerificationEmailTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomVerificationEmailTemplateMetadata]
-</span><a href="#local-6989586621679340949"><span class="hs-identifier hs-var">customVerificationEmailTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340948"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplatesResponse
-</span><a href="#local-6989586621679340948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340947"><span class="annot"><span class="annottext">Maybe [CustomVerificationEmailTemplateMetadata]
-</span><a href="#local-6989586621679340947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
-</span><a href="#local-6989586621679340948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customVerificationEmailTemplates:ListCustomVerificationEmailTemplatesResponse' :: Maybe [CustomVerificationEmailTemplateMetadata]
+</span><a href="#local-6989586621679343506"><span class="hs-identifier hs-var hs-var">customVerificationEmailTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomVerificationEmailTemplateMetadata]
+</span><a href="#local-6989586621679343506"><span class="hs-identifier hs-var">customVerificationEmailTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343505"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplatesResponse
+</span><a href="#local-6989586621679343505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343504"><span class="annot"><span class="annottext">Maybe [CustomVerificationEmailTemplateMetadata]
+</span><a href="#local-6989586621679343504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
+</span><a href="#local-6989586621679343505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customVerificationEmailTemplates:ListCustomVerificationEmailTemplatesResponse' :: Maybe [CustomVerificationEmailTemplateMetadata]
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3AcustomVerificationEmailTemplates%3AListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-var">customVerificationEmailTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomVerificationEmailTemplateMetadata]
-</span><a href="#local-6989586621679340947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomVerificationEmailTemplateMetadata]
+</span><a href="#local-6989586621679343504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomVerificationEmailTemplateMetadata]
   -&gt; f (Maybe [CustomVerificationEmailTemplateMetadata]))
  -&gt; ListCustomVerificationEmailTemplatesResponse
  -&gt; f ListCustomVerificationEmailTemplatesResponse)
@@ -646,8 +646,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CustomVerificationEmailTemplateMetadata]
   [CustomVerificationEmailTemplateMetadata]
   [CustomVerificationEmailTemplateMetadata]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#listCustomVerificationEmailTemplatesResponse_httpStatus"><span class="hs-identifier hs-type">listCustomVerificationEmailTemplatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -663,18 +663,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340943"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343500"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListCustomVerificationEmailTemplatesResponse' :: ListCustomVerificationEmailTemplatesResponse -&gt; Int
-</span><a href="#local-6989586621679340943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340942"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplatesResponse
-</span><a href="#local-6989586621679340942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340941"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
-</span><a href="#local-6989586621679340942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCustomVerificationEmailTemplatesResponse' :: Int
+</span><a href="#local-6989586621679343500"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343500"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343499"><span class="annot"><span class="annottext">s :: ListCustomVerificationEmailTemplatesResponse
+</span><a href="#local-6989586621679343499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCustomVerificationEmailTemplatesResponse
+</span><a href="#local-6989586621679343499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCustomVerificationEmailTemplatesResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#%24sel%3AhttpStatus%3AListCustomVerificationEmailTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679340941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679340939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679343496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListCustomVerificationEmailTemplates.html#ListCustomVerificationEmailTemplatesResponse"><span class="hs-identifier hs-type">ListCustomVerificationEmailTemplatesResponse</span></a></span></span><span>
 </span><span id="line-248"></span></pre></body></html>

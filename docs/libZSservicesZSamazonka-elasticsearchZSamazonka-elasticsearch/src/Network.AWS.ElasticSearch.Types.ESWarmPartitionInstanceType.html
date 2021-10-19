@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679295248"><span id="local-6989586621679295249"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ESWarmPartitionInstanceType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier hs-var">ESWarmPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ESWarmPartitionInstanceType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType%27"><span class="hs-identifier hs-var">ESWarmPartitionInstanceType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295450"><span id="local-6989586621679295451"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ESWarmPartitionInstanceType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType"><span class="hs-identifier hs-var">ESWarmPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ESWarmPartitionInstanceType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType.html#ESWarmPartitionInstanceType%27"><span class="hs-identifier hs-var">ESWarmPartitionInstanceType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromESWarmPartitionInstanceType"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType.html#fromESWarmPartitionInstanceType"><span class="hs-identifier hs-var hs-var">fromESWarmPartitionInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295240"><span id="local-6989586621679295242"><span id="local-6989586621679295244"><span class="annot"><span class="annottext">Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295442"><span id="local-6989586621679295444"><span id="local-6989586621679295446"><span class="annot"><span class="annottext">Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS
 [ESWarmPartitionInstanceType] -&gt; ShowS
 ESWarmPartitionInstanceType -&gt; String
 (Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ESWarmPartitionInstanceType -&gt; String
 showsPrec :: Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ESWarmPartitionInstanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295231"><span id="local-6989586621679295233"><span id="local-6989586621679295235"><span id="local-6989586621679295237"><span class="annot"><span class="annottext">ReadPrec [ESWarmPartitionInstanceType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295433"><span id="local-6989586621679295435"><span id="local-6989586621679295437"><span id="local-6989586621679295439"><span class="annot"><span class="annottext">ReadPrec [ESWarmPartitionInstanceType]
 ReadPrec ESWarmPartitionInstanceType
 Int -&gt; ReadS ESWarmPartitionInstanceType
 ReadS [ESWarmPartitionInstanceType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ESWarmPartitionInstanceType]
 readsPrec :: Int -&gt; ReadS ESWarmPartitionInstanceType
 $creadsPrec :: Int -&gt; ReadS ESWarmPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295226"><span id="local-6989586621679295228"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295428"><span id="local-6989586621679295430"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
 (ESWarmPartitionInstanceType
  -&gt; ESWarmPartitionInstanceType -&gt; Bool)
 -&gt; (ESWarmPartitionInstanceType
@@ -84,7 +84,7 @@ $c/= :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
 == :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
 $c== :: ESWarmPartitionInstanceType -&gt; ESWarmPartitionInstanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295210"><span id="local-6989586621679295212"><span id="local-6989586621679295214"><span id="local-6989586621679295216"><span id="local-6989586621679295218"><span id="local-6989586621679295220"><span id="local-6989586621679295222"><span class="annot"><span class="annottext">Eq ESWarmPartitionInstanceType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295412"><span id="local-6989586621679295414"><span id="local-6989586621679295416"><span id="local-6989586621679295418"><span id="local-6989586621679295420"><span id="local-6989586621679295422"><span id="local-6989586621679295424"><span class="annot"><span class="annottext">Eq ESWarmPartitionInstanceType
 Eq ESWarmPartitionInstanceType
 -&gt; (ESWarmPartitionInstanceType
     -&gt; ESWarmPartitionInstanceType -&gt; Ordering)
@@ -156,7 +156,7 @@ ESWarmPartitionInstanceType -&gt; Rep ESWarmPartitionInstanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295202"><span id="local-6989586621679295204"><span class="annot"><span class="annottext">Int -&gt; ESWarmPartitionInstanceType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295404"><span id="local-6989586621679295406"><span class="annot"><span class="annottext">Int -&gt; ESWarmPartitionInstanceType -&gt; Int
 ESWarmPartitionInstanceType -&gt; Int
 (Int -&gt; ESWarmPartitionInstanceType -&gt; Int)
 -&gt; (ESWarmPartitionInstanceType -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: ESWarmPartitionInstanceType -&gt; Int
 hashWithSalt :: Int -&gt; ESWarmPartitionInstanceType -&gt; Int
 $chashWithSalt :: Int -&gt; ESWarmPartitionInstanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295199"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295401"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ()
 (ESWarmPartitionInstanceType -&gt; ())
 -&gt; NFData ESWarmPartitionInstanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ESWarmPartitionInstanceType -&gt; ()
 $crnf :: ESWarmPartitionInstanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295196"><span class="annot"><span class="annottext">Text -&gt; Either String ESWarmPartitionInstanceType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295398"><span class="annot"><span class="annottext">Text -&gt; Either String ESWarmPartitionInstanceType
 (Text -&gt; Either String ESWarmPartitionInstanceType)
 -&gt; FromText ESWarmPartitionInstanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ESWarmPartitionInstanceType
 $cfromText :: Text -&gt; Either String ESWarmPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295193"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295395"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; Text
 (ESWarmPartitionInstanceType -&gt; Text)
 -&gt; ToText ESWarmPartitionInstanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ESWarmPartitionInstanceType -&gt; Text
 $ctoText :: ESWarmPartitionInstanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295190"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295392"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ByteString
 (ESWarmPartitionInstanceType -&gt; ByteString)
 -&gt; ToByteString ESWarmPartitionInstanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ESWarmPartitionInstanceType -&gt; ByteString
 $ctoBS :: ESWarmPartitionInstanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295187"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295389"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; ByteStringBuilder
 (ESWarmPartitionInstanceType -&gt; ByteStringBuilder)
 -&gt; ToLog ESWarmPartitionInstanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ESWarmPartitionInstanceType -&gt; ByteStringBuilder
 $cbuild :: ESWarmPartitionInstanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295184"><span class="annot"><span class="annottext">HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295386"><span class="annot"><span class="annottext">HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header]
 (HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header])
 -&gt; ToHeader ESWarmPartitionInstanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ESWarmPartitionInstanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295181"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295383"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; QueryString
 (ESWarmPartitionInstanceType -&gt; QueryString)
 -&gt; ToQuery ESWarmPartitionInstanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ESWarmPartitionInstanceType -&gt; QueryString
 $ctoQuery :: ESWarmPartitionInstanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295176"><span id="local-6989586621679295178"><span class="annot"><span class="annottext">Value -&gt; Parser [ESWarmPartitionInstanceType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295378"><span id="local-6989586621679295380"><span class="annot"><span class="annottext">Value -&gt; Parser [ESWarmPartitionInstanceType]
 Value -&gt; Parser ESWarmPartitionInstanceType
 (Value -&gt; Parser ESWarmPartitionInstanceType)
 -&gt; (Value -&gt; Parser [ESWarmPartitionInstanceType])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [ESWarmPartitionInstanceType]
 parseJSON :: Value -&gt; Parser ESWarmPartitionInstanceType
 $cparseJSON :: Value -&gt; Parser ESWarmPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295171"><span id="local-6989586621679295173"><span class="annot"><span class="annottext">FromJSONKeyFunction [ESWarmPartitionInstanceType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295373"><span id="local-6989586621679295375"><span class="annot"><span class="annottext">FromJSONKeyFunction [ESWarmPartitionInstanceType]
 FromJSONKeyFunction ESWarmPartitionInstanceType
 FromJSONKeyFunction ESWarmPartitionInstanceType
 -&gt; FromJSONKeyFunction [ESWarmPartitionInstanceType]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ESWarmPartitionInstanceType]
 fromJSONKey :: FromJSONKeyFunction ESWarmPartitionInstanceType
 $cfromJSONKey :: FromJSONKeyFunction ESWarmPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295162"><span id="local-6989586621679295164"><span id="local-6989586621679295166"><span id="local-6989586621679295168"><span class="annot"><span class="annottext">[ESWarmPartitionInstanceType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295364"><span id="local-6989586621679295366"><span id="local-6989586621679295368"><span id="local-6989586621679295370"><span class="annot"><span class="annottext">[ESWarmPartitionInstanceType] -&gt; Encoding
 [ESWarmPartitionInstanceType] -&gt; Value
 ESWarmPartitionInstanceType -&gt; Encoding
 ESWarmPartitionInstanceType -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: ESWarmPartitionInstanceType -&gt; Encoding
 toJSON :: ESWarmPartitionInstanceType -&gt; Value
 $ctoJSON :: ESWarmPartitionInstanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295157"><span id="local-6989586621679295159"><span class="annot"><span class="annottext">ToJSONKeyFunction [ESWarmPartitionInstanceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295359"><span id="local-6989586621679295361"><span class="annot"><span class="annottext">ToJSONKeyFunction [ESWarmPartitionInstanceType]
 ToJSONKeyFunction ESWarmPartitionInstanceType
 ToJSONKeyFunction ESWarmPartitionInstanceType
 -&gt; ToJSONKeyFunction [ESWarmPartitionInstanceType]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ESWarmPartitionInstanceType]
 toJSONKey :: ToJSONKeyFunction ESWarmPartitionInstanceType
 $ctoJSONKey :: ToJSONKeyFunction ESWarmPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295154"><span class="annot"><span class="annottext">[Node] -&gt; Either String ESWarmPartitionInstanceType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295356"><span class="annot"><span class="annottext">[Node] -&gt; Either String ESWarmPartitionInstanceType
 ([Node] -&gt; Either String ESWarmPartitionInstanceType)
 -&gt; FromXML ESWarmPartitionInstanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ESWarmPartitionInstanceType
 $cparseXML :: [Node] -&gt; Either String ESWarmPartitionInstanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295151"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295353"><span class="annot"><span class="annottext">ESWarmPartitionInstanceType -&gt; XML
 (ESWarmPartitionInstanceType -&gt; XML)
 -&gt; ToXML ESWarmPartitionInstanceType
 forall a. (a -&gt; XML) -&gt; ToXML a

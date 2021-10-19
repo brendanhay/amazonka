@@ -26,14 +26,14 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains details for the restore.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRestoreSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679378448"><span id="local-6989586621679378449"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-var">RestoreSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-var">RestoreSummary'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup from which the table was</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- restored.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="annot"><span class="annottext">RestoreSummary -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="hs-identifier hs-var hs-var">sourceBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ARN of the source table of the backup that is being restored.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsourceTableArn%3ARestoreSummary%27"><span class="annot"><span class="annottext">RestoreSummary -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679379142"><span id="local-6989586621679379143"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreSummary"><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-var">RestoreSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreSummary%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-var">RestoreSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the source table of the backup that is being restored.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AsourceTableArn%3ARestoreSummary%27"><span class="annot"><span class="annottext">RestoreSummary -&gt; Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceTableArn%3ARestoreSummary%27"><span class="hs-identifier hs-var hs-var">sourceTableArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup from which the table was</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- restored.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="annot"><span class="annottext">RestoreSummary -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="hs-identifier hs-var hs-var">sourceBackupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Point in time or source backup time.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3ArestoreDateTime%3ARestoreSummary%27"><span class="annot"><span class="annottext">RestoreSummary -&gt; POSIX
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3ArestoreDateTime%3ARestoreSummary%27"><span class="hs-identifier hs-var hs-var">restoreDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3ArestoreInProgress%3ARestoreSummary%27"><span class="annot"><span class="annottext">RestoreSummary -&gt; Bool
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3ArestoreInProgress%3ARestoreSummary%27"><span class="hs-identifier hs-var hs-var">restoreInProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378439"><span id="local-6989586621679378441"><span class="annot"><span class="annottext">RestoreSummary -&gt; RestoreSummary -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379133"><span id="local-6989586621679379135"><span class="annot"><span class="annottext">RestoreSummary -&gt; RestoreSummary -&gt; Bool
 (RestoreSummary -&gt; RestoreSummary -&gt; Bool)
 -&gt; (RestoreSummary -&gt; RestoreSummary -&gt; Bool) -&gt; Eq RestoreSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreSummary -&gt; RestoreSummary -&gt; Bool
 == :: RestoreSummary -&gt; RestoreSummary -&gt; Bool
 $c== :: RestoreSummary -&gt; RestoreSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378430"><span id="local-6989586621679378432"><span id="local-6989586621679378434"><span id="local-6989586621679378436"><span class="annot"><span class="annottext">ReadPrec [RestoreSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379124"><span id="local-6989586621679379126"><span id="local-6989586621679379128"><span id="local-6989586621679379130"><span class="annot"><span class="annottext">ReadPrec [RestoreSummary]
 ReadPrec RestoreSummary
 Int -&gt; ReadS RestoreSummary
 ReadS [RestoreSummary]
@@ -69,7 +69,7 @@ readList :: ReadS [RestoreSummary]
 $creadList :: ReadS [RestoreSummary]
 readsPrec :: Int -&gt; ReadS RestoreSummary
 $creadsPrec :: Int -&gt; ReadS RestoreSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378423"><span id="local-6989586621679378425"><span id="local-6989586621679378427"><span class="annot"><span class="annottext">Int -&gt; RestoreSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379117"><span id="local-6989586621679379119"><span id="local-6989586621679379121"><span class="annot"><span class="annottext">Int -&gt; RestoreSummary -&gt; ShowS
 [RestoreSummary] -&gt; ShowS
 RestoreSummary -&gt; String
 (Int -&gt; RestoreSummary -&gt; ShowS)
@@ -103,10 +103,10 @@ $cfrom :: forall x. RestoreSummary -&gt; Rep RestoreSummary x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'sourceBackupArn', 'restoreSummary_sourceBackupArn' - The Amazon Resource Name (ARN) of the backup from which the table was</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- restored.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'sourceTableArn', 'restoreSummary_sourceTableArn' - The ARN of the source table of the backup that is being restored.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'sourceTableArn', 'restoreSummary_sourceTableArn' - The ARN of the source table of the backup that is being restored.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'sourceBackupArn', 'restoreSummary_sourceBackupArn' - The Amazon Resource Name (ARN) of the backup from which the table was</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- restored.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'restoreDateTime', 'restoreSummary_restoreDateTime' - Point in time or source backup time.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
@@ -119,18 +119,18 @@ $cfrom :: forall x. RestoreSummary -&gt; Rep RestoreSummary x
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span>
 </span><span id="line-64"></span><span id="newRestoreSummary"><span class="annot"><span class="annottext">newRestoreSummary :: UTCTime -&gt; Bool -&gt; RestoreSummary
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#newRestoreSummary"><span class="hs-identifier hs-var hs-var">newRestoreSummary</span></a></span></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679378417"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679378417"><span class="hs-identifier hs-var">pRestoreDateTime_</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679378416"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679378416"><span class="hs-identifier hs-var">pRestoreInProgress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679379111"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679379111"><span class="hs-identifier hs-var">pRestoreDateTime_</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679379110"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679379110"><span class="hs-identifier hs-var">pRestoreInProgress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">RestoreSummary' :: Maybe Text -&gt; Maybe Text -&gt; POSIX -&gt; Bool -&gt; RestoreSummary
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceBackupArn:RestoreSummary' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="hs-identifier hs-var">sourceBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceTableArn:RestoreSummary' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceTableArn%3ARestoreSummary%27"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceTableArn:RestoreSummary' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceTableArn%3ARestoreSummary%27"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceBackupArn:RestoreSummary' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="hs-identifier hs-var">sourceBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:restoreDateTime:RestoreSummary' :: POSIX
@@ -142,50 +142,50 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679378417"><span class="hs-identifier hs-var">pRestoreDateTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379111"><span class="hs-identifier hs-var">pRestoreDateTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:restoreInProgress:RestoreSummary' :: Bool
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3ArestoreInProgress%3ARestoreSummary%27"><span class="hs-identifier hs-var">restoreInProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679378416"><span class="hs-identifier hs-var">pRestoreInProgress_</span></a></span><span>
+</span><a href="#local-6989586621679379110"><span class="hs-identifier hs-var">pRestoreInProgress_</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup from which the table was</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- restored.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_sourceBackupArn"><span class="hs-identifier hs-type">restoreSummary_sourceBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="restoreSummary_sourceBackupArn"><span class="annot"><span class="annottext">restoreSummary_sourceBackupArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RestoreSummary -&gt; f RestoreSummary
-</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_sourceBackupArn"><span class="hs-identifier hs-var hs-var">restoreSummary_sourceBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreSummary -&gt; Maybe Text)
--&gt; (RestoreSummary -&gt; Maybe Text -&gt; RestoreSummary)
--&gt; Lens RestoreSummary RestoreSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378410"><span class="annot"><span class="annottext">Maybe Text
-sourceBackupArn :: Maybe Text
-$sel:sourceBackupArn:RestoreSummary' :: RestoreSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679378410"><span class="hs-identifier hs-var hs-var">sourceBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378410"><span class="hs-identifier hs-var">sourceBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378409"><span class="annot"><span class="annottext">s :: RestoreSummary
-</span><a href="#local-6989586621679378409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378408"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
-</span><a href="#local-6989586621679378409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceBackupArn:RestoreSummary' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="hs-identifier hs-var">sourceBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The ARN of the source table of the backup that is being restored.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_sourceTableArn"><span class="hs-identifier hs-type">restoreSummary_sourceTableArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="restoreSummary_sourceTableArn"><span class="annot"><span class="annottext">restoreSummary_sourceTableArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the source table of the backup that is being restored.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_sourceTableArn"><span class="hs-identifier hs-type">restoreSummary_sourceTableArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="restoreSummary_sourceTableArn"><span class="annot"><span class="annottext">restoreSummary_sourceTableArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RestoreSummary -&gt; f RestoreSummary
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_sourceTableArn"><span class="hs-identifier hs-var hs-var">restoreSummary_sourceTableArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreSummary -&gt; Maybe Text)
 -&gt; (RestoreSummary -&gt; Maybe Text -&gt; RestoreSummary)
 -&gt; Lens RestoreSummary RestoreSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378406"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379104"><span class="annot"><span class="annottext">Maybe Text
 sourceTableArn :: Maybe Text
 $sel:sourceTableArn:RestoreSummary' :: RestoreSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679378406"><span class="hs-identifier hs-var hs-var">sourceTableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378406"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378405"><span class="annot"><span class="annottext">s :: RestoreSummary
-</span><a href="#local-6989586621679378405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378404"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
-</span><a href="#local-6989586621679378405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceTableArn:RestoreSummary' :: Maybe Text
+</span><a href="#local-6989586621679379104"><span class="hs-identifier hs-var hs-var">sourceTableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379104"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379103"><span class="annot"><span class="annottext">s :: RestoreSummary
+</span><a href="#local-6989586621679379103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379102"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
+</span><a href="#local-6989586621679379103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceTableArn:RestoreSummary' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceTableArn%3ARestoreSummary%27"><span class="hs-identifier hs-var">sourceTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679378404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the backup from which the table was</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- restored.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_sourceBackupArn"><span class="hs-identifier hs-type">restoreSummary_sourceBackupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="restoreSummary_sourceBackupArn"><span class="annot"><span class="annottext">restoreSummary_sourceBackupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreSummary -&gt; f RestoreSummary
+</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_sourceBackupArn"><span class="hs-identifier hs-var hs-var">restoreSummary_sourceBackupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreSummary -&gt; Maybe Text)
+-&gt; (RestoreSummary -&gt; Maybe Text -&gt; RestoreSummary)
+-&gt; Lens RestoreSummary RestoreSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379100"><span class="annot"><span class="annottext">Maybe Text
+sourceBackupArn :: Maybe Text
+$sel:sourceBackupArn:RestoreSummary' :: RestoreSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679379100"><span class="hs-identifier hs-var hs-var">sourceBackupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379100"><span class="hs-identifier hs-var">sourceBackupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379099"><span class="annot"><span class="annottext">s :: RestoreSummary
+</span><a href="#local-6989586621679379099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
+</span><a href="#local-6989586621679379099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceBackupArn:RestoreSummary' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3AsourceBackupArn%3ARestoreSummary%27"><span class="hs-identifier hs-var">sourceBackupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Point in time or source backup time.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#restoreSummary_restoreDateTime"><span class="hs-identifier hs-type">restoreSummary_restoreDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -194,16 +194,16 @@ $sel:sourceTableArn:RestoreSummary' :: RestoreSummary -&gt; Maybe Text
 -&gt; (RestoreSummary -&gt; POSIX -&gt; RestoreSummary)
 -&gt; Lens RestoreSummary RestoreSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378402"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379096"><span class="annot"><span class="annottext">POSIX
 restoreDateTime :: POSIX
 $sel:restoreDateTime:RestoreSummary' :: RestoreSummary -&gt; POSIX
-</span><a href="#local-6989586621679378402"><span class="hs-identifier hs-var hs-var">restoreDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679378402"><span class="hs-identifier hs-var">restoreDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378401"><span class="annot"><span class="annottext">s :: RestoreSummary
-</span><a href="#local-6989586621679378401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378400"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679378400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
-</span><a href="#local-6989586621679378401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreDateTime:RestoreSummary' :: POSIX
+</span><a href="#local-6989586621679379096"><span class="hs-identifier hs-var hs-var">restoreDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679379096"><span class="hs-identifier hs-var">restoreDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379095"><span class="annot"><span class="annottext">s :: RestoreSummary
+</span><a href="#local-6989586621679379095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379094"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679379094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
+</span><a href="#local-6989586621679379095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreDateTime:RestoreSummary' :: POSIX
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3ArestoreDateTime%3ARestoreSummary%27"><span class="hs-identifier hs-var">restoreDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679378400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RestoreSummary -&gt; f RestoreSummary)
+</span><a href="#local-6989586621679379094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RestoreSummary -&gt; f RestoreSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; RestoreSummary
@@ -220,19 +220,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (RestoreSummary -&gt; Bool -&gt; RestoreSummary)
 -&gt; Lens RestoreSummary RestoreSummary Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378397"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379091"><span class="annot"><span class="annottext">Bool
 restoreInProgress :: Bool
 $sel:restoreInProgress:RestoreSummary' :: RestoreSummary -&gt; Bool
-</span><a href="#local-6989586621679378397"><span class="hs-identifier hs-var hs-var">restoreInProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679378397"><span class="hs-identifier hs-var">restoreInProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378396"><span class="annot"><span class="annottext">s :: RestoreSummary
-</span><a href="#local-6989586621679378396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378395"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679378395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
-</span><a href="#local-6989586621679378396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreInProgress:RestoreSummary' :: Bool
+</span><a href="#local-6989586621679379091"><span class="hs-identifier hs-var hs-var">restoreInProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679379091"><span class="hs-identifier hs-var">restoreInProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379090"><span class="annot"><span class="annottext">s :: RestoreSummary
+</span><a href="#local-6989586621679379090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-type">RestoreSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379089"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679379089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreSummary
+</span><a href="#local-6989586621679379090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restoreInProgress:RestoreSummary' :: Bool
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#%24sel%3ArestoreInProgress%3ARestoreSummary%27"><span class="hs-identifier hs-var">restoreInProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679378395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378392"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679378390"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RestoreSummary
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379086"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679379084"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RestoreSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RestoreSummary)
@@ -242,8 +242,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RestoreSummary&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378387"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379081"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; POSIX -&gt; Bool -&gt; RestoreSummary
 </span><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary%27"><span class="hs-identifier hs-var">RestoreSummary'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; POSIX -&gt; Bool -&gt; RestoreSummary)
@@ -251,23 +251,23 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; POSIX -&gt; Bool -&gt; RestoreSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679379081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceBackupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourceTableArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; POSIX -&gt; Bool -&gt; RestoreSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser (POSIX -&gt; Bool -&gt; RestoreSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679379081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceTableArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourceBackupArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; Bool -&gt; RestoreSummary)
 -&gt; Parser POSIX -&gt; Parser (Bool -&gt; RestoreSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679379081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RestoreDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,13 +275,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Bool -&gt; Parser RestoreSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679379081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RestoreInProgress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378380"><span id="local-6989586621679378382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379074"><span id="local-6989586621679379076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.RestoreSummary.html#RestoreSummary"><span class="hs-identifier hs-type">RestoreSummary</span></a></span></span><span>
 </span><span id="line-107"></span></pre></body></html>

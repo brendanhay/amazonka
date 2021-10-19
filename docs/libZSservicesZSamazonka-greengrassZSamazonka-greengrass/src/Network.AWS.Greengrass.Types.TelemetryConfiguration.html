@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Configuration settings for running telemetry.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTelemetryConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679347392"><span id="local-6989586621679347393"></span></span><span class="hs-keyword">data</span><span> </span><span id="TelemetryConfiguration"><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-var">TelemetryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TelemetryConfiguration%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-var">TelemetryConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679347653"><span id="local-6989586621679347654"></span></span><span class="hs-keyword">data</span><span> </span><span id="TelemetryConfiguration"><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-var">TelemetryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TelemetryConfiguration%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-var">TelemetryConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Synchronization status of the device reported configuration with the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- desired configuration.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AconfigurationSyncStatus%3ATelemetryConfiguration%27"><span class="annot"><span class="annottext">TelemetryConfiguration -&gt; Maybe ConfigurationSyncStatus
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atelemetry%3ATelemetryConfiguration%27"><span class="annot"><span class="annottext">TelemetryConfiguration -&gt; Telemetry
 </span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#%24sel%3Atelemetry%3ATelemetryConfiguration%27"><span class="hs-identifier hs-var hs-var">telemetry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Telemetry.html#Telemetry"><span class="hs-identifier hs-type">Telemetry</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347385"><span id="local-6989586621679347387"><span class="annot"><span class="annottext">TelemetryConfiguration -&gt; TelemetryConfiguration -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347646"><span id="local-6989586621679347648"><span class="annot"><span class="annottext">TelemetryConfiguration -&gt; TelemetryConfiguration -&gt; Bool
 (TelemetryConfiguration -&gt; TelemetryConfiguration -&gt; Bool)
 -&gt; (TelemetryConfiguration -&gt; TelemetryConfiguration -&gt; Bool)
 -&gt; Eq TelemetryConfiguration
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TelemetryConfiguration -&gt; TelemetryConfiguration -&gt; Bool
 == :: TelemetryConfiguration -&gt; TelemetryConfiguration -&gt; Bool
 $c== :: TelemetryConfiguration -&gt; TelemetryConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347376"><span id="local-6989586621679347378"><span id="local-6989586621679347380"><span id="local-6989586621679347382"><span class="annot"><span class="annottext">ReadPrec [TelemetryConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347637"><span id="local-6989586621679347639"><span id="local-6989586621679347641"><span id="local-6989586621679347643"><span class="annot"><span class="annottext">ReadPrec [TelemetryConfiguration]
 ReadPrec TelemetryConfiguration
 Int -&gt; ReadS TelemetryConfiguration
 ReadS [TelemetryConfiguration]
@@ -66,7 +66,7 @@ readList :: ReadS [TelemetryConfiguration]
 $creadList :: ReadS [TelemetryConfiguration]
 readsPrec :: Int -&gt; ReadS TelemetryConfiguration
 $creadsPrec :: Int -&gt; ReadS TelemetryConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347369"><span id="local-6989586621679347371"><span id="local-6989586621679347373"><span class="annot"><span class="annottext">Int -&gt; TelemetryConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347630"><span id="local-6989586621679347632"><span id="local-6989586621679347634"><span class="annot"><span class="annottext">Int -&gt; TelemetryConfiguration -&gt; ShowS
 [TelemetryConfiguration] -&gt; ShowS
 TelemetryConfiguration -&gt; String
 (Int -&gt; TelemetryConfiguration -&gt; ShowS)
@@ -110,8 +110,8 @@ $cfrom :: forall x. TelemetryConfiguration -&gt; Rep TelemetryConfiguration x
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Telemetry.html#Telemetry"><span class="hs-identifier hs-type">Telemetry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span><span>
 </span><span id="line-56"></span><span id="newTelemetryConfiguration"><span class="annot"><span class="annottext">newTelemetryConfiguration :: Telemetry -&gt; TelemetryConfiguration
-</span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#newTelemetryConfiguration"><span class="hs-identifier hs-var hs-var">newTelemetryConfiguration</span></a></span></span><span> </span><span id="local-6989586621679347363"><span class="annot"><span class="annottext">Telemetry
-</span><a href="#local-6989586621679347363"><span class="hs-identifier hs-var">pTelemetry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#newTelemetryConfiguration"><span class="hs-identifier hs-var hs-var">newTelemetryConfiguration</span></a></span></span><span> </span><span id="local-6989586621679347624"><span class="annot"><span class="annottext">Telemetry
+</span><a href="#local-6989586621679347624"><span class="hs-identifier hs-var">pTelemetry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">TelemetryConfiguration' :: Maybe ConfigurationSyncStatus
 -&gt; Telemetry -&gt; TelemetryConfiguration
 </span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span>
@@ -122,7 +122,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:telemetry:TelemetryConfiguration' :: Telemetry
 </span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#%24sel%3Atelemetry%3ATelemetryConfiguration%27"><span class="hs-identifier hs-var">telemetry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Telemetry
-</span><a href="#local-6989586621679347363"><span class="hs-identifier hs-var">pTelemetry_</span></a></span><span>
+</span><a href="#local-6989586621679347624"><span class="hs-identifier hs-var">pTelemetry_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | Synchronization status of the device reported configuration with the</span><span>
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe ConfigurationSyncStatus)
      (Maybe ConfigurationSyncStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347359"><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347620"><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
 configurationSyncStatus :: Maybe ConfigurationSyncStatus
 $sel:configurationSyncStatus:TelemetryConfiguration' :: TelemetryConfiguration -&gt; Maybe ConfigurationSyncStatus
-</span><a href="#local-6989586621679347359"><span class="hs-identifier hs-var hs-var">configurationSyncStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
-</span><a href="#local-6989586621679347359"><span class="hs-identifier hs-var">configurationSyncStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347358"><span class="annot"><span class="annottext">s :: TelemetryConfiguration
-</span><a href="#local-6989586621679347358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347357"><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
-</span><a href="#local-6989586621679347357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TelemetryConfiguration
-</span><a href="#local-6989586621679347358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSyncStatus:TelemetryConfiguration' :: Maybe ConfigurationSyncStatus
+</span><a href="#local-6989586621679347620"><span class="hs-identifier hs-var hs-var">configurationSyncStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
+</span><a href="#local-6989586621679347620"><span class="hs-identifier hs-var">configurationSyncStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347619"><span class="annot"><span class="annottext">s :: TelemetryConfiguration
+</span><a href="#local-6989586621679347619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347618"><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
+</span><a href="#local-6989586621679347618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TelemetryConfiguration
+</span><a href="#local-6989586621679347619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationSyncStatus:TelemetryConfiguration' :: Maybe ConfigurationSyncStatus
 </span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#%24sel%3AconfigurationSyncStatus%3ATelemetryConfiguration%27"><span class="hs-identifier hs-var">configurationSyncStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
-</span><a href="#local-6989586621679347357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Configure telemetry to be on or off.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#telemetryConfiguration_telemetry"><span class="hs-identifier hs-type">telemetryConfiguration_telemetry</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Telemetry.html#Telemetry"><span class="hs-identifier hs-type">Telemetry</span></a></span><span>
@@ -160,19 +160,19 @@ $sel:configurationSyncStatus:TelemetryConfiguration' :: TelemetryConfiguration -
 -&gt; Lens
      TelemetryConfiguration TelemetryConfiguration Telemetry Telemetry
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347355"><span class="annot"><span class="annottext">Telemetry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347616"><span class="annot"><span class="annottext">Telemetry
 telemetry :: Telemetry
 $sel:telemetry:TelemetryConfiguration' :: TelemetryConfiguration -&gt; Telemetry
-</span><a href="#local-6989586621679347355"><span class="hs-identifier hs-var hs-var">telemetry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Telemetry
-</span><a href="#local-6989586621679347355"><span class="hs-identifier hs-var">telemetry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347354"><span class="annot"><span class="annottext">s :: TelemetryConfiguration
-</span><a href="#local-6989586621679347354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347353"><span class="annot"><span class="annottext">Telemetry
-</span><a href="#local-6989586621679347353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TelemetryConfiguration
-</span><a href="#local-6989586621679347354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telemetry:TelemetryConfiguration' :: Telemetry
+</span><a href="#local-6989586621679347616"><span class="hs-identifier hs-var hs-var">telemetry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Telemetry
+</span><a href="#local-6989586621679347616"><span class="hs-identifier hs-var">telemetry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347615"><span class="annot"><span class="annottext">s :: TelemetryConfiguration
+</span><a href="#local-6989586621679347615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-type">TelemetryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347614"><span class="annot"><span class="annottext">Telemetry
+</span><a href="#local-6989586621679347614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TelemetryConfiguration
+</span><a href="#local-6989586621679347615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:telemetry:TelemetryConfiguration' :: Telemetry
 </span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#%24sel%3Atelemetry%3ATelemetryConfiguration%27"><span class="hs-identifier hs-var">telemetry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Telemetry
-</span><a href="#local-6989586621679347353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347350"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679347348"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TelemetryConfiguration
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347611"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679347609"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TelemetryConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TelemetryConfiguration)
@@ -182,8 +182,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TelemetryConfiguration&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347345"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347606"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConfigurationSyncStatus
 -&gt; Telemetry -&gt; TelemetryConfiguration
 </span><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration%27"><span class="hs-identifier hs-var">TelemetryConfiguration'</span></a></span><span>
@@ -193,7 +193,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Telemetry -&gt; TelemetryConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigurationSyncStatus)
+</span><a href="#local-6989586621679347606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigurationSyncStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigurationSyncStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,13 +201,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Telemetry -&gt; Parser TelemetryConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Telemetry
+</span><a href="#local-6989586621679347606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Telemetry
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Telemetry&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347338"><span id="local-6989586621679347340"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347599"><span id="local-6989586621679347601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.TelemetryConfiguration.html#TelemetryConfiguration"><span class="hs-identifier hs-type">TelemetryConfiguration</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

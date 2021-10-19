@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside"><span class="hs-identifier">NielsenWatermarksCbetStepaside</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside_DISABLED"><span class="hs-identifier">NielsenWatermarksCbetStepaside_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside_ENABLED"><span class="hs-identifier">NielsenWatermarksCbetStepaside_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Nielsen Watermarks Cbet Stepaside</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679908988"><span id="local-6989586621679908989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NielsenWatermarksCbetStepaside"><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside"><span class="hs-identifier hs-var">NielsenWatermarksCbetStepaside</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NielsenWatermarksCbetStepaside%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside%27"><span class="hs-identifier hs-var">NielsenWatermarksCbetStepaside'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNielsenWatermarksCbetStepaside"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside -&gt; Text
+</span><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#fromNielsenWatermarksCbetStepaside"><span class="hs-identifier hs-var hs-var">fromNielsenWatermarksCbetStepaside</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679908980"><span id="local-6989586621679908982"><span id="local-6989586621679908984"><span class="annot"><span class="annottext">Int -&gt; NielsenWatermarksCbetStepaside -&gt; ShowS
+[NielsenWatermarksCbetStepaside] -&gt; ShowS
+NielsenWatermarksCbetStepaside -&gt; String
+(Int -&gt; NielsenWatermarksCbetStepaside -&gt; ShowS)
+-&gt; (NielsenWatermarksCbetStepaside -&gt; String)
+-&gt; ([NielsenWatermarksCbetStepaside] -&gt; ShowS)
+-&gt; Show NielsenWatermarksCbetStepaside
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NielsenWatermarksCbetStepaside] -&gt; ShowS
+$cshowList :: [NielsenWatermarksCbetStepaside] -&gt; ShowS
+show :: NielsenWatermarksCbetStepaside -&gt; String
+$cshow :: NielsenWatermarksCbetStepaside -&gt; String
+showsPrec :: Int -&gt; NielsenWatermarksCbetStepaside -&gt; ShowS
+$cshowsPrec :: Int -&gt; NielsenWatermarksCbetStepaside -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679908971"><span id="local-6989586621679908973"><span id="local-6989586621679908975"><span id="local-6989586621679908977"><span class="annot"><span class="annottext">ReadPrec [NielsenWatermarksCbetStepaside]
+ReadPrec NielsenWatermarksCbetStepaside
+Int -&gt; ReadS NielsenWatermarksCbetStepaside
+ReadS [NielsenWatermarksCbetStepaside]
+(Int -&gt; ReadS NielsenWatermarksCbetStepaside)
+-&gt; ReadS [NielsenWatermarksCbetStepaside]
+-&gt; ReadPrec NielsenWatermarksCbetStepaside
+-&gt; ReadPrec [NielsenWatermarksCbetStepaside]
+-&gt; Read NielsenWatermarksCbetStepaside
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NielsenWatermarksCbetStepaside]
+$creadListPrec :: ReadPrec [NielsenWatermarksCbetStepaside]
+readPrec :: ReadPrec NielsenWatermarksCbetStepaside
+$creadPrec :: ReadPrec NielsenWatermarksCbetStepaside
+readList :: ReadS [NielsenWatermarksCbetStepaside]
+$creadList :: ReadS [NielsenWatermarksCbetStepaside]
+readsPrec :: Int -&gt; ReadS NielsenWatermarksCbetStepaside
+$creadsPrec :: Int -&gt; ReadS NielsenWatermarksCbetStepaside
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679908966"><span id="local-6989586621679908968"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+(NielsenWatermarksCbetStepaside
+ -&gt; NielsenWatermarksCbetStepaside -&gt; Bool)
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside -&gt; Bool)
+-&gt; Eq NielsenWatermarksCbetStepaside
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+$c/= :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+== :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+$c== :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679908950"><span id="local-6989586621679908952"><span id="local-6989586621679908954"><span id="local-6989586621679908956"><span id="local-6989586621679908958"><span id="local-6989586621679908960"><span id="local-6989586621679908962"><span class="annot"><span class="annottext">Eq NielsenWatermarksCbetStepaside
+Eq NielsenWatermarksCbetStepaside
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside -&gt; Ordering)
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside -&gt; Bool)
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside -&gt; Bool)
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside -&gt; Bool)
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside -&gt; Bool)
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside)
+-&gt; (NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside
+    -&gt; NielsenWatermarksCbetStepaside)
+-&gt; Ord NielsenWatermarksCbetStepaside
+NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Ordering
+NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; NielsenWatermarksCbetStepaside
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; NielsenWatermarksCbetStepaside
+$cmin :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; NielsenWatermarksCbetStepaside
+max :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; NielsenWatermarksCbetStepaside
+$cmax :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; NielsenWatermarksCbetStepaside
+&gt;= :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+$c&gt;= :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+&gt; :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+$c&gt; :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+&lt;= :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+$c&lt;= :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+&lt; :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+$c&lt; :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Bool
+compare :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Ordering
+$ccompare :: NielsenWatermarksCbetStepaside
+-&gt; NielsenWatermarksCbetStepaside -&gt; Ordering
+$cp1Ord :: Eq NielsenWatermarksCbetStepaside
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ NielsenWatermarksCbetStepaside
+ -&gt; Rep NielsenWatermarksCbetStepaside x)
+-&gt; (forall x.
+    Rep NielsenWatermarksCbetStepaside x
+    -&gt; NielsenWatermarksCbetStepaside)
+-&gt; Generic NielsenWatermarksCbetStepaside
+forall x.
+Rep NielsenWatermarksCbetStepaside x
+-&gt; NielsenWatermarksCbetStepaside
+forall x.
+NielsenWatermarksCbetStepaside
+-&gt; Rep NielsenWatermarksCbetStepaside x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NielsenWatermarksCbetStepaside x
+-&gt; NielsenWatermarksCbetStepaside
+$cfrom :: forall x.
+NielsenWatermarksCbetStepaside
+-&gt; Rep NielsenWatermarksCbetStepaside x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679908942"><span id="local-6989586621679908944"><span class="annot"><span class="annottext">Int -&gt; NielsenWatermarksCbetStepaside -&gt; Int
+NielsenWatermarksCbetStepaside -&gt; Int
+(Int -&gt; NielsenWatermarksCbetStepaside -&gt; Int)
+-&gt; (NielsenWatermarksCbetStepaside -&gt; Int)
+-&gt; Hashable NielsenWatermarksCbetStepaside
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NielsenWatermarksCbetStepaside -&gt; Int
+$chash :: NielsenWatermarksCbetStepaside -&gt; Int
+hashWithSalt :: Int -&gt; NielsenWatermarksCbetStepaside -&gt; Int
+$chashWithSalt :: Int -&gt; NielsenWatermarksCbetStepaside -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679908939"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside -&gt; ()
+(NielsenWatermarksCbetStepaside -&gt; ())
+-&gt; NFData NielsenWatermarksCbetStepaside
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NielsenWatermarksCbetStepaside -&gt; ()
+$crnf :: NielsenWatermarksCbetStepaside -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679908936"><span class="annot"><span class="annottext">Text -&gt; Either String NielsenWatermarksCbetStepaside
+(Text -&gt; Either String NielsenWatermarksCbetStepaside)
+-&gt; FromText NielsenWatermarksCbetStepaside
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NielsenWatermarksCbetStepaside
+$cfromText :: Text -&gt; Either String NielsenWatermarksCbetStepaside
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679908933"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside -&gt; Text
+(NielsenWatermarksCbetStepaside -&gt; Text)
+-&gt; ToText NielsenWatermarksCbetStepaside
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NielsenWatermarksCbetStepaside -&gt; Text
+$ctoText :: NielsenWatermarksCbetStepaside -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679908930"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside -&gt; ByteString
+(NielsenWatermarksCbetStepaside -&gt; ByteString)
+-&gt; ToByteString NielsenWatermarksCbetStepaside
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NielsenWatermarksCbetStepaside -&gt; ByteString
+$ctoBS :: NielsenWatermarksCbetStepaside -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679908927"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside -&gt; ByteStringBuilder
+(NielsenWatermarksCbetStepaside -&gt; ByteStringBuilder)
+-&gt; ToLog NielsenWatermarksCbetStepaside
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NielsenWatermarksCbetStepaside -&gt; ByteStringBuilder
+$cbuild :: NielsenWatermarksCbetStepaside -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679908924"><span class="annot"><span class="annottext">HeaderName -&gt; NielsenWatermarksCbetStepaside -&gt; [Header]
+(HeaderName -&gt; NielsenWatermarksCbetStepaside -&gt; [Header])
+-&gt; ToHeader NielsenWatermarksCbetStepaside
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NielsenWatermarksCbetStepaside -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NielsenWatermarksCbetStepaside -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679908921"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside -&gt; QueryString
+(NielsenWatermarksCbetStepaside -&gt; QueryString)
+-&gt; ToQuery NielsenWatermarksCbetStepaside
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NielsenWatermarksCbetStepaside -&gt; QueryString
+$ctoQuery :: NielsenWatermarksCbetStepaside -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679908916"><span id="local-6989586621679908918"><span class="annot"><span class="annottext">Value -&gt; Parser [NielsenWatermarksCbetStepaside]
+Value -&gt; Parser NielsenWatermarksCbetStepaside
+(Value -&gt; Parser NielsenWatermarksCbetStepaside)
+-&gt; (Value -&gt; Parser [NielsenWatermarksCbetStepaside])
+-&gt; FromJSON NielsenWatermarksCbetStepaside
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NielsenWatermarksCbetStepaside]
+$cparseJSONList :: Value -&gt; Parser [NielsenWatermarksCbetStepaside]
+parseJSON :: Value -&gt; Parser NielsenWatermarksCbetStepaside
+$cparseJSON :: Value -&gt; Parser NielsenWatermarksCbetStepaside
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679908911"><span id="local-6989586621679908913"><span class="annot"><span class="annottext">FromJSONKeyFunction [NielsenWatermarksCbetStepaside]
+FromJSONKeyFunction NielsenWatermarksCbetStepaside
+FromJSONKeyFunction NielsenWatermarksCbetStepaside
+-&gt; FromJSONKeyFunction [NielsenWatermarksCbetStepaside]
+-&gt; FromJSONKey NielsenWatermarksCbetStepaside
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NielsenWatermarksCbetStepaside]
+$cfromJSONKeyList :: FromJSONKeyFunction [NielsenWatermarksCbetStepaside]
+fromJSONKey :: FromJSONKeyFunction NielsenWatermarksCbetStepaside
+$cfromJSONKey :: FromJSONKeyFunction NielsenWatermarksCbetStepaside
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679908902"><span id="local-6989586621679908904"><span id="local-6989586621679908906"><span id="local-6989586621679908908"><span class="annot"><span class="annottext">[NielsenWatermarksCbetStepaside] -&gt; Encoding
+[NielsenWatermarksCbetStepaside] -&gt; Value
+NielsenWatermarksCbetStepaside -&gt; Encoding
+NielsenWatermarksCbetStepaside -&gt; Value
+(NielsenWatermarksCbetStepaside -&gt; Value)
+-&gt; (NielsenWatermarksCbetStepaside -&gt; Encoding)
+-&gt; ([NielsenWatermarksCbetStepaside] -&gt; Value)
+-&gt; ([NielsenWatermarksCbetStepaside] -&gt; Encoding)
+-&gt; ToJSON NielsenWatermarksCbetStepaside
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NielsenWatermarksCbetStepaside] -&gt; Encoding
+$ctoEncodingList :: [NielsenWatermarksCbetStepaside] -&gt; Encoding
+toJSONList :: [NielsenWatermarksCbetStepaside] -&gt; Value
+$ctoJSONList :: [NielsenWatermarksCbetStepaside] -&gt; Value
+toEncoding :: NielsenWatermarksCbetStepaside -&gt; Encoding
+$ctoEncoding :: NielsenWatermarksCbetStepaside -&gt; Encoding
+toJSON :: NielsenWatermarksCbetStepaside -&gt; Value
+$ctoJSON :: NielsenWatermarksCbetStepaside -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679908897"><span id="local-6989586621679908899"><span class="annot"><span class="annottext">ToJSONKeyFunction [NielsenWatermarksCbetStepaside]
+ToJSONKeyFunction NielsenWatermarksCbetStepaside
+ToJSONKeyFunction NielsenWatermarksCbetStepaside
+-&gt; ToJSONKeyFunction [NielsenWatermarksCbetStepaside]
+-&gt; ToJSONKey NielsenWatermarksCbetStepaside
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NielsenWatermarksCbetStepaside]
+$ctoJSONKeyList :: ToJSONKeyFunction [NielsenWatermarksCbetStepaside]
+toJSONKey :: ToJSONKeyFunction NielsenWatermarksCbetStepaside
+$ctoJSONKey :: ToJSONKeyFunction NielsenWatermarksCbetStepaside
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679908894"><span class="annot"><span class="annottext">[Node] -&gt; Either String NielsenWatermarksCbetStepaside
+([Node] -&gt; Either String NielsenWatermarksCbetStepaside)
+-&gt; FromXML NielsenWatermarksCbetStepaside
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NielsenWatermarksCbetStepaside
+$cparseXML :: [Node] -&gt; Either String NielsenWatermarksCbetStepaside
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679908891"><span class="annot"><span class="annottext">NielsenWatermarksCbetStepaside -&gt; XML
+(NielsenWatermarksCbetStepaside -&gt; XML)
+-&gt; ToXML NielsenWatermarksCbetStepaside
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NielsenWatermarksCbetStepaside -&gt; XML
+$ctoXML :: NielsenWatermarksCbetStepaside -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside_DISABLED"><span class="hs-identifier hs-type">NielsenWatermarksCbetStepaside_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside"><span class="hs-identifier hs-type">NielsenWatermarksCbetStepaside</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNielsenWatermarksCbetStepaside_DISABLED"><span id="%24mNielsenWatermarksCbetStepaside_DISABLED"><span id="NielsenWatermarksCbetStepaside_DISABLED"><span class="annot"><span class="annottext">$bNielsenWatermarksCbetStepaside_DISABLED :: NielsenWatermarksCbetStepaside
+$mNielsenWatermarksCbetStepaside_DISABLED :: forall r.
+NielsenWatermarksCbetStepaside -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#%24bNielsenWatermarksCbetStepaside_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">NielsenWatermarksCbetStepaside_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside%27"><span class="hs-identifier hs-type">NielsenWatermarksCbetStepaside'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside_ENABLED"><span class="hs-identifier hs-type">NielsenWatermarksCbetStepaside_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside"><span class="hs-identifier hs-type">NielsenWatermarksCbetStepaside</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNielsenWatermarksCbetStepaside_ENABLED"><span id="%24mNielsenWatermarksCbetStepaside_ENABLED"><span id="NielsenWatermarksCbetStepaside_ENABLED"><span class="annot"><span class="annottext">$bNielsenWatermarksCbetStepaside_ENABLED :: NielsenWatermarksCbetStepaside
+$mNielsenWatermarksCbetStepaside_ENABLED :: forall r.
+NielsenWatermarksCbetStepaside -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#%24bNielsenWatermarksCbetStepaside_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">NielsenWatermarksCbetStepaside_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside%27"><span class="hs-identifier hs-type">NielsenWatermarksCbetStepaside'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside_DISABLED"><span class="hs-pragma hs-type">NielsenWatermarksCbetStepaside_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside_ENABLED"><span class="hs-pragma hs-type">NielsenWatermarksCbetStepaside_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside.html#NielsenWatermarksCbetStepaside%27"><span class="hs-pragma hs-type">NielsenWatermarksCbetStepaside'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

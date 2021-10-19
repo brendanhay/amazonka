@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the ICMP type and code.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIcmpTypeCode' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681078642"><span id="local-6989586621681078643"></span></span><span class="hs-keyword">data</span><span> </span><span id="IcmpTypeCode"><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-var">IcmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IcmpTypeCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-var">IcmpTypeCode'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681112992"><span id="local-6989586621681112993"></span></span><span class="hs-keyword">data</span><span> </span><span id="IcmpTypeCode"><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-var">IcmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IcmpTypeCode%27"><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-var">IcmpTypeCode'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ICMP code. A value of -1 means all codes for the specified ICMP</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- type.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Acode%3AIcmpTypeCode%27"><span class="annot"><span class="annottext">IcmpTypeCode -&gt; Maybe Int
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3AIcmpTypeCode%27"><span class="annot"><span class="annottext">IcmpTypeCode -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#%24sel%3Atype%27%3AIcmpTypeCode%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681078635"><span id="local-6989586621681078637"><span class="annot"><span class="annottext">IcmpTypeCode -&gt; IcmpTypeCode -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681112985"><span id="local-6989586621681112987"><span class="annot"><span class="annottext">IcmpTypeCode -&gt; IcmpTypeCode -&gt; Bool
 (IcmpTypeCode -&gt; IcmpTypeCode -&gt; Bool)
 -&gt; (IcmpTypeCode -&gt; IcmpTypeCode -&gt; Bool) -&gt; Eq IcmpTypeCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IcmpTypeCode -&gt; IcmpTypeCode -&gt; Bool
 == :: IcmpTypeCode -&gt; IcmpTypeCode -&gt; Bool
 $c== :: IcmpTypeCode -&gt; IcmpTypeCode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681078626"><span id="local-6989586621681078628"><span id="local-6989586621681078630"><span id="local-6989586621681078632"><span class="annot"><span class="annottext">ReadPrec [IcmpTypeCode]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112976"><span id="local-6989586621681112978"><span id="local-6989586621681112980"><span id="local-6989586621681112982"><span class="annot"><span class="annottext">ReadPrec [IcmpTypeCode]
 ReadPrec IcmpTypeCode
 Int -&gt; ReadS IcmpTypeCode
 ReadS [IcmpTypeCode]
@@ -64,7 +64,7 @@ readList :: ReadS [IcmpTypeCode]
 $creadList :: ReadS [IcmpTypeCode]
 readsPrec :: Int -&gt; ReadS IcmpTypeCode
 $creadsPrec :: Int -&gt; ReadS IcmpTypeCode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681078619"><span id="local-6989586621681078621"><span id="local-6989586621681078623"><span class="annot"><span class="annottext">Int -&gt; IcmpTypeCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112969"><span id="local-6989586621681112971"><span id="local-6989586621681112973"><span class="annot"><span class="annottext">Int -&gt; IcmpTypeCode -&gt; ShowS
 [IcmpTypeCode] -&gt; ShowS
 IcmpTypeCode -&gt; String
 (Int -&gt; IcmpTypeCode -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (IcmpTypeCode -&gt; Maybe Int -&gt; IcmpTypeCode)
 -&gt; Lens IcmpTypeCode IcmpTypeCode (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681078610"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112960"><span class="annot"><span class="annottext">Maybe Int
 code :: Maybe Int
 $sel:code:IcmpTypeCode' :: IcmpTypeCode -&gt; Maybe Int
-</span><a href="#local-6989586621681078610"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078610"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681078609"><span class="annot"><span class="annottext">s :: IcmpTypeCode
-</span><a href="#local-6989586621681078609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681078608"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IcmpTypeCode
-</span><a href="#local-6989586621681078609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:IcmpTypeCode' :: Maybe Int
+</span><a href="#local-6989586621681112960"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681112960"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112959"><span class="annot"><span class="annottext">s :: IcmpTypeCode
+</span><a href="#local-6989586621681112959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112958"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681112958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IcmpTypeCode
+</span><a href="#local-6989586621681112959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:IcmpTypeCode' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#%24sel%3Acode%3AIcmpTypeCode%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681112958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The ICMP type. A value of -1 means all types.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#icmpTypeCode_type"><span class="hs-identifier hs-type">icmpTypeCode_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -144,21 +144,21 @@ $sel:code:IcmpTypeCode' :: IcmpTypeCode -&gt; Maybe Int
 -&gt; (IcmpTypeCode -&gt; Maybe Int -&gt; IcmpTypeCode)
 -&gt; Lens IcmpTypeCode IcmpTypeCode (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681078606"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112956"><span class="annot"><span class="annottext">Maybe Int
 type' :: Maybe Int
 $sel:type':IcmpTypeCode' :: IcmpTypeCode -&gt; Maybe Int
-</span><a href="#local-6989586621681078606"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078606"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681078605"><span class="annot"><span class="annottext">s :: IcmpTypeCode
-</span><a href="#local-6989586621681078605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681078604"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IcmpTypeCode
-</span><a href="#local-6989586621681078605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':IcmpTypeCode' :: Maybe Int
+</span><a href="#local-6989586621681112956"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681112956"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112955"><span class="annot"><span class="annottext">s :: IcmpTypeCode
+</span><a href="#local-6989586621681112955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112954"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681112954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IcmpTypeCode
+</span><a href="#local-6989586621681112955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':IcmpTypeCode' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#%24sel%3Atype%27%3AIcmpTypeCode%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681112954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621681078601"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IcmpTypeCode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681078599"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681078599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621681112951"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IcmpTypeCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681112949"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; IcmpTypeCode
 </span><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-var">IcmpTypeCode'</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; IcmpTypeCode)
@@ -166,30 +166,30 @@ $sel:type':IcmpTypeCode' :: IcmpTypeCode -&gt; Maybe Int
 -&gt; Either String (Maybe Int -&gt; IcmpTypeCode)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681078599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681112949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; IcmpTypeCode)
 -&gt; Either String (Maybe Int) -&gt; Either String IcmpTypeCode
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681078599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681112949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681078593"><span id="local-6989586621681078595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681112943"><span id="local-6989586621681112945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681078590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681112940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621681078586"><span class="annot"><span class="annottext">toQuery :: IcmpTypeCode -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681078583"><span id="local-6989586621681078584"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681112936"><span class="annot"><span class="annottext">toQuery :: IcmpTypeCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IcmpTypeCode.html#IcmpTypeCode%27"><span class="hs-identifier hs-type">IcmpTypeCode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112933"><span id="local-6989586621681112934"><span class="annot"><span class="annottext">Maybe Int
 type' :: Maybe Int
 code :: Maybe Int
 $sel:type':IcmpTypeCode' :: IcmpTypeCode -&gt; Maybe Int
 $sel:code:IcmpTypeCode' :: IcmpTypeCode -&gt; Maybe Int
-</span><a href="#local-6989586621681078583"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681112933"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -197,9 +197,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Code&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078584"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681112934"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681078583"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681112933"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span></pre></body></html>

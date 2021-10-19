@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621680309303"><span id="local-6989586621680309304"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageVersionStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus"><span class="hs-identifier hs-var">ImageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageVersionStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus%27"><span class="hs-identifier hs-var">ImageVersionStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680310678"><span id="local-6989586621680310679"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageVersionStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus"><span class="hs-identifier hs-var">ImageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageVersionStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus%27"><span class="hs-identifier hs-var">ImageVersionStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageVersionStatus"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#fromImageVersionStatus"><span class="hs-identifier hs-var hs-var">fromImageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680309295"><span id="local-6989586621680309297"><span id="local-6989586621680309299"><span class="annot"><span class="annottext">Int -&gt; ImageVersionStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680310670"><span id="local-6989586621680310672"><span id="local-6989586621680310674"><span class="annot"><span class="annottext">Int -&gt; ImageVersionStatus -&gt; ShowS
 [ImageVersionStatus] -&gt; ShowS
 ImageVersionStatus -&gt; String
 (Int -&gt; ImageVersionStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ImageVersionStatus -&gt; String
 showsPrec :: Int -&gt; ImageVersionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImageVersionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680309286"><span id="local-6989586621680309288"><span id="local-6989586621680309290"><span id="local-6989586621680309292"><span class="annot"><span class="annottext">ReadPrec [ImageVersionStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680310661"><span id="local-6989586621680310663"><span id="local-6989586621680310665"><span id="local-6989586621680310667"><span class="annot"><span class="annottext">ReadPrec [ImageVersionStatus]
 ReadPrec ImageVersionStatus
 Int -&gt; ReadS ImageVersionStatus
 ReadS [ImageVersionStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ImageVersionStatus]
 readsPrec :: Int -&gt; ReadS ImageVersionStatus
 $creadsPrec :: Int -&gt; ReadS ImageVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680309281"><span id="local-6989586621680309283"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680310656"><span id="local-6989586621680310658"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool
 (ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool)
 -&gt; (ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool)
 -&gt; Eq ImageVersionStatus
@@ -85,7 +85,7 @@ $c/= :: ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool
 == :: ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool
 $c== :: ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680309265"><span id="local-6989586621680309267"><span id="local-6989586621680309269"><span id="local-6989586621680309271"><span id="local-6989586621680309273"><span id="local-6989586621680309275"><span id="local-6989586621680309277"><span class="annot"><span class="annottext">Eq ImageVersionStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680310640"><span id="local-6989586621680310642"><span id="local-6989586621680310644"><span id="local-6989586621680310646"><span id="local-6989586621680310648"><span id="local-6989586621680310650"><span id="local-6989586621680310652"><span class="annot"><span class="annottext">Eq ImageVersionStatus
 Eq ImageVersionStatus
 -&gt; (ImageVersionStatus -&gt; ImageVersionStatus -&gt; Ordering)
 -&gt; (ImageVersionStatus -&gt; ImageVersionStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ImageVersionStatus -&gt; Rep ImageVersionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680309257"><span id="local-6989586621680309259"><span class="annot"><span class="annottext">Int -&gt; ImageVersionStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680310632"><span id="local-6989586621680310634"><span class="annot"><span class="annottext">Int -&gt; ImageVersionStatus -&gt; Int
 ImageVersionStatus -&gt; Int
 (Int -&gt; ImageVersionStatus -&gt; Int)
 -&gt; (ImageVersionStatus -&gt; Int) -&gt; Hashable ImageVersionStatus
@@ -146,53 +146,53 @@ $chash :: ImageVersionStatus -&gt; Int
 hashWithSalt :: Int -&gt; ImageVersionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ImageVersionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680309254"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680310629"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ()
 (ImageVersionStatus -&gt; ()) -&gt; NFData ImageVersionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImageVersionStatus -&gt; ()
 $crnf :: ImageVersionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680309251"><span class="annot"><span class="annottext">Text -&gt; Either String ImageVersionStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680310626"><span class="annot"><span class="annottext">Text -&gt; Either String ImageVersionStatus
 (Text -&gt; Either String ImageVersionStatus)
 -&gt; FromText ImageVersionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImageVersionStatus
 $cfromText :: Text -&gt; Either String ImageVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680309248"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680310623"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; Text
 (ImageVersionStatus -&gt; Text) -&gt; ToText ImageVersionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImageVersionStatus -&gt; Text
 $ctoText :: ImageVersionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680309245"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680310620"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ByteString
 (ImageVersionStatus -&gt; ByteString)
 -&gt; ToByteString ImageVersionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImageVersionStatus -&gt; ByteString
 $ctoBS :: ImageVersionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680309242"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680310617"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; ByteStringBuilder
 (ImageVersionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ImageVersionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImageVersionStatus -&gt; ByteStringBuilder
 $cbuild :: ImageVersionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680309239"><span class="annot"><span class="annottext">HeaderName -&gt; ImageVersionStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680310614"><span class="annot"><span class="annottext">HeaderName -&gt; ImageVersionStatus -&gt; [Header]
 (HeaderName -&gt; ImageVersionStatus -&gt; [Header])
 -&gt; ToHeader ImageVersionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImageVersionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImageVersionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680309236"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680310611"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; QueryString
 (ImageVersionStatus -&gt; QueryString) -&gt; ToQuery ImageVersionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImageVersionStatus -&gt; QueryString
 $ctoQuery :: ImageVersionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680309231"><span id="local-6989586621680309233"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageVersionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680310606"><span id="local-6989586621680310608"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageVersionStatus]
 Value -&gt; Parser ImageVersionStatus
 (Value -&gt; Parser ImageVersionStatus)
 -&gt; (Value -&gt; Parser [ImageVersionStatus])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ImageVersionStatus]
 parseJSON :: Value -&gt; Parser ImageVersionStatus
 $cparseJSON :: Value -&gt; Parser ImageVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680309226"><span id="local-6989586621680309228"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageVersionStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680310601"><span id="local-6989586621680310603"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageVersionStatus]
 FromJSONKeyFunction ImageVersionStatus
 FromJSONKeyFunction ImageVersionStatus
 -&gt; FromJSONKeyFunction [ImageVersionStatus]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImageVersionStatus]
 fromJSONKey :: FromJSONKeyFunction ImageVersionStatus
 $cfromJSONKey :: FromJSONKeyFunction ImageVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680309217"><span id="local-6989586621680309219"><span id="local-6989586621680309221"><span id="local-6989586621680309223"><span class="annot"><span class="annottext">[ImageVersionStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680310592"><span id="local-6989586621680310594"><span id="local-6989586621680310596"><span id="local-6989586621680310598"><span class="annot"><span class="annottext">[ImageVersionStatus] -&gt; Encoding
 [ImageVersionStatus] -&gt; Value
 ImageVersionStatus -&gt; Encoding
 ImageVersionStatus -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ImageVersionStatus -&gt; Encoding
 toJSON :: ImageVersionStatus -&gt; Value
 $ctoJSON :: ImageVersionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680309212"><span id="local-6989586621680309214"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageVersionStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680310587"><span id="local-6989586621680310589"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageVersionStatus]
 ToJSONKeyFunction ImageVersionStatus
 ToJSONKeyFunction ImageVersionStatus
 -&gt; ToJSONKeyFunction [ImageVersionStatus]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImageVersionStatus]
 toJSONKey :: ToJSONKeyFunction ImageVersionStatus
 $ctoJSONKey :: ToJSONKeyFunction ImageVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680309209"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageVersionStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680310584"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageVersionStatus
 ([Node] -&gt; Either String ImageVersionStatus)
 -&gt; FromXML ImageVersionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImageVersionStatus
 $cparseXML :: [Node] -&gt; Either String ImageVersionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680309206"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680310581"><span class="annot"><span class="annottext">ImageVersionStatus -&gt; XML
 (ImageVersionStatus -&gt; XML) -&gt; ToXML ImageVersionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ImageVersionStatus -&gt; XML

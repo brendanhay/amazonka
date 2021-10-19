@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- the value OPUS.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOpusSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679992506"><span id="local-6989586621679992507"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpusSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-var">OpusSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpusSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-var">OpusSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679997297"><span id="local-6989586621679997298"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpusSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-var">OpusSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpusSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-var">OpusSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the number of channels in this output audio track. Choosing Mono</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- on the console gives you 1 output channel; choosing Stereo gives you 2.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- In the API, valid values are 1 and 2.</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Abitrate%3AOpusSettings%27"><span class="annot"><span class="annottext">OpusSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#%24sel%3Abitrate%3AOpusSettings%27"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679992498"><span id="local-6989586621679992500"><span class="annot"><span class="annottext">OpusSettings -&gt; OpusSettings -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679997289"><span id="local-6989586621679997291"><span class="annot"><span class="annottext">OpusSettings -&gt; OpusSettings -&gt; Bool
 (OpusSettings -&gt; OpusSettings -&gt; Bool)
 -&gt; (OpusSettings -&gt; OpusSettings -&gt; Bool) -&gt; Eq OpusSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpusSettings -&gt; OpusSettings -&gt; Bool
 == :: OpusSettings -&gt; OpusSettings -&gt; Bool
 $c== :: OpusSettings -&gt; OpusSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679992489"><span id="local-6989586621679992491"><span id="local-6989586621679992493"><span id="local-6989586621679992495"><span class="annot"><span class="annottext">ReadPrec [OpusSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679997280"><span id="local-6989586621679997282"><span id="local-6989586621679997284"><span id="local-6989586621679997286"><span class="annot"><span class="annottext">ReadPrec [OpusSettings]
 ReadPrec OpusSettings
 Int -&gt; ReadS OpusSettings
 ReadS [OpusSettings]
@@ -71,7 +71,7 @@ readList :: ReadS [OpusSettings]
 $creadList :: ReadS [OpusSettings]
 readsPrec :: Int -&gt; ReadS OpusSettings
 $creadsPrec :: Int -&gt; ReadS OpusSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679992482"><span id="local-6989586621679992484"><span id="local-6989586621679992486"><span class="annot"><span class="annottext">Int -&gt; OpusSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679997273"><span id="local-6989586621679997275"><span id="local-6989586621679997277"><span class="annot"><span class="annottext">Int -&gt; OpusSettings -&gt; ShowS
 [OpusSettings] -&gt; ShowS
 OpusSettings -&gt; String
 (Int -&gt; OpusSettings -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; (OpusSettings -&gt; Maybe Natural -&gt; OpusSettings)
 -&gt; Lens OpusSettings OpusSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992473"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679997264"><span class="annot"><span class="annottext">Maybe Natural
 channels :: Maybe Natural
 $sel:channels:OpusSettings' :: OpusSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679992473"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992473"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992472"><span class="annot"><span class="annottext">s :: OpusSettings
-</span><a href="#local-6989586621679992472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992471"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpusSettings
-</span><a href="#local-6989586621679992472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:OpusSettings' :: Maybe Natural
+</span><a href="#local-6989586621679997264"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679997264"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679997263"><span class="annot"><span class="annottext">s :: OpusSettings
+</span><a href="#local-6989586621679997263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679997262"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679997262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpusSettings
+</span><a href="#local-6989586621679997263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:OpusSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#%24sel%3Achannels%3AOpusSettings%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679997262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- The default value is 48000.</span><span>
@@ -165,16 +165,16 @@ $sel:channels:OpusSettings' :: OpusSettings -&gt; Maybe Natural
 -&gt; (OpusSettings -&gt; Maybe Natural -&gt; OpusSettings)
 -&gt; Lens OpusSettings OpusSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992469"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679997260"><span class="annot"><span class="annottext">Maybe Natural
 sampleRate :: Maybe Natural
 $sel:sampleRate:OpusSettings' :: OpusSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679992469"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992469"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992468"><span class="annot"><span class="annottext">s :: OpusSettings
-</span><a href="#local-6989586621679992468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992467"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpusSettings
-</span><a href="#local-6989586621679992468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:OpusSettings' :: Maybe Natural
+</span><a href="#local-6989586621679997260"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679997260"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679997259"><span class="annot"><span class="annottext">s :: OpusSettings
+</span><a href="#local-6989586621679997259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679997258"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679997258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpusSettings
+</span><a href="#local-6989586621679997259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:OpusSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#%24sel%3AsampleRate%3AOpusSettings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679997258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Optional. Specify the average bitrate in bits per second. Valid values</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- are multiples of 8000, from 32000 through 192000. The default value is</span><span>
@@ -186,19 +186,19 @@ $sel:sampleRate:OpusSettings' :: OpusSettings -&gt; Maybe Natural
 -&gt; (OpusSettings -&gt; Maybe Natural -&gt; OpusSettings)
 -&gt; Lens OpusSettings OpusSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992465"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679997256"><span class="annot"><span class="annottext">Maybe Natural
 bitrate :: Maybe Natural
 $sel:bitrate:OpusSettings' :: OpusSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679992465"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992465"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679992464"><span class="annot"><span class="annottext">s :: OpusSettings
-</span><a href="#local-6989586621679992464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679992463"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpusSettings
-</span><a href="#local-6989586621679992464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:OpusSettings' :: Maybe Natural
+</span><a href="#local-6989586621679997256"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679997256"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679997255"><span class="annot"><span class="annottext">s :: OpusSettings
+</span><a href="#local-6989586621679997255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679997254"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679997254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpusSettings
+</span><a href="#local-6989586621679997255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:OpusSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#%24sel%3Abitrate%3AOpusSettings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679997254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992460"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679992458"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpusSettings
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997251"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679997249"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpusSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OpusSettings) -&gt; Value -&gt; Parser OpusSettings
@@ -206,8 +206,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OpusSettings&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679992455"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679992455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679997246"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679997246"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; OpusSettings
 </span><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-var">OpusSettings'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; OpusSettings)
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; OpusSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679992455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679997246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channels&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,7 +223,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; OpusSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679992455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679997246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,26 +231,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser OpusSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679992455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679997246"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitrate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992449"><span id="local-6989586621679992451"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997240"><span id="local-6989586621679997242"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679992438"><span id="local-6989586621679992440"><span id="local-6989586621679992442"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679992436"><span class="annot"><span class="annottext">toJSON :: OpusSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679992432"><span id="local-6989586621679992433"><span id="local-6989586621679992434"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679997229"><span id="local-6989586621679997231"><span id="local-6989586621679997233"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings"><span class="hs-identifier hs-type">OpusSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679997227"><span class="annot"><span class="annottext">toJSON :: OpusSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OpusSettings.html#OpusSettings%27"><span class="hs-identifier hs-type">OpusSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679997223"><span id="local-6989586621679997224"><span id="local-6989586621679997225"><span class="annot"><span class="annottext">Maybe Natural
 bitrate :: Maybe Natural
 sampleRate :: Maybe Natural
 channels :: Maybe Natural
 $sel:bitrate:OpusSettings' :: OpusSettings -&gt; Maybe Natural
 $sel:sampleRate:OpusSettings' :: OpusSettings -&gt; Maybe Natural
 $sel:channels:OpusSettings' :: OpusSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679992432"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679997223"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,21 +262,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992434"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679997225"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992433"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679997224"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679992432"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
+</span><a href="#local-6989586621679997223"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span></pre></body></html>

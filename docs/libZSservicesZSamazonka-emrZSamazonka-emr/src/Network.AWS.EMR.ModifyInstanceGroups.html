@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Change the size of some instance groups.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newModifyInstanceGroups' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679386034"><span id="local-6989586621679386035"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceGroups"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-var">ModifyInstanceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceGroups%27"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-var">ModifyInstanceGroups'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679386418"><span id="local-6989586621679386419"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceGroups"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-var">ModifyInstanceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceGroups%27"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-var">ModifyInstanceGroups'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the cluster to which the instance group belongs.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AclusterId%3AModifyInstanceGroups%27"><span class="annot"><span class="annottext">ModifyInstanceGroups -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.ModifyInstanceGroups.html#%24sel%3AclusterId%3AModifyInstanceGroups%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AinstanceGroups%3AModifyInstanceGroups%27"><span class="annot"><span class="annottext">ModifyInstanceGroups -&gt; Maybe [InstanceGroupModifyConfig]
 </span><a href="Network.AWS.EMR.ModifyInstanceGroups.html#%24sel%3AinstanceGroups%3AModifyInstanceGroups%27"><span class="hs-identifier hs-var hs-var">instanceGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupModifyConfig.html#InstanceGroupModifyConfig"><span class="hs-identifier hs-type">InstanceGroupModifyConfig</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386027"><span id="local-6989586621679386029"><span class="annot"><span class="annottext">ModifyInstanceGroups -&gt; ModifyInstanceGroups -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386411"><span id="local-6989586621679386413"><span class="annot"><span class="annottext">ModifyInstanceGroups -&gt; ModifyInstanceGroups -&gt; Bool
 (ModifyInstanceGroups -&gt; ModifyInstanceGroups -&gt; Bool)
 -&gt; (ModifyInstanceGroups -&gt; ModifyInstanceGroups -&gt; Bool)
 -&gt; Eq ModifyInstanceGroups
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyInstanceGroups -&gt; ModifyInstanceGroups -&gt; Bool
 == :: ModifyInstanceGroups -&gt; ModifyInstanceGroups -&gt; Bool
 $c== :: ModifyInstanceGroups -&gt; ModifyInstanceGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386018"><span id="local-6989586621679386020"><span id="local-6989586621679386022"><span id="local-6989586621679386024"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386402"><span id="local-6989586621679386404"><span id="local-6989586621679386406"><span id="local-6989586621679386408"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceGroups]
 ReadPrec ModifyInstanceGroups
 Int -&gt; ReadS ModifyInstanceGroups
 ReadS [ModifyInstanceGroups]
@@ -86,7 +86,7 @@ readList :: ReadS [ModifyInstanceGroups]
 $creadList :: ReadS [ModifyInstanceGroups]
 readsPrec :: Int -&gt; ReadS ModifyInstanceGroups
 $creadsPrec :: Int -&gt; ReadS ModifyInstanceGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386011"><span id="local-6989586621679386013"><span id="local-6989586621679386015"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386395"><span id="local-6989586621679386397"><span id="local-6989586621679386399"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceGroups -&gt; ShowS
 [ModifyInstanceGroups] -&gt; ShowS
 ModifyInstanceGroups -&gt; String
 (Int -&gt; ModifyInstanceGroups -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
 -&gt; Lens
      ModifyInstanceGroups ModifyInstanceGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386004"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386388"><span class="annot"><span class="annottext">Maybe Text
 clusterId :: Maybe Text
 $sel:clusterId:ModifyInstanceGroups' :: ModifyInstanceGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679386004"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386004"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386003"><span class="annot"><span class="annottext">s :: ModifyInstanceGroups
-</span><a href="#local-6989586621679386003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386002"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceGroups
-</span><a href="#local-6989586621679386003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ModifyInstanceGroups' :: Maybe Text
+</span><a href="#local-6989586621679386388"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386388"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386387"><span class="annot"><span class="annottext">s :: ModifyInstanceGroups
+</span><a href="#local-6989586621679386387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679386386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceGroups
+</span><a href="#local-6989586621679386387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ModifyInstanceGroups' :: Maybe Text
 </span><a href="Network.AWS.EMR.ModifyInstanceGroups.html#%24sel%3AclusterId%3AModifyInstanceGroups%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679386002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Instance groups to change.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#modifyInstanceGroups_instanceGroups"><span class="hs-identifier hs-type">modifyInstanceGroups_instanceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceGroupModifyConfig.html#InstanceGroupModifyConfig"><span class="hs-identifier hs-type">InstanceGroupModifyConfig</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -174,16 +174,16 @@ $sel:clusterId:ModifyInstanceGroups' :: ModifyInstanceGroups -&gt; Maybe Text
      (Maybe [InstanceGroupModifyConfig])
      (Maybe [InstanceGroupModifyConfig])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386001"><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386385"><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
 instanceGroups :: Maybe [InstanceGroupModifyConfig]
 $sel:instanceGroups:ModifyInstanceGroups' :: ModifyInstanceGroups -&gt; Maybe [InstanceGroupModifyConfig]
-</span><a href="#local-6989586621679386001"><span class="hs-identifier hs-var hs-var">instanceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
-</span><a href="#local-6989586621679386001"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386000"><span class="annot"><span class="annottext">s :: ModifyInstanceGroups
-</span><a href="#local-6989586621679386000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385999"><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
-</span><a href="#local-6989586621679385999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceGroups
-</span><a href="#local-6989586621679386000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceGroups:ModifyInstanceGroups' :: Maybe [InstanceGroupModifyConfig]
+</span><a href="#local-6989586621679386385"><span class="hs-identifier hs-var hs-var">instanceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
+</span><a href="#local-6989586621679386385"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386384"><span class="annot"><span class="annottext">s :: ModifyInstanceGroups
+</span><a href="#local-6989586621679386384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386383"><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
+</span><a href="#local-6989586621679386383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyInstanceGroups
+</span><a href="#local-6989586621679386384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceGroups:ModifyInstanceGroups' :: Maybe [InstanceGroupModifyConfig]
 </span><a href="Network.AWS.EMR.ModifyInstanceGroups.html#%24sel%3AinstanceGroups%3AModifyInstanceGroups%27"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
-</span><a href="#local-6989586621679385999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceGroupModifyConfig]
+</span><a href="#local-6989586621679386383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceGroupModifyConfig]
   -&gt; f (Maybe [InstanceGroupModifyConfig]))
  -&gt; ModifyInstanceGroups -&gt; f ModifyInstanceGroups)
 -&gt; ((Maybe [InstanceGroupModifyConfig]
@@ -213,19 +213,19 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceGroupModifyConfig]
   [InstanceGroupModifyConfig]
   [InstanceGroupModifyConfig]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse"><span class="hs-identifier hs-type">ModifyInstanceGroupsResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679385992"><span class="annot"><span class="annottext">request :: ModifyInstanceGroups -&gt; Request ModifyInstanceGroups
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679386376"><span class="annot"><span class="annottext">request :: ModifyInstanceGroups -&gt; Request ModifyInstanceGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyInstanceGroups -&gt; Request ModifyInstanceGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679385988"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679386372"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyInstanceGroups
 -&gt; ClientResponse ClientBody
@@ -251,12 +251,12 @@ AWSResponse a
 ModifyInstanceGroupsResponse
 </span><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse%27"><span class="hs-identifier hs-var">ModifyInstanceGroupsResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385981"><span id="local-6989586621679385983"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386365"><span id="local-6989586621679386367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679385974"><span class="annot"><span class="annottext">toHeaders :: ModifyInstanceGroups -&gt; [Header]
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679386358"><span class="annot"><span class="annottext">toHeaders :: ModifyInstanceGroups -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; ModifyInstanceGroups -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -283,15 +283,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385964"><span id="local-6989586621679385966"><span id="local-6989586621679385968"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679385962"><span class="annot"><span class="annottext">toJSON :: ModifyInstanceGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385959"><span id="local-6989586621679385960"><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386348"><span id="local-6989586621679386350"><span id="local-6989586621679386352"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679386346"><span class="annot"><span class="annottext">toJSON :: ModifyInstanceGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups%27"><span class="hs-identifier hs-type">ModifyInstanceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386343"><span id="local-6989586621679386344"><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
 Maybe Text
 instanceGroups :: Maybe [InstanceGroupModifyConfig]
 clusterId :: Maybe Text
 $sel:instanceGroups:ModifyInstanceGroups' :: ModifyInstanceGroups -&gt; Maybe [InstanceGroupModifyConfig]
 $sel:clusterId:ModifyInstanceGroups' :: ModifyInstanceGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679385959"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386343"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,7 +303,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679385960"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386344"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InstanceGroupModifyConfig] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -312,19 +312,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [InstanceGroupModifyConfig] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceGroupModifyConfig]
-</span><a href="#local-6989586621679385959"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span>
+</span><a href="#local-6989586621679386343"><span class="hs-identifier hs-var">instanceGroups</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679385952"><span class="annot"><span class="annottext">toPath :: ModifyInstanceGroups -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679386336"><span class="annot"><span class="annottext">toPath :: ModifyInstanceGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyInstanceGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroups"><span class="hs-identifier hs-type">ModifyInstanceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679385948"><span class="annot"><span class="annottext">toQuery :: ModifyInstanceGroups -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679386332"><span class="annot"><span class="annottext">toQuery :: ModifyInstanceGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyInstanceGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,10 +332,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newModifyInstanceGroupsResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679385945"><span id="local-6989586621679385946"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceGroupsResponse"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse"><span class="hs-identifier hs-var">ModifyInstanceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceGroupsResponse%27"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse%27"><span class="hs-identifier hs-var">ModifyInstanceGroupsResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679386329"><span id="local-6989586621679386330"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyInstanceGroupsResponse"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse"><span class="hs-identifier hs-var">ModifyInstanceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyInstanceGroupsResponse%27"><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse%27"><span class="hs-identifier hs-var">ModifyInstanceGroupsResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385941"><span id="local-6989586621679385943"><span class="annot"><span class="annottext">ModifyInstanceGroupsResponse
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386325"><span id="local-6989586621679386327"><span class="annot"><span class="annottext">ModifyInstanceGroupsResponse
 -&gt; ModifyInstanceGroupsResponse -&gt; Bool
 (ModifyInstanceGroupsResponse
  -&gt; ModifyInstanceGroupsResponse -&gt; Bool)
@@ -351,7 +351,7 @@ $c/= :: ModifyInstanceGroupsResponse
 -&gt; ModifyInstanceGroupsResponse -&gt; Bool
 $c== :: ModifyInstanceGroupsResponse
 -&gt; ModifyInstanceGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385933"><span id="local-6989586621679385935"><span id="local-6989586621679385937"><span id="local-6989586621679385939"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386317"><span id="local-6989586621679386319"><span id="local-6989586621679386321"><span id="local-6989586621679386323"><span class="annot"><span class="annottext">ReadPrec [ModifyInstanceGroupsResponse]
 ReadPrec ModifyInstanceGroupsResponse
 Int -&gt; ReadS ModifyInstanceGroupsResponse
 ReadS [ModifyInstanceGroupsResponse]
@@ -371,7 +371,7 @@ readList :: ReadS [ModifyInstanceGroupsResponse]
 $creadList :: ReadS [ModifyInstanceGroupsResponse]
 readsPrec :: Int -&gt; ReadS ModifyInstanceGroupsResponse
 $creadsPrec :: Int -&gt; ReadS ModifyInstanceGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385927"><span id="local-6989586621679385929"><span id="local-6989586621679385931"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386311"><span id="local-6989586621679386313"><span id="local-6989586621679386315"><span class="annot"><span class="annottext">Int -&gt; ModifyInstanceGroupsResponse -&gt; ShowS
 [ModifyInstanceGroupsResponse] -&gt; ShowS
 ModifyInstanceGroupsResponse -&gt; String
 (Int -&gt; ModifyInstanceGroupsResponse -&gt; ShowS)
@@ -414,5 +414,5 @@ ModifyInstanceGroupsResponse -&gt; Rep ModifyInstanceGroupsResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">ModifyInstanceGroupsResponse
 </span><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse%27"><span class="hs-identifier hs-var">ModifyInstanceGroupsResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse"><span class="hs-identifier hs-type">ModifyInstanceGroupsResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.ModifyInstanceGroups.html#ModifyInstanceGroupsResponse"><span class="hs-identifier hs-type">ModifyInstanceGroupsResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

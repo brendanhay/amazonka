@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteScheduledAction' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679521979"><span id="local-6989586621679521980"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledAction"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-var">DeleteScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledAction%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-var">DeleteScheduledAction'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679522714"><span id="local-6989586621679522715"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledAction"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-var">DeleteScheduledAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledAction%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-var">DeleteScheduledAction'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the scheduled action to delete.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AscheduledActionName%3ADeleteScheduledAction%27"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; Text
 </span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#%24sel%3AscheduledActionName%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521973"><span id="local-6989586621679521975"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522708"><span id="local-6989586621679522710"><span class="annot"><span class="annottext">DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
 (DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool)
 -&gt; (DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool)
 -&gt; Eq DeleteScheduledAction
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
 == :: DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
 $c== :: DeleteScheduledAction -&gt; DeleteScheduledAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521964"><span id="local-6989586621679521966"><span id="local-6989586621679521968"><span id="local-6989586621679521970"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522699"><span id="local-6989586621679522701"><span id="local-6989586621679522703"><span id="local-6989586621679522705"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledAction]
 ReadPrec DeleteScheduledAction
 Int -&gt; ReadS DeleteScheduledAction
 ReadS [DeleteScheduledAction]
@@ -77,7 +77,7 @@ readList :: ReadS [DeleteScheduledAction]
 $creadList :: ReadS [DeleteScheduledAction]
 readsPrec :: Int -&gt; ReadS DeleteScheduledAction
 $creadsPrec :: Int -&gt; ReadS DeleteScheduledAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521957"><span id="local-6989586621679521959"><span id="local-6989586621679521961"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522692"><span id="local-6989586621679522694"><span id="local-6989586621679522696"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledAction -&gt; ShowS
 [DeleteScheduledAction] -&gt; ShowS
 DeleteScheduledAction -&gt; String
 (Int -&gt; DeleteScheduledAction -&gt; ShowS)
@@ -117,14 +117,14 @@ $cfrom :: forall x. DeleteScheduledAction -&gt; Rep DeleteScheduledAction x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span>
 </span><span id="line-65"></span><span id="newDeleteScheduledAction"><span class="annot"><span class="annottext">newDeleteScheduledAction :: Text -&gt; DeleteScheduledAction
-</span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#newDeleteScheduledAction"><span class="hs-identifier hs-var hs-var">newDeleteScheduledAction</span></a></span></span><span> </span><span id="local-6989586621679521952"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521952"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#newDeleteScheduledAction"><span class="hs-identifier hs-var hs-var">newDeleteScheduledAction</span></a></span></span><span> </span><span id="local-6989586621679522687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522687"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteScheduledAction' :: Text -&gt; DeleteScheduledAction
 </span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scheduledActionName:DeleteScheduledAction' :: Text
 </span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#%24sel%3AscheduledActionName%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521952"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span><span>
+</span><a href="#local-6989586621679522687"><span class="hs-identifier hs-var">pScheduledActionName_</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the scheduled action to delete.</span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DeleteScheduledAction -&gt; Rep DeleteScheduledAction x
 -&gt; (DeleteScheduledAction -&gt; Text -&gt; DeleteScheduledAction)
 -&gt; Lens DeleteScheduledAction DeleteScheduledAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521949"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522684"><span class="annot"><span class="annottext">Text
 scheduledActionName :: Text
 $sel:scheduledActionName:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Text
-</span><a href="#local-6989586621679521949"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521949"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521948"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
-</span><a href="#local-6989586621679521948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521947"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
-</span><a href="#local-6989586621679521948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:DeleteScheduledAction' :: Text
+</span><a href="#local-6989586621679522684"><span class="hs-identifier hs-var hs-var">scheduledActionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522684"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679522683"><span class="annot"><span class="annottext">s :: DeleteScheduledAction
+</span><a href="#local-6989586621679522683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679522682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteScheduledAction
+</span><a href="#local-6989586621679522683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionName:DeleteScheduledAction' :: Text
 </span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#%24sel%3AscheduledActionName%3ADeleteScheduledAction%27"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679522682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679521943"><span class="annot"><span class="annottext">request :: DeleteScheduledAction -&gt; Request DeleteScheduledAction
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679522678"><span class="annot"><span class="annottext">request :: DeleteScheduledAction -&gt; Request DeleteScheduledAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteScheduledAction -&gt; Request DeleteScheduledAction
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679521939"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679522674"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteScheduledAction
 -&gt; ClientResponse ClientBody
@@ -181,12 +181,12 @@ AWSResponse a
 DeleteScheduledActionResponse
 </span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">DeleteScheduledActionResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521932"><span id="local-6989586621679521934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522667"><span id="local-6989586621679522669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679521925"><span class="annot"><span class="annottext">toHeaders :: DeleteScheduledAction -&gt; [Header]
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679522660"><span class="annot"><span class="annottext">toHeaders :: DeleteScheduledAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteScheduledAction -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -194,18 +194,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679521920"><span class="annot"><span class="annottext">toPath :: DeleteScheduledAction -&gt; ByteString
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679522655"><span class="annot"><span class="annottext">toPath :: DeleteScheduledAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteScheduledAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction"><span class="hs-identifier hs-type">DeleteScheduledAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679521916"><span class="annot"><span class="annottext">toQuery :: DeleteScheduledAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521914"><span class="annot"><span class="annottext">Text
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679522651"><span class="annot"><span class="annottext">toQuery :: DeleteScheduledAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledAction%27"><span class="hs-identifier hs-type">DeleteScheduledAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522649"><span class="annot"><span class="annottext">Text
 scheduledActionName :: Text
 $sel:scheduledActionName:DeleteScheduledAction' :: DeleteScheduledAction -&gt; Text
-</span><a href="#local-6989586621679521914"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679522649"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -225,14 +225,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ScheduledActionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521914"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span>
+</span><a href="#local-6989586621679522649"><span class="hs-identifier hs-var">scheduledActionName</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621679521911"><span id="local-6989586621679521912"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledActionResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-var">DeleteScheduledActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledActionResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">DeleteScheduledActionResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span id="local-6989586621679522646"><span id="local-6989586621679522647"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteScheduledActionResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-var">DeleteScheduledActionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteScheduledActionResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">DeleteScheduledActionResponse'</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521907"><span id="local-6989586621679521909"><span class="annot"><span class="annottext">DeleteScheduledActionResponse
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522642"><span id="local-6989586621679522644"><span class="annot"><span class="annottext">DeleteScheduledActionResponse
 -&gt; DeleteScheduledActionResponse -&gt; Bool
 (DeleteScheduledActionResponse
  -&gt; DeleteScheduledActionResponse -&gt; Bool)
@@ -248,7 +248,7 @@ $c/= :: DeleteScheduledActionResponse
 -&gt; DeleteScheduledActionResponse -&gt; Bool
 $c== :: DeleteScheduledActionResponse
 -&gt; DeleteScheduledActionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521899"><span id="local-6989586621679521901"><span id="local-6989586621679521903"><span id="local-6989586621679521905"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledActionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522634"><span id="local-6989586621679522636"><span id="local-6989586621679522638"><span id="local-6989586621679522640"><span class="annot"><span class="annottext">ReadPrec [DeleteScheduledActionResponse]
 ReadPrec DeleteScheduledActionResponse
 Int -&gt; ReadS DeleteScheduledActionResponse
 ReadS [DeleteScheduledActionResponse]
@@ -268,7 +268,7 @@ readList :: ReadS [DeleteScheduledActionResponse]
 $creadList :: ReadS [DeleteScheduledActionResponse]
 readsPrec :: Int -&gt; ReadS DeleteScheduledActionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteScheduledActionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521893"><span id="local-6989586621679521895"><span id="local-6989586621679521897"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledActionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522628"><span id="local-6989586621679522630"><span id="local-6989586621679522632"><span class="annot"><span class="annottext">Int -&gt; DeleteScheduledActionResponse -&gt; ShowS
 [DeleteScheduledActionResponse] -&gt; ShowS
 DeleteScheduledActionResponse -&gt; String
 (Int -&gt; DeleteScheduledActionResponse -&gt; ShowS)
@@ -317,5 +317,5 @@ DeleteScheduledActionResponse
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DeleteScheduledActionResponse
 </span><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse%27"><span class="hs-identifier hs-var">DeleteScheduledActionResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteScheduledAction.html#DeleteScheduledActionResponse"><span class="hs-identifier hs-type">DeleteScheduledActionResponse</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

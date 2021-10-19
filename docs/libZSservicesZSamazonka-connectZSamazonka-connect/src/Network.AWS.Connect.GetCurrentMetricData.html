@@ -44,9 +44,9 @@
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#newGetCurrentMetricDataResponse"><span class="hs-identifier">newGetCurrentMetricDataResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_nextToken"><span class="hs-identifier">getCurrentMetricDataResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_metricResults"><span class="hs-identifier">getCurrentMetricDataResponse_metricResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_dataSnapshotTime"><span class="hs-identifier">getCurrentMetricDataResponse_dataSnapshotTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_metricResults"><span class="hs-identifier">getCurrentMetricDataResponse_metricResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_nextToken"><span class="hs-identifier">getCurrentMetricDataResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_httpStatus"><span class="hs-identifier">getCurrentMetricDataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span class="hs-keyword">where</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newGetCurrentMetricData' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679418110"><span id="local-6989586621679418111"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCurrentMetricData"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-var">GetCurrentMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCurrentMetricData%27"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-var">GetCurrentMetricData'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679418429"><span id="local-6989586621679418430"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCurrentMetricData"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-var">GetCurrentMetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCurrentMetricData%27"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-var">GetCurrentMetricData'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- results.</span><span>
@@ -189,7 +189,7 @@
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AcurrentMetrics%3AGetCurrentMetricData%27"><span class="annot"><span class="annottext">GetCurrentMetricData -&gt; [CurrentMetric]
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AcurrentMetrics%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var hs-var">currentMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetric.html#CurrentMetric"><span class="hs-identifier hs-type">CurrentMetric</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418099"><span id="local-6989586621679418101"><span class="annot"><span class="annottext">GetCurrentMetricData -&gt; GetCurrentMetricData -&gt; Bool
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418418"><span id="local-6989586621679418420"><span class="annot"><span class="annottext">GetCurrentMetricData -&gt; GetCurrentMetricData -&gt; Bool
 (GetCurrentMetricData -&gt; GetCurrentMetricData -&gt; Bool)
 -&gt; (GetCurrentMetricData -&gt; GetCurrentMetricData -&gt; Bool)
 -&gt; Eq GetCurrentMetricData
@@ -198,7 +198,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCurrentMetricData -&gt; GetCurrentMetricData -&gt; Bool
 == :: GetCurrentMetricData -&gt; GetCurrentMetricData -&gt; Bool
 $c== :: GetCurrentMetricData -&gt; GetCurrentMetricData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418090"><span id="local-6989586621679418092"><span id="local-6989586621679418094"><span id="local-6989586621679418096"><span class="annot"><span class="annottext">ReadPrec [GetCurrentMetricData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418409"><span id="local-6989586621679418411"><span id="local-6989586621679418413"><span id="local-6989586621679418415"><span class="annot"><span class="annottext">ReadPrec [GetCurrentMetricData]
 ReadPrec GetCurrentMetricData
 Int -&gt; ReadS GetCurrentMetricData
 ReadS [GetCurrentMetricData]
@@ -218,7 +218,7 @@ readList :: ReadS [GetCurrentMetricData]
 $creadList :: ReadS [GetCurrentMetricData]
 readsPrec :: Int -&gt; ReadS GetCurrentMetricData
 $creadsPrec :: Int -&gt; ReadS GetCurrentMetricData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418083"><span id="local-6989586621679418085"><span id="local-6989586621679418087"><span class="annot"><span class="annottext">Int -&gt; GetCurrentMetricData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418402"><span id="local-6989586621679418404"><span id="local-6989586621679418406"><span class="annot"><span class="annottext">Int -&gt; GetCurrentMetricData -&gt; ShowS
 [GetCurrentMetricData] -&gt; ShowS
 GetCurrentMetricData -&gt; String
 (Int -&gt; GetCurrentMetricData -&gt; ShowS)
@@ -380,9 +380,9 @@ $cfrom :: forall x. GetCurrentMetricData -&gt; Rep GetCurrentMetricData x
 </span><span id="line-321"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.Filters.html#Filters"><span class="hs-identifier hs-type">Filters</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-322"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span>
 </span><span id="line-323"></span><span id="newGetCurrentMetricData"><span class="annot"><span class="annottext">newGetCurrentMetricData :: Text -&gt; Filters -&gt; GetCurrentMetricData
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#newGetCurrentMetricData"><span class="hs-identifier hs-var hs-var">newGetCurrentMetricData</span></a></span></span><span> </span><span id="local-6989586621679418078"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418078"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679418077"><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679418077"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#newGetCurrentMetricData"><span class="hs-identifier hs-var hs-var">newGetCurrentMetricData</span></a></span></span><span> </span><span id="local-6989586621679418397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418397"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679418396"><span class="annot"><span class="annottext">Filters
+</span><a href="#local-6989586621679418396"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">GetCurrentMetricData' :: Maybe Text
 -&gt; Maybe [Grouping]
 -&gt; Maybe Natural
@@ -405,10 +405,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:GetCurrentMetricData' :: Text
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AinstanceId%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418078"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418397"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:GetCurrentMetricData' :: Filters
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3Afilters%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679418077"><span class="hs-identifier hs-var">pFilters_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418396"><span class="hs-identifier hs-var">pFilters_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentMetrics:GetCurrentMetricData' :: [CurrentMetric]
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AcurrentMetrics%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">currentMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CurrentMetric]
 forall a. Monoid a =&gt; a
@@ -430,16 +430,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetCurrentMetricData GetCurrentMetricData (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418074"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418393"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Text
-</span><a href="#local-6989586621679418074"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418074"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418073"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
-</span><a href="#local-6989586621679418073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
-</span><a href="#local-6989586621679418073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCurrentMetricData' :: Maybe Text
+</span><a href="#local-6989586621679418393"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418393"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418392"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
+</span><a href="#local-6989586621679418392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418391"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
+</span><a href="#local-6989586621679418392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCurrentMetricData' :: Maybe Text
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AnextToken%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-342"></span><span>
 </span><span id="line-343"></span><span class="hs-comment">-- | The grouping applied to the metrics returned. For example, when grouped</span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- by @QUEUE@, the metrics returned apply to each queue rather than</span><span>
@@ -460,16 +460,16 @@ $sel:nextToken:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Text
      (Maybe [Grouping])
      (Maybe [Grouping])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418071"><span class="annot"><span class="annottext">Maybe [Grouping]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418390"><span class="annot"><span class="annottext">Maybe [Grouping]
 groupings :: Maybe [Grouping]
 $sel:groupings:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe [Grouping]
-</span><a href="#local-6989586621679418071"><span class="hs-identifier hs-var hs-var">groupings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grouping]
-</span><a href="#local-6989586621679418071"><span class="hs-identifier hs-var">groupings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418070"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
-</span><a href="#local-6989586621679418070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418069"><span class="annot"><span class="annottext">Maybe [Grouping]
-</span><a href="#local-6989586621679418069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
-</span><a href="#local-6989586621679418070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupings:GetCurrentMetricData' :: Maybe [Grouping]
+</span><a href="#local-6989586621679418390"><span class="hs-identifier hs-var hs-var">groupings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Grouping]
+</span><a href="#local-6989586621679418390"><span class="hs-identifier hs-var">groupings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418389"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
+</span><a href="#local-6989586621679418389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418388"><span class="annot"><span class="annottext">Maybe [Grouping]
+</span><a href="#local-6989586621679418388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
+</span><a href="#local-6989586621679418389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupings:GetCurrentMetricData' :: Maybe [Grouping]
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3Agroupings%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">groupings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Grouping]
-</span><a href="#local-6989586621679418069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grouping] -&gt; f (Maybe [Grouping]))
+</span><a href="#local-6989586621679418388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Grouping] -&gt; f (Maybe [Grouping]))
  -&gt; GetCurrentMetricData -&gt; f GetCurrentMetricData)
 -&gt; ((Maybe [Grouping] -&gt; f (Maybe [Grouping]))
     -&gt; Maybe [Grouping] -&gt; f (Maybe [Grouping]))
@@ -487,8 +487,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Grouping] [Grouping] [Grouping] [Grouping]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-352"></span><span>
 </span><span id="line-353"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
 </span><span id="line-354"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricData_maxResults"><span class="hs-identifier hs-type">getCurrentMetricData_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -502,16 +502,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418065"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418384"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Natural
-</span><a href="#local-6989586621679418065"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679418065"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418064"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
-</span><a href="#local-6989586621679418064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418063"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679418063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
-</span><a href="#local-6989586621679418064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetCurrentMetricData' :: Maybe Natural
+</span><a href="#local-6989586621679418384"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679418384"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418383"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
+</span><a href="#local-6989586621679418383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418382"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679418382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
+</span><a href="#local-6989586621679418383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetCurrentMetricData' :: Maybe Natural
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AmaxResults%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679418063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-358"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -521,16 +521,16 @@ $sel:maxResults:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Natura
 -&gt; (GetCurrentMetricData -&gt; Text -&gt; GetCurrentMetricData)
 -&gt; Lens GetCurrentMetricData GetCurrentMetricData Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418062"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418381"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Text
-</span><a href="#local-6989586621679418062"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418062"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418061"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
-</span><a href="#local-6989586621679418061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418060"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
-</span><a href="#local-6989586621679418061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:GetCurrentMetricData' :: Text
+</span><a href="#local-6989586621679418381"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418381"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418380"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
+</span><a href="#local-6989586621679418380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418379"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
+</span><a href="#local-6989586621679418380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:GetCurrentMetricData' :: Text
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AinstanceId%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-361"></span><span>
 </span><span id="line-362"></span><span class="hs-comment">-- | The queues, up to 100, or channels, to use to filter the metrics</span><span>
 </span><span id="line-363"></span><span class="hs-comment">-- returned. Metric data is retrieved only for the resources associated</span><span>
@@ -544,16 +544,16 @@ $sel:instanceId:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Text
 -&gt; (GetCurrentMetricData -&gt; Filters -&gt; GetCurrentMetricData)
 -&gt; Lens GetCurrentMetricData GetCurrentMetricData Filters Filters
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418059"><span class="annot"><span class="annottext">Filters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418378"><span class="annot"><span class="annottext">Filters
 filters :: Filters
 $sel:filters:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Filters
-</span><a href="#local-6989586621679418059"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679418059"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418058"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
-</span><a href="#local-6989586621679418058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418057"><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679418057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
-</span><a href="#local-6989586621679418058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetCurrentMetricData' :: Filters
+</span><a href="#local-6989586621679418378"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Filters
+</span><a href="#local-6989586621679418378"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418377"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
+</span><a href="#local-6989586621679418377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418376"><span class="annot"><span class="annottext">Filters
+</span><a href="#local-6989586621679418376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
+</span><a href="#local-6989586621679418377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetCurrentMetricData' :: Filters
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3Afilters%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679418057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-369"></span><span>
 </span><span id="line-370"></span><span class="hs-comment">-- | The metrics to retrieve. Specify the name and unit for each metric. The</span><span>
 </span><span id="line-371"></span><span class="hs-comment">-- following metrics are available. For a description of all the metrics,</span><span>
@@ -661,16 +661,16 @@ $sel:filters:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Filters
      [CurrentMetric]
      [CurrentMetric]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418056"><span class="annot"><span class="annottext">[CurrentMetric]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418375"><span class="annot"><span class="annottext">[CurrentMetric]
 currentMetrics :: [CurrentMetric]
 $sel:currentMetrics:GetCurrentMetricData' :: GetCurrentMetricData -&gt; [CurrentMetric]
-</span><a href="#local-6989586621679418056"><span class="hs-identifier hs-var hs-var">currentMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CurrentMetric]
-</span><a href="#local-6989586621679418056"><span class="hs-identifier hs-var">currentMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418055"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
-</span><a href="#local-6989586621679418055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418054"><span class="annot"><span class="annottext">[CurrentMetric]
-</span><a href="#local-6989586621679418054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
-</span><a href="#local-6989586621679418055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentMetrics:GetCurrentMetricData' :: [CurrentMetric]
+</span><a href="#local-6989586621679418375"><span class="hs-identifier hs-var hs-var">currentMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CurrentMetric]
+</span><a href="#local-6989586621679418375"><span class="hs-identifier hs-var">currentMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418374"><span class="annot"><span class="annottext">s :: GetCurrentMetricData
+</span><a href="#local-6989586621679418374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418373"><span class="annot"><span class="annottext">[CurrentMetric]
+</span><a href="#local-6989586621679418373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricData
+</span><a href="#local-6989586621679418374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentMetrics:GetCurrentMetricData' :: [CurrentMetric]
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AcurrentMetrics%3AGetCurrentMetricData%27"><span class="hs-identifier hs-var">currentMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CurrentMetric]
-</span><a href="#local-6989586621679418054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CurrentMetric] -&gt; f [CurrentMetric])
+</span><a href="#local-6989586621679418373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CurrentMetric] -&gt; f [CurrentMetric])
  -&gt; GetCurrentMetricData -&gt; f GetCurrentMetricData)
 -&gt; (([CurrentMetric] -&gt; f [CurrentMetric])
     -&gt; [CurrentMetric] -&gt; f [CurrentMetric])
@@ -680,19 +680,19 @@ $sel:currentMetrics:GetCurrentMetricData' :: GetCurrentMetricData -&gt; [Current
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([CurrentMetric] -&gt; f [CurrentMetric])
 -&gt; [CurrentMetric] -&gt; f [CurrentMetric]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-466"></span><span>
 </span><span id="line-467"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-468"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-469"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-470"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span>
-</span><span id="line-471"></span><span>  </span><span id="local-6989586621679418050"><span class="annot"><span class="annottext">request :: GetCurrentMetricData -&gt; Request GetCurrentMetricData
+</span><span id="line-471"></span><span>  </span><span id="local-6989586621679418369"><span class="annot"><span class="annottext">request :: GetCurrentMetricData -&gt; Request GetCurrentMetricData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCurrentMetricData -&gt; Request GetCurrentMetricData
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-472"></span><span>  </span><span id="local-6989586621679418046"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-472"></span><span>  </span><span id="local-6989586621679418365"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCurrentMetricData
 -&gt; ClientResponse ClientBody
@@ -718,60 +718,25 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-474"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679418043"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418043"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679418042"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679418042"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679418041"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679418041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-475"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe [CurrentMetricResult]
--&gt; Int
--&gt; GetCurrentMetricDataResponse
+</span><span id="line-474"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679418362"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418362"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679418361"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679418361"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679418360"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418360"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-475"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
+-&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetCurrentMetricDataResponse
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">GetCurrentMetricDataResponse'</span></a></span><span>
-</span><span id="line-476"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-476"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CurrentMetricResult]
  -&gt; Maybe POSIX
- -&gt; Maybe [CurrentMetricResult]
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; GetCurrentMetricDataResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [CurrentMetricResult])
 -&gt; Either
      String
-     (Maybe POSIX
-      -&gt; Maybe [CurrentMetricResult]
-      -&gt; Int
-      -&gt; GetCurrentMetricDataResponse)
+     (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetCurrentMetricDataResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679418041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-477"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe POSIX
-   -&gt; Maybe [CurrentMetricResult]
-   -&gt; Int
-   -&gt; GetCurrentMetricDataResponse)
--&gt; Either String (Maybe POSIX)
--&gt; Either
-     String
-     (Maybe [CurrentMetricResult]
-      -&gt; Int -&gt; GetCurrentMetricDataResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679418041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DataSnapshotTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-478"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [CurrentMetricResult]
-   -&gt; Int -&gt; GetCurrentMetricDataResponse)
--&gt; Either String (Maybe [CurrentMetricResult])
--&gt; Either String (Int -&gt; GetCurrentMetricDataResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679418041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [CurrentMetricResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -782,6 +747,27 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-477"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetCurrentMetricDataResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetCurrentMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSnapshotTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-478"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetCurrentMetricDataResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetCurrentMetricDataResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679418360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-479"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCurrentMetricDataResponse)
 -&gt; Either String Int -&gt; Either String GetCurrentMetricDataResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -790,15 +776,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418043"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418362"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-480"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-481"></span><span>
-</span><span id="line-482"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418032"><span id="local-6989586621679418034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span></span></span><span>
+</span><span id="line-482"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418351"><span id="local-6989586621679418353"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span></span></span><span>
 </span><span id="line-483"></span><span>
-</span><span id="line-484"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span></span><span>
+</span><span id="line-484"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span></span><span>
 </span><span id="line-485"></span><span>
 </span><span id="line-486"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-487"></span><span>  </span><span id="local-6989586621679418025"><span class="annot"><span class="annottext">toHeaders :: GetCurrentMetricData -&gt; ResponseHeaders
+</span><span id="line-487"></span><span>  </span><span id="local-6989586621679418344"><span class="annot"><span class="annottext">toHeaders :: GetCurrentMetricData -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-488"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCurrentMetricData -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -817,9 +803,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-494"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-495"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-496"></span><span>
-</span><span id="line-497"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418015"><span id="local-6989586621679418017"><span id="local-6989586621679418019"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-498"></span><span>  </span><span id="local-6989586621679418013"><span class="annot"><span class="annottext">toJSON :: GetCurrentMetricData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418006"><span id="local-6989586621679418007"><span id="local-6989586621679418008"><span id="local-6989586621679418009"><span id="local-6989586621679418010"><span id="local-6989586621679418011"><span class="annot"><span class="annottext">[CurrentMetric]
+</span><span id="line-497"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418334"><span id="local-6989586621679418336"><span id="local-6989586621679418338"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-498"></span><span>  </span><span id="local-6989586621679418332"><span class="annot"><span class="annottext">toJSON :: GetCurrentMetricData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418325"><span id="local-6989586621679418326"><span id="local-6989586621679418327"><span id="local-6989586621679418328"><span id="local-6989586621679418329"><span id="local-6989586621679418330"><span class="annot"><span class="annottext">[CurrentMetric]
 Maybe Natural
 Maybe [Grouping]
 Maybe Text
@@ -837,7 +823,7 @@ $sel:instanceId:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Text
 $sel:maxResults:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Natural
 $sel:groupings:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe [Grouping]
 $sel:nextToken:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Text
-</span><a href="#local-6989586621679418006"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679418325"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-499"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-500"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -849,28 +835,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679418011"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418330"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-502"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groupings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Grouping] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Grouping] -&gt; Pair) -&gt; Maybe [Grouping] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Grouping]
-</span><a href="#local-6989586621679418010"><span class="hs-identifier hs-var">groupings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418329"><span class="hs-identifier hs-var">groupings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-503"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679418009"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418328"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-504"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Filters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Filters
-</span><a href="#local-6989586621679418007"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418326"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-505"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -878,13 +864,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CurrentMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CurrentMetric] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[CurrentMetric]
-</span><a href="#local-6989586621679418006"><span class="hs-identifier hs-var">currentMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418325"><span class="hs-identifier hs-var">currentMetrics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-507"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-508"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-509"></span><span>
 </span><span id="line-510"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-511"></span><span>  </span><span id="local-6989586621679418000"><span class="annot"><span class="annottext">toPath :: GetCurrentMetricData -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417993"><span id="local-6989586621679417994"><span id="local-6989586621679417995"><span id="local-6989586621679417996"><span id="local-6989586621679417997"><span id="local-6989586621679417998"><span class="annot"><span class="annottext">[CurrentMetric]
+</span><span id="line-511"></span><span>  </span><span id="local-6989586621679418319"><span class="annot"><span class="annottext">toPath :: GetCurrentMetricData -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData%27"><span class="hs-identifier hs-type">GetCurrentMetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418312"><span id="local-6989586621679418313"><span id="local-6989586621679418314"><span id="local-6989586621679418315"><span id="local-6989586621679418316"><span id="local-6989586621679418317"><span class="annot"><span class="annottext">[CurrentMetric]
 Maybe Natural
 Maybe [Grouping]
 Maybe Text
@@ -902,7 +888,7 @@ $sel:instanceId:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Text
 $sel:maxResults:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Natural
 $sel:groupings:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe [Grouping]
 $sel:nextToken:GetCurrentMetricData' :: GetCurrentMetricData -&gt; Maybe Text
-</span><a href="#local-6989586621679417993"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679418312"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-512"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -910,10 +896,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/metrics/current/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679417995"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679418314"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-514"></span><span>
 </span><span id="line-515"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricData"><span class="hs-identifier hs-type">GetCurrentMetricData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-516"></span><span>  </span><span id="local-6989586621679417989"><span class="annot"><span class="annottext">toQuery :: GetCurrentMetricData -&gt; QueryString
+</span><span id="line-516"></span><span>  </span><span id="local-6989586621679418308"><span class="annot"><span class="annottext">toQuery :: GetCurrentMetricData -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCurrentMetricData -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -921,26 +907,26 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-517"></span><span>
 </span><span id="line-518"></span><span class="hs-comment">-- | /See:/ 'newGetCurrentMetricDataResponse' smart constructor.</span><span>
-</span><span id="line-519"></span><span id="local-6989586621679417986"><span id="local-6989586621679417987"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCurrentMetricDataResponse"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-var">GetCurrentMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCurrentMetricDataResponse%27"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">GetCurrentMetricDataResponse'</span></a></span></span><span>
-</span><span id="line-520"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-521"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-522"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-523"></span><span>    </span><span class="hs-comment">-- The token expires after 5 minutes from the time it is created.</span><span>
-</span><span id="line-524"></span><span>    </span><span class="hs-comment">-- Subsequent requests that use the token must use the same request</span><span>
-</span><span id="line-525"></span><span>    </span><span class="hs-comment">-- parameters as the request that generated the token.</span><span>
-</span><span id="line-526"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-527"></span><span>    </span><span class="hs-comment">-- | The time at which the metrics were retrieved and cached for pagination.</span><span>
-</span><span id="line-528"></span><span>    </span><span id="%24sel%3AdataSnapshotTime%3AGetCurrentMetricDataResponse%27"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AdataSnapshotTime%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">dataSnapshotTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-529"></span><span>    </span><span class="hs-comment">-- | Information about the real-time metrics.</span><span>
-</span><span id="line-530"></span><span>    </span><span id="%24sel%3AmetricResults%3AGetCurrentMetricDataResponse%27"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse -&gt; Maybe [CurrentMetricResult]
+</span><span id="line-519"></span><span id="local-6989586621679418305"><span id="local-6989586621679418306"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCurrentMetricDataResponse"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-var">GetCurrentMetricDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCurrentMetricDataResponse%27"><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">GetCurrentMetricDataResponse'</span></a></span></span><span>
+</span><span id="line-520"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the real-time metrics.</span><span>
+</span><span id="line-521"></span><span>    </span><span id="%24sel%3AmetricResults%3AGetCurrentMetricDataResponse%27"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse -&gt; Maybe [CurrentMetricResult]
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AmetricResults%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">metricResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricResult.html#CurrentMetricResult"><span class="hs-identifier hs-type">CurrentMetricResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-522"></span><span>    </span><span class="hs-comment">-- | The time at which the metrics were retrieved and cached for pagination.</span><span>
+</span><span id="line-523"></span><span>    </span><span id="%24sel%3AdataSnapshotTime%3AGetCurrentMetricDataResponse%27"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AdataSnapshotTime%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">dataSnapshotTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-524"></span><span>    </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-525"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-526"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-527"></span><span>    </span><span class="hs-comment">-- The token expires after 5 minutes from the time it is created.</span><span>
+</span><span id="line-528"></span><span>    </span><span class="hs-comment">-- Subsequent requests that use the token must use the same request</span><span>
+</span><span id="line-529"></span><span>    </span><span class="hs-comment">-- parameters as the request that generated the token.</span><span>
+</span><span id="line-530"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-531"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-532"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCurrentMetricDataResponse%27"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse -&gt; Int
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AhttpStatus%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-533"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-534"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679417978"><span id="local-6989586621679417980"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
+</span><span id="line-534"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418297"><span id="local-6989586621679418299"><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
 -&gt; GetCurrentMetricDataResponse -&gt; Bool
 (GetCurrentMetricDataResponse
  -&gt; GetCurrentMetricDataResponse -&gt; Bool)
@@ -956,7 +942,7 @@ $c/= :: GetCurrentMetricDataResponse
 -&gt; GetCurrentMetricDataResponse -&gt; Bool
 $c== :: GetCurrentMetricDataResponse
 -&gt; GetCurrentMetricDataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417970"><span id="local-6989586621679417972"><span id="local-6989586621679417974"><span id="local-6989586621679417976"><span class="annot"><span class="annottext">ReadPrec [GetCurrentMetricDataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418289"><span id="local-6989586621679418291"><span id="local-6989586621679418293"><span id="local-6989586621679418295"><span class="annot"><span class="annottext">ReadPrec [GetCurrentMetricDataResponse]
 ReadPrec GetCurrentMetricDataResponse
 Int -&gt; ReadS GetCurrentMetricDataResponse
 ReadS [GetCurrentMetricDataResponse]
@@ -976,7 +962,7 @@ readList :: ReadS [GetCurrentMetricDataResponse]
 $creadList :: ReadS [GetCurrentMetricDataResponse]
 readsPrec :: Int -&gt; ReadS GetCurrentMetricDataResponse
 $creadsPrec :: Int -&gt; ReadS GetCurrentMetricDataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679417964"><span id="local-6989586621679417966"><span id="local-6989586621679417968"><span class="annot"><span class="annottext">Int -&gt; GetCurrentMetricDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418283"><span id="local-6989586621679418285"><span id="local-6989586621679418287"><span class="annot"><span class="annottext">Int -&gt; GetCurrentMetricDataResponse -&gt; ShowS
 [GetCurrentMetricDataResponse] -&gt; ShowS
 GetCurrentMetricDataResponse -&gt; String
 (Int -&gt; GetCurrentMetricDataResponse -&gt; ShowS)
@@ -1016,16 +1002,16 @@ GetCurrentMetricDataResponse -&gt; Rep GetCurrentMetricDataResponse x
 </span><span id="line-541"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-542"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-543"></span><span class="hs-comment">--</span><span>
-</span><span id="line-544"></span><span class="hs-comment">-- 'nextToken', 'getCurrentMetricDataResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-545"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-546"></span><span class="hs-comment">--</span><span>
-</span><span id="line-547"></span><span class="hs-comment">-- The token expires after 5 minutes from the time it is created.</span><span>
-</span><span id="line-548"></span><span class="hs-comment">-- Subsequent requests that use the token must use the same request</span><span>
-</span><span id="line-549"></span><span class="hs-comment">-- parameters as the request that generated the token.</span><span>
+</span><span id="line-544"></span><span class="hs-comment">-- 'metricResults', 'getCurrentMetricDataResponse_metricResults' - Information about the real-time metrics.</span><span>
+</span><span id="line-545"></span><span class="hs-comment">--</span><span>
+</span><span id="line-546"></span><span class="hs-comment">-- 'dataSnapshotTime', 'getCurrentMetricDataResponse_dataSnapshotTime' - The time at which the metrics were retrieved and cached for pagination.</span><span>
+</span><span id="line-547"></span><span class="hs-comment">--</span><span>
+</span><span id="line-548"></span><span class="hs-comment">-- 'nextToken', 'getCurrentMetricDataResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-549"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-550"></span><span class="hs-comment">--</span><span>
-</span><span id="line-551"></span><span class="hs-comment">-- 'dataSnapshotTime', 'getCurrentMetricDataResponse_dataSnapshotTime' - The time at which the metrics were retrieved and cached for pagination.</span><span>
-</span><span id="line-552"></span><span class="hs-comment">--</span><span>
-</span><span id="line-553"></span><span class="hs-comment">-- 'metricResults', 'getCurrentMetricDataResponse_metricResults' - Information about the real-time metrics.</span><span>
+</span><span id="line-551"></span><span class="hs-comment">-- The token expires after 5 minutes from the time it is created.</span><span>
+</span><span id="line-552"></span><span class="hs-comment">-- Subsequent requests that use the token must use the same request</span><span>
+</span><span id="line-553"></span><span class="hs-comment">-- parameters as the request that generated the token.</span><span>
 </span><span id="line-554"></span><span class="hs-comment">--</span><span>
 </span><span id="line-555"></span><span class="hs-comment">-- 'httpStatus', 'getCurrentMetricDataResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-556"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#newGetCurrentMetricDataResponse"><span class="hs-identifier hs-type">newGetCurrentMetricDataResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -1033,103 +1019,32 @@ GetCurrentMetricDataResponse -&gt; Rep GetCurrentMetricDataResponse x
 </span><span id="line-558"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-559"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span>
 </span><span id="line-560"></span><span id="newGetCurrentMetricDataResponse"><span class="annot"><span class="annottext">newGetCurrentMetricDataResponse :: Int -&gt; GetCurrentMetricDataResponse
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#newGetCurrentMetricDataResponse"><span class="hs-identifier hs-var hs-var">newGetCurrentMetricDataResponse</span></a></span></span><span> </span><span id="local-6989586621679417961"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-561"></span><span>  </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse' :: Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe [CurrentMetricResult]
--&gt; Int
--&gt; GetCurrentMetricDataResponse
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#newGetCurrentMetricDataResponse"><span class="hs-identifier hs-var hs-var">newGetCurrentMetricDataResponse</span></a></span></span><span> </span><span id="local-6989586621679418280"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418280"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-561"></span><span>  </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse' :: Maybe [CurrentMetricResult]
+-&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; GetCurrentMetricDataResponse
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span>
-</span><span id="line-562"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetCurrentMetricDataResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-563"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-562"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricResults:GetCurrentMetricDataResponse' :: Maybe [CurrentMetricResult]
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AmetricResults%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">metricResults</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-563"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-564"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSnapshotTime:GetCurrentMetricDataResponse' :: Maybe POSIX
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AdataSnapshotTime%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">dataSnapshotTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-565"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricResults:GetCurrentMetricDataResponse' :: Maybe [CurrentMetricResult]
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AmetricResults%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">metricResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
+</span><span id="line-565"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetCurrentMetricDataResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-566"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCurrentMetricDataResponse' :: Int
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AhttpStatus%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679418280"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-567"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-568"></span><span>
-</span><span id="line-569"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-570"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-571"></span><span class="hs-comment">--</span><span>
-</span><span id="line-572"></span><span class="hs-comment">-- The token expires after 5 minutes from the time it is created.</span><span>
-</span><span id="line-573"></span><span class="hs-comment">-- Subsequent requests that use the token must use the same request</span><span>
-</span><span id="line-574"></span><span class="hs-comment">-- parameters as the request that generated the token.</span><span>
-</span><span id="line-575"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_nextToken"><span class="hs-identifier hs-type">getCurrentMetricDataResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-576"></span><span id="getCurrentMetricDataResponse_nextToken"><span class="annot"><span class="annottext">getCurrentMetricDataResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_nextToken"><span class="hs-identifier hs-var hs-var">getCurrentMetricDataResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCurrentMetricDataResponse -&gt; Maybe Text)
--&gt; (GetCurrentMetricDataResponse
-    -&gt; Maybe Text -&gt; GetCurrentMetricDataResponse)
--&gt; Lens
-     GetCurrentMetricDataResponse
-     GetCurrentMetricDataResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417960"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetCurrentMetricDataResponse' :: GetCurrentMetricDataResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679417960"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417960"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417959"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCurrentMetricDataResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679417958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-577"></span><span>
-</span><span id="line-578"></span><span class="hs-comment">-- | The time at which the metrics were retrieved and cached for pagination.</span><span>
-</span><span id="line-579"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_dataSnapshotTime"><span class="hs-identifier hs-type">getCurrentMetricDataResponse_dataSnapshotTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-580"></span><span id="getCurrentMetricDataResponse_dataSnapshotTime"><span class="annot"><span class="annottext">getCurrentMetricDataResponse_dataSnapshotTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_dataSnapshotTime"><span class="hs-identifier hs-var hs-var">getCurrentMetricDataResponse_dataSnapshotTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCurrentMetricDataResponse -&gt; Maybe POSIX)
--&gt; (GetCurrentMetricDataResponse
-    -&gt; Maybe POSIX -&gt; GetCurrentMetricDataResponse)
--&gt; Lens
-     GetCurrentMetricDataResponse
-     GetCurrentMetricDataResponse
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417957"><span class="annot"><span class="annottext">Maybe POSIX
-dataSnapshotTime :: Maybe POSIX
-$sel:dataSnapshotTime:GetCurrentMetricDataResponse' :: GetCurrentMetricDataResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679417957"><span class="hs-identifier hs-var hs-var">dataSnapshotTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679417957"><span class="hs-identifier hs-var">dataSnapshotTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417956"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417955"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679417955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSnapshotTime:GetCurrentMetricDataResponse' :: Maybe POSIX
-</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AdataSnapshotTime%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">dataSnapshotTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679417955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; GetCurrentMetricDataResponse
--&gt; f GetCurrentMetricDataResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-581"></span><span>
-</span><span id="line-582"></span><span class="hs-comment">-- | Information about the real-time metrics.</span><span>
-</span><span id="line-583"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_metricResults"><span class="hs-identifier hs-type">getCurrentMetricDataResponse_metricResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricResult.html#CurrentMetricResult"><span class="hs-identifier hs-type">CurrentMetricResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-584"></span><span id="getCurrentMetricDataResponse_metricResults"><span class="annot"><span class="annottext">getCurrentMetricDataResponse_metricResults :: (Maybe [CurrentMetricResult] -&gt; f (Maybe [CurrentMetricResult]))
+</span><span id="line-569"></span><span class="hs-comment">-- | Information about the real-time metrics.</span><span>
+</span><span id="line-570"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_metricResults"><span class="hs-identifier hs-type">getCurrentMetricDataResponse_metricResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricResult.html#CurrentMetricResult"><span class="hs-identifier hs-type">CurrentMetricResult</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-571"></span><span id="getCurrentMetricDataResponse_metricResults"><span class="annot"><span class="annottext">getCurrentMetricDataResponse_metricResults :: (Maybe [CurrentMetricResult] -&gt; f (Maybe [CurrentMetricResult]))
 -&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_metricResults"><span class="hs-identifier hs-var hs-var">getCurrentMetricDataResponse_metricResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCurrentMetricDataResponse -&gt; Maybe [CurrentMetricResult])
 -&gt; (GetCurrentMetricDataResponse
@@ -1140,16 +1055,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [CurrentMetricResult])
      (Maybe [CurrentMetricResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417953"><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418279"><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
 metricResults :: Maybe [CurrentMetricResult]
 $sel:metricResults:GetCurrentMetricDataResponse' :: GetCurrentMetricDataResponse -&gt; Maybe [CurrentMetricResult]
-</span><a href="#local-6989586621679417953"><span class="hs-identifier hs-var hs-var">metricResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
-</span><a href="#local-6989586621679417953"><span class="hs-identifier hs-var">metricResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417952"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417951"><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
-</span><a href="#local-6989586621679417951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricResults:GetCurrentMetricDataResponse' :: Maybe [CurrentMetricResult]
+</span><a href="#local-6989586621679418279"><span class="hs-identifier hs-var hs-var">metricResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
+</span><a href="#local-6989586621679418279"><span class="hs-identifier hs-var">metricResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418278"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418277"><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
+</span><a href="#local-6989586621679418277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricResults:GetCurrentMetricDataResponse' :: Maybe [CurrentMetricResult]
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AmetricResults%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">metricResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CurrentMetricResult]
-</span><a href="#local-6989586621679417951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CurrentMetricResult] -&gt; f (Maybe [CurrentMetricResult]))
+</span><a href="#local-6989586621679418277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CurrentMetricResult] -&gt; f (Maybe [CurrentMetricResult]))
  -&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse)
 -&gt; ((Maybe [CurrentMetricResult]
      -&gt; f (Maybe [CurrentMetricResult]))
@@ -1176,8 +1091,76 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CurrentMetricResult]
   [CurrentMetricResult]
   [CurrentMetricResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-572"></span><span>
+</span><span id="line-573"></span><span class="hs-comment">-- | The time at which the metrics were retrieved and cached for pagination.</span><span>
+</span><span id="line-574"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_dataSnapshotTime"><span class="hs-identifier hs-type">getCurrentMetricDataResponse_dataSnapshotTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-575"></span><span id="getCurrentMetricDataResponse_dataSnapshotTime"><span class="annot"><span class="annottext">getCurrentMetricDataResponse_dataSnapshotTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_dataSnapshotTime"><span class="hs-identifier hs-var hs-var">getCurrentMetricDataResponse_dataSnapshotTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCurrentMetricDataResponse -&gt; Maybe POSIX)
+-&gt; (GetCurrentMetricDataResponse
+    -&gt; Maybe POSIX -&gt; GetCurrentMetricDataResponse)
+-&gt; Lens
+     GetCurrentMetricDataResponse
+     GetCurrentMetricDataResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418276"><span class="annot"><span class="annottext">Maybe POSIX
+dataSnapshotTime :: Maybe POSIX
+$sel:dataSnapshotTime:GetCurrentMetricDataResponse' :: GetCurrentMetricDataResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679418276"><span class="hs-identifier hs-var hs-var">dataSnapshotTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679418276"><span class="hs-identifier hs-var">dataSnapshotTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418275"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418274"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679418274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSnapshotTime:GetCurrentMetricDataResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AdataSnapshotTime%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">dataSnapshotTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679418274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCurrentMetricDataResponse
+-&gt; f GetCurrentMetricDataResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-576"></span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-578"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-579"></span><span class="hs-comment">--</span><span>
+</span><span id="line-580"></span><span class="hs-comment">-- The token expires after 5 minutes from the time it is created.</span><span>
+</span><span id="line-581"></span><span class="hs-comment">-- Subsequent requests that use the token must use the same request</span><span>
+</span><span id="line-582"></span><span class="hs-comment">-- parameters as the request that generated the token.</span><span>
+</span><span id="line-583"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_nextToken"><span class="hs-identifier hs-type">getCurrentMetricDataResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-584"></span><span id="getCurrentMetricDataResponse_nextToken"><span class="annot"><span class="annottext">getCurrentMetricDataResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCurrentMetricDataResponse -&gt; f GetCurrentMetricDataResponse
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_nextToken"><span class="hs-identifier hs-var hs-var">getCurrentMetricDataResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCurrentMetricDataResponse -&gt; Maybe Text)
+-&gt; (GetCurrentMetricDataResponse
+    -&gt; Maybe Text -&gt; GetCurrentMetricDataResponse)
+-&gt; Lens
+     GetCurrentMetricDataResponse
+     GetCurrentMetricDataResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418272"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetCurrentMetricDataResponse' :: GetCurrentMetricDataResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679418272"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418272"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418271"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCurrentMetricDataResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AnextToken%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679418270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-585"></span><span>
 </span><span id="line-586"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-587"></span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#getCurrentMetricDataResponse_httpStatus"><span class="hs-identifier hs-type">getCurrentMetricDataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1189,16 +1172,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      GetCurrentMetricDataResponse GetCurrentMetricDataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679417950"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418269"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCurrentMetricDataResponse' :: GetCurrentMetricDataResponse -&gt; Int
-</span><a href="#local-6989586621679417950"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417950"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679417949"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679417948"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
-</span><a href="#local-6989586621679417949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCurrentMetricDataResponse' :: Int
+</span><a href="#local-6989586621679418269"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418269"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418268"><span class="annot"><span class="annottext">s :: GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse%27"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCurrentMetricDataResponse
+</span><a href="#local-6989586621679418268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCurrentMetricDataResponse' :: Int
 </span><a href="Network.AWS.Connect.GetCurrentMetricData.html#%24sel%3AhttpStatus%3AGetCurrentMetricDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679417948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-589"></span><span>
-</span><span id="line-590"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679417946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span></span><span>
+</span><span id="line-590"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.GetCurrentMetricData.html#GetCurrentMetricDataResponse"><span class="hs-identifier hs-type">GetCurrentMetricDataResponse</span></a></span></span><span>
 </span><span id="line-591"></span></pre></body></html>

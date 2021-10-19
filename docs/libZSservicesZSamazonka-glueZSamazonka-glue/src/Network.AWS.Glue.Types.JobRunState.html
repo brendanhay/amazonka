@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679687157"><span id="local-6989586621679687158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobRunState"><span class="annot"><a href="Network.AWS.Glue.Types.JobRunState.html#JobRunState"><span class="hs-identifier hs-var">JobRunState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobRunState%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobRunState.html#JobRunState%27"><span class="hs-identifier hs-var">JobRunState'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679688811"><span id="local-6989586621679688812"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobRunState"><span class="annot"><a href="Network.AWS.Glue.Types.JobRunState.html#JobRunState"><span class="hs-identifier hs-var">JobRunState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobRunState%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobRunState.html#JobRunState%27"><span class="hs-identifier hs-var">JobRunState'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobRunState"><span class="annot"><span class="annottext">JobRunState -&gt; Text
 </span><a href="Network.AWS.Glue.Types.JobRunState.html#fromJobRunState"><span class="hs-identifier hs-var hs-var">fromJobRunState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679687149"><span id="local-6989586621679687151"><span id="local-6989586621679687153"><span class="annot"><span class="annottext">Int -&gt; JobRunState -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679688803"><span id="local-6989586621679688805"><span id="local-6989586621679688807"><span class="annot"><span class="annottext">Int -&gt; JobRunState -&gt; ShowS
 [JobRunState] -&gt; ShowS
 JobRunState -&gt; String
 (Int -&gt; JobRunState -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: JobRunState -&gt; String
 showsPrec :: Int -&gt; JobRunState -&gt; ShowS
 $cshowsPrec :: Int -&gt; JobRunState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679687140"><span id="local-6989586621679687142"><span id="local-6989586621679687144"><span id="local-6989586621679687146"><span class="annot"><span class="annottext">ReadPrec [JobRunState]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679688794"><span id="local-6989586621679688796"><span id="local-6989586621679688798"><span id="local-6989586621679688800"><span class="annot"><span class="annottext">ReadPrec [JobRunState]
 ReadPrec JobRunState
 Int -&gt; ReadS JobRunState
 ReadS [JobRunState]
@@ -77,7 +77,7 @@ $creadList :: ReadS [JobRunState]
 readsPrec :: Int -&gt; ReadS JobRunState
 $creadsPrec :: Int -&gt; ReadS JobRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679687135"><span id="local-6989586621679687137"><span class="annot"><span class="annottext">JobRunState -&gt; JobRunState -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679688789"><span id="local-6989586621679688791"><span class="annot"><span class="annottext">JobRunState -&gt; JobRunState -&gt; Bool
 (JobRunState -&gt; JobRunState -&gt; Bool)
 -&gt; (JobRunState -&gt; JobRunState -&gt; Bool) -&gt; Eq JobRunState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: JobRunState -&gt; JobRunState -&gt; Bool
 == :: JobRunState -&gt; JobRunState -&gt; Bool
 $c== :: JobRunState -&gt; JobRunState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679687119"><span id="local-6989586621679687121"><span id="local-6989586621679687123"><span id="local-6989586621679687125"><span id="local-6989586621679687127"><span id="local-6989586621679687129"><span id="local-6989586621679687131"><span class="annot"><span class="annottext">Eq JobRunState
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679688773"><span id="local-6989586621679688775"><span id="local-6989586621679688777"><span id="local-6989586621679688779"><span id="local-6989586621679688781"><span id="local-6989586621679688783"><span id="local-6989586621679688785"><span class="annot"><span class="annottext">Eq JobRunState
 Eq JobRunState
 -&gt; (JobRunState -&gt; JobRunState -&gt; Ordering)
 -&gt; (JobRunState -&gt; JobRunState -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. JobRunState -&gt; Rep JobRunState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679687111"><span id="local-6989586621679687113"><span class="annot"><span class="annottext">Int -&gt; JobRunState -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679688765"><span id="local-6989586621679688767"><span class="annot"><span class="annottext">Int -&gt; JobRunState -&gt; Int
 JobRunState -&gt; Int
 (Int -&gt; JobRunState -&gt; Int)
 -&gt; (JobRunState -&gt; Int) -&gt; Hashable JobRunState
@@ -147,49 +147,49 @@ $chash :: JobRunState -&gt; Int
 hashWithSalt :: Int -&gt; JobRunState -&gt; Int
 $chashWithSalt :: Int -&gt; JobRunState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679687108"><span class="annot"><span class="annottext">JobRunState -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679688762"><span class="annot"><span class="annottext">JobRunState -&gt; ()
 (JobRunState -&gt; ()) -&gt; NFData JobRunState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: JobRunState -&gt; ()
 $crnf :: JobRunState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679687105"><span class="annot"><span class="annottext">Text -&gt; Either String JobRunState
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679688759"><span class="annot"><span class="annottext">Text -&gt; Either String JobRunState
 (Text -&gt; Either String JobRunState) -&gt; FromText JobRunState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String JobRunState
 $cfromText :: Text -&gt; Either String JobRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679687102"><span class="annot"><span class="annottext">JobRunState -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679688756"><span class="annot"><span class="annottext">JobRunState -&gt; Text
 (JobRunState -&gt; Text) -&gt; ToText JobRunState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: JobRunState -&gt; Text
 $ctoText :: JobRunState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679687099"><span class="annot"><span class="annottext">JobRunState -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679688753"><span class="annot"><span class="annottext">JobRunState -&gt; ByteString
 (JobRunState -&gt; ByteString) -&gt; ToByteString JobRunState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: JobRunState -&gt; ByteString
 $ctoBS :: JobRunState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679687096"><span class="annot"><span class="annottext">JobRunState -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679688750"><span class="annot"><span class="annottext">JobRunState -&gt; ByteStringBuilder
 (JobRunState -&gt; ByteStringBuilder) -&gt; ToLog JobRunState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: JobRunState -&gt; ByteStringBuilder
 $cbuild :: JobRunState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679687093"><span class="annot"><span class="annottext">HeaderName -&gt; JobRunState -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679688747"><span class="annot"><span class="annottext">HeaderName -&gt; JobRunState -&gt; [Header]
 (HeaderName -&gt; JobRunState -&gt; [Header]) -&gt; ToHeader JobRunState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; JobRunState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; JobRunState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679687090"><span class="annot"><span class="annottext">JobRunState -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679688744"><span class="annot"><span class="annottext">JobRunState -&gt; QueryString
 (JobRunState -&gt; QueryString) -&gt; ToQuery JobRunState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: JobRunState -&gt; QueryString
 $ctoQuery :: JobRunState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679687085"><span id="local-6989586621679687087"><span class="annot"><span class="annottext">Value -&gt; Parser [JobRunState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679688739"><span id="local-6989586621679688741"><span class="annot"><span class="annottext">Value -&gt; Parser [JobRunState]
 Value -&gt; Parser JobRunState
 (Value -&gt; Parser JobRunState)
 -&gt; (Value -&gt; Parser [JobRunState]) -&gt; FromJSON JobRunState
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [JobRunState]
 parseJSON :: Value -&gt; Parser JobRunState
 $cparseJSON :: Value -&gt; Parser JobRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679687080"><span id="local-6989586621679687082"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobRunState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679688734"><span id="local-6989586621679688736"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobRunState]
 FromJSONKeyFunction JobRunState
 FromJSONKeyFunction JobRunState
 -&gt; FromJSONKeyFunction [JobRunState] -&gt; FromJSONKey JobRunState
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [JobRunState]
 fromJSONKey :: FromJSONKeyFunction JobRunState
 $cfromJSONKey :: FromJSONKeyFunction JobRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679687071"><span id="local-6989586621679687073"><span id="local-6989586621679687075"><span id="local-6989586621679687077"><span class="annot"><span class="annottext">[JobRunState] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679688725"><span id="local-6989586621679688727"><span id="local-6989586621679688729"><span id="local-6989586621679688731"><span class="annot"><span class="annottext">[JobRunState] -&gt; Encoding
 [JobRunState] -&gt; Value
 JobRunState -&gt; Encoding
 JobRunState -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: JobRunState -&gt; Encoding
 toJSON :: JobRunState -&gt; Value
 $ctoJSON :: JobRunState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679687066"><span id="local-6989586621679687068"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobRunState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679688720"><span id="local-6989586621679688722"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobRunState]
 ToJSONKeyFunction JobRunState
 ToJSONKeyFunction JobRunState
 -&gt; ToJSONKeyFunction [JobRunState] -&gt; ToJSONKey JobRunState
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [JobRunState]
 toJSONKey :: ToJSONKeyFunction JobRunState
 $ctoJSONKey :: ToJSONKeyFunction JobRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679687063"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobRunState
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679688717"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobRunState
 ([Node] -&gt; Either String JobRunState) -&gt; FromXML JobRunState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String JobRunState
 $cparseXML :: [Node] -&gt; Either String JobRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679687060"><span class="annot"><span class="annottext">JobRunState -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679688714"><span class="annot"><span class="annottext">JobRunState -&gt; XML
 (JobRunState -&gt; XML) -&gt; ToXML JobRunState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: JobRunState -&gt; XML

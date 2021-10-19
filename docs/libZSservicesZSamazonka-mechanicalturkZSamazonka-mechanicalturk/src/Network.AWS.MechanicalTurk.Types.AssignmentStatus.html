@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679241930"><span id="local-6989586621679241931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssignmentStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.AssignmentStatus.html#AssignmentStatus"><span class="hs-identifier hs-var">AssignmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignmentStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.AssignmentStatus.html#AssignmentStatus%27"><span class="hs-identifier hs-var">AssignmentStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679242043"><span id="local-6989586621679242044"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssignmentStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.AssignmentStatus.html#AssignmentStatus"><span class="hs-identifier hs-var">AssignmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignmentStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.AssignmentStatus.html#AssignmentStatus%27"><span class="hs-identifier hs-var">AssignmentStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssignmentStatus"><span class="annot"><span class="annottext">AssignmentStatus -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.AssignmentStatus.html#fromAssignmentStatus"><span class="hs-identifier hs-var hs-var">fromAssignmentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241922"><span id="local-6989586621679241924"><span id="local-6989586621679241926"><span class="annot"><span class="annottext">Int -&gt; AssignmentStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242035"><span id="local-6989586621679242037"><span id="local-6989586621679242039"><span class="annot"><span class="annottext">Int -&gt; AssignmentStatus -&gt; ShowS
 [AssignmentStatus] -&gt; ShowS
 AssignmentStatus -&gt; String
 (Int -&gt; AssignmentStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AssignmentStatus -&gt; String
 showsPrec :: Int -&gt; AssignmentStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AssignmentStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679241913"><span id="local-6989586621679241915"><span id="local-6989586621679241917"><span id="local-6989586621679241919"><span class="annot"><span class="annottext">ReadPrec [AssignmentStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679242026"><span id="local-6989586621679242028"><span id="local-6989586621679242030"><span id="local-6989586621679242032"><span class="annot"><span class="annottext">ReadPrec [AssignmentStatus]
 ReadPrec AssignmentStatus
 Int -&gt; ReadS AssignmentStatus
 ReadS [AssignmentStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AssignmentStatus]
 readsPrec :: Int -&gt; ReadS AssignmentStatus
 $creadsPrec :: Int -&gt; ReadS AssignmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679241908"><span id="local-6989586621679241910"><span class="annot"><span class="annottext">AssignmentStatus -&gt; AssignmentStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679242021"><span id="local-6989586621679242023"><span class="annot"><span class="annottext">AssignmentStatus -&gt; AssignmentStatus -&gt; Bool
 (AssignmentStatus -&gt; AssignmentStatus -&gt; Bool)
 -&gt; (AssignmentStatus -&gt; AssignmentStatus -&gt; Bool)
 -&gt; Eq AssignmentStatus
@@ -83,7 +83,7 @@ $c/= :: AssignmentStatus -&gt; AssignmentStatus -&gt; Bool
 == :: AssignmentStatus -&gt; AssignmentStatus -&gt; Bool
 $c== :: AssignmentStatus -&gt; AssignmentStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679241892"><span id="local-6989586621679241894"><span id="local-6989586621679241896"><span id="local-6989586621679241898"><span id="local-6989586621679241900"><span id="local-6989586621679241902"><span id="local-6989586621679241904"><span class="annot"><span class="annottext">Eq AssignmentStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679242005"><span id="local-6989586621679242007"><span id="local-6989586621679242009"><span id="local-6989586621679242011"><span id="local-6989586621679242013"><span id="local-6989586621679242015"><span id="local-6989586621679242017"><span class="annot"><span class="annottext">Eq AssignmentStatus
 Eq AssignmentStatus
 -&gt; (AssignmentStatus -&gt; AssignmentStatus -&gt; Ordering)
 -&gt; (AssignmentStatus -&gt; AssignmentStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AssignmentStatus -&gt; Rep AssignmentStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241884"><span id="local-6989586621679241886"><span class="annot"><span class="annottext">Int -&gt; AssignmentStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241997"><span id="local-6989586621679241999"><span class="annot"><span class="annottext">Int -&gt; AssignmentStatus -&gt; Int
 AssignmentStatus -&gt; Int
 (Int -&gt; AssignmentStatus -&gt; Int)
 -&gt; (AssignmentStatus -&gt; Int) -&gt; Hashable AssignmentStatus
@@ -144,51 +144,51 @@ $chash :: AssignmentStatus -&gt; Int
 hashWithSalt :: Int -&gt; AssignmentStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AssignmentStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679241881"><span class="annot"><span class="annottext">AssignmentStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679241994"><span class="annot"><span class="annottext">AssignmentStatus -&gt; ()
 (AssignmentStatus -&gt; ()) -&gt; NFData AssignmentStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AssignmentStatus -&gt; ()
 $crnf :: AssignmentStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679241878"><span class="annot"><span class="annottext">Text -&gt; Either String AssignmentStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679241991"><span class="annot"><span class="annottext">Text -&gt; Either String AssignmentStatus
 (Text -&gt; Either String AssignmentStatus)
 -&gt; FromText AssignmentStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AssignmentStatus
 $cfromText :: Text -&gt; Either String AssignmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679241875"><span class="annot"><span class="annottext">AssignmentStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679241988"><span class="annot"><span class="annottext">AssignmentStatus -&gt; Text
 (AssignmentStatus -&gt; Text) -&gt; ToText AssignmentStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AssignmentStatus -&gt; Text
 $ctoText :: AssignmentStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679241872"><span class="annot"><span class="annottext">AssignmentStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679241985"><span class="annot"><span class="annottext">AssignmentStatus -&gt; ByteString
 (AssignmentStatus -&gt; ByteString) -&gt; ToByteString AssignmentStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AssignmentStatus -&gt; ByteString
 $ctoBS :: AssignmentStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679241869"><span class="annot"><span class="annottext">AssignmentStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679241982"><span class="annot"><span class="annottext">AssignmentStatus -&gt; ByteStringBuilder
 (AssignmentStatus -&gt; ByteStringBuilder) -&gt; ToLog AssignmentStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AssignmentStatus -&gt; ByteStringBuilder
 $cbuild :: AssignmentStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679241866"><span class="annot"><span class="annottext">HeaderName -&gt; AssignmentStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679241979"><span class="annot"><span class="annottext">HeaderName -&gt; AssignmentStatus -&gt; [Header]
 (HeaderName -&gt; AssignmentStatus -&gt; [Header])
 -&gt; ToHeader AssignmentStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AssignmentStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AssignmentStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679241863"><span class="annot"><span class="annottext">AssignmentStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679241976"><span class="annot"><span class="annottext">AssignmentStatus -&gt; QueryString
 (AssignmentStatus -&gt; QueryString) -&gt; ToQuery AssignmentStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AssignmentStatus -&gt; QueryString
 $ctoQuery :: AssignmentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679241858"><span id="local-6989586621679241860"><span class="annot"><span class="annottext">Value -&gt; Parser [AssignmentStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679241971"><span id="local-6989586621679241973"><span class="annot"><span class="annottext">Value -&gt; Parser [AssignmentStatus]
 Value -&gt; Parser AssignmentStatus
 (Value -&gt; Parser AssignmentStatus)
 -&gt; (Value -&gt; Parser [AssignmentStatus])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [AssignmentStatus]
 parseJSON :: Value -&gt; Parser AssignmentStatus
 $cparseJSON :: Value -&gt; Parser AssignmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679241853"><span id="local-6989586621679241855"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssignmentStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679241966"><span id="local-6989586621679241968"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssignmentStatus]
 FromJSONKeyFunction AssignmentStatus
 FromJSONKeyFunction AssignmentStatus
 -&gt; FromJSONKeyFunction [AssignmentStatus]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AssignmentStatus]
 fromJSONKey :: FromJSONKeyFunction AssignmentStatus
 $cfromJSONKey :: FromJSONKeyFunction AssignmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679241844"><span id="local-6989586621679241846"><span id="local-6989586621679241848"><span id="local-6989586621679241850"><span class="annot"><span class="annottext">[AssignmentStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679241957"><span id="local-6989586621679241959"><span id="local-6989586621679241961"><span id="local-6989586621679241963"><span class="annot"><span class="annottext">[AssignmentStatus] -&gt; Encoding
 [AssignmentStatus] -&gt; Value
 AssignmentStatus -&gt; Encoding
 AssignmentStatus -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: AssignmentStatus -&gt; Encoding
 toJSON :: AssignmentStatus -&gt; Value
 $ctoJSON :: AssignmentStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679241839"><span id="local-6989586621679241841"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssignmentStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679241952"><span id="local-6989586621679241954"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssignmentStatus]
 ToJSONKeyFunction AssignmentStatus
 ToJSONKeyFunction AssignmentStatus
 -&gt; ToJSONKeyFunction [AssignmentStatus]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AssignmentStatus]
 toJSONKey :: ToJSONKeyFunction AssignmentStatus
 $ctoJSONKey :: ToJSONKeyFunction AssignmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679241836"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssignmentStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679241949"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssignmentStatus
 ([Node] -&gt; Either String AssignmentStatus)
 -&gt; FromXML AssignmentStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AssignmentStatus
 $cparseXML :: [Node] -&gt; Either String AssignmentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679241833"><span class="annot"><span class="annottext">AssignmentStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679241946"><span class="annot"><span class="annottext">AssignmentStatus -&gt; XML
 (AssignmentStatus -&gt; XML) -&gt; ToXML AssignmentStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AssignmentStatus -&gt; XML

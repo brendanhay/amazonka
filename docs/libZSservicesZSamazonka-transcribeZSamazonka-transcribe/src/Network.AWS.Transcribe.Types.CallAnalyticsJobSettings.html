@@ -29,44 +29,44 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Provides optional settings for the @CallAnalyticsJob@ operation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCallAnalyticsJobSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679277931"><span id="local-6989586621679277932"></span></span><span class="hs-keyword">data</span><span> </span><span id="CallAnalyticsJobSettings"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-var">CallAnalyticsJobSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CallAnalyticsJobSettings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">CallAnalyticsJobSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679278106"><span id="local-6989586621679278107"></span></span><span class="hs-keyword">data</span><span> </span><span id="CallAnalyticsJobSettings"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-var">CallAnalyticsJobSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CallAnalyticsJobSettings%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">CallAnalyticsJobSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AcontentRedaction%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe ContentRedaction
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AcontentRedaction%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">contentRedaction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary filter to use when running a call analytics</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- job. The filter that you specify must have the same language code as the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- analytics job.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Set to mask to remove filtered text from the transcript and replace it</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- with three asterisks (\&quot;***\&quot;) as placeholder text. Set to @remove@ to</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- remove filtered text from the transcript without using placeholder text.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Set to @tag@ to mark the word in the transcription output that matches</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the vocabulary filter. When you set the filter method to @tag@, the</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- words matching your vocabulary filter are not masked or removed.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe VocabularyFilterMethod
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyFilterMethod.html#VocabularyFilterMethod"><span class="hs-identifier hs-type">VocabularyFilterMethod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The structure used to describe a custom language model.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlanguageModelName%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageModelName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">languageModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | When you run a call analytics job, you can specify the language spoken</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- in the audio, or you can have Amazon Transcribe identify the language</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for you.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- To specify a language, specify an array with one language code. If you</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- don\'t know the language, you can leave this field blank and Amazon</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Transcribe will use machine learning to identify the language for you.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- To improve the ability of Amazon Transcribe to correctly identify the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- language, you can provide an array of the languages that can be present</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- in the audio. Refer to</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features&gt;</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- for additional information.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlanguageOptions%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe (NonEmpty LanguageCode)
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageOptions%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">languageOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of a vocabulary to use when processing the call analytics job.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AvocabularyName%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | When you run a call analytics job, you can specify the language spoken</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- in the audio, or you can have Amazon Transcribe identify the language</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- for you.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- To specify a language, specify an array with one language code. If you</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- don\'t know the language, you can leave this field blank and Amazon</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Transcribe will use machine learning to identify the language for you.</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- To improve the ability of Amazon Transcribe to correctly identify the</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- language, you can provide an array of the languages that can be present</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the audio. Refer to</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features&gt;</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- for additional information.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AlanguageOptions%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe (NonEmpty LanguageCode)
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageOptions%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">languageOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The structure used to describe a custom language model.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AlanguageModelName%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageModelName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">languageModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary filter to use when running a call analytics</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- job. The filter that you specify must have the same language code as the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- analytics job.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Set to mask to remove filtered text from the transcript and replace it</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- with three asterisks (\&quot;***\&quot;) as placeholder text. Set to @remove@ to</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- remove filtered text from the transcript without using placeholder text.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Set to @tag@ to mark the word in the transcription output that matches</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the vocabulary filter. When you set the filter method to @tag@, the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- words matching your vocabulary filter are not masked or removed.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; Maybe VocabularyFilterMethod
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyFilterMethod.html#VocabularyFilterMethod"><span class="hs-identifier hs-type">VocabularyFilterMethod</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277920"><span id="local-6989586621679277922"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; CallAnalyticsJobSettings -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278095"><span id="local-6989586621679278097"><span class="annot"><span class="annottext">CallAnalyticsJobSettings -&gt; CallAnalyticsJobSettings -&gt; Bool
 (CallAnalyticsJobSettings -&gt; CallAnalyticsJobSettings -&gt; Bool)
 -&gt; (CallAnalyticsJobSettings -&gt; CallAnalyticsJobSettings -&gt; Bool)
 -&gt; Eq CallAnalyticsJobSettings
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CallAnalyticsJobSettings -&gt; CallAnalyticsJobSettings -&gt; Bool
 == :: CallAnalyticsJobSettings -&gt; CallAnalyticsJobSettings -&gt; Bool
 $c== :: CallAnalyticsJobSettings -&gt; CallAnalyticsJobSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277911"><span id="local-6989586621679277913"><span id="local-6989586621679277915"><span id="local-6989586621679277917"><span class="annot"><span class="annottext">ReadPrec [CallAnalyticsJobSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278086"><span id="local-6989586621679278088"><span id="local-6989586621679278090"><span id="local-6989586621679278092"><span class="annot"><span class="annottext">ReadPrec [CallAnalyticsJobSettings]
 ReadPrec CallAnalyticsJobSettings
 Int -&gt; ReadS CallAnalyticsJobSettings
 ReadS [CallAnalyticsJobSettings]
@@ -95,7 +95,7 @@ readList :: ReadS [CallAnalyticsJobSettings]
 $creadList :: ReadS [CallAnalyticsJobSettings]
 readsPrec :: Int -&gt; ReadS CallAnalyticsJobSettings
 $creadsPrec :: Int -&gt; ReadS CallAnalyticsJobSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277904"><span id="local-6989586621679277906"><span id="local-6989586621679277908"><span class="annot"><span class="annottext">Int -&gt; CallAnalyticsJobSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278079"><span id="local-6989586621679278081"><span id="local-6989586621679278083"><span class="annot"><span class="annottext">Int -&gt; CallAnalyticsJobSettings -&gt; ShowS
 [CallAnalyticsJobSettings] -&gt; ShowS
 CallAnalyticsJobSettings -&gt; String
 (Int -&gt; CallAnalyticsJobSettings -&gt; ShowS)
@@ -137,43 +137,43 @@ CallAnalyticsJobSettings -&gt; Rep CallAnalyticsJobSettings x
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'contentRedaction', 'callAnalyticsJobSettings_contentRedaction' - Undocumented member.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'vocabularyFilterName', 'callAnalyticsJobSettings_vocabularyFilterName' - The name of the vocabulary filter to use when running a call analytics</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- job. The filter that you specify must have the same language code as the</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- analytics job.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'languageOptions', 'callAnalyticsJobSettings_languageOptions' - When you run a call analytics job, you can specify the language spoken</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- in the audio, or you can have Amazon Transcribe identify the language</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for you.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'vocabularyFilterMethod', 'callAnalyticsJobSettings_vocabularyFilterMethod' - Set to mask to remove filtered text from the transcript and replace it</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- with three asterisks (\&quot;***\&quot;) as placeholder text. Set to @remove@ to</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- remove filtered text from the transcript without using placeholder text.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- Set to @tag@ to mark the word in the transcription output that matches</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- the vocabulary filter. When you set the filter method to @tag@, the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- words matching your vocabulary filter are not masked or removed.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'languageModelName', 'callAnalyticsJobSettings_languageModelName' - The structure used to describe a custom language model.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- To specify a language, specify an array with one language code. If you</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- don\'t know the language, you can leave this field blank and Amazon</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Transcribe will use machine learning to identify the language for you.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- To improve the ability of Amazon Transcribe to correctly identify the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- language, you can provide an array of the languages that can be present</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- in the audio. Refer to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features&gt;</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for additional information.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- 'vocabularyName', 'callAnalyticsJobSettings_vocabularyName' - The name of a vocabulary to use when processing the call analytics job.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'languageOptions', 'callAnalyticsJobSettings_languageOptions' - When you run a call analytics job, you can specify the language spoken</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- in the audio, or you can have Amazon Transcribe identify the language</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- for you.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- To specify a language, specify an array with one language code. If you</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- don\'t know the language, you can leave this field blank and Amazon</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- Transcribe will use machine learning to identify the language for you.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- To improve the ability of Amazon Transcribe to correctly identify the</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- language, you can provide an array of the languages that can be present</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- in the audio. Refer to</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features&gt;</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- for additional information.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'languageModelName', 'callAnalyticsJobSettings_languageModelName' - The structure used to describe a custom language model.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'vocabularyFilterName', 'callAnalyticsJobSettings_vocabularyFilterName' - The name of the vocabulary filter to use when running a call analytics</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- job. The filter that you specify must have the same language code as the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- analytics job.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'vocabularyFilterMethod', 'callAnalyticsJobSettings_vocabularyFilterMethod' - Set to mask to remove filtered text from the transcript and replace it</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- with three asterisks (\&quot;***\&quot;) as placeholder text. Set to @remove@ to</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- remove filtered text from the transcript without using placeholder text.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Set to @tag@ to mark the word in the transcription output that matches</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the vocabulary filter. When you set the filter method to @tag@, the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- words matching your vocabulary filter are not masked or removed.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#newCallAnalyticsJobSettings"><span class="hs-identifier hs-type">newCallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span>
 </span><span id="line-104"></span><span id="newCallAnalyticsJobSettings"><span class="annot"><span class="annottext">newCallAnalyticsJobSettings :: CallAnalyticsJobSettings
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#newCallAnalyticsJobSettings"><span class="hs-identifier hs-var hs-var">newCallAnalyticsJobSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings' :: Maybe ContentRedaction
+-&gt; Maybe (NonEmpty LanguageCode)
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe VocabularyFilterMethod
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe (NonEmpty LanguageCode)
 -&gt; CallAnalyticsJobSettings
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentRedaction:CallAnalyticsJobSettings' :: Maybe ContentRedaction
@@ -181,24 +181,24 @@ CallAnalyticsJobSettings -&gt; Rep CallAnalyticsJobSettings x
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContentRedaction
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:CallAnalyticsJobSettings' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageOptions:CallAnalyticsJobSettings' :: Maybe (NonEmpty LanguageCode)
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageOptions%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">languageOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:CallAnalyticsJobSettings' :: Maybe VocabularyFilterMethod
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyName:CallAnalyticsJobSettings' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageModelName:CallAnalyticsJobSettings' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageModelName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">languageModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyName:CallAnalyticsJobSettings' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:CallAnalyticsJobSettings' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageOptions:CallAnalyticsJobSettings' :: Maybe (NonEmpty LanguageCode)
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageOptions%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">languageOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:CallAnalyticsJobSettings' :: Maybe VocabularyFilterMethod
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
@@ -216,134 +216,31 @@ forall a. Maybe a
      (Maybe ContentRedaction)
      (Maybe ContentRedaction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277895"><span class="annot"><span class="annottext">Maybe ContentRedaction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278070"><span class="annot"><span class="annottext">Maybe ContentRedaction
 contentRedaction :: Maybe ContentRedaction
 $sel:contentRedaction:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe ContentRedaction
-</span><a href="#local-6989586621679277895"><span class="hs-identifier hs-var hs-var">contentRedaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentRedaction
-</span><a href="#local-6989586621679277895"><span class="hs-identifier hs-var">contentRedaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277894"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277893"><span class="annot"><span class="annottext">Maybe ContentRedaction
-</span><a href="#local-6989586621679277893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentRedaction:CallAnalyticsJobSettings' :: Maybe ContentRedaction
+</span><a href="#local-6989586621679278070"><span class="hs-identifier hs-var hs-var">contentRedaction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContentRedaction
+</span><a href="#local-6989586621679278070"><span class="hs-identifier hs-var">contentRedaction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278069"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278068"><span class="annot"><span class="annottext">Maybe ContentRedaction
+</span><a href="#local-6989586621679278068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentRedaction:CallAnalyticsJobSettings' :: Maybe ContentRedaction
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AcontentRedaction%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">contentRedaction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContentRedaction
-</span><a href="#local-6989586621679277893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The name of the vocabulary filter to use when running a call analytics</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- job. The filter that you specify must have the same language code as the</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- analytics job.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterName"><span class="hs-identifier hs-type">callAnalyticsJobSettings_vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="callAnalyticsJobSettings_vocabularyFilterName"><span class="annot"><span class="annottext">callAnalyticsJobSettings_vocabularyFilterName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterName"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_vocabularyFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe Text)
--&gt; (CallAnalyticsJobSettings
-    -&gt; Maybe Text -&gt; CallAnalyticsJobSettings)
--&gt; Lens
-     CallAnalyticsJobSettings
-     CallAnalyticsJobSettings
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277891"><span class="annot"><span class="annottext">Maybe Text
-vocabularyFilterName :: Maybe Text
-$sel:vocabularyFilterName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679277891"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277891"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277890"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277889"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:CallAnalyticsJobSettings' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | Set to mask to remove filtered text from the transcript and replace it</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- with three asterisks (\&quot;***\&quot;) as placeholder text. Set to @remove@ to</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- remove filtered text from the transcript without using placeholder text.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- Set to @tag@ to mark the word in the transcription output that matches</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- the vocabulary filter. When you set the filter method to @tag@, the</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- words matching your vocabulary filter are not masked or removed.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterMethod"><span class="hs-identifier hs-type">callAnalyticsJobSettings_vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyFilterMethod.html#VocabularyFilterMethod"><span class="hs-identifier hs-type">VocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="callAnalyticsJobSettings_vocabularyFilterMethod"><span class="annot"><span class="annottext">callAnalyticsJobSettings_vocabularyFilterMethod :: (Maybe VocabularyFilterMethod -&gt; f (Maybe VocabularyFilterMethod))
--&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterMethod"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_vocabularyFilterMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe VocabularyFilterMethod)
--&gt; (CallAnalyticsJobSettings
-    -&gt; Maybe VocabularyFilterMethod -&gt; CallAnalyticsJobSettings)
--&gt; Lens
-     CallAnalyticsJobSettings
-     CallAnalyticsJobSettings
-     (Maybe VocabularyFilterMethod)
-     (Maybe VocabularyFilterMethod)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277887"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-vocabularyFilterMethod :: Maybe VocabularyFilterMethod
-$sel:vocabularyFilterMethod:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277887"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277887"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277886"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277885"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:CallAnalyticsJobSettings' :: Maybe VocabularyFilterMethod
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The structure used to describe a custom language model.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_languageModelName"><span class="hs-identifier hs-type">callAnalyticsJobSettings_languageModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="callAnalyticsJobSettings_languageModelName"><span class="annot"><span class="annottext">callAnalyticsJobSettings_languageModelName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_languageModelName"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_languageModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe Text)
--&gt; (CallAnalyticsJobSettings
-    -&gt; Maybe Text -&gt; CallAnalyticsJobSettings)
--&gt; Lens
-     CallAnalyticsJobSettings
-     CallAnalyticsJobSettings
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277883"><span class="annot"><span class="annottext">Maybe Text
-languageModelName :: Maybe Text
-$sel:languageModelName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679277883"><span class="hs-identifier hs-var hs-var">languageModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277883"><span class="hs-identifier hs-var">languageModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277882"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277881"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageModelName:CallAnalyticsJobSettings' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageModelName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">languageModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The name of a vocabulary to use when processing the call analytics job.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyName"><span class="hs-identifier hs-type">callAnalyticsJobSettings_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="callAnalyticsJobSettings_vocabularyName"><span class="annot"><span class="annottext">callAnalyticsJobSettings_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyName"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe Text)
--&gt; (CallAnalyticsJobSettings
-    -&gt; Maybe Text -&gt; CallAnalyticsJobSettings)
--&gt; Lens
-     CallAnalyticsJobSettings
-     CallAnalyticsJobSettings
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277879"><span class="annot"><span class="annottext">Maybe Text
-vocabularyName :: Maybe Text
-$sel:vocabularyName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679277879"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277879"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277878"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277877"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:CallAnalyticsJobSettings' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | When you run a call analytics job, you can specify the language spoken</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- in the audio, or you can have Amazon Transcribe identify the language</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- for you.</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- To specify a language, specify an array with one language code. If you</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- don\'t know the language, you can leave this field blank and Amazon</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- Transcribe will use machine learning to identify the language for you.</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- To improve the ability of Amazon Transcribe to correctly identify the</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- language, you can provide an array of the languages that can be present</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- in the audio. Refer to</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features&gt;</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- for additional information.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_languageOptions"><span class="hs-identifier hs-type">callAnalyticsJobSettings_languageOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="callAnalyticsJobSettings_languageOptions"><span class="annot"><span class="annottext">callAnalyticsJobSettings_languageOptions :: (Maybe (NonEmpty LanguageCode)
+</span><span id="line-119"></span><span class="hs-comment">-- | When you run a call analytics job, you can specify the language spoken</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- in the audio, or you can have Amazon Transcribe identify the language</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- for you.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- To specify a language, specify an array with one language code. If you</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- don\'t know the language, you can leave this field blank and Amazon</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Transcribe will use machine learning to identify the language for you.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- To improve the ability of Amazon Transcribe to correctly identify the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- language, you can provide an array of the languages that can be present</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- in the audio. Refer to</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features&gt;</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for additional information.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_languageOptions"><span class="hs-identifier hs-type">callAnalyticsJobSettings_languageOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="callAnalyticsJobSettings_languageOptions"><span class="annot"><span class="annottext">callAnalyticsJobSettings_languageOptions :: (Maybe (NonEmpty LanguageCode)
  -&gt; f (Maybe (NonEmpty LanguageCode)))
 -&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_languageOptions"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_languageOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe (NonEmpty LanguageCode))
@@ -355,16 +252,16 @@ $sel:vocabularyName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; 
      (Maybe (NonEmpty LanguageCode))
      (Maybe (NonEmpty LanguageCode))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277875"><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278066"><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
 languageOptions :: Maybe (NonEmpty LanguageCode)
 $sel:languageOptions:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe (NonEmpty LanguageCode)
-</span><a href="#local-6989586621679277875"><span class="hs-identifier hs-var hs-var">languageOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
-</span><a href="#local-6989586621679277875"><span class="hs-identifier hs-var">languageOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277874"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277873"><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
-</span><a href="#local-6989586621679277873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
-</span><a href="#local-6989586621679277874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageOptions:CallAnalyticsJobSettings' :: Maybe (NonEmpty LanguageCode)
+</span><a href="#local-6989586621679278066"><span class="hs-identifier hs-var hs-var">languageOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
+</span><a href="#local-6989586621679278066"><span class="hs-identifier hs-var">languageOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278065"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278064"><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
+</span><a href="#local-6989586621679278064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageOptions:CallAnalyticsJobSettings' :: Maybe (NonEmpty LanguageCode)
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageOptions%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">languageOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
-</span><a href="#local-6989586621679277873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty LanguageCode)
+</span><a href="#local-6989586621679278064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty LanguageCode)
   -&gt; f (Maybe (NonEmpty LanguageCode)))
  -&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings)
 -&gt; ((Maybe (NonEmpty LanguageCode)
@@ -394,11 +291,114 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty LanguageCode)
   (NonEmpty LanguageCode)
   (NonEmpty LanguageCode)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The name of a vocabulary to use when processing the call analytics job.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyName"><span class="hs-identifier hs-type">callAnalyticsJobSettings_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="callAnalyticsJobSettings_vocabularyName"><span class="annot"><span class="annottext">callAnalyticsJobSettings_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyName"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe Text)
+-&gt; (CallAnalyticsJobSettings
+    -&gt; Maybe Text -&gt; CallAnalyticsJobSettings)
+-&gt; Lens
+     CallAnalyticsJobSettings
+     CallAnalyticsJobSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278059"><span class="annot"><span class="annottext">Maybe Text
+vocabularyName :: Maybe Text
+$sel:vocabularyName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679278059"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278059"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278058"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:CallAnalyticsJobSettings' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The structure used to describe a custom language model.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_languageModelName"><span class="hs-identifier hs-type">callAnalyticsJobSettings_languageModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="callAnalyticsJobSettings_languageModelName"><span class="annot"><span class="annottext">callAnalyticsJobSettings_languageModelName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_languageModelName"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_languageModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe Text)
+-&gt; (CallAnalyticsJobSettings
+    -&gt; Maybe Text -&gt; CallAnalyticsJobSettings)
+-&gt; Lens
+     CallAnalyticsJobSettings
+     CallAnalyticsJobSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278055"><span class="annot"><span class="annottext">Maybe Text
+languageModelName :: Maybe Text
+$sel:languageModelName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679278055"><span class="hs-identifier hs-var hs-var">languageModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278055"><span class="hs-identifier hs-var">languageModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278054"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278053"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageModelName:CallAnalyticsJobSettings' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AlanguageModelName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">languageModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The name of the vocabulary filter to use when running a call analytics</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- job. The filter that you specify must have the same language code as the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- analytics job.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterName"><span class="hs-identifier hs-type">callAnalyticsJobSettings_vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="callAnalyticsJobSettings_vocabularyFilterName"><span class="annot"><span class="annottext">callAnalyticsJobSettings_vocabularyFilterName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterName"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_vocabularyFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe Text)
+-&gt; (CallAnalyticsJobSettings
+    -&gt; Maybe Text -&gt; CallAnalyticsJobSettings)
+-&gt; Lens
+     CallAnalyticsJobSettings
+     CallAnalyticsJobSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278051"><span class="annot"><span class="annottext">Maybe Text
+vocabularyFilterName :: Maybe Text
+$sel:vocabularyFilterName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679278051"><span class="hs-identifier hs-var hs-var">vocabularyFilterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278051"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278050"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278049"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterName:CallAnalyticsJobSettings' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterName%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Set to mask to remove filtered text from the transcript and replace it</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- with three asterisks (\&quot;***\&quot;) as placeholder text. Set to @remove@ to</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- remove filtered text from the transcript without using placeholder text.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Set to @tag@ to mark the word in the transcription output that matches</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the vocabulary filter. When you set the filter method to @tag@, the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- words matching your vocabulary filter are not masked or removed.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterMethod"><span class="hs-identifier hs-type">callAnalyticsJobSettings_vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyFilterMethod.html#VocabularyFilterMethod"><span class="hs-identifier hs-type">VocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="callAnalyticsJobSettings_vocabularyFilterMethod"><span class="annot"><span class="annottext">callAnalyticsJobSettings_vocabularyFilterMethod :: (Maybe VocabularyFilterMethod -&gt; f (Maybe VocabularyFilterMethod))
+-&gt; CallAnalyticsJobSettings -&gt; f CallAnalyticsJobSettings
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#callAnalyticsJobSettings_vocabularyFilterMethod"><span class="hs-identifier hs-var hs-var">callAnalyticsJobSettings_vocabularyFilterMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CallAnalyticsJobSettings -&gt; Maybe VocabularyFilterMethod)
+-&gt; (CallAnalyticsJobSettings
+    -&gt; Maybe VocabularyFilterMethod -&gt; CallAnalyticsJobSettings)
+-&gt; Lens
+     CallAnalyticsJobSettings
+     CallAnalyticsJobSettings
+     (Maybe VocabularyFilterMethod)
+     (Maybe VocabularyFilterMethod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278047"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+vocabularyFilterMethod :: Maybe VocabularyFilterMethod
+$sel:vocabularyFilterMethod:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679278047"><span class="hs-identifier hs-var hs-var">vocabularyFilterMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679278047"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278046"><span class="annot"><span class="annottext">s :: CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278045"><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679278045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CallAnalyticsJobSettings
+</span><a href="#local-6989586621679278046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyFilterMethod:CallAnalyticsJobSettings' :: Maybe VocabularyFilterMethod
+</span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#%24sel%3AvocabularyFilterMethod%3ACallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679278045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277867"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679277865"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CallAnalyticsJobSettings
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278042"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679278040"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CallAnalyticsJobSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CallAnalyticsJobSettings)
@@ -408,136 +408,136 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CallAnalyticsJobSettings&quot;</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277862"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278037"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278037"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContentRedaction
+-&gt; Maybe (NonEmpty LanguageCode)
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe VocabularyFilterMethod
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe (NonEmpty LanguageCode)
 -&gt; CallAnalyticsJobSettings
 </span><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-var">CallAnalyticsJobSettings'</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContentRedaction
+ -&gt; Maybe (NonEmpty LanguageCode)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe VocabularyFilterMethod
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe (NonEmpty LanguageCode)
  -&gt; CallAnalyticsJobSettings)
 -&gt; Parser (Maybe ContentRedaction)
 -&gt; Parser
-     (Maybe Text
+     (Maybe (NonEmpty LanguageCode)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe VocabularyFilterMethod
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe (NonEmpty LanguageCode)
       -&gt; CallAnalyticsJobSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContentRedaction)
+</span><a href="#local-6989586621679278037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContentRedaction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContentRedaction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe (NonEmpty LanguageCode)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe VocabularyFilterMethod
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (NonEmpty LanguageCode)
    -&gt; CallAnalyticsJobSettings)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe VocabularyFilterMethod
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe (NonEmpty LanguageCode)
-      -&gt; CallAnalyticsJobSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VocabularyFilterName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe VocabularyFilterMethod
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (NonEmpty LanguageCode)
-   -&gt; CallAnalyticsJobSettings)
--&gt; Parser (Maybe VocabularyFilterMethod)
+-&gt; Parser (Maybe (NonEmpty LanguageCode))
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe (NonEmpty LanguageCode)
+      -&gt; Maybe Text
+      -&gt; Maybe VocabularyFilterMethod
       -&gt; CallAnalyticsJobSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VocabularyFilterMethod)
+</span><a href="#local-6989586621679278037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty LanguageCode))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VocabularyFilterMethod&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LanguageOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe VocabularyFilterMethod
+   -&gt; CallAnalyticsJobSettings)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe VocabularyFilterMethod
+      -&gt; CallAnalyticsJobSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe (NonEmpty LanguageCode)
+   -&gt; Maybe VocabularyFilterMethod
    -&gt; CallAnalyticsJobSettings)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe (NonEmpty LanguageCode) -&gt; CallAnalyticsJobSettings)
+      -&gt; Maybe VocabularyFilterMethod -&gt; CallAnalyticsJobSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679278037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LanguageModelName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe (NonEmpty LanguageCode) -&gt; CallAnalyticsJobSettings)
+   -&gt; Maybe VocabularyFilterMethod -&gt; CallAnalyticsJobSettings)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe (NonEmpty LanguageCode) -&gt; CallAnalyticsJobSettings)
+     (Maybe VocabularyFilterMethod -&gt; CallAnalyticsJobSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679278037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (NonEmpty LanguageCode) -&gt; CallAnalyticsJobSettings)
--&gt; Parser (Maybe (NonEmpty LanguageCode))
+</span><span class="hs-string">&quot;VocabularyFilterName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VocabularyFilterMethod -&gt; CallAnalyticsJobSettings)
+-&gt; Parser (Maybe VocabularyFilterMethod)
 -&gt; Parser CallAnalyticsJobSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty LanguageCode))
+</span><a href="#local-6989586621679278037"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VocabularyFilterMethod)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LanguageOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;VocabularyFilterMethod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277856"><span id="local-6989586621679277858"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278031"><span id="local-6989586621679278033"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277853"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278028"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277845"><span id="local-6989586621679277847"><span id="local-6989586621679277849"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679277843"><span class="annot"><span class="annottext">toJSON :: CallAnalyticsJobSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277836"><span id="local-6989586621679277837"><span id="local-6989586621679277838"><span id="local-6989586621679277839"><span id="local-6989586621679277840"><span id="local-6989586621679277841"><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278020"><span id="local-6989586621679278022"><span id="local-6989586621679278024"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings"><span class="hs-identifier hs-type">CallAnalyticsJobSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679278018"><span class="annot"><span class="annottext">toJSON :: CallAnalyticsJobSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.CallAnalyticsJobSettings.html#CallAnalyticsJobSettings%27"><span class="hs-identifier hs-type">CallAnalyticsJobSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278011"><span id="local-6989586621679278012"><span id="local-6989586621679278013"><span id="local-6989586621679278014"><span id="local-6989586621679278015"><span id="local-6989586621679278016"><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
 Maybe Text
 Maybe ContentRedaction
 Maybe VocabularyFilterMethod
-languageOptions :: Maybe (NonEmpty LanguageCode)
-vocabularyName :: Maybe Text
-languageModelName :: Maybe Text
 vocabularyFilterMethod :: Maybe VocabularyFilterMethod
 vocabularyFilterName :: Maybe Text
+languageModelName :: Maybe Text
+vocabularyName :: Maybe Text
+languageOptions :: Maybe (NonEmpty LanguageCode)
 contentRedaction :: Maybe ContentRedaction
-$sel:languageOptions:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe (NonEmpty LanguageCode)
-$sel:vocabularyName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
-$sel:languageModelName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
 $sel:vocabularyFilterMethod:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe VocabularyFilterMethod
 $sel:vocabularyFilterName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
+$sel:languageModelName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
+$sel:vocabularyName:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe Text
+$sel:languageOptions:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe (NonEmpty LanguageCode)
 $sel:contentRedaction:CallAnalyticsJobSettings' :: CallAnalyticsJobSettings -&gt; Maybe ContentRedaction
-</span><a href="#local-6989586621679277836"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278011"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -550,24 +550,24 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(ContentRedaction -&gt; Pair) -&gt; Maybe ContentRedaction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContentRedaction
-</span><a href="#local-6989586621679277841"><span class="hs-identifier hs-var">contentRedaction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278016"><span class="hs-identifier hs-var">contentRedaction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VocabularyFilterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;LanguageOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty LanguageCode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty LanguageCode -&gt; Pair)
+-&gt; Maybe (NonEmpty LanguageCode) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
+</span><a href="#local-6989586621679278015"><span class="hs-identifier hs-var">languageOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277840"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VocabularyFilterMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VocabularyFilterMethod -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(VocabularyFilterMethod -&gt; Pair)
--&gt; Maybe VocabularyFilterMethod -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
-</span><a href="#local-6989586621679277839"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278014"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LanguageModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -575,24 +575,24 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277838"><span class="hs-identifier hs-var">languageModelName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278013"><span class="hs-identifier hs-var">languageModelName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;VocabularyFilterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277837"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278012"><span class="hs-identifier hs-var">vocabularyFilterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LanguageOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty LanguageCode -&gt; Pair
+</span><span class="hs-string">&quot;VocabularyFilterMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VocabularyFilterMethod -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty LanguageCode -&gt; Pair)
--&gt; Maybe (NonEmpty LanguageCode) -&gt; Maybe Pair
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(VocabularyFilterMethod -&gt; Pair)
+-&gt; Maybe VocabularyFilterMethod -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LanguageCode)
-</span><a href="#local-6989586621679277836"><span class="hs-identifier hs-var">languageOptions</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyFilterMethod
+</span><a href="#local-6989586621679278011"><span class="hs-identifier hs-var">vocabularyFilterMethod</span></a></span><span>
 </span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span></pre></body></html>

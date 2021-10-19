@@ -27,38 +27,38 @@
 </span><span id="line-27"></span><span class="hs-comment">-- for an application.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newChannelResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679593216"><span id="local-6989586621679593217"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-var">ChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-var">ChannelResponse'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AapplicationId%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AapplicationId%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was last</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679593650"><span id="local-6989586621679593651"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-var">ChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-var">ChannelResponse'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was last</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedDate%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | (Not used) This property is retained only for backward compatibility.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AhasCredential%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AhasCredential%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">hasCredential</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies whether the channel is enabled for the application.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aenabled%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Bool
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies whether the channel is enabled for the application.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aenabled%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Bool
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aenabled%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was enabled.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreationDate%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AcreationDate%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies whether the channel is archived.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AisArchived%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AisArchived%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AapplicationId%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AapplicationId%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The current version of the channel.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aversion%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aversion%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | (Deprecated) An identifier for the channel. This property is retained</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- only for backward compatibility.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aid%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aid%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The current version of the channel.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aversion%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aversion%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Specifies whether the channel is archived.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AisArchived%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AisArchived%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The user who last modified the channel.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedBy%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was enabled.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreationDate%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AcreationDate%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The user who last modified the channel.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AlastModifiedBy%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedBy%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | (Not used) This property is retained only for backward compatibility.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AhasCredential%3AChannelResponse%27"><span class="annot"><span class="annottext">ChannelResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AhasCredential%3AChannelResponse%27"><span class="hs-identifier hs-var hs-var">hasCredential</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593202"><span id="local-6989586621679593204"><span class="annot"><span class="annottext">ChannelResponse -&gt; ChannelResponse -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593636"><span id="local-6989586621679593638"><span class="annot"><span class="annottext">ChannelResponse -&gt; ChannelResponse -&gt; Bool
 (ChannelResponse -&gt; ChannelResponse -&gt; Bool)
 -&gt; (ChannelResponse -&gt; ChannelResponse -&gt; Bool)
 -&gt; Eq ChannelResponse
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChannelResponse -&gt; ChannelResponse -&gt; Bool
 == :: ChannelResponse -&gt; ChannelResponse -&gt; Bool
 $c== :: ChannelResponse -&gt; ChannelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593193"><span id="local-6989586621679593195"><span id="local-6989586621679593197"><span id="local-6989586621679593199"><span class="annot"><span class="annottext">ReadPrec [ChannelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593627"><span id="local-6989586621679593629"><span id="local-6989586621679593631"><span id="local-6989586621679593633"><span class="annot"><span class="annottext">ReadPrec [ChannelResponse]
 ReadPrec ChannelResponse
 Int -&gt; ReadS ChannelResponse
 ReadS [ChannelResponse]
@@ -87,7 +87,7 @@ readList :: ReadS [ChannelResponse]
 $creadList :: ReadS [ChannelResponse]
 readsPrec :: Int -&gt; ReadS ChannelResponse
 $creadsPrec :: Int -&gt; ReadS ChannelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593186"><span id="local-6989586621679593188"><span id="local-6989586621679593190"><span class="annot"><span class="annottext">Int -&gt; ChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593620"><span id="local-6989586621679593622"><span id="local-6989586621679593624"><span class="annot"><span class="annottext">Int -&gt; ChannelResponse -&gt; ShowS
 [ChannelResponse] -&gt; ShowS
 ChannelResponse -&gt; String
 (Int -&gt; ChannelResponse -&gt; ShowS)
@@ -121,325 +121,300 @@ $cfrom :: forall x. ChannelResponse -&gt; Rep ChannelResponse x
 </span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'applicationId', 'channelResponse_applicationId' - The unique identifier for the application.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'lastModifiedDate', 'channelResponse_lastModifiedDate' - The date and time, in ISO 8601 format, when the channel was last</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lastModifiedDate', 'channelResponse_lastModifiedDate' - The date and time, in ISO 8601 format, when the channel was last</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'enabled', 'channelResponse_enabled' - Specifies whether the channel is enabled for the application.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'hasCredential', 'channelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'isArchived', 'channelResponse_isArchived' - Specifies whether the channel is archived.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'enabled', 'channelResponse_enabled' - Specifies whether the channel is enabled for the application.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'applicationId', 'channelResponse_applicationId' - The unique identifier for the application.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'creationDate', 'channelResponse_creationDate' - The date and time, in ISO 8601 format, when the channel was enabled.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'version', 'channelResponse_version' - The current version of the channel.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'id', 'channelResponse_id' - (Deprecated) An identifier for the channel. This property is retained</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- only for backward compatibility.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'version', 'channelResponse_version' - The current version of the channel.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'creationDate', 'channelResponse_creationDate' - The date and time, in ISO 8601 format, when the channel was enabled.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'isArchived', 'channelResponse_isArchived' - Specifies whether the channel is archived.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'lastModifiedBy', 'channelResponse_lastModifiedBy' - The user who last modified the channel.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'lastModifiedBy', 'channelResponse_lastModifiedBy' - The user who last modified the channel.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'hasCredential', 'channelResponse_hasCredential' - (Not used) This property is retained only for backward compatibility.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#newChannelResponse"><span class="hs-identifier hs-type">newChannelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span>
 </span><span id="line-83"></span><span id="newChannelResponse"><span class="annot"><span class="annottext">newChannelResponse :: ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#newChannelResponse"><span class="hs-identifier hs-var hs-var">newChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ChannelResponse' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Int
--&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationId:ChannelResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AapplicationId%3AChannelResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ChannelResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedDate%3AChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ChannelResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedDate%3AChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:hasCredential:ChannelResponse' :: Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AhasCredential%3AChannelResponse%27"><span class="hs-identifier hs-var">hasCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:ChannelResponse' :: Maybe Bool
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:ChannelResponse' :: Maybe Bool
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aenabled%3AChannelResponse%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:ChannelResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AcreationDate%3AChannelResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:isArchived:ChannelResponse' :: Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AisArchived%3AChannelResponse%27"><span class="hs-identifier hs-var">isArchived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ChannelResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aid%3AChannelResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:ChannelResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AapplicationId%3AChannelResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ChannelResponse' :: Maybe Int
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ChannelResponse' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aversion%3AChannelResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:isArchived:ChannelResponse' :: Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AisArchived%3AChannelResponse%27"><span class="hs-identifier hs-var">isArchived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ChannelResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aid%3AChannelResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:ChannelResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AcreationDate%3AChannelResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedBy:ChannelResponse' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedBy%3AChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:hasCredential:ChannelResponse' :: Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AhasCredential%3AChannelResponse%27"><span class="hs-identifier hs-var">hasCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The unique identifier for the application.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_applicationId"><span class="hs-identifier hs-type">channelResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="channelResponse_applicationId"><span class="annot"><span class="annottext">channelResponse_applicationId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChannelResponse -&gt; f ChannelResponse
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_applicationId"><span class="hs-identifier hs-var hs-var">channelResponse_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
--&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
--&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593177"><span class="annot"><span class="annottext">Maybe Text
-applicationId :: Maybe Text
-$sel:applicationId:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679593177"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593177"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593176"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593175"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ChannelResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AapplicationId%3AChannelResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was last</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- modified.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_lastModifiedDate"><span class="hs-identifier hs-type">channelResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="channelResponse_lastModifiedDate"><span class="annot"><span class="annottext">channelResponse_lastModifiedDate :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was last</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_lastModifiedDate"><span class="hs-identifier hs-type">channelResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="channelResponse_lastModifiedDate"><span class="annot"><span class="annottext">channelResponse_lastModifiedDate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ChannelResponse -&gt; f ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">channelResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
 -&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
 -&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593173"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593611"><span class="annot"><span class="annottext">Maybe Text
 lastModifiedDate :: Maybe Text
 $sel:lastModifiedDate:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679593173"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593173"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593172"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593171"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ChannelResponse' :: Maybe Text
+</span><a href="#local-6989586621679593611"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593611"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593610"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593609"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:ChannelResponse' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedDate%3AChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | (Not used) This property is retained only for backward compatibility.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_hasCredential"><span class="hs-identifier hs-type">channelResponse_hasCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="channelResponse_hasCredential"><span class="annot"><span class="annottext">channelResponse_hasCredential :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ChannelResponse -&gt; f ChannelResponse
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_hasCredential"><span class="hs-identifier hs-var hs-var">channelResponse_hasCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Bool)
--&gt; (ChannelResponse -&gt; Maybe Bool -&gt; ChannelResponse)
--&gt; Lens ChannelResponse ChannelResponse (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593169"><span class="annot"><span class="annottext">Maybe Bool
-hasCredential :: Maybe Bool
-$sel:hasCredential:ChannelResponse' :: ChannelResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679593169"><span class="hs-identifier hs-var hs-var">hasCredential</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593169"><span class="hs-identifier hs-var">hasCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593168"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593167"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasCredential:ChannelResponse' :: Maybe Bool
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AhasCredential%3AChannelResponse%27"><span class="hs-identifier hs-var">hasCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Specifies whether the channel is enabled for the application.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_enabled"><span class="hs-identifier hs-type">channelResponse_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="channelResponse_enabled"><span class="annot"><span class="annottext">channelResponse_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679593609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Specifies whether the channel is enabled for the application.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_enabled"><span class="hs-identifier hs-type">channelResponse_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="channelResponse_enabled"><span class="annot"><span class="annottext">channelResponse_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ChannelResponse -&gt; f ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_enabled"><span class="hs-identifier hs-var hs-var">channelResponse_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Bool)
 -&gt; (ChannelResponse -&gt; Maybe Bool -&gt; ChannelResponse)
 -&gt; Lens ChannelResponse ChannelResponse (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593165"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593607"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:ChannelResponse' :: ChannelResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679593165"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593165"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593164"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593163"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ChannelResponse' :: Maybe Bool
+</span><a href="#local-6989586621679593607"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679593607"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593606"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593605"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679593605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ChannelResponse' :: Maybe Bool
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aenabled%3AChannelResponse%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was enabled.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_creationDate"><span class="hs-identifier hs-type">channelResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="channelResponse_creationDate"><span class="annot"><span class="annottext">channelResponse_creationDate :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChannelResponse -&gt; f ChannelResponse
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_creationDate"><span class="hs-identifier hs-var hs-var">channelResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
--&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
--&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593161"><span class="annot"><span class="annottext">Maybe Text
-creationDate :: Maybe Text
-$sel:creationDate:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679593161"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593161"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593160"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593159"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ChannelResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AcreationDate%3AChannelResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | (Deprecated) An identifier for the channel. This property is retained</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- only for backward compatibility.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_id"><span class="hs-identifier hs-type">channelResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="channelResponse_id"><span class="annot"><span class="annottext">channelResponse_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ChannelResponse -&gt; f ChannelResponse
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_id"><span class="hs-identifier hs-var hs-var">channelResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
--&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
--&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593157"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679593157"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593157"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593156"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593155"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ChannelResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aid%3AChannelResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The current version of the channel.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_version"><span class="hs-identifier hs-type">channelResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="channelResponse_version"><span class="annot"><span class="annottext">channelResponse_version :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ChannelResponse -&gt; f ChannelResponse
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_version"><span class="hs-identifier hs-var hs-var">channelResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Int)
--&gt; (ChannelResponse -&gt; Maybe Int -&gt; ChannelResponse)
--&gt; Lens ChannelResponse ChannelResponse (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593153"><span class="annot"><span class="annottext">Maybe Int
-version :: Maybe Int
-$sel:version:ChannelResponse' :: ChannelResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679593153"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593153"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593152"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593151"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ChannelResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aversion%3AChannelResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679593151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Specifies whether the channel is archived.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_isArchived"><span class="hs-identifier hs-type">channelResponse_isArchived</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="channelResponse_isArchived"><span class="annot"><span class="annottext">channelResponse_isArchived :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679593605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Specifies whether the channel is archived.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_isArchived"><span class="hs-identifier hs-type">channelResponse_isArchived</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="channelResponse_isArchived"><span class="annot"><span class="annottext">channelResponse_isArchived :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ChannelResponse -&gt; f ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_isArchived"><span class="hs-identifier hs-var hs-var">channelResponse_isArchived</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Bool)
 -&gt; (ChannelResponse -&gt; Maybe Bool -&gt; ChannelResponse)
 -&gt; Lens ChannelResponse ChannelResponse (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593149"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593603"><span class="annot"><span class="annottext">Maybe Bool
 isArchived :: Maybe Bool
 $sel:isArchived:ChannelResponse' :: ChannelResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679593149"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593149"><span class="hs-identifier hs-var">isArchived</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593148"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593147"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isArchived:ChannelResponse' :: Maybe Bool
+</span><a href="#local-6989586621679593603"><span class="hs-identifier hs-var hs-var">isArchived</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679593603"><span class="hs-identifier hs-var">isArchived</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593602"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593601"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679593601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isArchived:ChannelResponse' :: Maybe Bool
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AisArchived%3AChannelResponse%27"><span class="hs-identifier hs-var">isArchived</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679593147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The user who last modified the channel.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_lastModifiedBy"><span class="hs-identifier hs-type">channelResponse_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="channelResponse_lastModifiedBy"><span class="annot"><span class="annottext">channelResponse_lastModifiedBy :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679593601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The unique identifier for the application.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_applicationId"><span class="hs-identifier hs-type">channelResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="channelResponse_applicationId"><span class="annot"><span class="annottext">channelResponse_applicationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelResponse -&gt; f ChannelResponse
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_applicationId"><span class="hs-identifier hs-var hs-var">channelResponse_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
+-&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
+-&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593599"><span class="annot"><span class="annottext">Maybe Text
+applicationId :: Maybe Text
+$sel:applicationId:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593599"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593599"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593598"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593597"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ChannelResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AapplicationId%3AChannelResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The current version of the channel.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_version"><span class="hs-identifier hs-type">channelResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="channelResponse_version"><span class="annot"><span class="annottext">channelResponse_version :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ChannelResponse -&gt; f ChannelResponse
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_version"><span class="hs-identifier hs-var hs-var">channelResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Int)
+-&gt; (ChannelResponse -&gt; Maybe Int -&gt; ChannelResponse)
+-&gt; Lens ChannelResponse ChannelResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593595"><span class="annot"><span class="annottext">Maybe Int
+version :: Maybe Int
+$sel:version:ChannelResponse' :: ChannelResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679593595"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593595"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593594"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593593"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ChannelResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aversion%3AChannelResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679593593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | (Deprecated) An identifier for the channel. This property is retained</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- only for backward compatibility.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_id"><span class="hs-identifier hs-type">channelResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="channelResponse_id"><span class="annot"><span class="annottext">channelResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelResponse -&gt; f ChannelResponse
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_id"><span class="hs-identifier hs-var hs-var">channelResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
+-&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
+-&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593591"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593591"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593591"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593590"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593589"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ChannelResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3Aid%3AChannelResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the channel was enabled.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_creationDate"><span class="hs-identifier hs-type">channelResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="channelResponse_creationDate"><span class="annot"><span class="annottext">channelResponse_creationDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelResponse -&gt; f ChannelResponse
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_creationDate"><span class="hs-identifier hs-var hs-var">channelResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
+-&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
+-&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593587"><span class="annot"><span class="annottext">Maybe Text
+creationDate :: Maybe Text
+$sel:creationDate:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679593587"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593587"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593586"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593585"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ChannelResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AcreationDate%3AChannelResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The user who last modified the channel.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_lastModifiedBy"><span class="hs-identifier hs-type">channelResponse_lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="channelResponse_lastModifiedBy"><span class="annot"><span class="annottext">channelResponse_lastModifiedBy :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ChannelResponse -&gt; f ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_lastModifiedBy"><span class="hs-identifier hs-var hs-var">channelResponse_lastModifiedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Text)
 -&gt; (ChannelResponse -&gt; Maybe Text -&gt; ChannelResponse)
 -&gt; Lens ChannelResponse ChannelResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593145"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593583"><span class="annot"><span class="annottext">Maybe Text
 lastModifiedBy :: Maybe Text
 $sel:lastModifiedBy:ChannelResponse' :: ChannelResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679593145"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593145"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593144"><span class="annot"><span class="annottext">s :: ChannelResponse
-</span><a href="#local-6989586621679593144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593143"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
-</span><a href="#local-6989586621679593144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:ChannelResponse' :: Maybe Text
+</span><a href="#local-6989586621679593583"><span class="hs-identifier hs-var hs-var">lastModifiedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593583"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593582"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593581"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679593581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedBy:ChannelResponse' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AlastModifiedBy%3AChannelResponse%27"><span class="hs-identifier hs-var">lastModifiedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679593143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593140"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679593138"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelResponse
+</span><a href="#local-6989586621679593581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | (Not used) This property is retained only for backward compatibility.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_hasCredential"><span class="hs-identifier hs-type">channelResponse_hasCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="channelResponse_hasCredential"><span class="annot"><span class="annottext">channelResponse_hasCredential :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ChannelResponse -&gt; f ChannelResponse
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#channelResponse_hasCredential"><span class="hs-identifier hs-var hs-var">channelResponse_hasCredential</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelResponse -&gt; Maybe Bool)
+-&gt; (ChannelResponse -&gt; Maybe Bool -&gt; ChannelResponse)
+-&gt; Lens ChannelResponse ChannelResponse (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593579"><span class="annot"><span class="annottext">Maybe Bool
+hasCredential :: Maybe Bool
+$sel:hasCredential:ChannelResponse' :: ChannelResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679593579"><span class="hs-identifier hs-var hs-var">hasCredential</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679593579"><span class="hs-identifier hs-var">hasCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593578"><span class="annot"><span class="annottext">s :: ChannelResponse
+</span><a href="#local-6989586621679593578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-type">ChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593577"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679593577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelResponse
+</span><a href="#local-6989586621679593578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasCredential:ChannelResponse' :: Maybe Bool
+</span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#%24sel%3AhasCredential%3AChannelResponse%27"><span class="hs-identifier hs-var">hasCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679593577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593574"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679593572"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ChannelResponse)
 -&gt; Value
 -&gt; Parser ChannelResponse
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChannelResponse&quot;</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593135"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593569"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Int
--&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse%27"><span class="hs-identifier hs-var">ChannelResponse'</span></a></span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Bool
  -&gt; Maybe Bool
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Int
- -&gt; Maybe Bool
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
  -&gt; ChannelResponse)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Bool
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; ChannelResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; ChannelResponse)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Bool
       -&gt; Maybe Bool
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Int
-      -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; ChannelResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -447,105 +422,131 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
   (Maybe Bool
    -&gt; Maybe Bool
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Int
-   -&gt; Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; ChannelResponse)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
      (Maybe Bool
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Int
-      -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; ChannelResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HasCredential&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Int
-   -&gt; Maybe Bool
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; ChannelResponse)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Int
-      -&gt; Maybe Bool
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; ChannelResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
-   -&gt; ChannelResponse)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Int -&gt; Maybe Bool -&gt; Maybe Text -&gt; ChannelResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Int -&gt; Maybe Bool -&gt; Maybe Text -&gt; ChannelResponse)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Int -&gt; Maybe Bool -&gt; Maybe Text -&gt; ChannelResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Bool -&gt; Maybe Text -&gt; ChannelResponse)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; ChannelResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; ChannelResponse)
--&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Text -&gt; ChannelResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsArchived&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ChannelResponse)
--&gt; Parser (Maybe Text) -&gt; Parser ChannelResponse
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; ChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; ChannelResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593135"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; ChannelResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; ChannelResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; ChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; ChannelResponse)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; ChannelResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedBy&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593129"><span id="local-6989586621679593131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span></span></span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span></span><span>
-</span><span id="line-154"></span></pre></body></html>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; ChannelResponse)
+-&gt; Parser (Maybe Bool) -&gt; Parser ChannelResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HasCredential&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593563"><span id="local-6989586621679593565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

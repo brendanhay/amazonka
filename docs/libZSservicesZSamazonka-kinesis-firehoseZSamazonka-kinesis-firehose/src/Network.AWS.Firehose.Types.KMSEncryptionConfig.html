@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an encryption key for a destination in Amazon S3.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKMSEncryptionConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679257909"><span id="local-6989586621679257910"></span></span><span class="hs-keyword">data</span><span> </span><span id="KMSEncryptionConfig"><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-var">KMSEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KMSEncryptionConfig%27"><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-var">KMSEncryptionConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679272133"><span id="local-6989586621679272134"></span></span><span class="hs-keyword">data</span><span> </span><span id="KMSEncryptionConfig"><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-var">KMSEncryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KMSEncryptionConfig%27"><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-var">KMSEncryptionConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the encryption key. Must belong to the</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- same AWS Region as the destination Amazon S3 bucket. For more</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AaWSKMSKeyARN%3AKMSEncryptionConfig%27"><span class="annot"><span class="annottext">KMSEncryptionConfig -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#%24sel%3AaWSKMSKeyARN%3AKMSEncryptionConfig%27"><span class="hs-identifier hs-var hs-var">aWSKMSKeyARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257903"><span id="local-6989586621679257905"><span class="annot"><span class="annottext">KMSEncryptionConfig -&gt; KMSEncryptionConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272127"><span id="local-6989586621679272129"><span class="annot"><span class="annottext">KMSEncryptionConfig -&gt; KMSEncryptionConfig -&gt; Bool
 (KMSEncryptionConfig -&gt; KMSEncryptionConfig -&gt; Bool)
 -&gt; (KMSEncryptionConfig -&gt; KMSEncryptionConfig -&gt; Bool)
 -&gt; Eq KMSEncryptionConfig
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KMSEncryptionConfig -&gt; KMSEncryptionConfig -&gt; Bool
 == :: KMSEncryptionConfig -&gt; KMSEncryptionConfig -&gt; Bool
 $c== :: KMSEncryptionConfig -&gt; KMSEncryptionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257894"><span id="local-6989586621679257896"><span id="local-6989586621679257898"><span id="local-6989586621679257900"><span class="annot"><span class="annottext">ReadPrec [KMSEncryptionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272118"><span id="local-6989586621679272120"><span id="local-6989586621679272122"><span id="local-6989586621679272124"><span class="annot"><span class="annottext">ReadPrec [KMSEncryptionConfig]
 ReadPrec KMSEncryptionConfig
 Int -&gt; ReadS KMSEncryptionConfig
 ReadS [KMSEncryptionConfig]
@@ -63,7 +63,7 @@ readList :: ReadS [KMSEncryptionConfig]
 $creadList :: ReadS [KMSEncryptionConfig]
 readsPrec :: Int -&gt; ReadS KMSEncryptionConfig
 $creadsPrec :: Int -&gt; ReadS KMSEncryptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257887"><span id="local-6989586621679257889"><span id="local-6989586621679257891"><span class="annot"><span class="annottext">Int -&gt; KMSEncryptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272111"><span id="local-6989586621679272113"><span id="local-6989586621679272115"><span class="annot"><span class="annottext">Int -&gt; KMSEncryptionConfig -&gt; ShowS
 [KMSEncryptionConfig] -&gt; ShowS
 KMSEncryptionConfig -&gt; String
 (Int -&gt; KMSEncryptionConfig -&gt; ShowS)
@@ -106,12 +106,12 @@ $cfrom :: forall x. KMSEncryptionConfig -&gt; Rep KMSEncryptionConfig x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span><span>
 </span><span id="line-54"></span><span id="newKMSEncryptionConfig"><span class="annot"><span class="annottext">newKMSEncryptionConfig :: Text -&gt; KMSEncryptionConfig
-</span><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#newKMSEncryptionConfig"><span class="hs-identifier hs-var hs-var">newKMSEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679257881"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257881"><span class="hs-identifier hs-var">pAWSKMSKeyARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#newKMSEncryptionConfig"><span class="hs-identifier hs-var hs-var">newKMSEncryptionConfig</span></a></span></span><span> </span><span id="local-6989586621679272105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272105"><span class="hs-identifier hs-var">pAWSKMSKeyARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">KMSEncryptionConfig' :: Text -&gt; KMSEncryptionConfig
 </span><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-type">KMSEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aWSKMSKeyARN:KMSEncryptionConfig' :: Text
 </span><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#%24sel%3AaWSKMSKeyARN%3AKMSEncryptionConfig%27"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257881"><span class="hs-identifier hs-var">pAWSKMSKeyARN_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679272105"><span class="hs-identifier hs-var">pAWSKMSKeyARN_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the encryption key. Must belong to the</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- same AWS Region as the destination Amazon S3 bucket. For more</span><span>
@@ -123,19 +123,19 @@ $cfrom :: forall x. KMSEncryptionConfig -&gt; Rep KMSEncryptionConfig x
 -&gt; (KMSEncryptionConfig -&gt; Text -&gt; KMSEncryptionConfig)
 -&gt; Lens KMSEncryptionConfig KMSEncryptionConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-type">KMSEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257877"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-type">KMSEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272101"><span class="annot"><span class="annottext">Text
 aWSKMSKeyARN :: Text
 $sel:aWSKMSKeyARN:KMSEncryptionConfig' :: KMSEncryptionConfig -&gt; Text
-</span><a href="#local-6989586621679257877"><span class="hs-identifier hs-var hs-var">aWSKMSKeyARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257877"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257876"><span class="annot"><span class="annottext">s :: KMSEncryptionConfig
-</span><a href="#local-6989586621679257876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-type">KMSEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257875"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KMSEncryptionConfig
-</span><a href="#local-6989586621679257876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aWSKMSKeyARN:KMSEncryptionConfig' :: Text
+</span><a href="#local-6989586621679272101"><span class="hs-identifier hs-var hs-var">aWSKMSKeyARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272101"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272100"><span class="annot"><span class="annottext">s :: KMSEncryptionConfig
+</span><a href="#local-6989586621679272100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-type">KMSEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KMSEncryptionConfig
+</span><a href="#local-6989586621679272100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aWSKMSKeyARN:KMSEncryptionConfig' :: Text
 </span><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#%24sel%3AaWSKMSKeyARN%3AKMSEncryptionConfig%27"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257872"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679257870"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KMSEncryptionConfig
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272096"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679272094"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KMSEncryptionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KMSEncryptionConfig)
@@ -145,30 +145,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KMSEncryptionConfig&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257867"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272091"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; KMSEncryptionConfig
 </span><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-var">KMSEncryptionConfig'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; KMSEncryptionConfig)
 -&gt; Parser Text -&gt; Parser KMSEncryptionConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679272091"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AWSKMSKeyARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257861"><span id="local-6989586621679257863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272085"><span id="local-6989586621679272087"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257850"><span id="local-6989586621679257852"><span id="local-6989586621679257854"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679257848"><span class="annot"><span class="annottext">toJSON :: KMSEncryptionConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-type">KMSEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257846"><span class="annot"><span class="annottext">Text
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272074"><span id="local-6989586621679272076"><span id="local-6989586621679272078"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig"><span class="hs-identifier hs-type">KMSEncryptionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679272072"><span class="annot"><span class="annottext">toJSON :: KMSEncryptionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.KMSEncryptionConfig.html#KMSEncryptionConfig%27"><span class="hs-identifier hs-type">KMSEncryptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272070"><span class="annot"><span class="annottext">Text
 aWSKMSKeyARN :: Text
 $sel:aWSKMSKeyARN:KMSEncryptionConfig' :: KMSEncryptionConfig -&gt; Text
-</span><a href="#local-6989586621679257846"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679272070"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,6 +180,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AWSKMSKeyARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679257846"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679272070"><span class="hs-identifier hs-var">aWSKMSKeyARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span></pre></body></html>

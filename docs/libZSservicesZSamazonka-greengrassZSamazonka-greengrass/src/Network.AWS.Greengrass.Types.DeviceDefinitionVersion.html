@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a device definition version.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeviceDefinitionVersion' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679342296"><span id="local-6989586621679342297"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-var">DeviceDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-var">DeviceDefinitionVersion'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679342549"><span id="local-6989586621679342550"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-var">DeviceDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-var">DeviceDefinitionVersion'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of devices in the definition version.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Adevices%3ADeviceDefinitionVersion%27"><span class="annot"><span class="annottext">DeviceDefinitionVersion -&gt; Maybe [Device]
 </span><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#%24sel%3Adevices%3ADeviceDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342290"><span id="local-6989586621679342292"><span class="annot"><span class="annottext">DeviceDefinitionVersion -&gt; DeviceDefinitionVersion -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342543"><span id="local-6989586621679342545"><span class="annot"><span class="annottext">DeviceDefinitionVersion -&gt; DeviceDefinitionVersion -&gt; Bool
 (DeviceDefinitionVersion -&gt; DeviceDefinitionVersion -&gt; Bool)
 -&gt; (DeviceDefinitionVersion -&gt; DeviceDefinitionVersion -&gt; Bool)
 -&gt; Eq DeviceDefinitionVersion
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceDefinitionVersion -&gt; DeviceDefinitionVersion -&gt; Bool
 == :: DeviceDefinitionVersion -&gt; DeviceDefinitionVersion -&gt; Bool
 $c== :: DeviceDefinitionVersion -&gt; DeviceDefinitionVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342281"><span id="local-6989586621679342283"><span id="local-6989586621679342285"><span id="local-6989586621679342287"><span class="annot"><span class="annottext">ReadPrec [DeviceDefinitionVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342534"><span id="local-6989586621679342536"><span id="local-6989586621679342538"><span id="local-6989586621679342540"><span class="annot"><span class="annottext">ReadPrec [DeviceDefinitionVersion]
 ReadPrec DeviceDefinitionVersion
 Int -&gt; ReadS DeviceDefinitionVersion
 ReadS [DeviceDefinitionVersion]
@@ -61,7 +61,7 @@ readList :: ReadS [DeviceDefinitionVersion]
 $creadList :: ReadS [DeviceDefinitionVersion]
 readsPrec :: Int -&gt; ReadS DeviceDefinitionVersion
 $creadsPrec :: Int -&gt; ReadS DeviceDefinitionVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342274"><span id="local-6989586621679342276"><span id="local-6989586621679342278"><span class="annot"><span class="annottext">Int -&gt; DeviceDefinitionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342527"><span id="local-6989586621679342529"><span id="local-6989586621679342531"><span class="annot"><span class="annottext">Int -&gt; DeviceDefinitionVersion -&gt; ShowS
 [DeviceDefinitionVersion] -&gt; ShowS
 DeviceDefinitionVersion -&gt; String
 (Int -&gt; DeviceDefinitionVersion -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
      (Maybe [Device])
      (Maybe [Device])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-type">DeviceDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342265"><span class="annot"><span class="annottext">Maybe [Device]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-type">DeviceDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342518"><span class="annot"><span class="annottext">Maybe [Device]
 devices :: Maybe [Device]
 $sel:devices:DeviceDefinitionVersion' :: DeviceDefinitionVersion -&gt; Maybe [Device]
-</span><a href="#local-6989586621679342265"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679342265"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342264"><span class="annot"><span class="annottext">s :: DeviceDefinitionVersion
-</span><a href="#local-6989586621679342264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-type">DeviceDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342263"><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679342263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceDefinitionVersion
-</span><a href="#local-6989586621679342264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:DeviceDefinitionVersion' :: Maybe [Device]
+</span><a href="#local-6989586621679342518"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679342518"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342517"><span class="annot"><span class="annottext">s :: DeviceDefinitionVersion
+</span><a href="#local-6989586621679342517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-type">DeviceDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342516"><span class="annot"><span class="annottext">Maybe [Device]
+</span><a href="#local-6989586621679342516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceDefinitionVersion
+</span><a href="#local-6989586621679342517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:DeviceDefinitionVersion' :: Maybe [Device]
 </span><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#%24sel%3Adevices%3ADeviceDefinitionVersion%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679342263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Device] -&gt; f (Maybe [Device]))
+</span><a href="#local-6989586621679342516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Device] -&gt; f (Maybe [Device]))
  -&gt; DeviceDefinitionVersion -&gt; f DeviceDefinitionVersion)
 -&gt; ((Maybe [Device] -&gt; f (Maybe [Device]))
     -&gt; Maybe [Device] -&gt; f (Maybe [Device]))
@@ -145,11 +145,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Device] [Device] [Device] [Device]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342257"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679342255"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceDefinitionVersion
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342510"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679342508"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceDefinitionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceDefinitionVersion)
@@ -159,15 +159,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceDefinitionVersion&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342252"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342505"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342505"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Device] -&gt; DeviceDefinitionVersion
 </span><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-var">DeviceDefinitionVersion'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Device] -&gt; DeviceDefinitionVersion)
 -&gt; Parser (Maybe [Device]) -&gt; Parser DeviceDefinitionVersion
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Device]))
+</span><a href="#local-6989586621679342505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Device]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Device]))
@@ -178,16 +178,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342245"><span id="local-6989586621679342247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342498"><span id="local-6989586621679342500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342234"><span id="local-6989586621679342236"><span id="local-6989586621679342238"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679342232"><span class="annot"><span class="annottext">toJSON :: DeviceDefinitionVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-type">DeviceDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342230"><span class="annot"><span class="annottext">Maybe [Device]
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342487"><span id="local-6989586621679342489"><span id="local-6989586621679342491"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion"><span class="hs-identifier hs-type">DeviceDefinitionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679342485"><span class="annot"><span class="annottext">toJSON :: DeviceDefinitionVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.DeviceDefinitionVersion.html#DeviceDefinitionVersion%27"><span class="hs-identifier hs-type">DeviceDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342483"><span class="annot"><span class="annottext">Maybe [Device]
 devices :: Maybe [Device]
 $sel:devices:DeviceDefinitionVersion' :: DeviceDefinitionVersion -&gt; Maybe [Device]
-</span><a href="#local-6989586621679342230"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679342483"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -199,6 +199,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Device] -&gt; Pair) -&gt; Maybe [Device] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Device]
-</span><a href="#local-6989586621679342230"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679342483"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

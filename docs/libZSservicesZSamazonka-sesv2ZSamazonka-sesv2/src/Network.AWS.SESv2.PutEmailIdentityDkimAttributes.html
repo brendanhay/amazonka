@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- an email identity.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newPutEmailIdentityDkimAttributes' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679336292"><span id="local-6989586621679336293"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEmailIdentityDkimAttributes"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEmailIdentityDkimAttributes%27"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributes'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679338831"><span id="local-6989586621679338832"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEmailIdentityDkimAttributes"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEmailIdentityDkimAttributes%27"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributes'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets the DKIM signing configuration for the identity.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- When you set this value @true@, then the messages that are sent from the</span><span>
@@ -58,11 +58,11 @@
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- messages are sent without DKIM signing.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AsigningEnabled%3APutEmailIdentityDkimAttributes%27"><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes -&gt; Maybe Bool
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AsigningEnabled%3APutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-var hs-var">signingEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The email identity that you want to change the DKIM settings for.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The email identity.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AemailIdentity%3APutEmailIdentityDkimAttributes%27"><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes -&gt; Text
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AemailIdentity%3APutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336285"><span id="local-6989586621679336287"><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338824"><span id="local-6989586621679338826"><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes
 -&gt; PutEmailIdentityDkimAttributes -&gt; Bool
 (PutEmailIdentityDkimAttributes
  -&gt; PutEmailIdentityDkimAttributes -&gt; Bool)
@@ -78,7 +78,7 @@ $c/= :: PutEmailIdentityDkimAttributes
 -&gt; PutEmailIdentityDkimAttributes -&gt; Bool
 $c== :: PutEmailIdentityDkimAttributes
 -&gt; PutEmailIdentityDkimAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336276"><span id="local-6989586621679336278"><span id="local-6989586621679336280"><span id="local-6989586621679336282"><span class="annot"><span class="annottext">ReadPrec [PutEmailIdentityDkimAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338815"><span id="local-6989586621679338817"><span id="local-6989586621679338819"><span id="local-6989586621679338821"><span class="annot"><span class="annottext">ReadPrec [PutEmailIdentityDkimAttributes]
 ReadPrec PutEmailIdentityDkimAttributes
 Int -&gt; ReadS PutEmailIdentityDkimAttributes
 ReadS [PutEmailIdentityDkimAttributes]
@@ -98,7 +98,7 @@ readList :: ReadS [PutEmailIdentityDkimAttributes]
 $creadList :: ReadS [PutEmailIdentityDkimAttributes]
 readsPrec :: Int -&gt; ReadS PutEmailIdentityDkimAttributes
 $creadsPrec :: Int -&gt; ReadS PutEmailIdentityDkimAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336269"><span id="local-6989586621679336271"><span id="local-6989586621679336273"><span class="annot"><span class="annottext">Int -&gt; PutEmailIdentityDkimAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338808"><span id="local-6989586621679338810"><span id="local-6989586621679338812"><span class="annot"><span class="annottext">Int -&gt; PutEmailIdentityDkimAttributes -&gt; ShowS
 [PutEmailIdentityDkimAttributes] -&gt; ShowS
 PutEmailIdentityDkimAttributes -&gt; String
 (Int -&gt; PutEmailIdentityDkimAttributes -&gt; ShowS)
@@ -150,14 +150,14 @@ PutEmailIdentityDkimAttributes
 </span><span id="line-76"></span><span class="hs-comment">-- identity are signed using DKIM. If you set this value to @false@, your</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- messages are sent without DKIM signing.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'emailIdentity', 'putEmailIdentityDkimAttributes_emailIdentity' - The email identity that you want to change the DKIM settings for.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'emailIdentity', 'putEmailIdentityDkimAttributes_emailIdentity' - The email identity.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#newPutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">newPutEmailIdentityDkimAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'emailIdentity'</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span>
 </span><span id="line-84"></span><span id="newPutEmailIdentityDkimAttributes"><span class="annot"><span class="annottext">newPutEmailIdentityDkimAttributes :: Text -&gt; PutEmailIdentityDkimAttributes
-</span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#newPutEmailIdentityDkimAttributes"><span class="hs-identifier hs-var hs-var">newPutEmailIdentityDkimAttributes</span></a></span></span><span> </span><span id="local-6989586621679336264"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336264"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#newPutEmailIdentityDkimAttributes"><span class="hs-identifier hs-var hs-var">newPutEmailIdentityDkimAttributes</span></a></span></span><span> </span><span id="local-6989586621679338803"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338803"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes' :: Maybe Bool -&gt; Text -&gt; PutEmailIdentityDkimAttributes
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:signingEnabled:PutEmailIdentityDkimAttributes' :: Maybe Bool
@@ -167,7 +167,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailIdentity:PutEmailIdentityDkimAttributes' :: Text
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AemailIdentity%3APutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336264"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span><span>
+</span><a href="#local-6989586621679338803"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | Sets the DKIM signing configuration for the identity.</span><span>
@@ -188,18 +188,18 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336261"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338800"><span class="annot"><span class="annottext">Maybe Bool
 signingEnabled :: Maybe Bool
 $sel:signingEnabled:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttributes -&gt; Maybe Bool
-</span><a href="#local-6989586621679336261"><span class="hs-identifier hs-var hs-var">signingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679336261"><span class="hs-identifier hs-var">signingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336260"><span class="annot"><span class="annottext">s :: PutEmailIdentityDkimAttributes
-</span><a href="#local-6989586621679336260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336259"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679336259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes
-</span><a href="#local-6989586621679336260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingEnabled:PutEmailIdentityDkimAttributes' :: Maybe Bool
+</span><a href="#local-6989586621679338800"><span class="hs-identifier hs-var hs-var">signingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679338800"><span class="hs-identifier hs-var">signingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338799"><span class="annot"><span class="annottext">s :: PutEmailIdentityDkimAttributes
+</span><a href="#local-6989586621679338799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338798"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679338798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes
+</span><a href="#local-6989586621679338799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingEnabled:PutEmailIdentityDkimAttributes' :: Maybe Bool
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AsigningEnabled%3APutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-var">signingEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679336259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The email identity that you want to change the DKIM settings for.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The email identity.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#putEmailIdentityDkimAttributes_emailIdentity"><span class="hs-identifier hs-type">putEmailIdentityDkimAttributes_emailIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-101"></span><span id="putEmailIdentityDkimAttributes_emailIdentity"><span class="annot"><span class="annottext">putEmailIdentityDkimAttributes_emailIdentity :: (Text -&gt; f Text)
 -&gt; PutEmailIdentityDkimAttributes
@@ -213,16 +213,16 @@ $sel:signingEnabled:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttri
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336258"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338797"><span class="annot"><span class="annottext">Text
 emailIdentity :: Text
 $sel:emailIdentity:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttributes -&gt; Text
-</span><a href="#local-6989586621679336258"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336258"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336257"><span class="annot"><span class="annottext">s :: PutEmailIdentityDkimAttributes
-</span><a href="#local-6989586621679336257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336256"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes
-</span><a href="#local-6989586621679336257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailIdentity:PutEmailIdentityDkimAttributes' :: Text
+</span><a href="#local-6989586621679338797"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338797"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338796"><span class="annot"><span class="annottext">s :: PutEmailIdentityDkimAttributes
+</span><a href="#local-6989586621679338796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributes
+</span><a href="#local-6989586621679338796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailIdentity:PutEmailIdentityDkimAttributes' :: Text
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AemailIdentity%3APutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -231,7 +231,7 @@ $sel:emailIdentity:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttrib
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679336252"><span class="annot"><span class="annottext">request :: PutEmailIdentityDkimAttributes
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679338791"><span class="annot"><span class="annottext">request :: PutEmailIdentityDkimAttributes
 -&gt; Request PutEmailIdentityDkimAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutEmailIdentityDkimAttributes
@@ -239,7 +239,7 @@ $sel:emailIdentity:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttrib
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679336248"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679338787"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutEmailIdentityDkimAttributes
 -&gt; ClientResponse ClientBody
@@ -267,10 +267,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336245"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336245"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679336244"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679336244"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679336243"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679336243"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338784"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679338783"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679338783"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679338782"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679338782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutEmailIdentityDkimAttributesResponse
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributesResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutEmailIdentityDkimAttributesResponse)
@@ -282,22 +282,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336245"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338784"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679336236"><span id="local-6989586621679336238"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679338775"><span id="local-6989586621679338777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679336233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679338772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679336229"><span class="annot"><span class="annottext">toHeaders :: PutEmailIdentityDkimAttributes -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679338768"><span class="annot"><span class="annottext">toHeaders :: PutEmailIdentityDkimAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; PutEmailIdentityDkimAttributes -&gt; ResponseHeaders
@@ -317,15 +317,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336219"><span id="local-6989586621679336221"><span id="local-6989586621679336223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679336217"><span class="annot"><span class="annottext">toJSON :: PutEmailIdentityDkimAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336214"><span id="local-6989586621679336215"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338758"><span id="local-6989586621679338760"><span id="local-6989586621679338762"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679338756"><span class="annot"><span class="annottext">toJSON :: PutEmailIdentityDkimAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338753"><span id="local-6989586621679338754"><span class="annot"><span class="annottext">Maybe Bool
 Text
 emailIdentity :: Text
 signingEnabled :: Maybe Bool
 $sel:emailIdentity:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttributes -&gt; Text
 $sel:signingEnabled:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttributes -&gt; Maybe Bool
-</span><a href="#local-6989586621679336214"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679338753"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -338,19 +338,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679336215"><span class="hs-identifier hs-var">signingEnabled</span></a></span><span>
+</span><a href="#local-6989586621679338754"><span class="hs-identifier hs-var">signingEnabled</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679336208"><span class="annot"><span class="annottext">toPath :: PutEmailIdentityDkimAttributes -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336205"><span id="local-6989586621679336206"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679338747"><span class="annot"><span class="annottext">toPath :: PutEmailIdentityDkimAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338744"><span id="local-6989586621679338745"><span class="annot"><span class="annottext">Maybe Bool
 Text
 emailIdentity :: Text
 signingEnabled :: Maybe Bool
 $sel:emailIdentity:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttributes -&gt; Text
 $sel:signingEnabled:PutEmailIdentityDkimAttributes' :: PutEmailIdentityDkimAttributes -&gt; Maybe Bool
-</span><a href="#local-6989586621679336205"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679338744"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -359,13 +359,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336205"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338744"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/dkim&quot;</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributes"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679336201"><span class="annot"><span class="annottext">toQuery :: PutEmailIdentityDkimAttributes -&gt; QueryString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679338740"><span class="annot"><span class="annottext">toQuery :: PutEmailIdentityDkimAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutEmailIdentityDkimAttributes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -376,12 +376,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- /See:/ 'newPutEmailIdentityDkimAttributesResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679336198"><span id="local-6989586621679336199"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEmailIdentityDkimAttributesResponse"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEmailIdentityDkimAttributesResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributesResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679338737"><span id="local-6989586621679338738"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutEmailIdentityDkimAttributesResponse"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutEmailIdentityDkimAttributesResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">PutEmailIdentityDkimAttributesResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutEmailIdentityDkimAttributesResponse%27"><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributesResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AhttpStatus%3APutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336193"><span id="local-6989586621679336195"><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributesResponse
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338732"><span id="local-6989586621679338734"><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributesResponse
 -&gt; PutEmailIdentityDkimAttributesResponse -&gt; Bool
 (PutEmailIdentityDkimAttributesResponse
  -&gt; PutEmailIdentityDkimAttributesResponse -&gt; Bool)
@@ -397,7 +397,7 @@ $c/= :: PutEmailIdentityDkimAttributesResponse
 -&gt; PutEmailIdentityDkimAttributesResponse -&gt; Bool
 $c== :: PutEmailIdentityDkimAttributesResponse
 -&gt; PutEmailIdentityDkimAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336185"><span id="local-6989586621679336187"><span id="local-6989586621679336189"><span id="local-6989586621679336191"><span class="annot"><span class="annottext">ReadPrec [PutEmailIdentityDkimAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338724"><span id="local-6989586621679338726"><span id="local-6989586621679338728"><span id="local-6989586621679338730"><span class="annot"><span class="annottext">ReadPrec [PutEmailIdentityDkimAttributesResponse]
 ReadPrec PutEmailIdentityDkimAttributesResponse
 Int -&gt; ReadS PutEmailIdentityDkimAttributesResponse
 ReadS [PutEmailIdentityDkimAttributesResponse]
@@ -417,7 +417,7 @@ readList :: ReadS [PutEmailIdentityDkimAttributesResponse]
 $creadList :: ReadS [PutEmailIdentityDkimAttributesResponse]
 readsPrec :: Int -&gt; ReadS PutEmailIdentityDkimAttributesResponse
 $creadsPrec :: Int -&gt; ReadS PutEmailIdentityDkimAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336179"><span id="local-6989586621679336181"><span id="local-6989586621679336183"><span class="annot"><span class="annottext">Int -&gt; PutEmailIdentityDkimAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338718"><span id="local-6989586621679338720"><span id="local-6989586621679338722"><span class="annot"><span class="annottext">Int -&gt; PutEmailIdentityDkimAttributesResponse -&gt; ShowS
 [PutEmailIdentityDkimAttributesResponse] -&gt; ShowS
 PutEmailIdentityDkimAttributesResponse -&gt; String
 (Int -&gt; PutEmailIdentityDkimAttributesResponse -&gt; ShowS)
@@ -470,14 +470,14 @@ PutEmailIdentityDkimAttributesResponse
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newPutEmailIdentityDkimAttributesResponse"><span class="annot"><span class="annottext">newPutEmailIdentityDkimAttributesResponse :: Int -&gt; PutEmailIdentityDkimAttributesResponse
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#newPutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-var hs-var">newPutEmailIdentityDkimAttributesResponse</span></a></span></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679336176"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336176"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679338715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributesResponse' :: Int -&gt; PutEmailIdentityDkimAttributesResponse
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutEmailIdentityDkimAttributesResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AhttpStatus%3APutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336176"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679338715"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -494,18 +494,18 @@ PutEmailIdentityDkimAttributesResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336175"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338714"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutEmailIdentityDkimAttributesResponse' :: PutEmailIdentityDkimAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679336175"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336175"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336174"><span class="annot"><span class="annottext">s :: PutEmailIdentityDkimAttributesResponse
-</span><a href="#local-6989586621679336174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336173"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributesResponse
-</span><a href="#local-6989586621679336174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutEmailIdentityDkimAttributesResponse' :: Int
+</span><a href="#local-6989586621679338714"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338714"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338713"><span class="annot"><span class="annottext">s :: PutEmailIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679338713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutEmailIdentityDkimAttributesResponse
+</span><a href="#local-6989586621679338713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutEmailIdentityDkimAttributesResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#%24sel%3AhttpStatus%3APutEmailIdentityDkimAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679336171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679338710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.PutEmailIdentityDkimAttributes.html#PutEmailIdentityDkimAttributesResponse"><span class="hs-identifier hs-type">PutEmailIdentityDkimAttributesResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

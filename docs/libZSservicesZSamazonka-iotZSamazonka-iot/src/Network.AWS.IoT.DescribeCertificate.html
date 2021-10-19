@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | The input for the DescribeCertificate operation.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newDescribeCertificate' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679838685"><span id="local-6989586621679838686"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificate"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-var">DescribeCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificate%27"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-var">DescribeCertificate'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679839668"><span id="local-6989586621679839669"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificate"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-var">DescribeCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificate%27"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-var">DescribeCertificate'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the certificate. (The last part of the certificate ARN</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- contains the certificate ID.)</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AcertificateId%3ADescribeCertificate%27"><span class="annot"><span class="annottext">DescribeCertificate -&gt; Text
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AcertificateId%3ADescribeCertificate%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838679"><span id="local-6989586621679838681"><span class="annot"><span class="annottext">DescribeCertificate -&gt; DescribeCertificate -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839662"><span id="local-6989586621679839664"><span class="annot"><span class="annottext">DescribeCertificate -&gt; DescribeCertificate -&gt; Bool
 (DescribeCertificate -&gt; DescribeCertificate -&gt; Bool)
 -&gt; (DescribeCertificate -&gt; DescribeCertificate -&gt; Bool)
 -&gt; Eq DescribeCertificate
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCertificate -&gt; DescribeCertificate -&gt; Bool
 == :: DescribeCertificate -&gt; DescribeCertificate -&gt; Bool
 $c== :: DescribeCertificate -&gt; DescribeCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838670"><span id="local-6989586621679838672"><span id="local-6989586621679838674"><span id="local-6989586621679838676"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839653"><span id="local-6989586621679839655"><span id="local-6989586621679839657"><span id="local-6989586621679839659"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificate]
 ReadPrec DescribeCertificate
 Int -&gt; ReadS DescribeCertificate
 ReadS [DescribeCertificate]
@@ -88,7 +88,7 @@ readList :: ReadS [DescribeCertificate]
 $creadList :: ReadS [DescribeCertificate]
 readsPrec :: Int -&gt; ReadS DescribeCertificate
 $creadsPrec :: Int -&gt; ReadS DescribeCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838663"><span id="local-6989586621679838665"><span id="local-6989586621679838667"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839646"><span id="local-6989586621679839648"><span id="local-6989586621679839650"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificate -&gt; ShowS
 [DescribeCertificate] -&gt; ShowS
 DescribeCertificate -&gt; String
 (Int -&gt; DescribeCertificate -&gt; ShowS)
@@ -129,14 +129,14 @@ $cfrom :: forall x. DescribeCertificate -&gt; Rep DescribeCertificate x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span>
 </span><span id="line-77"></span><span id="newDescribeCertificate"><span class="annot"><span class="annottext">newDescribeCertificate :: Text -&gt; DescribeCertificate
-</span><a href="Network.AWS.IoT.DescribeCertificate.html#newDescribeCertificate"><span class="hs-identifier hs-var hs-var">newDescribeCertificate</span></a></span></span><span> </span><span id="local-6989586621679838658"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679838658"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeCertificate.html#newDescribeCertificate"><span class="hs-identifier hs-var hs-var">newDescribeCertificate</span></a></span></span><span> </span><span id="local-6989586621679839641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679839641"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeCertificate' :: Text -&gt; DescribeCertificate
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-type">DescribeCertificate'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateId:DescribeCertificate' :: Text
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AcertificateId%3ADescribeCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679838658"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
+</span><a href="#local-6989586621679839641"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The ID of the certificate. (The last part of the certificate ARN</span><span>
@@ -147,27 +147,27 @@ $cfrom :: forall x. DescribeCertificate -&gt; Rep DescribeCertificate x
 -&gt; (DescribeCertificate -&gt; Text -&gt; DescribeCertificate)
 -&gt; Lens DescribeCertificate DescribeCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-type">DescribeCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838655"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-type">DescribeCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839638"><span class="annot"><span class="annottext">Text
 certificateId :: Text
 $sel:certificateId:DescribeCertificate' :: DescribeCertificate -&gt; Text
-</span><a href="#local-6989586621679838655"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679838655"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838654"><span class="annot"><span class="annottext">s :: DescribeCertificate
-</span><a href="#local-6989586621679838654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-type">DescribeCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838653"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679838653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificate
-</span><a href="#local-6989586621679838654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:DescribeCertificate' :: Text
+</span><a href="#local-6989586621679839638"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679839638"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839637"><span class="annot"><span class="annottext">s :: DescribeCertificate
+</span><a href="#local-6989586621679839637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-type">DescribeCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679839636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificate
+</span><a href="#local-6989586621679839637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:DescribeCertificate' :: Text
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AcertificateId%3ADescribeCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679838653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679838649"><span class="annot"><span class="annottext">request :: DescribeCertificate -&gt; Request DescribeCertificate
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679839632"><span class="annot"><span class="annottext">request :: DescribeCertificate -&gt; Request DescribeCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeCertificate -&gt; Request DescribeCertificate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679838645"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679839628"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeCertificate
 -&gt; ClientResponse ClientBody
@@ -193,10 +193,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679838642"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838642"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679838641"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679838641"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679838640"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679838640"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679839625"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839625"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679839624"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679839624"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679839623"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679839623"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe CertificateDescription -&gt; Int -&gt; DescribeCertificateResponse
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-var">DescribeCertificateResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CertificateDescription
@@ -205,7 +205,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeCertificateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679838640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CertificateDescription)
+</span><a href="#local-6989586621679839623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CertificateDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,15 +217,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838642"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839625"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838632"><span id="local-6989586621679838634"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839615"><span id="local-6989586621679839617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679838625"><span class="annot"><span class="annottext">toHeaders :: DescribeCertificate -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679839608"><span class="annot"><span class="annottext">toHeaders :: DescribeCertificate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCertificate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -233,11 +233,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679838620"><span class="annot"><span class="annottext">toPath :: DescribeCertificate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-type">DescribeCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838618"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679839603"><span class="annot"><span class="annottext">toPath :: DescribeCertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate%27"><span class="hs-identifier hs-type">DescribeCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839601"><span class="annot"><span class="annottext">Text
 certificateId :: Text
 $sel:certificateId:DescribeCertificate' :: DescribeCertificate -&gt; Text
-</span><a href="#local-6989586621679838618"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679839601"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -245,10 +245,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/certificates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679838618"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679839601"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificate"><span class="hs-identifier hs-type">DescribeCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679838614"><span class="annot"><span class="annottext">toQuery :: DescribeCertificate -&gt; QueryString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679839597"><span class="annot"><span class="annottext">toQuery :: DescribeCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -258,7 +258,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-116"></span><span class="hs-comment">-- | The output of the DescribeCertificate operation.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- /See:/ 'newDescribeCertificateResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679838611"><span id="local-6989586621679838612"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificateResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-var">DescribeCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificateResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-var">DescribeCertificateResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679839594"><span id="local-6989586621679839595"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificateResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-var">DescribeCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificateResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-var">DescribeCertificateResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the certificate.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AcertificateDescription%3ADescribeCertificateResponse%27"><span class="annot"><span class="annottext">DescribeCertificateResponse -&gt; Maybe CertificateDescription
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AcertificateDescription%3ADescribeCertificateResponse%27"><span class="hs-identifier hs-var hs-var">certificateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CertificateDescription.html#CertificateDescription"><span class="hs-identifier hs-type">CertificateDescription</span></a></span><span class="hs-special">,</span><span>
@@ -266,7 +266,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCertificateResponse%27"><span class="annot"><span class="annottext">DescribeCertificateResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AhttpStatus%3ADescribeCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679838605"><span id="local-6989586621679838607"><span class="annot"><span class="annottext">DescribeCertificateResponse -&gt; DescribeCertificateResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839588"><span id="local-6989586621679839590"><span class="annot"><span class="annottext">DescribeCertificateResponse -&gt; DescribeCertificateResponse -&gt; Bool
 (DescribeCertificateResponse
  -&gt; DescribeCertificateResponse -&gt; Bool)
 -&gt; (DescribeCertificateResponse
@@ -277,7 +277,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCertificateResponse -&gt; DescribeCertificateResponse -&gt; Bool
 == :: DescribeCertificateResponse -&gt; DescribeCertificateResponse -&gt; Bool
 $c== :: DescribeCertificateResponse -&gt; DescribeCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838597"><span id="local-6989586621679838599"><span id="local-6989586621679838601"><span id="local-6989586621679838603"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839580"><span id="local-6989586621679839582"><span id="local-6989586621679839584"><span id="local-6989586621679839586"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificateResponse]
 ReadPrec DescribeCertificateResponse
 Int -&gt; ReadS DescribeCertificateResponse
 ReadS [DescribeCertificateResponse]
@@ -297,7 +297,7 @@ readList :: ReadS [DescribeCertificateResponse]
 $creadList :: ReadS [DescribeCertificateResponse]
 readsPrec :: Int -&gt; ReadS DescribeCertificateResponse
 $creadsPrec :: Int -&gt; ReadS DescribeCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679838591"><span id="local-6989586621679838593"><span id="local-6989586621679838595"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839574"><span id="local-6989586621679839576"><span id="local-6989586621679839578"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificateResponse -&gt; ShowS
 [DescribeCertificateResponse] -&gt; ShowS
 DescribeCertificateResponse -&gt; String
 (Int -&gt; DescribeCertificateResponse -&gt; ShowS)
@@ -345,8 +345,8 @@ DescribeCertificateResponse -&gt; Rep DescribeCertificateResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newDescribeCertificateResponse"><span class="annot"><span class="annottext">newDescribeCertificateResponse :: Int -&gt; DescribeCertificateResponse
-</span><a href="Network.AWS.IoT.DescribeCertificate.html#newDescribeCertificateResponse"><span class="hs-identifier hs-var hs-var">newDescribeCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679838588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeCertificate.html#newDescribeCertificateResponse"><span class="hs-identifier hs-var hs-var">newDescribeCertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679839571"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839571"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DescribeCertificateResponse' :: Maybe CertificateDescription -&gt; Int -&gt; DescribeCertificateResponse
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateDescription:DescribeCertificateResponse' :: Maybe CertificateDescription
@@ -356,7 +356,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCertificateResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AhttpStatus%3ADescribeCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838588"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679839571"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The description of the certificate.</span><span>
@@ -372,16 +372,16 @@ forall a. Maybe a
      (Maybe CertificateDescription)
      (Maybe CertificateDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838587"><span class="annot"><span class="annottext">Maybe CertificateDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839570"><span class="annot"><span class="annottext">Maybe CertificateDescription
 certificateDescription :: Maybe CertificateDescription
 $sel:certificateDescription:DescribeCertificateResponse' :: DescribeCertificateResponse -&gt; Maybe CertificateDescription
-</span><a href="#local-6989586621679838587"><span class="hs-identifier hs-var hs-var">certificateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateDescription
-</span><a href="#local-6989586621679838587"><span class="hs-identifier hs-var">certificateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838586"><span class="annot"><span class="annottext">s :: DescribeCertificateResponse
-</span><a href="#local-6989586621679838586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838585"><span class="annot"><span class="annottext">Maybe CertificateDescription
-</span><a href="#local-6989586621679838585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateResponse
-</span><a href="#local-6989586621679838586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateDescription:DescribeCertificateResponse' :: Maybe CertificateDescription
+</span><a href="#local-6989586621679839570"><span class="hs-identifier hs-var hs-var">certificateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateDescription
+</span><a href="#local-6989586621679839570"><span class="hs-identifier hs-var">certificateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839569"><span class="annot"><span class="annottext">s :: DescribeCertificateResponse
+</span><a href="#local-6989586621679839569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839568"><span class="annot"><span class="annottext">Maybe CertificateDescription
+</span><a href="#local-6989586621679839568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateResponse
+</span><a href="#local-6989586621679839569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateDescription:DescribeCertificateResponse' :: Maybe CertificateDescription
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AcertificateDescription%3ADescribeCertificateResponse%27"><span class="hs-identifier hs-var">certificateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateDescription
-</span><a href="#local-6989586621679838585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#describeCertificateResponse_httpStatus"><span class="hs-identifier hs-type">describeCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -393,16 +393,16 @@ $sel:certificateDescription:DescribeCertificateResponse' :: DescribeCertificateR
 -&gt; Lens
      DescribeCertificateResponse DescribeCertificateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679838584"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839567"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCertificateResponse' :: DescribeCertificateResponse -&gt; Int
-</span><a href="#local-6989586621679838584"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838584"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679838583"><span class="annot"><span class="annottext">s :: DescribeCertificateResponse
-</span><a href="#local-6989586621679838583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679838582"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateResponse
-</span><a href="#local-6989586621679838583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCertificateResponse' :: Int
+</span><a href="#local-6989586621679839567"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839567"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839566"><span class="annot"><span class="annottext">s :: DescribeCertificateResponse
+</span><a href="#local-6989586621679839566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse%27"><span class="hs-identifier hs-type">DescribeCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839565"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateResponse
+</span><a href="#local-6989586621679839566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCertificateResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeCertificate.html#%24sel%3AhttpStatus%3ADescribeCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679838582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679838580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeCertificate.html#DescribeCertificateResponse"><span class="hs-identifier hs-type">DescribeCertificateResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

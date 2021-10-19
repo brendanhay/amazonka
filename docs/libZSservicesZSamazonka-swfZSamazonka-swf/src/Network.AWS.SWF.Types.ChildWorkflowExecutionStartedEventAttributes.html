@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides the details of the @ChildWorkflowExecutionStarted@ event.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newChildWorkflowExecutionStartedEventAttributes' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679356021"><span id="local-6989586621679356022"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChildWorkflowExecutionStartedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-var">ChildWorkflowExecutionStartedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChildWorkflowExecutionStartedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">ChildWorkflowExecutionStartedEventAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679356107"><span id="local-6989586621679356108"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChildWorkflowExecutionStartedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-var">ChildWorkflowExecutionStartedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChildWorkflowExecutionStartedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">ChildWorkflowExecutionStartedEventAttributes'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The child workflow execution that was started.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AworkflowExecution%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes -&gt; WorkflowExecution
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecution.html#WorkflowExecution"><span class="hs-identifier hs-type">WorkflowExecution</span></a></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AinitiatedEventId%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679356013"><span id="local-6989586621679356015"><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679356099"><span id="local-6989586621679356101"><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
 -&gt; ChildWorkflowExecutionStartedEventAttributes -&gt; Bool
 (ChildWorkflowExecutionStartedEventAttributes
  -&gt; ChildWorkflowExecutionStartedEventAttributes -&gt; Bool)
@@ -58,7 +58,7 @@ $c/= :: ChildWorkflowExecutionStartedEventAttributes
 -&gt; ChildWorkflowExecutionStartedEventAttributes -&gt; Bool
 $c== :: ChildWorkflowExecutionStartedEventAttributes
 -&gt; ChildWorkflowExecutionStartedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356004"><span id="local-6989586621679356006"><span id="local-6989586621679356008"><span id="local-6989586621679356010"><span class="annot"><span class="annottext">ReadPrec [ChildWorkflowExecutionStartedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356090"><span id="local-6989586621679356092"><span id="local-6989586621679356094"><span id="local-6989586621679356096"><span class="annot"><span class="annottext">ReadPrec [ChildWorkflowExecutionStartedEventAttributes]
 ReadPrec ChildWorkflowExecutionStartedEventAttributes
 Int -&gt; ReadS ChildWorkflowExecutionStartedEventAttributes
 ReadS [ChildWorkflowExecutionStartedEventAttributes]
@@ -78,7 +78,7 @@ readList :: ReadS [ChildWorkflowExecutionStartedEventAttributes]
 $creadList :: ReadS [ChildWorkflowExecutionStartedEventAttributes]
 readsPrec :: Int -&gt; ReadS ChildWorkflowExecutionStartedEventAttributes
 $creadsPrec :: Int -&gt; ReadS ChildWorkflowExecutionStartedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355997"><span id="local-6989586621679355999"><span id="local-6989586621679356001"><span class="annot"><span class="annottext">Int -&gt; ChildWorkflowExecutionStartedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679356083"><span id="local-6989586621679356085"><span id="local-6989586621679356087"><span class="annot"><span class="annottext">Int -&gt; ChildWorkflowExecutionStartedEventAttributes -&gt; ShowS
 [ChildWorkflowExecutionStartedEventAttributes] -&gt; ShowS
 ChildWorkflowExecutionStartedEventAttributes -&gt; String
 (Int -&gt; ChildWorkflowExecutionStartedEventAttributes -&gt; ShowS)
@@ -145,12 +145,12 @@ ChildWorkflowExecutionStartedEventAttributes
 -&gt; Integer
 -&gt; ChildWorkflowExecutionStartedEventAttributes
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#newChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-var hs-var">newChildWorkflowExecutionStartedEventAttributes</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679355991"><span class="annot"><span class="annottext">WorkflowExecution
-</span><a href="#local-6989586621679355991"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679355990"><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679355990"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679355989"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679355989"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679356077"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356077"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679356076"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356076"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679356075"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356075"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes' :: WorkflowExecution
 -&gt; WorkflowType
 -&gt; Integer
@@ -159,14 +159,14 @@ ChildWorkflowExecutionStartedEventAttributes
 </span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workflowExecution:ChildWorkflowExecutionStartedEventAttributes' :: WorkflowExecution
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
-</span><a href="#local-6989586621679355991"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679356077"><span class="hs-identifier hs-var">pWorkflowExecution_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowType:ChildWorkflowExecutionStartedEventAttributes' :: WorkflowType
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679355990"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679356076"><span class="hs-identifier hs-var">pWorkflowType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:initiatedEventId:ChildWorkflowExecutionStartedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679355989"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679356075"><span class="hs-identifier hs-var">pInitiatedEventId_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The child workflow execution that was started.</span><span>
@@ -184,16 +184,16 @@ ChildWorkflowExecutionStartedEventAttributes
      WorkflowExecution
      WorkflowExecution
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355985"><span class="annot"><span class="annottext">WorkflowExecution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356071"><span class="annot"><span class="annottext">WorkflowExecution
 workflowExecution :: WorkflowExecution
 $sel:workflowExecution:ChildWorkflowExecutionStartedEventAttributes' :: ChildWorkflowExecutionStartedEventAttributes -&gt; WorkflowExecution
-</span><a href="#local-6989586621679355985"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
-</span><a href="#local-6989586621679355985"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355984"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionStartedEventAttributes
-</span><a href="#local-6989586621679355984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355983"><span class="annot"><span class="annottext">WorkflowExecution
-</span><a href="#local-6989586621679355983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
-</span><a href="#local-6989586621679355984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecution:ChildWorkflowExecutionStartedEventAttributes' :: WorkflowExecution
+</span><a href="#local-6989586621679356071"><span class="hs-identifier hs-var hs-var">workflowExecution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356071"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356070"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionStartedEventAttributes
+</span><a href="#local-6989586621679356070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356069"><span class="annot"><span class="annottext">WorkflowExecution
+</span><a href="#local-6989586621679356069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
+</span><a href="#local-6989586621679356070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowExecution:ChildWorkflowExecutionStartedEventAttributes' :: WorkflowExecution
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AworkflowExecution%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">workflowExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowExecution
-</span><a href="#local-6989586621679355983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679356069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The type of the child workflow execution.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#childWorkflowExecutionStartedEventAttributes_workflowType"><span class="hs-identifier hs-type">childWorkflowExecutionStartedEventAttributes_workflowType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowType.html#WorkflowType"><span class="hs-identifier hs-type">WorkflowType</span></a></span><span>
@@ -209,16 +209,16 @@ $sel:workflowExecution:ChildWorkflowExecutionStartedEventAttributes' :: ChildWor
      WorkflowType
      WorkflowType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355981"><span class="annot"><span class="annottext">WorkflowType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356067"><span class="annot"><span class="annottext">WorkflowType
 workflowType :: WorkflowType
 $sel:workflowType:ChildWorkflowExecutionStartedEventAttributes' :: ChildWorkflowExecutionStartedEventAttributes -&gt; WorkflowType
-</span><a href="#local-6989586621679355981"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679355981"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355980"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionStartedEventAttributes
-</span><a href="#local-6989586621679355980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355979"><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679355979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
-</span><a href="#local-6989586621679355980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:ChildWorkflowExecutionStartedEventAttributes' :: WorkflowType
+</span><a href="#local-6989586621679356067"><span class="hs-identifier hs-var hs-var">workflowType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356067"><span class="hs-identifier hs-var">workflowType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356066"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionStartedEventAttributes
+</span><a href="#local-6989586621679356066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356065"><span class="annot"><span class="annottext">WorkflowType
+</span><a href="#local-6989586621679356065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
+</span><a href="#local-6989586621679356066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowType:ChildWorkflowExecutionStartedEventAttributes' :: WorkflowType
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AworkflowType%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">workflowType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkflowType
-</span><a href="#local-6989586621679355979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679356065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- to the @StartChildWorkflowExecution@ Decision to start this child</span><span>
@@ -237,22 +237,22 @@ $sel:workflowType:ChildWorkflowExecutionStartedEventAttributes' :: ChildWorkflow
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355977"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679356063"><span class="annot"><span class="annottext">Integer
 initiatedEventId :: Integer
 $sel:initiatedEventId:ChildWorkflowExecutionStartedEventAttributes' :: ChildWorkflowExecutionStartedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679355977"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679355977"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355976"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionStartedEventAttributes
-</span><a href="#local-6989586621679355976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355975"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679355975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
-</span><a href="#local-6989586621679355976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedEventId:ChildWorkflowExecutionStartedEventAttributes' :: Integer
+</span><a href="#local-6989586621679356063"><span class="hs-identifier hs-var hs-var">initiatedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356063"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679356062"><span class="annot"><span class="annottext">s :: ChildWorkflowExecutionStartedEventAttributes
+</span><a href="#local-6989586621679356062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679356061"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679356061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChildWorkflowExecutionStartedEventAttributes
+</span><a href="#local-6989586621679356062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedEventId:ChildWorkflowExecutionStartedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#%24sel%3AinitiatedEventId%3AChildWorkflowExecutionStartedEventAttributes%27"><span class="hs-identifier hs-var">initiatedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679355975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679356061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679355972"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679356058"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679355970"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChildWorkflowExecutionStartedEventAttributes
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679356056"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChildWorkflowExecutionStartedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ChildWorkflowExecutionStartedEventAttributes)
@@ -262,8 +262,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChildWorkflowExecutionStartedEventAttributes&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355967"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679356053"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679356053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">WorkflowExecution
 -&gt; WorkflowType
 -&gt; Integer
@@ -279,7 +279,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Integer -&gt; ChildWorkflowExecutionStartedEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecution
+</span><a href="#local-6989586621679356053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowExecution
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;workflowExecution&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,7 +290,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Integer -&gt; ChildWorkflowExecutionStartedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
+</span><a href="#local-6989586621679356053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WorkflowType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;workflowType&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,17 +299,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ChildWorkflowExecutionStartedEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679356053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;initiatedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679355961"><span id="local-6989586621679355963"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679356047"><span id="local-6989586621679356049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679355958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679356044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes.html#ChildWorkflowExecutionStartedEventAttributes"><span class="hs-identifier hs-type">ChildWorkflowExecutionStartedEventAttributes</span></a></span></span><span>
 </span><span id="line-116"></span></pre></body></html>

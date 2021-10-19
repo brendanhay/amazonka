@@ -33,37 +33,37 @@
 </span><span id="line-33"></span><span class="hs-comment">-- | A specific reservation that Amazon Web Services recommends for purchase.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newReservationPurchaseRecommendation' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679339798"><span id="local-6989586621679339799"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationPurchaseRecommendation"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-var">ReservationPurchaseRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationPurchaseRecommendation%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">ReservationPurchaseRecommendation'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The payment option for the reservation (for example, @AllUpfront@ or</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @NoUpfront@).</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe PaymentOption
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Details about the recommended purchases.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArecommendationDetails%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
--&gt; Maybe [ReservationPurchaseRecommendationDetail]
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationDetails%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">recommendationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail.html#ReservationPurchaseRecommendationDetail"><span class="hs-identifier hs-type">ReservationPurchaseRecommendationDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The account scope that Amazon Web Services recommends that you purchase</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- this instance for. For example, you can purchase this reservation for an</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- entire organization in Amazon Web Services Organizations.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe AccountScope
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">accountScope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AccountScope.html#AccountScope"><span class="hs-identifier hs-type">AccountScope</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Hardware specifications for the service that you want recommendations</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- for.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe ServiceSpecification
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">serviceSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The term of the reservation that you want recommendations for, in years.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtermInYears%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe TermInYears
+</span><span id="line-36"></span><span id="local-6989586621679340147"><span id="local-6989586621679340148"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationPurchaseRecommendation"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-var">ReservationPurchaseRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationPurchaseRecommendation%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">ReservationPurchaseRecommendation'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The term of the reservation that you want recommendations for, in years.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtermInYears%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe TermInYears
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AtermInYears%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">termInYears</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-type">TermInYears</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A summary about the recommended purchase.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3ArecommendationSummary%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A summary about the recommended purchase.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ArecommendationSummary%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
 -&gt; Maybe ReservationPurchaseRecommendationSummary
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationSummary%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">recommendationSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary.html#ReservationPurchaseRecommendationSummary"><span class="hs-identifier hs-type">ReservationPurchaseRecommendationSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | How many days of previous usage that Amazon Web Services considers when</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- making this recommendation.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AlookbackPeriodInDays%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe LookbackPeriodInDays
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AlookbackPeriodInDays%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">lookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Hardware specifications for the service that you want recommendations</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- for.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe ServiceSpecification
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">serviceSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The account scope that Amazon Web Services recommends that you purchase</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- this instance for. For example, you can purchase this reservation for an</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- entire organization in Amazon Web Services Organizations.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe AccountScope
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">accountScope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AccountScope.html#AccountScope"><span class="hs-identifier hs-type">AccountScope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Details about the recommended purchases.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ArecommendationDetails%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+-&gt; Maybe [ReservationPurchaseRecommendationDetail]
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationDetails%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">recommendationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail.html#ReservationPurchaseRecommendationDetail"><span class="hs-identifier hs-type">ReservationPurchaseRecommendationDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | How many days of previous usage that Amazon Web Services considers when</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- making this recommendation.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlookbackPeriodInDays%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe LookbackPeriodInDays
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AlookbackPeriodInDays%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">lookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The payment option for the reservation (for example, @AllUpfront@ or</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @NoUpfront@).</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation -&gt; Maybe PaymentOption
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339786"><span id="local-6989586621679339788"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340135"><span id="local-6989586621679340137"><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
 -&gt; ReservationPurchaseRecommendation -&gt; Bool
 (ReservationPurchaseRecommendation
  -&gt; ReservationPurchaseRecommendation -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: ReservationPurchaseRecommendation
 -&gt; ReservationPurchaseRecommendation -&gt; Bool
 $c== :: ReservationPurchaseRecommendation
 -&gt; ReservationPurchaseRecommendation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339777"><span id="local-6989586621679339779"><span id="local-6989586621679339781"><span id="local-6989586621679339783"><span class="annot"><span class="annottext">ReadPrec [ReservationPurchaseRecommendation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340126"><span id="local-6989586621679340128"><span id="local-6989586621679340130"><span id="local-6989586621679340132"><span class="annot"><span class="annottext">ReadPrec [ReservationPurchaseRecommendation]
 ReadPrec ReservationPurchaseRecommendation
 Int -&gt; ReadS ReservationPurchaseRecommendation
 ReadS [ReservationPurchaseRecommendation]
@@ -99,7 +99,7 @@ readList :: ReadS [ReservationPurchaseRecommendation]
 $creadList :: ReadS [ReservationPurchaseRecommendation]
 readsPrec :: Int -&gt; ReadS ReservationPurchaseRecommendation
 $creadsPrec :: Int -&gt; ReadS ReservationPurchaseRecommendation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339770"><span id="local-6989586621679339772"><span id="local-6989586621679339774"><span class="annot"><span class="annottext">Int -&gt; ReservationPurchaseRecommendation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340119"><span id="local-6989586621679340121"><span id="local-6989586621679340123"><span class="annot"><span class="annottext">Int -&gt; ReservationPurchaseRecommendation -&gt; ShowS
 [ReservationPurchaseRecommendation] -&gt; ShowS
 ReservationPurchaseRecommendation -&gt; String
 (Int -&gt; ReservationPurchaseRecommendation -&gt; ShowS)
@@ -145,97 +145,178 @@ ReservationPurchaseRecommendation
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'paymentOption', 'reservationPurchaseRecommendation_paymentOption' - The payment option for the reservation (for example, @AllUpfront@ or</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- @NoUpfront@).</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'recommendationDetails', 'reservationPurchaseRecommendation_recommendationDetails' - Details about the recommended purchases.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'accountScope', 'reservationPurchaseRecommendation_accountScope' - The account scope that Amazon Web Services recommends that you purchase</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- this instance for. For example, you can purchase this reservation for an</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- entire organization in Amazon Web Services Organizations.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'serviceSpecification', 'reservationPurchaseRecommendation_serviceSpecification' - Hardware specifications for the service that you want recommendations</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- for.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'termInYears', 'reservationPurchaseRecommendation_termInYears' - The term of the reservation that you want recommendations for, in years.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'recommendationSummary', 'reservationPurchaseRecommendation_recommendationSummary' - A summary about the recommended purchase.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'termInYears', 'reservationPurchaseRecommendation_termInYears' - The term of the reservation that you want recommendations for, in years.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'recommendationSummary', 'reservationPurchaseRecommendation_recommendationSummary' - A summary about the recommended purchase.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'serviceSpecification', 'reservationPurchaseRecommendation_serviceSpecification' - Hardware specifications for the service that you want recommendations</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'accountScope', 'reservationPurchaseRecommendation_accountScope' - The account scope that Amazon Web Services recommends that you purchase</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- this instance for. For example, you can purchase this reservation for an</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- entire organization in Amazon Web Services Organizations.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'recommendationDetails', 'reservationPurchaseRecommendation_recommendationDetails' - Details about the recommended purchases.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'lookbackPeriodInDays', 'reservationPurchaseRecommendation_lookbackPeriodInDays' - How many days of previous usage that Amazon Web Services considers when</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- making this recommendation.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'lookbackPeriodInDays', 'reservationPurchaseRecommendation_lookbackPeriodInDays' - How many days of previous usage that Amazon Web Services considers when</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- making this recommendation.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'paymentOption', 'reservationPurchaseRecommendation_paymentOption' - The payment option for the reservation (for example, @AllUpfront@ or</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @NoUpfront@).</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#newReservationPurchaseRecommendation"><span class="hs-identifier hs-type">newReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span>
 </span><span id="line-87"></span><span id="newReservationPurchaseRecommendation"><span class="annot"><span class="annottext">newReservationPurchaseRecommendation :: ReservationPurchaseRecommendation
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#newReservationPurchaseRecommendation"><span class="hs-identifier hs-var hs-var">newReservationPurchaseRecommendation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation' :: Maybe PaymentOption
--&gt; Maybe [ReservationPurchaseRecommendationDetail]
--&gt; Maybe AccountScope
--&gt; Maybe ServiceSpecification
--&gt; Maybe TermInYears
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation' :: Maybe TermInYears
 -&gt; Maybe ReservationPurchaseRecommendationSummary
+-&gt; Maybe ServiceSpecification
+-&gt; Maybe AccountScope
+-&gt; Maybe [ReservationPurchaseRecommendationDetail]
 -&gt; Maybe LookbackPeriodInDays
+-&gt; Maybe PaymentOption
 -&gt; ReservationPurchaseRecommendation
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paymentOption:ReservationPurchaseRecommendation' :: Maybe PaymentOption
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:termInYears:ReservationPurchaseRecommendation' :: Maybe TermInYears
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AtermInYears%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">termInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe TermInYears
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommendationDetails:ReservationPurchaseRecommendation' :: Maybe [ReservationPurchaseRecommendationDetail]
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationDetails%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">recommendationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountScope:ReservationPurchaseRecommendation' :: Maybe AccountScope
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">accountScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceSpecification:ReservationPurchaseRecommendation' :: Maybe ServiceSpecification
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">serviceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSpecification
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:termInYears:ReservationPurchaseRecommendation' :: Maybe TermInYears
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AtermInYears%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">termInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommendationSummary:ReservationPurchaseRecommendation' :: Maybe ReservationPurchaseRecommendationSummary
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommendationSummary:ReservationPurchaseRecommendation' :: Maybe ReservationPurchaseRecommendationSummary
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationSummary%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">recommendationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:lookbackPeriodInDays:ReservationPurchaseRecommendation' :: Maybe LookbackPeriodInDays
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceSpecification:ReservationPurchaseRecommendation' :: Maybe ServiceSpecification
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">serviceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountScope:ReservationPurchaseRecommendation' :: Maybe AccountScope
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">accountScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:recommendationDetails:ReservationPurchaseRecommendation' :: Maybe [ReservationPurchaseRecommendationDetail]
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationDetails%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">recommendationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:lookbackPeriodInDays:ReservationPurchaseRecommendation' :: Maybe LookbackPeriodInDays
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AlookbackPeriodInDays%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">lookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:paymentOption:ReservationPurchaseRecommendation' :: Maybe PaymentOption
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The payment option for the reservation (for example, @AllUpfront@ or</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- @NoUpfront@).</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_paymentOption"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="reservationPurchaseRecommendation_paymentOption"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_paymentOption :: (Maybe PaymentOption -&gt; f (Maybe PaymentOption))
+</span><span id="line-99"></span><span class="hs-comment">-- | The term of the reservation that you want recommendations for, in years.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_termInYears"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_termInYears</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-type">TermInYears</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="reservationPurchaseRecommendation_termInYears"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_termInYears :: (Maybe TermInYears -&gt; f (Maybe TermInYears))
 -&gt; ReservationPurchaseRecommendation
 -&gt; f ReservationPurchaseRecommendation
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_paymentOption"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_paymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe PaymentOption)
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_termInYears"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_termInYears</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe TermInYears)
 -&gt; (ReservationPurchaseRecommendation
-    -&gt; Maybe PaymentOption -&gt; ReservationPurchaseRecommendation)
+    -&gt; Maybe TermInYears -&gt; ReservationPurchaseRecommendation)
 -&gt; Lens
      ReservationPurchaseRecommendation
      ReservationPurchaseRecommendation
-     (Maybe PaymentOption)
-     (Maybe PaymentOption)
+     (Maybe TermInYears)
+     (Maybe TermInYears)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339761"><span class="annot"><span class="annottext">Maybe PaymentOption
-paymentOption :: Maybe PaymentOption
-$sel:paymentOption:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe PaymentOption
-</span><a href="#local-6989586621679339761"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
-</span><a href="#local-6989586621679339761"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339760"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339759"><span class="annot"><span class="annottext">Maybe PaymentOption
-</span><a href="#local-6989586621679339759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:ReservationPurchaseRecommendation' :: Maybe PaymentOption
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
-</span><a href="#local-6989586621679339759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Details about the recommended purchases.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_recommendationDetails"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_recommendationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail.html#ReservationPurchaseRecommendationDetail"><span class="hs-identifier hs-type">ReservationPurchaseRecommendationDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="reservationPurchaseRecommendation_recommendationDetails"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_recommendationDetails :: (Maybe [ReservationPurchaseRecommendationDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340110"><span class="annot"><span class="annottext">Maybe TermInYears
+termInYears :: Maybe TermInYears
+$sel:termInYears:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe TermInYears
+</span><a href="#local-6989586621679340110"><span class="hs-identifier hs-var hs-var">termInYears</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
+</span><a href="#local-6989586621679340110"><span class="hs-identifier hs-var">termInYears</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340109"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340108"><span class="annot"><span class="annottext">Maybe TermInYears
+</span><a href="#local-6989586621679340108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:termInYears:ReservationPurchaseRecommendation' :: Maybe TermInYears
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AtermInYears%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">termInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
+</span><a href="#local-6989586621679340108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A summary about the recommended purchase.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_recommendationSummary"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_recommendationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary.html#ReservationPurchaseRecommendationSummary"><span class="hs-identifier hs-type">ReservationPurchaseRecommendationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="reservationPurchaseRecommendation_recommendationSummary"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_recommendationSummary :: (Maybe ReservationPurchaseRecommendationSummary
+ -&gt; f (Maybe ReservationPurchaseRecommendationSummary))
+-&gt; ReservationPurchaseRecommendation
+-&gt; f ReservationPurchaseRecommendation
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_recommendationSummary"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_recommendationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation
+ -&gt; Maybe ReservationPurchaseRecommendationSummary)
+-&gt; (ReservationPurchaseRecommendation
+    -&gt; Maybe ReservationPurchaseRecommendationSummary
+    -&gt; ReservationPurchaseRecommendation)
+-&gt; Lens
+     ReservationPurchaseRecommendation
+     ReservationPurchaseRecommendation
+     (Maybe ReservationPurchaseRecommendationSummary)
+     (Maybe ReservationPurchaseRecommendationSummary)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340106"><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
+recommendationSummary :: Maybe ReservationPurchaseRecommendationSummary
+$sel:recommendationSummary:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation
+-&gt; Maybe ReservationPurchaseRecommendationSummary
+</span><a href="#local-6989586621679340106"><span class="hs-identifier hs-var hs-var">recommendationSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
+</span><a href="#local-6989586621679340106"><span class="hs-identifier hs-var">recommendationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340105"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340104"><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
+</span><a href="#local-6989586621679340104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationSummary:ReservationPurchaseRecommendation' :: Maybe ReservationPurchaseRecommendationSummary
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationSummary%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">recommendationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
+</span><a href="#local-6989586621679340104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Hardware specifications for the service that you want recommendations</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_serviceSpecification"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_serviceSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="reservationPurchaseRecommendation_serviceSpecification"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_serviceSpecification :: (Maybe ServiceSpecification -&gt; f (Maybe ServiceSpecification))
+-&gt; ReservationPurchaseRecommendation
+-&gt; f ReservationPurchaseRecommendation
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_serviceSpecification"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_serviceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe ServiceSpecification)
+-&gt; (ReservationPurchaseRecommendation
+    -&gt; Maybe ServiceSpecification -&gt; ReservationPurchaseRecommendation)
+-&gt; Lens
+     ReservationPurchaseRecommendation
+     ReservationPurchaseRecommendation
+     (Maybe ServiceSpecification)
+     (Maybe ServiceSpecification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340102"><span class="annot"><span class="annottext">Maybe ServiceSpecification
+serviceSpecification :: Maybe ServiceSpecification
+$sel:serviceSpecification:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe ServiceSpecification
+</span><a href="#local-6989586621679340102"><span class="hs-identifier hs-var hs-var">serviceSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSpecification
+</span><a href="#local-6989586621679340102"><span class="hs-identifier hs-var">serviceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340101"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340100"><span class="annot"><span class="annottext">Maybe ServiceSpecification
+</span><a href="#local-6989586621679340100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceSpecification:ReservationPurchaseRecommendation' :: Maybe ServiceSpecification
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">serviceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSpecification
+</span><a href="#local-6989586621679340100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The account scope that Amazon Web Services recommends that you purchase</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- this instance for. For example, you can purchase this reservation for an</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- entire organization in Amazon Web Services Organizations.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_accountScope"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_accountScope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AccountScope.html#AccountScope"><span class="hs-identifier hs-type">AccountScope</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="reservationPurchaseRecommendation_accountScope"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_accountScope :: (Maybe AccountScope -&gt; f (Maybe AccountScope))
+-&gt; ReservationPurchaseRecommendation
+-&gt; f ReservationPurchaseRecommendation
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_accountScope"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_accountScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe AccountScope)
+-&gt; (ReservationPurchaseRecommendation
+    -&gt; Maybe AccountScope -&gt; ReservationPurchaseRecommendation)
+-&gt; Lens
+     ReservationPurchaseRecommendation
+     ReservationPurchaseRecommendation
+     (Maybe AccountScope)
+     (Maybe AccountScope)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340098"><span class="annot"><span class="annottext">Maybe AccountScope
+accountScope :: Maybe AccountScope
+$sel:accountScope:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe AccountScope
+</span><a href="#local-6989586621679340098"><span class="hs-identifier hs-var hs-var">accountScope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
+</span><a href="#local-6989586621679340098"><span class="hs-identifier hs-var">accountScope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340097"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340096"><span class="annot"><span class="annottext">Maybe AccountScope
+</span><a href="#local-6989586621679340096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountScope:ReservationPurchaseRecommendation' :: Maybe AccountScope
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">accountScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
+</span><a href="#local-6989586621679340096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Details about the recommended purchases.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_recommendationDetails"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_recommendationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail.html#ReservationPurchaseRecommendationDetail"><span class="hs-identifier hs-type">ReservationPurchaseRecommendationDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="reservationPurchaseRecommendation_recommendationDetails"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_recommendationDetails :: (Maybe [ReservationPurchaseRecommendationDetail]
  -&gt; f (Maybe [ReservationPurchaseRecommendationDetail]))
 -&gt; ReservationPurchaseRecommendation
 -&gt; f ReservationPurchaseRecommendation
@@ -250,17 +331,17 @@ $sel:paymentOption:ReservationPurchaseRecommendation' :: ReservationPurchaseReco
      (Maybe [ReservationPurchaseRecommendationDetail])
      (Maybe [ReservationPurchaseRecommendationDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339757"><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340094"><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
 recommendationDetails :: Maybe [ReservationPurchaseRecommendationDetail]
 $sel:recommendationDetails:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation
 -&gt; Maybe [ReservationPurchaseRecommendationDetail]
-</span><a href="#local-6989586621679339757"><span class="hs-identifier hs-var hs-var">recommendationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
-</span><a href="#local-6989586621679339757"><span class="hs-identifier hs-var">recommendationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339756"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339755"><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
-</span><a href="#local-6989586621679339755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationDetails:ReservationPurchaseRecommendation' :: Maybe [ReservationPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679340094"><span class="hs-identifier hs-var hs-var">recommendationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679340094"><span class="hs-identifier hs-var">recommendationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340093"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340092"><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679340092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationDetails:ReservationPurchaseRecommendation' :: Maybe [ReservationPurchaseRecommendationDetail]
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationDetails%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">recommendationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
-</span><a href="#local-6989586621679339755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReservationPurchaseRecommendationDetail]
+</span><a href="#local-6989586621679340092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReservationPurchaseRecommendationDetail]
   -&gt; f (Maybe [ReservationPurchaseRecommendationDetail]))
  -&gt; ReservationPurchaseRecommendation
  -&gt; f ReservationPurchaseRecommendation)
@@ -291,120 +372,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReservationPurchaseRecommendationDetail]
   [ReservationPurchaseRecommendationDetail]
   [ReservationPurchaseRecommendationDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The account scope that Amazon Web Services recommends that you purchase</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- this instance for. For example, you can purchase this reservation for an</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- entire organization in Amazon Web Services Organizations.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_accountScope"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_accountScope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AccountScope.html#AccountScope"><span class="hs-identifier hs-type">AccountScope</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="reservationPurchaseRecommendation_accountScope"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_accountScope :: (Maybe AccountScope -&gt; f (Maybe AccountScope))
--&gt; ReservationPurchaseRecommendation
--&gt; f ReservationPurchaseRecommendation
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_accountScope"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_accountScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe AccountScope)
--&gt; (ReservationPurchaseRecommendation
-    -&gt; Maybe AccountScope -&gt; ReservationPurchaseRecommendation)
--&gt; Lens
-     ReservationPurchaseRecommendation
-     ReservationPurchaseRecommendation
-     (Maybe AccountScope)
-     (Maybe AccountScope)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339750"><span class="annot"><span class="annottext">Maybe AccountScope
-accountScope :: Maybe AccountScope
-$sel:accountScope:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe AccountScope
-</span><a href="#local-6989586621679339750"><span class="hs-identifier hs-var hs-var">accountScope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
-</span><a href="#local-6989586621679339750"><span class="hs-identifier hs-var">accountScope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339749"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339748"><span class="annot"><span class="annottext">Maybe AccountScope
-</span><a href="#local-6989586621679339748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountScope:ReservationPurchaseRecommendation' :: Maybe AccountScope
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AaccountScope%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">accountScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountScope
-</span><a href="#local-6989586621679339748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | Hardware specifications for the service that you want recommendations</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- for.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_serviceSpecification"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_serviceSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ServiceSpecification.html#ServiceSpecification"><span class="hs-identifier hs-type">ServiceSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="reservationPurchaseRecommendation_serviceSpecification"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_serviceSpecification :: (Maybe ServiceSpecification -&gt; f (Maybe ServiceSpecification))
--&gt; ReservationPurchaseRecommendation
--&gt; f ReservationPurchaseRecommendation
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_serviceSpecification"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_serviceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe ServiceSpecification)
--&gt; (ReservationPurchaseRecommendation
-    -&gt; Maybe ServiceSpecification -&gt; ReservationPurchaseRecommendation)
--&gt; Lens
-     ReservationPurchaseRecommendation
-     ReservationPurchaseRecommendation
-     (Maybe ServiceSpecification)
-     (Maybe ServiceSpecification)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339746"><span class="annot"><span class="annottext">Maybe ServiceSpecification
-serviceSpecification :: Maybe ServiceSpecification
-$sel:serviceSpecification:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe ServiceSpecification
-</span><a href="#local-6989586621679339746"><span class="hs-identifier hs-var hs-var">serviceSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSpecification
-</span><a href="#local-6989586621679339746"><span class="hs-identifier hs-var">serviceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339745"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339744"><span class="annot"><span class="annottext">Maybe ServiceSpecification
-</span><a href="#local-6989586621679339744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceSpecification:ReservationPurchaseRecommendation' :: Maybe ServiceSpecification
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AserviceSpecification%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">serviceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSpecification
-</span><a href="#local-6989586621679339744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The term of the reservation that you want recommendations for, in years.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_termInYears"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_termInYears</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.TermInYears.html#TermInYears"><span class="hs-identifier hs-type">TermInYears</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="reservationPurchaseRecommendation_termInYears"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_termInYears :: (Maybe TermInYears -&gt; f (Maybe TermInYears))
--&gt; ReservationPurchaseRecommendation
--&gt; f ReservationPurchaseRecommendation
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_termInYears"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_termInYears</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe TermInYears)
--&gt; (ReservationPurchaseRecommendation
-    -&gt; Maybe TermInYears -&gt; ReservationPurchaseRecommendation)
--&gt; Lens
-     ReservationPurchaseRecommendation
-     ReservationPurchaseRecommendation
-     (Maybe TermInYears)
-     (Maybe TermInYears)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339742"><span class="annot"><span class="annottext">Maybe TermInYears
-termInYears :: Maybe TermInYears
-$sel:termInYears:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe TermInYears
-</span><a href="#local-6989586621679339742"><span class="hs-identifier hs-var hs-var">termInYears</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
-</span><a href="#local-6989586621679339742"><span class="hs-identifier hs-var">termInYears</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339741"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339740"><span class="annot"><span class="annottext">Maybe TermInYears
-</span><a href="#local-6989586621679339740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:termInYears:ReservationPurchaseRecommendation' :: Maybe TermInYears
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AtermInYears%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">termInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TermInYears
-</span><a href="#local-6989586621679339740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | A summary about the recommended purchase.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_recommendationSummary"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_recommendationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary.html#ReservationPurchaseRecommendationSummary"><span class="hs-identifier hs-type">ReservationPurchaseRecommendationSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="reservationPurchaseRecommendation_recommendationSummary"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_recommendationSummary :: (Maybe ReservationPurchaseRecommendationSummary
- -&gt; f (Maybe ReservationPurchaseRecommendationSummary))
--&gt; ReservationPurchaseRecommendation
--&gt; f ReservationPurchaseRecommendation
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_recommendationSummary"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_recommendationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation
- -&gt; Maybe ReservationPurchaseRecommendationSummary)
--&gt; (ReservationPurchaseRecommendation
-    -&gt; Maybe ReservationPurchaseRecommendationSummary
-    -&gt; ReservationPurchaseRecommendation)
--&gt; Lens
-     ReservationPurchaseRecommendation
-     ReservationPurchaseRecommendation
-     (Maybe ReservationPurchaseRecommendationSummary)
-     (Maybe ReservationPurchaseRecommendationSummary)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339738"><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
-recommendationSummary :: Maybe ReservationPurchaseRecommendationSummary
-$sel:recommendationSummary:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation
--&gt; Maybe ReservationPurchaseRecommendationSummary
-</span><a href="#local-6989586621679339738"><span class="hs-identifier hs-var hs-var">recommendationSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
-</span><a href="#local-6989586621679339738"><span class="hs-identifier hs-var">recommendationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339737"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339736"><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
-</span><a href="#local-6989586621679339736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendationSummary:ReservationPurchaseRecommendation' :: Maybe ReservationPurchaseRecommendationSummary
-</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ArecommendationSummary%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">recommendationSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPurchaseRecommendationSummary
-</span><a href="#local-6989586621679339736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | How many days of previous usage that Amazon Web Services considers when</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- making this recommendation.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_lookbackPeriodInDays"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_lookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="reservationPurchaseRecommendation_lookbackPeriodInDays"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_lookbackPeriodInDays :: (Maybe LookbackPeriodInDays -&gt; f (Maybe LookbackPeriodInDays))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | How many days of previous usage that Amazon Web Services considers when</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- making this recommendation.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_lookbackPeriodInDays"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_lookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-type">LookbackPeriodInDays</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="reservationPurchaseRecommendation_lookbackPeriodInDays"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_lookbackPeriodInDays :: (Maybe LookbackPeriodInDays -&gt; f (Maybe LookbackPeriodInDays))
 -&gt; ReservationPurchaseRecommendation
 -&gt; f ReservationPurchaseRecommendation
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_lookbackPeriodInDays"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_lookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe LookbackPeriodInDays)
@@ -416,22 +390,48 @@ $sel:recommendationSummary:ReservationPurchaseRecommendation' :: ReservationPurc
      (Maybe LookbackPeriodInDays)
      (Maybe LookbackPeriodInDays)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339734"><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340087"><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
 lookbackPeriodInDays :: Maybe LookbackPeriodInDays
 $sel:lookbackPeriodInDays:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe LookbackPeriodInDays
-</span><a href="#local-6989586621679339734"><span class="hs-identifier hs-var hs-var">lookbackPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
-</span><a href="#local-6989586621679339734"><span class="hs-identifier hs-var">lookbackPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339733"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339732"><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
-</span><a href="#local-6989586621679339732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
-</span><a href="#local-6989586621679339733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lookbackPeriodInDays:ReservationPurchaseRecommendation' :: Maybe LookbackPeriodInDays
+</span><a href="#local-6989586621679340087"><span class="hs-identifier hs-var hs-var">lookbackPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+</span><a href="#local-6989586621679340087"><span class="hs-identifier hs-var">lookbackPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340086"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340085"><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
+</span><a href="#local-6989586621679340085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lookbackPeriodInDays:ReservationPurchaseRecommendation' :: Maybe LookbackPeriodInDays
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3AlookbackPeriodInDays%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">lookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LookbackPeriodInDays
-</span><a href="#local-6989586621679339732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679340085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The payment option for the reservation (for example, @AllUpfront@ or</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @NoUpfront@).</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_paymentOption"><span class="hs-identifier hs-type">reservationPurchaseRecommendation_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="reservationPurchaseRecommendation_paymentOption"><span class="annot"><span class="annottext">reservationPurchaseRecommendation_paymentOption :: (Maybe PaymentOption -&gt; f (Maybe PaymentOption))
+-&gt; ReservationPurchaseRecommendation
+-&gt; f ReservationPurchaseRecommendation
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#reservationPurchaseRecommendation_paymentOption"><span class="hs-identifier hs-var hs-var">reservationPurchaseRecommendation_paymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationPurchaseRecommendation -&gt; Maybe PaymentOption)
+-&gt; (ReservationPurchaseRecommendation
+    -&gt; Maybe PaymentOption -&gt; ReservationPurchaseRecommendation)
+-&gt; Lens
+     ReservationPurchaseRecommendation
+     ReservationPurchaseRecommendation
+     (Maybe PaymentOption)
+     (Maybe PaymentOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340083"><span class="annot"><span class="annottext">Maybe PaymentOption
+paymentOption :: Maybe PaymentOption
+$sel:paymentOption:ReservationPurchaseRecommendation' :: ReservationPurchaseRecommendation -&gt; Maybe PaymentOption
+</span><a href="#local-6989586621679340083"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621679340083"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340082"><span class="annot"><span class="annottext">s :: ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340081"><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621679340081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationPurchaseRecommendation
+</span><a href="#local-6989586621679340082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:ReservationPurchaseRecommendation' :: Maybe PaymentOption
+</span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#%24sel%3ApaymentOption%3AReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621679340081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679339729"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679340078"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679339727"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservationPurchaseRecommendation
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679340076"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservationPurchaseRecommendation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReservationPurchaseRecommendation)
@@ -441,155 +441,154 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReservationPurchaseRecommendation&quot;</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339724"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe PaymentOption
--&gt; Maybe [ReservationPurchaseRecommendationDetail]
--&gt; Maybe AccountScope
--&gt; Maybe ServiceSpecification
--&gt; Maybe TermInYears
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340073"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe TermInYears
 -&gt; Maybe ReservationPurchaseRecommendationSummary
+-&gt; Maybe ServiceSpecification
+-&gt; Maybe AccountScope
+-&gt; Maybe [ReservationPurchaseRecommendationDetail]
 -&gt; Maybe LookbackPeriodInDays
+-&gt; Maybe PaymentOption
 -&gt; ReservationPurchaseRecommendation
 </span><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation%27"><span class="hs-identifier hs-var">ReservationPurchaseRecommendation'</span></a></span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PaymentOption
- -&gt; Maybe [ReservationPurchaseRecommendationDetail]
- -&gt; Maybe AccountScope
- -&gt; Maybe ServiceSpecification
- -&gt; Maybe TermInYears
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TermInYears
  -&gt; Maybe ReservationPurchaseRecommendationSummary
+ -&gt; Maybe ServiceSpecification
+ -&gt; Maybe AccountScope
+ -&gt; Maybe [ReservationPurchaseRecommendationDetail]
  -&gt; Maybe LookbackPeriodInDays
+ -&gt; Maybe PaymentOption
  -&gt; ReservationPurchaseRecommendation)
--&gt; Parser (Maybe PaymentOption)
+-&gt; Parser (Maybe TermInYears)
 -&gt; Parser
-     (Maybe [ReservationPurchaseRecommendationDetail]
-      -&gt; Maybe AccountScope
+     (Maybe ReservationPurchaseRecommendationSummary
       -&gt; Maybe ServiceSpecification
-      -&gt; Maybe TermInYears
-      -&gt; Maybe ReservationPurchaseRecommendationSummary
+      -&gt; Maybe AccountScope
+      -&gt; Maybe [ReservationPurchaseRecommendationDetail]
       -&gt; Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
       -&gt; ReservationPurchaseRecommendation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PaymentOption)
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TermInYears)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PaymentOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TermInYears&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [ReservationPurchaseRecommendationDetail]
-   -&gt; Maybe AccountScope
+  (Maybe ReservationPurchaseRecommendationSummary
    -&gt; Maybe ServiceSpecification
-   -&gt; Maybe TermInYears
-   -&gt; Maybe ReservationPurchaseRecommendationSummary
+   -&gt; Maybe AccountScope
+   -&gt; Maybe [ReservationPurchaseRecommendationDetail]
    -&gt; Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
+   -&gt; ReservationPurchaseRecommendation)
+-&gt; Parser (Maybe ReservationPurchaseRecommendationSummary)
+-&gt; Parser
+     (Maybe ServiceSpecification
+      -&gt; Maybe AccountScope
+      -&gt; Maybe [ReservationPurchaseRecommendationDetail]
+      -&gt; Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
+      -&gt; ReservationPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ReservationPurchaseRecommendationSummary)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecommendationSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServiceSpecification
+   -&gt; Maybe AccountScope
+   -&gt; Maybe [ReservationPurchaseRecommendationDetail]
+   -&gt; Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
+   -&gt; ReservationPurchaseRecommendation)
+-&gt; Parser (Maybe ServiceSpecification)
+-&gt; Parser
+     (Maybe AccountScope
+      -&gt; Maybe [ReservationPurchaseRecommendationDetail]
+      -&gt; Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
+      -&gt; ReservationPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceSpecification)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceSpecification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AccountScope
+   -&gt; Maybe [ReservationPurchaseRecommendationDetail]
+   -&gt; Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
+   -&gt; ReservationPurchaseRecommendation)
+-&gt; Parser (Maybe AccountScope)
+-&gt; Parser
+     (Maybe [ReservationPurchaseRecommendationDetail]
+      -&gt; Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption
+      -&gt; ReservationPurchaseRecommendation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccountScope)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountScope&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ReservationPurchaseRecommendationDetail]
+   -&gt; Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption
    -&gt; ReservationPurchaseRecommendation)
 -&gt; Parser (Maybe [ReservationPurchaseRecommendationDetail])
 -&gt; Parser
-     (Maybe AccountScope
-      -&gt; Maybe ServiceSpecification
-      -&gt; Maybe TermInYears
-      -&gt; Maybe ReservationPurchaseRecommendationSummary
-      -&gt; Maybe LookbackPeriodInDays
-      -&gt; ReservationPurchaseRecommendation)
+     (Maybe LookbackPeriodInDays
+      -&gt; Maybe PaymentOption -&gt; ReservationPurchaseRecommendation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe [ReservationPurchaseRecommendationDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecommendationDetails&quot;</span></span><span>
-</span><span id="line-143"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ReservationPurchaseRecommendationDetail]))
+</span><span id="line-146"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ReservationPurchaseRecommendationDetail]))
 -&gt; Maybe [ReservationPurchaseRecommendationDetail]
 -&gt; Parser (Maybe [ReservationPurchaseRecommendationDetail])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReservationPurchaseRecommendationDetail]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-144"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AccountScope
-   -&gt; Maybe ServiceSpecification
-   -&gt; Maybe TermInYears
-   -&gt; Maybe ReservationPurchaseRecommendationSummary
-   -&gt; Maybe LookbackPeriodInDays
-   -&gt; ReservationPurchaseRecommendation)
--&gt; Parser (Maybe AccountScope)
--&gt; Parser
-     (Maybe ServiceSpecification
-      -&gt; Maybe TermInYears
-      -&gt; Maybe ReservationPurchaseRecommendationSummary
-      -&gt; Maybe LookbackPeriodInDays
-      -&gt; ReservationPurchaseRecommendation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccountScope)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountScope&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ServiceSpecification
-   -&gt; Maybe TermInYears
-   -&gt; Maybe ReservationPurchaseRecommendationSummary
-   -&gt; Maybe LookbackPeriodInDays
-   -&gt; ReservationPurchaseRecommendation)
--&gt; Parser (Maybe ServiceSpecification)
--&gt; Parser
-     (Maybe TermInYears
-      -&gt; Maybe ReservationPurchaseRecommendationSummary
-      -&gt; Maybe LookbackPeriodInDays
-      -&gt; ReservationPurchaseRecommendation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceSpecification)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ServiceSpecification&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe TermInYears
-   -&gt; Maybe ReservationPurchaseRecommendationSummary
-   -&gt; Maybe LookbackPeriodInDays
-   -&gt; ReservationPurchaseRecommendation)
--&gt; Parser (Maybe TermInYears)
--&gt; Parser
-     (Maybe ReservationPurchaseRecommendationSummary
-      -&gt; Maybe LookbackPeriodInDays -&gt; ReservationPurchaseRecommendation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TermInYears)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TermInYears&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ReservationPurchaseRecommendationSummary
-   -&gt; Maybe LookbackPeriodInDays -&gt; ReservationPurchaseRecommendation)
--&gt; Parser (Maybe ReservationPurchaseRecommendationSummary)
--&gt; Parser
-     (Maybe LookbackPeriodInDays -&gt; ReservationPurchaseRecommendation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
--&gt; Text -&gt; Parser (Maybe ReservationPurchaseRecommendationSummary)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RecommendationSummary&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe LookbackPeriodInDays -&gt; ReservationPurchaseRecommendation)
+  (Maybe LookbackPeriodInDays
+   -&gt; Maybe PaymentOption -&gt; ReservationPurchaseRecommendation)
 -&gt; Parser (Maybe LookbackPeriodInDays)
--&gt; Parser ReservationPurchaseRecommendation
+-&gt; Parser
+     (Maybe PaymentOption -&gt; ReservationPurchaseRecommendation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LookbackPeriodInDays)
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LookbackPeriodInDays)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LookbackPeriodInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PaymentOption -&gt; ReservationPurchaseRecommendation)
+-&gt; Parser (Maybe PaymentOption)
+-&gt; Parser ReservationPurchaseRecommendation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PaymentOption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaymentOption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679339717"><span id="local-6989586621679339719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679340066"><span id="local-6989586621679340068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679339714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679340063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation.html#ReservationPurchaseRecommendation"><span class="hs-identifier hs-type">ReservationPurchaseRecommendation</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

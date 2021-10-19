@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Settings to identify the end of the clip.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStopTimecode' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679916188"><span id="local-6989586621679916189"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTimecode"><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-var">StopTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTimecode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-var">StopTimecode'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timecode for the frame where you want to stop the clip. Optional; if</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- not specified, the clip continues to the end of the file. Enter the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atimecode%3AStopTimecode%27"><span class="annot"><span class="annottext">StopTimecode -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3Atimecode%3AStopTimecode%27"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | If you specify a StopTimecode in an input (in order to clip the file),</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- you can specify if you want the clip to exclude (the default) or include</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the frame specified by the timecode.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastFrameClippingBehavior%3AStopTimecode%27"><span class="annot"><span class="annottext">StopTimecode -&gt; Maybe LastFrameClippingBehavior
-</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3AlastFrameClippingBehavior%3AStopTimecode%27"><span class="hs-identifier hs-var hs-var">lastFrameClippingBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.LastFrameClippingBehavior.html#LastFrameClippingBehavior"><span class="hs-identifier hs-type">LastFrameClippingBehavior</span></a></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679923691"><span id="local-6989586621679923692"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTimecode"><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-var">StopTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTimecode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-var">StopTimecode'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a StopTimecode in an input (in order to clip the file),</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- you can specify if you want the clip to exclude (the default) or include</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the frame specified by the timecode.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastFrameClippingBehavior%3AStopTimecode%27"><span class="annot"><span class="annottext">StopTimecode -&gt; Maybe LastFrameClippingBehavior
+</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3AlastFrameClippingBehavior%3AStopTimecode%27"><span class="hs-identifier hs-var hs-var">lastFrameClippingBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.LastFrameClippingBehavior.html#LastFrameClippingBehavior"><span class="hs-identifier hs-type">LastFrameClippingBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The timecode for the frame where you want to stop the clip. Optional; if</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- not specified, the clip continues to the end of the file. Enter the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atimecode%3AStopTimecode%27"><span class="annot"><span class="annottext">StopTimecode -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3Atimecode%3AStopTimecode%27"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679916181"><span id="local-6989586621679916183"><span class="annot"><span class="annottext">StopTimecode -&gt; StopTimecode -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923684"><span id="local-6989586621679923686"><span class="annot"><span class="annottext">StopTimecode -&gt; StopTimecode -&gt; Bool
 (StopTimecode -&gt; StopTimecode -&gt; Bool)
 -&gt; (StopTimecode -&gt; StopTimecode -&gt; Bool) -&gt; Eq StopTimecode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopTimecode -&gt; StopTimecode -&gt; Bool
 == :: StopTimecode -&gt; StopTimecode -&gt; Bool
 $c== :: StopTimecode -&gt; StopTimecode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916172"><span id="local-6989586621679916174"><span id="local-6989586621679916176"><span id="local-6989586621679916178"><span class="annot"><span class="annottext">ReadPrec [StopTimecode]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923675"><span id="local-6989586621679923677"><span id="local-6989586621679923679"><span id="local-6989586621679923681"><span class="annot"><span class="annottext">ReadPrec [StopTimecode]
 ReadPrec StopTimecode
 Int -&gt; ReadS StopTimecode
 ReadS [StopTimecode]
@@ -67,7 +67,7 @@ readList :: ReadS [StopTimecode]
 $creadList :: ReadS [StopTimecode]
 readsPrec :: Int -&gt; ReadS StopTimecode
 $creadsPrec :: Int -&gt; ReadS StopTimecode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916165"><span id="local-6989586621679916167"><span id="local-6989586621679916169"><span class="annot"><span class="annottext">Int -&gt; StopTimecode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923668"><span id="local-6989586621679923670"><span id="local-6989586621679923672"><span class="annot"><span class="annottext">Int -&gt; StopTimecode -&gt; ShowS
 [StopTimecode] -&gt; ShowS
 StopTimecode -&gt; String
 (Int -&gt; StopTimecode -&gt; ShowS)
@@ -101,54 +101,35 @@ $cfrom :: forall x. StopTimecode -&gt; Rep StopTimecode x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'timecode', 'stopTimecode_timecode' - The timecode for the frame where you want to stop the clip. Optional; if</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- not specified, the clip continues to the end of the file. Enter the</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'lastFrameClippingBehavior', 'stopTimecode_lastFrameClippingBehavior' - If you specify a StopTimecode in an input (in order to clip the file),</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- you can specify if you want the clip to exclude (the default) or include</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- the frame specified by the timecode.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'lastFrameClippingBehavior', 'stopTimecode_lastFrameClippingBehavior' - If you specify a StopTimecode in an input (in order to clip the file),</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- you can specify if you want the clip to exclude (the default) or include</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- the frame specified by the timecode.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'timecode', 'stopTimecode_timecode' - The timecode for the frame where you want to stop the clip. Optional; if</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- not specified, the clip continues to the end of the file. Enter the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#newStopTimecode"><span class="hs-identifier hs-type">newStopTimecode</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span>
 </span><span id="line-59"></span><span id="newStopTimecode"><span class="annot"><span class="annottext">newStopTimecode :: StopTimecode
 </span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#newStopTimecode"><span class="hs-identifier hs-var hs-var">newStopTimecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">StopTimecode' :: Maybe Text -&gt; Maybe LastFrameClippingBehavior -&gt; StopTimecode
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">StopTimecode' :: Maybe LastFrameClippingBehavior -&gt; Maybe Text -&gt; StopTimecode
 </span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timecode:StopTimecode' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3Atimecode%3AStopTimecode%27"><span class="hs-identifier hs-var">timecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastFrameClippingBehavior:StopTimecode' :: Maybe LastFrameClippingBehavior
+</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3AlastFrameClippingBehavior%3AStopTimecode%27"><span class="hs-identifier hs-var">lastFrameClippingBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastFrameClippingBehavior:StopTimecode' :: Maybe LastFrameClippingBehavior
-</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3AlastFrameClippingBehavior%3AStopTimecode%27"><span class="hs-identifier hs-var">lastFrameClippingBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:timecode:StopTimecode' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3Atimecode%3AStopTimecode%27"><span class="hs-identifier hs-var">timecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The timecode for the frame where you want to stop the clip. Optional; if</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- not specified, the clip continues to the end of the file. Enter the</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#stopTimecode_timecode"><span class="hs-identifier hs-type">stopTimecode_timecode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="stopTimecode_timecode"><span class="annot"><span class="annottext">stopTimecode_timecode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StopTimecode -&gt; f StopTimecode
-</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#stopTimecode_timecode"><span class="hs-identifier hs-var hs-var">stopTimecode_timecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopTimecode -&gt; Maybe Text)
--&gt; (StopTimecode -&gt; Maybe Text -&gt; StopTimecode)
--&gt; Lens StopTimecode StopTimecode (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916156"><span class="annot"><span class="annottext">Maybe Text
-timecode :: Maybe Text
-$sel:timecode:StopTimecode' :: StopTimecode -&gt; Maybe Text
-</span><a href="#local-6989586621679916156"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679916156"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916155"><span class="annot"><span class="annottext">s :: StopTimecode
-</span><a href="#local-6989586621679916155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916154"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679916154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTimecode
-</span><a href="#local-6989586621679916155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecode:StopTimecode' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3Atimecode%3AStopTimecode%27"><span class="hs-identifier hs-var">timecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679916154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | If you specify a StopTimecode in an input (in order to clip the file),</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- you can specify if you want the clip to exclude (the default) or include</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- the frame specified by the timecode.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#stopTimecode_lastFrameClippingBehavior"><span class="hs-identifier hs-type">stopTimecode_lastFrameClippingBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.LastFrameClippingBehavior.html#LastFrameClippingBehavior"><span class="hs-identifier hs-type">LastFrameClippingBehavior</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="stopTimecode_lastFrameClippingBehavior"><span class="annot"><span class="annottext">stopTimecode_lastFrameClippingBehavior :: (Maybe LastFrameClippingBehavior
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | If you specify a StopTimecode in an input (in order to clip the file),</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- you can specify if you want the clip to exclude (the default) or include</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- the frame specified by the timecode.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#stopTimecode_lastFrameClippingBehavior"><span class="hs-identifier hs-type">stopTimecode_lastFrameClippingBehavior</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.LastFrameClippingBehavior.html#LastFrameClippingBehavior"><span class="hs-identifier hs-type">LastFrameClippingBehavior</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="stopTimecode_lastFrameClippingBehavior"><span class="annot"><span class="annottext">stopTimecode_lastFrameClippingBehavior :: (Maybe LastFrameClippingBehavior
  -&gt; f (Maybe LastFrameClippingBehavior))
 -&gt; StopTimecode -&gt; f StopTimecode
 </span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#stopTimecode_lastFrameClippingBehavior"><span class="hs-identifier hs-var hs-var">stopTimecode_lastFrameClippingBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopTimecode -&gt; Maybe LastFrameClippingBehavior)
@@ -160,75 +141,88 @@ $sel:timecode:StopTimecode' :: StopTimecode -&gt; Maybe Text
      (Maybe LastFrameClippingBehavior)
      (Maybe LastFrameClippingBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916152"><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923659"><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
 lastFrameClippingBehavior :: Maybe LastFrameClippingBehavior
 $sel:lastFrameClippingBehavior:StopTimecode' :: StopTimecode -&gt; Maybe LastFrameClippingBehavior
-</span><a href="#local-6989586621679916152"><span class="hs-identifier hs-var hs-var">lastFrameClippingBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
-</span><a href="#local-6989586621679916152"><span class="hs-identifier hs-var">lastFrameClippingBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916151"><span class="annot"><span class="annottext">s :: StopTimecode
-</span><a href="#local-6989586621679916151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916150"><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
-</span><a href="#local-6989586621679916150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTimecode
-</span><a href="#local-6989586621679916151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFrameClippingBehavior:StopTimecode' :: Maybe LastFrameClippingBehavior
+</span><a href="#local-6989586621679923659"><span class="hs-identifier hs-var hs-var">lastFrameClippingBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
+</span><a href="#local-6989586621679923659"><span class="hs-identifier hs-var">lastFrameClippingBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923658"><span class="annot"><span class="annottext">s :: StopTimecode
+</span><a href="#local-6989586621679923658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923657"><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
+</span><a href="#local-6989586621679923657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTimecode
+</span><a href="#local-6989586621679923658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFrameClippingBehavior:StopTimecode' :: Maybe LastFrameClippingBehavior
 </span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3AlastFrameClippingBehavior%3AStopTimecode%27"><span class="hs-identifier hs-var">lastFrameClippingBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
-</span><a href="#local-6989586621679916150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916147"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679916145"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StopTimecode
+</span><a href="#local-6989586621679923657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The timecode for the frame where you want to stop the clip. Optional; if</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- not specified, the clip continues to the end of the file. Enter the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- timecode as HH:MM:SS:FF or HH:MM:SS;FF.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#stopTimecode_timecode"><span class="hs-identifier hs-type">stopTimecode_timecode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="stopTimecode_timecode"><span class="annot"><span class="annottext">stopTimecode_timecode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StopTimecode -&gt; f StopTimecode
+</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#stopTimecode_timecode"><span class="hs-identifier hs-var hs-var">stopTimecode_timecode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopTimecode -&gt; Maybe Text)
+-&gt; (StopTimecode -&gt; Maybe Text -&gt; StopTimecode)
+-&gt; Lens StopTimecode StopTimecode (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923655"><span class="annot"><span class="annottext">Maybe Text
+timecode :: Maybe Text
+$sel:timecode:StopTimecode' :: StopTimecode -&gt; Maybe Text
+</span><a href="#local-6989586621679923655"><span class="hs-identifier hs-var hs-var">timecode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679923655"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923654"><span class="annot"><span class="annottext">s :: StopTimecode
+</span><a href="#local-6989586621679923654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923653"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679923653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTimecode
+</span><a href="#local-6989586621679923654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecode:StopTimecode' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#%24sel%3Atimecode%3AStopTimecode%27"><span class="hs-identifier hs-var">timecode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679923653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923650"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679923648"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StopTimecode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StopTimecode) -&gt; Value -&gt; Parser StopTimecode
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StopTimecode&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679916142"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679916142"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe LastFrameClippingBehavior -&gt; StopTimecode
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679923645"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923645"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior -&gt; Maybe Text -&gt; StopTimecode
 </span><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-var">StopTimecode'</span></a></span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe LastFrameClippingBehavior -&gt; StopTimecode)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe LastFrameClippingBehavior -&gt; StopTimecode)
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LastFrameClippingBehavior -&gt; Maybe Text -&gt; StopTimecode)
+-&gt; Parser (Maybe LastFrameClippingBehavior)
+-&gt; Parser (Maybe Text -&gt; StopTimecode)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679916142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;timecode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LastFrameClippingBehavior -&gt; StopTimecode)
--&gt; Parser (Maybe LastFrameClippingBehavior) -&gt; Parser StopTimecode
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679916142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LastFrameClippingBehavior)
+</span><a href="#local-6989586621679923645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LastFrameClippingBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastFrameClippingBehavior&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916136"><span id="local-6989586621679916138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916125"><span id="local-6989586621679916127"><span id="local-6989586621679916129"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679916123"><span class="annot"><span class="annottext">toJSON :: StopTimecode -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916120"><span id="local-6989586621679916121"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StopTimecode)
+-&gt; Parser (Maybe Text) -&gt; Parser StopTimecode
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679923645"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923639"><span id="local-6989586621679923641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923628"><span id="local-6989586621679923630"><span id="local-6989586621679923632"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode"><span class="hs-identifier hs-type">StopTimecode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679923626"><span class="annot"><span class="annottext">toJSON :: StopTimecode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.StopTimecode.html#StopTimecode%27"><span class="hs-identifier hs-type">StopTimecode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923623"><span id="local-6989586621679923624"><span class="annot"><span class="annottext">Maybe Text
 Maybe LastFrameClippingBehavior
-lastFrameClippingBehavior :: Maybe LastFrameClippingBehavior
 timecode :: Maybe Text
-$sel:lastFrameClippingBehavior:StopTimecode' :: StopTimecode -&gt; Maybe LastFrameClippingBehavior
+lastFrameClippingBehavior :: Maybe LastFrameClippingBehavior
 $sel:timecode:StopTimecode' :: StopTimecode -&gt; Maybe Text
-</span><a href="#local-6989586621679916120"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:lastFrameClippingBehavior:StopTimecode' :: StopTimecode -&gt; Maybe LastFrameClippingBehavior
+</span><a href="#local-6989586621679923623"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;timecode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679916121"><span class="hs-identifier hs-var">timecode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastFrameClippingBehavior&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LastFrameClippingBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
@@ -236,7 +230,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LastFrameClippingBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LastFrameClippingBehavior
-</span><a href="#local-6989586621679916120"><span class="hs-identifier hs-var">lastFrameClippingBehavior</span></a></span><span>
-</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span></pre></body></html>
+</span><a href="#local-6989586621679923624"><span class="hs-identifier hs-var">lastFrameClippingBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timecode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679923623"><span class="hs-identifier hs-var">timecode</span></a></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span></pre></body></html>

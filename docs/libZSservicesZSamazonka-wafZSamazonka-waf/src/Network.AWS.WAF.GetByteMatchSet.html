@@ -56,14 +56,14 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.html"><span class="hs-identifier">Network.AWS.WAF.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetByteMatchSet' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679317871"><span id="local-6989586621679317872"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetByteMatchSet"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-var">GetByteMatchSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetByteMatchSet%27"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-var">GetByteMatchSet'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679318143"><span id="local-6989586621679318144"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetByteMatchSet"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-var">GetByteMatchSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetByteMatchSet%27"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-var">GetByteMatchSet'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ByteMatchSetId@ of the ByteMatchSet that you want to get.</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @ByteMatchSetId@ is returned by CreateByteMatchSet and by</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- ListByteMatchSets.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AbyteMatchSetId%3AGetByteMatchSet%27"><span class="annot"><span class="annottext">GetByteMatchSet -&gt; Text
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#%24sel%3AbyteMatchSetId%3AGetByteMatchSet%27"><span class="hs-identifier hs-var hs-var">byteMatchSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317865"><span id="local-6989586621679317867"><span class="annot"><span class="annottext">GetByteMatchSet -&gt; GetByteMatchSet -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318137"><span id="local-6989586621679318139"><span class="annot"><span class="annottext">GetByteMatchSet -&gt; GetByteMatchSet -&gt; Bool
 (GetByteMatchSet -&gt; GetByteMatchSet -&gt; Bool)
 -&gt; (GetByteMatchSet -&gt; GetByteMatchSet -&gt; Bool)
 -&gt; Eq GetByteMatchSet
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetByteMatchSet -&gt; GetByteMatchSet -&gt; Bool
 == :: GetByteMatchSet -&gt; GetByteMatchSet -&gt; Bool
 $c== :: GetByteMatchSet -&gt; GetByteMatchSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317856"><span id="local-6989586621679317858"><span id="local-6989586621679317860"><span id="local-6989586621679317862"><span class="annot"><span class="annottext">ReadPrec [GetByteMatchSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318128"><span id="local-6989586621679318130"><span id="local-6989586621679318132"><span id="local-6989586621679318134"><span class="annot"><span class="annottext">ReadPrec [GetByteMatchSet]
 ReadPrec GetByteMatchSet
 Int -&gt; ReadS GetByteMatchSet
 ReadS [GetByteMatchSet]
@@ -92,7 +92,7 @@ readList :: ReadS [GetByteMatchSet]
 $creadList :: ReadS [GetByteMatchSet]
 readsPrec :: Int -&gt; ReadS GetByteMatchSet
 $creadsPrec :: Int -&gt; ReadS GetByteMatchSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317849"><span id="local-6989586621679317851"><span id="local-6989586621679317853"><span class="annot"><span class="annottext">Int -&gt; GetByteMatchSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318121"><span id="local-6989586621679318123"><span id="local-6989586621679318125"><span class="annot"><span class="annottext">Int -&gt; GetByteMatchSet -&gt; ShowS
 [GetByteMatchSet] -&gt; ShowS
 GetByteMatchSet -&gt; String
 (Int -&gt; GetByteMatchSet -&gt; ShowS)
@@ -134,12 +134,12 @@ $cfrom :: forall x. GetByteMatchSet -&gt; Rep GetByteMatchSet x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span>
 </span><span id="line-82"></span><span id="newGetByteMatchSet"><span class="annot"><span class="annottext">newGetByteMatchSet :: Text -&gt; GetByteMatchSet
-</span><a href="Network.AWS.WAF.GetByteMatchSet.html#newGetByteMatchSet"><span class="hs-identifier hs-var hs-var">newGetByteMatchSet</span></a></span></span><span> </span><span id="local-6989586621679317844"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317844"><span class="hs-identifier hs-var">pByteMatchSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.GetByteMatchSet.html#newGetByteMatchSet"><span class="hs-identifier hs-var hs-var">newGetByteMatchSet</span></a></span></span><span> </span><span id="local-6989586621679318116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318116"><span class="hs-identifier hs-var">pByteMatchSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GetByteMatchSet' :: Text -&gt; GetByteMatchSet
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-type">GetByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSetId:GetByteMatchSet' :: Text
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#%24sel%3AbyteMatchSetId%3AGetByteMatchSet%27"><span class="hs-identifier hs-var">byteMatchSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317844"><span class="hs-identifier hs-var">pByteMatchSetId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679318116"><span class="hs-identifier hs-var">pByteMatchSetId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The @ByteMatchSetId@ of the ByteMatchSet that you want to get.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- @ByteMatchSetId@ is returned by CreateByteMatchSet and by</span><span>
@@ -150,27 +150,27 @@ $cfrom :: forall x. GetByteMatchSet -&gt; Rep GetByteMatchSet x
 -&gt; (GetByteMatchSet -&gt; Text -&gt; GetByteMatchSet)
 -&gt; Lens GetByteMatchSet GetByteMatchSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-type">GetByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317841"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-type">GetByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318113"><span class="annot"><span class="annottext">Text
 byteMatchSetId :: Text
 $sel:byteMatchSetId:GetByteMatchSet' :: GetByteMatchSet -&gt; Text
-</span><a href="#local-6989586621679317841"><span class="hs-identifier hs-var hs-var">byteMatchSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317841"><span class="hs-identifier hs-var">byteMatchSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317840"><span class="annot"><span class="annottext">s :: GetByteMatchSet
-</span><a href="#local-6989586621679317840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-type">GetByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317839"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetByteMatchSet
-</span><a href="#local-6989586621679317840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSetId:GetByteMatchSet' :: Text
+</span><a href="#local-6989586621679318113"><span class="hs-identifier hs-var hs-var">byteMatchSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318113"><span class="hs-identifier hs-var">byteMatchSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318112"><span class="annot"><span class="annottext">s :: GetByteMatchSet
+</span><a href="#local-6989586621679318112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-type">GetByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetByteMatchSet
+</span><a href="#local-6989586621679318112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSetId:GetByteMatchSet' :: Text
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#%24sel%3AbyteMatchSetId%3AGetByteMatchSet%27"><span class="hs-identifier hs-var">byteMatchSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679317835"><span class="annot"><span class="annottext">request :: GetByteMatchSet -&gt; Request GetByteMatchSet
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679318107"><span class="annot"><span class="annottext">request :: GetByteMatchSet -&gt; Request GetByteMatchSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetByteMatchSet -&gt; Request GetByteMatchSet
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679317831"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679318103"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetByteMatchSet
 -&gt; ClientResponse ClientBody
@@ -194,10 +194,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317828"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317827"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317827"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317826"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318100"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679318099"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679318099"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679318098"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe ByteMatchSet -&gt; Int -&gt; GetByteMatchSetResponse
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-var">GetByteMatchSetResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ByteMatchSet -&gt; Int -&gt; GetByteMatchSetResponse)
@@ -205,7 +205,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetByteMatchSetResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679317826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ByteMatchSet)
+</span><a href="#local-6989586621679318098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ByteMatchSet)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ByteMatchSet&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,15 +217,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317828"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318100"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317818"><span id="local-6989586621679317820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318090"><span id="local-6989586621679318092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679317811"><span class="annot"><span class="annottext">toHeaders :: GetByteMatchSet -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679318083"><span class="annot"><span class="annottext">toHeaders :: GetByteMatchSet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetByteMatchSet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -252,12 +252,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317801"><span id="local-6989586621679317803"><span id="local-6989586621679317805"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679317799"><span class="annot"><span class="annottext">toJSON :: GetByteMatchSet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-type">GetByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317797"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318073"><span id="local-6989586621679318075"><span id="local-6989586621679318077"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679318071"><span class="annot"><span class="annottext">toJSON :: GetByteMatchSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet%27"><span class="hs-identifier hs-type">GetByteMatchSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318069"><span class="annot"><span class="annottext">Text
 byteMatchSetId :: Text
 $sel:byteMatchSetId:GetByteMatchSet' :: GetByteMatchSet -&gt; Text
-</span><a href="#local-6989586621679317797"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679318069"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -270,19 +270,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ByteMatchSetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317797"><span class="hs-identifier hs-var">byteMatchSetId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318069"><span class="hs-identifier hs-var">byteMatchSetId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679317791"><span class="annot"><span class="annottext">toPath :: GetByteMatchSet -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679318063"><span class="annot"><span class="annottext">toPath :: GetByteMatchSet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetByteMatchSet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSet"><span class="hs-identifier hs-type">GetByteMatchSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679317787"><span class="annot"><span class="annottext">toQuery :: GetByteMatchSet -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679318059"><span class="annot"><span class="annottext">toQuery :: GetByteMatchSet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetByteMatchSet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -290,7 +290,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newGetByteMatchSetResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679317784"><span id="local-6989586621679317785"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetByteMatchSetResponse"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-var">GetByteMatchSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetByteMatchSetResponse%27"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-var">GetByteMatchSetResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679318056"><span id="local-6989586621679318057"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetByteMatchSetResponse"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-var">GetByteMatchSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetByteMatchSetResponse%27"><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-var">GetByteMatchSetResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the ByteMatchSet that you specified in the</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- @GetByteMatchSet@ request. For more information, see the following</span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-comment">-- topics:</span><span>
@@ -309,7 +309,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetByteMatchSetResponse%27"><span class="annot"><span class="annottext">GetByteMatchSetResponse -&gt; Int
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#%24sel%3AhttpStatus%3AGetByteMatchSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317778"><span id="local-6989586621679317780"><span class="annot"><span class="annottext">GetByteMatchSetResponse -&gt; GetByteMatchSetResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318050"><span id="local-6989586621679318052"><span class="annot"><span class="annottext">GetByteMatchSetResponse -&gt; GetByteMatchSetResponse -&gt; Bool
 (GetByteMatchSetResponse -&gt; GetByteMatchSetResponse -&gt; Bool)
 -&gt; (GetByteMatchSetResponse -&gt; GetByteMatchSetResponse -&gt; Bool)
 -&gt; Eq GetByteMatchSetResponse
@@ -318,7 +318,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetByteMatchSetResponse -&gt; GetByteMatchSetResponse -&gt; Bool
 == :: GetByteMatchSetResponse -&gt; GetByteMatchSetResponse -&gt; Bool
 $c== :: GetByteMatchSetResponse -&gt; GetByteMatchSetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317770"><span id="local-6989586621679317772"><span id="local-6989586621679317774"><span id="local-6989586621679317776"><span class="annot"><span class="annottext">ReadPrec [GetByteMatchSetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318042"><span id="local-6989586621679318044"><span id="local-6989586621679318046"><span id="local-6989586621679318048"><span class="annot"><span class="annottext">ReadPrec [GetByteMatchSetResponse]
 ReadPrec GetByteMatchSetResponse
 Int -&gt; ReadS GetByteMatchSetResponse
 ReadS [GetByteMatchSetResponse]
@@ -338,7 +338,7 @@ readList :: ReadS [GetByteMatchSetResponse]
 $creadList :: ReadS [GetByteMatchSetResponse]
 readsPrec :: Int -&gt; ReadS GetByteMatchSetResponse
 $creadsPrec :: Int -&gt; ReadS GetByteMatchSetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317764"><span id="local-6989586621679317766"><span id="local-6989586621679317768"><span class="annot"><span class="annottext">Int -&gt; GetByteMatchSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318036"><span id="local-6989586621679318038"><span id="local-6989586621679318040"><span class="annot"><span class="annottext">Int -&gt; GetByteMatchSetResponse -&gt; ShowS
 [GetByteMatchSetResponse] -&gt; ShowS
 GetByteMatchSetResponse -&gt; String
 (Int -&gt; GetByteMatchSetResponse -&gt; ShowS)
@@ -393,8 +393,8 @@ $cfrom :: forall x. GetByteMatchSetResponse -&gt; Rep GetByteMatchSetResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newGetByteMatchSetResponse"><span class="annot"><span class="annottext">newGetByteMatchSetResponse :: Int -&gt; GetByteMatchSetResponse
-</span><a href="Network.AWS.WAF.GetByteMatchSet.html#newGetByteMatchSetResponse"><span class="hs-identifier hs-var hs-var">newGetByteMatchSetResponse</span></a></span></span><span> </span><span id="local-6989586621679317761"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317761"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.GetByteMatchSet.html#newGetByteMatchSetResponse"><span class="hs-identifier hs-var hs-var">newGetByteMatchSetResponse</span></a></span></span><span> </span><span id="local-6989586621679318033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">GetByteMatchSetResponse' :: Maybe ByteMatchSet -&gt; Int -&gt; GetByteMatchSetResponse
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:byteMatchSet:GetByteMatchSetResponse' :: Maybe ByteMatchSet
@@ -404,7 +404,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetByteMatchSetResponse' :: Int
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#%24sel%3AhttpStatus%3AGetByteMatchSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317761"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679318033"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | Information about the ByteMatchSet that you specified in the</span><span>
@@ -431,16 +431,16 @@ forall a. Maybe a
      (Maybe ByteMatchSet)
      (Maybe ByteMatchSet)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317760"><span class="annot"><span class="annottext">Maybe ByteMatchSet
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318032"><span class="annot"><span class="annottext">Maybe ByteMatchSet
 byteMatchSet :: Maybe ByteMatchSet
 $sel:byteMatchSet:GetByteMatchSetResponse' :: GetByteMatchSetResponse -&gt; Maybe ByteMatchSet
-</span><a href="#local-6989586621679317760"><span class="hs-identifier hs-var hs-var">byteMatchSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteMatchSet
-</span><a href="#local-6989586621679317760"><span class="hs-identifier hs-var">byteMatchSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317759"><span class="annot"><span class="annottext">s :: GetByteMatchSetResponse
-</span><a href="#local-6989586621679317759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317758"><span class="annot"><span class="annottext">Maybe ByteMatchSet
-</span><a href="#local-6989586621679317758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetByteMatchSetResponse
-</span><a href="#local-6989586621679317759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSet:GetByteMatchSetResponse' :: Maybe ByteMatchSet
+</span><a href="#local-6989586621679318032"><span class="hs-identifier hs-var hs-var">byteMatchSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteMatchSet
+</span><a href="#local-6989586621679318032"><span class="hs-identifier hs-var">byteMatchSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318031"><span class="annot"><span class="annottext">s :: GetByteMatchSetResponse
+</span><a href="#local-6989586621679318031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318030"><span class="annot"><span class="annottext">Maybe ByteMatchSet
+</span><a href="#local-6989586621679318030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetByteMatchSetResponse
+</span><a href="#local-6989586621679318031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byteMatchSet:GetByteMatchSetResponse' :: Maybe ByteMatchSet
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#%24sel%3AbyteMatchSet%3AGetByteMatchSetResponse%27"><span class="hs-identifier hs-var">byteMatchSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteMatchSet
-</span><a href="#local-6989586621679317758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#getByteMatchSetResponse_httpStatus"><span class="hs-identifier hs-type">getByteMatchSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -450,16 +450,16 @@ $sel:byteMatchSet:GetByteMatchSetResponse' :: GetByteMatchSetResponse -&gt; Mayb
 -&gt; (GetByteMatchSetResponse -&gt; Int -&gt; GetByteMatchSetResponse)
 -&gt; Lens GetByteMatchSetResponse GetByteMatchSetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317757"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318029"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetByteMatchSetResponse' :: GetByteMatchSetResponse -&gt; Int
-</span><a href="#local-6989586621679317757"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317757"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317756"><span class="annot"><span class="annottext">s :: GetByteMatchSetResponse
-</span><a href="#local-6989586621679317756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317755"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetByteMatchSetResponse
-</span><a href="#local-6989586621679317756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetByteMatchSetResponse' :: Int
+</span><a href="#local-6989586621679318029"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318029"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318028"><span class="annot"><span class="annottext">s :: GetByteMatchSetResponse
+</span><a href="#local-6989586621679318028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse%27"><span class="hs-identifier hs-type">GetByteMatchSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318027"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetByteMatchSetResponse
+</span><a href="#local-6989586621679318028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetByteMatchSetResponse' :: Int
 </span><a href="Network.AWS.WAF.GetByteMatchSet.html#%24sel%3AhttpStatus%3AGetByteMatchSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetByteMatchSet.html#GetByteMatchSetResponse"><span class="hs-identifier hs-type">GetByteMatchSetResponse</span></a></span></span><span>
 </span><span id="line-211"></span></pre></body></html>

@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A filter that can be applied to a list of contacts.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newListContactsFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679332194"><span id="local-6989586621679332195"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContactsFilter"><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-var">ListContactsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContactsFilter%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-var">ListContactsFilter'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used for filtering by a specific topic preference.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="annot"><span class="annottext">ListContactsFilter -&gt; Maybe TopicFilter
-</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="hs-identifier hs-var hs-var">topicFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfilteredStatus%3AListContactsFilter%27"><span class="annot"><span class="annottext">ListContactsFilter -&gt; Maybe SubscriptionStatus
-</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AfilteredStatus%3AListContactsFilter%27"><span class="hs-identifier hs-var hs-var">filteredStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-type">SubscriptionStatus</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679334710"><span id="local-6989586621679334711"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContactsFilter"><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-var">ListContactsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContactsFilter%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-var">ListContactsFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfilteredStatus%3AListContactsFilter%27"><span class="annot"><span class="annottext">ListContactsFilter -&gt; Maybe SubscriptionStatus
+</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AfilteredStatus%3AListContactsFilter%27"><span class="hs-identifier hs-var hs-var">filteredStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-type">SubscriptionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Used for filtering by a specific topic preference.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="annot"><span class="annottext">ListContactsFilter -&gt; Maybe TopicFilter
+</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="hs-identifier hs-var hs-var">topicFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332187"><span id="local-6989586621679332189"><span class="annot"><span class="annottext">ListContactsFilter -&gt; ListContactsFilter -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334703"><span id="local-6989586621679334705"><span class="annot"><span class="annottext">ListContactsFilter -&gt; ListContactsFilter -&gt; Bool
 (ListContactsFilter -&gt; ListContactsFilter -&gt; Bool)
 -&gt; (ListContactsFilter -&gt; ListContactsFilter -&gt; Bool)
 -&gt; Eq ListContactsFilter
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListContactsFilter -&gt; ListContactsFilter -&gt; Bool
 == :: ListContactsFilter -&gt; ListContactsFilter -&gt; Bool
 $c== :: ListContactsFilter -&gt; ListContactsFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332178"><span id="local-6989586621679332180"><span id="local-6989586621679332182"><span id="local-6989586621679332184"><span class="annot"><span class="annottext">ReadPrec [ListContactsFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334694"><span id="local-6989586621679334696"><span id="local-6989586621679334698"><span id="local-6989586621679334700"><span class="annot"><span class="annottext">ReadPrec [ListContactsFilter]
 ReadPrec ListContactsFilter
 Int -&gt; ReadS ListContactsFilter
 ReadS [ListContactsFilter]
@@ -65,7 +65,7 @@ readList :: ReadS [ListContactsFilter]
 $creadList :: ReadS [ListContactsFilter]
 readsPrec :: Int -&gt; ReadS ListContactsFilter
 $creadsPrec :: Int -&gt; ReadS ListContactsFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332171"><span id="local-6989586621679332173"><span id="local-6989586621679332175"><span class="annot"><span class="annottext">Int -&gt; ListContactsFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334687"><span id="local-6989586621679334689"><span id="local-6989586621679334691"><span class="annot"><span class="annottext">Int -&gt; ListContactsFilter -&gt; ShowS
 [ListContactsFilter] -&gt; ShowS
 ListContactsFilter -&gt; String
 (Int -&gt; ListContactsFilter -&gt; ShowS)
@@ -99,51 +99,29 @@ $cfrom :: forall x. ListContactsFilter -&gt; Rep ListContactsFilter x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'topicFilter', 'listContactsFilter_topicFilter' - Used for filtering by a specific topic preference.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'filteredStatus', 'listContactsFilter_filteredStatus' - The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'filteredStatus', 'listContactsFilter_filteredStatus' - The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'topicFilter', 'listContactsFilter_topicFilter' - Used for filtering by a specific topic preference.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#newListContactsFilter"><span class="hs-identifier hs-type">newListContactsFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span>
 </span><span id="line-52"></span><span id="newListContactsFilter"><span class="annot"><span class="annottext">newListContactsFilter :: ListContactsFilter
 </span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#newListContactsFilter"><span class="hs-identifier hs-var hs-var">newListContactsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ListContactsFilter' :: Maybe TopicFilter -&gt; Maybe SubscriptionStatus -&gt; ListContactsFilter
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ListContactsFilter' :: Maybe SubscriptionStatus -&gt; Maybe TopicFilter -&gt; ListContactsFilter
 </span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topicFilter:ListContactsFilter' :: Maybe TopicFilter
-</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="hs-identifier hs-var">topicFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filteredStatus:ListContactsFilter' :: Maybe SubscriptionStatus
+</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AfilteredStatus%3AListContactsFilter%27"><span class="hs-identifier hs-var">filteredStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe SubscriptionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:filteredStatus:ListContactsFilter' :: Maybe SubscriptionStatus
-</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AfilteredStatus%3AListContactsFilter%27"><span class="hs-identifier hs-var">filteredStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriptionStatus
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicFilter:ListContactsFilter' :: Maybe TopicFilter
+</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="hs-identifier hs-var">topicFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | Used for filtering by a specific topic preference.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#listContactsFilter_topicFilter"><span class="hs-identifier hs-type">listContactsFilter_topicFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="listContactsFilter_topicFilter"><span class="annot"><span class="annottext">listContactsFilter_topicFilter :: (Maybe TopicFilter -&gt; f (Maybe TopicFilter))
--&gt; ListContactsFilter -&gt; f ListContactsFilter
-</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#listContactsFilter_topicFilter"><span class="hs-identifier hs-var hs-var">listContactsFilter_topicFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContactsFilter -&gt; Maybe TopicFilter)
--&gt; (ListContactsFilter -&gt; Maybe TopicFilter -&gt; ListContactsFilter)
--&gt; Lens
-     ListContactsFilter
-     ListContactsFilter
-     (Maybe TopicFilter)
-     (Maybe TopicFilter)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332162"><span class="annot"><span class="annottext">Maybe TopicFilter
-topicFilter :: Maybe TopicFilter
-$sel:topicFilter:ListContactsFilter' :: ListContactsFilter -&gt; Maybe TopicFilter
-</span><a href="#local-6989586621679332162"><span class="hs-identifier hs-var hs-var">topicFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
-</span><a href="#local-6989586621679332162"><span class="hs-identifier hs-var">topicFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332161"><span class="annot"><span class="annottext">s :: ListContactsFilter
-</span><a href="#local-6989586621679332161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332160"><span class="annot"><span class="annottext">Maybe TopicFilter
-</span><a href="#local-6989586621679332160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactsFilter
-</span><a href="#local-6989586621679332161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicFilter:ListContactsFilter' :: Maybe TopicFilter
-</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="hs-identifier hs-var">topicFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
-</span><a href="#local-6989586621679332160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#listContactsFilter_filteredStatus"><span class="hs-identifier hs-type">listContactsFilter_filteredStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-type">SubscriptionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="listContactsFilter_filteredStatus"><span class="annot"><span class="annottext">listContactsFilter_filteredStatus :: (Maybe SubscriptionStatus -&gt; f (Maybe SubscriptionStatus))
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | The status by which you are filtering: @OPT_IN@ or @OPT_OUT@.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#listContactsFilter_filteredStatus"><span class="hs-identifier hs-type">listContactsFilter_filteredStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-type">SubscriptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="listContactsFilter_filteredStatus"><span class="annot"><span class="annottext">listContactsFilter_filteredStatus :: (Maybe SubscriptionStatus -&gt; f (Maybe SubscriptionStatus))
 -&gt; ListContactsFilter -&gt; f ListContactsFilter
 </span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#listContactsFilter_filteredStatus"><span class="hs-identifier hs-var hs-var">listContactsFilter_filteredStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContactsFilter -&gt; Maybe SubscriptionStatus)
 -&gt; (ListContactsFilter
@@ -154,43 +132,59 @@ $sel:topicFilter:ListContactsFilter' :: ListContactsFilter -&gt; Maybe TopicFilt
      (Maybe SubscriptionStatus)
      (Maybe SubscriptionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332158"><span class="annot"><span class="annottext">Maybe SubscriptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334678"><span class="annot"><span class="annottext">Maybe SubscriptionStatus
 filteredStatus :: Maybe SubscriptionStatus
 $sel:filteredStatus:ListContactsFilter' :: ListContactsFilter -&gt; Maybe SubscriptionStatus
-</span><a href="#local-6989586621679332158"><span class="hs-identifier hs-var hs-var">filteredStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriptionStatus
-</span><a href="#local-6989586621679332158"><span class="hs-identifier hs-var">filteredStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332157"><span class="annot"><span class="annottext">s :: ListContactsFilter
-</span><a href="#local-6989586621679332157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332156"><span class="annot"><span class="annottext">Maybe SubscriptionStatus
-</span><a href="#local-6989586621679332156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactsFilter
-</span><a href="#local-6989586621679332157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filteredStatus:ListContactsFilter' :: Maybe SubscriptionStatus
+</span><a href="#local-6989586621679334678"><span class="hs-identifier hs-var hs-var">filteredStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriptionStatus
+</span><a href="#local-6989586621679334678"><span class="hs-identifier hs-var">filteredStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334677"><span class="annot"><span class="annottext">s :: ListContactsFilter
+</span><a href="#local-6989586621679334677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334676"><span class="annot"><span class="annottext">Maybe SubscriptionStatus
+</span><a href="#local-6989586621679334676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactsFilter
+</span><a href="#local-6989586621679334677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filteredStatus:ListContactsFilter' :: Maybe SubscriptionStatus
 </span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AfilteredStatus%3AListContactsFilter%27"><span class="hs-identifier hs-var">filteredStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriptionStatus
-</span><a href="#local-6989586621679332156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332152"><span id="local-6989586621679332154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span></span></span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332141"><span id="local-6989586621679332143"><span id="local-6989586621679332145"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679332139"><span class="annot"><span class="annottext">toJSON :: ListContactsFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332136"><span id="local-6989586621679332137"><span class="annot"><span class="annottext">Maybe SubscriptionStatus
-Maybe TopicFilter
-filteredStatus :: Maybe SubscriptionStatus
+</span><a href="#local-6989586621679334676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Used for filtering by a specific topic preference.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#listContactsFilter_topicFilter"><span class="hs-identifier hs-type">listContactsFilter_topicFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.TopicFilter.html#TopicFilter"><span class="hs-identifier hs-type">TopicFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="listContactsFilter_topicFilter"><span class="annot"><span class="annottext">listContactsFilter_topicFilter :: (Maybe TopicFilter -&gt; f (Maybe TopicFilter))
+-&gt; ListContactsFilter -&gt; f ListContactsFilter
+</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#listContactsFilter_topicFilter"><span class="hs-identifier hs-var hs-var">listContactsFilter_topicFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListContactsFilter -&gt; Maybe TopicFilter)
+-&gt; (ListContactsFilter -&gt; Maybe TopicFilter -&gt; ListContactsFilter)
+-&gt; Lens
+     ListContactsFilter
+     ListContactsFilter
+     (Maybe TopicFilter)
+     (Maybe TopicFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334674"><span class="annot"><span class="annottext">Maybe TopicFilter
 topicFilter :: Maybe TopicFilter
-$sel:filteredStatus:ListContactsFilter' :: ListContactsFilter -&gt; Maybe SubscriptionStatus
 $sel:topicFilter:ListContactsFilter' :: ListContactsFilter -&gt; Maybe TopicFilter
-</span><a href="#local-6989586621679332136"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679334674"><span class="hs-identifier hs-var hs-var">topicFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
+</span><a href="#local-6989586621679334674"><span class="hs-identifier hs-var">topicFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334673"><span class="annot"><span class="annottext">s :: ListContactsFilter
+</span><a href="#local-6989586621679334673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334672"><span class="annot"><span class="annottext">Maybe TopicFilter
+</span><a href="#local-6989586621679334672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactsFilter
+</span><a href="#local-6989586621679334673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicFilter:ListContactsFilter' :: Maybe TopicFilter
+</span><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#%24sel%3AtopicFilter%3AListContactsFilter%27"><span class="hs-identifier hs-var">topicFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
+</span><a href="#local-6989586621679334672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334668"><span id="local-6989586621679334670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334657"><span id="local-6989586621679334659"><span id="local-6989586621679334661"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter"><span class="hs-identifier hs-type">ListContactsFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679334655"><span class="annot"><span class="annottext">toJSON :: ListContactsFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ListContactsFilter.html#ListContactsFilter%27"><span class="hs-identifier hs-type">ListContactsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334652"><span id="local-6989586621679334653"><span class="annot"><span class="annottext">Maybe SubscriptionStatus
+Maybe TopicFilter
+topicFilter :: Maybe TopicFilter
+filteredStatus :: Maybe SubscriptionStatus
+$sel:topicFilter:ListContactsFilter' :: ListContactsFilter -&gt; Maybe TopicFilter
+$sel:filteredStatus:ListContactsFilter' :: ListContactsFilter -&gt; Maybe SubscriptionStatus
+</span><a href="#local-6989586621679334652"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-74"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TopicFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TopicFilter -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TopicFilter -&gt; Pair) -&gt; Maybe TopicFilter -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
-</span><a href="#local-6989586621679332137"><span class="hs-identifier hs-var">topicFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-75"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FilteredStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SubscriptionStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
@@ -198,7 +192,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SubscriptionStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SubscriptionStatus
-</span><a href="#local-6989586621679332136"><span class="hs-identifier hs-var">filteredStatus</span></a></span><span>
-</span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span></pre></body></html>
+</span><a href="#local-6989586621679334653"><span class="hs-identifier hs-var">filteredStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TopicFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TopicFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TopicFilter -&gt; Pair) -&gt; Maybe TopicFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TopicFilter
+</span><a href="#local-6989586621679334652"><span class="hs-identifier hs-var">topicFilter</span></a></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span></pre></body></html>

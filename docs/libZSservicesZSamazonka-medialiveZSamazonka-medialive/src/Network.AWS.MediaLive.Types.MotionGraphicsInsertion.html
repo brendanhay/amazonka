@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Motion Graphics Insertion</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679897465"><span id="local-6989586621679897466"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MotionGraphicsInsertion"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsInsertion.html#MotionGraphicsInsertion"><span class="hs-identifier hs-var">MotionGraphicsInsertion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MotionGraphicsInsertion%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsInsertion.html#MotionGraphicsInsertion%27"><span class="hs-identifier hs-var">MotionGraphicsInsertion'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679904135"><span id="local-6989586621679904136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MotionGraphicsInsertion"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsInsertion.html#MotionGraphicsInsertion"><span class="hs-identifier hs-var">MotionGraphicsInsertion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MotionGraphicsInsertion%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsInsertion.html#MotionGraphicsInsertion%27"><span class="hs-identifier hs-var">MotionGraphicsInsertion'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMotionGraphicsInsertion"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsInsertion.html#fromMotionGraphicsInsertion"><span class="hs-identifier hs-var hs-var">fromMotionGraphicsInsertion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897457"><span id="local-6989586621679897459"><span id="local-6989586621679897461"><span class="annot"><span class="annottext">Int -&gt; MotionGraphicsInsertion -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904127"><span id="local-6989586621679904129"><span id="local-6989586621679904131"><span class="annot"><span class="annottext">Int -&gt; MotionGraphicsInsertion -&gt; ShowS
 [MotionGraphicsInsertion] -&gt; ShowS
 MotionGraphicsInsertion -&gt; String
 (Int -&gt; MotionGraphicsInsertion -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MotionGraphicsInsertion -&gt; String
 showsPrec :: Int -&gt; MotionGraphicsInsertion -&gt; ShowS
 $cshowsPrec :: Int -&gt; MotionGraphicsInsertion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679897448"><span id="local-6989586621679897450"><span id="local-6989586621679897452"><span id="local-6989586621679897454"><span class="annot"><span class="annottext">ReadPrec [MotionGraphicsInsertion]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679904118"><span id="local-6989586621679904120"><span id="local-6989586621679904122"><span id="local-6989586621679904124"><span class="annot"><span class="annottext">ReadPrec [MotionGraphicsInsertion]
 ReadPrec MotionGraphicsInsertion
 Int -&gt; ReadS MotionGraphicsInsertion
 ReadS [MotionGraphicsInsertion]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MotionGraphicsInsertion]
 readsPrec :: Int -&gt; ReadS MotionGraphicsInsertion
 $creadsPrec :: Int -&gt; ReadS MotionGraphicsInsertion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679897443"><span id="local-6989586621679897445"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679904113"><span id="local-6989586621679904115"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool
 (MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool)
 -&gt; (MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool)
 -&gt; Eq MotionGraphicsInsertion
@@ -83,7 +83,7 @@ $c/= :: MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool
 == :: MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool
 $c== :: MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679897427"><span id="local-6989586621679897429"><span id="local-6989586621679897431"><span id="local-6989586621679897433"><span id="local-6989586621679897435"><span id="local-6989586621679897437"><span id="local-6989586621679897439"><span class="annot"><span class="annottext">Eq MotionGraphicsInsertion
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679904097"><span id="local-6989586621679904099"><span id="local-6989586621679904101"><span id="local-6989586621679904103"><span id="local-6989586621679904105"><span id="local-6989586621679904107"><span id="local-6989586621679904109"><span class="annot"><span class="annottext">Eq MotionGraphicsInsertion
 Eq MotionGraphicsInsertion
 -&gt; (MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Ordering)
 -&gt; (MotionGraphicsInsertion -&gt; MotionGraphicsInsertion -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. MotionGraphicsInsertion -&gt; Rep MotionGraphicsInsertion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679897419"><span id="local-6989586621679897421"><span class="annot"><span class="annottext">Int -&gt; MotionGraphicsInsertion -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679904089"><span id="local-6989586621679904091"><span class="annot"><span class="annottext">Int -&gt; MotionGraphicsInsertion -&gt; Int
 MotionGraphicsInsertion -&gt; Int
 (Int -&gt; MotionGraphicsInsertion -&gt; Int)
 -&gt; (MotionGraphicsInsertion -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: MotionGraphicsInsertion -&gt; Int
 hashWithSalt :: Int -&gt; MotionGraphicsInsertion -&gt; Int
 $chashWithSalt :: Int -&gt; MotionGraphicsInsertion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679897416"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679904086"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; ()
 (MotionGraphicsInsertion -&gt; ()) -&gt; NFData MotionGraphicsInsertion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MotionGraphicsInsertion -&gt; ()
 $crnf :: MotionGraphicsInsertion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679897413"><span class="annot"><span class="annottext">Text -&gt; Either String MotionGraphicsInsertion
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679904083"><span class="annot"><span class="annottext">Text -&gt; Either String MotionGraphicsInsertion
 (Text -&gt; Either String MotionGraphicsInsertion)
 -&gt; FromText MotionGraphicsInsertion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MotionGraphicsInsertion
 $cfromText :: Text -&gt; Either String MotionGraphicsInsertion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679897410"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679904080"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; Text
 (MotionGraphicsInsertion -&gt; Text) -&gt; ToText MotionGraphicsInsertion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MotionGraphicsInsertion -&gt; Text
 $ctoText :: MotionGraphicsInsertion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679897407"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679904077"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; ByteString
 (MotionGraphicsInsertion -&gt; ByteString)
 -&gt; ToByteString MotionGraphicsInsertion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MotionGraphicsInsertion -&gt; ByteString
 $ctoBS :: MotionGraphicsInsertion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679897404"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679904074"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; ByteStringBuilder
 (MotionGraphicsInsertion -&gt; ByteStringBuilder)
 -&gt; ToLog MotionGraphicsInsertion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MotionGraphicsInsertion -&gt; ByteStringBuilder
 $cbuild :: MotionGraphicsInsertion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679897401"><span class="annot"><span class="annottext">HeaderName -&gt; MotionGraphicsInsertion -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679904071"><span class="annot"><span class="annottext">HeaderName -&gt; MotionGraphicsInsertion -&gt; [Header]
 (HeaderName -&gt; MotionGraphicsInsertion -&gt; [Header])
 -&gt; ToHeader MotionGraphicsInsertion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MotionGraphicsInsertion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MotionGraphicsInsertion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679897398"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679904068"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; QueryString
 (MotionGraphicsInsertion -&gt; QueryString)
 -&gt; ToQuery MotionGraphicsInsertion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MotionGraphicsInsertion -&gt; QueryString
 $ctoQuery :: MotionGraphicsInsertion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679897393"><span id="local-6989586621679897395"><span class="annot"><span class="annottext">Value -&gt; Parser [MotionGraphicsInsertion]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679904063"><span id="local-6989586621679904065"><span class="annot"><span class="annottext">Value -&gt; Parser [MotionGraphicsInsertion]
 Value -&gt; Parser MotionGraphicsInsertion
 (Value -&gt; Parser MotionGraphicsInsertion)
 -&gt; (Value -&gt; Parser [MotionGraphicsInsertion])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [MotionGraphicsInsertion]
 parseJSON :: Value -&gt; Parser MotionGraphicsInsertion
 $cparseJSON :: Value -&gt; Parser MotionGraphicsInsertion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679897388"><span id="local-6989586621679897390"><span class="annot"><span class="annottext">FromJSONKeyFunction [MotionGraphicsInsertion]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679904058"><span id="local-6989586621679904060"><span class="annot"><span class="annottext">FromJSONKeyFunction [MotionGraphicsInsertion]
 FromJSONKeyFunction MotionGraphicsInsertion
 FromJSONKeyFunction MotionGraphicsInsertion
 -&gt; FromJSONKeyFunction [MotionGraphicsInsertion]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MotionGraphicsInsertion]
 fromJSONKey :: FromJSONKeyFunction MotionGraphicsInsertion
 $cfromJSONKey :: FromJSONKeyFunction MotionGraphicsInsertion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679897379"><span id="local-6989586621679897381"><span id="local-6989586621679897383"><span id="local-6989586621679897385"><span class="annot"><span class="annottext">[MotionGraphicsInsertion] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679904049"><span id="local-6989586621679904051"><span id="local-6989586621679904053"><span id="local-6989586621679904055"><span class="annot"><span class="annottext">[MotionGraphicsInsertion] -&gt; Encoding
 [MotionGraphicsInsertion] -&gt; Value
 MotionGraphicsInsertion -&gt; Encoding
 MotionGraphicsInsertion -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: MotionGraphicsInsertion -&gt; Encoding
 toJSON :: MotionGraphicsInsertion -&gt; Value
 $ctoJSON :: MotionGraphicsInsertion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679897374"><span id="local-6989586621679897376"><span class="annot"><span class="annottext">ToJSONKeyFunction [MotionGraphicsInsertion]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679904044"><span id="local-6989586621679904046"><span class="annot"><span class="annottext">ToJSONKeyFunction [MotionGraphicsInsertion]
 ToJSONKeyFunction MotionGraphicsInsertion
 ToJSONKeyFunction MotionGraphicsInsertion
 -&gt; ToJSONKeyFunction [MotionGraphicsInsertion]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MotionGraphicsInsertion]
 toJSONKey :: ToJSONKeyFunction MotionGraphicsInsertion
 $ctoJSONKey :: ToJSONKeyFunction MotionGraphicsInsertion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679897371"><span class="annot"><span class="annottext">[Node] -&gt; Either String MotionGraphicsInsertion
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679904041"><span class="annot"><span class="annottext">[Node] -&gt; Either String MotionGraphicsInsertion
 ([Node] -&gt; Either String MotionGraphicsInsertion)
 -&gt; FromXML MotionGraphicsInsertion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MotionGraphicsInsertion
 $cparseXML :: [Node] -&gt; Either String MotionGraphicsInsertion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679897368"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679904038"><span class="annot"><span class="annottext">MotionGraphicsInsertion -&gt; XML
 (MotionGraphicsInsertion -&gt; XML) -&gt; ToXML MotionGraphicsInsertion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MotionGraphicsInsertion -&gt; XML

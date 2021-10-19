@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-kinesis-video-archived-mediaZSamazonka-kinesis-video-archived-media
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
@@ -609,25 +609,25 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.Fragment
 --   
 --   <i>See:</i> <a>newFragment</a> smart constructor.
 data Fragment
-Fragment' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Integer -> Fragment
+Fragment' :: Maybe Integer -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe POSIX -> Fragment
 
--- | The timestamp from the producer corresponding to the fragment.
-[$sel:producerTimestamp:Fragment'] :: Fragment -> Maybe POSIX
+-- | The playback duration or other time value associated with the
+--   fragment.
+[$sel:fragmentLengthInMilliseconds:Fragment'] :: Fragment -> Maybe Integer
 
 -- | The timestamp from the AWS server corresponding to the fragment.
 [$sel:serverTimestamp:Fragment'] :: Fragment -> Maybe POSIX
-
--- | The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
-[$sel:fragmentNumber:Fragment'] :: Fragment -> Maybe Text
 
 -- | The total fragment size, including information about the fragment and
 --   contained media data.
 [$sel:fragmentSizeInBytes:Fragment'] :: Fragment -> Maybe Integer
 
--- | The playback duration or other time value associated with the
---   fragment.
-[$sel:fragmentLengthInMilliseconds:Fragment'] :: Fragment -> Maybe Integer
+-- | The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+[$sel:fragmentNumber:Fragment'] :: Fragment -> Maybe Text
+
+-- | The timestamp from the producer corresponding to the fragment.
+[$sel:producerTimestamp:Fragment'] :: Fragment -> Maybe POSIX
 
 -- | Create a value of <a>Fragment</a> with all optional fields omitted.
 --   
@@ -637,43 +637,43 @@ Fragment' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:producerTimestamp:Fragment'</a>,
---   <a>fragment_producerTimestamp</a> - The timestamp from the producer
---   corresponding to the fragment.
+--   <a>$sel:fragmentLengthInMilliseconds:Fragment'</a>,
+--   <a>fragment_fragmentLengthInMilliseconds</a> - The playback duration
+--   or other time value associated with the fragment.
 --   
 --   <a>$sel:serverTimestamp:Fragment'</a>, <a>fragment_serverTimestamp</a>
 --   - The timestamp from the AWS server corresponding to the fragment.
---   
---   <a>$sel:fragmentNumber:Fragment'</a>, <a>fragment_fragmentNumber</a> -
---   The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
 --   
 --   <a>$sel:fragmentSizeInBytes:Fragment'</a>,
 --   <a>fragment_fragmentSizeInBytes</a> - The total fragment size,
 --   including information about the fragment and contained media data.
 --   
---   <a>$sel:fragmentLengthInMilliseconds:Fragment'</a>,
---   <a>fragment_fragmentLengthInMilliseconds</a> - The playback duration
---   or other time value associated with the fragment.
+--   <a>$sel:fragmentNumber:Fragment'</a>, <a>fragment_fragmentNumber</a> -
+--   The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+--   
+--   <a>$sel:producerTimestamp:Fragment'</a>,
+--   <a>fragment_producerTimestamp</a> - The timestamp from the producer
+--   corresponding to the fragment.
 newFragment :: Fragment
 
--- | The timestamp from the producer corresponding to the fragment.
-fragment_producerTimestamp :: Lens' Fragment (Maybe UTCTime)
+-- | The playback duration or other time value associated with the
+--   fragment.
+fragment_fragmentLengthInMilliseconds :: Lens' Fragment (Maybe Integer)
 
 -- | The timestamp from the AWS server corresponding to the fragment.
 fragment_serverTimestamp :: Lens' Fragment (Maybe UTCTime)
-
--- | The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
-fragment_fragmentNumber :: Lens' Fragment (Maybe Text)
 
 -- | The total fragment size, including information about the fragment and
 --   contained media data.
 fragment_fragmentSizeInBytes :: Lens' Fragment (Maybe Integer)
 
--- | The playback duration or other time value associated with the
---   fragment.
-fragment_fragmentLengthInMilliseconds :: Lens' Fragment (Maybe Integer)
+-- | The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+fragment_fragmentNumber :: Lens' Fragment (Maybe Text)
+
+-- | The timestamp from the producer corresponding to the fragment.
+fragment_producerTimestamp :: Lens' Fragment (Maybe UTCTime)
 instance GHC.Generics.Generic Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
 instance GHC.Show.Show Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
 instance GHC.Read.Read Network.AWS.KinesisVideoArchivedMedia.Types.Fragment.Fragment
@@ -1216,18 +1216,22 @@ defaultService :: Service
 --   the specified codec.
 _InvalidMediaFrameException :: AsError a => Getting (First ServiceError) a ServiceError
 
+-- | A streaming session was requested for a stream that does not retain
+--   data (that is, has a <tt>DataRetentionInHours</tt> of 0).
+_NoDataRetentionException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A specified parameter exceeds its restrictions, is not supported, or
+--   can't be used.
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Status Code: 403, The caller is not authorized to perform an operation
+--   on the given stream, or the token has expired.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | Kinesis Video Streams has throttled the request because you have
 --   exceeded a limit. Try making the call later. For information about
 --   limits, see <a>Kinesis Video Streams Limits</a>.
 _ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The codec private data in at least one of the tracks of the video
---   stream is not valid for this operation.
-_InvalidCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A streaming session was requested for a stream that does not retain
---   data (that is, has a <tt>DataRetentionInHours</tt> of 0).
-_NoDataRetentionException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The type of the media (for example, h.264 or h.265 video or ACC or
 --   G.711 audio) could not be determined from the codec IDs of the tracks
@@ -1235,6 +1239,14 @@ _NoDataRetentionException :: AsError a => Getting (First ServiceError) a Service
 --   should be <tt>V_MPEG/ISO/AVC</tt> and, optionally, the codec ID for
 --   track 2 should be <tt>A_AAC</tt>.
 _UnsupportedStreamMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The codec private data in at least one of the tracks of the video
+--   stream is not valid for this operation.
+_InvalidCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | No codec private data was found in at least one of tracks of the video
+--   stream.
+_MissingCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <tt>GetMedia</tt> throws this error when Kinesis Video Streams can't
 --   find the stream that you specified.
@@ -1247,18 +1259,6 @@ _UnsupportedStreamMediaTypeException :: AsError a => Getting (First ServiceError
 --   <tt>PlaybackMode</tt> of <tt>LIVE</tt> is requested for a stream that
 --   has no fragments within the last 30 seconds.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | No codec private data was found in at least one of tracks of the video
---   stream.
-_MissingCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Status Code: 403, The caller is not authorized to perform an operation
---   on the given stream, or the token has expired.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A specified parameter exceeds its restrictions, is not supported, or
---   can't be used.
-_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype ClipFragmentSelectorType
 ClipFragmentSelectorType' :: Text -> ClipFragmentSelectorType
 [fromClipFragmentSelectorType] :: ClipFragmentSelectorType -> Text
@@ -1717,25 +1717,25 @@ dASHTimestampRange_startTimestamp :: Lens' DASHTimestampRange (Maybe UTCTime)
 --   
 --   <i>See:</i> <a>newFragment</a> smart constructor.
 data Fragment
-Fragment' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Integer -> Fragment
+Fragment' :: Maybe Integer -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe POSIX -> Fragment
 
--- | The timestamp from the producer corresponding to the fragment.
-[$sel:producerTimestamp:Fragment'] :: Fragment -> Maybe POSIX
+-- | The playback duration or other time value associated with the
+--   fragment.
+[$sel:fragmentLengthInMilliseconds:Fragment'] :: Fragment -> Maybe Integer
 
 -- | The timestamp from the AWS server corresponding to the fragment.
 [$sel:serverTimestamp:Fragment'] :: Fragment -> Maybe POSIX
-
--- | The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
-[$sel:fragmentNumber:Fragment'] :: Fragment -> Maybe Text
 
 -- | The total fragment size, including information about the fragment and
 --   contained media data.
 [$sel:fragmentSizeInBytes:Fragment'] :: Fragment -> Maybe Integer
 
--- | The playback duration or other time value associated with the
---   fragment.
-[$sel:fragmentLengthInMilliseconds:Fragment'] :: Fragment -> Maybe Integer
+-- | The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+[$sel:fragmentNumber:Fragment'] :: Fragment -> Maybe Text
+
+-- | The timestamp from the producer corresponding to the fragment.
+[$sel:producerTimestamp:Fragment'] :: Fragment -> Maybe POSIX
 
 -- | Create a value of <a>Fragment</a> with all optional fields omitted.
 --   
@@ -1745,43 +1745,43 @@ Fragment' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:producerTimestamp:Fragment'</a>,
---   <a>fragment_producerTimestamp</a> - The timestamp from the producer
---   corresponding to the fragment.
+--   <a>$sel:fragmentLengthInMilliseconds:Fragment'</a>,
+--   <a>fragment_fragmentLengthInMilliseconds</a> - The playback duration
+--   or other time value associated with the fragment.
 --   
 --   <a>$sel:serverTimestamp:Fragment'</a>, <a>fragment_serverTimestamp</a>
 --   - The timestamp from the AWS server corresponding to the fragment.
---   
---   <a>$sel:fragmentNumber:Fragment'</a>, <a>fragment_fragmentNumber</a> -
---   The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
 --   
 --   <a>$sel:fragmentSizeInBytes:Fragment'</a>,
 --   <a>fragment_fragmentSizeInBytes</a> - The total fragment size,
 --   including information about the fragment and contained media data.
 --   
---   <a>$sel:fragmentLengthInMilliseconds:Fragment'</a>,
---   <a>fragment_fragmentLengthInMilliseconds</a> - The playback duration
---   or other time value associated with the fragment.
+--   <a>$sel:fragmentNumber:Fragment'</a>, <a>fragment_fragmentNumber</a> -
+--   The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+--   
+--   <a>$sel:producerTimestamp:Fragment'</a>,
+--   <a>fragment_producerTimestamp</a> - The timestamp from the producer
+--   corresponding to the fragment.
 newFragment :: Fragment
 
--- | The timestamp from the producer corresponding to the fragment.
-fragment_producerTimestamp :: Lens' Fragment (Maybe UTCTime)
+-- | The playback duration or other time value associated with the
+--   fragment.
+fragment_fragmentLengthInMilliseconds :: Lens' Fragment (Maybe Integer)
 
 -- | The timestamp from the AWS server corresponding to the fragment.
 fragment_serverTimestamp :: Lens' Fragment (Maybe UTCTime)
-
--- | The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
-fragment_fragmentNumber :: Lens' Fragment (Maybe Text)
 
 -- | The total fragment size, including information about the fragment and
 --   contained media data.
 fragment_fragmentSizeInBytes :: Lens' Fragment (Maybe Integer)
 
--- | The playback duration or other time value associated with the
---   fragment.
-fragment_fragmentLengthInMilliseconds :: Lens' Fragment (Maybe Integer)
+-- | The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+fragment_fragmentNumber :: Lens' Fragment (Maybe Text)
+
+-- | The timestamp from the producer corresponding to the fragment.
+fragment_producerTimestamp :: Lens' Fragment (Maybe UTCTime)
 
 -- | Describes the timestamp range and timestamp origin of a range of
 --   fragments.
@@ -2169,30 +2169,30 @@ module Network.AWS.KinesisVideoArchivedMedia.ListFragments
 
 -- | <i>See:</i> <a>newListFragments</a> smart constructor.
 data ListFragments
-ListFragments' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe FragmentSelector -> ListFragments
+ListFragments' :: Maybe FragmentSelector -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Natural -> ListFragments
 
--- | A token to specify where to start paginating. This is the
---   ListFragmentsOutput$NextToken from a previously truncated response.
-[$sel:nextToken:ListFragments'] :: ListFragments -> Maybe Text
-
--- | The total number of fragments to return. If the total number of
---   fragments available is more than the value specified in
---   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
---   in the output that you can use to resume pagination.
-[$sel:maxResults:ListFragments'] :: ListFragments -> Maybe Natural
+-- | Describes the timestamp range and timestamp origin for the range of
+--   fragments to return.
+[$sel:fragmentSelector:ListFragments'] :: ListFragments -> Maybe FragmentSelector
 
 -- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
 --   fragment list. Specify either this parameter or the
 --   <tt>StreamName</tt> parameter.
 [$sel:streamARN:ListFragments'] :: ListFragments -> Maybe Text
 
+-- | A token to specify where to start paginating. This is the
+--   ListFragmentsOutput$NextToken from a previously truncated response.
+[$sel:nextToken:ListFragments'] :: ListFragments -> Maybe Text
+
 -- | The name of the stream from which to retrieve a fragment list. Specify
 --   either this parameter or the <tt>StreamARN</tt> parameter.
 [$sel:streamName:ListFragments'] :: ListFragments -> Maybe Text
 
--- | Describes the timestamp range and timestamp origin for the range of
---   fragments to return.
-[$sel:fragmentSelector:ListFragments'] :: ListFragments -> Maybe FragmentSelector
+-- | The total number of fragments to return. If the total number of
+--   fragments available is more than the value specified in
+--   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
+--   in the output that you can use to resume pagination.
+[$sel:maxResults:ListFragments'] :: ListFragments -> Maybe Natural
 
 -- | Create a value of <a>ListFragments</a> with all optional fields
 --   omitted.
@@ -2203,52 +2203,52 @@ ListFragments' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListFragments'</a>, <a>listFragments_nextToken</a> -
---   A token to specify where to start paginating. This is the
---   ListFragmentsOutput$NextToken from a previously truncated response.
---   
---   <a>$sel:maxResults:ListFragments'</a>, <a>listFragments_maxResults</a>
---   - The total number of fragments to return. If the total number of
---   fragments available is more than the value specified in
---   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
---   in the output that you can use to resume pagination.
+--   <a>$sel:fragmentSelector:ListFragments'</a>,
+--   <a>listFragments_fragmentSelector</a> - Describes the timestamp range
+--   and timestamp origin for the range of fragments to return.
 --   
 --   <a>$sel:streamARN:ListFragments'</a>, <a>listFragments_streamARN</a> -
 --   The Amazon Resource Name (ARN) of the stream from which to retrieve a
 --   fragment list. Specify either this parameter or the
 --   <tt>StreamName</tt> parameter.
 --   
+--   <a>$sel:nextToken:ListFragments'</a>, <a>listFragments_nextToken</a> -
+--   A token to specify where to start paginating. This is the
+--   ListFragmentsOutput$NextToken from a previously truncated response.
+--   
 --   <a>$sel:streamName:ListFragments'</a>, <a>listFragments_streamName</a>
 --   - The name of the stream from which to retrieve a fragment list.
 --   Specify either this parameter or the <tt>StreamARN</tt> parameter.
 --   
---   <a>$sel:fragmentSelector:ListFragments'</a>,
---   <a>listFragments_fragmentSelector</a> - Describes the timestamp range
---   and timestamp origin for the range of fragments to return.
-newListFragments :: ListFragments
-
--- | A token to specify where to start paginating. This is the
---   ListFragmentsOutput$NextToken from a previously truncated response.
-listFragments_nextToken :: Lens' ListFragments (Maybe Text)
-
--- | The total number of fragments to return. If the total number of
+--   <a>$sel:maxResults:ListFragments'</a>, <a>listFragments_maxResults</a>
+--   - The total number of fragments to return. If the total number of
 --   fragments available is more than the value specified in
 --   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
 --   in the output that you can use to resume pagination.
-listFragments_maxResults :: Lens' ListFragments (Maybe Natural)
+newListFragments :: ListFragments
+
+-- | Describes the timestamp range and timestamp origin for the range of
+--   fragments to return.
+listFragments_fragmentSelector :: Lens' ListFragments (Maybe FragmentSelector)
 
 -- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
 --   fragment list. Specify either this parameter or the
 --   <tt>StreamName</tt> parameter.
 listFragments_streamARN :: Lens' ListFragments (Maybe Text)
 
+-- | A token to specify where to start paginating. This is the
+--   ListFragmentsOutput$NextToken from a previously truncated response.
+listFragments_nextToken :: Lens' ListFragments (Maybe Text)
+
 -- | The name of the stream from which to retrieve a fragment list. Specify
 --   either this parameter or the <tt>StreamARN</tt> parameter.
 listFragments_streamName :: Lens' ListFragments (Maybe Text)
 
--- | Describes the timestamp range and timestamp origin for the range of
---   fragments to return.
-listFragments_fragmentSelector :: Lens' ListFragments (Maybe FragmentSelector)
+-- | The total number of fragments to return. If the total number of
+--   fragments available is more than the value specified in
+--   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
+--   in the output that you can use to resume pagination.
+listFragments_maxResults :: Lens' ListFragments (Maybe Natural)
 
 -- | <i>See:</i> <a>newListFragmentsResponse</a> smart constructor.
 data ListFragmentsResponse
@@ -2689,44 +2689,7 @@ module Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
 
 -- | <i>See:</i> <a>newGetHLSStreamingSessionURL</a> smart constructor.
 data GetHLSStreamingSessionURL
-GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HLSDisplayFragmentTimestamp -> Maybe HLSPlaybackMode -> Maybe Text -> Maybe Text -> Maybe Natural -> Maybe HLSDiscontinuityMode -> Maybe HLSFragmentSelector -> GetHLSStreamingSessionURL
-
--- | The maximum number of fragments that are returned in the HLS media
---   playlists.
---   
---   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
---   fragments are returned up to this value. When the
---   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
---   returned, up to this maximum number.
---   
---   When there are a higher number of fragments available in a live HLS
---   media playlist, video players often buffer content before starting
---   playback. Increasing the buffer size increases the playback latency,
---   but it decreases the likelihood that rebuffering will occur during
---   playback. We recommend that a live HLS media playlist have a minimum
---   of 3 fragments and a maximum of 10 fragments.
---   
---   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
---   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt>.
---   
---   The maximum value of 5,000 fragments corresponds to more than 80
---   minutes of video on streams with 1-second fragments, and more than 13
---   hours of video on streams with 10-second fragments.
-[$sel:maxMediaPlaylistFragmentResults:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Natural
-
--- | Specifies which format should be used for packaging the media.
---   Specifying the <tt>FRAGMENTED_MP4</tt> container format packages the
---   media into MP4 fragments (fMP4 or CMAF). This is the recommended
---   packaging because there is minimal packaging overhead. The other
---   container format option is <tt>MPEG_TS</tt>. HLS has supported MPEG TS
---   chunks since it was released and is sometimes the only supported
---   packaging on older HLS players. MPEG TS typically has a 5-25 percent
---   packaging overhead. This means MPEG TS typically requires 5-25 percent
---   more bandwidth and cost than fMP4.
---   
---   The default is <tt>FRAGMENTED_MP4</tt>.
-[$sel:containerFormat:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe ContainerFormat
+GetHLSStreamingSessionURL' :: Maybe HLSDisplayFragmentTimestamp -> Maybe HLSFragmentSelector -> Maybe Natural -> Maybe Text -> Maybe HLSPlaybackMode -> Maybe ContainerFormat -> Maybe Natural -> Maybe HLSDiscontinuityMode -> Maybe Text -> GetHLSStreamingSessionURL
 
 -- | Specifies when the fragment start timestamps should be included in the
 --   HLS media playlist. Typically, media players report the playhead
@@ -2743,6 +2706,36 @@ GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HL
 --   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
 --   timestamps.
 [$sel:displayFragmentTimestamp:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe HLSDisplayFragmentTimestamp
+
+-- | The time range of the requested fragment and the source of the
+--   timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+[$sel:hLSFragmentSelector:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe HLSFragmentSelector
+
+-- | The time in seconds until the requested session expires. This value
+--   can be between 300 (5 minutes) and 43200 (12 hours).
+--   
+--   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
+--   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
+--   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
+--   for that session.
+--   
+--   The default is 300 (5 minutes).
+[$sel:expires:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Natural
+
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+--   HLS master playlist URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+[$sel:streamARN:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Text
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --   
@@ -2797,30 +2790,42 @@ GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HL
 --   The default is <tt>LIVE</tt>.
 [$sel:playbackMode:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe HLSPlaybackMode
 
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
---   HLS master playlist URL.
+-- | Specifies which format should be used for packaging the media.
+--   Specifying the <tt>FRAGMENTED_MP4</tt> container format packages the
+--   media into MP4 fragments (fMP4 or CMAF). This is the recommended
+--   packaging because there is minimal packaging overhead. The other
+--   container format option is <tt>MPEG_TS</tt>. HLS has supported MPEG TS
+--   chunks since it was released and is sometimes the only supported
+--   packaging on older HLS players. MPEG TS typically has a 5-25 percent
+--   packaging overhead. This means MPEG TS typically requires 5-25 percent
+--   more bandwidth and cost than fMP4.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-[$sel:streamARN:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Text
+--   The default is <tt>FRAGMENTED_MP4</tt>.
+[$sel:containerFormat:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe ContainerFormat
 
--- | The name of the stream for which to retrieve the HLS master playlist
---   URL.
+-- | The maximum number of fragments that are returned in the HLS media
+--   playlists.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-[$sel:streamName:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Text
-
--- | The time in seconds until the requested session expires. This value
---   can be between 300 (5 minutes) and 43200 (12 hours).
+--   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
+--   fragments are returned up to this value. When the
+--   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
+--   returned, up to this maximum number.
 --   
---   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
---   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
---   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
---   for that session.
+--   When there are a higher number of fragments available in a live HLS
+--   media playlist, video players often buffer content before starting
+--   playback. Increasing the buffer size increases the playback latency,
+--   but it decreases the likelihood that rebuffering will occur during
+--   playback. We recommend that a live HLS media playlist have a minimum
+--   of 3 fragments and a maximum of 10 fragments.
 --   
---   The default is 300 (5 minutes).
-[$sel:expires:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Natural
+--   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
+--   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt>.
+--   
+--   The maximum value of 5,000 fragments corresponds to more than 80
+--   minutes of video on streams with 1-second fragments, and more than 13
+--   hours of video on streams with 10-second fragments.
+[$sel:maxMediaPlaylistFragmentResults:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Natural
 
 -- | Specifies when flags marking discontinuities between fragments are
 --   added to the media playlists.
@@ -2859,17 +2864,12 @@ GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HL
 --   <tt>PRODUCER_TIMESTAMP</tt>.
 [$sel:discontinuityMode:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe HLSDiscontinuityMode
 
--- | The time range of the requested fragment and the source of the
---   timestamps.
+-- | The name of the stream for which to retrieve the HLS master playlist
+--   URL.
 --   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
-[$sel:hLSFragmentSelector:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe HLSFragmentSelector
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+[$sel:streamName:GetHLSStreamingSessionURL'] :: GetHLSStreamingSessionURL -> Maybe Text
 
 -- | Create a value of <a>GetHLSStreamingSessionURL</a> with all optional
 --   fields omitted.
@@ -2879,46 +2879,6 @@ GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HL
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   
---   <a>$sel:maxMediaPlaylistFragmentResults:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults</a> - The
---   maximum number of fragments that are returned in the HLS media
---   playlists.
---   
---   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
---   fragments are returned up to this value. When the
---   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
---   returned, up to this maximum number.
---   
---   When there are a higher number of fragments available in a live HLS
---   media playlist, video players often buffer content before starting
---   playback. Increasing the buffer size increases the playback latency,
---   but it decreases the likelihood that rebuffering will occur during
---   playback. We recommend that a live HLS media playlist have a minimum
---   of 3 fragments and a maximum of 10 fragments.
---   
---   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
---   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt>.
---   
---   The maximum value of 5,000 fragments corresponds to more than 80
---   minutes of video on streams with 1-second fragments, and more than 13
---   hours of video on streams with 10-second fragments.
---   
---   <a>$sel:containerFormat:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_containerFormat</a> - Specifies which
---   format should be used for packaging the media. Specifying the
---   <tt>FRAGMENTED_MP4</tt> container format packages the media into MP4
---   fragments (fMP4 or CMAF). This is the recommended packaging because
---   there is minimal packaging overhead. The other container format option
---   is <tt>MPEG_TS</tt>. HLS has supported MPEG TS chunks since it was
---   released and is sometimes the only supported packaging on older HLS
---   players. MPEG TS typically has a 5-25 percent packaging overhead. This
---   means MPEG TS typically requires 5-25 percent more bandwidth and cost
---   than fMP4.
---   
---   The default is <tt>FRAGMENTED_MP4</tt>.
 --   
 --   <a>$sel:displayFragmentTimestamp:GetHLSStreamingSessionURL'</a>,
 --   <a>getHLSStreamingSessionURL_displayFragmentTimestamp</a> - Specifies
@@ -2936,6 +2896,37 @@ GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HL
 --   timestamps. Similarly, when HLSFragmentSelector is
 --   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
 --   timestamps.
+--   
+--   <a>$sel:hLSFragmentSelector:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_hLSFragmentSelector</a> - The time range
+--   of the requested fragment and the source of the timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+--   
+--   <a>$sel:expires:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_expires</a> - The time in seconds until
+--   the requested session expires. This value can be between 300 (5
+--   minutes) and 43200 (12 hours).
+--   
+--   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
+--   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
+--   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
+--   for that session.
+--   
+--   The default is 300 (5 minutes).
+--   
+--   <a>$sel:streamARN:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_streamARN</a> - The Amazon Resource Name
+--   (ARN) of the stream for which to retrieve the HLS master playlist URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
 --   
 --   <a>$sel:playbackMode:GetHLSStreamingSessionURL'</a>,
 --   <a>getHLSStreamingSessionURL_playbackMode</a> - Whether to retrieve
@@ -2991,31 +2982,45 @@ GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HL
 --   
 --   The default is <tt>LIVE</tt>.
 --   
---   <a>$sel:streamARN:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_streamARN</a> - The Amazon Resource Name
---   (ARN) of the stream for which to retrieve the HLS master playlist URL.
+--   <a>$sel:containerFormat:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_containerFormat</a> - Specifies which
+--   format should be used for packaging the media. Specifying the
+--   <tt>FRAGMENTED_MP4</tt> container format packages the media into MP4
+--   fragments (fMP4 or CMAF). This is the recommended packaging because
+--   there is minimal packaging overhead. The other container format option
+--   is <tt>MPEG_TS</tt>. HLS has supported MPEG TS chunks since it was
+--   released and is sometimes the only supported packaging on older HLS
+--   players. MPEG TS typically has a 5-25 percent packaging overhead. This
+--   means MPEG TS typically requires 5-25 percent more bandwidth and cost
+--   than fMP4.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
+--   The default is <tt>FRAGMENTED_MP4</tt>.
 --   
---   <a>$sel:streamName:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_streamName</a> - The name of the stream
---   for which to retrieve the HLS master playlist URL.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
+--   <a>$sel:maxMediaPlaylistFragmentResults:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults</a> - The
+--   maximum number of fragments that are returned in the HLS media
+--   playlists.
 --   
---   <a>$sel:expires:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_expires</a> - The time in seconds until
---   the requested session expires. This value can be between 300 (5
---   minutes) and 43200 (12 hours).
+--   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
+--   fragments are returned up to this value. When the
+--   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
+--   returned, up to this maximum number.
 --   
---   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
---   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
---   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
---   for that session.
+--   When there are a higher number of fragments available in a live HLS
+--   media playlist, video players often buffer content before starting
+--   playback. Increasing the buffer size increases the playback latency,
+--   but it decreases the likelihood that rebuffering will occur during
+--   playback. We recommend that a live HLS media playlist have a minimum
+--   of 3 fragments and a maximum of 10 fragments.
 --   
---   The default is 300 (5 minutes).
+--   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
+--   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt>.
+--   
+--   The maximum value of 5,000 fragments corresponds to more than 80
+--   minutes of video on streams with 1-second fragments, and more than 13
+--   hours of video on streams with 10-second fragments.
 --   
 --   <a>$sel:discontinuityMode:GetHLSStreamingSessionURL'</a>,
 --   <a>getHLSStreamingSessionURL_discontinuityMode</a> - Specifies when
@@ -3055,55 +3060,13 @@ GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HL
 --   <tt>SERVER_TIMESTAMP</tt>, and <tt>NEVER</tt> when it is set to
 --   <tt>PRODUCER_TIMESTAMP</tt>.
 --   
---   <a>$sel:hLSFragmentSelector:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_hLSFragmentSelector</a> - The time range
---   of the requested fragment and the source of the timestamps.
+--   <a>$sel:streamName:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_streamName</a> - The name of the stream
+--   for which to retrieve the HLS master playlist URL.
 --   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
 newGetHLSStreamingSessionURL :: GetHLSStreamingSessionURL
-
--- | The maximum number of fragments that are returned in the HLS media
---   playlists.
---   
---   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
---   fragments are returned up to this value. When the
---   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
---   returned, up to this maximum number.
---   
---   When there are a higher number of fragments available in a live HLS
---   media playlist, video players often buffer content before starting
---   playback. Increasing the buffer size increases the playback latency,
---   but it decreases the likelihood that rebuffering will occur during
---   playback. We recommend that a live HLS media playlist have a minimum
---   of 3 fragments and a maximum of 10 fragments.
---   
---   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
---   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt>.
---   
---   The maximum value of 5,000 fragments corresponds to more than 80
---   minutes of video on streams with 1-second fragments, and more than 13
---   hours of video on streams with 10-second fragments.
-getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
-
--- | Specifies which format should be used for packaging the media.
---   Specifying the <tt>FRAGMENTED_MP4</tt> container format packages the
---   media into MP4 fragments (fMP4 or CMAF). This is the recommended
---   packaging because there is minimal packaging overhead. The other
---   container format option is <tt>MPEG_TS</tt>. HLS has supported MPEG TS
---   chunks since it was released and is sometimes the only supported
---   packaging on older HLS players. MPEG TS typically has a 5-25 percent
---   packaging overhead. This means MPEG TS typically requires 5-25 percent
---   more bandwidth and cost than fMP4.
---   
---   The default is <tt>FRAGMENTED_MP4</tt>.
-getHLSStreamingSessionURL_containerFormat :: Lens' GetHLSStreamingSessionURL (Maybe ContainerFormat)
 
 -- | Specifies when the fragment start timestamps should be included in the
 --   HLS media playlist. Typically, media players report the playhead
@@ -3120,6 +3083,36 @@ getHLSStreamingSessionURL_containerFormat :: Lens' GetHLSStreamingSessionURL (Ma
 --   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
 --   timestamps.
 getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens' GetHLSStreamingSessionURL (Maybe HLSDisplayFragmentTimestamp)
+
+-- | The time range of the requested fragment and the source of the
+--   timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+getHLSStreamingSessionURL_hLSFragmentSelector :: Lens' GetHLSStreamingSessionURL (Maybe HLSFragmentSelector)
+
+-- | The time in seconds until the requested session expires. This value
+--   can be between 300 (5 minutes) and 43200 (12 hours).
+--   
+--   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
+--   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
+--   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
+--   for that session.
+--   
+--   The default is 300 (5 minutes).
+getHLSStreamingSessionURL_expires :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
+
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+--   HLS master playlist URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+getHLSStreamingSessionURL_streamARN :: Lens' GetHLSStreamingSessionURL (Maybe Text)
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --   
@@ -3174,30 +3167,42 @@ getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens' GetHLSStreamingSessi
 --   The default is <tt>LIVE</tt>.
 getHLSStreamingSessionURL_playbackMode :: Lens' GetHLSStreamingSessionURL (Maybe HLSPlaybackMode)
 
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
---   HLS master playlist URL.
+-- | Specifies which format should be used for packaging the media.
+--   Specifying the <tt>FRAGMENTED_MP4</tt> container format packages the
+--   media into MP4 fragments (fMP4 or CMAF). This is the recommended
+--   packaging because there is minimal packaging overhead. The other
+--   container format option is <tt>MPEG_TS</tt>. HLS has supported MPEG TS
+--   chunks since it was released and is sometimes the only supported
+--   packaging on older HLS players. MPEG TS typically has a 5-25 percent
+--   packaging overhead. This means MPEG TS typically requires 5-25 percent
+--   more bandwidth and cost than fMP4.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-getHLSStreamingSessionURL_streamARN :: Lens' GetHLSStreamingSessionURL (Maybe Text)
+--   The default is <tt>FRAGMENTED_MP4</tt>.
+getHLSStreamingSessionURL_containerFormat :: Lens' GetHLSStreamingSessionURL (Maybe ContainerFormat)
 
--- | The name of the stream for which to retrieve the HLS master playlist
---   URL.
+-- | The maximum number of fragments that are returned in the HLS media
+--   playlists.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-getHLSStreamingSessionURL_streamName :: Lens' GetHLSStreamingSessionURL (Maybe Text)
-
--- | The time in seconds until the requested session expires. This value
---   can be between 300 (5 minutes) and 43200 (12 hours).
+--   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
+--   fragments are returned up to this value. When the
+--   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
+--   returned, up to this maximum number.
 --   
---   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
---   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
---   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
---   for that session.
+--   When there are a higher number of fragments available in a live HLS
+--   media playlist, video players often buffer content before starting
+--   playback. Increasing the buffer size increases the playback latency,
+--   but it decreases the likelihood that rebuffering will occur during
+--   playback. We recommend that a live HLS media playlist have a minimum
+--   of 3 fragments and a maximum of 10 fragments.
 --   
---   The default is 300 (5 minutes).
-getHLSStreamingSessionURL_expires :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
+--   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
+--   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt>.
+--   
+--   The maximum value of 5,000 fragments corresponds to more than 80
+--   minutes of video on streams with 1-second fragments, and more than 13
+--   hours of video on streams with 10-second fragments.
+getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
 
 -- | Specifies when flags marking discontinuities between fragments are
 --   added to the media playlists.
@@ -3236,17 +3241,12 @@ getHLSStreamingSessionURL_expires :: Lens' GetHLSStreamingSessionURL (Maybe Natu
 --   <tt>PRODUCER_TIMESTAMP</tt>.
 getHLSStreamingSessionURL_discontinuityMode :: Lens' GetHLSStreamingSessionURL (Maybe HLSDiscontinuityMode)
 
--- | The time range of the requested fragment and the source of the
---   timestamps.
+-- | The name of the stream for which to retrieve the HLS master playlist
+--   URL.
 --   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
-getHLSStreamingSessionURL_hLSFragmentSelector :: Lens' GetHLSStreamingSessionURL (Maybe HLSFragmentSelector)
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+getHLSStreamingSessionURL_streamName :: Lens' GetHLSStreamingSessionURL (Maybe Text)
 
 -- | <i>See:</i> <a>newGetHLSStreamingSessionURLResponse</a> smart
 --   constructor.
@@ -3425,7 +3425,7 @@ module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 
 -- | <i>See:</i> <a>newGetDASHStreamingSessionURL</a> smart constructor.
 data GetDASHStreamingSessionURL
-GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHDisplayFragmentNumber -> Maybe Natural -> Maybe DASHFragmentSelector -> Maybe DASHPlaybackMode -> Maybe Text -> Maybe Text -> Maybe Natural -> GetDASHStreamingSessionURL
+GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe Natural -> Maybe DASHFragmentSelector -> Maybe Natural -> Maybe Text -> Maybe DASHPlaybackMode -> Maybe Text -> Maybe DASHDisplayFragmentNumber -> GetDASHStreamingSessionURL
 
 -- | Per the MPEG-DASH specification, the wall-clock time of fragments in
 --   the manifest file can be derived using attributes in the manifest
@@ -3446,17 +3446,27 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   timestamps.
 [$sel:displayFragmentTimestamp:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe DASHDisplayFragmentTimestamp
 
--- | Fragments are identified in the manifest file based on their sequence
---   number in the session. If DisplayFragmentNumber is set to
---   <tt>ALWAYS</tt>, the Kinesis Video Streams fragment number is added to
---   each S element in the manifest file with the attribute name “kvs:fn”.
---   These fragment numbers can be used for logging or for use with other
---   APIs (e.g. <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A
---   custom MPEG-DASH media player is necessary to leverage these this
---   custom attribute.
+-- | The time in seconds until the requested session expires. This value
+--   can be between 300 (5 minutes) and 43200 (12 hours).
 --   
---   The default value is <tt>NEVER</tt>.
-[$sel:displayFragmentNumber:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe DASHDisplayFragmentNumber
+--   When a session expires, no new calls to <tt>GetDashManifest</tt>,
+--   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
+--   made for that session.
+--   
+--   The default is 300 (5 minutes).
+[$sel:expires:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe Natural
+
+-- | The time range of the requested fragment and the source of the
+--   timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+[$sel:dASHFragmentSelector:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe DASHFragmentSelector
 
 -- | The maximum number of fragments that are returned in the MPEG-DASH
 --   manifest.
@@ -3482,17 +3492,12 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   1/2 hours of video on streams with 10-second fragments.
 [$sel:maxManifestFragmentResults:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe Natural
 
--- | The time range of the requested fragment and the source of the
---   timestamps.
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+--   MPEG-DASH manifest URL.
 --   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
-[$sel:dASHFragmentSelector:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe DASHFragmentSelector
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+[$sel:streamARN:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe Text
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --   
@@ -3547,13 +3552,6 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   The default is <tt>LIVE</tt>.
 [$sel:playbackMode:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe DASHPlaybackMode
 
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
---   MPEG-DASH manifest URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-[$sel:streamARN:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe Text
-
 -- | The name of the stream for which to retrieve the MPEG-DASH manifest
 --   URL.
 --   
@@ -3561,15 +3559,17 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   <tt>StreamARN</tt>.
 [$sel:streamName:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe Text
 
--- | The time in seconds until the requested session expires. This value
---   can be between 300 (5 minutes) and 43200 (12 hours).
+-- | Fragments are identified in the manifest file based on their sequence
+--   number in the session. If DisplayFragmentNumber is set to
+--   <tt>ALWAYS</tt>, the Kinesis Video Streams fragment number is added to
+--   each S element in the manifest file with the attribute name “kvs:fn”.
+--   These fragment numbers can be used for logging or for use with other
+--   APIs (e.g. <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A
+--   custom MPEG-DASH media player is necessary to leverage these this
+--   custom attribute.
 --   
---   When a session expires, no new calls to <tt>GetDashManifest</tt>,
---   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
---   made for that session.
---   
---   The default is 300 (5 minutes).
-[$sel:expires:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe Natural
+--   The default value is <tt>NEVER</tt>.
+[$sel:displayFragmentNumber:GetDASHStreamingSessionURL'] :: GetDASHStreamingSessionURL -> Maybe DASHDisplayFragmentNumber
 
 -- | Create a value of <a>GetDASHStreamingSessionURL</a> with all optional
 --   fields omitted.
@@ -3600,18 +3600,28 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
 --   timestamps.
 --   
---   <a>$sel:displayFragmentNumber:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_displayFragmentNumber</a> - Fragments
---   are identified in the manifest file based on their sequence number in
---   the session. If DisplayFragmentNumber is set to <tt>ALWAYS</tt>, the
---   Kinesis Video Streams fragment number is added to each S element in
---   the manifest file with the attribute name “kvs:fn”. These fragment
---   numbers can be used for logging or for use with other APIs (e.g.
---   <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A custom
---   MPEG-DASH media player is necessary to leverage these this custom
---   attribute.
+--   <a>$sel:expires:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_expires</a> - The time in seconds until
+--   the requested session expires. This value can be between 300 (5
+--   minutes) and 43200 (12 hours).
 --   
---   The default value is <tt>NEVER</tt>.
+--   When a session expires, no new calls to <tt>GetDashManifest</tt>,
+--   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
+--   made for that session.
+--   
+--   The default is 300 (5 minutes).
+--   
+--   <a>$sel:dASHFragmentSelector:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_dASHFragmentSelector</a> - The time
+--   range of the requested fragment and the source of the timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
 --   
 --   <a>$sel:maxManifestFragmentResults:GetDASHStreamingSessionURL'</a>,
 --   <a>getDASHStreamingSessionURL_maxManifestFragmentResults</a> - The
@@ -3638,17 +3648,12 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   minutes of video on streams with 1-second fragments, and more than 2
 --   1/2 hours of video on streams with 10-second fragments.
 --   
---   <a>$sel:dASHFragmentSelector:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_dASHFragmentSelector</a> - The time
---   range of the requested fragment and the source of the timestamps.
+--   <a>$sel:streamARN:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_streamARN</a> - The Amazon Resource Name
+--   (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
 --   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
 --   
 --   <a>$sel:playbackMode:GetDASHStreamingSessionURL'</a>,
 --   <a>getDASHStreamingSessionURL_playbackMode</a> - Whether to retrieve
@@ -3704,13 +3709,6 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   
 --   The default is <tt>LIVE</tt>.
 --   
---   <a>$sel:streamARN:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_streamARN</a> - The Amazon Resource Name
---   (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
---   
 --   <a>$sel:streamName:GetDASHStreamingSessionURL'</a>,
 --   <a>getDASHStreamingSessionURL_streamName</a> - The name of the stream
 --   for which to retrieve the MPEG-DASH manifest URL.
@@ -3718,16 +3716,18 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   You must specify either the <tt>StreamName</tt> or the
 --   <tt>StreamARN</tt>.
 --   
---   <a>$sel:expires:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_expires</a> - The time in seconds until
---   the requested session expires. This value can be between 300 (5
---   minutes) and 43200 (12 hours).
+--   <a>$sel:displayFragmentNumber:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_displayFragmentNumber</a> - Fragments
+--   are identified in the manifest file based on their sequence number in
+--   the session. If DisplayFragmentNumber is set to <tt>ALWAYS</tt>, the
+--   Kinesis Video Streams fragment number is added to each S element in
+--   the manifest file with the attribute name “kvs:fn”. These fragment
+--   numbers can be used for logging or for use with other APIs (e.g.
+--   <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A custom
+--   MPEG-DASH media player is necessary to leverage these this custom
+--   attribute.
 --   
---   When a session expires, no new calls to <tt>GetDashManifest</tt>,
---   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
---   made for that session.
---   
---   The default is 300 (5 minutes).
+--   The default value is <tt>NEVER</tt>.
 newGetDASHStreamingSessionURL :: GetDASHStreamingSessionURL
 
 -- | Per the MPEG-DASH specification, the wall-clock time of fragments in
@@ -3749,17 +3749,27 @@ newGetDASHStreamingSessionURL :: GetDASHStreamingSessionURL
 --   timestamps.
 getDASHStreamingSessionURL_displayFragmentTimestamp :: Lens' GetDASHStreamingSessionURL (Maybe DASHDisplayFragmentTimestamp)
 
--- | Fragments are identified in the manifest file based on their sequence
---   number in the session. If DisplayFragmentNumber is set to
---   <tt>ALWAYS</tt>, the Kinesis Video Streams fragment number is added to
---   each S element in the manifest file with the attribute name “kvs:fn”.
---   These fragment numbers can be used for logging or for use with other
---   APIs (e.g. <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A
---   custom MPEG-DASH media player is necessary to leverage these this
---   custom attribute.
+-- | The time in seconds until the requested session expires. This value
+--   can be between 300 (5 minutes) and 43200 (12 hours).
 --   
---   The default value is <tt>NEVER</tt>.
-getDASHStreamingSessionURL_displayFragmentNumber :: Lens' GetDASHStreamingSessionURL (Maybe DASHDisplayFragmentNumber)
+--   When a session expires, no new calls to <tt>GetDashManifest</tt>,
+--   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
+--   made for that session.
+--   
+--   The default is 300 (5 minutes).
+getDASHStreamingSessionURL_expires :: Lens' GetDASHStreamingSessionURL (Maybe Natural)
+
+-- | The time range of the requested fragment and the source of the
+--   timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+getDASHStreamingSessionURL_dASHFragmentSelector :: Lens' GetDASHStreamingSessionURL (Maybe DASHFragmentSelector)
 
 -- | The maximum number of fragments that are returned in the MPEG-DASH
 --   manifest.
@@ -3785,17 +3795,12 @@ getDASHStreamingSessionURL_displayFragmentNumber :: Lens' GetDASHStreamingSessio
 --   1/2 hours of video on streams with 10-second fragments.
 getDASHStreamingSessionURL_maxManifestFragmentResults :: Lens' GetDASHStreamingSessionURL (Maybe Natural)
 
--- | The time range of the requested fragment and the source of the
---   timestamps.
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+--   MPEG-DASH manifest URL.
 --   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
-getDASHStreamingSessionURL_dASHFragmentSelector :: Lens' GetDASHStreamingSessionURL (Maybe DASHFragmentSelector)
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+getDASHStreamingSessionURL_streamARN :: Lens' GetDASHStreamingSessionURL (Maybe Text)
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --   
@@ -3850,13 +3855,6 @@ getDASHStreamingSessionURL_dASHFragmentSelector :: Lens' GetDASHStreamingSession
 --   The default is <tt>LIVE</tt>.
 getDASHStreamingSessionURL_playbackMode :: Lens' GetDASHStreamingSessionURL (Maybe DASHPlaybackMode)
 
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
---   MPEG-DASH manifest URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-getDASHStreamingSessionURL_streamARN :: Lens' GetDASHStreamingSessionURL (Maybe Text)
-
 -- | The name of the stream for which to retrieve the MPEG-DASH manifest
 --   URL.
 --   
@@ -3864,15 +3862,17 @@ getDASHStreamingSessionURL_streamARN :: Lens' GetDASHStreamingSessionURL (Maybe 
 --   <tt>StreamARN</tt>.
 getDASHStreamingSessionURL_streamName :: Lens' GetDASHStreamingSessionURL (Maybe Text)
 
--- | The time in seconds until the requested session expires. This value
---   can be between 300 (5 minutes) and 43200 (12 hours).
+-- | Fragments are identified in the manifest file based on their sequence
+--   number in the session. If DisplayFragmentNumber is set to
+--   <tt>ALWAYS</tt>, the Kinesis Video Streams fragment number is added to
+--   each S element in the manifest file with the attribute name “kvs:fn”.
+--   These fragment numbers can be used for logging or for use with other
+--   APIs (e.g. <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A
+--   custom MPEG-DASH media player is necessary to leverage these this
+--   custom attribute.
 --   
---   When a session expires, no new calls to <tt>GetDashManifest</tt>,
---   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
---   made for that session.
---   
---   The default is 300 (5 minutes).
-getDASHStreamingSessionURL_expires :: Lens' GetDASHStreamingSessionURL (Maybe Natural)
+--   The default value is <tt>NEVER</tt>.
+getDASHStreamingSessionURL_displayFragmentNumber :: Lens' GetDASHStreamingSessionURL (Maybe DASHDisplayFragmentNumber)
 
 -- | <i>See:</i> <a>newGetDASHStreamingSessionURLResponse</a> smart
 --   constructor.
@@ -4092,302 +4092,6 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideoArchivedMedia.Ge
 
 module Network.AWS.KinesisVideoArchivedMedia.Lens
 
--- | A token to specify where to start paginating. This is the
---   ListFragmentsOutput$NextToken from a previously truncated response.
-listFragments_nextToken :: Lens' ListFragments (Maybe Text)
-
--- | The total number of fragments to return. If the total number of
---   fragments available is more than the value specified in
---   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
---   in the output that you can use to resume pagination.
-listFragments_maxResults :: Lens' ListFragments (Maybe Natural)
-
--- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
---   fragment list. Specify either this parameter or the
---   <tt>StreamName</tt> parameter.
-listFragments_streamARN :: Lens' ListFragments (Maybe Text)
-
--- | The name of the stream from which to retrieve a fragment list. Specify
---   either this parameter or the <tt>StreamARN</tt> parameter.
-listFragments_streamName :: Lens' ListFragments (Maybe Text)
-
--- | Describes the timestamp range and timestamp origin for the range of
---   fragments to return.
-listFragments_fragmentSelector :: Lens' ListFragments (Maybe FragmentSelector)
-
--- | If the returned list is truncated, the operation returns this token to
---   use to retrieve the next page of results. This value is <tt>null</tt>
---   when there are no more results to return.
-listFragmentsResponse_nextToken :: Lens' ListFragmentsResponse (Maybe Text)
-
--- | A list of archived Fragment objects from the stream that meet the
---   selector criteria. Results are in no specific order, even across
---   pages.
-listFragmentsResponse_fragments :: Lens' ListFragmentsResponse (Maybe [Fragment])
-
--- | The response's http status code.
-listFragmentsResponse_httpStatus :: Lens' ListFragmentsResponse Int
-
--- | The Amazon Resource Name (ARN) of the stream from which to retrieve
---   fragment media. Specify either this parameter or the
---   <tt>StreamName</tt> parameter.
-getMediaForFragmentList_streamARN :: Lens' GetMediaForFragmentList (Maybe Text)
-
--- | The name of the stream from which to retrieve fragment media. Specify
---   either this parameter or the <tt>StreamARN</tt> parameter.
-getMediaForFragmentList_streamName :: Lens' GetMediaForFragmentList (Maybe Text)
-
--- | A list of the numbers of fragments for which to retrieve media. You
---   retrieve these values with ListFragments.
-getMediaForFragmentList_fragments :: Lens' GetMediaForFragmentList (NonEmpty Text)
-
--- | The content type of the requested media.
-getMediaForFragmentListResponse_contentType :: Lens' GetMediaForFragmentListResponse (Maybe Text)
-
--- | The response's http status code.
-getMediaForFragmentListResponse_httpStatus :: Lens' GetMediaForFragmentListResponse Int
-
--- | The payload that Kinesis Video Streams returns is a sequence of chunks
---   from the specified stream. For information about the chunks, see
---   <a>PutMedia</a>. The chunks that Kinesis Video Streams returns in the
---   <tt>GetMediaForFragmentList</tt> call also include the following
---   additional Matroska (MKV) tags:
---   
---   <ul>
---   <li>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the
---   chunk.</li>
---   <li>AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of
---   the fragment.</li>
---   <li>AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp
---   of the fragment.</li>
---   </ul>
---   
---   The following tags will be included if an exception occurs:
---   
---   <ul>
---   <li>AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that
---   threw the exception</li>
---   <li>AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the
---   exception</li>
---   <li>AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the
---   exception</li>
---   </ul>
-getMediaForFragmentListResponse_payload :: Lens' GetMediaForFragmentListResponse ResponseBody
-
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
---   media clip.
---   
---   You must specify either the StreamName or the StreamARN.
-getClip_streamARN :: Lens' GetClip (Maybe Text)
-
--- | The name of the stream for which to retrieve the media clip.
---   
---   You must specify either the StreamName or the StreamARN.
-getClip_streamName :: Lens' GetClip (Maybe Text)
-
--- | The time range of the requested clip and the source of the timestamps.
-getClip_clipFragmentSelector :: Lens' GetClip ClipFragmentSelector
-
--- | The content type of the media in the requested clip.
-getClipResponse_contentType :: Lens' GetClipResponse (Maybe Text)
-
--- | The response's http status code.
-getClipResponse_httpStatus :: Lens' GetClipResponse Int
-
--- | Traditional MP4 file that contains the media clip from the specified
---   video stream. The output will contain the first 100 MB or the first
---   200 fragments from the specified start timestamp. For more
---   information, see <a>Kinesis Video Streams Limits</a>.
-getClipResponse_payload :: Lens' GetClipResponse ResponseBody
-
--- | Per the MPEG-DASH specification, the wall-clock time of fragments in
---   the manifest file can be derived using attributes in the manifest
---   itself. However, typically, MPEG-DASH compatible media players do not
---   properly handle gaps in the media timeline. Kinesis Video Streams
---   adjusts the media timeline in the manifest file to enable playback of
---   media with discontinuities. Therefore, the wall-clock time derived
---   from the manifest file may be inaccurate. If DisplayFragmentTimestamp
---   is set to <tt>ALWAYS</tt>, the accurate fragment timestamp is added to
---   each S element in the manifest file with the attribute name “kvs:ts”.
---   A custom MPEG-DASH media player is necessary to leverage this custom
---   attribute.
---   
---   The default value is <tt>NEVER</tt>. When DASHFragmentSelector is
---   <tt>SERVER_TIMESTAMP</tt>, the timestamps will be the server start
---   timestamps. Similarly, when DASHFragmentSelector is
---   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
---   timestamps.
-getDASHStreamingSessionURL_displayFragmentTimestamp :: Lens' GetDASHStreamingSessionURL (Maybe DASHDisplayFragmentTimestamp)
-
--- | Fragments are identified in the manifest file based on their sequence
---   number in the session. If DisplayFragmentNumber is set to
---   <tt>ALWAYS</tt>, the Kinesis Video Streams fragment number is added to
---   each S element in the manifest file with the attribute name “kvs:fn”.
---   These fragment numbers can be used for logging or for use with other
---   APIs (e.g. <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A
---   custom MPEG-DASH media player is necessary to leverage these this
---   custom attribute.
---   
---   The default value is <tt>NEVER</tt>.
-getDASHStreamingSessionURL_displayFragmentNumber :: Lens' GetDASHStreamingSessionURL (Maybe DASHDisplayFragmentNumber)
-
--- | The maximum number of fragments that are returned in the MPEG-DASH
---   manifest.
---   
---   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
---   fragments are returned up to this value. When the
---   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
---   returned, up to this maximum number.
---   
---   When there are a higher number of fragments available in a live
---   MPEG-DASH manifest, video players often buffer content before starting
---   playback. Increasing the buffer size increases the playback latency,
---   but it decreases the likelihood that rebuffering will occur during
---   playback. We recommend that a live MPEG-DASH manifest have a minimum
---   of 3 fragments and a maximum of 10 fragments.
---   
---   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
---   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt>.
---   
---   The maximum value of 1,000 fragments corresponds to more than 16
---   minutes of video on streams with 1-second fragments, and more than 2
---   1/2 hours of video on streams with 10-second fragments.
-getDASHStreamingSessionURL_maxManifestFragmentResults :: Lens' GetDASHStreamingSessionURL (Maybe Natural)
-
--- | The time range of the requested fragment and the source of the
---   timestamps.
---   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
-getDASHStreamingSessionURL_dASHFragmentSelector :: Lens' GetDASHStreamingSessionURL (Maybe DASHFragmentSelector)
-
--- | Whether to retrieve live, live replay, or archived, on-demand data.
---   
---   Features of the three types of sessions include the following:
---   
---   <ul>
---   <li><b><tt>LIVE</tt></b> : For sessions of this type, the MPEG-DASH
---   manifest is continually updated with the latest fragments as they
---   become available. We recommend that the media player retrieve a new
---   manifest on a one-second interval. When this type of session is played
---   in a media player, the user interface typically displays a "live"
---   notification, with no scrubber control for choosing the position in
---   the playback window to display.In <tt>LIVE</tt> mode, the newest
---   available fragments are included in an MPEG-DASH manifest, even if
---   there is a gap between fragments (that is, if a fragment is missing).
---   A gap like this might cause a media player to halt or cause a jump in
---   playback. In this mode, fragments are not added to the MPEG-DASH
---   manifest if they are older than the newest fragment in the playlist.
---   If the missing fragment becomes available after a subsequent fragment
---   is added to the manifest, the older fragment is not added, and the gap
---   is not filled.</li>
---   <li><b><tt>LIVE_REPLAY</tt></b> : For sessions of this type, the
---   MPEG-DASH manifest is updated similarly to how it is updated for
---   <tt>LIVE</tt> mode except that it starts by including fragments from a
---   given start time. Instead of fragments being added as they are
---   ingested, fragments are added as the duration of the next fragment
---   elapses. For example, if the fragments in the session are two seconds
---   long, then a new fragment is added to the manifest every two seconds.
---   This mode is useful to be able to start playback from when an event is
---   detected and continue live streaming media that has not yet been
---   ingested as of the time of the session creation. This mode is also
---   useful to stream previously archived media without being limited by
---   the 1,000 fragment limit in the <tt>ON_DEMAND</tt> mode.</li>
---   <li><b><tt>ON_DEMAND</tt></b> : For sessions of this type, the
---   MPEG-DASH manifest contains all the fragments for the session, up to
---   the number that is specified in <tt>MaxManifestFragmentResults</tt>.
---   The manifest must be retrieved only once for each session. When this
---   type of session is played in a media player, the user interface
---   typically displays a scrubber control for choosing the position in the
---   playback window to display.</li>
---   </ul>
---   
---   In all playback modes, if <tt>FragmentSelectorType</tt> is
---   <tt>PRODUCER_TIMESTAMP</tt>, and if there are multiple fragments with
---   the same start timestamp, the fragment that has the larger fragment
---   number (that is, the newer fragment) is included in the MPEG-DASH
---   manifest. The other fragments are not included. Fragments that have
---   different timestamps but have overlapping durations are still included
---   in the MPEG-DASH manifest. This can lead to unexpected behavior in the
---   media player.
---   
---   The default is <tt>LIVE</tt>.
-getDASHStreamingSessionURL_playbackMode :: Lens' GetDASHStreamingSessionURL (Maybe DASHPlaybackMode)
-
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
---   MPEG-DASH manifest URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-getDASHStreamingSessionURL_streamARN :: Lens' GetDASHStreamingSessionURL (Maybe Text)
-
--- | The name of the stream for which to retrieve the MPEG-DASH manifest
---   URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-getDASHStreamingSessionURL_streamName :: Lens' GetDASHStreamingSessionURL (Maybe Text)
-
--- | The time in seconds until the requested session expires. This value
---   can be between 300 (5 minutes) and 43200 (12 hours).
---   
---   When a session expires, no new calls to <tt>GetDashManifest</tt>,
---   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
---   made for that session.
---   
---   The default is 300 (5 minutes).
-getDASHStreamingSessionURL_expires :: Lens' GetDASHStreamingSessionURL (Maybe Natural)
-
--- | The URL (containing the session token) that a media player can use to
---   retrieve the MPEG-DASH manifest.
-getDASHStreamingSessionURLResponse_dASHStreamingSessionURL :: Lens' GetDASHStreamingSessionURLResponse (Maybe Text)
-
--- | The response's http status code.
-getDASHStreamingSessionURLResponse_httpStatus :: Lens' GetDASHStreamingSessionURLResponse Int
-
--- | The maximum number of fragments that are returned in the HLS media
---   playlists.
---   
---   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
---   fragments are returned up to this value. When the
---   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
---   returned, up to this maximum number.
---   
---   When there are a higher number of fragments available in a live HLS
---   media playlist, video players often buffer content before starting
---   playback. Increasing the buffer size increases the playback latency,
---   but it decreases the likelihood that rebuffering will occur during
---   playback. We recommend that a live HLS media playlist have a minimum
---   of 3 fragments and a maximum of 10 fragments.
---   
---   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
---   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt>.
---   
---   The maximum value of 5,000 fragments corresponds to more than 80
---   minutes of video on streams with 1-second fragments, and more than 13
---   hours of video on streams with 10-second fragments.
-getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
-
--- | Specifies which format should be used for packaging the media.
---   Specifying the <tt>FRAGMENTED_MP4</tt> container format packages the
---   media into MP4 fragments (fMP4 or CMAF). This is the recommended
---   packaging because there is minimal packaging overhead. The other
---   container format option is <tt>MPEG_TS</tt>. HLS has supported MPEG TS
---   chunks since it was released and is sometimes the only supported
---   packaging on older HLS players. MPEG TS typically has a 5-25 percent
---   packaging overhead. This means MPEG TS typically requires 5-25 percent
---   more bandwidth and cost than fMP4.
---   
---   The default is <tt>FRAGMENTED_MP4</tt>.
-getHLSStreamingSessionURL_containerFormat :: Lens' GetHLSStreamingSessionURL (Maybe ContainerFormat)
-
 -- | Specifies when the fragment start timestamps should be included in the
 --   HLS media playlist. Typically, media players report the playhead
 --   position as a time relative to the start of the first fragment in the
@@ -4403,6 +4107,36 @@ getHLSStreamingSessionURL_containerFormat :: Lens' GetHLSStreamingSessionURL (Ma
 --   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
 --   timestamps.
 getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens' GetHLSStreamingSessionURL (Maybe HLSDisplayFragmentTimestamp)
+
+-- | The time range of the requested fragment and the source of the
+--   timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+getHLSStreamingSessionURL_hLSFragmentSelector :: Lens' GetHLSStreamingSessionURL (Maybe HLSFragmentSelector)
+
+-- | The time in seconds until the requested session expires. This value
+--   can be between 300 (5 minutes) and 43200 (12 hours).
+--   
+--   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
+--   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
+--   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
+--   for that session.
+--   
+--   The default is 300 (5 minutes).
+getHLSStreamingSessionURL_expires :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
+
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+--   HLS master playlist URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+getHLSStreamingSessionURL_streamARN :: Lens' GetHLSStreamingSessionURL (Maybe Text)
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --   
@@ -4457,30 +4191,42 @@ getHLSStreamingSessionURL_displayFragmentTimestamp :: Lens' GetHLSStreamingSessi
 --   The default is <tt>LIVE</tt>.
 getHLSStreamingSessionURL_playbackMode :: Lens' GetHLSStreamingSessionURL (Maybe HLSPlaybackMode)
 
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
---   HLS master playlist URL.
+-- | Specifies which format should be used for packaging the media.
+--   Specifying the <tt>FRAGMENTED_MP4</tt> container format packages the
+--   media into MP4 fragments (fMP4 or CMAF). This is the recommended
+--   packaging because there is minimal packaging overhead. The other
+--   container format option is <tt>MPEG_TS</tt>. HLS has supported MPEG TS
+--   chunks since it was released and is sometimes the only supported
+--   packaging on older HLS players. MPEG TS typically has a 5-25 percent
+--   packaging overhead. This means MPEG TS typically requires 5-25 percent
+--   more bandwidth and cost than fMP4.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-getHLSStreamingSessionURL_streamARN :: Lens' GetHLSStreamingSessionURL (Maybe Text)
+--   The default is <tt>FRAGMENTED_MP4</tt>.
+getHLSStreamingSessionURL_containerFormat :: Lens' GetHLSStreamingSessionURL (Maybe ContainerFormat)
 
--- | The name of the stream for which to retrieve the HLS master playlist
---   URL.
+-- | The maximum number of fragments that are returned in the HLS media
+--   playlists.
 --   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
-getHLSStreamingSessionURL_streamName :: Lens' GetHLSStreamingSessionURL (Maybe Text)
-
--- | The time in seconds until the requested session expires. This value
---   can be between 300 (5 minutes) and 43200 (12 hours).
+--   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
+--   fragments are returned up to this value. When the
+--   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
+--   returned, up to this maximum number.
 --   
---   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
---   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
---   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
---   for that session.
+--   When there are a higher number of fragments available in a live HLS
+--   media playlist, video players often buffer content before starting
+--   playback. Increasing the buffer size increases the playback latency,
+--   but it decreases the likelihood that rebuffering will occur during
+--   playback. We recommend that a live HLS media playlist have a minimum
+--   of 3 fragments and a maximum of 10 fragments.
 --   
---   The default is 300 (5 minutes).
-getHLSStreamingSessionURL_expires :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
+--   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
+--   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt>.
+--   
+--   The maximum value of 5,000 fragments corresponds to more than 80
+--   minutes of video on streams with 1-second fragments, and more than 13
+--   hours of video on streams with 10-second fragments.
+getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens' GetHLSStreamingSessionURL (Maybe Natural)
 
 -- | Specifies when flags marking discontinuities between fragments are
 --   added to the media playlists.
@@ -4519,6 +4265,157 @@ getHLSStreamingSessionURL_expires :: Lens' GetHLSStreamingSessionURL (Maybe Natu
 --   <tt>PRODUCER_TIMESTAMP</tt>.
 getHLSStreamingSessionURL_discontinuityMode :: Lens' GetHLSStreamingSessionURL (Maybe HLSDiscontinuityMode)
 
+-- | The name of the stream for which to retrieve the HLS master playlist
+--   URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+getHLSStreamingSessionURL_streamName :: Lens' GetHLSStreamingSessionURL (Maybe Text)
+
+-- | The URL (containing the session token) that a media player can use to
+--   retrieve the HLS master playlist.
+getHLSStreamingSessionURLResponse_hLSStreamingSessionURL :: Lens' GetHLSStreamingSessionURLResponse (Maybe Text)
+
+-- | The response's http status code.
+getHLSStreamingSessionURLResponse_httpStatus :: Lens' GetHLSStreamingSessionURLResponse Int
+
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+--   media clip.
+--   
+--   You must specify either the StreamName or the StreamARN.
+getClip_streamARN :: Lens' GetClip (Maybe Text)
+
+-- | The name of the stream for which to retrieve the media clip.
+--   
+--   You must specify either the StreamName or the StreamARN.
+getClip_streamName :: Lens' GetClip (Maybe Text)
+
+-- | The time range of the requested clip and the source of the timestamps.
+getClip_clipFragmentSelector :: Lens' GetClip ClipFragmentSelector
+
+-- | The content type of the media in the requested clip.
+getClipResponse_contentType :: Lens' GetClipResponse (Maybe Text)
+
+-- | The response's http status code.
+getClipResponse_httpStatus :: Lens' GetClipResponse Int
+
+-- | Traditional MP4 file that contains the media clip from the specified
+--   video stream. The output will contain the first 100 MB or the first
+--   200 fragments from the specified start timestamp. For more
+--   information, see <a>Kinesis Video Streams Limits</a>.
+getClipResponse_payload :: Lens' GetClipResponse ResponseBody
+
+-- | The Amazon Resource Name (ARN) of the stream from which to retrieve
+--   fragment media. Specify either this parameter or the
+--   <tt>StreamName</tt> parameter.
+getMediaForFragmentList_streamARN :: Lens' GetMediaForFragmentList (Maybe Text)
+
+-- | The name of the stream from which to retrieve fragment media. Specify
+--   either this parameter or the <tt>StreamARN</tt> parameter.
+getMediaForFragmentList_streamName :: Lens' GetMediaForFragmentList (Maybe Text)
+
+-- | A list of the numbers of fragments for which to retrieve media. You
+--   retrieve these values with ListFragments.
+getMediaForFragmentList_fragments :: Lens' GetMediaForFragmentList (NonEmpty Text)
+
+-- | The content type of the requested media.
+getMediaForFragmentListResponse_contentType :: Lens' GetMediaForFragmentListResponse (Maybe Text)
+
+-- | The response's http status code.
+getMediaForFragmentListResponse_httpStatus :: Lens' GetMediaForFragmentListResponse Int
+
+-- | The payload that Kinesis Video Streams returns is a sequence of chunks
+--   from the specified stream. For information about the chunks, see
+--   <a>PutMedia</a>. The chunks that Kinesis Video Streams returns in the
+--   <tt>GetMediaForFragmentList</tt> call also include the following
+--   additional Matroska (MKV) tags:
+--   
+--   <ul>
+--   <li>AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the
+--   chunk.</li>
+--   <li>AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of
+--   the fragment.</li>
+--   <li>AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp
+--   of the fragment.</li>
+--   </ul>
+--   
+--   The following tags will be included if an exception occurs:
+--   
+--   <ul>
+--   <li>AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that
+--   threw the exception</li>
+--   <li>AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the
+--   exception</li>
+--   <li>AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the
+--   exception</li>
+--   </ul>
+getMediaForFragmentListResponse_payload :: Lens' GetMediaForFragmentListResponse ResponseBody
+
+-- | Describes the timestamp range and timestamp origin for the range of
+--   fragments to return.
+listFragments_fragmentSelector :: Lens' ListFragments (Maybe FragmentSelector)
+
+-- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
+--   fragment list. Specify either this parameter or the
+--   <tt>StreamName</tt> parameter.
+listFragments_streamARN :: Lens' ListFragments (Maybe Text)
+
+-- | A token to specify where to start paginating. This is the
+--   ListFragmentsOutput$NextToken from a previously truncated response.
+listFragments_nextToken :: Lens' ListFragments (Maybe Text)
+
+-- | The name of the stream from which to retrieve a fragment list. Specify
+--   either this parameter or the <tt>StreamARN</tt> parameter.
+listFragments_streamName :: Lens' ListFragments (Maybe Text)
+
+-- | The total number of fragments to return. If the total number of
+--   fragments available is more than the value specified in
+--   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
+--   in the output that you can use to resume pagination.
+listFragments_maxResults :: Lens' ListFragments (Maybe Natural)
+
+-- | If the returned list is truncated, the operation returns this token to
+--   use to retrieve the next page of results. This value is <tt>null</tt>
+--   when there are no more results to return.
+listFragmentsResponse_nextToken :: Lens' ListFragmentsResponse (Maybe Text)
+
+-- | A list of archived Fragment objects from the stream that meet the
+--   selector criteria. Results are in no specific order, even across
+--   pages.
+listFragmentsResponse_fragments :: Lens' ListFragmentsResponse (Maybe [Fragment])
+
+-- | The response's http status code.
+listFragmentsResponse_httpStatus :: Lens' ListFragmentsResponse Int
+
+-- | Per the MPEG-DASH specification, the wall-clock time of fragments in
+--   the manifest file can be derived using attributes in the manifest
+--   itself. However, typically, MPEG-DASH compatible media players do not
+--   properly handle gaps in the media timeline. Kinesis Video Streams
+--   adjusts the media timeline in the manifest file to enable playback of
+--   media with discontinuities. Therefore, the wall-clock time derived
+--   from the manifest file may be inaccurate. If DisplayFragmentTimestamp
+--   is set to <tt>ALWAYS</tt>, the accurate fragment timestamp is added to
+--   each S element in the manifest file with the attribute name “kvs:ts”.
+--   A custom MPEG-DASH media player is necessary to leverage this custom
+--   attribute.
+--   
+--   The default value is <tt>NEVER</tt>. When DASHFragmentSelector is
+--   <tt>SERVER_TIMESTAMP</tt>, the timestamps will be the server start
+--   timestamps. Similarly, when DASHFragmentSelector is
+--   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
+--   timestamps.
+getDASHStreamingSessionURL_displayFragmentTimestamp :: Lens' GetDASHStreamingSessionURL (Maybe DASHDisplayFragmentTimestamp)
+
+-- | The time in seconds until the requested session expires. This value
+--   can be between 300 (5 minutes) and 43200 (12 hours).
+--   
+--   When a session expires, no new calls to <tt>GetDashManifest</tt>,
+--   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
+--   made for that session.
+--   
+--   The default is 300 (5 minutes).
+getDASHStreamingSessionURL_expires :: Lens' GetDASHStreamingSessionURL (Maybe Natural)
+
 -- | The time range of the requested fragment and the source of the
 --   timestamps.
 --   
@@ -4529,14 +4426,117 @@ getHLSStreamingSessionURL_discontinuityMode :: Lens' GetHLSStreamingSessionURL (
 --   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
 --   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
 --   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
-getHLSStreamingSessionURL_hLSFragmentSelector :: Lens' GetHLSStreamingSessionURL (Maybe HLSFragmentSelector)
+getDASHStreamingSessionURL_dASHFragmentSelector :: Lens' GetDASHStreamingSessionURL (Maybe DASHFragmentSelector)
+
+-- | The maximum number of fragments that are returned in the MPEG-DASH
+--   manifest.
+--   
+--   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
+--   fragments are returned up to this value. When the
+--   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
+--   returned, up to this maximum number.
+--   
+--   When there are a higher number of fragments available in a live
+--   MPEG-DASH manifest, video players often buffer content before starting
+--   playback. Increasing the buffer size increases the playback latency,
+--   but it decreases the likelihood that rebuffering will occur during
+--   playback. We recommend that a live MPEG-DASH manifest have a minimum
+--   of 3 fragments and a maximum of 10 fragments.
+--   
+--   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
+--   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt>.
+--   
+--   The maximum value of 1,000 fragments corresponds to more than 16
+--   minutes of video on streams with 1-second fragments, and more than 2
+--   1/2 hours of video on streams with 10-second fragments.
+getDASHStreamingSessionURL_maxManifestFragmentResults :: Lens' GetDASHStreamingSessionURL (Maybe Natural)
+
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+--   MPEG-DASH manifest URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+getDASHStreamingSessionURL_streamARN :: Lens' GetDASHStreamingSessionURL (Maybe Text)
+
+-- | Whether to retrieve live, live replay, or archived, on-demand data.
+--   
+--   Features of the three types of sessions include the following:
+--   
+--   <ul>
+--   <li><b><tt>LIVE</tt></b> : For sessions of this type, the MPEG-DASH
+--   manifest is continually updated with the latest fragments as they
+--   become available. We recommend that the media player retrieve a new
+--   manifest on a one-second interval. When this type of session is played
+--   in a media player, the user interface typically displays a "live"
+--   notification, with no scrubber control for choosing the position in
+--   the playback window to display.In <tt>LIVE</tt> mode, the newest
+--   available fragments are included in an MPEG-DASH manifest, even if
+--   there is a gap between fragments (that is, if a fragment is missing).
+--   A gap like this might cause a media player to halt or cause a jump in
+--   playback. In this mode, fragments are not added to the MPEG-DASH
+--   manifest if they are older than the newest fragment in the playlist.
+--   If the missing fragment becomes available after a subsequent fragment
+--   is added to the manifest, the older fragment is not added, and the gap
+--   is not filled.</li>
+--   <li><b><tt>LIVE_REPLAY</tt></b> : For sessions of this type, the
+--   MPEG-DASH manifest is updated similarly to how it is updated for
+--   <tt>LIVE</tt> mode except that it starts by including fragments from a
+--   given start time. Instead of fragments being added as they are
+--   ingested, fragments are added as the duration of the next fragment
+--   elapses. For example, if the fragments in the session are two seconds
+--   long, then a new fragment is added to the manifest every two seconds.
+--   This mode is useful to be able to start playback from when an event is
+--   detected and continue live streaming media that has not yet been
+--   ingested as of the time of the session creation. This mode is also
+--   useful to stream previously archived media without being limited by
+--   the 1,000 fragment limit in the <tt>ON_DEMAND</tt> mode.</li>
+--   <li><b><tt>ON_DEMAND</tt></b> : For sessions of this type, the
+--   MPEG-DASH manifest contains all the fragments for the session, up to
+--   the number that is specified in <tt>MaxManifestFragmentResults</tt>.
+--   The manifest must be retrieved only once for each session. When this
+--   type of session is played in a media player, the user interface
+--   typically displays a scrubber control for choosing the position in the
+--   playback window to display.</li>
+--   </ul>
+--   
+--   In all playback modes, if <tt>FragmentSelectorType</tt> is
+--   <tt>PRODUCER_TIMESTAMP</tt>, and if there are multiple fragments with
+--   the same start timestamp, the fragment that has the larger fragment
+--   number (that is, the newer fragment) is included in the MPEG-DASH
+--   manifest. The other fragments are not included. Fragments that have
+--   different timestamps but have overlapping durations are still included
+--   in the MPEG-DASH manifest. This can lead to unexpected behavior in the
+--   media player.
+--   
+--   The default is <tt>LIVE</tt>.
+getDASHStreamingSessionURL_playbackMode :: Lens' GetDASHStreamingSessionURL (Maybe DASHPlaybackMode)
+
+-- | The name of the stream for which to retrieve the MPEG-DASH manifest
+--   URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+getDASHStreamingSessionURL_streamName :: Lens' GetDASHStreamingSessionURL (Maybe Text)
+
+-- | Fragments are identified in the manifest file based on their sequence
+--   number in the session. If DisplayFragmentNumber is set to
+--   <tt>ALWAYS</tt>, the Kinesis Video Streams fragment number is added to
+--   each S element in the manifest file with the attribute name “kvs:fn”.
+--   These fragment numbers can be used for logging or for use with other
+--   APIs (e.g. <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A
+--   custom MPEG-DASH media player is necessary to leverage these this
+--   custom attribute.
+--   
+--   The default value is <tt>NEVER</tt>.
+getDASHStreamingSessionURL_displayFragmentNumber :: Lens' GetDASHStreamingSessionURL (Maybe DASHDisplayFragmentNumber)
 
 -- | The URL (containing the session token) that a media player can use to
---   retrieve the HLS master playlist.
-getHLSStreamingSessionURLResponse_hLSStreamingSessionURL :: Lens' GetHLSStreamingSessionURLResponse (Maybe Text)
+--   retrieve the MPEG-DASH manifest.
+getDASHStreamingSessionURLResponse_dASHStreamingSessionURL :: Lens' GetDASHStreamingSessionURLResponse (Maybe Text)
 
 -- | The response's http status code.
-getHLSStreamingSessionURLResponse_httpStatus :: Lens' GetHLSStreamingSessionURLResponse Int
+getDASHStreamingSessionURLResponse_httpStatus :: Lens' GetDASHStreamingSessionURLResponse Int
 
 -- | The origin of the timestamps to use (Server or Producer).
 clipFragmentSelector_fragmentSelectorType :: Lens' ClipFragmentSelector ClipFragmentSelectorType
@@ -4640,23 +4640,23 @@ dASHTimestampRange_endTimestamp :: Lens' DASHTimestampRange (Maybe UTCTime)
 --   than the stream head.
 dASHTimestampRange_startTimestamp :: Lens' DASHTimestampRange (Maybe UTCTime)
 
--- | The timestamp from the producer corresponding to the fragment.
-fragment_producerTimestamp :: Lens' Fragment (Maybe UTCTime)
+-- | The playback duration or other time value associated with the
+--   fragment.
+fragment_fragmentLengthInMilliseconds :: Lens' Fragment (Maybe Integer)
 
 -- | The timestamp from the AWS server corresponding to the fragment.
 fragment_serverTimestamp :: Lens' Fragment (Maybe UTCTime)
-
--- | The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
-fragment_fragmentNumber :: Lens' Fragment (Maybe Text)
 
 -- | The total fragment size, including information about the fragment and
 --   contained media data.
 fragment_fragmentSizeInBytes :: Lens' Fragment (Maybe Integer)
 
--- | The playback duration or other time value associated with the
---   fragment.
-fragment_fragmentLengthInMilliseconds :: Lens' Fragment (Maybe Integer)
+-- | The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+fragment_fragmentNumber :: Lens' Fragment (Maybe Text)
+
+-- | The timestamp from the producer corresponding to the fragment.
+fragment_producerTimestamp :: Lens' Fragment (Maybe UTCTime)
 
 -- | The origin of the timestamps to use (Server or Producer).
 fragmentSelector_fragmentSelectorType :: Lens' FragmentSelector FragmentSelectorType
@@ -4759,18 +4759,22 @@ defaultService :: Service
 --   the specified codec.
 _InvalidMediaFrameException :: AsError a => Getting (First ServiceError) a ServiceError
 
+-- | A streaming session was requested for a stream that does not retain
+--   data (that is, has a <tt>DataRetentionInHours</tt> of 0).
+_NoDataRetentionException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A specified parameter exceeds its restrictions, is not supported, or
+--   can't be used.
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Status Code: 403, The caller is not authorized to perform an operation
+--   on the given stream, or the token has expired.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | Kinesis Video Streams has throttled the request because you have
 --   exceeded a limit. Try making the call later. For information about
 --   limits, see <a>Kinesis Video Streams Limits</a>.
 _ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The codec private data in at least one of the tracks of the video
---   stream is not valid for this operation.
-_InvalidCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A streaming session was requested for a stream that does not retain
---   data (that is, has a <tt>DataRetentionInHours</tt> of 0).
-_NoDataRetentionException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The type of the media (for example, h.264 or h.265 video or ACC or
 --   G.711 audio) could not be determined from the codec IDs of the tracks
@@ -4778,6 +4782,14 @@ _NoDataRetentionException :: AsError a => Getting (First ServiceError) a Service
 --   should be <tt>V_MPEG/ISO/AVC</tt> and, optionally, the codec ID for
 --   track 2 should be <tt>A_AAC</tt>.
 _UnsupportedStreamMediaTypeException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The codec private data in at least one of the tracks of the video
+--   stream is not valid for this operation.
+_InvalidCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | No codec private data was found in at least one of tracks of the video
+--   stream.
+_MissingCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <tt>GetMedia</tt> throws this error when Kinesis Video Streams can't
 --   find the stream that you specified.
@@ -4791,60 +4803,11 @@ _UnsupportedStreamMediaTypeException :: AsError a => Getting (First ServiceError
 --   has no fragments within the last 30 seconds.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | No codec private data was found in at least one of tracks of the video
---   stream.
-_MissingCodecPrivateDataException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | <i>See:</i> <a>newGetHLSStreamingSessionURL</a> smart constructor.
+data GetHLSStreamingSessionURL
+GetHLSStreamingSessionURL' :: Maybe HLSDisplayFragmentTimestamp -> Maybe HLSFragmentSelector -> Maybe Natural -> Maybe Text -> Maybe HLSPlaybackMode -> Maybe ContainerFormat -> Maybe Natural -> Maybe HLSDiscontinuityMode -> Maybe Text -> GetHLSStreamingSessionURL
 
--- | Status Code: 403, The caller is not authorized to perform an operation
---   on the given stream, or the token has expired.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A specified parameter exceeds its restrictions, is not supported, or
---   can't be used.
-_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | <i>See:</i> <a>newListFragments</a> smart constructor.
-data ListFragments
-ListFragments' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe FragmentSelector -> ListFragments
-
--- | Create a value of <a>ListFragments</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListFragments'</a>, <a>listFragments_nextToken</a> -
---   A token to specify where to start paginating. This is the
---   ListFragmentsOutput$NextToken from a previously truncated response.
---   
---   <a>$sel:maxResults:ListFragments'</a>, <a>listFragments_maxResults</a>
---   - The total number of fragments to return. If the total number of
---   fragments available is more than the value specified in
---   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
---   in the output that you can use to resume pagination.
---   
---   <a>$sel:streamARN:ListFragments'</a>, <a>listFragments_streamARN</a> -
---   The Amazon Resource Name (ARN) of the stream from which to retrieve a
---   fragment list. Specify either this parameter or the
---   <tt>StreamName</tt> parameter.
---   
---   <a>$sel:streamName:ListFragments'</a>, <a>listFragments_streamName</a>
---   - The name of the stream from which to retrieve a fragment list.
---   Specify either this parameter or the <tt>StreamARN</tt> parameter.
---   
---   <a>$sel:fragmentSelector:ListFragments'</a>,
---   <a>listFragments_fragmentSelector</a> - Describes the timestamp range
---   and timestamp origin for the range of fragments to return.
-newListFragments :: ListFragments
-
--- | <i>See:</i> <a>newListFragmentsResponse</a> smart constructor.
-data ListFragmentsResponse
-ListFragmentsResponse' :: Maybe Text -> Maybe [Fragment] -> Int -> ListFragmentsResponse
-
--- | Create a value of <a>ListFragmentsResponse</a> with all optional
+-- | Create a value of <a>GetHLSStreamingSessionURL</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4853,21 +4816,272 @@ ListFragmentsResponse' :: Maybe Text -> Maybe [Fragment] -> Int -> ListFragments
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListFragments'</a>,
---   <a>listFragmentsResponse_nextToken</a> - If the returned list is
---   truncated, the operation returns this token to use to retrieve the
---   next page of results. This value is <tt>null</tt> when there are no
---   more results to return.
+--   <a>$sel:displayFragmentTimestamp:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_displayFragmentTimestamp</a> - Specifies
+--   when the fragment start timestamps should be included in the HLS media
+--   playlist. Typically, media players report the playhead position as a
+--   time relative to the start of the first fragment in the playback
+--   session. However, when the start timestamps are included in the HLS
+--   media playlist, some media players might report the current playhead
+--   as an absolute time based on the fragment timestamps. This can be
+--   useful for creating a playback experience that shows viewers the
+--   wall-clock time of the media.
 --   
---   <a>$sel:fragments:ListFragmentsResponse'</a>,
---   <a>listFragmentsResponse_fragments</a> - A list of archived Fragment
---   objects from the stream that meet the selector criteria. Results are
---   in no specific order, even across pages.
+--   The default is <tt>NEVER</tt>. When HLSFragmentSelector is
+--   <tt>SERVER_TIMESTAMP</tt>, the timestamps will be the server start
+--   timestamps. Similarly, when HLSFragmentSelector is
+--   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
+--   timestamps.
 --   
---   <a>$sel:httpStatus:ListFragmentsResponse'</a>,
---   <a>listFragmentsResponse_httpStatus</a> - The response's http status
---   code.
-newListFragmentsResponse :: Int -> ListFragmentsResponse
+--   <a>$sel:hLSFragmentSelector:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_hLSFragmentSelector</a> - The time range
+--   of the requested fragment and the source of the timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+--   
+--   <a>$sel:expires:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_expires</a> - The time in seconds until
+--   the requested session expires. This value can be between 300 (5
+--   minutes) and 43200 (12 hours).
+--   
+--   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
+--   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
+--   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
+--   for that session.
+--   
+--   The default is 300 (5 minutes).
+--   
+--   <a>$sel:streamARN:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_streamARN</a> - The Amazon Resource Name
+--   (ARN) of the stream for which to retrieve the HLS master playlist URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+--   
+--   <a>$sel:playbackMode:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_playbackMode</a> - Whether to retrieve
+--   live, live replay, or archived, on-demand data.
+--   
+--   Features of the three types of sessions include the following:
+--   
+--   <ul>
+--   <li><b><tt>LIVE</tt></b> : For sessions of this type, the HLS media
+--   playlist is continually updated with the latest fragments as they
+--   become available. We recommend that the media player retrieve a new
+--   playlist on a one-second interval. When this type of session is played
+--   in a media player, the user interface typically displays a "live"
+--   notification, with no scrubber control for choosing the position in
+--   the playback window to display.In <tt>LIVE</tt> mode, the newest
+--   available fragments are included in an HLS media playlist, even if
+--   there is a gap between fragments (that is, if a fragment is missing).
+--   A gap like this might cause a media player to halt or cause a jump in
+--   playback. In this mode, fragments are not added to the HLS media
+--   playlist if they are older than the newest fragment in the playlist.
+--   If the missing fragment becomes available after a subsequent fragment
+--   is added to the playlist, the older fragment is not added, and the gap
+--   is not filled.</li>
+--   <li><b><tt>LIVE_REPLAY</tt></b> : For sessions of this type, the HLS
+--   media playlist is updated similarly to how it is updated for
+--   <tt>LIVE</tt> mode except that it starts by including fragments from a
+--   given start time. Instead of fragments being added as they are
+--   ingested, fragments are added as the duration of the next fragment
+--   elapses. For example, if the fragments in the session are two seconds
+--   long, then a new fragment is added to the media playlist every two
+--   seconds. This mode is useful to be able to start playback from when an
+--   event is detected and continue live streaming media that has not yet
+--   been ingested as of the time of the session creation. This mode is
+--   also useful to stream previously archived media without being limited
+--   by the 1,000 fragment limit in the <tt>ON_DEMAND</tt> mode.</li>
+--   <li><b><tt>ON_DEMAND</tt></b> : For sessions of this type, the HLS
+--   media playlist contains all the fragments for the session, up to the
+--   number that is specified in <tt>MaxMediaPlaylistFragmentResults</tt>.
+--   The playlist must be retrieved only once for each session. When this
+--   type of session is played in a media player, the user interface
+--   typically displays a scrubber control for choosing the position in the
+--   playback window to display.</li>
+--   </ul>
+--   
+--   In all playback modes, if <tt>FragmentSelectorType</tt> is
+--   <tt>PRODUCER_TIMESTAMP</tt>, and if there are multiple fragments with
+--   the same start timestamp, the fragment that has the largest fragment
+--   number (that is, the newest fragment) is included in the HLS media
+--   playlist. The other fragments are not included. Fragments that have
+--   different timestamps but have overlapping durations are still included
+--   in the HLS media playlist. This can lead to unexpected behavior in the
+--   media player.
+--   
+--   The default is <tt>LIVE</tt>.
+--   
+--   <a>$sel:containerFormat:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_containerFormat</a> - Specifies which
+--   format should be used for packaging the media. Specifying the
+--   <tt>FRAGMENTED_MP4</tt> container format packages the media into MP4
+--   fragments (fMP4 or CMAF). This is the recommended packaging because
+--   there is minimal packaging overhead. The other container format option
+--   is <tt>MPEG_TS</tt>. HLS has supported MPEG TS chunks since it was
+--   released and is sometimes the only supported packaging on older HLS
+--   players. MPEG TS typically has a 5-25 percent packaging overhead. This
+--   means MPEG TS typically requires 5-25 percent more bandwidth and cost
+--   than fMP4.
+--   
+--   The default is <tt>FRAGMENTED_MP4</tt>.
+--   
+--   
+--   <a>$sel:maxMediaPlaylistFragmentResults:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults</a> - The
+--   maximum number of fragments that are returned in the HLS media
+--   playlists.
+--   
+--   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
+--   fragments are returned up to this value. When the
+--   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
+--   returned, up to this maximum number.
+--   
+--   When there are a higher number of fragments available in a live HLS
+--   media playlist, video players often buffer content before starting
+--   playback. Increasing the buffer size increases the playback latency,
+--   but it decreases the likelihood that rebuffering will occur during
+--   playback. We recommend that a live HLS media playlist have a minimum
+--   of 3 fragments and a maximum of 10 fragments.
+--   
+--   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
+--   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt>.
+--   
+--   The maximum value of 5,000 fragments corresponds to more than 80
+--   minutes of video on streams with 1-second fragments, and more than 13
+--   hours of video on streams with 10-second fragments.
+--   
+--   <a>$sel:discontinuityMode:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_discontinuityMode</a> - Specifies when
+--   flags marking discontinuities between fragments are added to the media
+--   playlists.
+--   
+--   Media players typically build a timeline of media content to play,
+--   based on the timestamps of each fragment. This means that if there is
+--   any overlap or gap between fragments (as is typical if
+--   HLSFragmentSelector is set to <tt>SERVER_TIMESTAMP</tt>), the media
+--   player timeline will also have small gaps between fragments in some
+--   places, and will overwrite frames in other places. Gaps in the media
+--   player timeline can cause playback to stall and overlaps can cause
+--   playback to be jittery. When there are discontinuity flags between
+--   fragments, the media player is expected to reset the timeline,
+--   resulting in the next fragment being played immediately after the
+--   previous fragment.
+--   
+--   The following modes are supported:
+--   
+--   <ul>
+--   <li><tt>ALWAYS</tt>: a discontinuity marker is placed between every
+--   fragment in the HLS media playlist. It is recommended to use a value
+--   of <tt>ALWAYS</tt> if the fragment timestamps are not accurate.</li>
+--   <li><tt>NEVER</tt>: no discontinuity markers are placed anywhere. It
+--   is recommended to use a value of <tt>NEVER</tt> to ensure the media
+--   player timeline most accurately maps to the producer timestamps.</li>
+--   <li><tt>ON_DISCONTINUITY</tt>: a discontinuity marker is placed
+--   between fragments that have a gap or overlap of more than 50
+--   milliseconds. For most playback scenarios, it is recommended to use a
+--   value of <tt>ON_DISCONTINUITY</tt> so that the media player timeline
+--   is only reset when there is a significant issue with the media
+--   timeline (e.g. a missing fragment).</li>
+--   </ul>
+--   
+--   The default is <tt>ALWAYS</tt> when HLSFragmentSelector is set to
+--   <tt>SERVER_TIMESTAMP</tt>, and <tt>NEVER</tt> when it is set to
+--   <tt>PRODUCER_TIMESTAMP</tt>.
+--   
+--   <a>$sel:streamName:GetHLSStreamingSessionURL'</a>,
+--   <a>getHLSStreamingSessionURL_streamName</a> - The name of the stream
+--   for which to retrieve the HLS master playlist URL.
+--   
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
+newGetHLSStreamingSessionURL :: GetHLSStreamingSessionURL
+
+-- | <i>See:</i> <a>newGetHLSStreamingSessionURLResponse</a> smart
+--   constructor.
+data GetHLSStreamingSessionURLResponse
+GetHLSStreamingSessionURLResponse' :: Maybe Text -> Int -> GetHLSStreamingSessionURLResponse
+
+-- | Create a value of <a>GetHLSStreamingSessionURLResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:hLSStreamingSessionURL:GetHLSStreamingSessionURLResponse'</a>,
+--   <a>getHLSStreamingSessionURLResponse_hLSStreamingSessionURL</a> - The
+--   URL (containing the session token) that a media player can use to
+--   retrieve the HLS master playlist.
+--   
+--   <a>$sel:httpStatus:GetHLSStreamingSessionURLResponse'</a>,
+--   <a>getHLSStreamingSessionURLResponse_httpStatus</a> - The response's
+--   http status code.
+newGetHLSStreamingSessionURLResponse :: Int -> GetHLSStreamingSessionURLResponse
+
+-- | <i>See:</i> <a>newGetClip</a> smart constructor.
+data GetClip
+GetClip' :: Maybe Text -> Maybe Text -> ClipFragmentSelector -> GetClip
+
+-- | Create a value of <a>GetClip</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:streamARN:GetClip'</a>, <a>getClip_streamARN</a> - The Amazon
+--   Resource Name (ARN) of the stream for which to retrieve the media
+--   clip.
+--   
+--   You must specify either the StreamName or the StreamARN.
+--   
+--   <a>$sel:streamName:GetClip'</a>, <a>getClip_streamName</a> - The name
+--   of the stream for which to retrieve the media clip.
+--   
+--   You must specify either the StreamName or the StreamARN.
+--   
+--   <a>$sel:clipFragmentSelector:GetClip'</a>,
+--   <a>getClip_clipFragmentSelector</a> - The time range of the requested
+--   clip and the source of the timestamps.
+newGetClip :: ClipFragmentSelector -> GetClip
+
+-- | <i>See:</i> <a>newGetClipResponse</a> smart constructor.
+data GetClipResponse
+GetClipResponse' :: Maybe Text -> Int -> ResponseBody -> GetClipResponse
+
+-- | Create a value of <a>GetClipResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:contentType:GetClipResponse'</a>,
+--   <a>getClipResponse_contentType</a> - The content type of the media in
+--   the requested clip.
+--   
+--   <a>$sel:httpStatus:GetClipResponse'</a>,
+--   <a>getClipResponse_httpStatus</a> - The response's http status code.
+--   
+--   <a>$sel:payload:GetClipResponse'</a>, <a>getClipResponse_payload</a> -
+--   Traditional MP4 file that contains the media clip from the specified
+--   video stream. The output will contain the first 100 MB or the first
+--   200 fragments from the specified start timestamp. For more
+--   information, see <a>Kinesis Video Streams Limits</a>.
+newGetClipResponse :: Int -> ResponseBody -> GetClipResponse
 
 -- | <i>See:</i> <a>newGetMediaForFragmentList</a> smart constructor.
 data GetMediaForFragmentList
@@ -4949,39 +5163,11 @@ GetMediaForFragmentListResponse' :: Maybe Text -> Int -> ResponseBody -> GetMedi
 --   </ul>
 newGetMediaForFragmentListResponse :: Int -> ResponseBody -> GetMediaForFragmentListResponse
 
--- | <i>See:</i> <a>newGetClip</a> smart constructor.
-data GetClip
-GetClip' :: Maybe Text -> Maybe Text -> ClipFragmentSelector -> GetClip
+-- | <i>See:</i> <a>newListFragments</a> smart constructor.
+data ListFragments
+ListFragments' :: Maybe FragmentSelector -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Natural -> ListFragments
 
--- | Create a value of <a>GetClip</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:streamARN:GetClip'</a>, <a>getClip_streamARN</a> - The Amazon
---   Resource Name (ARN) of the stream for which to retrieve the media
---   clip.
---   
---   You must specify either the StreamName or the StreamARN.
---   
---   <a>$sel:streamName:GetClip'</a>, <a>getClip_streamName</a> - The name
---   of the stream for which to retrieve the media clip.
---   
---   You must specify either the StreamName or the StreamARN.
---   
---   <a>$sel:clipFragmentSelector:GetClip'</a>,
---   <a>getClip_clipFragmentSelector</a> - The time range of the requested
---   clip and the source of the timestamps.
-newGetClip :: ClipFragmentSelector -> GetClip
-
--- | <i>See:</i> <a>newGetClipResponse</a> smart constructor.
-data GetClipResponse
-GetClipResponse' :: Maybe Text -> Int -> ResponseBody -> GetClipResponse
-
--- | Create a value of <a>GetClipResponse</a> with all optional fields
+-- | Create a value of <a>ListFragments</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4990,23 +5176,62 @@ GetClipResponse' :: Maybe Text -> Int -> ResponseBody -> GetClipResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:contentType:GetClipResponse'</a>,
---   <a>getClipResponse_contentType</a> - The content type of the media in
---   the requested clip.
+--   <a>$sel:fragmentSelector:ListFragments'</a>,
+--   <a>listFragments_fragmentSelector</a> - Describes the timestamp range
+--   and timestamp origin for the range of fragments to return.
 --   
---   <a>$sel:httpStatus:GetClipResponse'</a>,
---   <a>getClipResponse_httpStatus</a> - The response's http status code.
+--   <a>$sel:streamARN:ListFragments'</a>, <a>listFragments_streamARN</a> -
+--   The Amazon Resource Name (ARN) of the stream from which to retrieve a
+--   fragment list. Specify either this parameter or the
+--   <tt>StreamName</tt> parameter.
 --   
---   <a>$sel:payload:GetClipResponse'</a>, <a>getClipResponse_payload</a> -
---   Traditional MP4 file that contains the media clip from the specified
---   video stream. The output will contain the first 100 MB or the first
---   200 fragments from the specified start timestamp. For more
---   information, see <a>Kinesis Video Streams Limits</a>.
-newGetClipResponse :: Int -> ResponseBody -> GetClipResponse
+--   <a>$sel:nextToken:ListFragments'</a>, <a>listFragments_nextToken</a> -
+--   A token to specify where to start paginating. This is the
+--   ListFragmentsOutput$NextToken from a previously truncated response.
+--   
+--   <a>$sel:streamName:ListFragments'</a>, <a>listFragments_streamName</a>
+--   - The name of the stream from which to retrieve a fragment list.
+--   Specify either this parameter or the <tt>StreamARN</tt> parameter.
+--   
+--   <a>$sel:maxResults:ListFragments'</a>, <a>listFragments_maxResults</a>
+--   - The total number of fragments to return. If the total number of
+--   fragments available is more than the value specified in
+--   <tt>max-results</tt>, then a ListFragmentsOutput$NextToken is provided
+--   in the output that you can use to resume pagination.
+newListFragments :: ListFragments
+
+-- | <i>See:</i> <a>newListFragmentsResponse</a> smart constructor.
+data ListFragmentsResponse
+ListFragmentsResponse' :: Maybe Text -> Maybe [Fragment] -> Int -> ListFragmentsResponse
+
+-- | Create a value of <a>ListFragmentsResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListFragments'</a>,
+--   <a>listFragmentsResponse_nextToken</a> - If the returned list is
+--   truncated, the operation returns this token to use to retrieve the
+--   next page of results. This value is <tt>null</tt> when there are no
+--   more results to return.
+--   
+--   <a>$sel:fragments:ListFragmentsResponse'</a>,
+--   <a>listFragmentsResponse_fragments</a> - A list of archived Fragment
+--   objects from the stream that meet the selector criteria. Results are
+--   in no specific order, even across pages.
+--   
+--   <a>$sel:httpStatus:ListFragmentsResponse'</a>,
+--   <a>listFragmentsResponse_httpStatus</a> - The response's http status
+--   code.
+newListFragmentsResponse :: Int -> ListFragmentsResponse
 
 -- | <i>See:</i> <a>newGetDASHStreamingSessionURL</a> smart constructor.
 data GetDASHStreamingSessionURL
-GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHDisplayFragmentNumber -> Maybe Natural -> Maybe DASHFragmentSelector -> Maybe DASHPlaybackMode -> Maybe Text -> Maybe Text -> Maybe Natural -> GetDASHStreamingSessionURL
+GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe Natural -> Maybe DASHFragmentSelector -> Maybe Natural -> Maybe Text -> Maybe DASHPlaybackMode -> Maybe Text -> Maybe DASHDisplayFragmentNumber -> GetDASHStreamingSessionURL
 
 -- | Create a value of <a>GetDASHStreamingSessionURL</a> with all optional
 --   fields omitted.
@@ -5037,18 +5262,28 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
 --   timestamps.
 --   
---   <a>$sel:displayFragmentNumber:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_displayFragmentNumber</a> - Fragments
---   are identified in the manifest file based on their sequence number in
---   the session. If DisplayFragmentNumber is set to <tt>ALWAYS</tt>, the
---   Kinesis Video Streams fragment number is added to each S element in
---   the manifest file with the attribute name “kvs:fn”. These fragment
---   numbers can be used for logging or for use with other APIs (e.g.
---   <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A custom
---   MPEG-DASH media player is necessary to leverage these this custom
---   attribute.
+--   <a>$sel:expires:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_expires</a> - The time in seconds until
+--   the requested session expires. This value can be between 300 (5
+--   minutes) and 43200 (12 hours).
 --   
---   The default value is <tt>NEVER</tt>.
+--   When a session expires, no new calls to <tt>GetDashManifest</tt>,
+--   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
+--   made for that session.
+--   
+--   The default is 300 (5 minutes).
+--   
+--   <a>$sel:dASHFragmentSelector:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_dASHFragmentSelector</a> - The time
+--   range of the requested fragment and the source of the timestamps.
+--   
+--   This parameter is required if <tt>PlaybackMode</tt> is
+--   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
+--   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
+--   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
+--   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
+--   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
+--   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
 --   
 --   <a>$sel:maxManifestFragmentResults:GetDASHStreamingSessionURL'</a>,
 --   <a>getDASHStreamingSessionURL_maxManifestFragmentResults</a> - The
@@ -5075,17 +5310,12 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   minutes of video on streams with 1-second fragments, and more than 2
 --   1/2 hours of video on streams with 10-second fragments.
 --   
---   <a>$sel:dASHFragmentSelector:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_dASHFragmentSelector</a> - The time
---   range of the requested fragment and the source of the timestamps.
+--   <a>$sel:streamARN:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_streamARN</a> - The Amazon Resource Name
+--   (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
 --   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
+--   You must specify either the <tt>StreamName</tt> or the
+--   <tt>StreamARN</tt>.
 --   
 --   <a>$sel:playbackMode:GetDASHStreamingSessionURL'</a>,
 --   <a>getDASHStreamingSessionURL_playbackMode</a> - Whether to retrieve
@@ -5141,13 +5371,6 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   
 --   The default is <tt>LIVE</tt>.
 --   
---   <a>$sel:streamARN:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_streamARN</a> - The Amazon Resource Name
---   (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
---   
 --   <a>$sel:streamName:GetDASHStreamingSessionURL'</a>,
 --   <a>getDASHStreamingSessionURL_streamName</a> - The name of the stream
 --   for which to retrieve the MPEG-DASH manifest URL.
@@ -5155,16 +5378,18 @@ GetDASHStreamingSessionURL' :: Maybe DASHDisplayFragmentTimestamp -> Maybe DASHD
 --   You must specify either the <tt>StreamName</tt> or the
 --   <tt>StreamARN</tt>.
 --   
---   <a>$sel:expires:GetDASHStreamingSessionURL'</a>,
---   <a>getDASHStreamingSessionURL_expires</a> - The time in seconds until
---   the requested session expires. This value can be between 300 (5
---   minutes) and 43200 (12 hours).
+--   <a>$sel:displayFragmentNumber:GetDASHStreamingSessionURL'</a>,
+--   <a>getDASHStreamingSessionURL_displayFragmentNumber</a> - Fragments
+--   are identified in the manifest file based on their sequence number in
+--   the session. If DisplayFragmentNumber is set to <tt>ALWAYS</tt>, the
+--   Kinesis Video Streams fragment number is added to each S element in
+--   the manifest file with the attribute name “kvs:fn”. These fragment
+--   numbers can be used for logging or for use with other APIs (e.g.
+--   <tt>GetMedia</tt> and <tt>GetMediaForFragmentList</tt>). A custom
+--   MPEG-DASH media player is necessary to leverage these this custom
+--   attribute.
 --   
---   When a session expires, no new calls to <tt>GetDashManifest</tt>,
---   <tt>GetMP4InitFragment</tt>, or <tt>GetMP4MediaFragment</tt> can be
---   made for that session.
---   
---   The default is 300 (5 minutes).
+--   The default value is <tt>NEVER</tt>.
 newGetDASHStreamingSessionURL :: GetDASHStreamingSessionURL
 
 -- | <i>See:</i> <a>newGetDASHStreamingSessionURLResponse</a> smart
@@ -5191,231 +5416,6 @@ GetDASHStreamingSessionURLResponse' :: Maybe Text -> Int -> GetDASHStreamingSess
 --   <a>getDASHStreamingSessionURLResponse_httpStatus</a> - The response's
 --   http status code.
 newGetDASHStreamingSessionURLResponse :: Int -> GetDASHStreamingSessionURLResponse
-
--- | <i>See:</i> <a>newGetHLSStreamingSessionURL</a> smart constructor.
-data GetHLSStreamingSessionURL
-GetHLSStreamingSessionURL' :: Maybe Natural -> Maybe ContainerFormat -> Maybe HLSDisplayFragmentTimestamp -> Maybe HLSPlaybackMode -> Maybe Text -> Maybe Text -> Maybe Natural -> Maybe HLSDiscontinuityMode -> Maybe HLSFragmentSelector -> GetHLSStreamingSessionURL
-
--- | Create a value of <a>GetHLSStreamingSessionURL</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   
---   <a>$sel:maxMediaPlaylistFragmentResults:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults</a> - The
---   maximum number of fragments that are returned in the HLS media
---   playlists.
---   
---   When the <tt>PlaybackMode</tt> is <tt>LIVE</tt>, the most recent
---   fragments are returned up to this value. When the
---   <tt>PlaybackMode</tt> is <tt>ON_DEMAND</tt>, the oldest fragments are
---   returned, up to this maximum number.
---   
---   When there are a higher number of fragments available in a live HLS
---   media playlist, video players often buffer content before starting
---   playback. Increasing the buffer size increases the playback latency,
---   but it decreases the likelihood that rebuffering will occur during
---   playback. We recommend that a live HLS media playlist have a minimum
---   of 3 fragments and a maximum of 10 fragments.
---   
---   The default is 5 fragments if <tt>PlaybackMode</tt> is <tt>LIVE</tt>
---   or <tt>LIVE_REPLAY</tt>, and 1,000 if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt>.
---   
---   The maximum value of 5,000 fragments corresponds to more than 80
---   minutes of video on streams with 1-second fragments, and more than 13
---   hours of video on streams with 10-second fragments.
---   
---   <a>$sel:containerFormat:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_containerFormat</a> - Specifies which
---   format should be used for packaging the media. Specifying the
---   <tt>FRAGMENTED_MP4</tt> container format packages the media into MP4
---   fragments (fMP4 or CMAF). This is the recommended packaging because
---   there is minimal packaging overhead. The other container format option
---   is <tt>MPEG_TS</tt>. HLS has supported MPEG TS chunks since it was
---   released and is sometimes the only supported packaging on older HLS
---   players. MPEG TS typically has a 5-25 percent packaging overhead. This
---   means MPEG TS typically requires 5-25 percent more bandwidth and cost
---   than fMP4.
---   
---   The default is <tt>FRAGMENTED_MP4</tt>.
---   
---   <a>$sel:displayFragmentTimestamp:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_displayFragmentTimestamp</a> - Specifies
---   when the fragment start timestamps should be included in the HLS media
---   playlist. Typically, media players report the playhead position as a
---   time relative to the start of the first fragment in the playback
---   session. However, when the start timestamps are included in the HLS
---   media playlist, some media players might report the current playhead
---   as an absolute time based on the fragment timestamps. This can be
---   useful for creating a playback experience that shows viewers the
---   wall-clock time of the media.
---   
---   The default is <tt>NEVER</tt>. When HLSFragmentSelector is
---   <tt>SERVER_TIMESTAMP</tt>, the timestamps will be the server start
---   timestamps. Similarly, when HLSFragmentSelector is
---   <tt>PRODUCER_TIMESTAMP</tt>, the timestamps will be the producer start
---   timestamps.
---   
---   <a>$sel:playbackMode:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_playbackMode</a> - Whether to retrieve
---   live, live replay, or archived, on-demand data.
---   
---   Features of the three types of sessions include the following:
---   
---   <ul>
---   <li><b><tt>LIVE</tt></b> : For sessions of this type, the HLS media
---   playlist is continually updated with the latest fragments as they
---   become available. We recommend that the media player retrieve a new
---   playlist on a one-second interval. When this type of session is played
---   in a media player, the user interface typically displays a "live"
---   notification, with no scrubber control for choosing the position in
---   the playback window to display.In <tt>LIVE</tt> mode, the newest
---   available fragments are included in an HLS media playlist, even if
---   there is a gap between fragments (that is, if a fragment is missing).
---   A gap like this might cause a media player to halt or cause a jump in
---   playback. In this mode, fragments are not added to the HLS media
---   playlist if they are older than the newest fragment in the playlist.
---   If the missing fragment becomes available after a subsequent fragment
---   is added to the playlist, the older fragment is not added, and the gap
---   is not filled.</li>
---   <li><b><tt>LIVE_REPLAY</tt></b> : For sessions of this type, the HLS
---   media playlist is updated similarly to how it is updated for
---   <tt>LIVE</tt> mode except that it starts by including fragments from a
---   given start time. Instead of fragments being added as they are
---   ingested, fragments are added as the duration of the next fragment
---   elapses. For example, if the fragments in the session are two seconds
---   long, then a new fragment is added to the media playlist every two
---   seconds. This mode is useful to be able to start playback from when an
---   event is detected and continue live streaming media that has not yet
---   been ingested as of the time of the session creation. This mode is
---   also useful to stream previously archived media without being limited
---   by the 1,000 fragment limit in the <tt>ON_DEMAND</tt> mode.</li>
---   <li><b><tt>ON_DEMAND</tt></b> : For sessions of this type, the HLS
---   media playlist contains all the fragments for the session, up to the
---   number that is specified in <tt>MaxMediaPlaylistFragmentResults</tt>.
---   The playlist must be retrieved only once for each session. When this
---   type of session is played in a media player, the user interface
---   typically displays a scrubber control for choosing the position in the
---   playback window to display.</li>
---   </ul>
---   
---   In all playback modes, if <tt>FragmentSelectorType</tt> is
---   <tt>PRODUCER_TIMESTAMP</tt>, and if there are multiple fragments with
---   the same start timestamp, the fragment that has the largest fragment
---   number (that is, the newest fragment) is included in the HLS media
---   playlist. The other fragments are not included. Fragments that have
---   different timestamps but have overlapping durations are still included
---   in the HLS media playlist. This can lead to unexpected behavior in the
---   media player.
---   
---   The default is <tt>LIVE</tt>.
---   
---   <a>$sel:streamARN:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_streamARN</a> - The Amazon Resource Name
---   (ARN) of the stream for which to retrieve the HLS master playlist URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
---   
---   <a>$sel:streamName:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_streamName</a> - The name of the stream
---   for which to retrieve the HLS master playlist URL.
---   
---   You must specify either the <tt>StreamName</tt> or the
---   <tt>StreamARN</tt>.
---   
---   <a>$sel:expires:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_expires</a> - The time in seconds until
---   the requested session expires. This value can be between 300 (5
---   minutes) and 43200 (12 hours).
---   
---   When a session expires, no new calls to <tt>GetHLSMasterPlaylist</tt>,
---   <tt>GetHLSMediaPlaylist</tt>, <tt>GetMP4InitFragment</tt>,
---   <tt>GetMP4MediaFragment</tt>, or <tt>GetTSFragment</tt> can be made
---   for that session.
---   
---   The default is 300 (5 minutes).
---   
---   <a>$sel:discontinuityMode:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_discontinuityMode</a> - Specifies when
---   flags marking discontinuities between fragments are added to the media
---   playlists.
---   
---   Media players typically build a timeline of media content to play,
---   based on the timestamps of each fragment. This means that if there is
---   any overlap or gap between fragments (as is typical if
---   HLSFragmentSelector is set to <tt>SERVER_TIMESTAMP</tt>), the media
---   player timeline will also have small gaps between fragments in some
---   places, and will overwrite frames in other places. Gaps in the media
---   player timeline can cause playback to stall and overlaps can cause
---   playback to be jittery. When there are discontinuity flags between
---   fragments, the media player is expected to reset the timeline,
---   resulting in the next fragment being played immediately after the
---   previous fragment.
---   
---   The following modes are supported:
---   
---   <ul>
---   <li><tt>ALWAYS</tt>: a discontinuity marker is placed between every
---   fragment in the HLS media playlist. It is recommended to use a value
---   of <tt>ALWAYS</tt> if the fragment timestamps are not accurate.</li>
---   <li><tt>NEVER</tt>: no discontinuity markers are placed anywhere. It
---   is recommended to use a value of <tt>NEVER</tt> to ensure the media
---   player timeline most accurately maps to the producer timestamps.</li>
---   <li><tt>ON_DISCONTINUITY</tt>: a discontinuity marker is placed
---   between fragments that have a gap or overlap of more than 50
---   milliseconds. For most playback scenarios, it is recommended to use a
---   value of <tt>ON_DISCONTINUITY</tt> so that the media player timeline
---   is only reset when there is a significant issue with the media
---   timeline (e.g. a missing fragment).</li>
---   </ul>
---   
---   The default is <tt>ALWAYS</tt> when HLSFragmentSelector is set to
---   <tt>SERVER_TIMESTAMP</tt>, and <tt>NEVER</tt> when it is set to
---   <tt>PRODUCER_TIMESTAMP</tt>.
---   
---   <a>$sel:hLSFragmentSelector:GetHLSStreamingSessionURL'</a>,
---   <a>getHLSStreamingSessionURL_hLSFragmentSelector</a> - The time range
---   of the requested fragment and the source of the timestamps.
---   
---   This parameter is required if <tt>PlaybackMode</tt> is
---   <tt>ON_DEMAND</tt> or <tt>LIVE_REPLAY</tt>. This parameter is optional
---   if PlaybackMode is@<tt> </tt>LIVE<tt>. If </tt>PlaybackMode<tt> is
---   </tt>LIVE<tt>, the </tt>FragmentSelectorType<tt> can be set, but the
---   </tt>TimestampRange<tt> should not be set. If </tt>PlaybackMode<tt> is
---   </tt>ON_DEMAND<tt> or </tt>LIVE_REPLAY<tt>, both
---   </tt>FragmentSelectorType<tt> and </tt>TimestampRange@ must be set.
-newGetHLSStreamingSessionURL :: GetHLSStreamingSessionURL
-
--- | <i>See:</i> <a>newGetHLSStreamingSessionURLResponse</a> smart
---   constructor.
-data GetHLSStreamingSessionURLResponse
-GetHLSStreamingSessionURLResponse' :: Maybe Text -> Int -> GetHLSStreamingSessionURLResponse
-
--- | Create a value of <a>GetHLSStreamingSessionURLResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:hLSStreamingSessionURL:GetHLSStreamingSessionURLResponse'</a>,
---   <a>getHLSStreamingSessionURLResponse_hLSStreamingSessionURL</a> - The
---   URL (containing the session token) that a media player can use to
---   retrieve the HLS master playlist.
---   
---   <a>$sel:httpStatus:GetHLSStreamingSessionURLResponse'</a>,
---   <a>getHLSStreamingSessionURLResponse_httpStatus</a> - The response's
---   http status code.
-newGetHLSStreamingSessionURLResponse :: Int -> GetHLSStreamingSessionURLResponse
 newtype ClipFragmentSelectorType
 ClipFragmentSelectorType' :: Text -> ClipFragmentSelectorType
 [fromClipFragmentSelectorType] :: ClipFragmentSelectorType -> Text
@@ -5670,7 +5670,7 @@ newDASHTimestampRange :: DASHTimestampRange
 --   
 --   <i>See:</i> <a>newFragment</a> smart constructor.
 data Fragment
-Fragment' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe Integer -> Fragment
+Fragment' :: Maybe Integer -> Maybe POSIX -> Maybe Integer -> Maybe Text -> Maybe POSIX -> Fragment
 
 -- | Create a value of <a>Fragment</a> with all optional fields omitted.
 --   
@@ -5680,24 +5680,24 @@ Fragment' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe Integer -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:producerTimestamp:Fragment'</a>,
---   <a>fragment_producerTimestamp</a> - The timestamp from the producer
---   corresponding to the fragment.
+--   <a>$sel:fragmentLengthInMilliseconds:Fragment'</a>,
+--   <a>fragment_fragmentLengthInMilliseconds</a> - The playback duration
+--   or other time value associated with the fragment.
 --   
 --   <a>$sel:serverTimestamp:Fragment'</a>, <a>fragment_serverTimestamp</a>
 --   - The timestamp from the AWS server corresponding to the fragment.
---   
---   <a>$sel:fragmentNumber:Fragment'</a>, <a>fragment_fragmentNumber</a> -
---   The unique identifier of the fragment. This value monotonically
---   increases based on the ingestion order.
 --   
 --   <a>$sel:fragmentSizeInBytes:Fragment'</a>,
 --   <a>fragment_fragmentSizeInBytes</a> - The total fragment size,
 --   including information about the fragment and contained media data.
 --   
---   <a>$sel:fragmentLengthInMilliseconds:Fragment'</a>,
---   <a>fragment_fragmentLengthInMilliseconds</a> - The playback duration
---   or other time value associated with the fragment.
+--   <a>$sel:fragmentNumber:Fragment'</a>, <a>fragment_fragmentNumber</a> -
+--   The unique identifier of the fragment. This value monotonically
+--   increases based on the ingestion order.
+--   
+--   <a>$sel:producerTimestamp:Fragment'</a>,
+--   <a>fragment_producerTimestamp</a> - The timestamp from the producer
+--   corresponding to the fragment.
 newFragment :: Fragment
 
 -- | Describes the timestamp range and timestamp origin of a range of

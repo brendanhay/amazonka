@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The details of the Auto Scaling group for the capacity provider.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutoScalingGroupProvider' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679455844"><span id="local-6989586621679455845"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingGroupProvider"><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-var">AutoScalingGroupProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingGroupProvider%27"><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-var">AutoScalingGroupProvider'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679456561"><span id="local-6989586621679456562"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingGroupProvider"><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-var">AutoScalingGroupProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingGroupProvider%27"><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-var">AutoScalingGroupProvider'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The managed scaling settings for the Auto Scaling group capacity</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- provider.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AmanagedScaling%3AAutoScalingGroupProvider%27"><span class="annot"><span class="annottext">AutoScalingGroupProvider -&gt; Maybe ManagedScaling
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AautoScalingGroupArn%3AAutoScalingGroupProvider%27"><span class="annot"><span class="annottext">AutoScalingGroupProvider -&gt; Text
 </span><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#%24sel%3AautoScalingGroupArn%3AAutoScalingGroupProvider%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455836"><span id="local-6989586621679455838"><span class="annot"><span class="annottext">AutoScalingGroupProvider -&gt; AutoScalingGroupProvider -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456553"><span id="local-6989586621679456555"><span class="annot"><span class="annottext">AutoScalingGroupProvider -&gt; AutoScalingGroupProvider -&gt; Bool
 (AutoScalingGroupProvider -&gt; AutoScalingGroupProvider -&gt; Bool)
 -&gt; (AutoScalingGroupProvider -&gt; AutoScalingGroupProvider -&gt; Bool)
 -&gt; Eq AutoScalingGroupProvider
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoScalingGroupProvider -&gt; AutoScalingGroupProvider -&gt; Bool
 == :: AutoScalingGroupProvider -&gt; AutoScalingGroupProvider -&gt; Bool
 $c== :: AutoScalingGroupProvider -&gt; AutoScalingGroupProvider -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455827"><span id="local-6989586621679455829"><span id="local-6989586621679455831"><span id="local-6989586621679455833"><span class="annot"><span class="annottext">ReadPrec [AutoScalingGroupProvider]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456544"><span id="local-6989586621679456546"><span id="local-6989586621679456548"><span id="local-6989586621679456550"><span class="annot"><span class="annottext">ReadPrec [AutoScalingGroupProvider]
 ReadPrec AutoScalingGroupProvider
 Int -&gt; ReadS AutoScalingGroupProvider
 ReadS [AutoScalingGroupProvider]
@@ -86,7 +86,7 @@ readList :: ReadS [AutoScalingGroupProvider]
 $creadList :: ReadS [AutoScalingGroupProvider]
 readsPrec :: Int -&gt; ReadS AutoScalingGroupProvider
 $creadsPrec :: Int -&gt; ReadS AutoScalingGroupProvider
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455820"><span id="local-6989586621679455822"><span id="local-6989586621679455824"><span class="annot"><span class="annottext">Int -&gt; AutoScalingGroupProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456537"><span id="local-6989586621679456539"><span id="local-6989586621679456541"><span class="annot"><span class="annottext">Int -&gt; AutoScalingGroupProvider -&gt; ShowS
 [AutoScalingGroupProvider] -&gt; ShowS
 AutoScalingGroupProvider -&gt; String
 (Int -&gt; AutoScalingGroupProvider -&gt; ShowS)
@@ -154,8 +154,8 @@ AutoScalingGroupProvider -&gt; Rep AutoScalingGroupProvider x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span>
 </span><span id="line-94"></span><span id="newAutoScalingGroupProvider"><span class="annot"><span class="annottext">newAutoScalingGroupProvider :: Text -&gt; AutoScalingGroupProvider
-</span><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#newAutoScalingGroupProvider"><span class="hs-identifier hs-var hs-var">newAutoScalingGroupProvider</span></a></span></span><span> </span><span id="local-6989586621679455814"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455814"><span class="hs-identifier hs-var">pAutoScalingGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#newAutoScalingGroupProvider"><span class="hs-identifier hs-var hs-var">newAutoScalingGroupProvider</span></a></span></span><span> </span><span id="local-6989586621679456531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456531"><span class="hs-identifier hs-var">pAutoScalingGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">AutoScalingGroupProvider' :: Maybe ManagedScaling
 -&gt; Maybe ManagedTerminationProtection
 -&gt; Text
@@ -172,7 +172,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroupArn:AutoScalingGroupProvider' :: Text
 </span><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#%24sel%3AautoScalingGroupArn%3AAutoScalingGroupProvider%27"><span class="hs-identifier hs-var">autoScalingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455814"><span class="hs-identifier hs-var">pAutoScalingGroupArn_</span></a></span><span>
+</span><a href="#local-6989586621679456531"><span class="hs-identifier hs-var">pAutoScalingGroupArn_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The managed scaling settings for the Auto Scaling group capacity</span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
      (Maybe ManagedScaling)
      (Maybe ManagedScaling)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455810"><span class="annot"><span class="annottext">Maybe ManagedScaling
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456527"><span class="annot"><span class="annottext">Maybe ManagedScaling
 managedScaling :: Maybe ManagedScaling
 $sel:managedScaling:AutoScalingGroupProvider' :: AutoScalingGroupProvider -&gt; Maybe ManagedScaling
-</span><a href="#local-6989586621679455810"><span class="hs-identifier hs-var hs-var">managedScaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedScaling
-</span><a href="#local-6989586621679455810"><span class="hs-identifier hs-var">managedScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455809"><span class="annot"><span class="annottext">s :: AutoScalingGroupProvider
-</span><a href="#local-6989586621679455809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455808"><span class="annot"><span class="annottext">Maybe ManagedScaling
-</span><a href="#local-6989586621679455808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupProvider
-</span><a href="#local-6989586621679455809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedScaling:AutoScalingGroupProvider' :: Maybe ManagedScaling
+</span><a href="#local-6989586621679456527"><span class="hs-identifier hs-var hs-var">managedScaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedScaling
+</span><a href="#local-6989586621679456527"><span class="hs-identifier hs-var">managedScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456526"><span class="annot"><span class="annottext">s :: AutoScalingGroupProvider
+</span><a href="#local-6989586621679456526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456525"><span class="annot"><span class="annottext">Maybe ManagedScaling
+</span><a href="#local-6989586621679456525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupProvider
+</span><a href="#local-6989586621679456526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedScaling:AutoScalingGroupProvider' :: Maybe ManagedScaling
 </span><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#%24sel%3AmanagedScaling%3AAutoScalingGroupProvider%27"><span class="hs-identifier hs-var">managedScaling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedScaling
-</span><a href="#local-6989586621679455808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The managed termination protection setting to use for the Auto Scaling</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- group capacity provider. This determines whether the Auto Scaling group</span><span>
@@ -231,16 +231,16 @@ $sel:managedScaling:AutoScalingGroupProvider' :: AutoScalingGroupProvider -&gt; 
      (Maybe ManagedTerminationProtection)
      (Maybe ManagedTerminationProtection)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455806"><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456523"><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
 managedTerminationProtection :: Maybe ManagedTerminationProtection
 $sel:managedTerminationProtection:AutoScalingGroupProvider' :: AutoScalingGroupProvider -&gt; Maybe ManagedTerminationProtection
-</span><a href="#local-6989586621679455806"><span class="hs-identifier hs-var hs-var">managedTerminationProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
-</span><a href="#local-6989586621679455806"><span class="hs-identifier hs-var">managedTerminationProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455805"><span class="annot"><span class="annottext">s :: AutoScalingGroupProvider
-</span><a href="#local-6989586621679455805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455804"><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
-</span><a href="#local-6989586621679455804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupProvider
-</span><a href="#local-6989586621679455805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedTerminationProtection:AutoScalingGroupProvider' :: Maybe ManagedTerminationProtection
+</span><a href="#local-6989586621679456523"><span class="hs-identifier hs-var hs-var">managedTerminationProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
+</span><a href="#local-6989586621679456523"><span class="hs-identifier hs-var">managedTerminationProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456522"><span class="annot"><span class="annottext">s :: AutoScalingGroupProvider
+</span><a href="#local-6989586621679456522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456521"><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
+</span><a href="#local-6989586621679456521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupProvider
+</span><a href="#local-6989586621679456522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedTerminationProtection:AutoScalingGroupProvider' :: Maybe ManagedTerminationProtection
 </span><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#%24sel%3AmanagedTerminationProtection%3AAutoScalingGroupProvider%27"><span class="hs-identifier hs-var">managedTerminationProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
-</span><a href="#local-6989586621679455804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the Auto Scaling group.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#autoScalingGroupProvider_autoScalingGroupArn"><span class="hs-identifier hs-type">autoScalingGroupProvider_autoScalingGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -250,19 +250,19 @@ $sel:managedTerminationProtection:AutoScalingGroupProvider' :: AutoScalingGroupP
 -&gt; (AutoScalingGroupProvider -&gt; Text -&gt; AutoScalingGroupProvider)
 -&gt; Lens AutoScalingGroupProvider AutoScalingGroupProvider Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455802"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456519"><span class="annot"><span class="annottext">Text
 autoScalingGroupArn :: Text
 $sel:autoScalingGroupArn:AutoScalingGroupProvider' :: AutoScalingGroupProvider -&gt; Text
-</span><a href="#local-6989586621679455802"><span class="hs-identifier hs-var hs-var">autoScalingGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455802"><span class="hs-identifier hs-var">autoScalingGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455801"><span class="annot"><span class="annottext">s :: AutoScalingGroupProvider
-</span><a href="#local-6989586621679455801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455800"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupProvider
-</span><a href="#local-6989586621679455801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupArn:AutoScalingGroupProvider' :: Text
+</span><a href="#local-6989586621679456519"><span class="hs-identifier hs-var hs-var">autoScalingGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456519"><span class="hs-identifier hs-var">autoScalingGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456518"><span class="annot"><span class="annottext">s :: AutoScalingGroupProvider
+</span><a href="#local-6989586621679456518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456517"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingGroupProvider
+</span><a href="#local-6989586621679456518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupArn:AutoScalingGroupProvider' :: Text
 </span><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#%24sel%3AautoScalingGroupArn%3AAutoScalingGroupProvider%27"><span class="hs-identifier hs-var">autoScalingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455797"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679455795"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingGroupProvider
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679456512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingGroupProvider
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoScalingGroupProvider)
@@ -272,8 +272,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoScalingGroupProvider&quot;</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455792"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455792"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679456509"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679456509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe ManagedScaling
 -&gt; Maybe ManagedTerminationProtection
 -&gt; Text
@@ -289,7 +289,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Text -&gt; AutoScalingGroupProvider)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManagedScaling)
+</span><a href="#local-6989586621679456509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManagedScaling)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;managedScaling&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,7 +300,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; AutoScalingGroupProvider)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManagedTerminationProtection)
+</span><a href="#local-6989586621679456509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ManagedTerminationProtection)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;managedTerminationProtection&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,19 +308,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser AutoScalingGroupProvider
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679456509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;autoScalingGroupArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455785"><span id="local-6989586621679455787"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456502"><span id="local-6989586621679456504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455774"><span id="local-6989586621679455776"><span id="local-6989586621679455778"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679455772"><span class="annot"><span class="annottext">toJSON :: AutoScalingGroupProvider -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455768"><span id="local-6989586621679455769"><span id="local-6989586621679455770"><span class="annot"><span class="annottext">Maybe ManagedScaling
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456491"><span id="local-6989586621679456493"><span id="local-6989586621679456495"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider"><span class="hs-identifier hs-type">AutoScalingGroupProvider</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679456489"><span class="annot"><span class="annottext">toJSON :: AutoScalingGroupProvider -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.AutoScalingGroupProvider.html#AutoScalingGroupProvider%27"><span class="hs-identifier hs-type">AutoScalingGroupProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456485"><span id="local-6989586621679456486"><span id="local-6989586621679456487"><span class="annot"><span class="annottext">Maybe ManagedScaling
 Maybe ManagedTerminationProtection
 Text
 autoScalingGroupArn :: Text
@@ -329,7 +329,7 @@ managedScaling :: Maybe ManagedScaling
 $sel:autoScalingGroupArn:AutoScalingGroupProvider' :: AutoScalingGroupProvider -&gt; Text
 $sel:managedTerminationProtection:AutoScalingGroupProvider' :: AutoScalingGroupProvider -&gt; Maybe ManagedTerminationProtection
 $sel:managedScaling:AutoScalingGroupProvider' :: AutoScalingGroupProvider -&gt; Maybe ManagedScaling
-</span><a href="#local-6989586621679455768"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679456485"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -342,7 +342,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(ManagedScaling -&gt; Pair) -&gt; Maybe ManagedScaling -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ManagedScaling
-</span><a href="#local-6989586621679455770"><span class="hs-identifier hs-var">managedScaling</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679456487"><span class="hs-identifier hs-var">managedScaling</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;managedTerminationProtection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ManagedTerminationProtection -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -351,7 +351,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ManagedTerminationProtection -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ManagedTerminationProtection
-</span><a href="#local-6989586621679455769"><span class="hs-identifier hs-var">managedTerminationProtection</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679456486"><span class="hs-identifier hs-var">managedTerminationProtection</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -359,7 +359,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;autoScalingGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455768"><span class="hs-identifier hs-var">autoScalingGroupArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456485"><span class="hs-identifier hs-var">autoScalingGroupArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span></pre></body></html>

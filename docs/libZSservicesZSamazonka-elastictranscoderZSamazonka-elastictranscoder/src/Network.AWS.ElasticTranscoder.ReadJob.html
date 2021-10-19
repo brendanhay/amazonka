@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | The @ReadJobRequest@ structure.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newReadJob' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679215265"><span id="local-6989586621679215266"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadJob"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-var">ReadJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadJob%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-var">ReadJob'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679215392"><span id="local-6989586621679215393"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadJob"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-var">ReadJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadJob%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-var">ReadJob'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the job for which you want to get detailed</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- information.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aid%3AReadJob%27"><span class="annot"><span class="annottext">ReadJob -&gt; Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3Aid%3AReadJob%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215259"><span id="local-6989586621679215261"><span class="annot"><span class="annottext">ReadJob -&gt; ReadJob -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215386"><span id="local-6989586621679215388"><span class="annot"><span class="annottext">ReadJob -&gt; ReadJob -&gt; Bool
 (ReadJob -&gt; ReadJob -&gt; Bool)
 -&gt; (ReadJob -&gt; ReadJob -&gt; Bool) -&gt; Eq ReadJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReadJob -&gt; ReadJob -&gt; Bool
 == :: ReadJob -&gt; ReadJob -&gt; Bool
 $c== :: ReadJob -&gt; ReadJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215250"><span id="local-6989586621679215252"><span id="local-6989586621679215254"><span id="local-6989586621679215256"><span class="annot"><span class="annottext">ReadPrec [ReadJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215377"><span id="local-6989586621679215379"><span id="local-6989586621679215381"><span id="local-6989586621679215383"><span class="annot"><span class="annottext">ReadPrec [ReadJob]
 ReadPrec ReadJob
 Int -&gt; ReadS ReadJob
 ReadS [ReadJob]
@@ -83,7 +83,7 @@ readList :: ReadS [ReadJob]
 $creadList :: ReadS [ReadJob]
 readsPrec :: Int -&gt; ReadS ReadJob
 $creadsPrec :: Int -&gt; ReadS ReadJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215243"><span id="local-6989586621679215245"><span id="local-6989586621679215247"><span class="annot"><span class="annottext">Int -&gt; ReadJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215370"><span id="local-6989586621679215372"><span id="local-6989586621679215374"><span class="annot"><span class="annottext">Int -&gt; ReadJob -&gt; ShowS
 [ReadJob] -&gt; ShowS
 ReadJob -&gt; String
 (Int -&gt; ReadJob -&gt; ShowS)
@@ -121,11 +121,11 @@ $cfrom :: forall x. ReadJob -&gt; Rep ReadJob x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span>
 </span><span id="line-73"></span><span id="newReadJob"><span class="annot"><span class="annottext">newReadJob :: Text -&gt; ReadJob
-</span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#newReadJob"><span class="hs-identifier hs-var hs-var">newReadJob</span></a></span></span><span> </span><span id="local-6989586621679215238"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215238"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReadJob' :: Text -&gt; ReadJob
+</span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#newReadJob"><span class="hs-identifier hs-var hs-var">newReadJob</span></a></span></span><span> </span><span id="local-6989586621679215365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215365"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReadJob' :: Text -&gt; ReadJob
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-type">ReadJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadJob' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3Aid%3AReadJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215238"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679215365"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The identifier of the job for which you want to get detailed</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- information.</span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. ReadJob -&gt; Rep ReadJob x
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#readJob_id"><span class="hs-identifier hs-var hs-var">readJob_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReadJob -&gt; Text)
 -&gt; (ReadJob -&gt; Text -&gt; ReadJob) -&gt; Lens ReadJob ReadJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-type">ReadJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215235"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-type">ReadJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215362"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ReadJob' :: ReadJob -&gt; Text
-</span><a href="#local-6989586621679215235"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215235"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215234"><span class="annot"><span class="annottext">s :: ReadJob
-</span><a href="#local-6989586621679215234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-type">ReadJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215233"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadJob
-</span><a href="#local-6989586621679215234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadJob' :: Text
+</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215362"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215361"><span class="annot"><span class="annottext">s :: ReadJob
+</span><a href="#local-6989586621679215361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-type">ReadJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215360"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadJob
+</span><a href="#local-6989586621679215361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReadJob' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3Aid%3AReadJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679215229"><span class="annot"><span class="annottext">request :: ReadJob -&gt; Request ReadJob
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679215356"><span class="annot"><span class="annottext">request :: ReadJob -&gt; Request ReadJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReadJob -&gt; Request ReadJob
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679215225"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679215352"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReadJob
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215222"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215222"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215221"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679215221"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215220"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215349"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215349"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215348"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215348"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215347"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215347"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ReadJobResponse
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-var">ReadJobResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Job -&gt; ReadJobResponse)
@@ -190,23 +190,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215222"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215349"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Job -&gt; ReadJobResponse)
 -&gt; Either String Job -&gt; Either String ReadJobResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Job
+</span><a href="#local-6989586621679215347"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Job
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Job&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215212"><span id="local-6989586621679215214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215339"><span id="local-6989586621679215341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679215205"><span class="annot"><span class="annottext">toHeaders :: ReadJob -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679215332"><span class="annot"><span class="annottext">toHeaders :: ReadJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReadJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -214,21 +214,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679215200"><span class="annot"><span class="annottext">toPath :: ReadJob -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-type">ReadJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215198"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679215327"><span class="annot"><span class="annottext">toPath :: ReadJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob%27"><span class="hs-identifier hs-type">ReadJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215325"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ReadJob' :: ReadJob -&gt; Text
-</span><a href="#local-6989586621679215198"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215325"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2012-09-25/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215198"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679215325"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJob"><span class="hs-identifier hs-type">ReadJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215194"><span class="annot"><span class="annottext">toQuery :: ReadJob -&gt; QueryString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215321"><span class="annot"><span class="annottext">toQuery :: ReadJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ReadJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -238,7 +238,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-105"></span><span class="hs-comment">-- | The @ReadJobResponse@ structure.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- /See:/ 'newReadJobResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679215191"><span id="local-6989586621679215192"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadJobResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-var">ReadJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadJobResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-var">ReadJobResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679215318"><span id="local-6989586621679215319"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReadJobResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-var">ReadJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReadJobResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-var">ReadJobResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReadJobResponse%27"><span class="annot"><span class="annottext">ReadJobResponse -&gt; Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3AhttpStatus%3AReadJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -246,7 +246,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3Ajob%3AReadJobResponse%27"><span class="annot"><span class="annottext">ReadJobResponse -&gt; Job
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3Ajob%3AReadJobResponse%27"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215185"><span id="local-6989586621679215187"><span class="annot"><span class="annottext">ReadJobResponse -&gt; ReadJobResponse -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215312"><span id="local-6989586621679215314"><span class="annot"><span class="annottext">ReadJobResponse -&gt; ReadJobResponse -&gt; Bool
 (ReadJobResponse -&gt; ReadJobResponse -&gt; Bool)
 -&gt; (ReadJobResponse -&gt; ReadJobResponse -&gt; Bool)
 -&gt; Eq ReadJobResponse
@@ -255,7 +255,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReadJobResponse -&gt; ReadJobResponse -&gt; Bool
 == :: ReadJobResponse -&gt; ReadJobResponse -&gt; Bool
 $c== :: ReadJobResponse -&gt; ReadJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215177"><span id="local-6989586621679215179"><span id="local-6989586621679215181"><span id="local-6989586621679215183"><span class="annot"><span class="annottext">ReadPrec [ReadJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215304"><span id="local-6989586621679215306"><span id="local-6989586621679215308"><span id="local-6989586621679215310"><span class="annot"><span class="annottext">ReadPrec [ReadJobResponse]
 ReadPrec ReadJobResponse
 Int -&gt; ReadS ReadJobResponse
 ReadS [ReadJobResponse]
@@ -275,7 +275,7 @@ readList :: ReadS [ReadJobResponse]
 $creadList :: ReadS [ReadJobResponse]
 readsPrec :: Int -&gt; ReadS ReadJobResponse
 $creadsPrec :: Int -&gt; ReadS ReadJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215171"><span id="local-6989586621679215173"><span id="local-6989586621679215175"><span class="annot"><span class="annottext">Int -&gt; ReadJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215298"><span id="local-6989586621679215300"><span id="local-6989586621679215302"><span class="annot"><span class="annottext">Int -&gt; ReadJobResponse -&gt; ShowS
 [ReadJobResponse] -&gt; ShowS
 ReadJobResponse -&gt; String
 (Int -&gt; ReadJobResponse -&gt; ShowS)
@@ -319,17 +319,17 @@ $cfrom :: forall x. ReadJobResponse -&gt; Rep ReadJobResponse x
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span><span>
 </span><span id="line-133"></span><span id="newReadJobResponse"><span class="annot"><span class="annottext">newReadJobResponse :: Int -&gt; Job -&gt; ReadJobResponse
-</span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#newReadJobResponse"><span class="hs-identifier hs-var hs-var">newReadJobResponse</span></a></span></span><span> </span><span id="local-6989586621679215168"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215168"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679215167"><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679215167"><span class="hs-identifier hs-var">pJob_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#newReadJobResponse"><span class="hs-identifier hs-var hs-var">newReadJobResponse</span></a></span></span><span> </span><span id="local-6989586621679215295"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679215294"><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679215294"><span class="hs-identifier hs-var">pJob_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="annottext">ReadJobResponse' :: Int -&gt; Job -&gt; ReadJobResponse
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ReadJobResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3AhttpStatus%3AReadJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215168"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:job:ReadJobResponse' :: Job
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3Ajob%3AReadJobResponse%27"><span class="hs-identifier hs-var">job</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679215167"><span class="hs-identifier hs-var">pJob_</span></a></span><span>
+</span><a href="#local-6989586621679215294"><span class="hs-identifier hs-var">pJob_</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -339,16 +339,16 @@ $cfrom :: forall x. ReadJobResponse -&gt; Rep ReadJobResponse x
 -&gt; (ReadJobResponse -&gt; Int -&gt; ReadJobResponse)
 -&gt; Lens ReadJobResponse ReadJobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215166"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215293"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReadJobResponse' :: ReadJobResponse -&gt; Int
-</span><a href="#local-6989586621679215166"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215166"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215165"><span class="annot"><span class="annottext">s :: ReadJobResponse
-</span><a href="#local-6989586621679215165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215164"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadJobResponse
-</span><a href="#local-6989586621679215165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReadJobResponse' :: Int
+</span><a href="#local-6989586621679215293"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215293"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215292"><span class="annot"><span class="annottext">s :: ReadJobResponse
+</span><a href="#local-6989586621679215292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadJobResponse
+</span><a href="#local-6989586621679215292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReadJobResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3AhttpStatus%3AReadJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679215164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | A section of the response body that provides information about the job.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#readJobResponse_job"><span class="hs-identifier hs-type">readJobResponse_job</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span>
@@ -357,16 +357,16 @@ $sel:httpStatus:ReadJobResponse' :: ReadJobResponse -&gt; Int
 -&gt; (ReadJobResponse -&gt; Job -&gt; ReadJobResponse)
 -&gt; Lens ReadJobResponse ReadJobResponse Job Job
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215163"><span class="annot"><span class="annottext">Job
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215290"><span class="annot"><span class="annottext">Job
 job :: Job
 $sel:job:ReadJobResponse' :: ReadJobResponse -&gt; Job
-</span><a href="#local-6989586621679215163"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679215163"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215162"><span class="annot"><span class="annottext">s :: ReadJobResponse
-</span><a href="#local-6989586621679215162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215161"><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679215161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadJobResponse
-</span><a href="#local-6989586621679215162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:ReadJobResponse' :: Job
+</span><a href="#local-6989586621679215290"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679215290"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215289"><span class="annot"><span class="annottext">s :: ReadJobResponse
+</span><a href="#local-6989586621679215289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse%27"><span class="hs-identifier hs-type">ReadJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215288"><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679215288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReadJobResponse
+</span><a href="#local-6989586621679215289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:ReadJobResponse' :: Job
 </span><a href="Network.AWS.ElasticTranscoder.ReadJob.html#%24sel%3Ajob%3AReadJobResponse%27"><span class="hs-identifier hs-var">job</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Job
-</span><a href="#local-6989586621679215161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.ReadJob.html#ReadJobResponse"><span class="hs-identifier hs-type">ReadJobResponse</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

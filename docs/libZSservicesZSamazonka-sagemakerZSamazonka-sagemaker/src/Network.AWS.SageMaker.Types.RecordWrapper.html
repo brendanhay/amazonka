@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680334769"><span id="local-6989586621680334770"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecordWrapper"><span class="annot"><a href="Network.AWS.SageMaker.Types.RecordWrapper.html#RecordWrapper"><span class="hs-identifier hs-var">RecordWrapper</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordWrapper%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RecordWrapper.html#RecordWrapper%27"><span class="hs-identifier hs-var">RecordWrapper'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680336178"><span id="local-6989586621680336179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecordWrapper"><span class="annot"><a href="Network.AWS.SageMaker.Types.RecordWrapper.html#RecordWrapper"><span class="hs-identifier hs-var">RecordWrapper</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordWrapper%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.RecordWrapper.html#RecordWrapper%27"><span class="hs-identifier hs-var">RecordWrapper'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecordWrapper"><span class="annot"><span class="annottext">RecordWrapper -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.RecordWrapper.html#fromRecordWrapper"><span class="hs-identifier hs-var hs-var">fromRecordWrapper</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680334761"><span id="local-6989586621680334763"><span id="local-6989586621680334765"><span class="annot"><span class="annottext">Int -&gt; RecordWrapper -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680336170"><span id="local-6989586621680336172"><span id="local-6989586621680336174"><span class="annot"><span class="annottext">Int -&gt; RecordWrapper -&gt; ShowS
 [RecordWrapper] -&gt; ShowS
 RecordWrapper -&gt; String
 (Int -&gt; RecordWrapper -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RecordWrapper -&gt; String
 showsPrec :: Int -&gt; RecordWrapper -&gt; ShowS
 $cshowsPrec :: Int -&gt; RecordWrapper -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680334752"><span id="local-6989586621680334754"><span id="local-6989586621680334756"><span id="local-6989586621680334758"><span class="annot"><span class="annottext">ReadPrec [RecordWrapper]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680336161"><span id="local-6989586621680336163"><span id="local-6989586621680336165"><span id="local-6989586621680336167"><span class="annot"><span class="annottext">ReadPrec [RecordWrapper]
 ReadPrec RecordWrapper
 Int -&gt; ReadS RecordWrapper
 ReadS [RecordWrapper]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RecordWrapper]
 readsPrec :: Int -&gt; ReadS RecordWrapper
 $creadsPrec :: Int -&gt; ReadS RecordWrapper
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680334747"><span id="local-6989586621680334749"><span class="annot"><span class="annottext">RecordWrapper -&gt; RecordWrapper -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680336156"><span id="local-6989586621680336158"><span class="annot"><span class="annottext">RecordWrapper -&gt; RecordWrapper -&gt; Bool
 (RecordWrapper -&gt; RecordWrapper -&gt; Bool)
 -&gt; (RecordWrapper -&gt; RecordWrapper -&gt; Bool) -&gt; Eq RecordWrapper
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RecordWrapper -&gt; RecordWrapper -&gt; Bool
 == :: RecordWrapper -&gt; RecordWrapper -&gt; Bool
 $c== :: RecordWrapper -&gt; RecordWrapper -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680334731"><span id="local-6989586621680334733"><span id="local-6989586621680334735"><span id="local-6989586621680334737"><span id="local-6989586621680334739"><span id="local-6989586621680334741"><span id="local-6989586621680334743"><span class="annot"><span class="annottext">Eq RecordWrapper
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680336140"><span id="local-6989586621680336142"><span id="local-6989586621680336144"><span id="local-6989586621680336146"><span id="local-6989586621680336148"><span id="local-6989586621680336150"><span id="local-6989586621680336152"><span class="annot"><span class="annottext">Eq RecordWrapper
 Eq RecordWrapper
 -&gt; (RecordWrapper -&gt; RecordWrapper -&gt; Ordering)
 -&gt; (RecordWrapper -&gt; RecordWrapper -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. RecordWrapper -&gt; Rep RecordWrapper x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680334723"><span id="local-6989586621680334725"><span class="annot"><span class="annottext">Int -&gt; RecordWrapper -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680336132"><span id="local-6989586621680336134"><span class="annot"><span class="annottext">Int -&gt; RecordWrapper -&gt; Int
 RecordWrapper -&gt; Int
 (Int -&gt; RecordWrapper -&gt; Int)
 -&gt; (RecordWrapper -&gt; Int) -&gt; Hashable RecordWrapper
@@ -142,49 +142,49 @@ $chash :: RecordWrapper -&gt; Int
 hashWithSalt :: Int -&gt; RecordWrapper -&gt; Int
 $chashWithSalt :: Int -&gt; RecordWrapper -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680334720"><span class="annot"><span class="annottext">RecordWrapper -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680336129"><span class="annot"><span class="annottext">RecordWrapper -&gt; ()
 (RecordWrapper -&gt; ()) -&gt; NFData RecordWrapper
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RecordWrapper -&gt; ()
 $crnf :: RecordWrapper -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680334717"><span class="annot"><span class="annottext">Text -&gt; Either String RecordWrapper
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680336126"><span class="annot"><span class="annottext">Text -&gt; Either String RecordWrapper
 (Text -&gt; Either String RecordWrapper) -&gt; FromText RecordWrapper
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RecordWrapper
 $cfromText :: Text -&gt; Either String RecordWrapper
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680334714"><span class="annot"><span class="annottext">RecordWrapper -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680336123"><span class="annot"><span class="annottext">RecordWrapper -&gt; Text
 (RecordWrapper -&gt; Text) -&gt; ToText RecordWrapper
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RecordWrapper -&gt; Text
 $ctoText :: RecordWrapper -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680334711"><span class="annot"><span class="annottext">RecordWrapper -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680336120"><span class="annot"><span class="annottext">RecordWrapper -&gt; ByteString
 (RecordWrapper -&gt; ByteString) -&gt; ToByteString RecordWrapper
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RecordWrapper -&gt; ByteString
 $ctoBS :: RecordWrapper -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680334708"><span class="annot"><span class="annottext">RecordWrapper -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680336117"><span class="annot"><span class="annottext">RecordWrapper -&gt; ByteStringBuilder
 (RecordWrapper -&gt; ByteStringBuilder) -&gt; ToLog RecordWrapper
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RecordWrapper -&gt; ByteStringBuilder
 $cbuild :: RecordWrapper -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680334705"><span class="annot"><span class="annottext">HeaderName -&gt; RecordWrapper -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680336114"><span class="annot"><span class="annottext">HeaderName -&gt; RecordWrapper -&gt; [Header]
 (HeaderName -&gt; RecordWrapper -&gt; [Header]) -&gt; ToHeader RecordWrapper
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RecordWrapper -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RecordWrapper -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680334702"><span class="annot"><span class="annottext">RecordWrapper -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680336111"><span class="annot"><span class="annottext">RecordWrapper -&gt; QueryString
 (RecordWrapper -&gt; QueryString) -&gt; ToQuery RecordWrapper
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RecordWrapper -&gt; QueryString
 $ctoQuery :: RecordWrapper -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680334697"><span id="local-6989586621680334699"><span class="annot"><span class="annottext">Value -&gt; Parser [RecordWrapper]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680336106"><span id="local-6989586621680336108"><span class="annot"><span class="annottext">Value -&gt; Parser [RecordWrapper]
 Value -&gt; Parser RecordWrapper
 (Value -&gt; Parser RecordWrapper)
 -&gt; (Value -&gt; Parser [RecordWrapper]) -&gt; FromJSON RecordWrapper
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [RecordWrapper]
 parseJSON :: Value -&gt; Parser RecordWrapper
 $cparseJSON :: Value -&gt; Parser RecordWrapper
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680334692"><span id="local-6989586621680334694"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecordWrapper]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680336101"><span id="local-6989586621680336103"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecordWrapper]
 FromJSONKeyFunction RecordWrapper
 FromJSONKeyFunction RecordWrapper
 -&gt; FromJSONKeyFunction [RecordWrapper] -&gt; FromJSONKey RecordWrapper
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RecordWrapper]
 fromJSONKey :: FromJSONKeyFunction RecordWrapper
 $cfromJSONKey :: FromJSONKeyFunction RecordWrapper
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680334683"><span id="local-6989586621680334685"><span id="local-6989586621680334687"><span id="local-6989586621680334689"><span class="annot"><span class="annottext">[RecordWrapper] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680336092"><span id="local-6989586621680336094"><span id="local-6989586621680336096"><span id="local-6989586621680336098"><span class="annot"><span class="annottext">[RecordWrapper] -&gt; Encoding
 [RecordWrapper] -&gt; Value
 RecordWrapper -&gt; Encoding
 RecordWrapper -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: RecordWrapper -&gt; Encoding
 toJSON :: RecordWrapper -&gt; Value
 $ctoJSON :: RecordWrapper -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680334678"><span id="local-6989586621680334680"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecordWrapper]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680336087"><span id="local-6989586621680336089"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecordWrapper]
 ToJSONKeyFunction RecordWrapper
 ToJSONKeyFunction RecordWrapper
 -&gt; ToJSONKeyFunction [RecordWrapper] -&gt; ToJSONKey RecordWrapper
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RecordWrapper]
 toJSONKey :: ToJSONKeyFunction RecordWrapper
 $ctoJSONKey :: ToJSONKeyFunction RecordWrapper
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680334675"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecordWrapper
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680336084"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecordWrapper
 ([Node] -&gt; Either String RecordWrapper) -&gt; FromXML RecordWrapper
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RecordWrapper
 $cparseXML :: [Node] -&gt; Either String RecordWrapper
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680334672"><span class="annot"><span class="annottext">RecordWrapper -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680336081"><span class="annot"><span class="annottext">RecordWrapper -&gt; XML
 (RecordWrapper -&gt; XML) -&gt; ToXML RecordWrapper
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RecordWrapper -&gt; XML

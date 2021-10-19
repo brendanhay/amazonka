@@ -23,14 +23,14 @@
 </span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-24"></span><span>
 </span><span id="line-25"></span><span class="hs-comment">-- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
-</span><span id="line-26"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentTerminated"><span class="hs-identifier hs-type">newEnvironmentTerminated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironments.html#DescribeEnvironments"><span class="hs-identifier hs-type">DescribeEnvironments</span></a></span><span>
-</span><span id="line-27"></span><span id="newEnvironmentTerminated"><span class="annot"><span class="annottext">newEnvironmentTerminated :: Wait DescribeEnvironments
-</span><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentTerminated"><span class="hs-identifier hs-var hs-var">newEnvironmentTerminated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-26"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentExists"><span class="hs-identifier hs-type">newEnvironmentExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironments.html#DescribeEnvironments"><span class="hs-identifier hs-type">DescribeEnvironments</span></a></span><span>
+</span><span id="line-27"></span><span id="newEnvironmentExists"><span class="annot"><span class="annottext">newEnvironmentExists :: Wait DescribeEnvironments
+</span><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentExists"><span class="hs-identifier hs-var hs-var">newEnvironmentExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-28"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-29"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EnvironmentTerminated&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;EnvironmentExists&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
@@ -48,7 +48,7 @@ Eq b =&gt;
 b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
 </span><span id="line-34"></span><span>            </span><span class="annot"><span class="annottext">CI Text
-</span><span class="hs-string">&quot;Terminated&quot;</span></span><span>
+</span><span class="hs-string">&quot;Ready&quot;</span></span><span>
 </span><span id="line-35"></span><span>            </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
 </span><span id="line-36"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(EnvironmentDescriptionsMessage -&gt; [EnvironmentDescription])
@@ -143,7 +143,7 @@ Eq b =&gt;
 b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
 </span><span id="line-47"></span><span>            </span><span class="annot"><span class="annottext">CI Text
-</span><span class="hs-string">&quot;Terminating&quot;</span></span><span>
+</span><span class="hs-string">&quot;Launching&quot;</span></span><span>
 </span><span id="line-48"></span><span>            </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
 </span><span id="line-49"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(EnvironmentDescriptionsMessage -&gt; [EnvironmentDescription])
@@ -443,14 +443,14 @@ forall a. ToText a =&gt; a -&gt; CI Text
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentExists"><span class="hs-identifier hs-type">newEnvironmentExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironments.html#DescribeEnvironments"><span class="hs-identifier hs-type">DescribeEnvironments</span></a></span><span>
-</span><span id="line-101"></span><span id="newEnvironmentExists"><span class="annot"><span class="annottext">newEnvironmentExists :: Wait DescribeEnvironments
-</span><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentExists"><span class="hs-identifier hs-var hs-var">newEnvironmentExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentTerminated"><span class="hs-identifier hs-type">newEnvironmentTerminated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.DescribeEnvironments.html#DescribeEnvironments"><span class="hs-identifier hs-type">DescribeEnvironments</span></a></span><span>
+</span><span id="line-101"></span><span id="newEnvironmentTerminated"><span class="annot"><span class="annottext">newEnvironmentTerminated :: Wait DescribeEnvironments
+</span><a href="Network.AWS.ElasticBeanstalk.Waiters.html#newEnvironmentTerminated"><span class="hs-identifier hs-var hs-var">newEnvironmentTerminated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EnvironmentExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;EnvironmentTerminated&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">20</span></span><span class="hs-special">,</span><span>
@@ -468,7 +468,7 @@ Eq b =&gt;
 b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">CI Text
-</span><span class="hs-string">&quot;Ready&quot;</span></span><span>
+</span><span class="hs-string">&quot;Terminated&quot;</span></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(EnvironmentDescriptionsMessage -&gt; [EnvironmentDescription])
@@ -563,7 +563,7 @@ Eq b =&gt;
 b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">CI Text
-</span><span class="hs-string">&quot;Launching&quot;</span></span><span>
+</span><span class="hs-string">&quot;Terminating&quot;</span></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Accept
 </span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(EnvironmentDescriptionsMessage -&gt; [EnvironmentDescription])

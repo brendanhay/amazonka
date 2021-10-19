@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- to encrypt your data keys. You can optionally choose to specify a</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- different, customer managed CMK. Do so by specifying the Amazon Resource</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679998178"><span id="local-6989586621679998179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ServerSideEncryptionType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType.html#S3ServerSideEncryptionType"><span class="hs-identifier hs-var">S3ServerSideEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ServerSideEncryptionType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType.html#S3ServerSideEncryptionType%27"><span class="hs-identifier hs-var">S3ServerSideEncryptionType'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621680003102"><span id="local-6989586621680003103"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ServerSideEncryptionType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType.html#S3ServerSideEncryptionType"><span class="hs-identifier hs-var">S3ServerSideEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ServerSideEncryptionType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType.html#S3ServerSideEncryptionType%27"><span class="hs-identifier hs-var">S3ServerSideEncryptionType'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3ServerSideEncryptionType"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType.html#fromS3ServerSideEncryptionType"><span class="hs-identifier hs-var hs-var">fromS3ServerSideEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998170"><span id="local-6989586621679998172"><span id="local-6989586621679998174"><span class="annot"><span class="annottext">Int -&gt; S3ServerSideEncryptionType -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680003094"><span id="local-6989586621680003096"><span id="local-6989586621680003098"><span class="annot"><span class="annottext">Int -&gt; S3ServerSideEncryptionType -&gt; ShowS
 [S3ServerSideEncryptionType] -&gt; ShowS
 S3ServerSideEncryptionType -&gt; String
 (Int -&gt; S3ServerSideEncryptionType -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: S3ServerSideEncryptionType -&gt; String
 showsPrec :: Int -&gt; S3ServerSideEncryptionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; S3ServerSideEncryptionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679998161"><span id="local-6989586621679998163"><span id="local-6989586621679998165"><span id="local-6989586621679998167"><span class="annot"><span class="annottext">ReadPrec [S3ServerSideEncryptionType]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680003085"><span id="local-6989586621680003087"><span id="local-6989586621680003089"><span id="local-6989586621680003091"><span class="annot"><span class="annottext">ReadPrec [S3ServerSideEncryptionType]
 ReadPrec S3ServerSideEncryptionType
 Int -&gt; ReadS S3ServerSideEncryptionType
 ReadS [S3ServerSideEncryptionType]
@@ -84,7 +84,7 @@ $creadList :: ReadS [S3ServerSideEncryptionType]
 readsPrec :: Int -&gt; ReadS S3ServerSideEncryptionType
 $creadsPrec :: Int -&gt; ReadS S3ServerSideEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679998156"><span id="local-6989586621679998158"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; S3ServerSideEncryptionType -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680003080"><span id="local-6989586621680003082"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; S3ServerSideEncryptionType -&gt; Bool
 (S3ServerSideEncryptionType -&gt; S3ServerSideEncryptionType -&gt; Bool)
 -&gt; (S3ServerSideEncryptionType
     -&gt; S3ServerSideEncryptionType -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: S3ServerSideEncryptionType -&gt; S3ServerSideEncryptionType -&gt; Bool
 == :: S3ServerSideEncryptionType -&gt; S3ServerSideEncryptionType -&gt; Bool
 $c== :: S3ServerSideEncryptionType -&gt; S3ServerSideEncryptionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679998140"><span id="local-6989586621679998142"><span id="local-6989586621679998144"><span id="local-6989586621679998146"><span id="local-6989586621679998148"><span id="local-6989586621679998150"><span id="local-6989586621679998152"><span class="annot"><span class="annottext">Eq S3ServerSideEncryptionType
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680003064"><span id="local-6989586621680003066"><span id="local-6989586621680003068"><span id="local-6989586621680003070"><span id="local-6989586621680003072"><span id="local-6989586621680003074"><span id="local-6989586621680003076"><span class="annot"><span class="annottext">Eq S3ServerSideEncryptionType
 Eq S3ServerSideEncryptionType
 -&gt; (S3ServerSideEncryptionType
     -&gt; S3ServerSideEncryptionType -&gt; Ordering)
@@ -167,7 +167,7 @@ S3ServerSideEncryptionType -&gt; Rep S3ServerSideEncryptionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998132"><span id="local-6989586621679998134"><span class="annot"><span class="annottext">Int -&gt; S3ServerSideEncryptionType -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680003056"><span id="local-6989586621680003058"><span class="annot"><span class="annottext">Int -&gt; S3ServerSideEncryptionType -&gt; Int
 S3ServerSideEncryptionType -&gt; Int
 (Int -&gt; S3ServerSideEncryptionType -&gt; Int)
 -&gt; (S3ServerSideEncryptionType -&gt; Int)
@@ -178,56 +178,56 @@ $chash :: S3ServerSideEncryptionType -&gt; Int
 hashWithSalt :: Int -&gt; S3ServerSideEncryptionType -&gt; Int
 $chashWithSalt :: Int -&gt; S3ServerSideEncryptionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679998129"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680003053"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; ()
 (S3ServerSideEncryptionType -&gt; ())
 -&gt; NFData S3ServerSideEncryptionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: S3ServerSideEncryptionType -&gt; ()
 $crnf :: S3ServerSideEncryptionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679998126"><span class="annot"><span class="annottext">Text -&gt; Either String S3ServerSideEncryptionType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680003050"><span class="annot"><span class="annottext">Text -&gt; Either String S3ServerSideEncryptionType
 (Text -&gt; Either String S3ServerSideEncryptionType)
 -&gt; FromText S3ServerSideEncryptionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String S3ServerSideEncryptionType
 $cfromText :: Text -&gt; Either String S3ServerSideEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679998123"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680003047"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; Text
 (S3ServerSideEncryptionType -&gt; Text)
 -&gt; ToText S3ServerSideEncryptionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: S3ServerSideEncryptionType -&gt; Text
 $ctoText :: S3ServerSideEncryptionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679998120"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680003044"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; ByteString
 (S3ServerSideEncryptionType -&gt; ByteString)
 -&gt; ToByteString S3ServerSideEncryptionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: S3ServerSideEncryptionType -&gt; ByteString
 $ctoBS :: S3ServerSideEncryptionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679998117"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680003041"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; ByteStringBuilder
 (S3ServerSideEncryptionType -&gt; ByteStringBuilder)
 -&gt; ToLog S3ServerSideEncryptionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: S3ServerSideEncryptionType -&gt; ByteStringBuilder
 $cbuild :: S3ServerSideEncryptionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679998114"><span class="annot"><span class="annottext">HeaderName -&gt; S3ServerSideEncryptionType -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680003038"><span class="annot"><span class="annottext">HeaderName -&gt; S3ServerSideEncryptionType -&gt; [Header]
 (HeaderName -&gt; S3ServerSideEncryptionType -&gt; [Header])
 -&gt; ToHeader S3ServerSideEncryptionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; S3ServerSideEncryptionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; S3ServerSideEncryptionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679998111"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680003035"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; QueryString
 (S3ServerSideEncryptionType -&gt; QueryString)
 -&gt; ToQuery S3ServerSideEncryptionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: S3ServerSideEncryptionType -&gt; QueryString
 $ctoQuery :: S3ServerSideEncryptionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679998106"><span id="local-6989586621679998108"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ServerSideEncryptionType]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680003030"><span id="local-6989586621680003032"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ServerSideEncryptionType]
 Value -&gt; Parser S3ServerSideEncryptionType
 (Value -&gt; Parser S3ServerSideEncryptionType)
 -&gt; (Value -&gt; Parser [S3ServerSideEncryptionType])
@@ -239,7 +239,7 @@ $cparseJSONList :: Value -&gt; Parser [S3ServerSideEncryptionType]
 parseJSON :: Value -&gt; Parser S3ServerSideEncryptionType
 $cparseJSON :: Value -&gt; Parser S3ServerSideEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679998101"><span id="local-6989586621679998103"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ServerSideEncryptionType]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680003025"><span id="local-6989586621680003027"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ServerSideEncryptionType]
 FromJSONKeyFunction S3ServerSideEncryptionType
 FromJSONKeyFunction S3ServerSideEncryptionType
 -&gt; FromJSONKeyFunction [S3ServerSideEncryptionType]
@@ -251,7 +251,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [S3ServerSideEncryptionType]
 fromJSONKey :: FromJSONKeyFunction S3ServerSideEncryptionType
 $cfromJSONKey :: FromJSONKeyFunction S3ServerSideEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679998092"><span id="local-6989586621679998094"><span id="local-6989586621679998096"><span id="local-6989586621679998098"><span class="annot"><span class="annottext">[S3ServerSideEncryptionType] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680003016"><span id="local-6989586621680003018"><span id="local-6989586621680003020"><span id="local-6989586621680003022"><span class="annot"><span class="annottext">[S3ServerSideEncryptionType] -&gt; Encoding
 [S3ServerSideEncryptionType] -&gt; Value
 S3ServerSideEncryptionType -&gt; Encoding
 S3ServerSideEncryptionType -&gt; Value
@@ -275,7 +275,7 @@ $ctoEncoding :: S3ServerSideEncryptionType -&gt; Encoding
 toJSON :: S3ServerSideEncryptionType -&gt; Value
 $ctoJSON :: S3ServerSideEncryptionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679998087"><span id="local-6989586621679998089"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ServerSideEncryptionType]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680003011"><span id="local-6989586621680003013"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ServerSideEncryptionType]
 ToJSONKeyFunction S3ServerSideEncryptionType
 ToJSONKeyFunction S3ServerSideEncryptionType
 -&gt; ToJSONKeyFunction [S3ServerSideEncryptionType]
@@ -287,14 +287,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [S3ServerSideEncryptionType]
 toJSONKey :: ToJSONKeyFunction S3ServerSideEncryptionType
 $ctoJSONKey :: ToJSONKeyFunction S3ServerSideEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679998084"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ServerSideEncryptionType
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680003008"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ServerSideEncryptionType
 ([Node] -&gt; Either String S3ServerSideEncryptionType)
 -&gt; FromXML S3ServerSideEncryptionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String S3ServerSideEncryptionType
 $cparseXML :: [Node] -&gt; Either String S3ServerSideEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679998081"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680003005"><span class="annot"><span class="annottext">S3ServerSideEncryptionType -&gt; XML
 (S3ServerSideEncryptionType -&gt; XML)
 -&gt; ToXML S3ServerSideEncryptionType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679176579"><span id="local-6989586621679176580"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueryType"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html#QueryType"><span class="hs-identifier hs-var">QueryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryType%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html#QueryType%27"><span class="hs-identifier hs-var">QueryType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679176710"><span id="local-6989586621679176711"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueryType"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html#QueryType"><span class="hs-identifier hs-var">QueryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryType%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.QueryType.html#QueryType%27"><span class="hs-identifier hs-var">QueryType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQueryType"><span class="annot"><span class="annottext">QueryType -&gt; Text
 </span><a href="Network.AWS.ResourceGroups.Types.QueryType.html#fromQueryType"><span class="hs-identifier hs-var hs-var">fromQueryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176571"><span id="local-6989586621679176573"><span id="local-6989586621679176575"><span class="annot"><span class="annottext">Int -&gt; QueryType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176702"><span id="local-6989586621679176704"><span id="local-6989586621679176706"><span class="annot"><span class="annottext">Int -&gt; QueryType -&gt; ShowS
 [QueryType] -&gt; ShowS
 QueryType -&gt; String
 (Int -&gt; QueryType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: QueryType -&gt; String
 showsPrec :: Int -&gt; QueryType -&gt; ShowS
 $cshowsPrec :: Int -&gt; QueryType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176562"><span id="local-6989586621679176564"><span id="local-6989586621679176566"><span id="local-6989586621679176568"><span class="annot"><span class="annottext">ReadPrec [QueryType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679176693"><span id="local-6989586621679176695"><span id="local-6989586621679176697"><span id="local-6989586621679176699"><span class="annot"><span class="annottext">ReadPrec [QueryType]
 ReadPrec QueryType
 Int -&gt; ReadS QueryType
 ReadS [QueryType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [QueryType]
 readsPrec :: Int -&gt; ReadS QueryType
 $creadsPrec :: Int -&gt; ReadS QueryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176557"><span id="local-6989586621679176559"><span class="annot"><span class="annottext">QueryType -&gt; QueryType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679176688"><span id="local-6989586621679176690"><span class="annot"><span class="annottext">QueryType -&gt; QueryType -&gt; Bool
 (QueryType -&gt; QueryType -&gt; Bool)
 -&gt; (QueryType -&gt; QueryType -&gt; Bool) -&gt; Eq QueryType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: QueryType -&gt; QueryType -&gt; Bool
 == :: QueryType -&gt; QueryType -&gt; Bool
 $c== :: QueryType -&gt; QueryType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176541"><span id="local-6989586621679176543"><span id="local-6989586621679176545"><span id="local-6989586621679176547"><span id="local-6989586621679176549"><span id="local-6989586621679176551"><span id="local-6989586621679176553"><span class="annot"><span class="annottext">Eq QueryType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679176672"><span id="local-6989586621679176674"><span id="local-6989586621679176676"><span id="local-6989586621679176678"><span id="local-6989586621679176680"><span id="local-6989586621679176682"><span id="local-6989586621679176684"><span class="annot"><span class="annottext">Eq QueryType
 Eq QueryType
 -&gt; (QueryType -&gt; QueryType -&gt; Ordering)
 -&gt; (QueryType -&gt; QueryType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. QueryType -&gt; Rep QueryType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176533"><span id="local-6989586621679176535"><span class="annot"><span class="annottext">Int -&gt; QueryType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679176664"><span id="local-6989586621679176666"><span class="annot"><span class="annottext">Int -&gt; QueryType -&gt; Int
 QueryType -&gt; Int
 (Int -&gt; QueryType -&gt; Int)
 -&gt; (QueryType -&gt; Int) -&gt; Hashable QueryType
@@ -141,49 +141,49 @@ $chash :: QueryType -&gt; Int
 hashWithSalt :: Int -&gt; QueryType -&gt; Int
 $chashWithSalt :: Int -&gt; QueryType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176530"><span class="annot"><span class="annottext">QueryType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679176661"><span class="annot"><span class="annottext">QueryType -&gt; ()
 (QueryType -&gt; ()) -&gt; NFData QueryType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: QueryType -&gt; ()
 $crnf :: QueryType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176527"><span class="annot"><span class="annottext">Text -&gt; Either String QueryType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679176658"><span class="annot"><span class="annottext">Text -&gt; Either String QueryType
 (Text -&gt; Either String QueryType) -&gt; FromText QueryType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String QueryType
 $cfromText :: Text -&gt; Either String QueryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176524"><span class="annot"><span class="annottext">QueryType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679176655"><span class="annot"><span class="annottext">QueryType -&gt; Text
 (QueryType -&gt; Text) -&gt; ToText QueryType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: QueryType -&gt; Text
 $ctoText :: QueryType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176521"><span class="annot"><span class="annottext">QueryType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679176652"><span class="annot"><span class="annottext">QueryType -&gt; ByteString
 (QueryType -&gt; ByteString) -&gt; ToByteString QueryType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: QueryType -&gt; ByteString
 $ctoBS :: QueryType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176518"><span class="annot"><span class="annottext">QueryType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679176649"><span class="annot"><span class="annottext">QueryType -&gt; ByteStringBuilder
 (QueryType -&gt; ByteStringBuilder) -&gt; ToLog QueryType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: QueryType -&gt; ByteStringBuilder
 $cbuild :: QueryType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176515"><span class="annot"><span class="annottext">HeaderName -&gt; QueryType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679176646"><span class="annot"><span class="annottext">HeaderName -&gt; QueryType -&gt; [Header]
 (HeaderName -&gt; QueryType -&gt; [Header]) -&gt; ToHeader QueryType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; QueryType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; QueryType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176512"><span class="annot"><span class="annottext">QueryType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679176643"><span class="annot"><span class="annottext">QueryType -&gt; QueryString
 (QueryType -&gt; QueryString) -&gt; ToQuery QueryType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: QueryType -&gt; QueryString
 $ctoQuery :: QueryType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176507"><span id="local-6989586621679176509"><span class="annot"><span class="annottext">Value -&gt; Parser [QueryType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679176638"><span id="local-6989586621679176640"><span class="annot"><span class="annottext">Value -&gt; Parser [QueryType]
 Value -&gt; Parser QueryType
 (Value -&gt; Parser QueryType)
 -&gt; (Value -&gt; Parser [QueryType]) -&gt; FromJSON QueryType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [QueryType]
 parseJSON :: Value -&gt; Parser QueryType
 $cparseJSON :: Value -&gt; Parser QueryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176502"><span id="local-6989586621679176504"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueryType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679176633"><span id="local-6989586621679176635"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueryType]
 FromJSONKeyFunction QueryType
 FromJSONKeyFunction QueryType
 -&gt; FromJSONKeyFunction [QueryType] -&gt; FromJSONKey QueryType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [QueryType]
 fromJSONKey :: FromJSONKeyFunction QueryType
 $cfromJSONKey :: FromJSONKeyFunction QueryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176493"><span id="local-6989586621679176495"><span id="local-6989586621679176497"><span id="local-6989586621679176499"><span class="annot"><span class="annottext">[QueryType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679176624"><span id="local-6989586621679176626"><span id="local-6989586621679176628"><span id="local-6989586621679176630"><span class="annot"><span class="annottext">[QueryType] -&gt; Encoding
 [QueryType] -&gt; Value
 QueryType -&gt; Encoding
 QueryType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: QueryType -&gt; Encoding
 toJSON :: QueryType -&gt; Value
 $ctoJSON :: QueryType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176488"><span id="local-6989586621679176490"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueryType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679176619"><span id="local-6989586621679176621"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueryType]
 ToJSONKeyFunction QueryType
 ToJSONKeyFunction QueryType
 -&gt; ToJSONKeyFunction [QueryType] -&gt; ToJSONKey QueryType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [QueryType]
 toJSONKey :: ToJSONKeyFunction QueryType
 $ctoJSONKey :: ToJSONKeyFunction QueryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176485"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueryType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679176616"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueryType
 ([Node] -&gt; Either String QueryType) -&gt; FromXML QueryType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String QueryType
 $cparseXML :: [Node] -&gt; Either String QueryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176482"><span class="annot"><span class="annottext">QueryType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679176613"><span class="annot"><span class="annottext">QueryType -&gt; XML
 (QueryType -&gt; XML) -&gt; ToXML QueryType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: QueryType -&gt; XML

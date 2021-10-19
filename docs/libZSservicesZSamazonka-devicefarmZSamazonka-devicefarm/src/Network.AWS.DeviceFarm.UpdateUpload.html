@@ -27,9 +27,9 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#newUpdateUpload"><span class="hs-identifier">newUpdateUpload</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_contentType"><span class="hs-identifier">updateUpload_contentType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_editContent"><span class="hs-identifier">updateUpload_editContent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_name"><span class="hs-identifier">updateUpload_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_editContent"><span class="hs-identifier">updateUpload_editContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_name"><span class="hs-identifier">updateUpload_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_contentType"><span class="hs-identifier">updateUpload_contentType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_arn"><span class="hs-identifier">updateUpload_arn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -50,24 +50,24 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateUpload' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679390840"><span id="local-6989586621679390841"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUpload"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-var">UpdateUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUpload%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-var">UpdateUpload'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The upload\'s content type (for example, @application\/x-yaml@).</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcontentType%3AUpdateUpload%27"><span class="annot"><span class="annottext">UpdateUpload -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AcontentType%3AUpdateUpload%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Set to true if the YAML file has changed and must be updated. Otherwise,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- set to false.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AeditContent%3AUpdateUpload%27"><span class="annot"><span class="annottext">UpdateUpload -&gt; Maybe Bool
+</span><span id="line-53"></span><span id="local-6989586621679391129"><span id="local-6989586621679391130"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUpload"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-var">UpdateUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUpload%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-var">UpdateUpload'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to true if the YAML file has changed and must be updated. Otherwise,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- set to false.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AeditContent%3AUpdateUpload%27"><span class="annot"><span class="annottext">UpdateUpload -&gt; Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AeditContent%3AUpdateUpload%27"><span class="hs-identifier hs-var hs-var">editContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The upload\'s test spec file name. The name must not contain any forward</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- slashes (\/). The test spec file name must end with the @.yaml@ or</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @.yml@ file extension.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aname%3AUpdateUpload%27"><span class="annot"><span class="annottext">UpdateUpload -&gt; Maybe Text
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The upload\'s test spec file name. The name must not contain any forward</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- slashes (\/). The test spec file name must end with the @.yaml@ or</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @.yml@ file extension.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aname%3AUpdateUpload%27"><span class="annot"><span class="annottext">UpdateUpload -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aname%3AUpdateUpload%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The upload\'s content type (for example, @application\/x-yaml@).</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AcontentType%3AUpdateUpload%27"><span class="annot"><span class="annottext">UpdateUpload -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AcontentType%3AUpdateUpload%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the uploaded test spec.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateUpload%27"><span class="annot"><span class="annottext">UpdateUpload -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aarn%3AUpdateUpload%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390831"><span id="local-6989586621679390833"><span class="annot"><span class="annottext">UpdateUpload -&gt; UpdateUpload -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391120"><span id="local-6989586621679391122"><span class="annot"><span class="annottext">UpdateUpload -&gt; UpdateUpload -&gt; Bool
 (UpdateUpload -&gt; UpdateUpload -&gt; Bool)
 -&gt; (UpdateUpload -&gt; UpdateUpload -&gt; Bool) -&gt; Eq UpdateUpload
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUpload -&gt; UpdateUpload -&gt; Bool
 == :: UpdateUpload -&gt; UpdateUpload -&gt; Bool
 $c== :: UpdateUpload -&gt; UpdateUpload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390822"><span id="local-6989586621679390824"><span id="local-6989586621679390826"><span id="local-6989586621679390828"><span class="annot"><span class="annottext">ReadPrec [UpdateUpload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391111"><span id="local-6989586621679391113"><span id="local-6989586621679391115"><span id="local-6989586621679391117"><span class="annot"><span class="annottext">ReadPrec [UpdateUpload]
 ReadPrec UpdateUpload
 Int -&gt; ReadS UpdateUpload
 ReadS [UpdateUpload]
@@ -95,7 +95,7 @@ readList :: ReadS [UpdateUpload]
 $creadList :: ReadS [UpdateUpload]
 readsPrec :: Int -&gt; ReadS UpdateUpload
 $creadsPrec :: Int -&gt; ReadS UpdateUpload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390815"><span id="local-6989586621679390817"><span id="local-6989586621679390819"><span class="annot"><span class="annottext">Int -&gt; UpdateUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391104"><span id="local-6989586621679391106"><span id="local-6989586621679391108"><span class="annot"><span class="annottext">Int -&gt; UpdateUpload -&gt; ShowS
 [UpdateUpload] -&gt; ShowS
 UpdateUpload -&gt; String
 (Int -&gt; UpdateUpload -&gt; ShowS)
@@ -129,14 +129,14 @@ $cfrom :: forall x. UpdateUpload -&gt; Rep UpdateUpload x
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'contentType', 'updateUpload_contentType' - The upload\'s content type (for example, @application\/x-yaml@).</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'editContent', 'updateUpload_editContent' - Set to true if the YAML file has changed and must be updated. Otherwise,</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- set to false.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'updateUpload_name' - The upload\'s test spec file name. The name must not contain any forward</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- slashes (\/). The test spec file name must end with the @.yaml@ or</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- @.yml@ file extension.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'editContent', 'updateUpload_editContent' - Set to true if the YAML file has changed and must be updated. Otherwise,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- set to false.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'name', 'updateUpload_name' - The upload\'s test spec file name. The name must not contain any forward</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- slashes (\/). The test spec file name must end with the @.yaml@ or</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @.yml@ file extension.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'contentType', 'updateUpload_contentType' - The upload\'s content type (for example, @application\/x-yaml@).</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- 'arn', 'updateUpload_arn' - The Amazon Resource Name (ARN) of the uploaded test spec.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#newUpdateUpload"><span class="hs-identifier hs-type">newUpdateUpload</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -144,83 +144,83 @@ $cfrom :: forall x. UpdateUpload -&gt; Rep UpdateUpload x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span>
 </span><span id="line-90"></span><span id="newUpdateUpload"><span class="annot"><span class="annottext">newUpdateUpload :: Text -&gt; UpdateUpload
-</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#newUpdateUpload"><span class="hs-identifier hs-var hs-var">newUpdateUpload</span></a></span></span><span> </span><span id="local-6989586621679390810"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390810"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">UpdateUpload' :: Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; UpdateUpload
+</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#newUpdateUpload"><span class="hs-identifier hs-var hs-var">newUpdateUpload</span></a></span></span><span> </span><span id="local-6989586621679391099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391099"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">UpdateUpload' :: Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateUpload
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentType:UpdateUpload' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AcontentType%3AUpdateUpload%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:editContent:UpdateUpload' :: Maybe Bool
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:editContent:UpdateUpload' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AeditContent%3AUpdateUpload%27"><span class="hs-identifier hs-var">editContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateUpload' :: Maybe Text
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateUpload' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aname%3AUpdateUpload%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:UpdateUpload' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AcontentType%3AUpdateUpload%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateUpload' :: Text
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aarn%3AUpdateUpload%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390810"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><a href="#local-6989586621679391099"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The upload\'s content type (for example, @application\/x-yaml@).</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_contentType"><span class="hs-identifier hs-type">updateUpload_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="updateUpload_contentType"><span class="annot"><span class="annottext">updateUpload_contentType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUpload -&gt; f UpdateUpload
-</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_contentType"><span class="hs-identifier hs-var hs-var">updateUpload_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUpload -&gt; Maybe Text)
--&gt; (UpdateUpload -&gt; Maybe Text -&gt; UpdateUpload)
--&gt; Lens UpdateUpload UpdateUpload (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390807"><span class="annot"><span class="annottext">Maybe Text
-contentType :: Maybe Text
-$sel:contentType:UpdateUpload' :: UpdateUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679390807"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390807"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390806"><span class="annot"><span class="annottext">s :: UpdateUpload
-</span><a href="#local-6989586621679390806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390805"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
-</span><a href="#local-6989586621679390806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:UpdateUpload' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AcontentType%3AUpdateUpload%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | Set to true if the YAML file has changed and must be updated. Otherwise,</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- set to false.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_editContent"><span class="hs-identifier hs-type">updateUpload_editContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="updateUpload_editContent"><span class="annot"><span class="annottext">updateUpload_editContent :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateUpload -&gt; f UpdateUpload
+</span><span id="line-98"></span><span class="hs-comment">-- | Set to true if the YAML file has changed and must be updated. Otherwise,</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- set to false.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_editContent"><span class="hs-identifier hs-type">updateUpload_editContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateUpload_editContent"><span class="annot"><span class="annottext">updateUpload_editContent :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateUpload -&gt; f UpdateUpload
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_editContent"><span class="hs-identifier hs-var hs-var">updateUpload_editContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUpload -&gt; Maybe Bool)
 -&gt; (UpdateUpload -&gt; Maybe Bool -&gt; UpdateUpload)
 -&gt; Lens UpdateUpload UpdateUpload (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390804"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391096"><span class="annot"><span class="annottext">Maybe Bool
 editContent :: Maybe Bool
 $sel:editContent:UpdateUpload' :: UpdateUpload -&gt; Maybe Bool
-</span><a href="#local-6989586621679390804"><span class="hs-identifier hs-var hs-var">editContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679390804"><span class="hs-identifier hs-var">editContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390803"><span class="annot"><span class="annottext">s :: UpdateUpload
-</span><a href="#local-6989586621679390803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390802"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679390802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
-</span><a href="#local-6989586621679390803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:editContent:UpdateUpload' :: Maybe Bool
+</span><a href="#local-6989586621679391096"><span class="hs-identifier hs-var hs-var">editContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679391096"><span class="hs-identifier hs-var">editContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391095"><span class="annot"><span class="annottext">s :: UpdateUpload
+</span><a href="#local-6989586621679391095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391094"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679391094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
+</span><a href="#local-6989586621679391095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:editContent:UpdateUpload' :: Maybe Bool
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AeditContent%3AUpdateUpload%27"><span class="hs-identifier hs-var">editContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679390802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The upload\'s test spec file name. The name must not contain any forward</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- slashes (\/). The test spec file name must end with the @.yaml@ or</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- @.yml@ file extension.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_name"><span class="hs-identifier hs-type">updateUpload_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="updateUpload_name"><span class="annot"><span class="annottext">updateUpload_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUpload -&gt; f UpdateUpload
+</span><a href="#local-6989586621679391094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The upload\'s test spec file name. The name must not contain any forward</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- slashes (\/). The test spec file name must end with the @.yaml@ or</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @.yml@ file extension.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_name"><span class="hs-identifier hs-type">updateUpload_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="updateUpload_name"><span class="annot"><span class="annottext">updateUpload_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUpload -&gt; f UpdateUpload
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_name"><span class="hs-identifier hs-var hs-var">updateUpload_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUpload -&gt; Maybe Text)
 -&gt; (UpdateUpload -&gt; Maybe Text -&gt; UpdateUpload)
 -&gt; Lens UpdateUpload UpdateUpload (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390801"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391093"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:UpdateUpload' :: UpdateUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679390801"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390801"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390800"><span class="annot"><span class="annottext">s :: UpdateUpload
-</span><a href="#local-6989586621679390800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390799"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
-</span><a href="#local-6989586621679390800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateUpload' :: Maybe Text
+</span><a href="#local-6989586621679391093"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391093"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391092"><span class="annot"><span class="annottext">s :: UpdateUpload
+</span><a href="#local-6989586621679391092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
+</span><a href="#local-6989586621679391092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateUpload' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aname%3AUpdateUpload%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The upload\'s content type (for example, @application\/x-yaml@).</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_contentType"><span class="hs-identifier hs-type">updateUpload_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="updateUpload_contentType"><span class="annot"><span class="annottext">updateUpload_contentType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateUpload -&gt; f UpdateUpload
+</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_contentType"><span class="hs-identifier hs-var hs-var">updateUpload_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateUpload -&gt; Maybe Text)
+-&gt; (UpdateUpload -&gt; Maybe Text -&gt; UpdateUpload)
+-&gt; Lens UpdateUpload UpdateUpload (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391090"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:UpdateUpload' :: UpdateUpload -&gt; Maybe Text
+</span><a href="#local-6989586621679391090"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391090"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391089"><span class="annot"><span class="annottext">s :: UpdateUpload
+</span><a href="#local-6989586621679391089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
+</span><a href="#local-6989586621679391089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:UpdateUpload' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AcontentType%3AUpdateUpload%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the uploaded test spec.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUpload_arn"><span class="hs-identifier hs-type">updateUpload_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -229,25 +229,25 @@ $sel:name:UpdateUpload' :: UpdateUpload -&gt; Maybe Text
 -&gt; (UpdateUpload -&gt; Text -&gt; UpdateUpload)
 -&gt; Lens UpdateUpload UpdateUpload Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390798"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391087"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:UpdateUpload' :: UpdateUpload -&gt; Text
-</span><a href="#local-6989586621679390798"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390798"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390797"><span class="annot"><span class="annottext">s :: UpdateUpload
-</span><a href="#local-6989586621679390797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390796"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
-</span><a href="#local-6989586621679390797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateUpload' :: Text
+</span><a href="#local-6989586621679391087"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391087"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391086"><span class="annot"><span class="annottext">s :: UpdateUpload
+</span><a href="#local-6989586621679391086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUpload
+</span><a href="#local-6989586621679391086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateUpload' :: Text
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aarn%3AUpdateUpload%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679390792"><span class="annot"><span class="annottext">request :: UpdateUpload -&gt; Request UpdateUpload
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679391081"><span class="annot"><span class="annottext">request :: UpdateUpload -&gt; Request UpdateUpload
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateUpload -&gt; Request UpdateUpload
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679390788"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679391077"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateUpload
 -&gt; ClientResponse ClientBody
@@ -271,10 +271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390785"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390785"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390784"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390784"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390783"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390783"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391074"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391073"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391072"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Upload -&gt; Int -&gt; UpdateUploadResponse
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-var">UpdateUploadResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Upload -&gt; Int -&gt; UpdateUploadResponse)
@@ -282,7 +282,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateUploadResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Upload)
+</span><a href="#local-6989586621679391072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Upload)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;upload&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,15 +294,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390785"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390775"><span id="local-6989586621679390777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391064"><span id="local-6989586621679391066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679390768"><span class="annot"><span class="annottext">toHeaders :: UpdateUpload -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679391057"><span class="annot"><span class="annottext">toHeaders :: UpdateUpload -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateUpload -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -329,65 +329,65 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390758"><span id="local-6989586621679390760"><span id="local-6989586621679390762"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679390756"><span class="annot"><span class="annottext">toJSON :: UpdateUpload -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390751"><span id="local-6989586621679390752"><span id="local-6989586621679390753"><span id="local-6989586621679390754"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391047"><span id="local-6989586621679391049"><span id="local-6989586621679391051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679391045"><span class="annot"><span class="annottext">toJSON :: UpdateUpload -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload%27"><span class="hs-identifier hs-type">UpdateUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391040"><span id="local-6989586621679391041"><span id="local-6989586621679391042"><span id="local-6989586621679391043"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 arn :: Text
+contentType :: Maybe Text
 name :: Maybe Text
 editContent :: Maybe Bool
-contentType :: Maybe Text
 $sel:arn:UpdateUpload' :: UpdateUpload -&gt; Text
+$sel:contentType:UpdateUpload' :: UpdateUpload -&gt; Maybe Text
 $sel:name:UpdateUpload' :: UpdateUpload -&gt; Maybe Text
 $sel:editContent:UpdateUpload' :: UpdateUpload -&gt; Maybe Bool
-$sel:contentType:UpdateUpload' :: UpdateUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679390751"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391040"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;contentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390754"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;editContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679390753"><span class="hs-identifier hs-var">editContent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391043"><span class="hs-identifier hs-var">editContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390752"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391042"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391041"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390751"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391040"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679390745"><span class="annot"><span class="annottext">toPath :: UpdateUpload -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679391034"><span class="annot"><span class="annottext">toPath :: UpdateUpload -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateUpload -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUpload"><span class="hs-identifier hs-type">UpdateUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679390741"><span class="annot"><span class="annottext">toQuery :: UpdateUpload -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679391030"><span class="annot"><span class="annottext">toQuery :: UpdateUpload -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateUpload -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -395,7 +395,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newUpdateUploadResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679390738"><span id="local-6989586621679390739"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUploadResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-var">UpdateUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUploadResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-var">UpdateUploadResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679391027"><span id="local-6989586621679391028"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateUploadResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-var">UpdateUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateUploadResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-var">UpdateUploadResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A test spec uploaded to Device Farm.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3Aupload%3AUpdateUploadResponse%27"><span class="annot"><span class="annottext">UpdateUploadResponse -&gt; Maybe Upload
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aupload%3AUpdateUploadResponse%27"><span class="hs-identifier hs-var hs-var">upload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Upload.html#Upload"><span class="hs-identifier hs-type">Upload</span></a></span><span class="hs-special">,</span><span>
@@ -403,7 +403,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateUploadResponse%27"><span class="annot"><span class="annottext">UpdateUploadResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AhttpStatus%3AUpdateUploadResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390732"><span id="local-6989586621679390734"><span class="annot"><span class="annottext">UpdateUploadResponse -&gt; UpdateUploadResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391021"><span id="local-6989586621679391023"><span class="annot"><span class="annottext">UpdateUploadResponse -&gt; UpdateUploadResponse -&gt; Bool
 (UpdateUploadResponse -&gt; UpdateUploadResponse -&gt; Bool)
 -&gt; (UpdateUploadResponse -&gt; UpdateUploadResponse -&gt; Bool)
 -&gt; Eq UpdateUploadResponse
@@ -412,7 +412,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateUploadResponse -&gt; UpdateUploadResponse -&gt; Bool
 == :: UpdateUploadResponse -&gt; UpdateUploadResponse -&gt; Bool
 $c== :: UpdateUploadResponse -&gt; UpdateUploadResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390726"><span id="local-6989586621679390728"><span id="local-6989586621679390730"><span class="annot"><span class="annottext">Int -&gt; UpdateUploadResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391015"><span id="local-6989586621679391017"><span id="local-6989586621679391019"><span class="annot"><span class="annottext">Int -&gt; UpdateUploadResponse -&gt; ShowS
 [UpdateUploadResponse] -&gt; ShowS
 UpdateUploadResponse -&gt; String
 (Int -&gt; UpdateUploadResponse -&gt; ShowS)
@@ -454,8 +454,8 @@ $cfrom :: forall x. UpdateUploadResponse -&gt; Rep UpdateUploadResponse x
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newUpdateUploadResponse"><span class="annot"><span class="annottext">newUpdateUploadResponse :: Int -&gt; UpdateUploadResponse
-</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#newUpdateUploadResponse"><span class="hs-identifier hs-var hs-var">newUpdateUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679390723"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390723"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#newUpdateUploadResponse"><span class="hs-identifier hs-var hs-var">newUpdateUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679391012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391012"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">UpdateUploadResponse' :: Maybe Upload -&gt; Int -&gt; UpdateUploadResponse
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:upload:UpdateUploadResponse' :: Maybe Upload
@@ -464,7 +464,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUploadResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AhttpStatus%3AUpdateUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390723"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679391012"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | A test spec uploaded to Device Farm.</span><span>
@@ -479,16 +479,16 @@ forall a. Maybe a
      (Maybe Upload)
      (Maybe Upload)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390722"><span class="annot"><span class="annottext">Maybe Upload
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391011"><span class="annot"><span class="annottext">Maybe Upload
 upload :: Maybe Upload
 $sel:upload:UpdateUploadResponse' :: UpdateUploadResponse -&gt; Maybe Upload
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var hs-var">upload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var">upload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390721"><span class="annot"><span class="annottext">s :: UpdateUploadResponse
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390720"><span class="annot"><span class="annottext">Maybe Upload
-</span><a href="#local-6989586621679390720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUploadResponse
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upload:UpdateUploadResponse' :: Maybe Upload
+</span><a href="#local-6989586621679391011"><span class="hs-identifier hs-var hs-var">upload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679391011"><span class="hs-identifier hs-var">upload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391010"><span class="annot"><span class="annottext">s :: UpdateUploadResponse
+</span><a href="#local-6989586621679391010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391009"><span class="annot"><span class="annottext">Maybe Upload
+</span><a href="#local-6989586621679391009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUploadResponse
+</span><a href="#local-6989586621679391010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upload:UpdateUploadResponse' :: Maybe Upload
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3Aupload%3AUpdateUploadResponse%27"><span class="hs-identifier hs-var">upload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Upload
-</span><a href="#local-6989586621679390720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#updateUploadResponse_httpStatus"><span class="hs-identifier hs-type">updateUploadResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -497,16 +497,16 @@ $sel:upload:UpdateUploadResponse' :: UpdateUploadResponse -&gt; Maybe Upload
 -&gt; (UpdateUploadResponse -&gt; Int -&gt; UpdateUploadResponse)
 -&gt; Lens UpdateUploadResponse UpdateUploadResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390719"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391008"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateUploadResponse' :: UpdateUploadResponse -&gt; Int
-</span><a href="#local-6989586621679390719"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390719"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390718"><span class="annot"><span class="annottext">s :: UpdateUploadResponse
-</span><a href="#local-6989586621679390718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390717"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUploadResponse
-</span><a href="#local-6989586621679390718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUploadResponse' :: Int
+</span><a href="#local-6989586621679391008"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391008"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391007"><span class="annot"><span class="annottext">s :: UpdateUploadResponse
+</span><a href="#local-6989586621679391007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse%27"><span class="hs-identifier hs-type">UpdateUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391006"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateUploadResponse
+</span><a href="#local-6989586621679391007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateUploadResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.UpdateUpload.html#%24sel%3AhttpStatus%3AUpdateUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390715"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.UpdateUpload.html#UpdateUploadResponse"><span class="hs-identifier hs-type">UpdateUploadResponse</span></a></span></span><span>
 </span><span id="line-203"></span></pre></body></html>

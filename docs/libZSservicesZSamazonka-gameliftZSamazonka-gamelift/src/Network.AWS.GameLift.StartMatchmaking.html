@@ -85,7 +85,7 @@
 </span><span id="line-85"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- /See:/ 'newStartMatchmaking' smart constructor.</span><span>
-</span><span id="line-88"></span><span id="local-6989586621679444470"><span id="local-6989586621679444471"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMatchmaking"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-var">StartMatchmaking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMatchmaking%27"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-var">StartMatchmaking'</span></a></span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679444939"><span id="local-6989586621679444940"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMatchmaking"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-var">StartMatchmaking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMatchmaking%27"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-var">StartMatchmaking'</span></a></span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for a matchmaking ticket. If no ticket ID is</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">-- specified here, Amazon GameLift will generate one in the form of a UUID.</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Use this identifier to track the matchmaking ticket status and retrieve</span><span>
@@ -104,7 +104,7 @@
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3Aplayers%3AStartMatchmaking%27"><span class="annot"><span class="annottext">StartMatchmaking -&gt; [Player]
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3Aplayers%3AStartMatchmaking%27"><span class="hs-identifier hs-var hs-var">players</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.Player.html#Player"><span class="hs-identifier hs-type">Player</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444462"><span id="local-6989586621679444464"><span class="annot"><span class="annottext">StartMatchmaking -&gt; StartMatchmaking -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444931"><span id="local-6989586621679444933"><span class="annot"><span class="annottext">StartMatchmaking -&gt; StartMatchmaking -&gt; Bool
 (StartMatchmaking -&gt; StartMatchmaking -&gt; Bool)
 -&gt; (StartMatchmaking -&gt; StartMatchmaking -&gt; Bool)
 -&gt; Eq StartMatchmaking
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartMatchmaking -&gt; StartMatchmaking -&gt; Bool
 == :: StartMatchmaking -&gt; StartMatchmaking -&gt; Bool
 $c== :: StartMatchmaking -&gt; StartMatchmaking -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444453"><span id="local-6989586621679444455"><span id="local-6989586621679444457"><span id="local-6989586621679444459"><span class="annot"><span class="annottext">ReadPrec [StartMatchmaking]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444922"><span id="local-6989586621679444924"><span id="local-6989586621679444926"><span id="local-6989586621679444928"><span class="annot"><span class="annottext">ReadPrec [StartMatchmaking]
 ReadPrec StartMatchmaking
 Int -&gt; ReadS StartMatchmaking
 ReadS [StartMatchmaking]
@@ -133,7 +133,7 @@ readList :: ReadS [StartMatchmaking]
 $creadList :: ReadS [StartMatchmaking]
 readsPrec :: Int -&gt; ReadS StartMatchmaking
 $creadsPrec :: Int -&gt; ReadS StartMatchmaking
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444446"><span id="local-6989586621679444448"><span id="local-6989586621679444450"><span class="annot"><span class="annottext">Int -&gt; StartMatchmaking -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444915"><span id="local-6989586621679444917"><span id="local-6989586621679444919"><span class="annot"><span class="annottext">Int -&gt; StartMatchmaking -&gt; ShowS
 [StartMatchmaking] -&gt; ShowS
 StartMatchmaking -&gt; String
 (Int -&gt; StartMatchmaking -&gt; ShowS)
@@ -185,8 +185,8 @@ $cfrom :: forall x. StartMatchmaking -&gt; Rep StartMatchmaking x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span>
 </span><span id="line-131"></span><span id="newStartMatchmaking"><span class="annot"><span class="annottext">newStartMatchmaking :: Text -&gt; StartMatchmaking
-</span><a href="Network.AWS.GameLift.StartMatchmaking.html#newStartMatchmaking"><span class="hs-identifier hs-var hs-var">newStartMatchmaking</span></a></span></span><span> </span><span id="local-6989586621679444441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444441"><span class="hs-identifier hs-var">pConfigurationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.StartMatchmaking.html#newStartMatchmaking"><span class="hs-identifier hs-var hs-var">newStartMatchmaking</span></a></span></span><span> </span><span id="local-6989586621679444910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444910"><span class="hs-identifier hs-var">pConfigurationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">StartMatchmaking' :: Maybe Text -&gt; Text -&gt; [Player] -&gt; StartMatchmaking
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ticketId:StartMatchmaking' :: Maybe Text
@@ -195,7 +195,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:configurationName:StartMatchmaking' :: Text
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3AconfigurationName%3AStartMatchmaking%27"><span class="hs-identifier hs-var">configurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444441"><span class="hs-identifier hs-var">pConfigurationName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444910"><span class="hs-identifier hs-var">pConfigurationName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:players:StartMatchmaking' :: [Player]
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3Aplayers%3AStartMatchmaking%27"><span class="hs-identifier hs-var">players</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Player]
 forall a. Monoid a =&gt; a
@@ -213,16 +213,16 @@ forall a. Monoid a =&gt; a
 -&gt; (StartMatchmaking -&gt; Maybe Text -&gt; StartMatchmaking)
 -&gt; Lens StartMatchmaking StartMatchmaking (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444438"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444907"><span class="annot"><span class="annottext">Maybe Text
 ticketId :: Maybe Text
 $sel:ticketId:StartMatchmaking' :: StartMatchmaking -&gt; Maybe Text
-</span><a href="#local-6989586621679444438"><span class="hs-identifier hs-var hs-var">ticketId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444438"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444437"><span class="annot"><span class="annottext">s :: StartMatchmaking
-</span><a href="#local-6989586621679444437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444436"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmaking
-</span><a href="#local-6989586621679444437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ticketId:StartMatchmaking' :: Maybe Text
+</span><a href="#local-6989586621679444907"><span class="hs-identifier hs-var hs-var">ticketId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444907"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444906"><span class="annot"><span class="annottext">s :: StartMatchmaking
+</span><a href="#local-6989586621679444906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444905"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmaking
+</span><a href="#local-6989586621679444906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ticketId:StartMatchmaking' :: Maybe Text
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3AticketId%3AStartMatchmaking%27"><span class="hs-identifier hs-var">ticketId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | Name of the matchmaking configuration to use for this request.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- Matchmaking configurations must exist in the same Region as this</span><span>
@@ -233,16 +233,16 @@ $sel:ticketId:StartMatchmaking' :: StartMatchmaking -&gt; Maybe Text
 -&gt; (StartMatchmaking -&gt; Text -&gt; StartMatchmaking)
 -&gt; Lens StartMatchmaking StartMatchmaking Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444435"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444904"><span class="annot"><span class="annottext">Text
 configurationName :: Text
 $sel:configurationName:StartMatchmaking' :: StartMatchmaking -&gt; Text
-</span><a href="#local-6989586621679444435"><span class="hs-identifier hs-var hs-var">configurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444435"><span class="hs-identifier hs-var">configurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444434"><span class="annot"><span class="annottext">s :: StartMatchmaking
-</span><a href="#local-6989586621679444434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444433"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmaking
-</span><a href="#local-6989586621679444434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationName:StartMatchmaking' :: Text
+</span><a href="#local-6989586621679444904"><span class="hs-identifier hs-var hs-var">configurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444904"><span class="hs-identifier hs-var">configurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444903"><span class="annot"><span class="annottext">s :: StartMatchmaking
+</span><a href="#local-6989586621679444903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmaking
+</span><a href="#local-6989586621679444903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationName:StartMatchmaking' :: Text
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3AconfigurationName%3AStartMatchmaking%27"><span class="hs-identifier hs-var">configurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | Information on each player to be matched. This information must include</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- a player ID, and may contain player attributes and latency data to be</span><span>
@@ -254,16 +254,16 @@ $sel:configurationName:StartMatchmaking' :: StartMatchmaking -&gt; Text
 -&gt; (StartMatchmaking -&gt; [Player] -&gt; StartMatchmaking)
 -&gt; Lens StartMatchmaking StartMatchmaking [Player] [Player]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444432"><span class="annot"><span class="annottext">[Player]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444901"><span class="annot"><span class="annottext">[Player]
 players :: [Player]
 $sel:players:StartMatchmaking' :: StartMatchmaking -&gt; [Player]
-</span><a href="#local-6989586621679444432"><span class="hs-identifier hs-var hs-var">players</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Player]
-</span><a href="#local-6989586621679444432"><span class="hs-identifier hs-var">players</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444431"><span class="annot"><span class="annottext">s :: StartMatchmaking
-</span><a href="#local-6989586621679444431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444430"><span class="annot"><span class="annottext">[Player]
-</span><a href="#local-6989586621679444430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmaking
-</span><a href="#local-6989586621679444431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:players:StartMatchmaking' :: [Player]
+</span><a href="#local-6989586621679444901"><span class="hs-identifier hs-var hs-var">players</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Player]
+</span><a href="#local-6989586621679444901"><span class="hs-identifier hs-var">players</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444900"><span class="annot"><span class="annottext">s :: StartMatchmaking
+</span><a href="#local-6989586621679444900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444899"><span class="annot"><span class="annottext">[Player]
+</span><a href="#local-6989586621679444899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmaking
+</span><a href="#local-6989586621679444900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:players:StartMatchmaking' :: [Player]
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3Aplayers%3AStartMatchmaking%27"><span class="hs-identifier hs-var">players</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Player]
-</span><a href="#local-6989586621679444430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Player] -&gt; f [Player])
+</span><a href="#local-6989586621679444899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Player] -&gt; f [Player])
  -&gt; StartMatchmaking -&gt; f StartMatchmaking)
 -&gt; (([Player] -&gt; f [Player]) -&gt; [Player] -&gt; f [Player])
 -&gt; ([Player] -&gt; f [Player])
@@ -271,19 +271,19 @@ $sel:players:StartMatchmaking' :: StartMatchmaking -&gt; [Player]
 -&gt; f StartMatchmaking
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Player] -&gt; f [Player]) -&gt; [Player] -&gt; f [Player]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-160"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679444424"><span class="annot"><span class="annottext">request :: StartMatchmaking -&gt; Request StartMatchmaking
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679444893"><span class="annot"><span class="annottext">request :: StartMatchmaking -&gt; Request StartMatchmaking
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartMatchmaking -&gt; Request StartMatchmaking
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679444420"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679444889"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartMatchmaking
 -&gt; ClientResponse ClientBody
@@ -307,10 +307,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444417"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444417"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444416"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679444416"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444415"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679444415"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444886"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444886"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444885"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679444885"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444884"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679444884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe MatchmakingTicket -&gt; Int -&gt; StartMatchmakingResponse
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-var">StartMatchmakingResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MatchmakingTicket -&gt; Int -&gt; StartMatchmakingResponse)
@@ -318,7 +318,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StartMatchmakingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679444415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MatchmakingTicket)
+</span><a href="#local-6989586621679444884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MatchmakingTicket)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchmakingTicket&quot;</span></span><span class="hs-special">)</span><span>
@@ -330,15 +330,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444417"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444886"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444407"><span id="local-6989586621679444409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444876"><span id="local-6989586621679444878"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679444400"><span class="annot"><span class="annottext">toHeaders :: StartMatchmaking -&gt; ResponseHeaders
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679444869"><span class="annot"><span class="annottext">toHeaders :: StartMatchmaking -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartMatchmaking -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -363,9 +363,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444390"><span id="local-6989586621679444392"><span id="local-6989586621679444394"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679444388"><span class="annot"><span class="annottext">toJSON :: StartMatchmaking -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444384"><span id="local-6989586621679444385"><span id="local-6989586621679444386"><span class="annot"><span class="annottext">[Player]
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444859"><span id="local-6989586621679444861"><span id="local-6989586621679444863"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679444857"><span class="annot"><span class="annottext">toJSON :: StartMatchmaking -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking%27"><span class="hs-identifier hs-type">StartMatchmaking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444853"><span id="local-6989586621679444854"><span id="local-6989586621679444855"><span class="annot"><span class="annottext">[Player]
 Maybe Text
 Text
 players :: [Player]
@@ -374,7 +374,7 @@ ticketId :: Maybe Text
 $sel:players:StartMatchmaking' :: StartMatchmaking -&gt; [Player]
 $sel:configurationName:StartMatchmaking' :: StartMatchmaking -&gt; Text
 $sel:ticketId:StartMatchmaking' :: StartMatchmaking -&gt; Maybe Text
-</span><a href="#local-6989586621679444384"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679444853"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -386,7 +386,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444386"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444855"><span class="hs-identifier hs-var">ticketId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -394,26 +394,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ConfigurationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444385"><span class="hs-identifier hs-var">configurationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444854"><span class="hs-identifier hs-var">configurationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Players&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Player] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Player]
-</span><a href="#local-6989586621679444384"><span class="hs-identifier hs-var">players</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444853"><span class="hs-identifier hs-var">players</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679444378"><span class="annot"><span class="annottext">toPath :: StartMatchmaking -&gt; ByteString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679444847"><span class="annot"><span class="annottext">toPath :: StartMatchmaking -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartMatchmaking -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmaking"><span class="hs-identifier hs-type">StartMatchmaking</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679444374"><span class="annot"><span class="annottext">toQuery :: StartMatchmaking -&gt; QueryString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679444843"><span class="annot"><span class="annottext">toQuery :: StartMatchmaking -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartMatchmaking -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -423,7 +423,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-205"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-206"></span><span class="hs-comment">--</span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- /See:/ 'newStartMatchmakingResponse' smart constructor.</span><span>
-</span><span id="line-208"></span><span id="local-6989586621679444371"><span id="local-6989586621679444372"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMatchmakingResponse"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-var">StartMatchmakingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMatchmakingResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-var">StartMatchmakingResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span id="local-6989586621679444840"><span id="local-6989586621679444841"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMatchmakingResponse"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-var">StartMatchmakingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMatchmakingResponse%27"><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-var">StartMatchmakingResponse'</span></a></span></span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Ticket representing the matchmaking request. This object include the</span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-comment">-- information included in the request, ticket status, and match results as</span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-comment">-- generated during the matchmaking process.</span><span>
@@ -433,7 +433,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartMatchmakingResponse%27"><span class="annot"><span class="annottext">StartMatchmakingResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3AhttpStatus%3AStartMatchmakingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444365"><span id="local-6989586621679444367"><span class="annot"><span class="annottext">StartMatchmakingResponse -&gt; StartMatchmakingResponse -&gt; Bool
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444834"><span id="local-6989586621679444836"><span class="annot"><span class="annottext">StartMatchmakingResponse -&gt; StartMatchmakingResponse -&gt; Bool
 (StartMatchmakingResponse -&gt; StartMatchmakingResponse -&gt; Bool)
 -&gt; (StartMatchmakingResponse -&gt; StartMatchmakingResponse -&gt; Bool)
 -&gt; Eq StartMatchmakingResponse
@@ -442,7 +442,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartMatchmakingResponse -&gt; StartMatchmakingResponse -&gt; Bool
 == :: StartMatchmakingResponse -&gt; StartMatchmakingResponse -&gt; Bool
 $c== :: StartMatchmakingResponse -&gt; StartMatchmakingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444357"><span id="local-6989586621679444359"><span id="local-6989586621679444361"><span id="local-6989586621679444363"><span class="annot"><span class="annottext">ReadPrec [StartMatchmakingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444826"><span id="local-6989586621679444828"><span id="local-6989586621679444830"><span id="local-6989586621679444832"><span class="annot"><span class="annottext">ReadPrec [StartMatchmakingResponse]
 ReadPrec StartMatchmakingResponse
 Int -&gt; ReadS StartMatchmakingResponse
 ReadS [StartMatchmakingResponse]
@@ -462,7 +462,7 @@ readList :: ReadS [StartMatchmakingResponse]
 $creadList :: ReadS [StartMatchmakingResponse]
 readsPrec :: Int -&gt; ReadS StartMatchmakingResponse
 $creadsPrec :: Int -&gt; ReadS StartMatchmakingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444351"><span id="local-6989586621679444353"><span id="local-6989586621679444355"><span class="annot"><span class="annottext">Int -&gt; StartMatchmakingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444820"><span id="local-6989586621679444822"><span id="local-6989586621679444824"><span class="annot"><span class="annottext">Int -&gt; StartMatchmakingResponse -&gt; ShowS
 [StartMatchmakingResponse] -&gt; ShowS
 StartMatchmakingResponse -&gt; String
 (Int -&gt; StartMatchmakingResponse -&gt; ShowS)
@@ -512,8 +512,8 @@ StartMatchmakingResponse -&gt; Rep StartMatchmakingResponse x
 </span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-234"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span><span>
 </span><span id="line-235"></span><span id="newStartMatchmakingResponse"><span class="annot"><span class="annottext">newStartMatchmakingResponse :: Int -&gt; StartMatchmakingResponse
-</span><a href="Network.AWS.GameLift.StartMatchmaking.html#newStartMatchmakingResponse"><span class="hs-identifier hs-var hs-var">newStartMatchmakingResponse</span></a></span></span><span> </span><span id="local-6989586621679444348"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444348"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.StartMatchmaking.html#newStartMatchmakingResponse"><span class="hs-identifier hs-var hs-var">newStartMatchmakingResponse</span></a></span></span><span> </span><span id="local-6989586621679444817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444817"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-236"></span><span>  </span><span class="annot"><span class="annottext">StartMatchmakingResponse' :: Maybe MatchmakingTicket -&gt; Int -&gt; StartMatchmakingResponse
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span>
 </span><span id="line-237"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:matchmakingTicket:StartMatchmakingResponse' :: Maybe MatchmakingTicket
@@ -523,7 +523,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartMatchmakingResponse' :: Int
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3AhttpStatus%3AStartMatchmakingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444348"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679444817"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-240"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | Ticket representing the matchmaking request. This object include the</span><span>
@@ -541,16 +541,16 @@ forall a. Maybe a
      (Maybe MatchmakingTicket)
      (Maybe MatchmakingTicket)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444347"><span class="annot"><span class="annottext">Maybe MatchmakingTicket
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444816"><span class="annot"><span class="annottext">Maybe MatchmakingTicket
 matchmakingTicket :: Maybe MatchmakingTicket
 $sel:matchmakingTicket:StartMatchmakingResponse' :: StartMatchmakingResponse -&gt; Maybe MatchmakingTicket
-</span><a href="#local-6989586621679444347"><span class="hs-identifier hs-var hs-var">matchmakingTicket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MatchmakingTicket
-</span><a href="#local-6989586621679444347"><span class="hs-identifier hs-var">matchmakingTicket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444346"><span class="annot"><span class="annottext">s :: StartMatchmakingResponse
-</span><a href="#local-6989586621679444346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444345"><span class="annot"><span class="annottext">Maybe MatchmakingTicket
-</span><a href="#local-6989586621679444345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmakingResponse
-</span><a href="#local-6989586621679444346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchmakingTicket:StartMatchmakingResponse' :: Maybe MatchmakingTicket
+</span><a href="#local-6989586621679444816"><span class="hs-identifier hs-var hs-var">matchmakingTicket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MatchmakingTicket
+</span><a href="#local-6989586621679444816"><span class="hs-identifier hs-var">matchmakingTicket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444815"><span class="annot"><span class="annottext">s :: StartMatchmakingResponse
+</span><a href="#local-6989586621679444815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444814"><span class="annot"><span class="annottext">Maybe MatchmakingTicket
+</span><a href="#local-6989586621679444814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmakingResponse
+</span><a href="#local-6989586621679444815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchmakingTicket:StartMatchmakingResponse' :: Maybe MatchmakingTicket
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3AmatchmakingTicket%3AStartMatchmakingResponse%27"><span class="hs-identifier hs-var">matchmakingTicket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MatchmakingTicket
-</span><a href="#local-6989586621679444345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#startMatchmakingResponse_httpStatus"><span class="hs-identifier hs-type">startMatchmakingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -560,16 +560,16 @@ $sel:matchmakingTicket:StartMatchmakingResponse' :: StartMatchmakingResponse -&g
 -&gt; (StartMatchmakingResponse -&gt; Int -&gt; StartMatchmakingResponse)
 -&gt; Lens StartMatchmakingResponse StartMatchmakingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444344"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444813"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartMatchmakingResponse' :: StartMatchmakingResponse -&gt; Int
-</span><a href="#local-6989586621679444344"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444344"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444343"><span class="annot"><span class="annottext">s :: StartMatchmakingResponse
-</span><a href="#local-6989586621679444343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444342"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmakingResponse
-</span><a href="#local-6989586621679444343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMatchmakingResponse' :: Int
+</span><a href="#local-6989586621679444813"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444813"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444812"><span class="annot"><span class="annottext">s :: StartMatchmakingResponse
+</span><a href="#local-6989586621679444812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse%27"><span class="hs-identifier hs-type">StartMatchmakingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMatchmakingResponse
+</span><a href="#local-6989586621679444812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMatchmakingResponse' :: Int
 </span><a href="Network.AWS.GameLift.StartMatchmaking.html#%24sel%3AhttpStatus%3AStartMatchmakingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444340"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.StartMatchmaking.html#StartMatchmakingResponse"><span class="hs-identifier hs-type">StartMatchmakingResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

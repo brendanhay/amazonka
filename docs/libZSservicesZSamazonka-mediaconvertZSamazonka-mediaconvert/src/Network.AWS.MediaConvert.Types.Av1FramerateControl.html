@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679937497"><span id="local-6989586621679937498"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateControl.html#Av1FramerateControl"><span class="hs-identifier hs-var">Av1FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateControl.html#Av1FramerateControl%27"><span class="hs-identifier hs-var">Av1FramerateControl'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679942119"><span id="local-6989586621679942120"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Av1FramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateControl.html#Av1FramerateControl"><span class="hs-identifier hs-var">Av1FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Av1FramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Av1FramerateControl.html#Av1FramerateControl%27"><span class="hs-identifier hs-var">Av1FramerateControl'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAv1FramerateControl"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Av1FramerateControl.html#fromAv1FramerateControl"><span class="hs-identifier hs-var hs-var">fromAv1FramerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937489"><span id="local-6989586621679937491"><span id="local-6989586621679937493"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateControl -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942111"><span id="local-6989586621679942113"><span id="local-6989586621679942115"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateControl -&gt; ShowS
 [Av1FramerateControl] -&gt; ShowS
 Av1FramerateControl -&gt; String
 (Int -&gt; Av1FramerateControl -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: Av1FramerateControl -&gt; String
 showsPrec :: Int -&gt; Av1FramerateControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Av1FramerateControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679937480"><span id="local-6989586621679937482"><span id="local-6989586621679937484"><span id="local-6989586621679937486"><span class="annot"><span class="annottext">ReadPrec [Av1FramerateControl]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679942102"><span id="local-6989586621679942104"><span id="local-6989586621679942106"><span id="local-6989586621679942108"><span class="annot"><span class="annottext">ReadPrec [Av1FramerateControl]
 ReadPrec Av1FramerateControl
 Int -&gt; ReadS Av1FramerateControl
 ReadS [Av1FramerateControl]
@@ -85,7 +85,7 @@ $creadList :: ReadS [Av1FramerateControl]
 readsPrec :: Int -&gt; ReadS Av1FramerateControl
 $creadsPrec :: Int -&gt; ReadS Av1FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679937475"><span id="local-6989586621679937477"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679942097"><span id="local-6989586621679942099"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool
 (Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool)
 -&gt; (Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool)
 -&gt; Eq Av1FramerateControl
@@ -95,7 +95,7 @@ $c/= :: Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool
 == :: Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool
 $c== :: Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679937459"><span id="local-6989586621679937461"><span id="local-6989586621679937463"><span id="local-6989586621679937465"><span id="local-6989586621679937467"><span id="local-6989586621679937469"><span id="local-6989586621679937471"><span class="annot"><span class="annottext">Eq Av1FramerateControl
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679942081"><span id="local-6989586621679942083"><span id="local-6989586621679942085"><span id="local-6989586621679942087"><span id="local-6989586621679942089"><span id="local-6989586621679942091"><span id="local-6989586621679942093"><span class="annot"><span class="annottext">Eq Av1FramerateControl
 Eq Av1FramerateControl
 -&gt; (Av1FramerateControl -&gt; Av1FramerateControl -&gt; Ordering)
 -&gt; (Av1FramerateControl -&gt; Av1FramerateControl -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. Av1FramerateControl -&gt; Rep Av1FramerateControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679937451"><span id="local-6989586621679937453"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateControl -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679942073"><span id="local-6989586621679942075"><span class="annot"><span class="annottext">Int -&gt; Av1FramerateControl -&gt; Int
 Av1FramerateControl -&gt; Int
 (Int -&gt; Av1FramerateControl -&gt; Int)
 -&gt; (Av1FramerateControl -&gt; Int) -&gt; Hashable Av1FramerateControl
@@ -158,53 +158,53 @@ $chash :: Av1FramerateControl -&gt; Int
 hashWithSalt :: Int -&gt; Av1FramerateControl -&gt; Int
 $chashWithSalt :: Int -&gt; Av1FramerateControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679937448"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679942070"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; ()
 (Av1FramerateControl -&gt; ()) -&gt; NFData Av1FramerateControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Av1FramerateControl -&gt; ()
 $crnf :: Av1FramerateControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679937445"><span class="annot"><span class="annottext">Text -&gt; Either String Av1FramerateControl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679942067"><span class="annot"><span class="annottext">Text -&gt; Either String Av1FramerateControl
 (Text -&gt; Either String Av1FramerateControl)
 -&gt; FromText Av1FramerateControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Av1FramerateControl
 $cfromText :: Text -&gt; Either String Av1FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679937442"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679942064"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; Text
 (Av1FramerateControl -&gt; Text) -&gt; ToText Av1FramerateControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Av1FramerateControl -&gt; Text
 $ctoText :: Av1FramerateControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679937439"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679942061"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; ByteString
 (Av1FramerateControl -&gt; ByteString)
 -&gt; ToByteString Av1FramerateControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Av1FramerateControl -&gt; ByteString
 $ctoBS :: Av1FramerateControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679937436"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679942058"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; ByteStringBuilder
 (Av1FramerateControl -&gt; ByteStringBuilder)
 -&gt; ToLog Av1FramerateControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Av1FramerateControl -&gt; ByteStringBuilder
 $cbuild :: Av1FramerateControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679937433"><span class="annot"><span class="annottext">HeaderName -&gt; Av1FramerateControl -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679942055"><span class="annot"><span class="annottext">HeaderName -&gt; Av1FramerateControl -&gt; [Header]
 (HeaderName -&gt; Av1FramerateControl -&gt; [Header])
 -&gt; ToHeader Av1FramerateControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Av1FramerateControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Av1FramerateControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679937430"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679942052"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; QueryString
 (Av1FramerateControl -&gt; QueryString) -&gt; ToQuery Av1FramerateControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Av1FramerateControl -&gt; QueryString
 $ctoQuery :: Av1FramerateControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679937425"><span id="local-6989586621679937427"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1FramerateControl]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679942047"><span id="local-6989586621679942049"><span class="annot"><span class="annottext">Value -&gt; Parser [Av1FramerateControl]
 Value -&gt; Parser Av1FramerateControl
 (Value -&gt; Parser Av1FramerateControl)
 -&gt; (Value -&gt; Parser [Av1FramerateControl])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [Av1FramerateControl]
 parseJSON :: Value -&gt; Parser Av1FramerateControl
 $cparseJSON :: Value -&gt; Parser Av1FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679937420"><span id="local-6989586621679937422"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1FramerateControl]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679942042"><span id="local-6989586621679942044"><span class="annot"><span class="annottext">FromJSONKeyFunction [Av1FramerateControl]
 FromJSONKeyFunction Av1FramerateControl
 FromJSONKeyFunction Av1FramerateControl
 -&gt; FromJSONKeyFunction [Av1FramerateControl]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Av1FramerateControl]
 fromJSONKey :: FromJSONKeyFunction Av1FramerateControl
 $cfromJSONKey :: FromJSONKeyFunction Av1FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679937411"><span id="local-6989586621679937413"><span id="local-6989586621679937415"><span id="local-6989586621679937417"><span class="annot"><span class="annottext">[Av1FramerateControl] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679942033"><span id="local-6989586621679942035"><span id="local-6989586621679942037"><span id="local-6989586621679942039"><span class="annot"><span class="annottext">[Av1FramerateControl] -&gt; Encoding
 [Av1FramerateControl] -&gt; Value
 Av1FramerateControl -&gt; Encoding
 Av1FramerateControl -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: Av1FramerateControl -&gt; Encoding
 toJSON :: Av1FramerateControl -&gt; Value
 $ctoJSON :: Av1FramerateControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679937406"><span id="local-6989586621679937408"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1FramerateControl]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679942028"><span id="local-6989586621679942030"><span class="annot"><span class="annottext">ToJSONKeyFunction [Av1FramerateControl]
 ToJSONKeyFunction Av1FramerateControl
 ToJSONKeyFunction Av1FramerateControl
 -&gt; ToJSONKeyFunction [Av1FramerateControl]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Av1FramerateControl]
 toJSONKey :: ToJSONKeyFunction Av1FramerateControl
 $ctoJSONKey :: ToJSONKeyFunction Av1FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679937403"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1FramerateControl
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679942025"><span class="annot"><span class="annottext">[Node] -&gt; Either String Av1FramerateControl
 ([Node] -&gt; Either String Av1FramerateControl)
 -&gt; FromXML Av1FramerateControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Av1FramerateControl
 $cparseXML :: [Node] -&gt; Either String Av1FramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679937400"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679942022"><span class="annot"><span class="annottext">Av1FramerateControl -&gt; XML
 (Av1FramerateControl -&gt; XML) -&gt; ToXML Av1FramerateControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Av1FramerateControl -&gt; XML

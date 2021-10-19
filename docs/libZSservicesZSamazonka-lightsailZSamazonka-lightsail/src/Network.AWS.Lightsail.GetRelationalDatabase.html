@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetRelationalDatabase' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679636915"><span id="local-6989586621679636916"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRelationalDatabase"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-var">GetRelationalDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRelationalDatabase%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-var">GetRelationalDatabase'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679637885"><span id="local-6989586621679637886"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRelationalDatabase"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-var">GetRelationalDatabase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRelationalDatabase%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-var">GetRelationalDatabase'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the database that you are looking up.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3ArelationalDatabaseName%3AGetRelationalDatabase%27"><span class="annot"><span class="annottext">GetRelationalDatabase -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3AGetRelationalDatabase%27"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679636909"><span id="local-6989586621679636911"><span class="annot"><span class="annottext">GetRelationalDatabase -&gt; GetRelationalDatabase -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637879"><span id="local-6989586621679637881"><span class="annot"><span class="annottext">GetRelationalDatabase -&gt; GetRelationalDatabase -&gt; Bool
 (GetRelationalDatabase -&gt; GetRelationalDatabase -&gt; Bool)
 -&gt; (GetRelationalDatabase -&gt; GetRelationalDatabase -&gt; Bool)
 -&gt; Eq GetRelationalDatabase
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRelationalDatabase -&gt; GetRelationalDatabase -&gt; Bool
 == :: GetRelationalDatabase -&gt; GetRelationalDatabase -&gt; Bool
 $c== :: GetRelationalDatabase -&gt; GetRelationalDatabase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636900"><span id="local-6989586621679636902"><span id="local-6989586621679636904"><span id="local-6989586621679636906"><span class="annot"><span class="annottext">ReadPrec [GetRelationalDatabase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637870"><span id="local-6989586621679637872"><span id="local-6989586621679637874"><span id="local-6989586621679637876"><span class="annot"><span class="annottext">ReadPrec [GetRelationalDatabase]
 ReadPrec GetRelationalDatabase
 Int -&gt; ReadS GetRelationalDatabase
 ReadS [GetRelationalDatabase]
@@ -81,7 +81,7 @@ readList :: ReadS [GetRelationalDatabase]
 $creadList :: ReadS [GetRelationalDatabase]
 readsPrec :: Int -&gt; ReadS GetRelationalDatabase
 $creadsPrec :: Int -&gt; ReadS GetRelationalDatabase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636893"><span id="local-6989586621679636895"><span id="local-6989586621679636897"><span class="annot"><span class="annottext">Int -&gt; GetRelationalDatabase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637863"><span id="local-6989586621679637865"><span id="local-6989586621679637867"><span class="annot"><span class="annottext">Int -&gt; GetRelationalDatabase -&gt; ShowS
 [GetRelationalDatabase] -&gt; ShowS
 GetRelationalDatabase -&gt; String
 (Int -&gt; GetRelationalDatabase -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. GetRelationalDatabase -&gt; Rep GetRelationalDatabase x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetRelationalDatabase"><span class="annot"><span class="annottext">newGetRelationalDatabase :: Text -&gt; GetRelationalDatabase
-</span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#newGetRelationalDatabase"><span class="hs-identifier hs-var hs-var">newGetRelationalDatabase</span></a></span></span><span> </span><span id="local-6989586621679636888"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636888"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#newGetRelationalDatabase"><span class="hs-identifier hs-var hs-var">newGetRelationalDatabase</span></a></span></span><span> </span><span id="local-6989586621679637858"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637858"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetRelationalDatabase' :: Text -&gt; GetRelationalDatabase
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-type">GetRelationalDatabase'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:GetRelationalDatabase' :: Text
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3AGetRelationalDatabase%27"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636888"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span><span>
+</span><a href="#local-6989586621679637858"><span class="hs-identifier hs-var">pRelationalDatabaseName_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The name of the database that you are looking up.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. GetRelationalDatabase -&gt; Rep GetRelationalDatabase x
 -&gt; (GetRelationalDatabase -&gt; Text -&gt; GetRelationalDatabase)
 -&gt; Lens GetRelationalDatabase GetRelationalDatabase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-type">GetRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636885"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-type">GetRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637855"><span class="annot"><span class="annottext">Text
 relationalDatabaseName :: Text
 $sel:relationalDatabaseName:GetRelationalDatabase' :: GetRelationalDatabase -&gt; Text
-</span><a href="#local-6989586621679636885"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636885"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636884"><span class="annot"><span class="annottext">s :: GetRelationalDatabase
-</span><a href="#local-6989586621679636884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-type">GetRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636883"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRelationalDatabase
-</span><a href="#local-6989586621679636884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:GetRelationalDatabase' :: Text
+</span><a href="#local-6989586621679637855"><span class="hs-identifier hs-var hs-var">relationalDatabaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637855"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637854"><span class="annot"><span class="annottext">s :: GetRelationalDatabase
+</span><a href="#local-6989586621679637854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-type">GetRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637853"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679637853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRelationalDatabase
+</span><a href="#local-6989586621679637854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabaseName:GetRelationalDatabase' :: Text
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3ArelationalDatabaseName%3AGetRelationalDatabase%27"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679637853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679636879"><span class="annot"><span class="annottext">request :: GetRelationalDatabase -&gt; Request GetRelationalDatabase
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679637849"><span class="annot"><span class="annottext">request :: GetRelationalDatabase -&gt; Request GetRelationalDatabase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRelationalDatabase -&gt; Request GetRelationalDatabase
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679636875"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679637845"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRelationalDatabase
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679636872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679636871"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679636871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679636870"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679636870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679637842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637842"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679637841"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679637841"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679637840"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679637840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe RelationalDatabase -&gt; Int -&gt; GetRelationalDatabaseResponse
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">GetRelationalDatabaseResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RelationalDatabase -&gt; Int -&gt; GetRelationalDatabaseResponse)
@@ -196,7 +196,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetRelationalDatabaseResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679636870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RelationalDatabase)
+</span><a href="#local-6989586621679637840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RelationalDatabase)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;relationalDatabase&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679637842"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636862"><span id="local-6989586621679636864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637832"><span id="local-6989586621679637834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679636855"><span class="annot"><span class="annottext">toHeaders :: GetRelationalDatabase -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679637825"><span class="annot"><span class="annottext">toHeaders :: GetRelationalDatabase -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRelationalDatabase -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -243,12 +243,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636845"><span id="local-6989586621679636847"><span id="local-6989586621679636849"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679636843"><span class="annot"><span class="annottext">toJSON :: GetRelationalDatabase -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-type">GetRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636841"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637815"><span id="local-6989586621679637817"><span id="local-6989586621679637819"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679637813"><span class="annot"><span class="annottext">toJSON :: GetRelationalDatabase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase%27"><span class="hs-identifier hs-type">GetRelationalDatabase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637811"><span class="annot"><span class="annottext">Text
 relationalDatabaseName :: Text
 $sel:relationalDatabaseName:GetRelationalDatabase' :: GetRelationalDatabase -&gt; Text
-</span><a href="#local-6989586621679636841"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679637811"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,20 +262,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-117"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636841"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span>
+</span><a href="#local-6989586621679637811"><span class="hs-identifier hs-var">relationalDatabaseName</span></a></span><span>
 </span><span id="line-118"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679636835"><span class="annot"><span class="annottext">toPath :: GetRelationalDatabase -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679637805"><span class="annot"><span class="annottext">toPath :: GetRelationalDatabase -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRelationalDatabase -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabase"><span class="hs-identifier hs-type">GetRelationalDatabase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679636831"><span class="annot"><span class="annottext">toQuery :: GetRelationalDatabase -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679637801"><span class="annot"><span class="annottext">toQuery :: GetRelationalDatabase -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRelationalDatabase -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGetRelationalDatabaseResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679636828"><span id="local-6989586621679636829"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRelationalDatabaseResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-var">GetRelationalDatabaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRelationalDatabaseResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">GetRelationalDatabaseResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679637798"><span id="local-6989586621679637799"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRelationalDatabaseResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-var">GetRelationalDatabaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRelationalDatabaseResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">GetRelationalDatabaseResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object describing the specified database.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3ArelationalDatabase%3AGetRelationalDatabaseResponse%27"><span class="annot"><span class="annottext">GetRelationalDatabaseResponse -&gt; Maybe RelationalDatabase
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3ArelationalDatabase%3AGetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var hs-var">relationalDatabase</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.RelationalDatabase.html#RelationalDatabase"><span class="hs-identifier hs-type">RelationalDatabase</span></a></span><span class="hs-special">,</span><span>
@@ -291,7 +291,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRelationalDatabaseResponse%27"><span class="annot"><span class="annottext">GetRelationalDatabaseResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3AhttpStatus%3AGetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679636822"><span id="local-6989586621679636824"><span class="annot"><span class="annottext">GetRelationalDatabaseResponse
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679637792"><span id="local-6989586621679637794"><span class="annot"><span class="annottext">GetRelationalDatabaseResponse
 -&gt; GetRelationalDatabaseResponse -&gt; Bool
 (GetRelationalDatabaseResponse
  -&gt; GetRelationalDatabaseResponse -&gt; Bool)
@@ -307,7 +307,7 @@ $c/= :: GetRelationalDatabaseResponse
 -&gt; GetRelationalDatabaseResponse -&gt; Bool
 $c== :: GetRelationalDatabaseResponse
 -&gt; GetRelationalDatabaseResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636814"><span id="local-6989586621679636816"><span id="local-6989586621679636818"><span id="local-6989586621679636820"><span class="annot"><span class="annottext">ReadPrec [GetRelationalDatabaseResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637784"><span id="local-6989586621679637786"><span id="local-6989586621679637788"><span id="local-6989586621679637790"><span class="annot"><span class="annottext">ReadPrec [GetRelationalDatabaseResponse]
 ReadPrec GetRelationalDatabaseResponse
 Int -&gt; ReadS GetRelationalDatabaseResponse
 ReadS [GetRelationalDatabaseResponse]
@@ -327,7 +327,7 @@ readList :: ReadS [GetRelationalDatabaseResponse]
 $creadList :: ReadS [GetRelationalDatabaseResponse]
 readsPrec :: Int -&gt; ReadS GetRelationalDatabaseResponse
 $creadsPrec :: Int -&gt; ReadS GetRelationalDatabaseResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636808"><span id="local-6989586621679636810"><span id="local-6989586621679636812"><span class="annot"><span class="annottext">Int -&gt; GetRelationalDatabaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679637778"><span id="local-6989586621679637780"><span id="local-6989586621679637782"><span class="annot"><span class="annottext">Int -&gt; GetRelationalDatabaseResponse -&gt; ShowS
 [GetRelationalDatabaseResponse] -&gt; ShowS
 GetRelationalDatabaseResponse -&gt; String
 (Int -&gt; GetRelationalDatabaseResponse -&gt; ShowS)
@@ -381,8 +381,8 @@ GetRelationalDatabaseResponse
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newGetRelationalDatabaseResponse"><span class="annot"><span class="annottext">newGetRelationalDatabaseResponse :: Int -&gt; GetRelationalDatabaseResponse
-</span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#newGetRelationalDatabaseResponse"><span class="hs-identifier hs-var hs-var">newGetRelationalDatabaseResponse</span></a></span></span><span> </span><span id="local-6989586621679636805"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#newGetRelationalDatabaseResponse"><span class="hs-identifier hs-var hs-var">newGetRelationalDatabaseResponse</span></a></span></span><span> </span><span id="local-6989586621679637775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">GetRelationalDatabaseResponse' :: Maybe RelationalDatabase -&gt; Int -&gt; GetRelationalDatabaseResponse
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:relationalDatabase:GetRelationalDatabaseResponse' :: Maybe RelationalDatabase
@@ -392,7 +392,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRelationalDatabaseResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3AhttpStatus%3AGetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679637775"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | An object describing the specified database.</span><span>
@@ -408,16 +408,16 @@ forall a. Maybe a
      (Maybe RelationalDatabase)
      (Maybe RelationalDatabase)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636804"><span class="annot"><span class="annottext">Maybe RelationalDatabase
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637774"><span class="annot"><span class="annottext">Maybe RelationalDatabase
 relationalDatabase :: Maybe RelationalDatabase
 $sel:relationalDatabase:GetRelationalDatabaseResponse' :: GetRelationalDatabaseResponse -&gt; Maybe RelationalDatabase
-</span><a href="#local-6989586621679636804"><span class="hs-identifier hs-var hs-var">relationalDatabase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelationalDatabase
-</span><a href="#local-6989586621679636804"><span class="hs-identifier hs-var">relationalDatabase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636803"><span class="annot"><span class="annottext">s :: GetRelationalDatabaseResponse
-</span><a href="#local-6989586621679636803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636802"><span class="annot"><span class="annottext">Maybe RelationalDatabase
-</span><a href="#local-6989586621679636802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRelationalDatabaseResponse
-</span><a href="#local-6989586621679636803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabase:GetRelationalDatabaseResponse' :: Maybe RelationalDatabase
+</span><a href="#local-6989586621679637774"><span class="hs-identifier hs-var hs-var">relationalDatabase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelationalDatabase
+</span><a href="#local-6989586621679637774"><span class="hs-identifier hs-var">relationalDatabase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637773"><span class="annot"><span class="annottext">s :: GetRelationalDatabaseResponse
+</span><a href="#local-6989586621679637773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637772"><span class="annot"><span class="annottext">Maybe RelationalDatabase
+</span><a href="#local-6989586621679637772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRelationalDatabaseResponse
+</span><a href="#local-6989586621679637773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationalDatabase:GetRelationalDatabaseResponse' :: Maybe RelationalDatabase
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3ArelationalDatabase%3AGetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">relationalDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationalDatabase
-</span><a href="#local-6989586621679636802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679637772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#getRelationalDatabaseResponse_httpStatus"><span class="hs-identifier hs-type">getRelationalDatabaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -429,16 +429,16 @@ $sel:relationalDatabase:GetRelationalDatabaseResponse' :: GetRelationalDatabaseR
 -&gt; Lens
      GetRelationalDatabaseResponse GetRelationalDatabaseResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636801"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679637771"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRelationalDatabaseResponse' :: GetRelationalDatabaseResponse -&gt; Int
-</span><a href="#local-6989586621679636801"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636801"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636800"><span class="annot"><span class="annottext">s :: GetRelationalDatabaseResponse
-</span><a href="#local-6989586621679636800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636799"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRelationalDatabaseResponse
-</span><a href="#local-6989586621679636800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRelationalDatabaseResponse' :: Int
+</span><a href="#local-6989586621679637771"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637771"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679637770"><span class="annot"><span class="annottext">s :: GetRelationalDatabaseResponse
+</span><a href="#local-6989586621679637770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse%27"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679637769"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679637769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRelationalDatabaseResponse
+</span><a href="#local-6989586621679637770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRelationalDatabaseResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#%24sel%3AhttpStatus%3AGetRelationalDatabaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679637769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679637767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetRelationalDatabase.html#GetRelationalDatabaseResponse"><span class="hs-identifier hs-type">GetRelationalDatabaseResponse</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

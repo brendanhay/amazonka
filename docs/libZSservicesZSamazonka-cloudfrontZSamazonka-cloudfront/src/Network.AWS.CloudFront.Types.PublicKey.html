@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPublicKey' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679397669"><span id="local-6989586621679397670"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicKey"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-var">PublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicKey%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-var">PublicKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679397921"><span id="local-6989586621679397922"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicKey"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-var">PublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicKey%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-var">PublicKey'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the public key.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aid%3APublicKey%27"><span class="annot"><span class="annottext">PublicKey -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3Aid%3APublicKey%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3ApublicKeyConfig%3APublicKey%27"><span class="annot"><span class="annottext">PublicKey -&gt; PublicKeyConfig
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3ApublicKeyConfig%3APublicKey%27"><span class="hs-identifier hs-var hs-var">publicKeyConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397661"><span id="local-6989586621679397663"><span class="annot"><span class="annottext">PublicKey -&gt; PublicKey -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397913"><span id="local-6989586621679397915"><span class="annot"><span class="annottext">PublicKey -&gt; PublicKey -&gt; Bool
 (PublicKey -&gt; PublicKey -&gt; Bool)
 -&gt; (PublicKey -&gt; PublicKey -&gt; Bool) -&gt; Eq PublicKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PublicKey -&gt; PublicKey -&gt; Bool
 == :: PublicKey -&gt; PublicKey -&gt; Bool
 $c== :: PublicKey -&gt; PublicKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397652"><span id="local-6989586621679397654"><span id="local-6989586621679397656"><span id="local-6989586621679397658"><span class="annot"><span class="annottext">ReadPrec [PublicKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397904"><span id="local-6989586621679397906"><span id="local-6989586621679397908"><span id="local-6989586621679397910"><span class="annot"><span class="annottext">ReadPrec [PublicKey]
 ReadPrec PublicKey
 Int -&gt; ReadS PublicKey
 ReadS [PublicKey]
@@ -72,7 +72,7 @@ readList :: ReadS [PublicKey]
 $creadList :: ReadS [PublicKey]
 readsPrec :: Int -&gt; ReadS PublicKey
 $creadsPrec :: Int -&gt; ReadS PublicKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397645"><span id="local-6989586621679397647"><span id="local-6989586621679397649"><span class="annot"><span class="annottext">Int -&gt; PublicKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397897"><span id="local-6989586621679397899"><span id="local-6989586621679397901"><span class="annot"><span class="annottext">Int -&gt; PublicKey -&gt; ShowS
 [PublicKey] -&gt; ShowS
 PublicKey -&gt; String
 (Int -&gt; PublicKey -&gt; ShowS)
@@ -122,15 +122,15 @@ $cfrom :: forall x. PublicKey -&gt; Rep PublicKey x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span>
 </span><span id="line-70"></span><span id="newPublicKey"><span class="annot"><span class="annottext">newPublicKey :: Text -&gt; UTCTime -&gt; PublicKeyConfig -&gt; PublicKey
-</span><a href="Network.AWS.CloudFront.Types.PublicKey.html#newPublicKey"><span class="hs-identifier hs-var hs-var">newPublicKey</span></a></span></span><span> </span><span id="local-6989586621679397639"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397639"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679397638"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679397638"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span></span><span> </span><span id="local-6989586621679397637"><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397637"><span class="hs-identifier hs-var">pPublicKeyConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.PublicKey.html#newPublicKey"><span class="hs-identifier hs-var hs-var">newPublicKey</span></a></span></span><span> </span><span id="local-6989586621679397891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397891"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679397890"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679397890"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span></span><span> </span><span id="local-6989586621679397889"><span class="annot"><span class="annottext">PublicKeyConfig
+</span><a href="#local-6989586621679397889"><span class="hs-identifier hs-var">pPublicKeyConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">PublicKey' :: Text -&gt; ISO8601 -&gt; PublicKeyConfig -&gt; PublicKey
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:PublicKey' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3Aid%3APublicKey%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397639"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397891"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:PublicKey' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3AcreatedTime%3APublicKey%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -140,10 +140,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679397638"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397890"><span class="hs-identifier hs-var">pCreatedTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicKeyConfig:PublicKey' :: PublicKeyConfig
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3ApublicKeyConfig%3APublicKey%27"><span class="hs-identifier hs-var">publicKeyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397637"><span class="hs-identifier hs-var">pPublicKeyConfig_</span></a></span><span>
+</span><a href="#local-6989586621679397889"><span class="hs-identifier hs-var">pPublicKeyConfig_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The identifier of the public key.</span><span>
@@ -153,16 +153,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (PublicKey -&gt; Text -&gt; PublicKey)
 -&gt; Lens PublicKey PublicKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397631"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397883"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:PublicKey' :: PublicKey -&gt; Text
-</span><a href="#local-6989586621679397631"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397631"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397630"><span class="annot"><span class="annottext">s :: PublicKey
-</span><a href="#local-6989586621679397630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397629"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
-</span><a href="#local-6989586621679397630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PublicKey' :: Text
+</span><a href="#local-6989586621679397883"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397883"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397882"><span class="annot"><span class="annottext">s :: PublicKey
+</span><a href="#local-6989586621679397882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
+</span><a href="#local-6989586621679397882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PublicKey' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3Aid%3APublicKey%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The date and time when the public key was uploaded.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#publicKey_createdTime"><span class="hs-identifier hs-type">publicKey_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -171,16 +171,16 @@ $sel:id:PublicKey' :: PublicKey -&gt; Text
 -&gt; (PublicKey -&gt; ISO8601 -&gt; PublicKey)
 -&gt; Lens PublicKey PublicKey ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397627"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397879"><span class="annot"><span class="annottext">ISO8601
 createdTime :: ISO8601
 $sel:createdTime:PublicKey' :: PublicKey -&gt; ISO8601
-</span><a href="#local-6989586621679397627"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679397627"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397626"><span class="annot"><span class="annottext">s :: PublicKey
-</span><a href="#local-6989586621679397626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397625"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679397625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
-</span><a href="#local-6989586621679397626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:PublicKey' :: ISO8601
+</span><a href="#local-6989586621679397879"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679397879"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397878"><span class="annot"><span class="annottext">s :: PublicKey
+</span><a href="#local-6989586621679397878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397877"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679397877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
+</span><a href="#local-6989586621679397878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:PublicKey' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3AcreatedTime%3APublicKey%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679397625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; PublicKey -&gt; f PublicKey)
+</span><a href="#local-6989586621679397877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; PublicKey -&gt; f PublicKey)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; PublicKey
@@ -200,21 +200,21 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (PublicKey -&gt; PublicKeyConfig -&gt; PublicKey)
 -&gt; Lens PublicKey PublicKey PublicKeyConfig PublicKeyConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397622"><span class="annot"><span class="annottext">PublicKeyConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397874"><span class="annot"><span class="annottext">PublicKeyConfig
 publicKeyConfig :: PublicKeyConfig
 $sel:publicKeyConfig:PublicKey' :: PublicKey -&gt; PublicKeyConfig
-</span><a href="#local-6989586621679397622"><span class="hs-identifier hs-var hs-var">publicKeyConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397622"><span class="hs-identifier hs-var">publicKeyConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397621"><span class="annot"><span class="annottext">s :: PublicKey
-</span><a href="#local-6989586621679397621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397620"><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
-</span><a href="#local-6989586621679397621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyConfig:PublicKey' :: PublicKeyConfig
+</span><a href="#local-6989586621679397874"><span class="hs-identifier hs-var hs-var">publicKeyConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
+</span><a href="#local-6989586621679397874"><span class="hs-identifier hs-var">publicKeyConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397873"><span class="annot"><span class="annottext">s :: PublicKey
+</span><a href="#local-6989586621679397873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397872"><span class="annot"><span class="annottext">PublicKeyConfig
+</span><a href="#local-6989586621679397872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
+</span><a href="#local-6989586621679397873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyConfig:PublicKey' :: PublicKeyConfig
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#%24sel%3ApublicKeyConfig%3APublicKey%27"><span class="hs-identifier hs-var">publicKeyConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679397617"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397615"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679397869"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397867"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; ISO8601 -&gt; PublicKeyConfig -&gt; PublicKey
 </span><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-var">PublicKey'</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; ISO8601 -&gt; PublicKeyConfig -&gt; PublicKey)
@@ -222,7 +222,7 @@ $sel:publicKeyConfig:PublicKey' :: PublicKey -&gt; PublicKeyConfig
 -&gt; Either String (ISO8601 -&gt; PublicKeyConfig -&gt; PublicKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679397867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,7 +231,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (PublicKeyConfig -&gt; PublicKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679397867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,12 +239,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String PublicKeyConfig -&gt; Either String PublicKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String PublicKeyConfig
+</span><a href="#local-6989586621679397867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String PublicKeyConfig
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublicKeyConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397609"><span id="local-6989586621679397611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397861"><span id="local-6989586621679397863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span><span>
 </span><span id="line-102"></span></pre></body></html>

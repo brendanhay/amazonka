@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- your email sending metrics.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCloudWatchDestination' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679324467"><span id="local-6989586621679324468"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchDestination"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-var">CloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchDestination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-var">CloudWatchDestination'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679326767"><span id="local-6989586621679326768"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchDestination"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-var">CloudWatchDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchDestination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-var">CloudWatchDestination'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that define the dimensions to use when you send</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- email events to Amazon CloudWatch.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdimensionConfigurations%3ACloudWatchDestination%27"><span class="annot"><span class="annottext">CloudWatchDestination -&gt; [CloudWatchDimensionConfiguration]
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#%24sel%3AdimensionConfigurations%3ACloudWatchDestination%27"><span class="hs-identifier hs-var hs-var">dimensionConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324461"><span id="local-6989586621679324463"><span class="annot"><span class="annottext">CloudWatchDestination -&gt; CloudWatchDestination -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326761"><span id="local-6989586621679326763"><span class="annot"><span class="annottext">CloudWatchDestination -&gt; CloudWatchDestination -&gt; Bool
 (CloudWatchDestination -&gt; CloudWatchDestination -&gt; Bool)
 -&gt; (CloudWatchDestination -&gt; CloudWatchDestination -&gt; Bool)
 -&gt; Eq CloudWatchDestination
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudWatchDestination -&gt; CloudWatchDestination -&gt; Bool
 == :: CloudWatchDestination -&gt; CloudWatchDestination -&gt; Bool
 $c== :: CloudWatchDestination -&gt; CloudWatchDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324452"><span id="local-6989586621679324454"><span id="local-6989586621679324456"><span id="local-6989586621679324458"><span class="annot"><span class="annottext">ReadPrec [CloudWatchDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326752"><span id="local-6989586621679326754"><span id="local-6989586621679326756"><span id="local-6989586621679326758"><span class="annot"><span class="annottext">ReadPrec [CloudWatchDestination]
 ReadPrec CloudWatchDestination
 Int -&gt; ReadS CloudWatchDestination
 ReadS [CloudWatchDestination]
@@ -64,7 +64,7 @@ readList :: ReadS [CloudWatchDestination]
 $creadList :: ReadS [CloudWatchDestination]
 readsPrec :: Int -&gt; ReadS CloudWatchDestination
 $creadsPrec :: Int -&gt; ReadS CloudWatchDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324445"><span id="local-6989586621679324447"><span id="local-6989586621679324449"><span class="annot"><span class="annottext">Int -&gt; CloudWatchDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326745"><span id="local-6989586621679326747"><span id="local-6989586621679326749"><span class="annot"><span class="annottext">Int -&gt; CloudWatchDestination -&gt; ShowS
 [CloudWatchDestination] -&gt; ShowS
 CloudWatchDestination -&gt; String
 (Int -&gt; CloudWatchDestination -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Monoid a =&gt; a
      [CloudWatchDimensionConfiguration]
      [CloudWatchDimensionConfiguration]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-type">CloudWatchDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324436"><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-type">CloudWatchDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326736"><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
 dimensionConfigurations :: [CloudWatchDimensionConfiguration]
 $sel:dimensionConfigurations:CloudWatchDestination' :: CloudWatchDestination -&gt; [CloudWatchDimensionConfiguration]
-</span><a href="#local-6989586621679324436"><span class="hs-identifier hs-var hs-var">dimensionConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
-</span><a href="#local-6989586621679324436"><span class="hs-identifier hs-var">dimensionConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324435"><span class="annot"><span class="annottext">s :: CloudWatchDestination
-</span><a href="#local-6989586621679324435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-type">CloudWatchDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324434"><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
-</span><a href="#local-6989586621679324434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDestination
-</span><a href="#local-6989586621679324435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionConfigurations:CloudWatchDestination' :: [CloudWatchDimensionConfiguration]
+</span><a href="#local-6989586621679326736"><span class="hs-identifier hs-var hs-var">dimensionConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
+</span><a href="#local-6989586621679326736"><span class="hs-identifier hs-var">dimensionConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326735"><span class="annot"><span class="annottext">s :: CloudWatchDestination
+</span><a href="#local-6989586621679326735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-type">CloudWatchDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326734"><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
+</span><a href="#local-6989586621679326734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDestination
+</span><a href="#local-6989586621679326735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionConfigurations:CloudWatchDestination' :: [CloudWatchDimensionConfiguration]
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#%24sel%3AdimensionConfigurations%3ACloudWatchDestination%27"><span class="hs-identifier hs-var">dimensionConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
-</span><a href="#local-6989586621679324434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CloudWatchDimensionConfiguration]
+</span><a href="#local-6989586621679326734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CloudWatchDimensionConfiguration]
   -&gt; f [CloudWatchDimensionConfiguration])
  -&gt; CloudWatchDestination -&gt; f CloudWatchDestination)
 -&gt; (([CloudWatchDimensionConfiguration]
@@ -153,11 +153,11 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f [CloudWatchDimensionConfiguration])
 -&gt; [CloudWatchDimensionConfiguration]
 -&gt; f [CloudWatchDimensionConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324429"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679324427"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchDestination
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326729"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679326727"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchDestination)
@@ -167,8 +167,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchDestination&quot;</span></span><span>
-</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324424"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324424"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326724"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326724"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration] -&gt; CloudWatchDestination
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-var">CloudWatchDestination'</span></a></span><span>
 </span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">([CloudWatchDimensionConfiguration] -&gt; CloudWatchDestination)
@@ -176,7 +176,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser CloudWatchDestination
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324424"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [CloudWatchDimensionConfiguration])
+</span><a href="#local-6989586621679326724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [CloudWatchDimensionConfiguration])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DimensionConfigurations&quot;</span></span><span>
@@ -190,16 +190,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-70"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324417"><span id="local-6989586621679324419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326717"><span id="local-6989586621679326719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324406"><span id="local-6989586621679324408"><span id="local-6989586621679324410"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679324404"><span class="annot"><span class="annottext">toJSON :: CloudWatchDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-type">CloudWatchDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324402"><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326706"><span id="local-6989586621679326708"><span id="local-6989586621679326710"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination"><span class="hs-identifier hs-type">CloudWatchDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679326704"><span class="annot"><span class="annottext">toJSON :: CloudWatchDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDestination.html#CloudWatchDestination%27"><span class="hs-identifier hs-type">CloudWatchDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326702"><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
 dimensionConfigurations :: [CloudWatchDimensionConfiguration]
 $sel:dimensionConfigurations:CloudWatchDestination' :: CloudWatchDestination -&gt; [CloudWatchDimensionConfiguration]
-</span><a href="#local-6989586621679324402"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326702"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -213,7 +213,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-83"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [CloudWatchDimensionConfiguration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[CloudWatchDimensionConfiguration]
-</span><a href="#local-6989586621679324402"><span class="hs-identifier hs-var">dimensionConfigurations</span></a></span><span>
+</span><a href="#local-6989586621679326702"><span class="hs-identifier hs-var">dimensionConfigurations</span></a></span><span>
 </span><span id="line-84"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>

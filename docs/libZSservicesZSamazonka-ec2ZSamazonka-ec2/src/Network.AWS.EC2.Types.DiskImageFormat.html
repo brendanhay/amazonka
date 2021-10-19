@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681066327"><span id="local-6989586621681066328"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DiskImageFormat"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-var">DiskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskImageFormat%27"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat%27"><span class="hs-identifier hs-var">DiskImageFormat'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681100260"><span id="local-6989586621681100261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DiskImageFormat"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-var">DiskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskImageFormat%27"><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat%27"><span class="hs-identifier hs-var">DiskImageFormat'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDiskImageFormat"><span class="annot"><span class="annottext">DiskImageFormat -&gt; Text
 </span><a href="Network.AWS.EC2.Types.DiskImageFormat.html#fromDiskImageFormat"><span class="hs-identifier hs-var hs-var">fromDiskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681066319"><span id="local-6989586621681066321"><span id="local-6989586621681066323"><span class="annot"><span class="annottext">Int -&gt; DiskImageFormat -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681100252"><span id="local-6989586621681100254"><span id="local-6989586621681100256"><span class="annot"><span class="annottext">Int -&gt; DiskImageFormat -&gt; ShowS
 [DiskImageFormat] -&gt; ShowS
 DiskImageFormat -&gt; String
 (Int -&gt; DiskImageFormat -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DiskImageFormat -&gt; String
 showsPrec :: Int -&gt; DiskImageFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; DiskImageFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681066310"><span id="local-6989586621681066312"><span id="local-6989586621681066314"><span id="local-6989586621681066316"><span class="annot"><span class="annottext">ReadPrec [DiskImageFormat]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681100243"><span id="local-6989586621681100245"><span id="local-6989586621681100247"><span id="local-6989586621681100249"><span class="annot"><span class="annottext">ReadPrec [DiskImageFormat]
 ReadPrec DiskImageFormat
 Int -&gt; ReadS DiskImageFormat
 ReadS [DiskImageFormat]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DiskImageFormat]
 readsPrec :: Int -&gt; ReadS DiskImageFormat
 $creadsPrec :: Int -&gt; ReadS DiskImageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681066305"><span id="local-6989586621681066307"><span class="annot"><span class="annottext">DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681100238"><span id="local-6989586621681100240"><span class="annot"><span class="annottext">DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
 (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
 -&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
 -&gt; Eq DiskImageFormat
@@ -84,7 +84,7 @@ $c/= :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
 == :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
 $c== :: DiskImageFormat -&gt; DiskImageFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681066289"><span id="local-6989586621681066291"><span id="local-6989586621681066293"><span id="local-6989586621681066295"><span id="local-6989586621681066297"><span id="local-6989586621681066299"><span id="local-6989586621681066301"><span class="annot"><span class="annottext">Eq DiskImageFormat
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681100222"><span id="local-6989586621681100224"><span id="local-6989586621681100226"><span id="local-6989586621681100228"><span id="local-6989586621681100230"><span id="local-6989586621681100232"><span id="local-6989586621681100234"><span class="annot"><span class="annottext">Eq DiskImageFormat
 Eq DiskImageFormat
 -&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Ordering)
 -&gt; (DiskImageFormat -&gt; DiskImageFormat -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. DiskImageFormat -&gt; Rep DiskImageFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681066281"><span id="local-6989586621681066283"><span class="annot"><span class="annottext">Int -&gt; DiskImageFormat -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681100214"><span id="local-6989586621681100216"><span class="annot"><span class="annottext">Int -&gt; DiskImageFormat -&gt; Int
 DiskImageFormat -&gt; Int
 (Int -&gt; DiskImageFormat -&gt; Int)
 -&gt; (DiskImageFormat -&gt; Int) -&gt; Hashable DiskImageFormat
@@ -145,50 +145,50 @@ $chash :: DiskImageFormat -&gt; Int
 hashWithSalt :: Int -&gt; DiskImageFormat -&gt; Int
 $chashWithSalt :: Int -&gt; DiskImageFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681066278"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681100211"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ()
 (DiskImageFormat -&gt; ()) -&gt; NFData DiskImageFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DiskImageFormat -&gt; ()
 $crnf :: DiskImageFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681066275"><span class="annot"><span class="annottext">Text -&gt; Either String DiskImageFormat
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681100208"><span class="annot"><span class="annottext">Text -&gt; Either String DiskImageFormat
 (Text -&gt; Either String DiskImageFormat) -&gt; FromText DiskImageFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DiskImageFormat
 $cfromText :: Text -&gt; Either String DiskImageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681066272"><span class="annot"><span class="annottext">DiskImageFormat -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681100205"><span class="annot"><span class="annottext">DiskImageFormat -&gt; Text
 (DiskImageFormat -&gt; Text) -&gt; ToText DiskImageFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DiskImageFormat -&gt; Text
 $ctoText :: DiskImageFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681066269"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681100202"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ByteString
 (DiskImageFormat -&gt; ByteString) -&gt; ToByteString DiskImageFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DiskImageFormat -&gt; ByteString
 $ctoBS :: DiskImageFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681066266"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681100199"><span class="annot"><span class="annottext">DiskImageFormat -&gt; ByteStringBuilder
 (DiskImageFormat -&gt; ByteStringBuilder) -&gt; ToLog DiskImageFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DiskImageFormat -&gt; ByteStringBuilder
 $cbuild :: DiskImageFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681066263"><span class="annot"><span class="annottext">HeaderName -&gt; DiskImageFormat -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681100196"><span class="annot"><span class="annottext">HeaderName -&gt; DiskImageFormat -&gt; [Header]
 (HeaderName -&gt; DiskImageFormat -&gt; [Header])
 -&gt; ToHeader DiskImageFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DiskImageFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DiskImageFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681066260"><span class="annot"><span class="annottext">DiskImageFormat -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681100193"><span class="annot"><span class="annottext">DiskImageFormat -&gt; QueryString
 (DiskImageFormat -&gt; QueryString) -&gt; ToQuery DiskImageFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DiskImageFormat -&gt; QueryString
 $ctoQuery :: DiskImageFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681066255"><span id="local-6989586621681066257"><span class="annot"><span class="annottext">Value -&gt; Parser [DiskImageFormat]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681100188"><span id="local-6989586621681100190"><span class="annot"><span class="annottext">Value -&gt; Parser [DiskImageFormat]
 Value -&gt; Parser DiskImageFormat
 (Value -&gt; Parser DiskImageFormat)
 -&gt; (Value -&gt; Parser [DiskImageFormat]) -&gt; FromJSON DiskImageFormat
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [DiskImageFormat]
 parseJSON :: Value -&gt; Parser DiskImageFormat
 $cparseJSON :: Value -&gt; Parser DiskImageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681066250"><span id="local-6989586621681066252"><span class="annot"><span class="annottext">FromJSONKeyFunction [DiskImageFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681100183"><span id="local-6989586621681100185"><span class="annot"><span class="annottext">FromJSONKeyFunction [DiskImageFormat]
 FromJSONKeyFunction DiskImageFormat
 FromJSONKeyFunction DiskImageFormat
 -&gt; FromJSONKeyFunction [DiskImageFormat]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DiskImageFormat]
 fromJSONKey :: FromJSONKeyFunction DiskImageFormat
 $cfromJSONKey :: FromJSONKeyFunction DiskImageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681066241"><span id="local-6989586621681066243"><span id="local-6989586621681066245"><span id="local-6989586621681066247"><span class="annot"><span class="annottext">[DiskImageFormat] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681100174"><span id="local-6989586621681100176"><span id="local-6989586621681100178"><span id="local-6989586621681100180"><span class="annot"><span class="annottext">[DiskImageFormat] -&gt; Encoding
 [DiskImageFormat] -&gt; Value
 DiskImageFormat -&gt; Encoding
 DiskImageFormat -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: DiskImageFormat -&gt; Encoding
 toJSON :: DiskImageFormat -&gt; Value
 $ctoJSON :: DiskImageFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681066236"><span id="local-6989586621681066238"><span class="annot"><span class="annottext">ToJSONKeyFunction [DiskImageFormat]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681100169"><span id="local-6989586621681100171"><span class="annot"><span class="annottext">ToJSONKeyFunction [DiskImageFormat]
 ToJSONKeyFunction DiskImageFormat
 ToJSONKeyFunction DiskImageFormat
 -&gt; ToJSONKeyFunction [DiskImageFormat] -&gt; ToJSONKey DiskImageFormat
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DiskImageFormat]
 toJSONKey :: ToJSONKeyFunction DiskImageFormat
 $ctoJSONKey :: ToJSONKeyFunction DiskImageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681066233"><span class="annot"><span class="annottext">[Node] -&gt; Either String DiskImageFormat
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681100166"><span class="annot"><span class="annottext">[Node] -&gt; Either String DiskImageFormat
 ([Node] -&gt; Either String DiskImageFormat)
 -&gt; FromXML DiskImageFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DiskImageFormat
 $cparseXML :: [Node] -&gt; Either String DiskImageFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681066230"><span class="annot"><span class="annottext">DiskImageFormat -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681100163"><span class="annot"><span class="annottext">DiskImageFormat -&gt; XML
 (DiskImageFormat -&gt; XML) -&gt; ToXML DiskImageFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DiskImageFormat -&gt; XML

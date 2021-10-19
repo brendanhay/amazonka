@@ -30,16 +30,16 @@
 </span><span id="line-30"></span><span class="hs-comment">-- that Amazon Comprehend can identify, see how-syntax.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPartOfSpeechTag' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679346332"><span id="local-6989586621679346333"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartOfSpeechTag"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-var">PartOfSpeechTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartOfSpeechTag%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-var">PartOfSpeechTag'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The confidence that Amazon Comprehend has that the part of speech was</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- correctly identified.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Ascore%3APartOfSpeechTag%27"><span class="annot"><span class="annottext">PartOfSpeechTag -&gt; Maybe Double
-</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Ascore%3APartOfSpeechTag%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Identifies the part of speech that the token represents.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atag%3APartOfSpeechTag%27"><span class="annot"><span class="annottext">PartOfSpeechTag -&gt; Maybe PartOfSpeechTagType
-</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Atag%3APartOfSpeechTag%27"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType"><span class="hs-identifier hs-type">PartOfSpeechTagType</span></a></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679346601"><span id="local-6989586621679346602"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartOfSpeechTag"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-var">PartOfSpeechTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartOfSpeechTag%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-var">PartOfSpeechTag'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the part of speech that the token represents.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atag%3APartOfSpeechTag%27"><span class="annot"><span class="annottext">PartOfSpeechTag -&gt; Maybe PartOfSpeechTagType
+</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Atag%3APartOfSpeechTag%27"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType"><span class="hs-identifier hs-type">PartOfSpeechTagType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The confidence that Amazon Comprehend has that the part of speech was</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- correctly identified.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Ascore%3APartOfSpeechTag%27"><span class="annot"><span class="annottext">PartOfSpeechTag -&gt; Maybe Double
+</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Ascore%3APartOfSpeechTag%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346325"><span id="local-6989586621679346327"><span class="annot"><span class="annottext">PartOfSpeechTag -&gt; PartOfSpeechTag -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346594"><span id="local-6989586621679346596"><span class="annot"><span class="annottext">PartOfSpeechTag -&gt; PartOfSpeechTag -&gt; Bool
 (PartOfSpeechTag -&gt; PartOfSpeechTag -&gt; Bool)
 -&gt; (PartOfSpeechTag -&gt; PartOfSpeechTag -&gt; Bool)
 -&gt; Eq PartOfSpeechTag
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PartOfSpeechTag -&gt; PartOfSpeechTag -&gt; Bool
 == :: PartOfSpeechTag -&gt; PartOfSpeechTag -&gt; Bool
 $c== :: PartOfSpeechTag -&gt; PartOfSpeechTag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346316"><span id="local-6989586621679346318"><span id="local-6989586621679346320"><span id="local-6989586621679346322"><span class="annot"><span class="annottext">ReadPrec [PartOfSpeechTag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346585"><span id="local-6989586621679346587"><span id="local-6989586621679346589"><span id="local-6989586621679346591"><span class="annot"><span class="annottext">ReadPrec [PartOfSpeechTag]
 ReadPrec PartOfSpeechTag
 Int -&gt; ReadS PartOfSpeechTag
 ReadS [PartOfSpeechTag]
@@ -68,7 +68,7 @@ readList :: ReadS [PartOfSpeechTag]
 $creadList :: ReadS [PartOfSpeechTag]
 readsPrec :: Int -&gt; ReadS PartOfSpeechTag
 $creadsPrec :: Int -&gt; ReadS PartOfSpeechTag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346309"><span id="local-6989586621679346311"><span id="local-6989586621679346313"><span class="annot"><span class="annottext">Int -&gt; PartOfSpeechTag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346578"><span id="local-6989586621679346580"><span id="local-6989586621679346582"><span class="annot"><span class="annottext">Int -&gt; PartOfSpeechTag -&gt; ShowS
 [PartOfSpeechTag] -&gt; ShowS
 PartOfSpeechTag -&gt; String
 (Int -&gt; PartOfSpeechTag -&gt; ShowS)
@@ -102,50 +102,29 @@ $cfrom :: forall x. PartOfSpeechTag -&gt; Rep PartOfSpeechTag x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'score', 'partOfSpeechTag_score' - The confidence that Amazon Comprehend has that the part of speech was</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- correctly identified.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'tag', 'partOfSpeechTag_tag' - Identifies the part of speech that the token represents.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'tag', 'partOfSpeechTag_tag' - Identifies the part of speech that the token represents.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'score', 'partOfSpeechTag_score' - The confidence that Amazon Comprehend has that the part of speech was</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- correctly identified.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#newPartOfSpeechTag"><span class="hs-identifier hs-type">newPartOfSpeechTag</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span>
 </span><span id="line-56"></span><span id="newPartOfSpeechTag"><span class="annot"><span class="annottext">newPartOfSpeechTag :: PartOfSpeechTag
 </span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#newPartOfSpeechTag"><span class="hs-identifier hs-var hs-var">newPartOfSpeechTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">PartOfSpeechTag' :: Maybe Double -&gt; Maybe PartOfSpeechTagType -&gt; PartOfSpeechTag
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">PartOfSpeechTag' :: Maybe PartOfSpeechTagType -&gt; Maybe Double -&gt; PartOfSpeechTag
 </span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:score:PartOfSpeechTag' :: Maybe Double
-</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Ascore%3APartOfSpeechTag%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tag:PartOfSpeechTag' :: Maybe PartOfSpeechTagType
+</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Atag%3APartOfSpeechTag%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:tag:PartOfSpeechTag' :: Maybe PartOfSpeechTagType
-</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Atag%3APartOfSpeechTag%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:score:PartOfSpeechTag' :: Maybe Double
+</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Ascore%3APartOfSpeechTag%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The confidence that Amazon Comprehend has that the part of speech was</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- correctly identified.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#partOfSpeechTag_score"><span class="hs-identifier hs-type">partOfSpeechTag_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="partOfSpeechTag_score"><span class="annot"><span class="annottext">partOfSpeechTag_score :: (Maybe Double -&gt; f (Maybe Double))
--&gt; PartOfSpeechTag -&gt; f PartOfSpeechTag
-</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#partOfSpeechTag_score"><span class="hs-identifier hs-var hs-var">partOfSpeechTag_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PartOfSpeechTag -&gt; Maybe Double)
--&gt; (PartOfSpeechTag -&gt; Maybe Double -&gt; PartOfSpeechTag)
--&gt; Lens
-     PartOfSpeechTag PartOfSpeechTag (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346300"><span class="annot"><span class="annottext">Maybe Double
-score :: Maybe Double
-$sel:score:PartOfSpeechTag' :: PartOfSpeechTag -&gt; Maybe Double
-</span><a href="#local-6989586621679346300"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679346300"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346299"><span class="annot"><span class="annottext">s :: PartOfSpeechTag
-</span><a href="#local-6989586621679346299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346298"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679346298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartOfSpeechTag
-</span><a href="#local-6989586621679346299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:PartOfSpeechTag' :: Maybe Double
-</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Ascore%3APartOfSpeechTag%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679346298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | Identifies the part of speech that the token represents.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#partOfSpeechTag_tag"><span class="hs-identifier hs-type">partOfSpeechTag_tag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType"><span class="hs-identifier hs-type">PartOfSpeechTagType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="partOfSpeechTag_tag"><span class="annot"><span class="annottext">partOfSpeechTag_tag :: (Maybe PartOfSpeechTagType -&gt; f (Maybe PartOfSpeechTagType))
+</span><span id="line-62"></span><span class="hs-comment">-- | Identifies the part of speech that the token represents.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#partOfSpeechTag_tag"><span class="hs-identifier hs-type">partOfSpeechTag_tag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTagType.html#PartOfSpeechTagType"><span class="hs-identifier hs-type">PartOfSpeechTagType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="partOfSpeechTag_tag"><span class="annot"><span class="annottext">partOfSpeechTag_tag :: (Maybe PartOfSpeechTagType -&gt; f (Maybe PartOfSpeechTagType))
 -&gt; PartOfSpeechTag -&gt; f PartOfSpeechTag
 </span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#partOfSpeechTag_tag"><span class="hs-identifier hs-var hs-var">partOfSpeechTag_tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PartOfSpeechTag -&gt; Maybe PartOfSpeechTagType)
 -&gt; (PartOfSpeechTag
@@ -156,19 +135,40 @@ $sel:score:PartOfSpeechTag' :: PartOfSpeechTag -&gt; Maybe Double
      (Maybe PartOfSpeechTagType)
      (Maybe PartOfSpeechTagType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346296"><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346569"><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
 tag :: Maybe PartOfSpeechTagType
 $sel:tag:PartOfSpeechTag' :: PartOfSpeechTag -&gt; Maybe PartOfSpeechTagType
-</span><a href="#local-6989586621679346296"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
-</span><a href="#local-6989586621679346296"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346295"><span class="annot"><span class="annottext">s :: PartOfSpeechTag
-</span><a href="#local-6989586621679346295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346294"><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
-</span><a href="#local-6989586621679346294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartOfSpeechTag
-</span><a href="#local-6989586621679346295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tag:PartOfSpeechTag' :: Maybe PartOfSpeechTagType
+</span><a href="#local-6989586621679346569"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
+</span><a href="#local-6989586621679346569"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346568"><span class="annot"><span class="annottext">s :: PartOfSpeechTag
+</span><a href="#local-6989586621679346568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346567"><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
+</span><a href="#local-6989586621679346567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartOfSpeechTag
+</span><a href="#local-6989586621679346568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tag:PartOfSpeechTag' :: Maybe PartOfSpeechTagType
 </span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Atag%3APartOfSpeechTag%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType
-</span><a href="#local-6989586621679346294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The confidence that Amazon Comprehend has that the part of speech was</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- correctly identified.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#partOfSpeechTag_score"><span class="hs-identifier hs-type">partOfSpeechTag_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="partOfSpeechTag_score"><span class="annot"><span class="annottext">partOfSpeechTag_score :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; PartOfSpeechTag -&gt; f PartOfSpeechTag
+</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#partOfSpeechTag_score"><span class="hs-identifier hs-var hs-var">partOfSpeechTag_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PartOfSpeechTag -&gt; Maybe Double)
+-&gt; (PartOfSpeechTag -&gt; Maybe Double -&gt; PartOfSpeechTag)
+-&gt; Lens
+     PartOfSpeechTag PartOfSpeechTag (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346565"><span class="annot"><span class="annottext">Maybe Double
+score :: Maybe Double
+$sel:score:PartOfSpeechTag' :: PartOfSpeechTag -&gt; Maybe Double
+</span><a href="#local-6989586621679346565"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679346565"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346564"><span class="annot"><span class="annottext">s :: PartOfSpeechTag
+</span><a href="#local-6989586621679346564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-type">PartOfSpeechTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346563"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679346563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartOfSpeechTag
+</span><a href="#local-6989586621679346564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:PartOfSpeechTag' :: Maybe Double
+</span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#%24sel%3Ascore%3APartOfSpeechTag%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679346563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346291"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679346289"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartOfSpeechTag
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346560"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679346558"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartOfSpeechTag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PartOfSpeechTag)
@@ -178,29 +178,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PartOfSpeechTag&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346286"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe PartOfSpeechTagType -&gt; PartOfSpeechTag
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346555"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346555"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe PartOfSpeechTagType -&gt; Maybe Double -&gt; PartOfSpeechTag
 </span><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag%27"><span class="hs-identifier hs-var">PartOfSpeechTag'</span></a></span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe PartOfSpeechTagType -&gt; PartOfSpeechTag)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe PartOfSpeechTagType -&gt; PartOfSpeechTag)
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PartOfSpeechTagType -&gt; Maybe Double -&gt; PartOfSpeechTag)
+-&gt; Parser (Maybe PartOfSpeechTagType)
+-&gt; Parser (Maybe Double -&gt; PartOfSpeechTag)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679346555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PartOfSpeechTagType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe PartOfSpeechTagType -&gt; PartOfSpeechTag)
--&gt; Parser (Maybe PartOfSpeechTagType) -&gt; Parser PartOfSpeechTag
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; PartOfSpeechTag)
+-&gt; Parser (Maybe Double) -&gt; Parser PartOfSpeechTag
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PartOfSpeechTagType)
+</span><a href="#local-6989586621679346555"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346280"><span id="local-6989586621679346282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346549"><span id="local-6989586621679346551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PartOfSpeechTag.html#PartOfSpeechTag"><span class="hs-identifier hs-type">PartOfSpeechTag</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

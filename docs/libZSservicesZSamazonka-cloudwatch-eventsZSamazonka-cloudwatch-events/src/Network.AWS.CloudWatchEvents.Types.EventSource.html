@@ -30,33 +30,33 @@
 </span><span id="line-30"></span><span class="hs-comment">-- or services.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEventSource' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679302453"><span id="local-6989586621679302454"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventSource"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-var">EventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSource%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-var">EventSource'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679302633"><span id="local-6989586621679302634"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventSource"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-var">EventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSource%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-var">EventSource'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time the event source was created.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreationTime%3AEventSource%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date and time that the event source will expire, if the Amazon Web</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Services account doesn\'t create a matching event bus for it.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AexpirationTime%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AexpirationTime%3AEventSource%27"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN of the event source.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aarn%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aarn%3AEventSource%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the event source.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aname%3AEventSource%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The state of the event source. If it is ACTIVE, you have already created</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- a matching event bus for this event source, and that event bus is</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- active. If it is PENDING, either you haven\'t yet created a matching</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- event bus, or that event bus is deactivated. If it is DELETED, you have</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- created a matching event bus, but the event source has since been</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- deleted.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Astate%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe EventSourceState
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The state of the event source. If it is ACTIVE, you have already created</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- a matching event bus for this event source, and that event bus is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- active. If it is PENDING, either you haven\'t yet created a matching</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- event bus, or that event bus is deactivated. If it is DELETED, you have</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- created a matching event bus, but the event source has since been</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Astate%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe EventSourceState
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Astate%3AEventSource%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSourceState.html#EventSourceState"><span class="hs-identifier hs-type">EventSourceState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the partner that created the event source.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcreatedBy%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreatedBy%3AEventSource%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ARN of the event source.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aarn%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aarn%3AEventSource%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the partner that created the event source.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreatedBy%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreatedBy%3AEventSource%27"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the event source.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aname%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aname%3AEventSource%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The date and time that the event source will expire, if the Amazon Web</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Services account doesn\'t create a matching event bus for it.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AexpirationTime%3AEventSource%27"><span class="annot"><span class="annottext">EventSource -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AexpirationTime%3AEventSource%27"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302442"><span id="local-6989586621679302444"><span class="annot"><span class="annottext">EventSource -&gt; EventSource -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302622"><span id="local-6989586621679302624"><span class="annot"><span class="annottext">EventSource -&gt; EventSource -&gt; Bool
 (EventSource -&gt; EventSource -&gt; Bool)
 -&gt; (EventSource -&gt; EventSource -&gt; Bool) -&gt; Eq EventSource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventSource -&gt; EventSource -&gt; Bool
 == :: EventSource -&gt; EventSource -&gt; Bool
 $c== :: EventSource -&gt; EventSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302433"><span id="local-6989586621679302435"><span id="local-6989586621679302437"><span id="local-6989586621679302439"><span class="annot"><span class="annottext">ReadPrec [EventSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302613"><span id="local-6989586621679302615"><span id="local-6989586621679302617"><span id="local-6989586621679302619"><span class="annot"><span class="annottext">ReadPrec [EventSource]
 ReadPrec EventSource
 Int -&gt; ReadS EventSource
 ReadS [EventSource]
@@ -84,7 +84,7 @@ readList :: ReadS [EventSource]
 $creadList :: ReadS [EventSource]
 readsPrec :: Int -&gt; ReadS EventSource
 $creadsPrec :: Int -&gt; ReadS EventSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302426"><span id="local-6989586621679302428"><span id="local-6989586621679302430"><span class="annot"><span class="annottext">Int -&gt; EventSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302606"><span id="local-6989586621679302608"><span id="local-6989586621679302610"><span class="annot"><span class="annottext">Int -&gt; EventSource -&gt; ShowS
 [EventSource] -&gt; ShowS
 EventSource -&gt; String
 (Int -&gt; EventSource -&gt; ShowS)
@@ -120,55 +120,55 @@ $cfrom :: forall x. EventSource -&gt; Rep EventSource x
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'creationTime', 'eventSource_creationTime' - The date and time the event source was created.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'expirationTime', 'eventSource_expirationTime' - The date and time that the event source will expire, if the Amazon Web</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- Services account doesn\'t create a matching event bus for it.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'arn', 'eventSource_arn' - The ARN of the event source.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'name', 'eventSource_name' - The name of the event source.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'state', 'eventSource_state' - The state of the event source. If it is ACTIVE, you have already created</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- a matching event bus for this event source, and that event bus is</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- active. If it is PENDING, either you haven\'t yet created a matching</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- event bus, or that event bus is deactivated. If it is DELETED, you have</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- created a matching event bus, but the event source has since been</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- deleted.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'state', 'eventSource_state' - The state of the event source. If it is ACTIVE, you have already created</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- a matching event bus for this event source, and that event bus is</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- active. If it is PENDING, either you haven\'t yet created a matching</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- event bus, or that event bus is deactivated. If it is DELETED, you have</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- created a matching event bus, but the event source has since been</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- deleted.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'createdBy', 'eventSource_createdBy' - The name of the partner that created the event source.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'arn', 'eventSource_arn' - The ARN of the event source.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'createdBy', 'eventSource_createdBy' - The name of the partner that created the event source.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'name', 'eventSource_name' - The name of the event source.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'expirationTime', 'eventSource_expirationTime' - The date and time that the event source will expire, if the Amazon Web</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Services account doesn\'t create a matching event bus for it.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#newEventSource"><span class="hs-identifier hs-type">newEventSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span>
 </span><span id="line-82"></span><span id="newEventSource"><span class="annot"><span class="annottext">newEventSource :: EventSource
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#newEventSource"><span class="hs-identifier hs-var hs-var">newEventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">EventSource' :: Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe EventSourceState
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; EventSource
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:EventSource' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreationTime%3AEventSource%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:expirationTime:EventSource' :: Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AexpirationTime%3AEventSource%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:EventSource' :: Maybe EventSourceState
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Astate%3AEventSource%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSourceState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:EventSource' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aarn%3AEventSource%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EventSource' :: Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:EventSource' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreatedBy%3AEventSource%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EventSource' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aname%3AEventSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:EventSource' :: Maybe EventSourceState
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Astate%3AEventSource%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSourceState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBy:EventSource' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreatedBy%3AEventSource%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:expirationTime:EventSource' :: Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AexpirationTime%3AEventSource%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; (EventSource -&gt; Maybe POSIX -&gt; EventSource)
 -&gt; Lens EventSource EventSource (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302417"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302597"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:EventSource' :: EventSource -&gt; Maybe POSIX
-</span><a href="#local-6989586621679302417"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679302417"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302416"><span class="annot"><span class="annottext">s :: EventSource
-</span><a href="#local-6989586621679302416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302415"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679302415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
-</span><a href="#local-6989586621679302416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:EventSource' :: Maybe POSIX
+</span><a href="#local-6989586621679302597"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679302597"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302596"><span class="annot"><span class="annottext">s :: EventSource
+</span><a href="#local-6989586621679302596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302595"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679302595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
+</span><a href="#local-6989586621679302596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:EventSource' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreationTime%3AEventSource%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679302415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; EventSource -&gt; f EventSource)
+</span><a href="#local-6989586621679302595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; EventSource -&gt; f EventSource)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -206,25 +206,107 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The date and time that the event source will expire, if the Amazon Web</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- Services account doesn\'t create a matching event bus for it.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_expirationTime"><span class="hs-identifier hs-type">eventSource_expirationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="eventSource_expirationTime"><span class="annot"><span class="annottext">eventSource_expirationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-96"></span><span class="hs-comment">-- | The state of the event source. If it is ACTIVE, you have already created</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- a matching event bus for this event source, and that event bus is</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- active. If it is PENDING, either you haven\'t yet created a matching</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- event bus, or that event bus is deactivated. If it is DELETED, you have</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- created a matching event bus, but the event source has since been</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- deleted.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_state"><span class="hs-identifier hs-type">eventSource_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSourceState.html#EventSourceState"><span class="hs-identifier hs-type">EventSourceState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="eventSource_state"><span class="annot"><span class="annottext">eventSource_state :: (Maybe EventSourceState -&gt; f (Maybe EventSourceState))
+-&gt; EventSource -&gt; f EventSource
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_state"><span class="hs-identifier hs-var hs-var">eventSource_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe EventSourceState)
+-&gt; (EventSource -&gt; Maybe EventSourceState -&gt; EventSource)
+-&gt; Lens
+     EventSource
+     EventSource
+     (Maybe EventSourceState)
+     (Maybe EventSourceState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302590"><span class="annot"><span class="annottext">Maybe EventSourceState
+state :: Maybe EventSourceState
+$sel:state:EventSource' :: EventSource -&gt; Maybe EventSourceState
+</span><a href="#local-6989586621679302590"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSourceState
+</span><a href="#local-6989586621679302590"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302589"><span class="annot"><span class="annottext">s :: EventSource
+</span><a href="#local-6989586621679302589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302588"><span class="annot"><span class="annottext">Maybe EventSourceState
+</span><a href="#local-6989586621679302588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
+</span><a href="#local-6989586621679302589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:EventSource' :: Maybe EventSourceState
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Astate%3AEventSource%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSourceState
+</span><a href="#local-6989586621679302588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ARN of the event source.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_arn"><span class="hs-identifier hs-type">eventSource_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="eventSource_arn"><span class="annot"><span class="annottext">eventSource_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventSource -&gt; f EventSource
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_arn"><span class="hs-identifier hs-var hs-var">eventSource_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe Text)
+-&gt; (EventSource -&gt; Maybe Text -&gt; EventSource)
+-&gt; Lens EventSource EventSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302586"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:EventSource' :: EventSource -&gt; Maybe Text
+</span><a href="#local-6989586621679302586"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302586"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302585"><span class="annot"><span class="annottext">s :: EventSource
+</span><a href="#local-6989586621679302585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302584"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
+</span><a href="#local-6989586621679302585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:EventSource' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aarn%3AEventSource%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the partner that created the event source.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_createdBy"><span class="hs-identifier hs-type">eventSource_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="eventSource_createdBy"><span class="annot"><span class="annottext">eventSource_createdBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventSource -&gt; f EventSource
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_createdBy"><span class="hs-identifier hs-var hs-var">eventSource_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe Text)
+-&gt; (EventSource -&gt; Maybe Text -&gt; EventSource)
+-&gt; Lens EventSource EventSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302582"><span class="annot"><span class="annottext">Maybe Text
+createdBy :: Maybe Text
+$sel:createdBy:EventSource' :: EventSource -&gt; Maybe Text
+</span><a href="#local-6989586621679302582"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302582"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302581"><span class="annot"><span class="annottext">s :: EventSource
+</span><a href="#local-6989586621679302581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
+</span><a href="#local-6989586621679302581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:EventSource' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreatedBy%3AEventSource%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The name of the event source.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_name"><span class="hs-identifier hs-type">eventSource_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="eventSource_name"><span class="annot"><span class="annottext">eventSource_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventSource -&gt; f EventSource
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_name"><span class="hs-identifier hs-var hs-var">eventSource_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe Text)
+-&gt; (EventSource -&gt; Maybe Text -&gt; EventSource)
+-&gt; Lens EventSource EventSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302578"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:EventSource' :: EventSource -&gt; Maybe Text
+</span><a href="#local-6989586621679302578"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302578"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302577"><span class="annot"><span class="annottext">s :: EventSource
+</span><a href="#local-6989586621679302577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
+</span><a href="#local-6989586621679302577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EventSource' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aname%3AEventSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The date and time that the event source will expire, if the Amazon Web</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Services account doesn\'t create a matching event bus for it.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_expirationTime"><span class="hs-identifier hs-type">eventSource_expirationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="eventSource_expirationTime"><span class="annot"><span class="annottext">eventSource_expirationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; EventSource -&gt; f EventSource
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_expirationTime"><span class="hs-identifier hs-var hs-var">eventSource_expirationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe POSIX)
 -&gt; (EventSource -&gt; Maybe POSIX -&gt; EventSource)
 -&gt; Lens EventSource EventSource (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302410"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302574"><span class="annot"><span class="annottext">Maybe POSIX
 expirationTime :: Maybe POSIX
 $sel:expirationTime:EventSource' :: EventSource -&gt; Maybe POSIX
-</span><a href="#local-6989586621679302410"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679302410"><span class="hs-identifier hs-var">expirationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302409"><span class="annot"><span class="annottext">s :: EventSource
-</span><a href="#local-6989586621679302409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302408"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679302408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
-</span><a href="#local-6989586621679302409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationTime:EventSource' :: Maybe POSIX
+</span><a href="#local-6989586621679302574"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679302574"><span class="hs-identifier hs-var">expirationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302573"><span class="annot"><span class="annottext">s :: EventSource
+</span><a href="#local-6989586621679302573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302572"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679302572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
+</span><a href="#local-6989586621679302573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationTime:EventSource' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AexpirationTime%3AEventSource%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679302408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; EventSource -&gt; f EventSource)
+</span><a href="#local-6989586621679302572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; EventSource -&gt; f EventSource)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -239,91 +321,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The ARN of the event source.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_arn"><span class="hs-identifier hs-type">eventSource_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="eventSource_arn"><span class="annot"><span class="annottext">eventSource_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventSource -&gt; f EventSource
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_arn"><span class="hs-identifier hs-var hs-var">eventSource_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe Text)
--&gt; (EventSource -&gt; Maybe Text -&gt; EventSource)
--&gt; Lens EventSource EventSource (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302406"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:EventSource' :: EventSource -&gt; Maybe Text
-</span><a href="#local-6989586621679302406"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302406"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302405"><span class="annot"><span class="annottext">s :: EventSource
-</span><a href="#local-6989586621679302405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302404"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
-</span><a href="#local-6989586621679302405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:EventSource' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aarn%3AEventSource%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The name of the event source.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_name"><span class="hs-identifier hs-type">eventSource_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="eventSource_name"><span class="annot"><span class="annottext">eventSource_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventSource -&gt; f EventSource
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_name"><span class="hs-identifier hs-var hs-var">eventSource_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe Text)
--&gt; (EventSource -&gt; Maybe Text -&gt; EventSource)
--&gt; Lens EventSource EventSource (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302402"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:EventSource' :: EventSource -&gt; Maybe Text
-</span><a href="#local-6989586621679302402"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302402"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302401"><span class="annot"><span class="annottext">s :: EventSource
-</span><a href="#local-6989586621679302401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302400"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
-</span><a href="#local-6989586621679302401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EventSource' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Aname%3AEventSource%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The state of the event source. If it is ACTIVE, you have already created</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- a matching event bus for this event source, and that event bus is</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- active. If it is PENDING, either you haven\'t yet created a matching</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- event bus, or that event bus is deactivated. If it is DELETED, you have</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- created a matching event bus, but the event source has since been</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- deleted.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_state"><span class="hs-identifier hs-type">eventSource_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSourceState.html#EventSourceState"><span class="hs-identifier hs-type">EventSourceState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="eventSource_state"><span class="annot"><span class="annottext">eventSource_state :: (Maybe EventSourceState -&gt; f (Maybe EventSourceState))
--&gt; EventSource -&gt; f EventSource
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_state"><span class="hs-identifier hs-var hs-var">eventSource_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe EventSourceState)
--&gt; (EventSource -&gt; Maybe EventSourceState -&gt; EventSource)
--&gt; Lens
-     EventSource
-     EventSource
-     (Maybe EventSourceState)
-     (Maybe EventSourceState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302398"><span class="annot"><span class="annottext">Maybe EventSourceState
-state :: Maybe EventSourceState
-$sel:state:EventSource' :: EventSource -&gt; Maybe EventSourceState
-</span><a href="#local-6989586621679302398"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSourceState
-</span><a href="#local-6989586621679302398"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302397"><span class="annot"><span class="annottext">s :: EventSource
-</span><a href="#local-6989586621679302397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302396"><span class="annot"><span class="annottext">Maybe EventSourceState
-</span><a href="#local-6989586621679302396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
-</span><a href="#local-6989586621679302397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:EventSource' :: Maybe EventSourceState
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3Astate%3AEventSource%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSourceState
-</span><a href="#local-6989586621679302396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The name of the partner that created the event source.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_createdBy"><span class="hs-identifier hs-type">eventSource_createdBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="eventSource_createdBy"><span class="annot"><span class="annottext">eventSource_createdBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; EventSource -&gt; f EventSource
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#eventSource_createdBy"><span class="hs-identifier hs-var hs-var">eventSource_createdBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Maybe Text)
--&gt; (EventSource -&gt; Maybe Text -&gt; EventSource)
--&gt; Lens EventSource EventSource (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302394"><span class="annot"><span class="annottext">Maybe Text
-createdBy :: Maybe Text
-$sel:createdBy:EventSource' :: EventSource -&gt; Maybe Text
-</span><a href="#local-6989586621679302394"><span class="hs-identifier hs-var hs-var">createdBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302394"><span class="hs-identifier hs-var">createdBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302393"><span class="annot"><span class="annottext">s :: EventSource
-</span><a href="#local-6989586621679302393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-type">EventSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302392"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSource
-</span><a href="#local-6989586621679302393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBy:EventSource' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#%24sel%3AcreatedBy%3AEventSource%27"><span class="hs-identifier hs-var">createdBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679302387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventSource
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302569"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679302567"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EventSource) -&gt; Value -&gt; Parser EventSource
@@ -331,102 +331,93 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventSource&quot;</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302384"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302564"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302564"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe EventSourceState
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; EventSource
 </span><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource%27"><span class="hs-identifier hs-var">EventSource'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe EventSourceState
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; EventSource)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe EventSourceState
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe EventSourceState
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; EventSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679302564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+  (Maybe EventSourceState
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe EventSourceState
    -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; EventSource)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe EventSourceState)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe EventSourceState
-      -&gt; Maybe Text
-      -&gt; EventSource)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; EventSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExpirationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe EventSourceState
-   -&gt; Maybe Text
-   -&gt; EventSource)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe EventSourceState -&gt; Maybe Text -&gt; EventSource)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe EventSourceState -&gt; Maybe Text -&gt; EventSource)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe EventSourceState -&gt; Maybe Text -&gt; EventSource)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EventSourceState -&gt; Maybe Text -&gt; EventSource)
--&gt; Parser (Maybe EventSourceState)
--&gt; Parser (Maybe Text -&gt; EventSource)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventSourceState)
+</span><a href="#local-6989586621679302564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventSourceState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EventSource)
--&gt; Parser (Maybe Text) -&gt; Parser EventSource
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; EventSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; EventSource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679302564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; EventSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; EventSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; EventSource)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; EventSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; EventSource)
+-&gt; Parser (Maybe POSIX) -&gt; Parser EventSource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302564"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpirationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302378"><span id="local-6989586621679302380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302558"><span id="local-6989586621679302560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

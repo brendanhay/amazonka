@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- rate of the output. Outputs with higher class values have higher</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- bitrates and improved image quality. Note that for Class 4K\/2K,</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- MediaConvert supports only 4:2:2 chroma subsampling.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679938579"><span id="local-6989586621679938580"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraClass"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraClass.html#AvcIntraClass"><span class="hs-identifier hs-var">AvcIntraClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraClass%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraClass.html#AvcIntraClass%27"><span class="hs-identifier hs-var">AvcIntraClass'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679943201"><span id="local-6989586621679943202"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraClass"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraClass.html#AvcIntraClass"><span class="hs-identifier hs-var">AvcIntraClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraClass%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraClass.html#AvcIntraClass%27"><span class="hs-identifier hs-var">AvcIntraClass'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvcIntraClass"><span class="annot"><span class="annottext">AvcIntraClass -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraClass.html#fromAvcIntraClass"><span class="hs-identifier hs-var hs-var">fromAvcIntraClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938571"><span id="local-6989586621679938573"><span id="local-6989586621679938575"><span class="annot"><span class="annottext">Int -&gt; AvcIntraClass -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943193"><span id="local-6989586621679943195"><span id="local-6989586621679943197"><span class="annot"><span class="annottext">Int -&gt; AvcIntraClass -&gt; ShowS
 [AvcIntraClass] -&gt; ShowS
 AvcIntraClass -&gt; String
 (Int -&gt; AvcIntraClass -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: AvcIntraClass -&gt; String
 showsPrec :: Int -&gt; AvcIntraClass -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvcIntraClass -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679938562"><span id="local-6989586621679938564"><span id="local-6989586621679938566"><span id="local-6989586621679938568"><span class="annot"><span class="annottext">ReadPrec [AvcIntraClass]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679943184"><span id="local-6989586621679943186"><span id="local-6989586621679943188"><span id="local-6989586621679943190"><span class="annot"><span class="annottext">ReadPrec [AvcIntraClass]
 ReadPrec AvcIntraClass
 Int -&gt; ReadS AvcIntraClass
 ReadS [AvcIntraClass]
@@ -79,7 +79,7 @@ $creadList :: ReadS [AvcIntraClass]
 readsPrec :: Int -&gt; ReadS AvcIntraClass
 $creadsPrec :: Int -&gt; ReadS AvcIntraClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679938557"><span id="local-6989586621679938559"><span class="annot"><span class="annottext">AvcIntraClass -&gt; AvcIntraClass -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679943179"><span id="local-6989586621679943181"><span class="annot"><span class="annottext">AvcIntraClass -&gt; AvcIntraClass -&gt; Bool
 (AvcIntraClass -&gt; AvcIntraClass -&gt; Bool)
 -&gt; (AvcIntraClass -&gt; AvcIntraClass -&gt; Bool) -&gt; Eq AvcIntraClass
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: AvcIntraClass -&gt; AvcIntraClass -&gt; Bool
 == :: AvcIntraClass -&gt; AvcIntraClass -&gt; Bool
 $c== :: AvcIntraClass -&gt; AvcIntraClass -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679938541"><span id="local-6989586621679938543"><span id="local-6989586621679938545"><span id="local-6989586621679938547"><span id="local-6989586621679938549"><span id="local-6989586621679938551"><span id="local-6989586621679938553"><span class="annot"><span class="annottext">Eq AvcIntraClass
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679943163"><span id="local-6989586621679943165"><span id="local-6989586621679943167"><span id="local-6989586621679943169"><span id="local-6989586621679943171"><span id="local-6989586621679943173"><span id="local-6989586621679943175"><span class="annot"><span class="annottext">Eq AvcIntraClass
 Eq AvcIntraClass
 -&gt; (AvcIntraClass -&gt; AvcIntraClass -&gt; Ordering)
 -&gt; (AvcIntraClass -&gt; AvcIntraClass -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. AvcIntraClass -&gt; Rep AvcIntraClass x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938533"><span id="local-6989586621679938535"><span class="annot"><span class="annottext">Int -&gt; AvcIntraClass -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943155"><span id="local-6989586621679943157"><span class="annot"><span class="annottext">Int -&gt; AvcIntraClass -&gt; Int
 AvcIntraClass -&gt; Int
 (Int -&gt; AvcIntraClass -&gt; Int)
 -&gt; (AvcIntraClass -&gt; Int) -&gt; Hashable AvcIntraClass
@@ -149,49 +149,49 @@ $chash :: AvcIntraClass -&gt; Int
 hashWithSalt :: Int -&gt; AvcIntraClass -&gt; Int
 $chashWithSalt :: Int -&gt; AvcIntraClass -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679938530"><span class="annot"><span class="annottext">AvcIntraClass -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943152"><span class="annot"><span class="annottext">AvcIntraClass -&gt; ()
 (AvcIntraClass -&gt; ()) -&gt; NFData AvcIntraClass
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvcIntraClass -&gt; ()
 $crnf :: AvcIntraClass -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679938527"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraClass
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943149"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraClass
 (Text -&gt; Either String AvcIntraClass) -&gt; FromText AvcIntraClass
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvcIntraClass
 $cfromText :: Text -&gt; Either String AvcIntraClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679938524"><span class="annot"><span class="annottext">AvcIntraClass -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943146"><span class="annot"><span class="annottext">AvcIntraClass -&gt; Text
 (AvcIntraClass -&gt; Text) -&gt; ToText AvcIntraClass
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvcIntraClass -&gt; Text
 $ctoText :: AvcIntraClass -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679938521"><span class="annot"><span class="annottext">AvcIntraClass -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943143"><span class="annot"><span class="annottext">AvcIntraClass -&gt; ByteString
 (AvcIntraClass -&gt; ByteString) -&gt; ToByteString AvcIntraClass
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvcIntraClass -&gt; ByteString
 $ctoBS :: AvcIntraClass -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679938518"><span class="annot"><span class="annottext">AvcIntraClass -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943140"><span class="annot"><span class="annottext">AvcIntraClass -&gt; ByteStringBuilder
 (AvcIntraClass -&gt; ByteStringBuilder) -&gt; ToLog AvcIntraClass
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvcIntraClass -&gt; ByteStringBuilder
 $cbuild :: AvcIntraClass -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679938515"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraClass -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943137"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraClass -&gt; [Header]
 (HeaderName -&gt; AvcIntraClass -&gt; [Header]) -&gt; ToHeader AvcIntraClass
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvcIntraClass -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvcIntraClass -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679938512"><span class="annot"><span class="annottext">AvcIntraClass -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943134"><span class="annot"><span class="annottext">AvcIntraClass -&gt; QueryString
 (AvcIntraClass -&gt; QueryString) -&gt; ToQuery AvcIntraClass
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvcIntraClass -&gt; QueryString
 $ctoQuery :: AvcIntraClass -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679938507"><span id="local-6989586621679938509"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraClass]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943129"><span id="local-6989586621679943131"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraClass]
 Value -&gt; Parser AvcIntraClass
 (Value -&gt; Parser AvcIntraClass)
 -&gt; (Value -&gt; Parser [AvcIntraClass]) -&gt; FromJSON AvcIntraClass
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [AvcIntraClass]
 parseJSON :: Value -&gt; Parser AvcIntraClass
 $cparseJSON :: Value -&gt; Parser AvcIntraClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679938502"><span id="local-6989586621679938504"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraClass]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943124"><span id="local-6989586621679943126"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraClass]
 FromJSONKeyFunction AvcIntraClass
 FromJSONKeyFunction AvcIntraClass
 -&gt; FromJSONKeyFunction [AvcIntraClass] -&gt; FromJSONKey AvcIntraClass
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvcIntraClass]
 fromJSONKey :: FromJSONKeyFunction AvcIntraClass
 $cfromJSONKey :: FromJSONKeyFunction AvcIntraClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679938493"><span id="local-6989586621679938495"><span id="local-6989586621679938497"><span id="local-6989586621679938499"><span class="annot"><span class="annottext">[AvcIntraClass] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943115"><span id="local-6989586621679943117"><span id="local-6989586621679943119"><span id="local-6989586621679943121"><span class="annot"><span class="annottext">[AvcIntraClass] -&gt; Encoding
 [AvcIntraClass] -&gt; Value
 AvcIntraClass -&gt; Encoding
 AvcIntraClass -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: AvcIntraClass -&gt; Encoding
 toJSON :: AvcIntraClass -&gt; Value
 $ctoJSON :: AvcIntraClass -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679938488"><span id="local-6989586621679938490"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraClass]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943110"><span id="local-6989586621679943112"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraClass]
 ToJSONKeyFunction AvcIntraClass
 ToJSONKeyFunction AvcIntraClass
 -&gt; ToJSONKeyFunction [AvcIntraClass] -&gt; ToJSONKey AvcIntraClass
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvcIntraClass]
 toJSONKey :: ToJSONKeyFunction AvcIntraClass
 $ctoJSONKey :: ToJSONKeyFunction AvcIntraClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679938485"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraClass
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679943107"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraClass
 ([Node] -&gt; Either String AvcIntraClass) -&gt; FromXML AvcIntraClass
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvcIntraClass
 $cparseXML :: [Node] -&gt; Either String AvcIntraClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679938482"><span class="annot"><span class="annottext">AvcIntraClass -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679943104"><span class="annot"><span class="annottext">AvcIntraClass -&gt; XML
 (AvcIntraClass -&gt; XML) -&gt; ToXML AvcIntraClass
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AvcIntraClass -&gt; XML

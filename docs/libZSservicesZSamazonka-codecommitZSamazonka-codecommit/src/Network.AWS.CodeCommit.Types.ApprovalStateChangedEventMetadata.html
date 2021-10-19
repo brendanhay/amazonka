@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newApprovalStateChangedEventMetadata' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679347082"><span id="local-6989586621679347083"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApprovalStateChangedEventMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-var">ApprovalStateChangedEventMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApprovalStateChangedEventMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">ApprovalStateChangedEventMetadata'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The revision ID of the pull request when the approval state changed.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The approval status for the pull request.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AapprovalStatus%3AApprovalStateChangedEventMetadata%27"><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata -&gt; Maybe ApprovalState
-</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3AapprovalStatus%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var hs-var">approvalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalState.html#ApprovalState"><span class="hs-identifier hs-type">ApprovalState</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679347350"><span id="local-6989586621679347351"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApprovalStateChangedEventMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-var">ApprovalStateChangedEventMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApprovalStateChangedEventMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">ApprovalStateChangedEventMetadata'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The approval status for the pull request.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AapprovalStatus%3AApprovalStateChangedEventMetadata%27"><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata -&gt; Maybe ApprovalState
+</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3AapprovalStatus%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var hs-var">approvalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalState.html#ApprovalState"><span class="hs-identifier hs-type">ApprovalState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The revision ID of the pull request when the approval state changed.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347075"><span id="local-6989586621679347077"><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347343"><span id="local-6989586621679347345"><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata
 -&gt; ApprovalStateChangedEventMetadata -&gt; Bool
 (ApprovalStateChangedEventMetadata
  -&gt; ApprovalStateChangedEventMetadata -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: ApprovalStateChangedEventMetadata
 -&gt; ApprovalStateChangedEventMetadata -&gt; Bool
 $c== :: ApprovalStateChangedEventMetadata
 -&gt; ApprovalStateChangedEventMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347066"><span id="local-6989586621679347068"><span id="local-6989586621679347070"><span id="local-6989586621679347072"><span class="annot"><span class="annottext">ReadPrec [ApprovalStateChangedEventMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347334"><span id="local-6989586621679347336"><span id="local-6989586621679347338"><span id="local-6989586621679347340"><span class="annot"><span class="annottext">ReadPrec [ApprovalStateChangedEventMetadata]
 ReadPrec ApprovalStateChangedEventMetadata
 Int -&gt; ReadS ApprovalStateChangedEventMetadata
 ReadS [ApprovalStateChangedEventMetadata]
@@ -72,7 +72,7 @@ readList :: ReadS [ApprovalStateChangedEventMetadata]
 $creadList :: ReadS [ApprovalStateChangedEventMetadata]
 readsPrec :: Int -&gt; ReadS ApprovalStateChangedEventMetadata
 $creadsPrec :: Int -&gt; ReadS ApprovalStateChangedEventMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347059"><span id="local-6989586621679347061"><span id="local-6989586621679347063"><span class="annot"><span class="annottext">Int -&gt; ApprovalStateChangedEventMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347327"><span id="local-6989586621679347329"><span id="local-6989586621679347331"><span class="annot"><span class="annottext">Int -&gt; ApprovalStateChangedEventMetadata -&gt; ShowS
 [ApprovalStateChangedEventMetadata] -&gt; ShowS
 ApprovalStateChangedEventMetadata -&gt; String
 (Int -&gt; ApprovalStateChangedEventMetadata -&gt; ShowS)
@@ -118,55 +118,30 @@ ApprovalStateChangedEventMetadata
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'revisionId', 'approvalStateChangedEventMetadata_revisionId' - The revision ID of the pull request when the approval state changed.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'approvalStatus', 'approvalStateChangedEventMetadata_approvalStatus' - The approval status for the pull request.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'approvalStatus', 'approvalStateChangedEventMetadata_approvalStatus' - The approval status for the pull request.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'revisionId', 'approvalStateChangedEventMetadata_revisionId' - The revision ID of the pull request when the approval state changed.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#newApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">newApprovalStateChangedEventMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span>
 </span><span id="line-52"></span><span id="newApprovalStateChangedEventMetadata"><span class="annot"><span class="annottext">newApprovalStateChangedEventMetadata :: ApprovalStateChangedEventMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#newApprovalStateChangedEventMetadata"><span class="hs-identifier hs-var hs-var">newApprovalStateChangedEventMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata' :: Maybe Text
--&gt; Maybe ApprovalState -&gt; ApprovalStateChangedEventMetadata
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata' :: Maybe ApprovalState
+-&gt; Maybe Text -&gt; ApprovalStateChangedEventMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revisionId:ApprovalStateChangedEventMetadata' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:approvalStatus:ApprovalStateChangedEventMetadata' :: Maybe ApprovalState
+</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3AapprovalStatus%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">approvalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApprovalState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:approvalStatus:ApprovalStateChangedEventMetadata' :: Maybe ApprovalState
-</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3AapprovalStatus%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">approvalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApprovalState
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionId:ApprovalStateChangedEventMetadata' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The revision ID of the pull request when the approval state changed.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#approvalStateChangedEventMetadata_revisionId"><span class="hs-identifier hs-type">approvalStateChangedEventMetadata_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="approvalStateChangedEventMetadata_revisionId"><span class="annot"><span class="annottext">approvalStateChangedEventMetadata_revisionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ApprovalStateChangedEventMetadata
--&gt; f ApprovalStateChangedEventMetadata
-</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#approvalStateChangedEventMetadata_revisionId"><span class="hs-identifier hs-var hs-var">approvalStateChangedEventMetadata_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalStateChangedEventMetadata -&gt; Maybe Text)
--&gt; (ApprovalStateChangedEventMetadata
-    -&gt; Maybe Text -&gt; ApprovalStateChangedEventMetadata)
--&gt; Lens
-     ApprovalStateChangedEventMetadata
-     ApprovalStateChangedEventMetadata
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347050"><span class="annot"><span class="annottext">Maybe Text
-revisionId :: Maybe Text
-$sel:revisionId:ApprovalStateChangedEventMetadata' :: ApprovalStateChangedEventMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679347050"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347050"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347049"><span class="annot"><span class="annottext">s :: ApprovalStateChangedEventMetadata
-</span><a href="#local-6989586621679347049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata
-</span><a href="#local-6989586621679347049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ApprovalStateChangedEventMetadata' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The approval status for the pull request.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#approvalStateChangedEventMetadata_approvalStatus"><span class="hs-identifier hs-type">approvalStateChangedEventMetadata_approvalStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalState.html#ApprovalState"><span class="hs-identifier hs-type">ApprovalState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="approvalStateChangedEventMetadata_approvalStatus"><span class="annot"><span class="annottext">approvalStateChangedEventMetadata_approvalStatus :: (Maybe ApprovalState -&gt; f (Maybe ApprovalState))
+</span><span id="line-59"></span><span class="hs-comment">-- | The approval status for the pull request.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#approvalStateChangedEventMetadata_approvalStatus"><span class="hs-identifier hs-type">approvalStateChangedEventMetadata_approvalStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalState.html#ApprovalState"><span class="hs-identifier hs-type">ApprovalState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="approvalStateChangedEventMetadata_approvalStatus"><span class="annot"><span class="annottext">approvalStateChangedEventMetadata_approvalStatus :: (Maybe ApprovalState -&gt; f (Maybe ApprovalState))
 -&gt; ApprovalStateChangedEventMetadata
 -&gt; f ApprovalStateChangedEventMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#approvalStateChangedEventMetadata_approvalStatus"><span class="hs-identifier hs-var hs-var">approvalStateChangedEventMetadata_approvalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalStateChangedEventMetadata -&gt; Maybe ApprovalState)
@@ -178,22 +153,47 @@ $sel:revisionId:ApprovalStateChangedEventMetadata' :: ApprovalStateChangedEventM
      (Maybe ApprovalState)
      (Maybe ApprovalState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347046"><span class="annot"><span class="annottext">Maybe ApprovalState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347318"><span class="annot"><span class="annottext">Maybe ApprovalState
 approvalStatus :: Maybe ApprovalState
 $sel:approvalStatus:ApprovalStateChangedEventMetadata' :: ApprovalStateChangedEventMetadata -&gt; Maybe ApprovalState
-</span><a href="#local-6989586621679347046"><span class="hs-identifier hs-var hs-var">approvalStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApprovalState
-</span><a href="#local-6989586621679347046"><span class="hs-identifier hs-var">approvalStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347045"><span class="annot"><span class="annottext">s :: ApprovalStateChangedEventMetadata
-</span><a href="#local-6989586621679347045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347044"><span class="annot"><span class="annottext">Maybe ApprovalState
-</span><a href="#local-6989586621679347044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata
-</span><a href="#local-6989586621679347045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalStatus:ApprovalStateChangedEventMetadata' :: Maybe ApprovalState
+</span><a href="#local-6989586621679347318"><span class="hs-identifier hs-var hs-var">approvalStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApprovalState
+</span><a href="#local-6989586621679347318"><span class="hs-identifier hs-var">approvalStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347317"><span class="annot"><span class="annottext">s :: ApprovalStateChangedEventMetadata
+</span><a href="#local-6989586621679347317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347316"><span class="annot"><span class="annottext">Maybe ApprovalState
+</span><a href="#local-6989586621679347316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata
+</span><a href="#local-6989586621679347317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approvalStatus:ApprovalStateChangedEventMetadata' :: Maybe ApprovalState
 </span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3AapprovalStatus%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">approvalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApprovalState
-</span><a href="#local-6989586621679347044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The revision ID of the pull request when the approval state changed.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#approvalStateChangedEventMetadata_revisionId"><span class="hs-identifier hs-type">approvalStateChangedEventMetadata_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="approvalStateChangedEventMetadata_revisionId"><span class="annot"><span class="annottext">approvalStateChangedEventMetadata_revisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApprovalStateChangedEventMetadata
+-&gt; f ApprovalStateChangedEventMetadata
+</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#approvalStateChangedEventMetadata_revisionId"><span class="hs-identifier hs-var hs-var">approvalStateChangedEventMetadata_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApprovalStateChangedEventMetadata -&gt; Maybe Text)
+-&gt; (ApprovalStateChangedEventMetadata
+    -&gt; Maybe Text -&gt; ApprovalStateChangedEventMetadata)
+-&gt; Lens
+     ApprovalStateChangedEventMetadata
+     ApprovalStateChangedEventMetadata
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347314"><span class="annot"><span class="annottext">Maybe Text
+revisionId :: Maybe Text
+$sel:revisionId:ApprovalStateChangedEventMetadata' :: ApprovalStateChangedEventMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679347314"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347314"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347313"><span class="annot"><span class="annottext">s :: ApprovalStateChangedEventMetadata
+</span><a href="#local-6989586621679347313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApprovalStateChangedEventMetadata
+</span><a href="#local-6989586621679347313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ApprovalStateChangedEventMetadata' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#%24sel%3ArevisionId%3AApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679347041"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679347309"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679347039"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApprovalStateChangedEventMetadata
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679347307"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApprovalStateChangedEventMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ApprovalStateChangedEventMetadata)
@@ -203,38 +203,36 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ApprovalStateChangedEventMetadata&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347036"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347036"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ApprovalState -&gt; ApprovalStateChangedEventMetadata
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347304"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe ApprovalState
+-&gt; Maybe Text -&gt; ApprovalStateChangedEventMetadata
 </span><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata%27"><span class="hs-identifier hs-var">ApprovalStateChangedEventMetadata'</span></a></span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ApprovalState -&gt; ApprovalStateChangedEventMetadata)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ApprovalState -&gt; ApprovalStateChangedEventMetadata)
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ApprovalState
+ -&gt; Maybe Text -&gt; ApprovalStateChangedEventMetadata)
+-&gt; Parser (Maybe ApprovalState)
+-&gt; Parser (Maybe Text -&gt; ApprovalStateChangedEventMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;revisionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ApprovalState -&gt; ApprovalStateChangedEventMetadata)
--&gt; Parser (Maybe ApprovalState)
--&gt; Parser ApprovalStateChangedEventMetadata
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApprovalState)
+</span><a href="#local-6989586621679347304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApprovalState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;approvalStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ApprovalStateChangedEventMetadata)
+-&gt; Parser (Maybe Text) -&gt; Parser ApprovalStateChangedEventMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;revisionId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679347030"><span id="local-6989586621679347032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679347298"><span id="local-6989586621679347300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679347027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679347295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata.html#ApprovalStateChangedEventMetadata"><span class="hs-identifier hs-type">ApprovalStateChangedEventMetadata</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

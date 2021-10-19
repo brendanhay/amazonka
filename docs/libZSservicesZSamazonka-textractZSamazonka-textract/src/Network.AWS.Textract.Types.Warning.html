@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- (StartDocumentTextDetection).</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWarning' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679178078"><span id="local-6989586621679178079"></span></span><span class="hs-keyword">data</span><span> </span><span id="Warning"><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-var">Warning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Warning%27"><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-var">Warning'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679178167"><span id="local-6989586621679178168"></span></span><span class="hs-keyword">data</span><span> </span><span id="Warning"><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-var">Warning</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Warning%27"><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-var">Warning'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the pages that the warning applies to.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Apages%3AWarning%27"><span class="annot"><span class="annottext">Warning -&gt; Maybe [Natural]
 </span><a href="Network.AWS.Textract.Types.Warning.html#%24sel%3Apages%3AWarning%27"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AerrorCode%3AWarning%27"><span class="annot"><span class="annottext">Warning -&gt; Maybe Text
 </span><a href="Network.AWS.Textract.Types.Warning.html#%24sel%3AerrorCode%3AWarning%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178071"><span id="local-6989586621679178073"><span class="annot"><span class="annottext">Warning -&gt; Warning -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178160"><span id="local-6989586621679178162"><span class="annot"><span class="annottext">Warning -&gt; Warning -&gt; Bool
 (Warning -&gt; Warning -&gt; Bool)
 -&gt; (Warning -&gt; Warning -&gt; Bool) -&gt; Eq Warning
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Warning -&gt; Warning -&gt; Bool
 == :: Warning -&gt; Warning -&gt; Bool
 $c== :: Warning -&gt; Warning -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178062"><span id="local-6989586621679178064"><span id="local-6989586621679178066"><span id="local-6989586621679178068"><span class="annot"><span class="annottext">ReadPrec [Warning]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178151"><span id="local-6989586621679178153"><span id="local-6989586621679178155"><span id="local-6989586621679178157"><span class="annot"><span class="annottext">ReadPrec [Warning]
 ReadPrec Warning
 Int -&gt; ReadS Warning
 ReadS [Warning]
@@ -64,7 +64,7 @@ readList :: ReadS [Warning]
 $creadList :: ReadS [Warning]
 readsPrec :: Int -&gt; ReadS Warning
 $creadsPrec :: Int -&gt; ReadS Warning
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178055"><span id="local-6989586621679178057"><span id="local-6989586621679178059"><span class="annot"><span class="annottext">Int -&gt; Warning -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178144"><span id="local-6989586621679178146"><span id="local-6989586621679178148"><span class="annot"><span class="annottext">Int -&gt; Warning -&gt; ShowS
 [Warning] -&gt; ShowS
 Warning -&gt; String
 (Int -&gt; Warning -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (Warning -&gt; Maybe [Natural] -&gt; Warning)
 -&gt; Lens Warning Warning (Maybe [Natural]) (Maybe [Natural])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178046"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178135"><span class="annot"><span class="annottext">Maybe [Natural]
 pages :: Maybe [Natural]
 $sel:pages:Warning' :: Warning -&gt; Maybe [Natural]
-</span><a href="#local-6989586621679178046"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679178046"><span class="hs-identifier hs-var">pages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178045"><span class="annot"><span class="annottext">s :: Warning
-</span><a href="#local-6989586621679178045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178044"><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679178044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Warning
-</span><a href="#local-6989586621679178045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pages:Warning' :: Maybe [Natural]
+</span><a href="#local-6989586621679178135"><span class="hs-identifier hs-var hs-var">pages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679178135"><span class="hs-identifier hs-var">pages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178134"><span class="annot"><span class="annottext">s :: Warning
+</span><a href="#local-6989586621679178134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178133"><span class="annot"><span class="annottext">Maybe [Natural]
+</span><a href="#local-6989586621679178133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Warning
+</span><a href="#local-6989586621679178134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pages:Warning' :: Maybe [Natural]
 </span><a href="Network.AWS.Textract.Types.Warning.html#%24sel%3Apages%3AWarning%27"><span class="hs-identifier hs-var">pages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Natural]
-</span><a href="#local-6989586621679178044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural])) -&gt; Warning -&gt; f Warning)
+</span><a href="#local-6989586621679178133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Natural] -&gt; f (Maybe [Natural])) -&gt; Warning -&gt; f Warning)
 -&gt; ((Maybe [Natural] -&gt; f (Maybe [Natural]))
     -&gt; Maybe [Natural] -&gt; f (Maybe [Natural]))
 -&gt; (Maybe [Natural] -&gt; f (Maybe [Natural]))
@@ -147,8 +147,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Natural] [Natural] [Natural] [Natural]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The error code for the warning.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#warning_errorCode"><span class="hs-identifier hs-type">warning_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -157,34 +157,34 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Warning -&gt; Maybe Text -&gt; Warning)
 -&gt; Lens Warning Warning (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178039"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178128"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:Warning' :: Warning -&gt; Maybe Text
-</span><a href="#local-6989586621679178039"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178039"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178038"><span class="annot"><span class="annottext">s :: Warning
-</span><a href="#local-6989586621679178038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178037"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Warning
-</span><a href="#local-6989586621679178038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:Warning' :: Maybe Text
+</span><a href="#local-6989586621679178128"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178128"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178127"><span class="annot"><span class="annottext">s :: Warning
+</span><a href="#local-6989586621679178127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-type">Warning'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Warning
+</span><a href="#local-6989586621679178127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:Warning' :: Maybe Text
 </span><a href="Network.AWS.Textract.Types.Warning.html#%24sel%3AerrorCode%3AWarning%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178034"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679178032"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Warning
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178123"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679178121"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Warning
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Warning) -&gt; Value -&gt; Parser Warning
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Warning&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178029"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178029"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178118"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178118"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Natural] -&gt; Maybe Text -&gt; Warning
 </span><a href="Network.AWS.Textract.Types.Warning.html#Warning%27"><span class="hs-identifier hs-var">Warning'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Natural] -&gt; Maybe Text -&gt; Warning)
 -&gt; Parser (Maybe [Natural]) -&gt; Parser (Maybe Text -&gt; Warning)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178029"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
+</span><a href="#local-6989586621679178118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Natural]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Pages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Natural]))
@@ -197,13 +197,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser Warning
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178029"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679178118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178022"><span id="local-6989586621679178024"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178111"><span id="local-6989586621679178113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Warning.html#Warning"><span class="hs-identifier hs-type">Warning</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

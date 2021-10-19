@@ -50,13 +50,13 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span id="local-6989586621679425859"><span id="local-6989586621679425860"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-var">StackStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-var">StackStatus'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679426271"><span id="local-6989586621679426272"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackStatus.html#StackStatus"><span class="hs-identifier hs-var">StackStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackStatus.html#StackStatus%27"><span class="hs-identifier hs-var">StackStatus'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackStatus"><span class="annot"><span class="annottext">StackStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.StackStatus.html#fromStackStatus"><span class="hs-identifier hs-var hs-var">fromStackStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425851"><span id="local-6989586621679425853"><span id="local-6989586621679425855"><span class="annot"><span class="annottext">Int -&gt; StackStatus -&gt; ShowS
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426263"><span id="local-6989586621679426265"><span id="local-6989586621679426267"><span class="annot"><span class="annottext">Int -&gt; StackStatus -&gt; ShowS
 [StackStatus] -&gt; ShowS
 StackStatus -&gt; String
 (Int -&gt; StackStatus -&gt; ShowS)
@@ -72,7 +72,7 @@ $cshow :: StackStatus -&gt; String
 showsPrec :: Int -&gt; StackStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StackStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679425842"><span id="local-6989586621679425844"><span id="local-6989586621679425846"><span id="local-6989586621679425848"><span class="annot"><span class="annottext">ReadPrec [StackStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679426254"><span id="local-6989586621679426256"><span id="local-6989586621679426258"><span id="local-6989586621679426260"><span class="annot"><span class="annottext">ReadPrec [StackStatus]
 ReadPrec StackStatus
 Int -&gt; ReadS StackStatus
 ReadS [StackStatus]
@@ -93,7 +93,7 @@ $creadList :: ReadS [StackStatus]
 readsPrec :: Int -&gt; ReadS StackStatus
 $creadsPrec :: Int -&gt; ReadS StackStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679425837"><span id="local-6989586621679425839"><span class="annot"><span class="annottext">StackStatus -&gt; StackStatus -&gt; Bool
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679426249"><span id="local-6989586621679426251"><span class="annot"><span class="annottext">StackStatus -&gt; StackStatus -&gt; Bool
 (StackStatus -&gt; StackStatus -&gt; Bool)
 -&gt; (StackStatus -&gt; StackStatus -&gt; Bool) -&gt; Eq StackStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -102,7 +102,7 @@ $c/= :: StackStatus -&gt; StackStatus -&gt; Bool
 == :: StackStatus -&gt; StackStatus -&gt; Bool
 $c== :: StackStatus -&gt; StackStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679425821"><span id="local-6989586621679425823"><span id="local-6989586621679425825"><span id="local-6989586621679425827"><span id="local-6989586621679425829"><span id="local-6989586621679425831"><span id="local-6989586621679425833"><span class="annot"><span class="annottext">Eq StackStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679426233"><span id="local-6989586621679426235"><span id="local-6989586621679426237"><span id="local-6989586621679426239"><span id="local-6989586621679426241"><span id="local-6989586621679426243"><span id="local-6989586621679426245"><span class="annot"><span class="annottext">Eq StackStatus
 Eq StackStatus
 -&gt; (StackStatus -&gt; StackStatus -&gt; Ordering)
 -&gt; (StackStatus -&gt; StackStatus -&gt; Bool)
@@ -153,7 +153,7 @@ $cfrom :: forall x. StackStatus -&gt; Rep StackStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679425813"><span id="local-6989586621679425815"><span class="annot"><span class="annottext">Int -&gt; StackStatus -&gt; Int
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679426225"><span id="local-6989586621679426227"><span class="annot"><span class="annottext">Int -&gt; StackStatus -&gt; Int
 StackStatus -&gt; Int
 (Int -&gt; StackStatus -&gt; Int)
 -&gt; (StackStatus -&gt; Int) -&gt; Hashable StackStatus
@@ -163,49 +163,49 @@ $chash :: StackStatus -&gt; Int
 hashWithSalt :: Int -&gt; StackStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StackStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679425810"><span class="annot"><span class="annottext">StackStatus -&gt; ()
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679426222"><span class="annot"><span class="annottext">StackStatus -&gt; ()
 (StackStatus -&gt; ()) -&gt; NFData StackStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StackStatus -&gt; ()
 $crnf :: StackStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679425807"><span class="annot"><span class="annottext">Text -&gt; Either String StackStatus
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679426219"><span class="annot"><span class="annottext">Text -&gt; Either String StackStatus
 (Text -&gt; Either String StackStatus) -&gt; FromText StackStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StackStatus
 $cfromText :: Text -&gt; Either String StackStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679425804"><span class="annot"><span class="annottext">StackStatus -&gt; Text
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679426216"><span class="annot"><span class="annottext">StackStatus -&gt; Text
 (StackStatus -&gt; Text) -&gt; ToText StackStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StackStatus -&gt; Text
 $ctoText :: StackStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679425801"><span class="annot"><span class="annottext">StackStatus -&gt; ByteString
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679426213"><span class="annot"><span class="annottext">StackStatus -&gt; ByteString
 (StackStatus -&gt; ByteString) -&gt; ToByteString StackStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StackStatus -&gt; ByteString
 $ctoBS :: StackStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679425798"><span class="annot"><span class="annottext">StackStatus -&gt; ByteStringBuilder
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679426210"><span class="annot"><span class="annottext">StackStatus -&gt; ByteStringBuilder
 (StackStatus -&gt; ByteStringBuilder) -&gt; ToLog StackStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StackStatus -&gt; ByteStringBuilder
 $cbuild :: StackStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679425795"><span class="annot"><span class="annottext">HeaderName -&gt; StackStatus -&gt; [Header]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679426207"><span class="annot"><span class="annottext">HeaderName -&gt; StackStatus -&gt; [Header]
 (HeaderName -&gt; StackStatus -&gt; [Header]) -&gt; ToHeader StackStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StackStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StackStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679425792"><span class="annot"><span class="annottext">StackStatus -&gt; QueryString
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679426204"><span class="annot"><span class="annottext">StackStatus -&gt; QueryString
 (StackStatus -&gt; QueryString) -&gt; ToQuery StackStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StackStatus -&gt; QueryString
 $ctoQuery :: StackStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679425787"><span id="local-6989586621679425789"><span class="annot"><span class="annottext">Value -&gt; Parser [StackStatus]
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679426199"><span id="local-6989586621679426201"><span class="annot"><span class="annottext">Value -&gt; Parser [StackStatus]
 Value -&gt; Parser StackStatus
 (Value -&gt; Parser StackStatus)
 -&gt; (Value -&gt; Parser [StackStatus]) -&gt; FromJSON StackStatus
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [StackStatus]
 parseJSON :: Value -&gt; Parser StackStatus
 $cparseJSON :: Value -&gt; Parser StackStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679425782"><span id="local-6989586621679425784"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackStatus]
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679426194"><span id="local-6989586621679426196"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackStatus]
 FromJSONKeyFunction StackStatus
 FromJSONKeyFunction StackStatus
 -&gt; FromJSONKeyFunction [StackStatus] -&gt; FromJSONKey StackStatus
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StackStatus]
 fromJSONKey :: FromJSONKeyFunction StackStatus
 $cfromJSONKey :: FromJSONKeyFunction StackStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679425773"><span id="local-6989586621679425775"><span id="local-6989586621679425777"><span id="local-6989586621679425779"><span class="annot"><span class="annottext">[StackStatus] -&gt; Encoding
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679426185"><span id="local-6989586621679426187"><span id="local-6989586621679426189"><span id="local-6989586621679426191"><span class="annot"><span class="annottext">[StackStatus] -&gt; Encoding
 [StackStatus] -&gt; Value
 StackStatus -&gt; Encoding
 StackStatus -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: StackStatus -&gt; Encoding
 toJSON :: StackStatus -&gt; Value
 $ctoJSON :: StackStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679425768"><span id="local-6989586621679425770"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackStatus]
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679426180"><span id="local-6989586621679426182"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackStatus]
 ToJSONKeyFunction StackStatus
 ToJSONKeyFunction StackStatus
 -&gt; ToJSONKeyFunction [StackStatus] -&gt; ToJSONKey StackStatus
@@ -262,13 +262,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StackStatus]
 toJSONKey :: ToJSONKeyFunction StackStatus
 $ctoJSONKey :: ToJSONKeyFunction StackStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679425765"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackStatus
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679426177"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackStatus
 ([Node] -&gt; Either String StackStatus) -&gt; FromXML StackStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StackStatus
 $cparseXML :: [Node] -&gt; Either String StackStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679425762"><span class="annot"><span class="annottext">StackStatus -&gt; XML
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679426174"><span class="annot"><span class="annottext">StackStatus -&gt; XML
 (StackStatus -&gt; XML) -&gt; ToXML StackStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StackStatus -&gt; XML

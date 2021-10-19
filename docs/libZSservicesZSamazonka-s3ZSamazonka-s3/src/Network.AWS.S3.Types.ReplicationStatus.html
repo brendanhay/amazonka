@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679549581"><span id="local-6989586621679549582"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationStatus"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationStatus.html#ReplicationStatus"><span class="hs-identifier hs-var">ReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationStatus.html#ReplicationStatus%27"><span class="hs-identifier hs-var">ReplicationStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679550214"><span id="local-6989586621679550215"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationStatus"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationStatus.html#ReplicationStatus"><span class="hs-identifier hs-var">ReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationStatus.html#ReplicationStatus%27"><span class="hs-identifier hs-var">ReplicationStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationStatus"><span class="annot"><span class="annottext">ReplicationStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.ReplicationStatus.html#fromReplicationStatus"><span class="hs-identifier hs-var hs-var">fromReplicationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549573"><span id="local-6989586621679549575"><span id="local-6989586621679549577"><span class="annot"><span class="annottext">Int -&gt; ReplicationStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679550206"><span id="local-6989586621679550208"><span id="local-6989586621679550210"><span class="annot"><span class="annottext">Int -&gt; ReplicationStatus -&gt; ShowS
 [ReplicationStatus] -&gt; ShowS
 ReplicationStatus -&gt; String
 (Int -&gt; ReplicationStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ReplicationStatus -&gt; String
 showsPrec :: Int -&gt; ReplicationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplicationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679549564"><span id="local-6989586621679549566"><span id="local-6989586621679549568"><span id="local-6989586621679549570"><span class="annot"><span class="annottext">ReadPrec [ReplicationStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679550197"><span id="local-6989586621679550199"><span id="local-6989586621679550201"><span id="local-6989586621679550203"><span class="annot"><span class="annottext">ReadPrec [ReplicationStatus]
 ReadPrec ReplicationStatus
 Int -&gt; ReadS ReplicationStatus
 ReadS [ReplicationStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ReplicationStatus]
 readsPrec :: Int -&gt; ReadS ReplicationStatus
 $creadsPrec :: Int -&gt; ReadS ReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679549559"><span id="local-6989586621679549561"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ReplicationStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679550192"><span id="local-6989586621679550194"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ReplicationStatus -&gt; Bool
 (ReplicationStatus -&gt; ReplicationStatus -&gt; Bool)
 -&gt; (ReplicationStatus -&gt; ReplicationStatus -&gt; Bool)
 -&gt; Eq ReplicationStatus
@@ -85,7 +85,7 @@ $c/= :: ReplicationStatus -&gt; ReplicationStatus -&gt; Bool
 == :: ReplicationStatus -&gt; ReplicationStatus -&gt; Bool
 $c== :: ReplicationStatus -&gt; ReplicationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679549543"><span id="local-6989586621679549545"><span id="local-6989586621679549547"><span id="local-6989586621679549549"><span id="local-6989586621679549551"><span id="local-6989586621679549553"><span id="local-6989586621679549555"><span class="annot"><span class="annottext">Eq ReplicationStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679550176"><span id="local-6989586621679550178"><span id="local-6989586621679550180"><span id="local-6989586621679550182"><span id="local-6989586621679550184"><span id="local-6989586621679550186"><span id="local-6989586621679550188"><span class="annot"><span class="annottext">Eq ReplicationStatus
 Eq ReplicationStatus
 -&gt; (ReplicationStatus -&gt; ReplicationStatus -&gt; Ordering)
 -&gt; (ReplicationStatus -&gt; ReplicationStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ReplicationStatus -&gt; Rep ReplicationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549535"><span id="local-6989586621679549537"><span class="annot"><span class="annottext">Int -&gt; ReplicationStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679550168"><span id="local-6989586621679550170"><span class="annot"><span class="annottext">Int -&gt; ReplicationStatus -&gt; Int
 ReplicationStatus -&gt; Int
 (Int -&gt; ReplicationStatus -&gt; Int)
 -&gt; (ReplicationStatus -&gt; Int) -&gt; Hashable ReplicationStatus
@@ -146,51 +146,51 @@ $chash :: ReplicationStatus -&gt; Int
 hashWithSalt :: Int -&gt; ReplicationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ReplicationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679549532"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679550165"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ()
 (ReplicationStatus -&gt; ()) -&gt; NFData ReplicationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplicationStatus -&gt; ()
 $crnf :: ReplicationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679549529"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679550162"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationStatus
 (Text -&gt; Either String ReplicationStatus)
 -&gt; FromText ReplicationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplicationStatus
 $cfromText :: Text -&gt; Either String ReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679549526"><span class="annot"><span class="annottext">ReplicationStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679550159"><span class="annot"><span class="annottext">ReplicationStatus -&gt; Text
 (ReplicationStatus -&gt; Text) -&gt; ToText ReplicationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplicationStatus -&gt; Text
 $ctoText :: ReplicationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679549523"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679550156"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ByteString
 (ReplicationStatus -&gt; ByteString) -&gt; ToByteString ReplicationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplicationStatus -&gt; ByteString
 $ctoBS :: ReplicationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679549520"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679550153"><span class="annot"><span class="annottext">ReplicationStatus -&gt; ByteStringBuilder
 (ReplicationStatus -&gt; ByteStringBuilder) -&gt; ToLog ReplicationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplicationStatus -&gt; ByteStringBuilder
 $cbuild :: ReplicationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679549517"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679550150"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationStatus -&gt; [Header]
 (HeaderName -&gt; ReplicationStatus -&gt; [Header])
 -&gt; ToHeader ReplicationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplicationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplicationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679549514"><span class="annot"><span class="annottext">ReplicationStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679550147"><span class="annot"><span class="annottext">ReplicationStatus -&gt; QueryString
 (ReplicationStatus -&gt; QueryString) -&gt; ToQuery ReplicationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplicationStatus -&gt; QueryString
 $ctoQuery :: ReplicationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679549509"><span id="local-6989586621679549511"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679550142"><span id="local-6989586621679550144"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationStatus]
 Value -&gt; Parser ReplicationStatus
 (Value -&gt; Parser ReplicationStatus)
 -&gt; (Value -&gt; Parser [ReplicationStatus])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplicationStatus]
 parseJSON :: Value -&gt; Parser ReplicationStatus
 $cparseJSON :: Value -&gt; Parser ReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679549504"><span id="local-6989586621679549506"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679550137"><span id="local-6989586621679550139"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationStatus]
 FromJSONKeyFunction ReplicationStatus
 FromJSONKeyFunction ReplicationStatus
 -&gt; FromJSONKeyFunction [ReplicationStatus]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplicationStatus]
 fromJSONKey :: FromJSONKeyFunction ReplicationStatus
 $cfromJSONKey :: FromJSONKeyFunction ReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679549495"><span id="local-6989586621679549497"><span id="local-6989586621679549499"><span id="local-6989586621679549501"><span class="annot"><span class="annottext">[ReplicationStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679550128"><span id="local-6989586621679550130"><span id="local-6989586621679550132"><span id="local-6989586621679550134"><span class="annot"><span class="annottext">[ReplicationStatus] -&gt; Encoding
 [ReplicationStatus] -&gt; Value
 ReplicationStatus -&gt; Encoding
 ReplicationStatus -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ReplicationStatus -&gt; Encoding
 toJSON :: ReplicationStatus -&gt; Value
 $ctoJSON :: ReplicationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679549490"><span id="local-6989586621679549492"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679550123"><span id="local-6989586621679550125"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationStatus]
 ToJSONKeyFunction ReplicationStatus
 ToJSONKeyFunction ReplicationStatus
 -&gt; ToJSONKeyFunction [ReplicationStatus]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplicationStatus]
 toJSONKey :: ToJSONKeyFunction ReplicationStatus
 $ctoJSONKey :: ToJSONKeyFunction ReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679549487"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679550120"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationStatus
 ([Node] -&gt; Either String ReplicationStatus)
 -&gt; FromXML ReplicationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplicationStatus
 $cparseXML :: [Node] -&gt; Either String ReplicationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679549484"><span class="annot"><span class="annottext">ReplicationStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679550117"><span class="annot"><span class="annottext">ReplicationStatus -&gt; XML
 (ReplicationStatus -&gt; XML) -&gt; ToXML ReplicationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReplicationStatus -&gt; XML

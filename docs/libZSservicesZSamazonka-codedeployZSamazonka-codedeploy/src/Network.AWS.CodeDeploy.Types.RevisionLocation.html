@@ -31,41 +31,41 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Information about the location of an application revision.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newRevisionLocation' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679311672"><span id="local-6989586621679311673"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevisionLocation"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-var">RevisionLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevisionLocation%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-var">RevisionLocation'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of application revision:</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   S3: An application revision stored in Amazon S3.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   GitHub: An application revision stored in GitHub (EC2\/On-premises</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     deployments only).</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679311959"><span id="local-6989586621679311960"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevisionLocation"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-var">RevisionLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevisionLocation%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-var">RevisionLocation'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the location of an AWS Lambda deployment revision</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- stored as a RawString.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astring%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe RawString
+</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3Astring%3ARevisionLocation%27"><span class="hs-identifier hs-var hs-var">string</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of application revision:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   S3: An application revision stored in Amazon S3.</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   GitHub: An application revision stored in GitHub (EC2\/On-premises</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">--     deployments only).</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   AppSpecContent: An @AppSpecContent@ object that contains the</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     contents of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     deployment. The content is formatted as JSON or YAML stored as a</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     RawString.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3ArevisionType%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe RevisionLocationType
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     deployments only).</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   AppSpecContent: An @AppSpecContent@ object that contains the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     contents of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     deployment. The content is formatted as JSON or YAML stored as a</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     RawString.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3ArevisionType%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe RevisionLocationType
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3ArevisionType%3ARevisionLocation%27"><span class="hs-identifier hs-var hs-var">revisionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocationType.html#RevisionLocationType"><span class="hs-identifier hs-type">RevisionLocationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Information about the location of a revision stored in Amazon S3.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3As3Location%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe S3Location
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Information about the location of a revision stored in Amazon S3.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3As3Location%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe S3Location
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3As3Location%3ARevisionLocation%27"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The content of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- deployment. The content is formatted as JSON or YAML and stored as a</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- RawString.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AappSpecContent%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe AppSpecContent
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The content of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- deployment. The content is formatted as JSON or YAML and stored as a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- RawString.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AappSpecContent%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe AppSpecContent
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3AappSpecContent%3ARevisionLocation%27"><span class="hs-identifier hs-var hs-var">appSpecContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.AppSpecContent.html#AppSpecContent"><span class="hs-identifier hs-type">AppSpecContent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Information about the location of application artifacts stored in</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- GitHub.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AgitHubLocation%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe GitHubLocation
-</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3AgitHubLocation%3ARevisionLocation%27"><span class="hs-identifier hs-var hs-var">gitHubLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Information about the location of an AWS Lambda deployment revision</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- stored as a RawString.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Astring%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe RawString
-</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3Astring%3ARevisionLocation%27"><span class="hs-identifier hs-var hs-var">string</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Information about the location of application artifacts stored in</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- GitHub.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AgitHubLocation%3ARevisionLocation%27"><span class="annot"><span class="annottext">RevisionLocation -&gt; Maybe GitHubLocation
+</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3AgitHubLocation%3ARevisionLocation%27"><span class="hs-identifier hs-var hs-var">gitHubLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311662"><span id="local-6989586621679311664"><span class="annot"><span class="annottext">RevisionLocation -&gt; RevisionLocation -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311949"><span id="local-6989586621679311951"><span class="annot"><span class="annottext">RevisionLocation -&gt; RevisionLocation -&gt; Bool
 (RevisionLocation -&gt; RevisionLocation -&gt; Bool)
 -&gt; (RevisionLocation -&gt; RevisionLocation -&gt; Bool)
 -&gt; Eq RevisionLocation
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RevisionLocation -&gt; RevisionLocation -&gt; Bool
 == :: RevisionLocation -&gt; RevisionLocation -&gt; Bool
 $c== :: RevisionLocation -&gt; RevisionLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311653"><span id="local-6989586621679311655"><span id="local-6989586621679311657"><span id="local-6989586621679311659"><span class="annot"><span class="annottext">ReadPrec [RevisionLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311940"><span id="local-6989586621679311942"><span id="local-6989586621679311944"><span id="local-6989586621679311946"><span class="annot"><span class="annottext">ReadPrec [RevisionLocation]
 ReadPrec RevisionLocation
 Int -&gt; ReadS RevisionLocation
 ReadS [RevisionLocation]
@@ -94,7 +94,7 @@ readList :: ReadS [RevisionLocation]
 $creadList :: ReadS [RevisionLocation]
 readsPrec :: Int -&gt; ReadS RevisionLocation
 $creadsPrec :: Int -&gt; ReadS RevisionLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311646"><span id="local-6989586621679311648"><span id="local-6989586621679311650"><span class="annot"><span class="annottext">Int -&gt; RevisionLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311933"><span id="local-6989586621679311935"><span id="local-6989586621679311937"><span class="annot"><span class="annottext">Int -&gt; RevisionLocation -&gt; ShowS
 [RevisionLocation] -&gt; ShowS
 RevisionLocation -&gt; String
 (Int -&gt; RevisionLocation -&gt; ShowS)
@@ -128,81 +128,105 @@ $cfrom :: forall x. RevisionLocation -&gt; Rep RevisionLocation x
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'revisionType', 'revisionLocation_revisionType' - The type of application revision:</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- -   S3: An application revision stored in Amazon S3.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- -   GitHub: An application revision stored in GitHub (EC2\/On-premises</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--     deployments only).</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'string', 'revisionLocation_string' - Information about the location of an AWS Lambda deployment revision</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- stored as a RawString.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'revisionType', 'revisionLocation_revisionType' - The type of application revision:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- -   S3: An application revision stored in Amazon S3.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- -   GitHub: An application revision stored in GitHub (EC2\/On-premises</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--     deployments only).</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- -   AppSpecContent: An @AppSpecContent@ object that contains the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--     contents of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--     deployment. The content is formatted as JSON or YAML stored as a</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--     RawString.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 's3Location', 'revisionLocation_s3Location' - Information about the location of a revision stored in Amazon S3.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'appSpecContent', 'revisionLocation_appSpecContent' - The content of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- deployment. The content is formatted as JSON or YAML and stored as a</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- RawString.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'gitHubLocation', 'revisionLocation_gitHubLocation' - Information about the location of application artifacts stored in</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- GitHub.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     deployments only).</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   AppSpecContent: An @AppSpecContent@ object that contains the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     contents of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     deployment. The content is formatted as JSON or YAML stored as a</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--     RawString.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 's3Location', 'revisionLocation_s3Location' - Information about the location of a revision stored in Amazon S3.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'appSpecContent', 'revisionLocation_appSpecContent' - The content of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- deployment. The content is formatted as JSON or YAML and stored as a</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- RawString.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'string', 'revisionLocation_string' - Information about the location of an AWS Lambda deployment revision</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- stored as a RawString.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'gitHubLocation', 'revisionLocation_gitHubLocation' - Information about the location of application artifacts stored in</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- GitHub.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#newRevisionLocation"><span class="hs-identifier hs-type">newRevisionLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span>
 </span><span id="line-101"></span><span id="newRevisionLocation"><span class="annot"><span class="annottext">newRevisionLocation :: RevisionLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#newRevisionLocation"><span class="hs-identifier hs-var hs-var">newRevisionLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">RevisionLocation' :: Maybe RevisionLocationType
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">RevisionLocation' :: Maybe RawString
+-&gt; Maybe RevisionLocationType
 -&gt; Maybe S3Location
 -&gt; Maybe AppSpecContent
 -&gt; Maybe GitHubLocation
--&gt; Maybe RawString
 -&gt; RevisionLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revisionType:RevisionLocation' :: Maybe RevisionLocationType
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:string:RevisionLocation' :: Maybe RawString
+</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3Astring%3ARevisionLocation%27"><span class="hs-identifier hs-var">string</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RawString
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionType:RevisionLocation' :: Maybe RevisionLocationType
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3ArevisionType%3ARevisionLocation%27"><span class="hs-identifier hs-var">revisionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RevisionLocationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Location:RevisionLocation' :: Maybe S3Location
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Location:RevisionLocation' :: Maybe S3Location
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3As3Location%3ARevisionLocation%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:appSpecContent:RevisionLocation' :: Maybe AppSpecContent
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:appSpecContent:RevisionLocation' :: Maybe AppSpecContent
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3AappSpecContent%3ARevisionLocation%27"><span class="hs-identifier hs-var">appSpecContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSpecContent
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:gitHubLocation:RevisionLocation' :: Maybe GitHubLocation
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:gitHubLocation:RevisionLocation' :: Maybe GitHubLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3AgitHubLocation%3ARevisionLocation%27"><span class="hs-identifier hs-var">gitHubLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitHubLocation
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:string:RevisionLocation' :: Maybe RawString
-</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3Astring%3ARevisionLocation%27"><span class="hs-identifier hs-var">string</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RawString
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The type of application revision:</span><span>
-</span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- -   S3: An application revision stored in Amazon S3.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- -   GitHub: An application revision stored in GitHub (EC2\/On-premises</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--     deployments only).</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Information about the location of an AWS Lambda deployment revision</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- stored as a RawString.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_string"><span class="hs-identifier hs-type">revisionLocation_string</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="revisionLocation_string"><span class="annot"><span class="annottext">revisionLocation_string :: (Maybe RawString -&gt; f (Maybe RawString))
+-&gt; RevisionLocation -&gt; f RevisionLocation
+</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_string"><span class="hs-identifier hs-var hs-var">revisionLocation_string</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionLocation -&gt; Maybe RawString)
+-&gt; (RevisionLocation -&gt; Maybe RawString -&gt; RevisionLocation)
+-&gt; Lens
+     RevisionLocation
+     RevisionLocation
+     (Maybe RawString)
+     (Maybe RawString)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311924"><span class="annot"><span class="annottext">Maybe RawString
+string :: Maybe RawString
+$sel:string:RevisionLocation' :: RevisionLocation -&gt; Maybe RawString
+</span><a href="#local-6989586621679311924"><span class="hs-identifier hs-var hs-var">string</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RawString
+</span><a href="#local-6989586621679311924"><span class="hs-identifier hs-var">string</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311923"><span class="annot"><span class="annottext">s :: RevisionLocation
+</span><a href="#local-6989586621679311923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311922"><span class="annot"><span class="annottext">Maybe RawString
+</span><a href="#local-6989586621679311922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679311923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:string:RevisionLocation' :: Maybe RawString
+</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3Astring%3ARevisionLocation%27"><span class="hs-identifier hs-var">string</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RawString
+</span><a href="#local-6989586621679311922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The type of application revision:</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--     deployments only).</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- -   AppSpecContent: An @AppSpecContent@ object that contains the</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--     contents of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--     deployment. The content is formatted as JSON or YAML stored as a</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--     RawString.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_revisionType"><span class="hs-identifier hs-type">revisionLocation_revisionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocationType.html#RevisionLocationType"><span class="hs-identifier hs-type">RevisionLocationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="revisionLocation_revisionType"><span class="annot"><span class="annottext">revisionLocation_revisionType :: (Maybe RevisionLocationType -&gt; f (Maybe RevisionLocationType))
+</span><span id="line-117"></span><span class="hs-comment">-- -   S3: An application revision stored in Amazon S3.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   GitHub: An application revision stored in GitHub (EC2\/On-premises</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     deployments only).</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   String: A YAML-formatted or JSON-formatted string (AWS Lambda</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     deployments only).</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   AppSpecContent: An @AppSpecContent@ object that contains the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     contents of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     deployment. The content is formatted as JSON or YAML stored as a</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     RawString.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_revisionType"><span class="hs-identifier hs-type">revisionLocation_revisionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocationType.html#RevisionLocationType"><span class="hs-identifier hs-type">RevisionLocationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="revisionLocation_revisionType"><span class="annot"><span class="annottext">revisionLocation_revisionType :: (Maybe RevisionLocationType -&gt; f (Maybe RevisionLocationType))
 -&gt; RevisionLocation -&gt; f RevisionLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_revisionType"><span class="hs-identifier hs-var hs-var">revisionLocation_revisionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionLocation -&gt; Maybe RevisionLocationType)
 -&gt; (RevisionLocation
@@ -213,20 +237,20 @@ forall a. Maybe a
      (Maybe RevisionLocationType)
      (Maybe RevisionLocationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311637"><span class="annot"><span class="annottext">Maybe RevisionLocationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311920"><span class="annot"><span class="annottext">Maybe RevisionLocationType
 revisionType :: Maybe RevisionLocationType
 $sel:revisionType:RevisionLocation' :: RevisionLocation -&gt; Maybe RevisionLocationType
-</span><a href="#local-6989586621679311637"><span class="hs-identifier hs-var hs-var">revisionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RevisionLocationType
-</span><a href="#local-6989586621679311637"><span class="hs-identifier hs-var">revisionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311636"><span class="annot"><span class="annottext">s :: RevisionLocation
-</span><a href="#local-6989586621679311636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311635"><span class="annot"><span class="annottext">Maybe RevisionLocationType
-</span><a href="#local-6989586621679311635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
-</span><a href="#local-6989586621679311636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionType:RevisionLocation' :: Maybe RevisionLocationType
+</span><a href="#local-6989586621679311920"><span class="hs-identifier hs-var hs-var">revisionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RevisionLocationType
+</span><a href="#local-6989586621679311920"><span class="hs-identifier hs-var">revisionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311919"><span class="annot"><span class="annottext">s :: RevisionLocation
+</span><a href="#local-6989586621679311919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311918"><span class="annot"><span class="annottext">Maybe RevisionLocationType
+</span><a href="#local-6989586621679311918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679311919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionType:RevisionLocation' :: Maybe RevisionLocationType
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3ArevisionType%3ARevisionLocation%27"><span class="hs-identifier hs-var">revisionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RevisionLocationType
-</span><a href="#local-6989586621679311635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | Information about the location of a revision stored in Amazon S3.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_s3Location"><span class="hs-identifier hs-type">revisionLocation_s3Location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="revisionLocation_s3Location"><span class="annot"><span class="annottext">revisionLocation_s3Location :: (Maybe S3Location -&gt; f (Maybe S3Location))
+</span><a href="#local-6989586621679311918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Information about the location of a revision stored in Amazon S3.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_s3Location"><span class="hs-identifier hs-type">revisionLocation_s3Location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="revisionLocation_s3Location"><span class="annot"><span class="annottext">revisionLocation_s3Location :: (Maybe S3Location -&gt; f (Maybe S3Location))
 -&gt; RevisionLocation -&gt; f RevisionLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_s3Location"><span class="hs-identifier hs-var hs-var">revisionLocation_s3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionLocation -&gt; Maybe S3Location)
 -&gt; (RevisionLocation -&gt; Maybe S3Location -&gt; RevisionLocation)
@@ -236,22 +260,22 @@ $sel:revisionType:RevisionLocation' :: RevisionLocation -&gt; Maybe RevisionLoca
      (Maybe S3Location)
      (Maybe S3Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311633"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311916"><span class="annot"><span class="annottext">Maybe S3Location
 s3Location :: Maybe S3Location
 $sel:s3Location:RevisionLocation' :: RevisionLocation -&gt; Maybe S3Location
-</span><a href="#local-6989586621679311633"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679311633"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311632"><span class="annot"><span class="annottext">s :: RevisionLocation
-</span><a href="#local-6989586621679311632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311631"><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679311631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
-</span><a href="#local-6989586621679311632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:RevisionLocation' :: Maybe S3Location
+</span><a href="#local-6989586621679311916"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679311916"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311915"><span class="annot"><span class="annottext">s :: RevisionLocation
+</span><a href="#local-6989586621679311915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311914"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679311914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679311915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:RevisionLocation' :: Maybe S3Location
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3As3Location%3ARevisionLocation%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679311631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The content of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- deployment. The content is formatted as JSON or YAML and stored as a</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- RawString.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_appSpecContent"><span class="hs-identifier hs-type">revisionLocation_appSpecContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.AppSpecContent.html#AppSpecContent"><span class="hs-identifier hs-type">AppSpecContent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="revisionLocation_appSpecContent"><span class="annot"><span class="annottext">revisionLocation_appSpecContent :: (Maybe AppSpecContent -&gt; f (Maybe AppSpecContent))
+</span><a href="#local-6989586621679311914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The content of an AppSpec file for an AWS Lambda or Amazon ECS</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- deployment. The content is formatted as JSON or YAML and stored as a</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- RawString.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_appSpecContent"><span class="hs-identifier hs-type">revisionLocation_appSpecContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.AppSpecContent.html#AppSpecContent"><span class="hs-identifier hs-type">AppSpecContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="revisionLocation_appSpecContent"><span class="annot"><span class="annottext">revisionLocation_appSpecContent :: (Maybe AppSpecContent -&gt; f (Maybe AppSpecContent))
 -&gt; RevisionLocation -&gt; f RevisionLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_appSpecContent"><span class="hs-identifier hs-var hs-var">revisionLocation_appSpecContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionLocation -&gt; Maybe AppSpecContent)
 -&gt; (RevisionLocation -&gt; Maybe AppSpecContent -&gt; RevisionLocation)
@@ -261,21 +285,21 @@ $sel:s3Location:RevisionLocation' :: RevisionLocation -&gt; Maybe S3Location
      (Maybe AppSpecContent)
      (Maybe AppSpecContent)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311629"><span class="annot"><span class="annottext">Maybe AppSpecContent
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311912"><span class="annot"><span class="annottext">Maybe AppSpecContent
 appSpecContent :: Maybe AppSpecContent
 $sel:appSpecContent:RevisionLocation' :: RevisionLocation -&gt; Maybe AppSpecContent
-</span><a href="#local-6989586621679311629"><span class="hs-identifier hs-var hs-var">appSpecContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSpecContent
-</span><a href="#local-6989586621679311629"><span class="hs-identifier hs-var">appSpecContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311628"><span class="annot"><span class="annottext">s :: RevisionLocation
-</span><a href="#local-6989586621679311628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311627"><span class="annot"><span class="annottext">Maybe AppSpecContent
-</span><a href="#local-6989586621679311627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
-</span><a href="#local-6989586621679311628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSpecContent:RevisionLocation' :: Maybe AppSpecContent
+</span><a href="#local-6989586621679311912"><span class="hs-identifier hs-var hs-var">appSpecContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSpecContent
+</span><a href="#local-6989586621679311912"><span class="hs-identifier hs-var">appSpecContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311911"><span class="annot"><span class="annottext">s :: RevisionLocation
+</span><a href="#local-6989586621679311911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311910"><span class="annot"><span class="annottext">Maybe AppSpecContent
+</span><a href="#local-6989586621679311910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679311911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSpecContent:RevisionLocation' :: Maybe AppSpecContent
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3AappSpecContent%3ARevisionLocation%27"><span class="hs-identifier hs-var">appSpecContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSpecContent
-</span><a href="#local-6989586621679311627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Information about the location of application artifacts stored in</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- GitHub.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_gitHubLocation"><span class="hs-identifier hs-type">revisionLocation_gitHubLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="revisionLocation_gitHubLocation"><span class="annot"><span class="annottext">revisionLocation_gitHubLocation :: (Maybe GitHubLocation -&gt; f (Maybe GitHubLocation))
+</span><a href="#local-6989586621679311910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Information about the location of application artifacts stored in</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- GitHub.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_gitHubLocation"><span class="hs-identifier hs-type">revisionLocation_gitHubLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GitHubLocation.html#GitHubLocation"><span class="hs-identifier hs-type">GitHubLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="revisionLocation_gitHubLocation"><span class="annot"><span class="annottext">revisionLocation_gitHubLocation :: (Maybe GitHubLocation -&gt; f (Maybe GitHubLocation))
 -&gt; RevisionLocation -&gt; f RevisionLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_gitHubLocation"><span class="hs-identifier hs-var hs-var">revisionLocation_gitHubLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionLocation -&gt; Maybe GitHubLocation)
 -&gt; (RevisionLocation -&gt; Maybe GitHubLocation -&gt; RevisionLocation)
@@ -285,43 +309,19 @@ $sel:appSpecContent:RevisionLocation' :: RevisionLocation -&gt; Maybe AppSpecCon
      (Maybe GitHubLocation)
      (Maybe GitHubLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311625"><span class="annot"><span class="annottext">Maybe GitHubLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311908"><span class="annot"><span class="annottext">Maybe GitHubLocation
 gitHubLocation :: Maybe GitHubLocation
 $sel:gitHubLocation:RevisionLocation' :: RevisionLocation -&gt; Maybe GitHubLocation
-</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var hs-var">gitHubLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitHubLocation
-</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var">gitHubLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311624"><span class="annot"><span class="annottext">s :: RevisionLocation
-</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311623"><span class="annot"><span class="annottext">Maybe GitHubLocation
-</span><a href="#local-6989586621679311623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
-</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitHubLocation:RevisionLocation' :: Maybe GitHubLocation
+</span><a href="#local-6989586621679311908"><span class="hs-identifier hs-var hs-var">gitHubLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitHubLocation
+</span><a href="#local-6989586621679311908"><span class="hs-identifier hs-var">gitHubLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311907"><span class="annot"><span class="annottext">s :: RevisionLocation
+</span><a href="#local-6989586621679311907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311906"><span class="annot"><span class="annottext">Maybe GitHubLocation
+</span><a href="#local-6989586621679311906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
+</span><a href="#local-6989586621679311907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitHubLocation:RevisionLocation' :: Maybe GitHubLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3AgitHubLocation%3ARevisionLocation%27"><span class="hs-identifier hs-var">gitHubLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitHubLocation
-</span><a href="#local-6989586621679311623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | Information about the location of an AWS Lambda deployment revision</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- stored as a RawString.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_string"><span class="hs-identifier hs-type">revisionLocation_string</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RawString.html#RawString"><span class="hs-identifier hs-type">RawString</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="revisionLocation_string"><span class="annot"><span class="annottext">revisionLocation_string :: (Maybe RawString -&gt; f (Maybe RawString))
--&gt; RevisionLocation -&gt; f RevisionLocation
-</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#revisionLocation_string"><span class="hs-identifier hs-var hs-var">revisionLocation_string</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevisionLocation -&gt; Maybe RawString)
--&gt; (RevisionLocation -&gt; Maybe RawString -&gt; RevisionLocation)
--&gt; Lens
-     RevisionLocation
-     RevisionLocation
-     (Maybe RawString)
-     (Maybe RawString)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311621"><span class="annot"><span class="annottext">Maybe RawString
-string :: Maybe RawString
-$sel:string:RevisionLocation' :: RevisionLocation -&gt; Maybe RawString
-</span><a href="#local-6989586621679311621"><span class="hs-identifier hs-var hs-var">string</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RawString
-</span><a href="#local-6989586621679311621"><span class="hs-identifier hs-var">string</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311620"><span class="annot"><span class="annottext">s :: RevisionLocation
-</span><a href="#local-6989586621679311620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311619"><span class="annot"><span class="annottext">Maybe RawString
-</span><a href="#local-6989586621679311619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevisionLocation
-</span><a href="#local-6989586621679311620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:string:RevisionLocation' :: Maybe RawString
-</span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#%24sel%3Astring%3ARevisionLocation%27"><span class="hs-identifier hs-var">string</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RawString
-</span><a href="#local-6989586621679311619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311616"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679311614"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RevisionLocation
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311903"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679311901"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RevisionLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RevisionLocation)
@@ -331,147 +331,151 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RevisionLocation&quot;</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311611"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe RevisionLocationType
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311898"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe RawString
+-&gt; Maybe RevisionLocationType
 -&gt; Maybe S3Location
 -&gt; Maybe AppSpecContent
 -&gt; Maybe GitHubLocation
--&gt; Maybe RawString
 -&gt; RevisionLocation
 </span><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-var">RevisionLocation'</span></a></span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RevisionLocationType
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RawString
+ -&gt; Maybe RevisionLocationType
  -&gt; Maybe S3Location
  -&gt; Maybe AppSpecContent
  -&gt; Maybe GitHubLocation
- -&gt; Maybe RawString
  -&gt; RevisionLocation)
+-&gt; Parser (Maybe RawString)
+-&gt; Parser
+     (Maybe RevisionLocationType
+      -&gt; Maybe S3Location
+      -&gt; Maybe AppSpecContent
+      -&gt; Maybe GitHubLocation
+      -&gt; RevisionLocation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RawString)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;string&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RevisionLocationType
+   -&gt; Maybe S3Location
+   -&gt; Maybe AppSpecContent
+   -&gt; Maybe GitHubLocation
+   -&gt; RevisionLocation)
 -&gt; Parser (Maybe RevisionLocationType)
 -&gt; Parser
      (Maybe S3Location
       -&gt; Maybe AppSpecContent
       -&gt; Maybe GitHubLocation
-      -&gt; Maybe RawString
       -&gt; RevisionLocation)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RevisionLocationType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RevisionLocationType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisionType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe S3Location
    -&gt; Maybe AppSpecContent
    -&gt; Maybe GitHubLocation
-   -&gt; Maybe RawString
    -&gt; RevisionLocation)
 -&gt; Parser (Maybe S3Location)
 -&gt; Parser
-     (Maybe AppSpecContent
-      -&gt; Maybe GitHubLocation -&gt; Maybe RawString -&gt; RevisionLocation)
+     (Maybe AppSpecContent -&gt; Maybe GitHubLocation -&gt; RevisionLocation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Location&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AppSpecContent
-   -&gt; Maybe GitHubLocation -&gt; Maybe RawString -&gt; RevisionLocation)
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AppSpecContent -&gt; Maybe GitHubLocation -&gt; RevisionLocation)
 -&gt; Parser (Maybe AppSpecContent)
--&gt; Parser
-     (Maybe GitHubLocation -&gt; Maybe RawString -&gt; RevisionLocation)
+-&gt; Parser (Maybe GitHubLocation -&gt; RevisionLocation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AppSpecContent)
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AppSpecContent)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;appSpecContent&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe GitHubLocation -&gt; Maybe RawString -&gt; RevisionLocation)
--&gt; Parser (Maybe GitHubLocation)
--&gt; Parser (Maybe RawString -&gt; RevisionLocation)
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe GitHubLocation -&gt; RevisionLocation)
+-&gt; Parser (Maybe GitHubLocation) -&gt; Parser RevisionLocation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GitHubLocation)
+</span><a href="#local-6989586621679311898"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GitHubLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gitHubLocation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RawString -&gt; RevisionLocation)
--&gt; Parser (Maybe RawString) -&gt; Parser RevisionLocation
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RawString)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;string&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311605"><span id="local-6989586621679311607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311892"><span id="local-6989586621679311894"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311594"><span id="local-6989586621679311596"><span id="local-6989586621679311598"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679311592"><span class="annot"><span class="annottext">toJSON :: RevisionLocation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311586"><span id="local-6989586621679311587"><span id="local-6989586621679311588"><span id="local-6989586621679311589"><span id="local-6989586621679311590"><span class="annot"><span class="annottext">Maybe AppSpecContent
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311881"><span id="local-6989586621679311883"><span id="local-6989586621679311885"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679311879"><span class="annot"><span class="annottext">toJSON :: RevisionLocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation%27"><span class="hs-identifier hs-type">RevisionLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311873"><span id="local-6989586621679311874"><span id="local-6989586621679311875"><span id="local-6989586621679311876"><span id="local-6989586621679311877"><span class="annot"><span class="annottext">Maybe AppSpecContent
 Maybe GitHubLocation
 Maybe RawString
 Maybe RevisionLocationType
 Maybe S3Location
-string :: Maybe RawString
 gitHubLocation :: Maybe GitHubLocation
 appSpecContent :: Maybe AppSpecContent
 s3Location :: Maybe S3Location
 revisionType :: Maybe RevisionLocationType
-$sel:string:RevisionLocation' :: RevisionLocation -&gt; Maybe RawString
+string :: Maybe RawString
 $sel:gitHubLocation:RevisionLocation' :: RevisionLocation -&gt; Maybe GitHubLocation
 $sel:appSpecContent:RevisionLocation' :: RevisionLocation -&gt; Maybe AppSpecContent
 $sel:s3Location:RevisionLocation' :: RevisionLocation -&gt; Maybe S3Location
 $sel:revisionType:RevisionLocation' :: RevisionLocation -&gt; Maybe RevisionLocationType
-</span><a href="#local-6989586621679311586"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:string:RevisionLocation' :: RevisionLocation -&gt; Maybe RawString
+</span><a href="#local-6989586621679311873"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;string&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RawString -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RawString -&gt; Pair) -&gt; Maybe RawString -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RawString
+</span><a href="#local-6989586621679311877"><span class="hs-identifier hs-var">string</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RevisionLocationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RevisionLocationType -&gt; Pair)
 -&gt; Maybe RevisionLocationType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RevisionLocationType
-</span><a href="#local-6989586621679311590"><span class="hs-identifier hs-var">revisionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311876"><span class="hs-identifier hs-var">revisionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3Location -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Location -&gt; Pair) -&gt; Maybe S3Location -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679311589"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311875"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;appSpecContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AppSpecContent -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(AppSpecContent -&gt; Pair) -&gt; Maybe AppSpecContent -&gt; Maybe Pair
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">(AppSpecContent -&gt; Pair) -&gt; Maybe AppSpecContent -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AppSpecContent
-</span><a href="#local-6989586621679311588"><span class="hs-identifier hs-var">appSpecContent</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311874"><span class="hs-identifier hs-var">appSpecContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gitHubLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GitHubLocation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(GitHubLocation -&gt; Pair) -&gt; Maybe GitHubLocation -&gt; Maybe Pair
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(GitHubLocation -&gt; Pair) -&gt; Maybe GitHubLocation -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GitHubLocation
-</span><a href="#local-6989586621679311587"><span class="hs-identifier hs-var">gitHubLocation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;string&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RawString -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RawString -&gt; Pair) -&gt; Maybe RawString -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RawString
-</span><a href="#local-6989586621679311586"><span class="hs-identifier hs-var">string</span></a></span><span>
+</span><a href="#local-6989586621679311873"><span class="hs-identifier hs-var">gitHubLocation</span></a></span><span>
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span></pre></body></html>

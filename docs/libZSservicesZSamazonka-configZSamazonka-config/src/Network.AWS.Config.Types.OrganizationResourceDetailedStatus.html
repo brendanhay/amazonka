@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679402626"><span id="local-6989586621679402627"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrganizationResourceDetailedStatus"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationResourceDetailedStatus.html#OrganizationResourceDetailedStatus"><span class="hs-identifier hs-var">OrganizationResourceDetailedStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationResourceDetailedStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationResourceDetailedStatus.html#OrganizationResourceDetailedStatus%27"><span class="hs-identifier hs-var">OrganizationResourceDetailedStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679403218"><span id="local-6989586621679403219"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrganizationResourceDetailedStatus"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationResourceDetailedStatus.html#OrganizationResourceDetailedStatus"><span class="hs-identifier hs-var">OrganizationResourceDetailedStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationResourceDetailedStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationResourceDetailedStatus.html#OrganizationResourceDetailedStatus%27"><span class="hs-identifier hs-var">OrganizationResourceDetailedStatus'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrganizationResourceDetailedStatus"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; Text
 </span><a href="Network.AWS.Config.Types.OrganizationResourceDetailedStatus.html#fromOrganizationResourceDetailedStatus"><span class="hs-identifier hs-var hs-var">fromOrganizationResourceDetailedStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402618"><span id="local-6989586621679402620"><span id="local-6989586621679402622"><span class="annot"><span class="annottext">Int -&gt; OrganizationResourceDetailedStatus -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403210"><span id="local-6989586621679403212"><span id="local-6989586621679403214"><span class="annot"><span class="annottext">Int -&gt; OrganizationResourceDetailedStatus -&gt; ShowS
 [OrganizationResourceDetailedStatus] -&gt; ShowS
 OrganizationResourceDetailedStatus -&gt; String
 (Int -&gt; OrganizationResourceDetailedStatus -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: OrganizationResourceDetailedStatus -&gt; String
 showsPrec :: Int -&gt; OrganizationResourceDetailedStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; OrganizationResourceDetailedStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679402609"><span id="local-6989586621679402611"><span id="local-6989586621679402613"><span id="local-6989586621679402615"><span class="annot"><span class="annottext">ReadPrec [OrganizationResourceDetailedStatus]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679403201"><span id="local-6989586621679403203"><span id="local-6989586621679403205"><span id="local-6989586621679403207"><span class="annot"><span class="annottext">ReadPrec [OrganizationResourceDetailedStatus]
 ReadPrec OrganizationResourceDetailedStatus
 Int -&gt; ReadS OrganizationResourceDetailedStatus
 ReadS [OrganizationResourceDetailedStatus]
@@ -79,7 +79,7 @@ $creadList :: ReadS [OrganizationResourceDetailedStatus]
 readsPrec :: Int -&gt; ReadS OrganizationResourceDetailedStatus
 $creadsPrec :: Int -&gt; ReadS OrganizationResourceDetailedStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679402604"><span id="local-6989586621679402606"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679403196"><span id="local-6989586621679403198"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus
 -&gt; OrganizationResourceDetailedStatus -&gt; Bool
 (OrganizationResourceDetailedStatus
  -&gt; OrganizationResourceDetailedStatus -&gt; Bool)
@@ -96,7 +96,7 @@ $c/= :: OrganizationResourceDetailedStatus
 $c== :: OrganizationResourceDetailedStatus
 -&gt; OrganizationResourceDetailedStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679402588"><span id="local-6989586621679402590"><span id="local-6989586621679402592"><span id="local-6989586621679402594"><span id="local-6989586621679402596"><span id="local-6989586621679402598"><span id="local-6989586621679402600"><span class="annot"><span class="annottext">Eq OrganizationResourceDetailedStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679403180"><span id="local-6989586621679403182"><span id="local-6989586621679403184"><span id="local-6989586621679403186"><span id="local-6989586621679403188"><span id="local-6989586621679403190"><span id="local-6989586621679403192"><span class="annot"><span class="annottext">Eq OrganizationResourceDetailedStatus
 Eq OrganizationResourceDetailedStatus
 -&gt; (OrganizationResourceDetailedStatus
     -&gt; OrganizationResourceDetailedStatus -&gt; Ordering)
@@ -190,7 +190,7 @@ OrganizationResourceDetailedStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402580"><span id="local-6989586621679402582"><span class="annot"><span class="annottext">Int -&gt; OrganizationResourceDetailedStatus -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403172"><span id="local-6989586621679403174"><span class="annot"><span class="annottext">Int -&gt; OrganizationResourceDetailedStatus -&gt; Int
 OrganizationResourceDetailedStatus -&gt; Int
 (Int -&gt; OrganizationResourceDetailedStatus -&gt; Int)
 -&gt; (OrganizationResourceDetailedStatus -&gt; Int)
@@ -201,56 +201,56 @@ $chash :: OrganizationResourceDetailedStatus -&gt; Int
 hashWithSalt :: Int -&gt; OrganizationResourceDetailedStatus -&gt; Int
 $chashWithSalt :: Int -&gt; OrganizationResourceDetailedStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402577"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679403169"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; ()
 (OrganizationResourceDetailedStatus -&gt; ())
 -&gt; NFData OrganizationResourceDetailedStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OrganizationResourceDetailedStatus -&gt; ()
 $crnf :: OrganizationResourceDetailedStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402574"><span class="annot"><span class="annottext">Text -&gt; Either String OrganizationResourceDetailedStatus
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679403166"><span class="annot"><span class="annottext">Text -&gt; Either String OrganizationResourceDetailedStatus
 (Text -&gt; Either String OrganizationResourceDetailedStatus)
 -&gt; FromText OrganizationResourceDetailedStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OrganizationResourceDetailedStatus
 $cfromText :: Text -&gt; Either String OrganizationResourceDetailedStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402571"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679403163"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; Text
 (OrganizationResourceDetailedStatus -&gt; Text)
 -&gt; ToText OrganizationResourceDetailedStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OrganizationResourceDetailedStatus -&gt; Text
 $ctoText :: OrganizationResourceDetailedStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402568"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679403160"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; ByteString
 (OrganizationResourceDetailedStatus -&gt; ByteString)
 -&gt; ToByteString OrganizationResourceDetailedStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OrganizationResourceDetailedStatus -&gt; ByteString
 $ctoBS :: OrganizationResourceDetailedStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402565"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679403157"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; ByteStringBuilder
 (OrganizationResourceDetailedStatus -&gt; ByteStringBuilder)
 -&gt; ToLog OrganizationResourceDetailedStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OrganizationResourceDetailedStatus -&gt; ByteStringBuilder
 $cbuild :: OrganizationResourceDetailedStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402562"><span class="annot"><span class="annottext">HeaderName -&gt; OrganizationResourceDetailedStatus -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679403154"><span class="annot"><span class="annottext">HeaderName -&gt; OrganizationResourceDetailedStatus -&gt; [Header]
 (HeaderName -&gt; OrganizationResourceDetailedStatus -&gt; [Header])
 -&gt; ToHeader OrganizationResourceDetailedStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OrganizationResourceDetailedStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OrganizationResourceDetailedStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679402559"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679403151"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; QueryString
 (OrganizationResourceDetailedStatus -&gt; QueryString)
 -&gt; ToQuery OrganizationResourceDetailedStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OrganizationResourceDetailedStatus -&gt; QueryString
 $ctoQuery :: OrganizationResourceDetailedStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679402554"><span id="local-6989586621679402556"><span class="annot"><span class="annottext">Value -&gt; Parser [OrganizationResourceDetailedStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679403146"><span id="local-6989586621679403148"><span class="annot"><span class="annottext">Value -&gt; Parser [OrganizationResourceDetailedStatus]
 Value -&gt; Parser OrganizationResourceDetailedStatus
 (Value -&gt; Parser OrganizationResourceDetailedStatus)
 -&gt; (Value -&gt; Parser [OrganizationResourceDetailedStatus])
@@ -262,7 +262,7 @@ $cparseJSONList :: Value -&gt; Parser [OrganizationResourceDetailedStatus]
 parseJSON :: Value -&gt; Parser OrganizationResourceDetailedStatus
 $cparseJSON :: Value -&gt; Parser OrganizationResourceDetailedStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679402549"><span id="local-6989586621679402551"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrganizationResourceDetailedStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679403141"><span id="local-6989586621679403143"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrganizationResourceDetailedStatus]
 FromJSONKeyFunction OrganizationResourceDetailedStatus
 FromJSONKeyFunction OrganizationResourceDetailedStatus
 -&gt; FromJSONKeyFunction [OrganizationResourceDetailedStatus]
@@ -274,7 +274,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OrganizationResourceDetailedStatus]
 fromJSONKey :: FromJSONKeyFunction OrganizationResourceDetailedStatus
 $cfromJSONKey :: FromJSONKeyFunction OrganizationResourceDetailedStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679402540"><span id="local-6989586621679402542"><span id="local-6989586621679402544"><span id="local-6989586621679402546"><span class="annot"><span class="annottext">[OrganizationResourceDetailedStatus] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679403132"><span id="local-6989586621679403134"><span id="local-6989586621679403136"><span id="local-6989586621679403138"><span class="annot"><span class="annottext">[OrganizationResourceDetailedStatus] -&gt; Encoding
 [OrganizationResourceDetailedStatus] -&gt; Value
 OrganizationResourceDetailedStatus -&gt; Encoding
 OrganizationResourceDetailedStatus -&gt; Value
@@ -298,7 +298,7 @@ $ctoEncoding :: OrganizationResourceDetailedStatus -&gt; Encoding
 toJSON :: OrganizationResourceDetailedStatus -&gt; Value
 $ctoJSON :: OrganizationResourceDetailedStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679402535"><span id="local-6989586621679402537"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrganizationResourceDetailedStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679403127"><span id="local-6989586621679403129"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrganizationResourceDetailedStatus]
 ToJSONKeyFunction OrganizationResourceDetailedStatus
 ToJSONKeyFunction OrganizationResourceDetailedStatus
 -&gt; ToJSONKeyFunction [OrganizationResourceDetailedStatus]
@@ -310,14 +310,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OrganizationResourceDetailedStatus]
 toJSONKey :: ToJSONKeyFunction OrganizationResourceDetailedStatus
 $ctoJSONKey :: ToJSONKeyFunction OrganizationResourceDetailedStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679402532"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrganizationResourceDetailedStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679403124"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrganizationResourceDetailedStatus
 ([Node] -&gt; Either String OrganizationResourceDetailedStatus)
 -&gt; FromXML OrganizationResourceDetailedStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OrganizationResourceDetailedStatus
 $cparseXML :: [Node] -&gt; Either String OrganizationResourceDetailedStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679402529"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679403121"><span class="annot"><span class="annottext">OrganizationResourceDetailedStatus -&gt; XML
 (OrganizationResourceDetailedStatus -&gt; XML)
 -&gt; ToXML OrganizationResourceDetailedStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

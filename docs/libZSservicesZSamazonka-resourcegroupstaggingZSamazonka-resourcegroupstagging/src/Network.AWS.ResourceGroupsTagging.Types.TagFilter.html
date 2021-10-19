@@ -27,17 +27,17 @@
 </span><span id="line-27"></span><span class="hs-comment">-- resources.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTagFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679156830"><span id="local-6989586621679156831"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagFilter"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-var">TagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagFilter%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-var">TagFilter'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One part of a key-value pair that makes up a tag. A key is a general</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- label that acts like a category for more specific tag values.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe Text
-</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | One part of a key-value pair that make up a tag. A value acts as a</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- descriptor within a tag category (key). The value can be empty or null.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalues%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe [Text]
-</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679156924"><span id="local-6989586621679156925"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagFilter"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-var">TagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagFilter%27"><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-var">TagFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One part of a key-value pair that make up a tag. A value acts as a</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- descriptor within a tag category (key). The value can be empty or null.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalues%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | One part of a key-value pair that makes up a tag. A key is a general</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- label that acts like a category for more specific tag values.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Akey%3ATagFilter%27"><span class="annot"><span class="annottext">TagFilter -&gt; Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156823"><span id="local-6989586621679156825"><span class="annot"><span class="annottext">TagFilter -&gt; TagFilter -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156917"><span id="local-6989586621679156919"><span class="annot"><span class="annottext">TagFilter -&gt; TagFilter -&gt; Bool
 (TagFilter -&gt; TagFilter -&gt; Bool)
 -&gt; (TagFilter -&gt; TagFilter -&gt; Bool) -&gt; Eq TagFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagFilter -&gt; TagFilter -&gt; Bool
 == :: TagFilter -&gt; TagFilter -&gt; Bool
 $c== :: TagFilter -&gt; TagFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156814"><span id="local-6989586621679156816"><span id="local-6989586621679156818"><span id="local-6989586621679156820"><span class="annot"><span class="annottext">ReadPrec [TagFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156908"><span id="local-6989586621679156910"><span id="local-6989586621679156912"><span id="local-6989586621679156914"><span class="annot"><span class="annottext">ReadPrec [TagFilter]
 ReadPrec TagFilter
 Int -&gt; ReadS TagFilter
 ReadS [TagFilter]
@@ -65,7 +65,7 @@ readList :: ReadS [TagFilter]
 $creadList :: ReadS [TagFilter]
 readsPrec :: Int -&gt; ReadS TagFilter
 $creadsPrec :: Int -&gt; ReadS TagFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156807"><span id="local-6989586621679156809"><span id="local-6989586621679156811"><span class="annot"><span class="annottext">Int -&gt; TagFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156901"><span id="local-6989586621679156903"><span id="local-6989586621679156905"><span class="annot"><span class="annottext">Int -&gt; TagFilter -&gt; ShowS
 [TagFilter] -&gt; ShowS
 TagFilter -&gt; String
 (Int -&gt; TagFilter -&gt; ShowS)
@@ -98,64 +98,45 @@ $cfrom :: forall x. TagFilter -&gt; Rep TagFilter x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'key', 'tagFilter_key' - One part of a key-value pair that makes up a tag. A key is a general</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- label that acts like a category for more specific tag values.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'values', 'tagFilter_values' - One part of a key-value pair that make up a tag. A value acts as a</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- descriptor within a tag category (key). The value can be empty or null.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'values', 'tagFilter_values' - One part of a key-value pair that make up a tag. A value acts as a</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- descriptor within a tag category (key). The value can be empty or null.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'key', 'tagFilter_key' - One part of a key-value pair that makes up a tag. A key is a general</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- label that acts like a category for more specific tag values.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#newTagFilter"><span class="hs-identifier hs-type">newTagFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span>
 </span><span id="line-55"></span><span id="newTagFilter"><span class="annot"><span class="annottext">newTagFilter :: TagFilter
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#newTagFilter"><span class="hs-identifier hs-var hs-var">newTagFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">TagFilter' :: Maybe Text -&gt; Maybe [Text] -&gt; TagFilter
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">TagFilter' :: Maybe [Text] -&gt; Maybe Text -&gt; TagFilter
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
-</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
-</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | One part of a key-value pair that makes up a tag. A key is a general</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- label that acts like a category for more specific tag values.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-type">tagFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="tagFilter_key"><span class="annot"><span class="annottext">tagFilter_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TagFilter -&gt; f TagFilter
-</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-var hs-var">tagFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagFilter -&gt; Maybe Text)
--&gt; (TagFilter -&gt; Maybe Text -&gt; TagFilter)
--&gt; Lens TagFilter TagFilter (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156798"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:TagFilter' :: TagFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679156798"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679156798"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156797"><span class="annot"><span class="annottext">s :: TagFilter
-</span><a href="#local-6989586621679156797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156796"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679156796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
-</span><a href="#local-6989586621679156797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
-</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679156796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | One part of a key-value pair that make up a tag. A value acts as a</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- descriptor within a tag category (key). The value can be empty or null.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier hs-type">tagFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="tagFilter_values"><span class="annot"><span class="annottext">tagFilter_values :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter
+</span><span id="line-61"></span><span class="hs-comment">-- | One part of a key-value pair that make up a tag. A value acts as a</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- descriptor within a tag category (key). The value can be empty or null.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier hs-type">tagFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="tagFilter_values"><span class="annot"><span class="annottext">tagFilter_values :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier hs-var hs-var">tagFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagFilter -&gt; Maybe [Text])
 -&gt; (TagFilter -&gt; Maybe [Text] -&gt; TagFilter)
 -&gt; Lens TagFilter TagFilter (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156794"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156892"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:TagFilter' :: TagFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679156794"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156794"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156793"><span class="annot"><span class="annottext">s :: TagFilter
-</span><a href="#local-6989586621679156793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156792"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
-</span><a href="#local-6989586621679156793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
+</span><a href="#local-6989586621679156892"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679156892"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156891"><span class="annot"><span class="annottext">s :: TagFilter
+</span><a href="#local-6989586621679156891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156890"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679156890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
+</span><a href="#local-6989586621679156891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:TagFilter' :: Maybe [Text]
 </span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Avalues%3ATagFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter)
+</span><a href="#local-6989586621679156890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; TagFilter -&gt; f TagFilter)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -168,41 +149,60 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156785"><span id="local-6989586621679156787"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156774"><span id="local-6989586621679156776"><span id="local-6989586621679156778"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679156772"><span class="annot"><span class="annottext">toJSON :: TagFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156769"><span id="local-6989586621679156770"><span class="annot"><span class="annottext">Maybe [Text]
-Maybe Text
-values :: Maybe [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | One part of a key-value pair that makes up a tag. A key is a general</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- label that acts like a category for more specific tag values.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-type">tagFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="tagFilter_key"><span class="annot"><span class="annottext">tagFilter_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TagFilter -&gt; f TagFilter
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier hs-var hs-var">tagFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagFilter -&gt; Maybe Text)
+-&gt; (TagFilter -&gt; Maybe Text -&gt; TagFilter)
+-&gt; Lens TagFilter TagFilter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156885"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
-$sel:values:TagFilter' :: TagFilter -&gt; Maybe [Text]
 $sel:key:TagFilter' :: TagFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679156769"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679156885"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156885"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156884"><span class="annot"><span class="annottext">s :: TagFilter
+</span><a href="#local-6989586621679156884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagFilter
+</span><a href="#local-6989586621679156884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagFilter' :: Maybe Text
+</span><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#%24sel%3Akey%3ATagFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156879"><span id="local-6989586621679156881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156868"><span id="local-6989586621679156870"><span id="local-6989586621679156872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter"><span class="hs-identifier hs-type">TagFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679156866"><span class="annot"><span class="annottext">toJSON :: TagFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroupsTagging.Types.TagFilter.html#TagFilter%27"><span class="hs-identifier hs-type">TagFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156863"><span id="local-6989586621679156864"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+key :: Maybe Text
+values :: Maybe [Text]
+$sel:key:TagFilter' :: TagFilter -&gt; Maybe Text
+$sel:values:TagFilter' :: TagFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679156863"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-79"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679156770"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679156769"><span class="hs-identifier hs-var">values</span></a></span><span>
+</span><a href="#local-6989586621679156864"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156863"><span class="hs-identifier hs-var">key</span></a></span><span>
 </span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span></pre></body></html>

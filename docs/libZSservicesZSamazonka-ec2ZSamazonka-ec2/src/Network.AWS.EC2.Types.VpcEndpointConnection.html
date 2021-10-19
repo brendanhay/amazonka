@@ -29,35 +29,35 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a VPC endpoint connection to a service.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newVpcEndpointConnection' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681152144"><span id="local-6989586621681152145"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcEndpointConnection"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-var">VpcEndpointConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcEndpointConnection%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-var">VpcEndpointConnection'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account ID of the owner of the VPC endpoint.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681187327"><span id="local-6989586621681187328"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcEndpointConnection"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-var">VpcEndpointConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcEndpointConnection%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-var">VpcEndpointConnection'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the VPC endpoint.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AvpcEndpointOwner%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointOwner%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">vpcEndpointOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date and time that the VPC endpoint was created.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">gatewayLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the network load balancers for the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">networkLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The DNS entries for the VPC endpoint.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdnsEntries%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe [DnsEntry]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AdnsEntries%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">dnsEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.DnsEntry.html#DnsEntry"><span class="hs-identifier hs-type">DnsEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The state of the VPC endpoint.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AvpcEndpointState%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe State
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointState%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">vpcEndpointState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The DNS entries for the VPC endpoint.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdnsEntries%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe [DnsEntry]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AdnsEntries%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">dnsEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.DnsEntry.html#DnsEntry"><span class="hs-identifier hs-type">DnsEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ID of the service to which the endpoint is connected.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AserviceId%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe Text
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">gatewayLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date and time that the VPC endpoint was created.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The ID of the service to which the endpoint is connected.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AserviceId%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AserviceId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the network load balancers for the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">networkLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681152131"><span id="local-6989586621681152133"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; VpcEndpointConnection -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681187314"><span id="local-6989586621681187316"><span class="annot"><span class="annottext">VpcEndpointConnection -&gt; VpcEndpointConnection -&gt; Bool
 (VpcEndpointConnection -&gt; VpcEndpointConnection -&gt; Bool)
 -&gt; (VpcEndpointConnection -&gt; VpcEndpointConnection -&gt; Bool)
 -&gt; Eq VpcEndpointConnection
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcEndpointConnection -&gt; VpcEndpointConnection -&gt; Bool
 == :: VpcEndpointConnection -&gt; VpcEndpointConnection -&gt; Bool
 $c== :: VpcEndpointConnection -&gt; VpcEndpointConnection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681152122"><span id="local-6989586621681152124"><span id="local-6989586621681152126"><span id="local-6989586621681152128"><span class="annot"><span class="annottext">ReadPrec [VpcEndpointConnection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681187305"><span id="local-6989586621681187307"><span id="local-6989586621681187309"><span id="local-6989586621681187311"><span class="annot"><span class="annottext">ReadPrec [VpcEndpointConnection]
 ReadPrec VpcEndpointConnection
 Int -&gt; ReadS VpcEndpointConnection
 ReadS [VpcEndpointConnection]
@@ -86,7 +86,7 @@ readList :: ReadS [VpcEndpointConnection]
 $creadList :: ReadS [VpcEndpointConnection]
 readsPrec :: Int -&gt; ReadS VpcEndpointConnection
 $creadsPrec :: Int -&gt; ReadS VpcEndpointConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681152115"><span id="local-6989586621681152117"><span id="local-6989586621681152119"><span class="annot"><span class="annottext">Int -&gt; VpcEndpointConnection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681187298"><span id="local-6989586621681187300"><span id="local-6989586621681187302"><span class="annot"><span class="annottext">Int -&gt; VpcEndpointConnection -&gt; ShowS
 [VpcEndpointConnection] -&gt; ShowS
 VpcEndpointConnection -&gt; String
 (Int -&gt; VpcEndpointConnection -&gt; ShowS)
@@ -120,35 +120,35 @@ $cfrom :: forall x. VpcEndpointConnection -&gt; Rep VpcEndpointConnection x
 </span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'vpcEndpointOwner', 'vpcEndpointConnection_vpcEndpointOwner' - The AWS account ID of the owner of the VPC endpoint.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'vpcEndpointOwner', 'vpcEndpointConnection_vpcEndpointOwner' - The ID of the Amazon Web Services account that owns the VPC endpoint.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'creationTimestamp', 'vpcEndpointConnection_creationTimestamp' - The date and time that the VPC endpoint was created.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'gatewayLoadBalancerArns', 'vpcEndpointConnection_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'networkLoadBalancerArns', 'vpcEndpointConnection_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of the network load balancers for the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'dnsEntries', 'vpcEndpointConnection_dnsEntries' - The DNS entries for the VPC endpoint.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- 'vpcEndpointState', 'vpcEndpointConnection_vpcEndpointState' - The state of the VPC endpoint.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'dnsEntries', 'vpcEndpointConnection_dnsEntries' - The DNS entries for the VPC endpoint.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'vpcEndpointId', 'vpcEndpointConnection_vpcEndpointId' - The ID of the VPC endpoint.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'serviceId', 'vpcEndpointConnection_serviceId' - The ID of the service to which the endpoint is connected.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'networkLoadBalancerArns', 'vpcEndpointConnection_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of the network load balancers for the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'gatewayLoadBalancerArns', 'vpcEndpointConnection_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'creationTimestamp', 'vpcEndpointConnection_creationTimestamp' - The date and time that the VPC endpoint was created.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'serviceId', 'vpcEndpointConnection_serviceId' - The ID of the service to which the endpoint is connected.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'vpcEndpointId', 'vpcEndpointConnection_vpcEndpointId' - The ID of the VPC endpoint.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#newVpcEndpointConnection"><span class="hs-identifier hs-type">newVpcEndpointConnection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span>
 </span><span id="line-81"></span><span id="newVpcEndpointConnection"><span class="annot"><span class="annottext">newVpcEndpointConnection :: VpcEndpointConnection
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#newVpcEndpointConnection"><span class="hs-identifier hs-var hs-var">newVpcEndpointConnection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">VpcEndpointConnection' :: Maybe Text
--&gt; Maybe ISO8601
 -&gt; Maybe [Text]
--&gt; Maybe State
 -&gt; Maybe [DnsEntry]
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe State
 -&gt; Maybe [Text]
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; VpcEndpointConnection
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcEndpointOwner:VpcEndpointConnection' :: Maybe Text
@@ -156,37 +156,37 @@ $cfrom :: forall x. VpcEndpointConnection -&gt; Rep VpcEndpointConnection x
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimestamp:VpcEndpointConnection' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">networkLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">gatewayLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsEntries:VpcEndpointConnection' :: Maybe [DnsEntry]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AdnsEntries%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">dnsEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DnsEntry]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcEndpointState:VpcEndpointConnection' :: Maybe State
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointState%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe State
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsEntries:VpcEndpointConnection' :: Maybe [DnsEntry]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AdnsEntries%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">dnsEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DnsEntry]
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">gatewayLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcEndpointId:VpcEndpointConnection' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimestamp:VpcEndpointConnection' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceId:VpcEndpointConnection' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AserviceId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">networkLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcEndpointId:VpcEndpointConnection' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The AWS account ID of the owner of the VPC endpoint.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the VPC endpoint.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointOwner"><span class="hs-identifier hs-type">vpcEndpointConnection_vpcEndpointOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span id="vpcEndpointConnection_vpcEndpointOwner"><span class="annot"><span class="annottext">vpcEndpointConnection_vpcEndpointOwner :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
@@ -198,63 +198,23 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152106"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187289"><span class="annot"><span class="annottext">Maybe Text
 vpcEndpointOwner :: Maybe Text
 $sel:vpcEndpointOwner:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe Text
-</span><a href="#local-6989586621681152106"><span class="hs-identifier hs-var hs-var">vpcEndpointOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152106"><span class="hs-identifier hs-var">vpcEndpointOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152105"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152104"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointOwner:VpcEndpointConnection' :: Maybe Text
+</span><a href="#local-6989586621681187289"><span class="hs-identifier hs-var hs-var">vpcEndpointOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187289"><span class="hs-identifier hs-var">vpcEndpointOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187288"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointOwner:VpcEndpointConnection' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointOwner%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681187287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The date and time that the VPC endpoint was created.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_creationTimestamp"><span class="hs-identifier hs-type">vpcEndpointConnection_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="vpcEndpointConnection_creationTimestamp"><span class="annot"><span class="annottext">vpcEndpointConnection_creationTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the network load balancers for the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_networkLoadBalancerArns"><span class="hs-identifier hs-type">vpcEndpointConnection_networkLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="vpcEndpointConnection_networkLoadBalancerArns"><span class="annot"><span class="annottext">vpcEndpointConnection_networkLoadBalancerArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_creationTimestamp"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe ISO8601)
--&gt; (VpcEndpointConnection
-    -&gt; Maybe ISO8601 -&gt; VpcEndpointConnection)
--&gt; Lens
-     VpcEndpointConnection
-     VpcEndpointConnection
-     (Maybe ISO8601)
-     (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152102"><span class="annot"><span class="annottext">Maybe ISO8601
-creationTimestamp :: Maybe ISO8601
-$sel:creationTimestamp:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681152102"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681152102"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152101"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152100"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681152100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:VpcEndpointConnection' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681152100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; VpcEndpointConnection
--&gt; f VpcEndpointConnection
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_gatewayLoadBalancerArns"><span class="hs-identifier hs-type">vpcEndpointConnection_gatewayLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="vpcEndpointConnection_gatewayLoadBalancerArns"><span class="annot"><span class="annottext">vpcEndpointConnection_gatewayLoadBalancerArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_gatewayLoadBalancerArns"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_gatewayLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe [Text])
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_networkLoadBalancerArns"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_networkLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe [Text])
 -&gt; (VpcEndpointConnection -&gt; Maybe [Text] -&gt; VpcEndpointConnection)
 -&gt; Lens
      VpcEndpointConnection
@@ -262,16 +222,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152095"><span class="annot"><span class="annottext">Maybe [Text]
-gatewayLoadBalancerArns :: Maybe [Text]
-$sel:gatewayLoadBalancerArns:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe [Text]
-</span><a href="#local-6989586621681152095"><span class="hs-identifier hs-var hs-var">gatewayLoadBalancerArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681152095"><span class="hs-identifier hs-var">gatewayLoadBalancerArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152094"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152093"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681152093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">gatewayLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681152093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187285"><span class="annot"><span class="annottext">Maybe [Text]
+networkLoadBalancerArns :: Maybe [Text]
+$sel:networkLoadBalancerArns:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe [Text]
+</span><a href="#local-6989586621681187285"><span class="hs-identifier hs-var hs-var">networkLoadBalancerArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681187285"><span class="hs-identifier hs-var">networkLoadBalancerArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187284"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187283"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681187283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">networkLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681187283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -285,35 +245,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The state of the VPC endpoint.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointState"><span class="hs-identifier hs-type">vpcEndpointConnection_vpcEndpointState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="vpcEndpointConnection_vpcEndpointState"><span class="annot"><span class="annottext">vpcEndpointConnection_vpcEndpointState :: (Maybe State -&gt; f (Maybe State))
--&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointState"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_vpcEndpointState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe State)
--&gt; (VpcEndpointConnection -&gt; Maybe State -&gt; VpcEndpointConnection)
--&gt; Lens
-     VpcEndpointConnection
-     VpcEndpointConnection
-     (Maybe State)
-     (Maybe State)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152090"><span class="annot"><span class="annottext">Maybe State
-vpcEndpointState :: Maybe State
-$sel:vpcEndpointState:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe State
-</span><a href="#local-6989586621681152090"><span class="hs-identifier hs-var hs-var">vpcEndpointState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe State
-</span><a href="#local-6989586621681152090"><span class="hs-identifier hs-var">vpcEndpointState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152089"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152088"><span class="annot"><span class="annottext">Maybe State
-</span><a href="#local-6989586621681152088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointState:VpcEndpointConnection' :: Maybe State
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointState%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe State
-</span><a href="#local-6989586621681152088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The DNS entries for the VPC endpoint.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_dnsEntries"><span class="hs-identifier hs-type">vpcEndpointConnection_dnsEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.DnsEntry.html#DnsEntry"><span class="hs-identifier hs-type">DnsEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="vpcEndpointConnection_dnsEntries"><span class="annot"><span class="annottext">vpcEndpointConnection_dnsEntries :: (Maybe [DnsEntry] -&gt; f (Maybe [DnsEntry]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The DNS entries for the VPC endpoint.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_dnsEntries"><span class="hs-identifier hs-type">vpcEndpointConnection_dnsEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.DnsEntry.html#DnsEntry"><span class="hs-identifier hs-type">DnsEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="vpcEndpointConnection_dnsEntries"><span class="annot"><span class="annottext">vpcEndpointConnection_dnsEntries :: (Maybe [DnsEntry] -&gt; f (Maybe [DnsEntry]))
 -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_dnsEntries"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_dnsEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe [DnsEntry])
 -&gt; (VpcEndpointConnection
@@ -324,16 +261,16 @@ $sel:vpcEndpointState:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Mayb
      (Maybe [DnsEntry])
      (Maybe [DnsEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152086"><span class="annot"><span class="annottext">Maybe [DnsEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187278"><span class="annot"><span class="annottext">Maybe [DnsEntry]
 dnsEntries :: Maybe [DnsEntry]
 $sel:dnsEntries:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe [DnsEntry]
-</span><a href="#local-6989586621681152086"><span class="hs-identifier hs-var hs-var">dnsEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DnsEntry]
-</span><a href="#local-6989586621681152086"><span class="hs-identifier hs-var">dnsEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152085"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152084"><span class="annot"><span class="annottext">Maybe [DnsEntry]
-</span><a href="#local-6989586621681152084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsEntries:VpcEndpointConnection' :: Maybe [DnsEntry]
+</span><a href="#local-6989586621681187278"><span class="hs-identifier hs-var hs-var">dnsEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DnsEntry]
+</span><a href="#local-6989586621681187278"><span class="hs-identifier hs-var">dnsEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187277"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187276"><span class="annot"><span class="annottext">Maybe [DnsEntry]
+</span><a href="#local-6989586621681187276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsEntries:VpcEndpointConnection' :: Maybe [DnsEntry]
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AdnsEntries%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">dnsEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DnsEntry]
-</span><a href="#local-6989586621681152084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DnsEntry] -&gt; f (Maybe [DnsEntry]))
+</span><a href="#local-6989586621681187276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DnsEntry] -&gt; f (Maybe [DnsEntry]))
  -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection)
 -&gt; ((Maybe [DnsEntry] -&gt; f (Maybe [DnsEntry]))
     -&gt; Maybe [DnsEntry] -&gt; f (Maybe [DnsEntry]))
@@ -351,61 +288,38 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DnsEntry] [DnsEntry] [DnsEntry] [DnsEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointId"><span class="hs-identifier hs-type">vpcEndpointConnection_vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="vpcEndpointConnection_vpcEndpointId"><span class="annot"><span class="annottext">vpcEndpointConnection_vpcEndpointId :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The state of the VPC endpoint.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointState"><span class="hs-identifier hs-type">vpcEndpointConnection_vpcEndpointState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="vpcEndpointConnection_vpcEndpointState"><span class="annot"><span class="annottext">vpcEndpointConnection_vpcEndpointState :: (Maybe State -&gt; f (Maybe State))
 -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointId"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe Text)
--&gt; (VpcEndpointConnection -&gt; Maybe Text -&gt; VpcEndpointConnection)
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointState"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_vpcEndpointState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe State)
+-&gt; (VpcEndpointConnection -&gt; Maybe State -&gt; VpcEndpointConnection)
 -&gt; Lens
      VpcEndpointConnection
      VpcEndpointConnection
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe State)
+     (Maybe State)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152082"><span class="annot"><span class="annottext">Maybe Text
-vpcEndpointId :: Maybe Text
-$sel:vpcEndpointId:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe Text
-</span><a href="#local-6989586621681152082"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152082"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152081"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152080"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointId:VpcEndpointConnection' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The ID of the service to which the endpoint is connected.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_serviceId"><span class="hs-identifier hs-type">vpcEndpointConnection_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="vpcEndpointConnection_serviceId"><span class="annot"><span class="annottext">vpcEndpointConnection_serviceId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187274"><span class="annot"><span class="annottext">Maybe State
+vpcEndpointState :: Maybe State
+$sel:vpcEndpointState:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe State
+</span><a href="#local-6989586621681187274"><span class="hs-identifier hs-var hs-var">vpcEndpointState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621681187274"><span class="hs-identifier hs-var">vpcEndpointState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187273"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187272"><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621681187272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointState:VpcEndpointConnection' :: Maybe State
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointState%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621681187272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_gatewayLoadBalancerArns"><span class="hs-identifier hs-type">vpcEndpointConnection_gatewayLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="vpcEndpointConnection_gatewayLoadBalancerArns"><span class="annot"><span class="annottext">vpcEndpointConnection_gatewayLoadBalancerArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_serviceId"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_serviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe Text)
--&gt; (VpcEndpointConnection -&gt; Maybe Text -&gt; VpcEndpointConnection)
--&gt; Lens
-     VpcEndpointConnection
-     VpcEndpointConnection
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152078"><span class="annot"><span class="annottext">Maybe Text
-serviceId :: Maybe Text
-$sel:serviceId:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe Text
-</span><a href="#local-6989586621681152078"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152078"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152077"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152076"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:VpcEndpointConnection' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AserviceId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681152076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the network load balancers for the</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_networkLoadBalancerArns"><span class="hs-identifier hs-type">vpcEndpointConnection_networkLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="vpcEndpointConnection_networkLoadBalancerArns"><span class="annot"><span class="annottext">vpcEndpointConnection_networkLoadBalancerArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_networkLoadBalancerArns"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_networkLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe [Text])
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_gatewayLoadBalancerArns"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_gatewayLoadBalancerArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe [Text])
 -&gt; (VpcEndpointConnection -&gt; Maybe [Text] -&gt; VpcEndpointConnection)
 -&gt; Lens
      VpcEndpointConnection
@@ -413,16 +327,16 @@ $sel:serviceId:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681152074"><span class="annot"><span class="annottext">Maybe [Text]
-networkLoadBalancerArns :: Maybe [Text]
-$sel:networkLoadBalancerArns:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe [Text]
-</span><a href="#local-6989586621681152074"><span class="hs-identifier hs-var hs-var">networkLoadBalancerArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681152074"><span class="hs-identifier hs-var">networkLoadBalancerArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681152073"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
-</span><a href="#local-6989586621681152073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681152072"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681152072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
-</span><a href="#local-6989586621681152073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AnetworkLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">networkLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681152072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187270"><span class="annot"><span class="annottext">Maybe [Text]
+gatewayLoadBalancerArns :: Maybe [Text]
+$sel:gatewayLoadBalancerArns:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe [Text]
+</span><a href="#local-6989586621681187270"><span class="hs-identifier hs-var hs-var">gatewayLoadBalancerArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681187270"><span class="hs-identifier hs-var">gatewayLoadBalancerArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187269"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187268"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681187268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayLoadBalancerArns:VpcEndpointConnection' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AgatewayLoadBalancerArns%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">gatewayLoadBalancerArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681187268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -436,105 +350,167 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The date and time that the VPC endpoint was created.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_creationTimestamp"><span class="hs-identifier hs-type">vpcEndpointConnection_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="vpcEndpointConnection_creationTimestamp"><span class="annot"><span class="annottext">vpcEndpointConnection_creationTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_creationTimestamp"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe ISO8601)
+-&gt; (VpcEndpointConnection
+    -&gt; Maybe ISO8601 -&gt; VpcEndpointConnection)
+-&gt; Lens
+     VpcEndpointConnection
+     VpcEndpointConnection
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187266"><span class="annot"><span class="annottext">Maybe ISO8601
+creationTimestamp :: Maybe ISO8601
+$sel:creationTimestamp:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681187266"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681187266"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187265"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187264"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681187264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:VpcEndpointConnection' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AcreationTimestamp%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681187264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; VpcEndpointConnection
+-&gt; f VpcEndpointConnection
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the service to which the endpoint is connected.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_serviceId"><span class="hs-identifier hs-type">vpcEndpointConnection_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="vpcEndpointConnection_serviceId"><span class="annot"><span class="annottext">vpcEndpointConnection_serviceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_serviceId"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_serviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe Text)
+-&gt; (VpcEndpointConnection -&gt; Maybe Text -&gt; VpcEndpointConnection)
+-&gt; Lens
+     VpcEndpointConnection
+     VpcEndpointConnection
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187261"><span class="annot"><span class="annottext">Maybe Text
+serviceId :: Maybe Text
+$sel:serviceId:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe Text
+</span><a href="#local-6989586621681187261"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187261"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187260"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187259"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:VpcEndpointConnection' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AserviceId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The ID of the VPC endpoint.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointId"><span class="hs-identifier hs-type">vpcEndpointConnection_vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="vpcEndpointConnection_vpcEndpointId"><span class="annot"><span class="annottext">vpcEndpointConnection_vpcEndpointId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcEndpointConnection -&gt; f VpcEndpointConnection
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#vpcEndpointConnection_vpcEndpointId"><span class="hs-identifier hs-var hs-var">vpcEndpointConnection_vpcEndpointId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcEndpointConnection -&gt; Maybe Text)
+-&gt; (VpcEndpointConnection -&gt; Maybe Text -&gt; VpcEndpointConnection)
+-&gt; Lens
+     VpcEndpointConnection
+     VpcEndpointConnection
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187257"><span class="annot"><span class="annottext">Maybe Text
+vpcEndpointId :: Maybe Text
+$sel:vpcEndpointId:VpcEndpointConnection' :: VpcEndpointConnection -&gt; Maybe Text
+</span><a href="#local-6989586621681187257"><span class="hs-identifier hs-var hs-var">vpcEndpointId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187257"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187256"><span class="annot"><span class="annottext">s :: VpcEndpointConnection
+</span><a href="#local-6989586621681187256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-type">VpcEndpointConnection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcEndpointConnection
+</span><a href="#local-6989586621681187256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcEndpointId:VpcEndpointConnection' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#%24sel%3AvpcEndpointId%3AVpcEndpointConnection%27"><span class="hs-identifier hs-var">vpcEndpointId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621681152069"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpcEndpointConnection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681152067"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621681187252"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpcEndpointConnection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681187250"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ISO8601
 -&gt; Maybe [Text]
--&gt; Maybe State
 -&gt; Maybe [DnsEntry]
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe State
 -&gt; Maybe [Text]
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; VpcEndpointConnection
 </span><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection%27"><span class="hs-identifier hs-var">VpcEndpointConnection'</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ISO8601
  -&gt; Maybe [Text]
- -&gt; Maybe State
  -&gt; Maybe [DnsEntry]
- -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe State
  -&gt; Maybe [Text]
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; VpcEndpointConnection)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe ISO8601
-      -&gt; Maybe [Text]
-      -&gt; Maybe State
+     (Maybe [Text]
       -&gt; Maybe [DnsEntry]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe State
       -&gt; Maybe [Text]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; VpcEndpointConnection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpcEndpointOwner&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
-   -&gt; Maybe [Text]
-   -&gt; Maybe State
-   -&gt; Maybe [DnsEntry]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; VpcEndpointConnection)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe [Text]
-      -&gt; Maybe State
-      -&gt; Maybe [DnsEntry]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; VpcEndpointConnection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;creationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe [Text]
-   -&gt; Maybe State
    -&gt; Maybe [DnsEntry]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe State
    -&gt; Maybe [Text]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; VpcEndpointConnection)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
-     (Maybe State
-      -&gt; Maybe [DnsEntry]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe [DnsEntry]
+      -&gt; Maybe State
       -&gt; Maybe [Text]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; VpcEndpointConnection)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;gatewayLoadBalancerArnSet&quot;</span></span><span>
-</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span class="hs-string">&quot;networkLoadBalancerArnSet&quot;</span></span><span>
+</span><span id="line-133"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-135"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -547,43 +523,28 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe State
-   -&gt; Maybe [DnsEntry]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; VpcEndpointConnection)
--&gt; Either String (Maybe State)
--&gt; Either
-     String
-     (Maybe [DnsEntry]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; VpcEndpointConnection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe State)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vpcEndpointState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-135"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [DnsEntry]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe State
    -&gt; Maybe [Text]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; VpcEndpointConnection)
 -&gt; Either String (Maybe [DnsEntry])
 -&gt; Either
      String
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; VpcEndpointConnection)
+     (Maybe State
+      -&gt; Maybe [Text]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; VpcEndpointConnection)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dnsEntrySet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -591,7 +552,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-139"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-137"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [DnsEntry]))
 -&gt; Either String (Maybe [DnsEntry])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -604,43 +565,53 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-138"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; VpcEndpointConnection)
--&gt; Either String (Maybe Text)
+  (Maybe State
+   -&gt; Maybe [Text]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; VpcEndpointConnection)
+-&gt; Either String (Maybe State)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe [Text] -&gt; VpcEndpointConnection)
+     String
+     (Maybe [Text]
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; VpcEndpointConnection)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe State)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;vpcEndpointId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Text] -&gt; VpcEndpointConnection)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Text] -&gt; VpcEndpointConnection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;serviceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; VpcEndpointConnection)
+</span><span class="hs-string">&quot;vpcEndpointState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; VpcEndpointConnection)
 -&gt; Either String (Maybe [Text])
--&gt; Either String VpcEndpointConnection
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; VpcEndpointConnection)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681152067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;networkLoadBalancerArnSet&quot;</span></span><span>
-</span><span id="line-144"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span class="hs-string">&quot;gatewayLoadBalancerArnSet&quot;</span></span><span>
+</span><span id="line-141"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-145"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-142"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -653,9 +624,40 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; VpcEndpointConnection)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; VpcEndpointConnection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; VpcEndpointConnection)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; VpcEndpointConnection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; VpcEndpointConnection)
+-&gt; Either String (Maybe Text)
+-&gt; Either String VpcEndpointConnection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681187250"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcEndpointId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681152058"><span id="local-6989586621681152060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681187241"><span id="local-6989586621681187243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681152055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681187238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcEndpointConnection.html#VpcEndpointConnection"><span class="hs-identifier hs-type">VpcEndpointConnection</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

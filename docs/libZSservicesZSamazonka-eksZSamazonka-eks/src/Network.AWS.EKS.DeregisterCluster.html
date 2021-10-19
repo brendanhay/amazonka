@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeregisterCluster' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679275778"><span id="local-6989586621679275779"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCluster"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-var">DeregisterCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCluster%27"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-var">DeregisterCluster'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679276063"><span id="local-6989586621679276064"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterCluster"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-var">DeregisterCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterCluster%27"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-var">DeregisterCluster'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the connected cluster to deregister.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3ADeregisterCluster%27"><span class="annot"><span class="annottext">DeregisterCluster -&gt; Text
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3Aname%3ADeregisterCluster%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275772"><span id="local-6989586621679275774"><span class="annot"><span class="annottext">DeregisterCluster -&gt; DeregisterCluster -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276057"><span id="local-6989586621679276059"><span class="annot"><span class="annottext">DeregisterCluster -&gt; DeregisterCluster -&gt; Bool
 (DeregisterCluster -&gt; DeregisterCluster -&gt; Bool)
 -&gt; (DeregisterCluster -&gt; DeregisterCluster -&gt; Bool)
 -&gt; Eq DeregisterCluster
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterCluster -&gt; DeregisterCluster -&gt; Bool
 == :: DeregisterCluster -&gt; DeregisterCluster -&gt; Bool
 $c== :: DeregisterCluster -&gt; DeregisterCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275763"><span id="local-6989586621679275765"><span id="local-6989586621679275767"><span id="local-6989586621679275769"><span class="annot"><span class="annottext">ReadPrec [DeregisterCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276048"><span id="local-6989586621679276050"><span id="local-6989586621679276052"><span id="local-6989586621679276054"><span class="annot"><span class="annottext">ReadPrec [DeregisterCluster]
 ReadPrec DeregisterCluster
 Int -&gt; ReadS DeregisterCluster
 ReadS [DeregisterCluster]
@@ -82,7 +82,7 @@ readList :: ReadS [DeregisterCluster]
 $creadList :: ReadS [DeregisterCluster]
 readsPrec :: Int -&gt; ReadS DeregisterCluster
 $creadsPrec :: Int -&gt; ReadS DeregisterCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275756"><span id="local-6989586621679275758"><span id="local-6989586621679275760"><span class="annot"><span class="annottext">Int -&gt; DeregisterCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276041"><span id="local-6989586621679276043"><span id="local-6989586621679276045"><span class="annot"><span class="annottext">Int -&gt; DeregisterCluster -&gt; ShowS
 [DeregisterCluster] -&gt; ShowS
 DeregisterCluster -&gt; String
 (Int -&gt; DeregisterCluster -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. DeregisterCluster -&gt; Rep DeregisterCluster x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span>
 </span><span id="line-70"></span><span id="newDeregisterCluster"><span class="annot"><span class="annottext">newDeregisterCluster :: Text -&gt; DeregisterCluster
-</span><a href="Network.AWS.EKS.DeregisterCluster.html#newDeregisterCluster"><span class="hs-identifier hs-var hs-var">newDeregisterCluster</span></a></span></span><span> </span><span id="local-6989586621679275751"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275751"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DeregisterCluster.html#newDeregisterCluster"><span class="hs-identifier hs-var hs-var">newDeregisterCluster</span></a></span></span><span> </span><span id="local-6989586621679276036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276036"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeregisterCluster' :: Text -&gt; DeregisterCluster
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-type">DeregisterCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeregisterCluster' :: Text
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3Aname%3ADeregisterCluster%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275751"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679276036"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the connected cluster to deregister.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#deregisterCluster_name"><span class="hs-identifier hs-type">deregisterCluster_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. DeregisterCluster -&gt; Rep DeregisterCluster x
 -&gt; (DeregisterCluster -&gt; Text -&gt; DeregisterCluster)
 -&gt; Lens DeregisterCluster DeregisterCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-type">DeregisterCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275748"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-type">DeregisterCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276033"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeregisterCluster' :: DeregisterCluster -&gt; Text
-</span><a href="#local-6989586621679275748"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275748"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275747"><span class="annot"><span class="annottext">s :: DeregisterCluster
-</span><a href="#local-6989586621679275747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-type">DeregisterCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275746"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCluster
-</span><a href="#local-6989586621679275747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeregisterCluster' :: Text
+</span><a href="#local-6989586621679276033"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276033"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276032"><span class="annot"><span class="annottext">s :: DeregisterCluster
+</span><a href="#local-6989586621679276032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-type">DeregisterCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276031"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterCluster
+</span><a href="#local-6989586621679276032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeregisterCluster' :: Text
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3Aname%3ADeregisterCluster%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679275742"><span class="annot"><span class="annottext">request :: DeregisterCluster -&gt; Request DeregisterCluster
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679276027"><span class="annot"><span class="annottext">request :: DeregisterCluster -&gt; Request DeregisterCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeregisterCluster -&gt; Request DeregisterCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679275738"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679276023"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterCluster
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275735"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275735"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275734"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679275734"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275733"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276020"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276020"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276019"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679276019"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276018"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276018"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; DeregisterClusterResponse
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-var">DeregisterClusterResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; DeregisterClusterResponse)
@@ -193,7 +193,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeregisterClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679276018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275735"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276020"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275725"><span id="local-6989586621679275727"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276010"><span id="local-6989586621679276012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275722"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679275718"><span class="annot"><span class="annottext">toHeaders :: DeregisterCluster -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679276003"><span class="annot"><span class="annottext">toHeaders :: DeregisterCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeregisterCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -233,11 +233,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679275712"><span class="annot"><span class="annottext">toPath :: DeregisterCluster -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-type">DeregisterCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275710"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679275997"><span class="annot"><span class="annottext">toPath :: DeregisterCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster%27"><span class="hs-identifier hs-type">DeregisterCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275995"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeregisterCluster' :: DeregisterCluster -&gt; Text
-</span><a href="#local-6989586621679275710"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275995"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -245,10 +245,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/cluster-registrations/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275710"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679275995"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterCluster"><span class="hs-identifier hs-type">DeregisterCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679275706"><span class="annot"><span class="annottext">toQuery :: DeregisterCluster -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679275991"><span class="annot"><span class="annottext">toQuery :: DeregisterCluster -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterCluster -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -256,14 +256,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDeregisterClusterResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679275703"><span id="local-6989586621679275704"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterClusterResponse"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-var">DeregisterClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterClusterResponse%27"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-var">DeregisterClusterResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679275988"><span id="local-6989586621679275989"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterClusterResponse"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-var">DeregisterClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterClusterResponse%27"><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-var">DeregisterClusterResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3ADeregisterClusterResponse%27"><span class="annot"><span class="annottext">DeregisterClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3Acluster%3ADeregisterClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterClusterResponse%27"><span class="annot"><span class="annottext">DeregisterClusterResponse -&gt; Int
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3AhttpStatus%3ADeregisterClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275697"><span id="local-6989586621679275699"><span class="annot"><span class="annottext">DeregisterClusterResponse -&gt; DeregisterClusterResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275982"><span id="local-6989586621679275984"><span class="annot"><span class="annottext">DeregisterClusterResponse -&gt; DeregisterClusterResponse -&gt; Bool
 (DeregisterClusterResponse -&gt; DeregisterClusterResponse -&gt; Bool)
 -&gt; (DeregisterClusterResponse -&gt; DeregisterClusterResponse -&gt; Bool)
 -&gt; Eq DeregisterClusterResponse
@@ -272,7 +272,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeregisterClusterResponse -&gt; DeregisterClusterResponse -&gt; Bool
 == :: DeregisterClusterResponse -&gt; DeregisterClusterResponse -&gt; Bool
 $c== :: DeregisterClusterResponse -&gt; DeregisterClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275689"><span id="local-6989586621679275691"><span id="local-6989586621679275693"><span id="local-6989586621679275695"><span class="annot"><span class="annottext">ReadPrec [DeregisterClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275974"><span id="local-6989586621679275976"><span id="local-6989586621679275978"><span id="local-6989586621679275980"><span class="annot"><span class="annottext">ReadPrec [DeregisterClusterResponse]
 ReadPrec DeregisterClusterResponse
 Int -&gt; ReadS DeregisterClusterResponse
 ReadS [DeregisterClusterResponse]
@@ -292,7 +292,7 @@ readList :: ReadS [DeregisterClusterResponse]
 $creadList :: ReadS [DeregisterClusterResponse]
 readsPrec :: Int -&gt; ReadS DeregisterClusterResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275683"><span id="local-6989586621679275685"><span id="local-6989586621679275687"><span class="annot"><span class="annottext">Int -&gt; DeregisterClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275968"><span id="local-6989586621679275970"><span id="local-6989586621679275972"><span class="annot"><span class="annottext">Int -&gt; DeregisterClusterResponse -&gt; ShowS
 [DeregisterClusterResponse] -&gt; ShowS
 DeregisterClusterResponse -&gt; String
 (Int -&gt; DeregisterClusterResponse -&gt; ShowS)
@@ -340,8 +340,8 @@ DeregisterClusterResponse -&gt; Rep DeregisterClusterResponse x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span><span>
 </span><span id="line-136"></span><span id="newDeregisterClusterResponse"><span class="annot"><span class="annottext">newDeregisterClusterResponse :: Int -&gt; DeregisterClusterResponse
-</span><a href="Network.AWS.EKS.DeregisterCluster.html#newDeregisterClusterResponse"><span class="hs-identifier hs-var hs-var">newDeregisterClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679275680"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DeregisterCluster.html#newDeregisterClusterResponse"><span class="hs-identifier hs-var hs-var">newDeregisterClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679275965"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">DeregisterClusterResponse' :: Maybe Cluster -&gt; Int -&gt; DeregisterClusterResponse
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:DeregisterClusterResponse' :: Maybe Cluster
@@ -351,7 +351,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterClusterResponse' :: Int
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3AhttpStatus%3ADeregisterClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679275965"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -367,16 +367,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275679"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275964"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:DeregisterClusterResponse' :: DeregisterClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679275679"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679275679"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275678"><span class="annot"><span class="annottext">s :: DeregisterClusterResponse
-</span><a href="#local-6989586621679275678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275677"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679275677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterClusterResponse
-</span><a href="#local-6989586621679275678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeregisterClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679275964"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679275964"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275963"><span class="annot"><span class="annottext">s :: DeregisterClusterResponse
+</span><a href="#local-6989586621679275963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275962"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679275962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterClusterResponse
+</span><a href="#local-6989586621679275963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeregisterClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3Acluster%3ADeregisterClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679275677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#deregisterClusterResponse_httpStatus"><span class="hs-identifier hs-type">deregisterClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -386,16 +386,16 @@ $sel:cluster:DeregisterClusterResponse' :: DeregisterClusterResponse -&gt; Maybe
 -&gt; (DeregisterClusterResponse -&gt; Int -&gt; DeregisterClusterResponse)
 -&gt; Lens DeregisterClusterResponse DeregisterClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275676"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275961"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterClusterResponse' :: DeregisterClusterResponse -&gt; Int
-</span><a href="#local-6989586621679275676"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275676"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275675"><span class="annot"><span class="annottext">s :: DeregisterClusterResponse
-</span><a href="#local-6989586621679275675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275674"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterClusterResponse
-</span><a href="#local-6989586621679275675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterClusterResponse' :: Int
+</span><a href="#local-6989586621679275961"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275961"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275960"><span class="annot"><span class="annottext">s :: DeregisterClusterResponse
+</span><a href="#local-6989586621679275960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse%27"><span class="hs-identifier hs-type">DeregisterClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterClusterResponse
+</span><a href="#local-6989586621679275960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterClusterResponse' :: Int
 </span><a href="Network.AWS.EKS.DeregisterCluster.html#%24sel%3AhttpStatus%3ADeregisterClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679275674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DeregisterCluster.html#DeregisterClusterResponse"><span class="hs-identifier hs-type">DeregisterClusterResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

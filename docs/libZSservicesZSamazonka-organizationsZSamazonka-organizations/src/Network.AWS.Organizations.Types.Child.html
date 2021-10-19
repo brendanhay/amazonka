@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains a list of child entities, either OUs or accounts.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newChild' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679235764"><span id="local-6989586621679235765"></span></span><span class="hs-keyword">data</span><span> </span><span id="Child"><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-var">Child</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Child%27"><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-var">Child'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679235883"><span id="local-6989586621679235884"></span></span><span class="hs-keyword">data</span><span> </span><span id="Child"><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-var">Child</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Child%27"><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-var">Child'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) of this child entity.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for a child ID</span><span>
@@ -45,14 +45,14 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Atype%27%3AChild%27"><span class="annot"><span class="annottext">Child -&gt; Maybe ChildType
 </span><a href="Network.AWS.Organizations.Types.Child.html#%24sel%3Atype%27%3AChild%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.ChildType.html#ChildType"><span class="hs-identifier hs-type">ChildType</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235757"><span id="local-6989586621679235759"><span class="annot"><span class="annottext">Child -&gt; Child -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235876"><span id="local-6989586621679235878"><span class="annot"><span class="annottext">Child -&gt; Child -&gt; Bool
 (Child -&gt; Child -&gt; Bool) -&gt; (Child -&gt; Child -&gt; Bool) -&gt; Eq Child
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Child -&gt; Child -&gt; Bool
 $c/= :: Child -&gt; Child -&gt; Bool
 == :: Child -&gt; Child -&gt; Bool
 $c== :: Child -&gt; Child -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235748"><span id="local-6989586621679235750"><span id="local-6989586621679235752"><span id="local-6989586621679235754"><span class="annot"><span class="annottext">ReadPrec [Child]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235867"><span id="local-6989586621679235869"><span id="local-6989586621679235871"><span id="local-6989586621679235873"><span class="annot"><span class="annottext">ReadPrec [Child]
 ReadPrec Child
 Int -&gt; ReadS Child
 ReadS [Child]
@@ -72,7 +72,7 @@ readList :: ReadS [Child]
 $creadList :: ReadS [Child]
 readsPrec :: Int -&gt; ReadS Child
 $creadsPrec :: Int -&gt; ReadS Child
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235741"><span id="local-6989586621679235743"><span id="local-6989586621679235745"><span class="annot"><span class="annottext">Int -&gt; Child -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235860"><span id="local-6989586621679235862"><span id="local-6989586621679235864"><span class="annot"><span class="annottext">Int -&gt; Child -&gt; ShowS
 [Child] -&gt; ShowS
 Child -&gt; String
 (Int -&gt; Child -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
 -&gt; (Child -&gt; Maybe Text -&gt; Child)
 -&gt; Lens Child Child (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235732"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235851"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Child' :: Child -&gt; Maybe Text
-</span><a href="#local-6989586621679235732"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235732"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235731"><span class="annot"><span class="annottext">s :: Child
-</span><a href="#local-6989586621679235731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Child
-</span><a href="#local-6989586621679235731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Child' :: Maybe Text
+</span><a href="#local-6989586621679235851"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235851"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235850"><span class="annot"><span class="annottext">s :: Child
+</span><a href="#local-6989586621679235850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235849"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Child
+</span><a href="#local-6989586621679235850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Child' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.Child.html#%24sel%3Aid%3AChild%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679235730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679235849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The type of this child entity.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#child_type"><span class="hs-identifier hs-type">child_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.ChildType.html#ChildType"><span class="hs-identifier hs-type">ChildType</span></a></span><span class="hs-special">)</span><span>
@@ -167,47 +167,47 @@ $sel:id:Child' :: Child -&gt; Maybe Text
 -&gt; (Child -&gt; Maybe ChildType -&gt; Child)
 -&gt; Lens Child Child (Maybe ChildType) (Maybe ChildType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235728"><span class="annot"><span class="annottext">Maybe ChildType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235847"><span class="annot"><span class="annottext">Maybe ChildType
 type' :: Maybe ChildType
 $sel:type':Child' :: Child -&gt; Maybe ChildType
-</span><a href="#local-6989586621679235728"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChildType
-</span><a href="#local-6989586621679235728"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235727"><span class="annot"><span class="annottext">s :: Child
-</span><a href="#local-6989586621679235727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235726"><span class="annot"><span class="annottext">Maybe ChildType
-</span><a href="#local-6989586621679235726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Child
-</span><a href="#local-6989586621679235727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Child' :: Maybe ChildType
+</span><a href="#local-6989586621679235847"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChildType
+</span><a href="#local-6989586621679235847"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235846"><span class="annot"><span class="annottext">s :: Child
+</span><a href="#local-6989586621679235846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-type">Child'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235845"><span class="annot"><span class="annottext">Maybe ChildType
+</span><a href="#local-6989586621679235845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Child
+</span><a href="#local-6989586621679235846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Child' :: Maybe ChildType
 </span><a href="Network.AWS.Organizations.Types.Child.html#%24sel%3Atype%27%3AChild%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChildType
-</span><a href="#local-6989586621679235726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679235845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235723"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679235721"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Child
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235842"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679235840"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Child
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Child) -&gt; Value -&gt; Parser Child
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Child&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235718"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235837"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235837"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ChildType -&gt; Child
 </span><a href="Network.AWS.Organizations.Types.Child.html#Child%27"><span class="hs-identifier hs-var">Child'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ChildType -&gt; Child)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe ChildType -&gt; Child)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679235837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe ChildType -&gt; Child)
 -&gt; Parser (Maybe ChildType) -&gt; Parser Child
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679235718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChildType)
+</span><a href="#local-6989586621679235837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChildType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235712"><span id="local-6989586621679235714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235831"><span id="local-6989586621679235833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Child.html#Child"><span class="hs-identifier hs-type">Child</span></a></span></span><span>
 </span><span id="line-107"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides the details of the @StartTimerFailed@ event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStartTimerFailedEventAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679350969"><span id="local-6989586621679350970"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTimerFailedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-var">StartTimerFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTimerFailedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">StartTimerFailedEventAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679351046"><span id="local-6989586621679351047"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartTimerFailedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-var">StartTimerFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartTimerFailedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">StartTimerFailedEventAttributes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timerId provided in the @StartTimer@ decision that failed.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtimerId%3AStartTimerFailedEventAttributes%27"><span class="annot"><span class="annottext">StartTimerFailedEventAttributes -&gt; Text
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3AtimerId%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">timerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AdecisionTaskCompletedEventId%3AStartTimerFailedEventAttributes%27"><span class="annot"><span class="annottext">StartTimerFailedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350961"><span id="local-6989586621679350963"><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351038"><span id="local-6989586621679351040"><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
 -&gt; StartTimerFailedEventAttributes -&gt; Bool
 (StartTimerFailedEventAttributes
  -&gt; StartTimerFailedEventAttributes -&gt; Bool)
@@ -64,7 +64,7 @@ $c/= :: StartTimerFailedEventAttributes
 -&gt; StartTimerFailedEventAttributes -&gt; Bool
 $c== :: StartTimerFailedEventAttributes
 -&gt; StartTimerFailedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350952"><span id="local-6989586621679350954"><span id="local-6989586621679350956"><span id="local-6989586621679350958"><span class="annot"><span class="annottext">ReadPrec [StartTimerFailedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351029"><span id="local-6989586621679351031"><span id="local-6989586621679351033"><span id="local-6989586621679351035"><span class="annot"><span class="annottext">ReadPrec [StartTimerFailedEventAttributes]
 ReadPrec StartTimerFailedEventAttributes
 Int -&gt; ReadS StartTimerFailedEventAttributes
 ReadS [StartTimerFailedEventAttributes]
@@ -84,7 +84,7 @@ readList :: ReadS [StartTimerFailedEventAttributes]
 $creadList :: ReadS [StartTimerFailedEventAttributes]
 readsPrec :: Int -&gt; ReadS StartTimerFailedEventAttributes
 $creadsPrec :: Int -&gt; ReadS StartTimerFailedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350945"><span id="local-6989586621679350947"><span id="local-6989586621679350949"><span class="annot"><span class="annottext">Int -&gt; StartTimerFailedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351022"><span id="local-6989586621679351024"><span id="local-6989586621679351026"><span class="annot"><span class="annottext">Int -&gt; StartTimerFailedEventAttributes -&gt; ShowS
 [StartTimerFailedEventAttributes] -&gt; ShowS
 StartTimerFailedEventAttributes -&gt; String
 (Int -&gt; StartTimerFailedEventAttributes -&gt; ShowS)
@@ -158,12 +158,12 @@ StartTimerFailedEventAttributes
 -&gt; Integer
 -&gt; StartTimerFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#newStartTimerFailedEventAttributes"><span class="hs-identifier hs-var hs-var">newStartTimerFailedEventAttributes</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679350939"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350939"><span class="hs-identifier hs-var">pTimerId_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679350938"><span class="annot"><span class="annottext">StartTimerFailedCause
-</span><a href="#local-6989586621679350938"><span class="hs-identifier hs-var">pCause_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679350937"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350937"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679351016"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351016"><span class="hs-identifier hs-var">pTimerId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679351015"><span class="annot"><span class="annottext">StartTimerFailedCause
+</span><a href="#local-6989586621679351015"><span class="hs-identifier hs-var">pCause_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679351014"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679351014"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">StartTimerFailedEventAttributes' :: Text
 -&gt; StartTimerFailedCause
 -&gt; Integer
@@ -172,14 +172,14 @@ StartTimerFailedEventAttributes
 </span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timerId:StartTimerFailedEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3AtimerId%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">timerId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350939"><span class="hs-identifier hs-var">pTimerId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679351016"><span class="hs-identifier hs-var">pTimerId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:cause:StartTimerFailedEventAttributes' :: StartTimerFailedCause
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3Acause%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedCause
-</span><a href="#local-6989586621679350938"><span class="hs-identifier hs-var">pCause_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679351015"><span class="hs-identifier hs-var">pCause_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:StartTimerFailedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350937"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679351014"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The timerId provided in the @StartTimer@ decision that failed.</span><span>
@@ -196,16 +196,16 @@ StartTimerFailedEventAttributes
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350933"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351010"><span class="annot"><span class="annottext">Text
 timerId :: Text
 $sel:timerId:StartTimerFailedEventAttributes' :: StartTimerFailedEventAttributes -&gt; Text
-</span><a href="#local-6989586621679350933"><span class="hs-identifier hs-var hs-var">timerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350933"><span class="hs-identifier hs-var">timerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350932"><span class="annot"><span class="annottext">s :: StartTimerFailedEventAttributes
-</span><a href="#local-6989586621679350932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350931"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
-</span><a href="#local-6989586621679350932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timerId:StartTimerFailedEventAttributes' :: Text
+</span><a href="#local-6989586621679351010"><span class="hs-identifier hs-var hs-var">timerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351010"><span class="hs-identifier hs-var">timerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351009"><span class="annot"><span class="annottext">s :: StartTimerFailedEventAttributes
+</span><a href="#local-6989586621679351009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
+</span><a href="#local-6989586621679351009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timerId:StartTimerFailedEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3AtimerId%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">timerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The cause of the failure. This information is generated by the system</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- and can be useful for diagnostic purposes.</span><span>
@@ -228,16 +228,16 @@ $sel:timerId:StartTimerFailedEventAttributes' :: StartTimerFailedEventAttributes
      StartTimerFailedCause
      StartTimerFailedCause
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350929"><span class="annot"><span class="annottext">StartTimerFailedCause
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351006"><span class="annot"><span class="annottext">StartTimerFailedCause
 cause :: StartTimerFailedCause
 $sel:cause:StartTimerFailedEventAttributes' :: StartTimerFailedEventAttributes -&gt; StartTimerFailedCause
-</span><a href="#local-6989586621679350929"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedCause
-</span><a href="#local-6989586621679350929"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350928"><span class="annot"><span class="annottext">s :: StartTimerFailedEventAttributes
-</span><a href="#local-6989586621679350928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350927"><span class="annot"><span class="annottext">StartTimerFailedCause
-</span><a href="#local-6989586621679350927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
-</span><a href="#local-6989586621679350928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:StartTimerFailedEventAttributes' :: StartTimerFailedCause
+</span><a href="#local-6989586621679351006"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedCause
+</span><a href="#local-6989586621679351006"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351005"><span class="annot"><span class="annottext">s :: StartTimerFailedEventAttributes
+</span><a href="#local-6989586621679351005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351004"><span class="annot"><span class="annottext">StartTimerFailedCause
+</span><a href="#local-6989586621679351004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
+</span><a href="#local-6989586621679351005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:StartTimerFailedEventAttributes' :: StartTimerFailedCause
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3Acause%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedCause
-</span><a href="#local-6989586621679350927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- decision task that resulted in the @StartTimer@ decision for this</span><span>
@@ -256,22 +256,22 @@ $sel:cause:StartTimerFailedEventAttributes' :: StartTimerFailedEventAttributes -
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350925"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351002"><span class="annot"><span class="annottext">Integer
 decisionTaskCompletedEventId :: Integer
 $sel:decisionTaskCompletedEventId:StartTimerFailedEventAttributes' :: StartTimerFailedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679350925"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350925"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350924"><span class="annot"><span class="annottext">s :: StartTimerFailedEventAttributes
-</span><a href="#local-6989586621679350924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350923"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
-</span><a href="#local-6989586621679350924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:StartTimerFailedEventAttributes' :: Integer
+</span><a href="#local-6989586621679351002"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679351002"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351001"><span class="annot"><span class="annottext">s :: StartTimerFailedEventAttributes
+</span><a href="#local-6989586621679351001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes%27"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351000"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679351000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartTimerFailedEventAttributes
+</span><a href="#local-6989586621679351001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:StartTimerFailedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3AStartTimerFailedEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679351000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679350920"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679350997"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679350918"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartTimerFailedEventAttributes
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679350995"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartTimerFailedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StartTimerFailedEventAttributes)
@@ -281,8 +281,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StartTimerFailedEventAttributes&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350915"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350915"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350992"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; StartTimerFailedCause
 -&gt; Integer
@@ -298,7 +298,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Integer -&gt; StartTimerFailedEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679350992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -309,7 +309,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Integer -&gt; StartTimerFailedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StartTimerFailedCause
+</span><a href="#local-6989586621679350992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StartTimerFailedCause
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cause&quot;</span></span><span class="hs-special">)</span><span>
@@ -317,17 +317,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser StartTimerFailedEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679350992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;decisionTaskCompletedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679350909"><span id="local-6989586621679350911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679350986"><span id="local-6989586621679350988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679350906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679350983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartTimerFailedEventAttributes.html#StartTimerFailedEventAttributes"><span class="hs-identifier hs-type">StartTimerFailedEventAttributes</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

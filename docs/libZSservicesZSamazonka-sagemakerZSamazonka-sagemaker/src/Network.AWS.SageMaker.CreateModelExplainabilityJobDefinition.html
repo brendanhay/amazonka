@@ -27,10 +27,10 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#newCreateModelExplainabilityJobDefinition"><span class="hs-identifier">newCreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_networkConfig"><span class="hs-identifier">createModelExplainabilityJobDefinition_networkConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="hs-identifier">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_tags"><span class="hs-identifier">createModelExplainabilityJobDefinition_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_stoppingCondition"><span class="hs-identifier">createModelExplainabilityJobDefinition_stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_stoppingCondition"><span class="hs-identifier">createModelExplainabilityJobDefinition_stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_networkConfig"><span class="hs-identifier">createModelExplainabilityJobDefinition_networkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="hs-identifier">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_tags"><span class="hs-identifier">createModelExplainabilityJobDefinition_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_jobDefinitionName"><span class="hs-identifier">createModelExplainabilityJobDefinition_jobDefinitionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityAppSpecification"><span class="hs-identifier">createModelExplainabilityJobDefinition_modelExplainabilityAppSpecification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityJobInput"><span class="hs-identifier">createModelExplainabilityJobDefinition_modelExplainabilityJobInput</span></a></span><span class="hs-special">,</span><span>
@@ -56,23 +56,23 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateModelExplainabilityJobDefinition' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621680415795"><span id="local-6989586621680415796"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelExplainabilityJobDefinition"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelExplainabilityJobDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinition'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Networking options for a model explainability job.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
--&gt; Maybe MonitoringNetworkConfig
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The baseline configuration for a model explainability job.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmodelExplainabilityBaselineConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
--&gt; Maybe ModelExplainabilityBaselineConfig
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityBaselineConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">modelExplainabilityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelExplainabilityBaselineConfig.html#ModelExplainabilityBaselineConfig"><span class="hs-identifier hs-type">ModelExplainabilityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3Atags%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3Atags%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AstoppingCondition%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><span id="line-59"></span><span id="local-6989586621680417438"><span id="local-6989586621680417439"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelExplainabilityJobDefinition"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelExplainabilityJobDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinition'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AstoppingCondition%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
 -&gt; Maybe MonitoringStoppingCondition
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Networking options for a model explainability job.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+-&gt; Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The baseline configuration for a model explainability job.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmodelExplainabilityBaselineConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+-&gt; Maybe ModelExplainabilityBaselineConfig
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityBaselineConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">modelExplainabilityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelExplainabilityBaselineConfig.html#ModelExplainabilityBaselineConfig"><span class="hs-identifier hs-type">ModelExplainabilityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3Atags%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the model explainability job definition. The name must be</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- unique within an Amazon Web Services Region in the Amazon Web Services</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- account.</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateModelExplainabilityJobDefinition%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AroleArn%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680415780"><span id="local-6989586621680415782"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417423"><span id="local-6989586621680417425"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
 -&gt; CreateModelExplainabilityJobDefinition -&gt; Bool
 (CreateModelExplainabilityJobDefinition
  -&gt; CreateModelExplainabilityJobDefinition -&gt; Bool)
@@ -112,7 +112,7 @@ $c/= :: CreateModelExplainabilityJobDefinition
 -&gt; CreateModelExplainabilityJobDefinition -&gt; Bool
 $c== :: CreateModelExplainabilityJobDefinition
 -&gt; CreateModelExplainabilityJobDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415771"><span id="local-6989586621680415773"><span id="local-6989586621680415775"><span id="local-6989586621680415777"><span class="annot"><span class="annottext">ReadPrec [CreateModelExplainabilityJobDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417414"><span id="local-6989586621680417416"><span id="local-6989586621680417418"><span id="local-6989586621680417420"><span class="annot"><span class="annottext">ReadPrec [CreateModelExplainabilityJobDefinition]
 ReadPrec CreateModelExplainabilityJobDefinition
 Int -&gt; ReadS CreateModelExplainabilityJobDefinition
 ReadS [CreateModelExplainabilityJobDefinition]
@@ -132,7 +132,7 @@ readList :: ReadS [CreateModelExplainabilityJobDefinition]
 $creadList :: ReadS [CreateModelExplainabilityJobDefinition]
 readsPrec :: Int -&gt; ReadS CreateModelExplainabilityJobDefinition
 $creadsPrec :: Int -&gt; ReadS CreateModelExplainabilityJobDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415764"><span id="local-6989586621680415766"><span id="local-6989586621680415768"><span class="annot"><span class="annottext">Int -&gt; CreateModelExplainabilityJobDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417407"><span id="local-6989586621680417409"><span id="local-6989586621680417411"><span class="annot"><span class="annottext">Int -&gt; CreateModelExplainabilityJobDefinition -&gt; ShowS
 [CreateModelExplainabilityJobDefinition] -&gt; ShowS
 CreateModelExplainabilityJobDefinition -&gt; String
 (Int -&gt; CreateModelExplainabilityJobDefinition -&gt; ShowS)
@@ -178,15 +178,15 @@ CreateModelExplainabilityJobDefinition
 </span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'networkConfig', 'createModelExplainabilityJobDefinition_networkConfig' - Networking options for a model explainability job.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'stoppingCondition', 'createModelExplainabilityJobDefinition_stoppingCondition' - Undocumented member.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'modelExplainabilityBaselineConfig', 'createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig' - The baseline configuration for a model explainability job.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'networkConfig', 'createModelExplainabilityJobDefinition_networkConfig' - Networking options for a model explainability job.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'tags', 'createModelExplainabilityJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'stoppingCondition', 'createModelExplainabilityJobDefinition_stoppingCondition' - Undocumented member.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'modelExplainabilityBaselineConfig', 'createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig' - The baseline configuration for a model explainability job.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'tags', 'createModelExplainabilityJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- 'jobDefinitionName', 'createModelExplainabilityJobDefinition_jobDefinitionName' - The name of the model explainability job definition. The name must be</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- unique within an Amazon Web Services Region in the Amazon Web Services</span><span>
@@ -225,22 +225,22 @@ CreateModelExplainabilityJobDefinition
 -&gt; Text
 -&gt; CreateModelExplainabilityJobDefinition
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#newCreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-var hs-var">newCreateModelExplainabilityJobDefinition</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621680415759"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415759"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621680415758"><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
-</span><a href="#local-6989586621680415758"><span class="hs-identifier hs-var">pModelExplainabilityAppSpecification_</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621680415757"><span class="annot"><span class="annottext">ModelExplainabilityJobInput
-</span><a href="#local-6989586621680415757"><span class="hs-identifier hs-var">pModelExplainabilityJobInput_</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621680415756"><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680415756"><span class="hs-identifier hs-var">pModelExplainabilityJobOutputConfig_</span></a></span></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621680415755"><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680415755"><span class="hs-identifier hs-var">pJobResources_</span></a></span></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621680415754"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415754"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition' :: Maybe MonitoringNetworkConfig
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621680417402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417402"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621680417401"><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
+</span><a href="#local-6989586621680417401"><span class="hs-identifier hs-var">pModelExplainabilityAppSpecification_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621680417400"><span class="annot"><span class="annottext">ModelExplainabilityJobInput
+</span><a href="#local-6989586621680417400"><span class="hs-identifier hs-var">pModelExplainabilityJobInput_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621680417399"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680417399"><span class="hs-identifier hs-var">pModelExplainabilityJobOutputConfig_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621680417398"><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680417398"><span class="hs-identifier hs-var">pJobResources_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621680417397"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417397"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition' :: Maybe MonitoringStoppingCondition
+-&gt; Maybe MonitoringNetworkConfig
 -&gt; Maybe ModelExplainabilityBaselineConfig
 -&gt; Maybe [Tag]
--&gt; Maybe MonitoringStoppingCondition
 -&gt; Text
 -&gt; ModelExplainabilityAppSpecification
 -&gt; ModelExplainabilityJobInput
@@ -249,152 +249,51 @@ CreateModelExplainabilityJobDefinition
 -&gt; Text
 -&gt; CreateModelExplainabilityJobDefinition
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringNetworkConfig
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringStoppingCondition
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelExplainabilityBaselineConfig:CreateModelExplainabilityJobDefinition' :: Maybe ModelExplainabilityBaselineConfig
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelExplainabilityBaselineConfig:CreateModelExplainabilityJobDefinition' :: Maybe ModelExplainabilityBaselineConfig
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityBaselineConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateModelExplainabilityJobDefinition' :: Maybe [Tag]
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateModelExplainabilityJobDefinition' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3Atags%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringStoppingCondition
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateModelExplainabilityJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AjobDefinitionName%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415759"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417402"><span class="hs-identifier hs-var">pJobDefinitionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelExplainabilityAppSpecification:CreateModelExplainabilityJobDefinition' :: ModelExplainabilityAppSpecification
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityAppSpecification%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityAppSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
-</span><a href="#local-6989586621680415758"><span class="hs-identifier hs-var">pModelExplainabilityAppSpecification_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417401"><span class="hs-identifier hs-var">pModelExplainabilityAppSpecification_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelExplainabilityJobInput:CreateModelExplainabilityJobDefinition' :: ModelExplainabilityJobInput
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityJobInput%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityJobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ModelExplainabilityJobInput
-</span><a href="#local-6989586621680415757"><span class="hs-identifier hs-var">pModelExplainabilityJobInput_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417400"><span class="hs-identifier hs-var">pModelExplainabilityJobInput_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelExplainabilityJobOutputConfig:CreateModelExplainabilityJobDefinition' :: MonitoringOutputConfig
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityJobOutputConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680415756"><span class="hs-identifier hs-var">pModelExplainabilityJobOutputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417399"><span class="hs-identifier hs-var">pModelExplainabilityJobOutputConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobResources:CreateModelExplainabilityJobDefinition' :: MonitoringResources
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AjobResources%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">jobResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680415755"><span class="hs-identifier hs-var">pJobResources_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417398"><span class="hs-identifier hs-var">pJobResources_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateModelExplainabilityJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AroleArn%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415754"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621680417397"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | Networking options for a model explainability job.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_networkConfig"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_networkConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="createModelExplainabilityJobDefinition_networkConfig"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_networkConfig :: (Maybe MonitoringNetworkConfig
- -&gt; f (Maybe MonitoringNetworkConfig))
--&gt; CreateModelExplainabilityJobDefinition
--&gt; f CreateModelExplainabilityJobDefinition
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_networkConfig"><span class="hs-identifier hs-var hs-var">createModelExplainabilityJobDefinition_networkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelExplainabilityJobDefinition
- -&gt; Maybe MonitoringNetworkConfig)
--&gt; (CreateModelExplainabilityJobDefinition
-    -&gt; Maybe MonitoringNetworkConfig
-    -&gt; CreateModelExplainabilityJobDefinition)
--&gt; Lens
-     CreateModelExplainabilityJobDefinition
-     CreateModelExplainabilityJobDefinition
-     (Maybe MonitoringNetworkConfig)
-     (Maybe MonitoringNetworkConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415751"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-networkConfig :: Maybe MonitoringNetworkConfig
-$sel:networkConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
--&gt; Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415751"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415751"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415750"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415749"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringNetworkConfig
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | The baseline configuration for a model explainability job.</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelExplainabilityBaselineConfig.html#ModelExplainabilityBaselineConfig"><span class="hs-identifier hs-type">ModelExplainabilityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig :: (Maybe ModelExplainabilityBaselineConfig
- -&gt; f (Maybe ModelExplainabilityBaselineConfig))
--&gt; CreateModelExplainabilityJobDefinition
--&gt; f CreateModelExplainabilityJobDefinition
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="hs-identifier hs-var hs-var">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelExplainabilityJobDefinition
- -&gt; Maybe ModelExplainabilityBaselineConfig)
--&gt; (CreateModelExplainabilityJobDefinition
-    -&gt; Maybe ModelExplainabilityBaselineConfig
-    -&gt; CreateModelExplainabilityJobDefinition)
--&gt; Lens
-     CreateModelExplainabilityJobDefinition
-     CreateModelExplainabilityJobDefinition
-     (Maybe ModelExplainabilityBaselineConfig)
-     (Maybe ModelExplainabilityBaselineConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415748"><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
-modelExplainabilityBaselineConfig :: Maybe ModelExplainabilityBaselineConfig
-$sel:modelExplainabilityBaselineConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
--&gt; Maybe ModelExplainabilityBaselineConfig
-</span><a href="#local-6989586621680415748"><span class="hs-identifier hs-var hs-var">modelExplainabilityBaselineConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
-</span><a href="#local-6989586621680415748"><span class="hs-identifier hs-var">modelExplainabilityBaselineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415747"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415746"><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
-</span><a href="#local-6989586621680415746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityBaselineConfig:CreateModelExplainabilityJobDefinition' :: Maybe ModelExplainabilityBaselineConfig
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityBaselineConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
-</span><a href="#local-6989586621680415746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_tags"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="createModelExplainabilityJobDefinition_tags"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; CreateModelExplainabilityJobDefinition
--&gt; f CreateModelExplainabilityJobDefinition
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_tags"><span class="hs-identifier hs-var hs-var">createModelExplainabilityJobDefinition_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelExplainabilityJobDefinition -&gt; Maybe [Tag])
--&gt; (CreateModelExplainabilityJobDefinition
-    -&gt; Maybe [Tag] -&gt; CreateModelExplainabilityJobDefinition)
--&gt; Lens
-     CreateModelExplainabilityJobDefinition
-     CreateModelExplainabilityJobDefinition
-     (Maybe [Tag])
-     (Maybe [Tag])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415745"><span class="annot"><span class="annottext">Maybe [Tag]
-tags :: Maybe [Tag]
-$sel:tags:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680415745"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680415745"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415744"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415743"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680415743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateModelExplainabilityJobDefinition' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3Atags%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680415743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
- -&gt; CreateModelExplainabilityJobDefinition
- -&gt; f CreateModelExplainabilityJobDefinition)
--&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
-    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; CreateModelExplainabilityJobDefinition
--&gt; f CreateModelExplainabilityJobDefinition
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
--&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_stoppingCondition"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_stoppingCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span id="createModelExplainabilityJobDefinition_stoppingCondition"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_stoppingCondition :: (Maybe MonitoringStoppingCondition
+</span><span id="line-159"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_stoppingCondition"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_stoppingCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStoppingCondition.html#MonitoringStoppingCondition"><span class="hs-identifier hs-type">MonitoringStoppingCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="createModelExplainabilityJobDefinition_stoppingCondition"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_stoppingCondition :: (Maybe MonitoringStoppingCondition
  -&gt; f (Maybe MonitoringStoppingCondition))
 -&gt; CreateModelExplainabilityJobDefinition
 -&gt; f CreateModelExplainabilityJobDefinition
@@ -409,17 +308,118 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe MonitoringStoppingCondition)
      (Maybe MonitoringStoppingCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415739"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417394"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
 stoppingCondition :: Maybe MonitoringStoppingCondition
 $sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
 -&gt; Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680415739"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680415739"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415738"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415737"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680415737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417394"><span class="hs-identifier hs-var hs-var">stoppingCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417394"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417393"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417392"><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringStoppingCondition
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AstoppingCondition%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680415737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Networking options for a model explainability job.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_networkConfig"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_networkConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringNetworkConfig.html#MonitoringNetworkConfig"><span class="hs-identifier hs-type">MonitoringNetworkConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="createModelExplainabilityJobDefinition_networkConfig"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_networkConfig :: (Maybe MonitoringNetworkConfig
+ -&gt; f (Maybe MonitoringNetworkConfig))
+-&gt; CreateModelExplainabilityJobDefinition
+-&gt; f CreateModelExplainabilityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_networkConfig"><span class="hs-identifier hs-var hs-var">createModelExplainabilityJobDefinition_networkConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelExplainabilityJobDefinition
+ -&gt; Maybe MonitoringNetworkConfig)
+-&gt; (CreateModelExplainabilityJobDefinition
+    -&gt; Maybe MonitoringNetworkConfig
+    -&gt; CreateModelExplainabilityJobDefinition)
+-&gt; Lens
+     CreateModelExplainabilityJobDefinition
+     CreateModelExplainabilityJobDefinition
+     (Maybe MonitoringNetworkConfig)
+     (Maybe MonitoringNetworkConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417391"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+networkConfig :: Maybe MonitoringNetworkConfig
+$sel:networkConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
+-&gt; Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417391"><span class="hs-identifier hs-var hs-var">networkConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417391"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417390"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417389"><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkConfig:CreateModelExplainabilityJobDefinition' :: Maybe MonitoringNetworkConfig
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AnetworkConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">networkConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
+</span><a href="#local-6989586621680417389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The baseline configuration for a model explainability job.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelExplainabilityBaselineConfig.html#ModelExplainabilityBaselineConfig"><span class="hs-identifier hs-type">ModelExplainabilityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig :: (Maybe ModelExplainabilityBaselineConfig
+ -&gt; f (Maybe ModelExplainabilityBaselineConfig))
+-&gt; CreateModelExplainabilityJobDefinition
+-&gt; f CreateModelExplainabilityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig"><span class="hs-identifier hs-var hs-var">createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelExplainabilityJobDefinition
+ -&gt; Maybe ModelExplainabilityBaselineConfig)
+-&gt; (CreateModelExplainabilityJobDefinition
+    -&gt; Maybe ModelExplainabilityBaselineConfig
+    -&gt; CreateModelExplainabilityJobDefinition)
+-&gt; Lens
+     CreateModelExplainabilityJobDefinition
+     CreateModelExplainabilityJobDefinition
+     (Maybe ModelExplainabilityBaselineConfig)
+     (Maybe ModelExplainabilityBaselineConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417388"><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
+modelExplainabilityBaselineConfig :: Maybe ModelExplainabilityBaselineConfig
+$sel:modelExplainabilityBaselineConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
+-&gt; Maybe ModelExplainabilityBaselineConfig
+</span><a href="#local-6989586621680417388"><span class="hs-identifier hs-var hs-var">modelExplainabilityBaselineConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
+</span><a href="#local-6989586621680417388"><span class="hs-identifier hs-var">modelExplainabilityBaselineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417387"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417386"><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
+</span><a href="#local-6989586621680417386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityBaselineConfig:CreateModelExplainabilityJobDefinition' :: Maybe ModelExplainabilityBaselineConfig
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityBaselineConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityBaselineConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
+</span><a href="#local-6989586621680417386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | (Optional) An array of key-value pairs. For more information, see</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_tags"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createModelExplainabilityJobDefinition_tags"><span class="annot"><span class="annottext">createModelExplainabilityJobDefinition_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateModelExplainabilityJobDefinition
+-&gt; f CreateModelExplainabilityJobDefinition
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_tags"><span class="hs-identifier hs-var hs-var">createModelExplainabilityJobDefinition_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateModelExplainabilityJobDefinition -&gt; Maybe [Tag])
+-&gt; (CreateModelExplainabilityJobDefinition
+    -&gt; Maybe [Tag] -&gt; CreateModelExplainabilityJobDefinition)
+-&gt; Lens
+     CreateModelExplainabilityJobDefinition
+     CreateModelExplainabilityJobDefinition
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417385"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680417385"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680417385"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417384"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417383"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680417383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateModelExplainabilityJobDefinition' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3Atags%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680417383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateModelExplainabilityJobDefinition
+ -&gt; f CreateModelExplainabilityJobDefinition)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateModelExplainabilityJobDefinition
+-&gt; f CreateModelExplainabilityJobDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The name of the model explainability job definition. The name must be</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- unique within an Amazon Web Services Region in the Amazon Web Services</span><span>
@@ -437,16 +437,16 @@ $sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: CreateModelExp
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415736"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417379"><span class="annot"><span class="annottext">Text
 jobDefinitionName :: Text
 $sel:jobDefinitionName:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; Text
-</span><a href="#local-6989586621680415736"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415736"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415735"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415734"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateModelExplainabilityJobDefinition' :: Text
+</span><a href="#local-6989586621680417379"><span class="hs-identifier hs-var hs-var">jobDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417379"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417378"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionName:CreateModelExplainabilityJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AjobDefinitionName%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | Configures the model explainability job to run a specified Docker</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- container image.</span><span>
@@ -466,17 +466,17 @@ $sel:jobDefinitionName:CreateModelExplainabilityJobDefinition' :: CreateModelExp
      ModelExplainabilityAppSpecification
      ModelExplainabilityAppSpecification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415733"><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417376"><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
 modelExplainabilityAppSpecification :: ModelExplainabilityAppSpecification
 $sel:modelExplainabilityAppSpecification:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
 -&gt; ModelExplainabilityAppSpecification
-</span><a href="#local-6989586621680415733"><span class="hs-identifier hs-var hs-var">modelExplainabilityAppSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
-</span><a href="#local-6989586621680415733"><span class="hs-identifier hs-var">modelExplainabilityAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415732"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415731"><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
-</span><a href="#local-6989586621680415731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityAppSpecification:CreateModelExplainabilityJobDefinition' :: ModelExplainabilityAppSpecification
+</span><a href="#local-6989586621680417376"><span class="hs-identifier hs-var hs-var">modelExplainabilityAppSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
+</span><a href="#local-6989586621680417376"><span class="hs-identifier hs-var">modelExplainabilityAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417375"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417374"><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
+</span><a href="#local-6989586621680417374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityAppSpecification:CreateModelExplainabilityJobDefinition' :: ModelExplainabilityAppSpecification
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityAppSpecification%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityAppSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
-</span><a href="#local-6989586621680415731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Inputs for the model explainability job.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityJobInput"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_modelExplainabilityJobInput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelExplainabilityJobInput.html#ModelExplainabilityJobInput"><span class="hs-identifier hs-type">ModelExplainabilityJobInput</span></a></span><span>
@@ -494,17 +494,17 @@ $sel:modelExplainabilityAppSpecification:CreateModelExplainabilityJobDefinition'
      ModelExplainabilityJobInput
      ModelExplainabilityJobInput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415730"><span class="annot"><span class="annottext">ModelExplainabilityJobInput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417373"><span class="annot"><span class="annottext">ModelExplainabilityJobInput
 modelExplainabilityJobInput :: ModelExplainabilityJobInput
 $sel:modelExplainabilityJobInput:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
 -&gt; ModelExplainabilityJobInput
-</span><a href="#local-6989586621680415730"><span class="hs-identifier hs-var hs-var">modelExplainabilityJobInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityJobInput
-</span><a href="#local-6989586621680415730"><span class="hs-identifier hs-var">modelExplainabilityJobInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415729"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415728"><span class="annot"><span class="annottext">ModelExplainabilityJobInput
-</span><a href="#local-6989586621680415728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityJobInput:CreateModelExplainabilityJobDefinition' :: ModelExplainabilityJobInput
+</span><a href="#local-6989586621680417373"><span class="hs-identifier hs-var hs-var">modelExplainabilityJobInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityJobInput
+</span><a href="#local-6989586621680417373"><span class="hs-identifier hs-var">modelExplainabilityJobInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417372"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417371"><span class="annot"><span class="annottext">ModelExplainabilityJobInput
+</span><a href="#local-6989586621680417371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityJobInput:CreateModelExplainabilityJobDefinition' :: ModelExplainabilityJobInput
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityJobInput%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityJobInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityJobInput
-</span><a href="#local-6989586621680415728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_modelExplainabilityJobOutputConfig"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_modelExplainabilityJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringOutputConfig.html#MonitoringOutputConfig"><span class="hs-identifier hs-type">MonitoringOutputConfig</span></a></span><span>
@@ -521,16 +521,16 @@ $sel:modelExplainabilityJobInput:CreateModelExplainabilityJobDefinition' :: Crea
      MonitoringOutputConfig
      MonitoringOutputConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415727"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417370"><span class="annot"><span class="annottext">MonitoringOutputConfig
 modelExplainabilityJobOutputConfig :: MonitoringOutputConfig
 $sel:modelExplainabilityJobOutputConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; MonitoringOutputConfig
-</span><a href="#local-6989586621680415727"><span class="hs-identifier hs-var hs-var">modelExplainabilityJobOutputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680415727"><span class="hs-identifier hs-var">modelExplainabilityJobOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415726"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415725"><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680415725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityJobOutputConfig:CreateModelExplainabilityJobDefinition' :: MonitoringOutputConfig
+</span><a href="#local-6989586621680417370"><span class="hs-identifier hs-var hs-var">modelExplainabilityJobOutputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680417370"><span class="hs-identifier hs-var">modelExplainabilityJobOutputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417369"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417368"><span class="annot"><span class="annottext">MonitoringOutputConfig
+</span><a href="#local-6989586621680417368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelExplainabilityJobOutputConfig:CreateModelExplainabilityJobDefinition' :: MonitoringOutputConfig
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AmodelExplainabilityJobOutputConfig%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">modelExplainabilityJobOutputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680415725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinition_jobResources"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinition_jobResources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringResources.html#MonitoringResources"><span class="hs-identifier hs-type">MonitoringResources</span></a></span><span>
@@ -546,16 +546,16 @@ $sel:modelExplainabilityJobOutputConfig:CreateModelExplainabilityJobDefinition' 
      MonitoringResources
      MonitoringResources
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415724"><span class="annot"><span class="annottext">MonitoringResources
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417367"><span class="annot"><span class="annottext">MonitoringResources
 jobResources :: MonitoringResources
 $sel:jobResources:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; MonitoringResources
-</span><a href="#local-6989586621680415724"><span class="hs-identifier hs-var hs-var">jobResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680415724"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415723"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415722"><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680415722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobResources:CreateModelExplainabilityJobDefinition' :: MonitoringResources
+</span><a href="#local-6989586621680417367"><span class="hs-identifier hs-var hs-var">jobResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680417367"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417366"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417365"><span class="annot"><span class="annottext">MonitoringResources
+</span><a href="#local-6989586621680417365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobResources:CreateModelExplainabilityJobDefinition' :: MonitoringResources
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AjobResources%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">jobResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680415722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- assume to perform tasks on your behalf.</span><span>
@@ -572,16 +572,16 @@ $sel:jobResources:CreateModelExplainabilityJobDefinition' :: CreateModelExplaina
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415721"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417364"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; Text
-</span><a href="#local-6989586621680415721"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415721"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415720"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415719"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
-</span><a href="#local-6989586621680415720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateModelExplainabilityJobDefinition' :: Text
+</span><a href="#local-6989586621680417364"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417364"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417363"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinition
+</span><a href="#local-6989586621680417363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateModelExplainabilityJobDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AroleArn%3ACreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -591,7 +591,7 @@ $sel:roleArn:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilit
 </span><span id="line-210"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621680415715"><span class="annot"><span class="annottext">request :: CreateModelExplainabilityJobDefinition
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621680417358"><span class="annot"><span class="annottext">request :: CreateModelExplainabilityJobDefinition
 -&gt; Request CreateModelExplainabilityJobDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateModelExplainabilityJobDefinition
@@ -599,7 +599,7 @@ $sel:roleArn:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilit
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621680415711"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621680417354"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateModelExplainabilityJobDefinition
 -&gt; ClientResponse ClientBody
@@ -630,10 +630,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680415708"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415708"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680415707"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680415707"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680415706"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680415706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680417351"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417351"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680417350"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680417350"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680417349"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680417349"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateModelExplainabilityJobDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateModelExplainabilityJobDefinitionResponse)
@@ -646,32 +646,32 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415708"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417351"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>              </span><span class="annot"><span class="annottext">Either
   String (Text -&gt; CreateModelExplainabilityJobDefinitionResponse)
 -&gt; Either String Text
 -&gt; Either String CreateModelExplainabilityJobDefinitionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680415706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621680417349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621680415698"><span id="local-6989586621680415700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621680417341"><span id="local-6989586621680417343"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span></span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621680415695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621680417338"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span>
 </span><span id="line-233"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621680415691"><span class="annot"><span class="annottext">toHeaders :: CreateModelExplainabilityJobDefinition -&gt; ResponseHeaders
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621680417334"><span class="annot"><span class="annottext">toHeaders :: CreateModelExplainabilityJobDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; CreateModelExplainabilityJobDefinition -&gt; ResponseHeaders
@@ -700,11 +700,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-246"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621680415681"><span id="local-6989586621680415683"><span id="local-6989586621680415685"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621680417324"><span id="local-6989586621680417326"><span id="local-6989586621680417328"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span></span></span></span><span>
 </span><span id="line-251"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621680415679"><span class="annot"><span class="annottext">toJSON :: CreateModelExplainabilityJobDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415668"><span id="local-6989586621680415669"><span id="local-6989586621680415670"><span id="local-6989586621680415671"><span id="local-6989586621680415672"><span id="local-6989586621680415673"><span id="local-6989586621680415674"><span id="local-6989586621680415675"><span id="local-6989586621680415676"><span id="local-6989586621680415677"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621680417322"><span class="annot"><span class="annottext">toJSON :: CreateModelExplainabilityJobDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417311"><span id="local-6989586621680417312"><span id="local-6989586621680417313"><span id="local-6989586621680417314"><span id="local-6989586621680417315"><span id="local-6989586621680417316"><span id="local-6989586621680417317"><span id="local-6989586621680417318"><span id="local-6989586621680417319"><span id="local-6989586621680417320"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe ModelExplainabilityBaselineConfig
 Maybe MonitoringStoppingCondition
 Maybe MonitoringNetworkConfig
@@ -719,10 +719,10 @@ modelExplainabilityJobOutputConfig :: MonitoringOutputConfig
 modelExplainabilityJobInput :: ModelExplainabilityJobInput
 modelExplainabilityAppSpecification :: ModelExplainabilityAppSpecification
 jobDefinitionName :: Text
-stoppingCondition :: Maybe MonitoringStoppingCondition
 tags :: Maybe [Tag]
 modelExplainabilityBaselineConfig :: Maybe ModelExplainabilityBaselineConfig
 networkConfig :: Maybe MonitoringNetworkConfig
+stoppingCondition :: Maybe MonitoringStoppingCondition
 $sel:roleArn:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; Text
 $sel:jobResources:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; MonitoringResources
 $sel:modelExplainabilityJobOutputConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; MonitoringOutputConfig
@@ -731,52 +731,52 @@ $sel:modelExplainabilityJobInput:CreateModelExplainabilityJobDefinition' :: Crea
 $sel:modelExplainabilityAppSpecification:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
 -&gt; ModelExplainabilityAppSpecification
 $sel:jobDefinitionName:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; Text
-$sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
--&gt; Maybe MonitoringStoppingCondition
 $sel:tags:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition -&gt; Maybe [Tag]
 $sel:modelExplainabilityBaselineConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
 -&gt; Maybe ModelExplainabilityBaselineConfig
 $sel:networkConfig:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
 -&gt; Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415668"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:stoppingCondition:CreateModelExplainabilityJobDefinition' :: CreateModelExplainabilityJobDefinition
+-&gt; Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417311"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-255"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringStoppingCondition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringStoppingCondition -&gt; Pair)
+-&gt; Maybe MonitoringStoppingCondition -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
+</span><a href="#local-6989586621680417320"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NetworkConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringNetworkConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MonitoringNetworkConfig -&gt; Pair)
 -&gt; Maybe MonitoringNetworkConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringNetworkConfig
-</span><a href="#local-6989586621680415677"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417319"><span class="hs-identifier hs-var">networkConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelExplainabilityBaselineConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ModelExplainabilityBaselineConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(ModelExplainabilityBaselineConfig -&gt; Pair)
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(ModelExplainabilityBaselineConfig -&gt; Pair)
 -&gt; Maybe ModelExplainabilityBaselineConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ModelExplainabilityBaselineConfig
-</span><a href="#local-6989586621680415676"><span class="hs-identifier hs-var">modelExplainabilityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417318"><span class="hs-identifier hs-var">modelExplainabilityBaselineConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680415675"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StoppingCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringStoppingCondition -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringStoppingCondition -&gt; Pair)
--&gt; Maybe MonitoringStoppingCondition -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStoppingCondition
-</span><a href="#local-6989586621680415674"><span class="hs-identifier hs-var">stoppingCondition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417317"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -784,7 +784,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobDefinitionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415673"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417316"><span class="hs-identifier hs-var">jobDefinitionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -793,7 +793,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-265"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ModelExplainabilityAppSpecification -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityAppSpecification
-</span><a href="#local-6989586621680415672"><span class="hs-identifier hs-var">modelExplainabilityAppSpecification</span></a></span><span>
+</span><a href="#local-6989586621680417315"><span class="hs-identifier hs-var">modelExplainabilityAppSpecification</span></a></span><span>
 </span><span id="line-266"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -803,7 +803,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-269"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ModelExplainabilityJobInput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ModelExplainabilityJobInput
-</span><a href="#local-6989586621680415671"><span class="hs-identifier hs-var">modelExplainabilityJobInput</span></a></span><span>
+</span><a href="#local-6989586621680417314"><span class="hs-identifier hs-var">modelExplainabilityJobInput</span></a></span><span>
 </span><span id="line-270"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -813,7 +813,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-273"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; MonitoringOutputConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringOutputConfig
-</span><a href="#local-6989586621680415670"><span class="hs-identifier hs-var">modelExplainabilityJobOutputConfig</span></a></span><span>
+</span><a href="#local-6989586621680417313"><span class="hs-identifier hs-var">modelExplainabilityJobOutputConfig</span></a></span><span>
 </span><span id="line-274"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -821,14 +821,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringResources -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MonitoringResources
-</span><a href="#local-6989586621680415669"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417312"><span class="hs-identifier hs-var">jobResources</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415668"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417311"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
@@ -836,7 +836,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-282"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span>
 </span><span id="line-283"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621680415662"><span class="annot"><span class="annottext">toPath :: CreateModelExplainabilityJobDefinition -&gt; ByteString
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621680417305"><span class="annot"><span class="annottext">toPath :: CreateModelExplainabilityJobDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateModelExplainabilityJobDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -846,7 +846,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-287"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinition"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinition</span></a></span><span>
 </span><span id="line-289"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621680415658"><span class="annot"><span class="annottext">toQuery :: CreateModelExplainabilityJobDefinition -&gt; QueryString
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621680417301"><span class="annot"><span class="annottext">toQuery :: CreateModelExplainabilityJobDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
 -&gt; CreateModelExplainabilityJobDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -855,7 +855,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- | /See:/ 'newCreateModelExplainabilityJobDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-293"></span><span id="local-6989586621680415655"><span id="local-6989586621680415656"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelExplainabilityJobDefinitionResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelExplainabilityJobDefinitionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-293"></span><span id="local-6989586621680417298"><span id="local-6989586621680417299"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateModelExplainabilityJobDefinitionResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateModelExplainabilityJobDefinitionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var">CreateModelExplainabilityJobDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-294"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-295"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AhttpStatus%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -863,7 +863,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-297"></span><span>    </span><span id="%24sel%3AjobDefinitionArn%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-298"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-299"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680415649"><span id="local-6989586621680415651"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse
+</span><span id="line-299"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417292"><span id="local-6989586621680417294"><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse
 -&gt; CreateModelExplainabilityJobDefinitionResponse -&gt; Bool
 (CreateModelExplainabilityJobDefinitionResponse
  -&gt; CreateModelExplainabilityJobDefinitionResponse -&gt; Bool)
@@ -879,7 +879,7 @@ $c/= :: CreateModelExplainabilityJobDefinitionResponse
 -&gt; CreateModelExplainabilityJobDefinitionResponse -&gt; Bool
 $c== :: CreateModelExplainabilityJobDefinitionResponse
 -&gt; CreateModelExplainabilityJobDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415641"><span id="local-6989586621680415643"><span id="local-6989586621680415645"><span id="local-6989586621680415647"><span class="annot"><span class="annottext">ReadPrec [CreateModelExplainabilityJobDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417284"><span id="local-6989586621680417286"><span id="local-6989586621680417288"><span id="local-6989586621680417290"><span class="annot"><span class="annottext">ReadPrec [CreateModelExplainabilityJobDefinitionResponse]
 ReadPrec CreateModelExplainabilityJobDefinitionResponse
 Int -&gt; ReadS CreateModelExplainabilityJobDefinitionResponse
 ReadS [CreateModelExplainabilityJobDefinitionResponse]
@@ -899,7 +899,7 @@ readList :: ReadS [CreateModelExplainabilityJobDefinitionResponse]
 $creadList :: ReadS [CreateModelExplainabilityJobDefinitionResponse]
 readsPrec :: Int -&gt; ReadS CreateModelExplainabilityJobDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS CreateModelExplainabilityJobDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680415635"><span id="local-6989586621680415637"><span id="local-6989586621680415639"><span class="annot"><span class="annottext">Int -&gt; CreateModelExplainabilityJobDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417278"><span id="local-6989586621680417280"><span id="local-6989586621680417282"><span class="annot"><span class="annottext">Int -&gt; CreateModelExplainabilityJobDefinitionResponse -&gt; ShowS
 [CreateModelExplainabilityJobDefinitionResponse] -&gt; ShowS
 CreateModelExplainabilityJobDefinitionResponse -&gt; String
 (Int -&gt; CreateModelExplainabilityJobDefinitionResponse -&gt; ShowS)
@@ -956,20 +956,20 @@ CreateModelExplainabilityJobDefinitionResponse
 </span><span id="line-317"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span><span>
 </span><span id="line-318"></span><span id="newCreateModelExplainabilityJobDefinitionResponse"><span class="annot"><span class="annottext">newCreateModelExplainabilityJobDefinitionResponse :: Int -&gt; Text -&gt; CreateModelExplainabilityJobDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#newCreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-var hs-var">newCreateModelExplainabilityJobDefinitionResponse</span></a></span></span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621680415632"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621680415631"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415631"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621680417275"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417275"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621680417274"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417274"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>    </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse' :: Int -&gt; Text -&gt; CreateModelExplainabilityJobDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span>
 </span><span id="line-322"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelExplainabilityJobDefinitionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AhttpStatus%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-323"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680417275"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateModelExplainabilityJobDefinitionResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-325"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415631"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span><span>
+</span><a href="#local-6989586621680417274"><span class="hs-identifier hs-var">pJobDefinitionArn_</span></a></span><span>
 </span><span id="line-326"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -986,16 +986,16 @@ CreateModelExplainabilityJobDefinitionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415630"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417273"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateModelExplainabilityJobDefinitionResponse' :: CreateModelExplainabilityJobDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621680415630"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415630"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415629"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinitionResponse
-</span><a href="#local-6989586621680415629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415628"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse
-</span><a href="#local-6989586621680415629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelExplainabilityJobDefinitionResponse' :: Int
+</span><a href="#local-6989586621680417273"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417273"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417272"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinitionResponse
+</span><a href="#local-6989586621680417272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417271"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680417271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse
+</span><a href="#local-6989586621680417272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateModelExplainabilityJobDefinitionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AhttpStatus%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680415628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-331"></span><span>
 </span><span id="line-332"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model explainability job.</span><span>
 </span><span id="line-333"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#createModelExplainabilityJobDefinitionResponse_jobDefinitionArn"><span class="hs-identifier hs-type">createModelExplainabilityJobDefinitionResponse_jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -1011,18 +1011,18 @@ $sel:httpStatus:CreateModelExplainabilityJobDefinitionResponse' :: CreateModelEx
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680415627"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417270"><span class="annot"><span class="annottext">Text
 jobDefinitionArn :: Text
 $sel:jobDefinitionArn:CreateModelExplainabilityJobDefinitionResponse' :: CreateModelExplainabilityJobDefinitionResponse -&gt; Text
-</span><a href="#local-6989586621680415627"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415627"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680415626"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinitionResponse
-</span><a href="#local-6989586621680415626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680415625"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse
-</span><a href="#local-6989586621680415626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateModelExplainabilityJobDefinitionResponse' :: Text
+</span><a href="#local-6989586621680417270"><span class="hs-identifier hs-var hs-var">jobDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417270"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417269"><span class="annot"><span class="annottext">s :: CreateModelExplainabilityJobDefinitionResponse
+</span><a href="#local-6989586621680417269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417268"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680417268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateModelExplainabilityJobDefinitionResponse
+</span><a href="#local-6989586621680417269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobDefinitionArn:CreateModelExplainabilityJobDefinitionResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#%24sel%3AjobDefinitionArn%3ACreateModelExplainabilityJobDefinitionResponse%27"><span class="hs-identifier hs-var">jobDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680415625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680417268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-337"></span><span>  </span><span id="local-6989586621680415623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621680417266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-338"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition.html#CreateModelExplainabilityJobDefinitionResponse"><span class="hs-identifier hs-type">CreateModelExplainabilityJobDefinitionResponse</span></a></span></span><span>
 </span><span id="line-339"></span></pre></body></html>

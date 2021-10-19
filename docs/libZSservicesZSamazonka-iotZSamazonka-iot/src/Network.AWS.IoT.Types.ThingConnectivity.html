@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The connectivity status of the thing.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newThingConnectivity' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679800976"><span id="local-6989586621679800977"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThingConnectivity"><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-var">ThingConnectivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingConnectivity%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-var">ThingConnectivity'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679801854"><span id="local-6989586621679801855"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThingConnectivity"><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-var">ThingConnectivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingConnectivity%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-var">ThingConnectivity'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason why the client is disconnected. If the thing has been</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- disconnected for approximately an hour, the @disconnectReason@ value</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- might be missing.</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Atimestamp%3AThingConnectivity%27"><span class="annot"><span class="annottext">ThingConnectivity -&gt; Maybe Integer
 </span><a href="Network.AWS.IoT.Types.ThingConnectivity.html#%24sel%3Atimestamp%3AThingConnectivity%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800968"><span id="local-6989586621679800970"><span class="annot"><span class="annottext">ThingConnectivity -&gt; ThingConnectivity -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679801846"><span id="local-6989586621679801848"><span class="annot"><span class="annottext">ThingConnectivity -&gt; ThingConnectivity -&gt; Bool
 (ThingConnectivity -&gt; ThingConnectivity -&gt; Bool)
 -&gt; (ThingConnectivity -&gt; ThingConnectivity -&gt; Bool)
 -&gt; Eq ThingConnectivity
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ThingConnectivity -&gt; ThingConnectivity -&gt; Bool
 == :: ThingConnectivity -&gt; ThingConnectivity -&gt; Bool
 $c== :: ThingConnectivity -&gt; ThingConnectivity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800959"><span id="local-6989586621679800961"><span id="local-6989586621679800963"><span id="local-6989586621679800965"><span class="annot"><span class="annottext">ReadPrec [ThingConnectivity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801837"><span id="local-6989586621679801839"><span id="local-6989586621679801841"><span id="local-6989586621679801843"><span class="annot"><span class="annottext">ReadPrec [ThingConnectivity]
 ReadPrec ThingConnectivity
 Int -&gt; ReadS ThingConnectivity
 ReadS [ThingConnectivity]
@@ -71,7 +71,7 @@ readList :: ReadS [ThingConnectivity]
 $creadList :: ReadS [ThingConnectivity]
 readsPrec :: Int -&gt; ReadS ThingConnectivity
 $creadsPrec :: Int -&gt; ReadS ThingConnectivity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800952"><span id="local-6989586621679800954"><span id="local-6989586621679800956"><span class="annot"><span class="annottext">Int -&gt; ThingConnectivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679801830"><span id="local-6989586621679801832"><span id="local-6989586621679801834"><span class="annot"><span class="annottext">Int -&gt; ThingConnectivity -&gt; ShowS
 [ThingConnectivity] -&gt; ShowS
 ThingConnectivity -&gt; String
 (Int -&gt; ThingConnectivity -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; Lens
      ThingConnectivity ThingConnectivity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801821"><span class="annot"><span class="annottext">Maybe Text
 disconnectReason :: Maybe Text
 $sel:disconnectReason:ThingConnectivity' :: ThingConnectivity -&gt; Maybe Text
-</span><a href="#local-6989586621679800943"><span class="hs-identifier hs-var hs-var">disconnectReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679800943"><span class="hs-identifier hs-var">disconnectReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800942"><span class="annot"><span class="annottext">s :: ThingConnectivity
-</span><a href="#local-6989586621679800942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679800941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingConnectivity
-</span><a href="#local-6989586621679800942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disconnectReason:ThingConnectivity' :: Maybe Text
+</span><a href="#local-6989586621679801821"><span class="hs-identifier hs-var hs-var">disconnectReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801821"><span class="hs-identifier hs-var">disconnectReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801820"><span class="annot"><span class="annottext">s :: ThingConnectivity
+</span><a href="#local-6989586621679801820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801819"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679801819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingConnectivity
+</span><a href="#local-6989586621679801820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disconnectReason:ThingConnectivity' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.ThingConnectivity.html#%24sel%3AdisconnectReason%3AThingConnectivity%27"><span class="hs-identifier hs-var">disconnectReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679800941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | True if the thing is connected to the Amazon Web Services IoT Core</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- service; false if it is not connected.</span><span>
@@ -168,16 +168,16 @@ $sel:disconnectReason:ThingConnectivity' :: ThingConnectivity -&gt; Maybe Text
 -&gt; Lens
      ThingConnectivity ThingConnectivity (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800939"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801817"><span class="annot"><span class="annottext">Maybe Bool
 connected :: Maybe Bool
 $sel:connected:ThingConnectivity' :: ThingConnectivity -&gt; Maybe Bool
-</span><a href="#local-6989586621679800939"><span class="hs-identifier hs-var hs-var">connected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679800939"><span class="hs-identifier hs-var">connected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800938"><span class="annot"><span class="annottext">s :: ThingConnectivity
-</span><a href="#local-6989586621679800938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800937"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679800937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingConnectivity
-</span><a href="#local-6989586621679800938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connected:ThingConnectivity' :: Maybe Bool
+</span><a href="#local-6989586621679801817"><span class="hs-identifier hs-var hs-var">connected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679801817"><span class="hs-identifier hs-var">connected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801816"><span class="annot"><span class="annottext">s :: ThingConnectivity
+</span><a href="#local-6989586621679801816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801815"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679801815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingConnectivity
+</span><a href="#local-6989586621679801816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connected:ThingConnectivity' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.ThingConnectivity.html#%24sel%3Aconnected%3AThingConnectivity%27"><span class="hs-identifier hs-var">connected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679800937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The epoch time (in milliseconds) when the thing last connected or</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- disconnected. If the thing has been disconnected for approximately an</span><span>
@@ -190,19 +190,19 @@ $sel:connected:ThingConnectivity' :: ThingConnectivity -&gt; Maybe Bool
 -&gt; Lens
      ThingConnectivity ThingConnectivity (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800935"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679801813"><span class="annot"><span class="annottext">Maybe Integer
 timestamp :: Maybe Integer
 $sel:timestamp:ThingConnectivity' :: ThingConnectivity -&gt; Maybe Integer
-</span><a href="#local-6989586621679800935"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800935"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800934"><span class="annot"><span class="annottext">s :: ThingConnectivity
-</span><a href="#local-6989586621679800934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800933"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingConnectivity
-</span><a href="#local-6989586621679800934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ThingConnectivity' :: Maybe Integer
+</span><a href="#local-6989586621679801813"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801813"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679801812"><span class="annot"><span class="annottext">s :: ThingConnectivity
+</span><a href="#local-6989586621679801812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-type">ThingConnectivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679801811"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679801811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingConnectivity
+</span><a href="#local-6989586621679801812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ThingConnectivity' :: Maybe Integer
 </span><a href="Network.AWS.IoT.Types.ThingConnectivity.html#%24sel%3Atimestamp%3AThingConnectivity%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679800933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679801811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800930"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679800928"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThingConnectivity
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801808"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679801806"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThingConnectivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ThingConnectivity)
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ThingConnectivity&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800925"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800925"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679801803"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679801803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; Maybe Integer -&gt; ThingConnectivity
 </span><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity%27"><span class="hs-identifier hs-var">ThingConnectivity'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; Maybe Integer -&gt; ThingConnectivity)
@@ -221,7 +221,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe Integer -&gt; ThingConnectivity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679801803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;disconnectReason&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,7 +230,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer -&gt; ThingConnectivity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679801803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connected&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,13 +238,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser ThingConnectivity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679800925"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679801803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800919"><span id="local-6989586621679800921"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801797"><span id="local-6989586621679801799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679801794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingConnectivity.html#ThingConnectivity"><span class="hs-identifier hs-type">ThingConnectivity</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

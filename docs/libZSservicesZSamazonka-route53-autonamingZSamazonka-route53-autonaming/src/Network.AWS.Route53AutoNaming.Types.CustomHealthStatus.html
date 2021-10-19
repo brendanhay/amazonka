@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679218864"><span id="local-6989586621679218865"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomHealthStatus"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus"><span class="hs-identifier hs-var">CustomHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomHealthStatus%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus%27"><span class="hs-identifier hs-var">CustomHealthStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679218991"><span id="local-6989586621679218992"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomHealthStatus"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus"><span class="hs-identifier hs-var">CustomHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomHealthStatus%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus%27"><span class="hs-identifier hs-var">CustomHealthStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomHealthStatus"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.CustomHealthStatus.html#fromCustomHealthStatus"><span class="hs-identifier hs-var hs-var">fromCustomHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218856"><span id="local-6989586621679218858"><span id="local-6989586621679218860"><span class="annot"><span class="annottext">Int -&gt; CustomHealthStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218983"><span id="local-6989586621679218985"><span id="local-6989586621679218987"><span class="annot"><span class="annottext">Int -&gt; CustomHealthStatus -&gt; ShowS
 [CustomHealthStatus] -&gt; ShowS
 CustomHealthStatus -&gt; String
 (Int -&gt; CustomHealthStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CustomHealthStatus -&gt; String
 showsPrec :: Int -&gt; CustomHealthStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CustomHealthStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679218847"><span id="local-6989586621679218849"><span id="local-6989586621679218851"><span id="local-6989586621679218853"><span class="annot"><span class="annottext">ReadPrec [CustomHealthStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679218974"><span id="local-6989586621679218976"><span id="local-6989586621679218978"><span id="local-6989586621679218980"><span class="annot"><span class="annottext">ReadPrec [CustomHealthStatus]
 ReadPrec CustomHealthStatus
 Int -&gt; ReadS CustomHealthStatus
 ReadS [CustomHealthStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CustomHealthStatus]
 readsPrec :: Int -&gt; ReadS CustomHealthStatus
 $creadsPrec :: Int -&gt; ReadS CustomHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679218842"><span id="local-6989586621679218844"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679218969"><span id="local-6989586621679218971"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool
 (CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool)
 -&gt; (CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool)
 -&gt; Eq CustomHealthStatus
@@ -82,7 +82,7 @@ $c/= :: CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool
 == :: CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool
 $c== :: CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679218826"><span id="local-6989586621679218828"><span id="local-6989586621679218830"><span id="local-6989586621679218832"><span id="local-6989586621679218834"><span id="local-6989586621679218836"><span id="local-6989586621679218838"><span class="annot"><span class="annottext">Eq CustomHealthStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679218953"><span id="local-6989586621679218955"><span id="local-6989586621679218957"><span id="local-6989586621679218959"><span id="local-6989586621679218961"><span id="local-6989586621679218963"><span id="local-6989586621679218965"><span class="annot"><span class="annottext">Eq CustomHealthStatus
 Eq CustomHealthStatus
 -&gt; (CustomHealthStatus -&gt; CustomHealthStatus -&gt; Ordering)
 -&gt; (CustomHealthStatus -&gt; CustomHealthStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CustomHealthStatus -&gt; Rep CustomHealthStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218818"><span id="local-6989586621679218820"><span class="annot"><span class="annottext">Int -&gt; CustomHealthStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679218945"><span id="local-6989586621679218947"><span class="annot"><span class="annottext">Int -&gt; CustomHealthStatus -&gt; Int
 CustomHealthStatus -&gt; Int
 (Int -&gt; CustomHealthStatus -&gt; Int)
 -&gt; (CustomHealthStatus -&gt; Int) -&gt; Hashable CustomHealthStatus
@@ -143,53 +143,53 @@ $chash :: CustomHealthStatus -&gt; Int
 hashWithSalt :: Int -&gt; CustomHealthStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CustomHealthStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679218815"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679218942"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; ()
 (CustomHealthStatus -&gt; ()) -&gt; NFData CustomHealthStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CustomHealthStatus -&gt; ()
 $crnf :: CustomHealthStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679218812"><span class="annot"><span class="annottext">Text -&gt; Either String CustomHealthStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679218939"><span class="annot"><span class="annottext">Text -&gt; Either String CustomHealthStatus
 (Text -&gt; Either String CustomHealthStatus)
 -&gt; FromText CustomHealthStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CustomHealthStatus
 $cfromText :: Text -&gt; Either String CustomHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679218809"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679218936"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; Text
 (CustomHealthStatus -&gt; Text) -&gt; ToText CustomHealthStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CustomHealthStatus -&gt; Text
 $ctoText :: CustomHealthStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679218806"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679218933"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; ByteString
 (CustomHealthStatus -&gt; ByteString)
 -&gt; ToByteString CustomHealthStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CustomHealthStatus -&gt; ByteString
 $ctoBS :: CustomHealthStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679218803"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679218930"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; ByteStringBuilder
 (CustomHealthStatus -&gt; ByteStringBuilder)
 -&gt; ToLog CustomHealthStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CustomHealthStatus -&gt; ByteStringBuilder
 $cbuild :: CustomHealthStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679218800"><span class="annot"><span class="annottext">HeaderName -&gt; CustomHealthStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679218927"><span class="annot"><span class="annottext">HeaderName -&gt; CustomHealthStatus -&gt; [Header]
 (HeaderName -&gt; CustomHealthStatus -&gt; [Header])
 -&gt; ToHeader CustomHealthStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CustomHealthStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CustomHealthStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679218797"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679218924"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; QueryString
 (CustomHealthStatus -&gt; QueryString) -&gt; ToQuery CustomHealthStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CustomHealthStatus -&gt; QueryString
 $ctoQuery :: CustomHealthStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679218792"><span id="local-6989586621679218794"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomHealthStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679218919"><span id="local-6989586621679218921"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomHealthStatus]
 Value -&gt; Parser CustomHealthStatus
 (Value -&gt; Parser CustomHealthStatus)
 -&gt; (Value -&gt; Parser [CustomHealthStatus])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [CustomHealthStatus]
 parseJSON :: Value -&gt; Parser CustomHealthStatus
 $cparseJSON :: Value -&gt; Parser CustomHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679218787"><span id="local-6989586621679218789"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomHealthStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679218914"><span id="local-6989586621679218916"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomHealthStatus]
 FromJSONKeyFunction CustomHealthStatus
 FromJSONKeyFunction CustomHealthStatus
 -&gt; FromJSONKeyFunction [CustomHealthStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CustomHealthStatus]
 fromJSONKey :: FromJSONKeyFunction CustomHealthStatus
 $cfromJSONKey :: FromJSONKeyFunction CustomHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679218778"><span id="local-6989586621679218780"><span id="local-6989586621679218782"><span id="local-6989586621679218784"><span class="annot"><span class="annottext">[CustomHealthStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679218905"><span id="local-6989586621679218907"><span id="local-6989586621679218909"><span id="local-6989586621679218911"><span class="annot"><span class="annottext">[CustomHealthStatus] -&gt; Encoding
 [CustomHealthStatus] -&gt; Value
 CustomHealthStatus -&gt; Encoding
 CustomHealthStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: CustomHealthStatus -&gt; Encoding
 toJSON :: CustomHealthStatus -&gt; Value
 $ctoJSON :: CustomHealthStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679218773"><span id="local-6989586621679218775"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomHealthStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679218900"><span id="local-6989586621679218902"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomHealthStatus]
 ToJSONKeyFunction CustomHealthStatus
 ToJSONKeyFunction CustomHealthStatus
 -&gt; ToJSONKeyFunction [CustomHealthStatus]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CustomHealthStatus]
 toJSONKey :: ToJSONKeyFunction CustomHealthStatus
 $ctoJSONKey :: ToJSONKeyFunction CustomHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679218770"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomHealthStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679218897"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomHealthStatus
 ([Node] -&gt; Either String CustomHealthStatus)
 -&gt; FromXML CustomHealthStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CustomHealthStatus
 $cparseXML :: [Node] -&gt; Either String CustomHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679218767"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679218894"><span class="annot"><span class="annottext">CustomHealthStatus -&gt; XML
 (CustomHealthStatus -&gt; XML) -&gt; ToXML CustomHealthStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CustomHealthStatus -&gt; XML

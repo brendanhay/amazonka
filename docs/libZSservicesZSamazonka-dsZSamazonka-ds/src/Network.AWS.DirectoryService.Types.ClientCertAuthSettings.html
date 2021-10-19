@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- operations.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newClientCertAuthSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679294425"><span id="local-6989586621679294426"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientCertAuthSettings"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-var">ClientCertAuthSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientCertAuthSettings%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-var">ClientCertAuthSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679294611"><span id="local-6989586621679294612"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientCertAuthSettings"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-var">ClientCertAuthSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientCertAuthSettings%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-var">ClientCertAuthSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the URL of the default OCSP server used to check for</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- revocation status. A secondary value to any OCSP address found in the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- AIA extension of the user certificate.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AoCSPUrl%3AClientCertAuthSettings%27"><span class="annot"><span class="annottext">ClientCertAuthSettings -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#%24sel%3AoCSPUrl%3AClientCertAuthSettings%27"><span class="hs-identifier hs-var hs-var">oCSPUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294419"><span id="local-6989586621679294421"><span class="annot"><span class="annottext">ClientCertAuthSettings -&gt; ClientCertAuthSettings -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294605"><span id="local-6989586621679294607"><span class="annot"><span class="annottext">ClientCertAuthSettings -&gt; ClientCertAuthSettings -&gt; Bool
 (ClientCertAuthSettings -&gt; ClientCertAuthSettings -&gt; Bool)
 -&gt; (ClientCertAuthSettings -&gt; ClientCertAuthSettings -&gt; Bool)
 -&gt; Eq ClientCertAuthSettings
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClientCertAuthSettings -&gt; ClientCertAuthSettings -&gt; Bool
 == :: ClientCertAuthSettings -&gt; ClientCertAuthSettings -&gt; Bool
 $c== :: ClientCertAuthSettings -&gt; ClientCertAuthSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294410"><span id="local-6989586621679294412"><span id="local-6989586621679294414"><span id="local-6989586621679294416"><span class="annot"><span class="annottext">ReadPrec [ClientCertAuthSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294596"><span id="local-6989586621679294598"><span id="local-6989586621679294600"><span id="local-6989586621679294602"><span class="annot"><span class="annottext">ReadPrec [ClientCertAuthSettings]
 ReadPrec ClientCertAuthSettings
 Int -&gt; ReadS ClientCertAuthSettings
 ReadS [ClientCertAuthSettings]
@@ -64,7 +64,7 @@ readList :: ReadS [ClientCertAuthSettings]
 $creadList :: ReadS [ClientCertAuthSettings]
 readsPrec :: Int -&gt; ReadS ClientCertAuthSettings
 $creadsPrec :: Int -&gt; ReadS ClientCertAuthSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294403"><span id="local-6989586621679294405"><span id="local-6989586621679294407"><span class="annot"><span class="annottext">Int -&gt; ClientCertAuthSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294589"><span id="local-6989586621679294591"><span id="local-6989586621679294593"><span class="annot"><span class="annottext">Int -&gt; ClientCertAuthSettings -&gt; ShowS
 [ClientCertAuthSettings] -&gt; ShowS
 ClientCertAuthSettings -&gt; String
 (Int -&gt; ClientCertAuthSettings -&gt; ShowS)
@@ -126,19 +126,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-type">ClientCertAuthSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294394"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-type">ClientCertAuthSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294580"><span class="annot"><span class="annottext">Maybe Text
 oCSPUrl :: Maybe Text
 $sel:oCSPUrl:ClientCertAuthSettings' :: ClientCertAuthSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679294394"><span class="hs-identifier hs-var hs-var">oCSPUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294394"><span class="hs-identifier hs-var">oCSPUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294393"><span class="annot"><span class="annottext">s :: ClientCertAuthSettings
-</span><a href="#local-6989586621679294393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-type">ClientCertAuthSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294392"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertAuthSettings
-</span><a href="#local-6989586621679294393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oCSPUrl:ClientCertAuthSettings' :: Maybe Text
+</span><a href="#local-6989586621679294580"><span class="hs-identifier hs-var hs-var">oCSPUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294580"><span class="hs-identifier hs-var">oCSPUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294579"><span class="annot"><span class="annottext">s :: ClientCertAuthSettings
+</span><a href="#local-6989586621679294579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-type">ClientCertAuthSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertAuthSettings
+</span><a href="#local-6989586621679294579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oCSPUrl:ClientCertAuthSettings' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#%24sel%3AoCSPUrl%3AClientCertAuthSettings%27"><span class="hs-identifier hs-var">oCSPUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294389"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679294387"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientCertAuthSettings
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294575"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679294573"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientCertAuthSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ClientCertAuthSettings)
@@ -148,30 +148,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ClientCertAuthSettings&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294384"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294570"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ClientCertAuthSettings
 </span><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-var">ClientCertAuthSettings'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ClientCertAuthSettings)
 -&gt; Parser (Maybe Text) -&gt; Parser ClientCertAuthSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679294570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OCSPUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294378"><span id="local-6989586621679294380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294564"><span id="local-6989586621679294566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294367"><span id="local-6989586621679294369"><span id="local-6989586621679294371"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679294365"><span class="annot"><span class="annottext">toJSON :: ClientCertAuthSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-type">ClientCertAuthSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294363"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294553"><span id="local-6989586621679294555"><span id="local-6989586621679294557"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings"><span class="hs-identifier hs-type">ClientCertAuthSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679294551"><span class="annot"><span class="annottext">toJSON :: ClientCertAuthSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientCertAuthSettings.html#ClientCertAuthSettings%27"><span class="hs-identifier hs-type">ClientCertAuthSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294549"><span class="annot"><span class="annottext">Maybe Text
 oCSPUrl :: Maybe Text
 $sel:oCSPUrl:ClientCertAuthSettings' :: ClientCertAuthSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679294363"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294549"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,6 +183,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294363"><span class="hs-identifier hs-var">oCSPUrl</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679294549"><span class="hs-identifier hs-var">oCSPUrl</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span></pre></body></html>

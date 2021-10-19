@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains details about the state machine.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStateMachineListItem' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679226834"><span id="local-6989586621679226835"></span></span><span class="hs-keyword">data</span><span> </span><span id="StateMachineListItem"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-var">StateMachineListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateMachineListItem%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-var">StateMachineListItem'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679226879"><span id="local-6989586621679226880"></span></span><span class="hs-keyword">data</span><span> </span><span id="StateMachineListItem"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-var">StateMachineListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateMachineListItem%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-var">StateMachineListItem'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the state machine.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstateMachineArn%3AStateMachineListItem%27"><span class="annot"><span class="annottext">StateMachineListItem -&gt; Text
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3AstateMachineArn%3AStateMachineListItem%27"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AcreationDate%3AStateMachineListItem%27"><span class="annot"><span class="annottext">StateMachineListItem -&gt; POSIX
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3AcreationDate%3AStateMachineListItem%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226825"><span id="local-6989586621679226827"><span class="annot"><span class="annottext">StateMachineListItem -&gt; StateMachineListItem -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226870"><span id="local-6989586621679226872"><span class="annot"><span class="annottext">StateMachineListItem -&gt; StateMachineListItem -&gt; Bool
 (StateMachineListItem -&gt; StateMachineListItem -&gt; Bool)
 -&gt; (StateMachineListItem -&gt; StateMachineListItem -&gt; Bool)
 -&gt; Eq StateMachineListItem
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StateMachineListItem -&gt; StateMachineListItem -&gt; Bool
 == :: StateMachineListItem -&gt; StateMachineListItem -&gt; Bool
 $c== :: StateMachineListItem -&gt; StateMachineListItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226816"><span id="local-6989586621679226818"><span id="local-6989586621679226820"><span id="local-6989586621679226822"><span class="annot"><span class="annottext">ReadPrec [StateMachineListItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226861"><span id="local-6989586621679226863"><span id="local-6989586621679226865"><span id="local-6989586621679226867"><span class="annot"><span class="annottext">ReadPrec [StateMachineListItem]
 ReadPrec StateMachineListItem
 Int -&gt; ReadS StateMachineListItem
 ReadS [StateMachineListItem]
@@ -84,7 +84,7 @@ readList :: ReadS [StateMachineListItem]
 $creadList :: ReadS [StateMachineListItem]
 readsPrec :: Int -&gt; ReadS StateMachineListItem
 $creadsPrec :: Int -&gt; ReadS StateMachineListItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226809"><span id="local-6989586621679226811"><span id="local-6989586621679226813"><span class="annot"><span class="annottext">Int -&gt; StateMachineListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226854"><span id="local-6989586621679226856"><span id="local-6989586621679226858"><span class="annot"><span class="annottext">Int -&gt; StateMachineListItem -&gt; ShowS
 [StateMachineListItem] -&gt; ShowS
 StateMachineListItem -&gt; String
 (Int -&gt; StateMachineListItem -&gt; ShowS)
@@ -152,26 +152,26 @@ $cfrom :: forall x. StateMachineListItem -&gt; Rep StateMachineListItem x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span>
 </span><span id="line-96"></span><span id="newStateMachineListItem"><span class="annot"><span class="annottext">newStateMachineListItem :: Text -&gt; Text -&gt; StateMachineType -&gt; UTCTime -&gt; StateMachineListItem
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#newStateMachineListItem"><span class="hs-identifier hs-var hs-var">newStateMachineListItem</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679226803"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226803"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679226802"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226802"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679226801"><span class="annot"><span class="annottext">StateMachineType
-</span><a href="#local-6989586621679226801"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679226800"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679226800"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679226848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226848"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679226847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226847"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679226846"><span class="annot"><span class="annottext">StateMachineType
+</span><a href="#local-6989586621679226846"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679226845"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679226845"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">StateMachineListItem' :: Text -&gt; Text -&gt; StateMachineType -&gt; POSIX -&gt; StateMachineListItem
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateMachineArn:StateMachineListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3AstateMachineArn%3AStateMachineListItem%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226803"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226848"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:StateMachineListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3Aname%3AStateMachineListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226802"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226847"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':StateMachineListItem' :: StateMachineType
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3Atype%27%3AStateMachineListItem%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StateMachineType
-</span><a href="#local-6989586621679226801"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226846"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:StateMachineListItem' :: POSIX
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3AcreationDate%3AStateMachineListItem%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -180,7 +180,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679226800"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
+</span><a href="#local-6989586621679226845"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the state machine.</span><span>
@@ -190,16 +190,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (StateMachineListItem -&gt; Text -&gt; StateMachineListItem)
 -&gt; Lens StateMachineListItem StateMachineListItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226794"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226839"><span class="annot"><span class="annottext">Text
 stateMachineArn :: Text
 $sel:stateMachineArn:StateMachineListItem' :: StateMachineListItem -&gt; Text
-</span><a href="#local-6989586621679226794"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226794"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226793"><span class="annot"><span class="annottext">s :: StateMachineListItem
-</span><a href="#local-6989586621679226793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226792"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
-</span><a href="#local-6989586621679226793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:StateMachineListItem' :: Text
+</span><a href="#local-6989586621679226839"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226839"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226838"><span class="annot"><span class="annottext">s :: StateMachineListItem
+</span><a href="#local-6989586621679226838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226837"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
+</span><a href="#local-6989586621679226838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:StateMachineListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3AstateMachineArn%3AStateMachineListItem%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the state machine.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
@@ -223,16 +223,16 @@ $sel:stateMachineArn:StateMachineListItem' :: StateMachineListItem -&gt; Text
 -&gt; (StateMachineListItem -&gt; Text -&gt; StateMachineListItem)
 -&gt; Lens StateMachineListItem StateMachineListItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226790"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226835"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StateMachineListItem' :: StateMachineListItem -&gt; Text
-</span><a href="#local-6989586621679226790"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226790"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226789"><span class="annot"><span class="annottext">s :: StateMachineListItem
-</span><a href="#local-6989586621679226789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
-</span><a href="#local-6989586621679226789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StateMachineListItem' :: Text
+</span><a href="#local-6989586621679226835"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226835"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226834"><span class="annot"><span class="annottext">s :: StateMachineListItem
+</span><a href="#local-6989586621679226834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
+</span><a href="#local-6989586621679226834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StateMachineListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3Aname%3AStateMachineListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-133"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#stateMachineListItem_type"><span class="hs-identifier hs-type">stateMachineListItem_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineType.html#StateMachineType"><span class="hs-identifier hs-type">StateMachineType</span></a></span><span>
@@ -247,16 +247,16 @@ $sel:name:StateMachineListItem' :: StateMachineListItem -&gt; Text
      StateMachineType
      StateMachineType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226786"><span class="annot"><span class="annottext">StateMachineType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226831"><span class="annot"><span class="annottext">StateMachineType
 type' :: StateMachineType
 $sel:type':StateMachineListItem' :: StateMachineListItem -&gt; StateMachineType
-</span><a href="#local-6989586621679226786"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineType
-</span><a href="#local-6989586621679226786"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226785"><span class="annot"><span class="annottext">s :: StateMachineListItem
-</span><a href="#local-6989586621679226785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226784"><span class="annot"><span class="annottext">StateMachineType
-</span><a href="#local-6989586621679226784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
-</span><a href="#local-6989586621679226785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':StateMachineListItem' :: StateMachineType
+</span><a href="#local-6989586621679226831"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineType
+</span><a href="#local-6989586621679226831"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226830"><span class="annot"><span class="annottext">s :: StateMachineListItem
+</span><a href="#local-6989586621679226830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226829"><span class="annot"><span class="annottext">StateMachineType
+</span><a href="#local-6989586621679226829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
+</span><a href="#local-6989586621679226830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':StateMachineListItem' :: StateMachineType
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3Atype%27%3AStateMachineListItem%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StateMachineType
-</span><a href="#local-6989586621679226784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The date the state machine is created.</span><span>
 </span><span id="line-137"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#stateMachineListItem_creationDate"><span class="hs-identifier hs-type">stateMachineListItem_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -266,16 +266,16 @@ $sel:type':StateMachineListItem' :: StateMachineListItem -&gt; StateMachineType
 -&gt; (StateMachineListItem -&gt; POSIX -&gt; StateMachineListItem)
 -&gt; Lens StateMachineListItem StateMachineListItem POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226782"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226827"><span class="annot"><span class="annottext">POSIX
 creationDate :: POSIX
 $sel:creationDate:StateMachineListItem' :: StateMachineListItem -&gt; POSIX
-</span><a href="#local-6989586621679226782"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679226782"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226781"><span class="annot"><span class="annottext">s :: StateMachineListItem
-</span><a href="#local-6989586621679226781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226780"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679226780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
-</span><a href="#local-6989586621679226781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:StateMachineListItem' :: POSIX
+</span><a href="#local-6989586621679226827"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679226827"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226826"><span class="annot"><span class="annottext">s :: StateMachineListItem
+</span><a href="#local-6989586621679226826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-type">StateMachineListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226825"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679226825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StateMachineListItem
+</span><a href="#local-6989586621679226826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:StateMachineListItem' :: POSIX
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#%24sel%3AcreationDate%3AStateMachineListItem%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679226780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679226825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; StateMachineListItem -&gt; f StateMachineListItem)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -286,8 +286,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226776"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679226774"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StateMachineListItem
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226821"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679226819"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StateMachineListItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StateMachineListItem)
@@ -297,8 +297,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StateMachineListItem&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226771"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226816"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; StateMachineType -&gt; POSIX -&gt; StateMachineListItem
 </span><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem%27"><span class="hs-identifier hs-var">StateMachineListItem'</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; StateMachineType -&gt; POSIX -&gt; StateMachineListItem)
@@ -307,7 +307,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; StateMachineType -&gt; POSIX -&gt; StateMachineListItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679226816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateMachineArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,7 +316,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (StateMachineType -&gt; POSIX -&gt; StateMachineListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679226816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,7 +325,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; StateMachineListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StateMachineType
+</span><a href="#local-6989586621679226816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StateMachineType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,13 +333,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser StateMachineListItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679226816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226765"><span id="local-6989586621679226767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226810"><span id="local-6989586621679226812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.StateMachineListItem.html#StateMachineListItem"><span class="hs-identifier hs-type">StateMachineListItem</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

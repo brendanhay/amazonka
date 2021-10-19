@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The S3 location of the output reports.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBusinessReportS3Location' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679363624"><span id="local-6989586621679363625"></span></span><span class="hs-keyword">data</span><span> </span><span id="BusinessReportS3Location"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-var">BusinessReportS3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportS3Location%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-var">BusinessReportS3Location'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 bucket name of the output reports.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AbucketName%3ABusinessReportS3Location%27"><span class="annot"><span class="annottext">BusinessReportS3Location -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3AbucketName%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The path of the business report.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apath%3ABusinessReportS3Location%27"><span class="annot"><span class="annottext">BusinessReportS3Location -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3Apath%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679363935"><span id="local-6989586621679363936"></span></span><span class="hs-keyword">data</span><span> </span><span id="BusinessReportS3Location"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-var">BusinessReportS3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportS3Location%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-var">BusinessReportS3Location'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path of the business report.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Apath%3ABusinessReportS3Location%27"><span class="annot"><span class="annottext">BusinessReportS3Location -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3Apath%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The S3 bucket name of the output reports.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AbucketName%3ABusinessReportS3Location%27"><span class="annot"><span class="annottext">BusinessReportS3Location -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3AbucketName%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363617"><span id="local-6989586621679363619"><span class="annot"><span class="annottext">BusinessReportS3Location -&gt; BusinessReportS3Location -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363928"><span id="local-6989586621679363930"><span class="annot"><span class="annottext">BusinessReportS3Location -&gt; BusinessReportS3Location -&gt; Bool
 (BusinessReportS3Location -&gt; BusinessReportS3Location -&gt; Bool)
 -&gt; (BusinessReportS3Location -&gt; BusinessReportS3Location -&gt; Bool)
 -&gt; Eq BusinessReportS3Location
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BusinessReportS3Location -&gt; BusinessReportS3Location -&gt; Bool
 == :: BusinessReportS3Location -&gt; BusinessReportS3Location -&gt; Bool
 $c== :: BusinessReportS3Location -&gt; BusinessReportS3Location -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363608"><span id="local-6989586621679363610"><span id="local-6989586621679363612"><span id="local-6989586621679363614"><span class="annot"><span class="annottext">ReadPrec [BusinessReportS3Location]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363919"><span id="local-6989586621679363921"><span id="local-6989586621679363923"><span id="local-6989586621679363925"><span class="annot"><span class="annottext">ReadPrec [BusinessReportS3Location]
 ReadPrec BusinessReportS3Location
 Int -&gt; ReadS BusinessReportS3Location
 ReadS [BusinessReportS3Location]
@@ -63,7 +63,7 @@ readList :: ReadS [BusinessReportS3Location]
 $creadList :: ReadS [BusinessReportS3Location]
 readsPrec :: Int -&gt; ReadS BusinessReportS3Location
 $creadsPrec :: Int -&gt; ReadS BusinessReportS3Location
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363601"><span id="local-6989586621679363603"><span id="local-6989586621679363605"><span class="annot"><span class="annottext">Int -&gt; BusinessReportS3Location -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363912"><span id="local-6989586621679363914"><span id="local-6989586621679363916"><span class="annot"><span class="annottext">Int -&gt; BusinessReportS3Location -&gt; ShowS
 [BusinessReportS3Location] -&gt; ShowS
 BusinessReportS3Location -&gt; String
 (Int -&gt; BusinessReportS3Location -&gt; ShowS)
@@ -103,53 +103,28 @@ BusinessReportS3Location -&gt; Rep BusinessReportS3Location x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'bucketName', 'businessReportS3Location_bucketName' - The S3 bucket name of the output reports.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'path', 'businessReportS3Location_path' - The path of the business report.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'path', 'businessReportS3Location_path' - The path of the business report.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'bucketName', 'businessReportS3Location_bucketName' - The S3 bucket name of the output reports.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#newBusinessReportS3Location"><span class="hs-identifier hs-type">newBusinessReportS3Location</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span>
 </span><span id="line-50"></span><span id="newBusinessReportS3Location"><span class="annot"><span class="annottext">newBusinessReportS3Location :: BusinessReportS3Location
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#newBusinessReportS3Location"><span class="hs-identifier hs-var hs-var">newBusinessReportS3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">BusinessReportS3Location' :: Maybe Text -&gt; Maybe Text -&gt; BusinessReportS3Location
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucketName:BusinessReportS3Location' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3AbucketName%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:BusinessReportS3Location' :: Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:BusinessReportS3Location' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3Apath%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The S3 bucket name of the output reports.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#businessReportS3Location_bucketName"><span class="hs-identifier hs-type">businessReportS3Location_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="businessReportS3Location_bucketName"><span class="annot"><span class="annottext">businessReportS3Location_bucketName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BusinessReportS3Location -&gt; f BusinessReportS3Location
-</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#businessReportS3Location_bucketName"><span class="hs-identifier hs-var hs-var">businessReportS3Location_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReportS3Location -&gt; Maybe Text)
--&gt; (BusinessReportS3Location
-    -&gt; Maybe Text -&gt; BusinessReportS3Location)
--&gt; Lens
-     BusinessReportS3Location
-     BusinessReportS3Location
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363592"><span class="annot"><span class="annottext">Maybe Text
-bucketName :: Maybe Text
-$sel:bucketName:BusinessReportS3Location' :: BusinessReportS3Location -&gt; Maybe Text
-</span><a href="#local-6989586621679363592"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363592"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363591"><span class="annot"><span class="annottext">s :: BusinessReportS3Location
-</span><a href="#local-6989586621679363591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363590"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportS3Location
-</span><a href="#local-6989586621679363591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:BusinessReportS3Location' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:BusinessReportS3Location' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3AbucketName%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The path of the business report.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#businessReportS3Location_path"><span class="hs-identifier hs-type">businessReportS3Location_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="businessReportS3Location_path"><span class="annot"><span class="annottext">businessReportS3Location_path :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The path of the business report.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#businessReportS3Location_path"><span class="hs-identifier hs-type">businessReportS3Location_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="businessReportS3Location_path"><span class="annot"><span class="annottext">businessReportS3Location_path :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; BusinessReportS3Location -&gt; f BusinessReportS3Location
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#businessReportS3Location_path"><span class="hs-identifier hs-var hs-var">businessReportS3Location_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReportS3Location -&gt; Maybe Text)
 -&gt; (BusinessReportS3Location
@@ -160,52 +135,76 @@ $sel:bucketName:BusinessReportS3Location' :: BusinessReportS3Location -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363588"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363903"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:BusinessReportS3Location' :: BusinessReportS3Location -&gt; Maybe Text
-</span><a href="#local-6989586621679363588"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363588"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363587"><span class="annot"><span class="annottext">s :: BusinessReportS3Location
-</span><a href="#local-6989586621679363587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363586"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportS3Location
-</span><a href="#local-6989586621679363587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:BusinessReportS3Location' :: Maybe Text
+</span><a href="#local-6989586621679363903"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363903"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363902"><span class="annot"><span class="annottext">s :: BusinessReportS3Location
+</span><a href="#local-6989586621679363902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363901"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportS3Location
+</span><a href="#local-6989586621679363902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:BusinessReportS3Location' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3Apath%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363583"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679363581"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BusinessReportS3Location
+</span><a href="#local-6989586621679363901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The S3 bucket name of the output reports.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#businessReportS3Location_bucketName"><span class="hs-identifier hs-type">businessReportS3Location_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="businessReportS3Location_bucketName"><span class="annot"><span class="annottext">businessReportS3Location_bucketName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BusinessReportS3Location -&gt; f BusinessReportS3Location
+</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#businessReportS3Location_bucketName"><span class="hs-identifier hs-var hs-var">businessReportS3Location_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReportS3Location -&gt; Maybe Text)
+-&gt; (BusinessReportS3Location
+    -&gt; Maybe Text -&gt; BusinessReportS3Location)
+-&gt; Lens
+     BusinessReportS3Location
+     BusinessReportS3Location
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363899"><span class="annot"><span class="annottext">Maybe Text
+bucketName :: Maybe Text
+$sel:bucketName:BusinessReportS3Location' :: BusinessReportS3Location -&gt; Maybe Text
+</span><a href="#local-6989586621679363899"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363899"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363898"><span class="annot"><span class="annottext">s :: BusinessReportS3Location
+</span><a href="#local-6989586621679363898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-type">BusinessReportS3Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363897"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReportS3Location
+</span><a href="#local-6989586621679363898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:BusinessReportS3Location' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#%24sel%3AbucketName%3ABusinessReportS3Location%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363894"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679363892"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BusinessReportS3Location
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BusinessReportS3Location)
 -&gt; Value
 -&gt; Parser BusinessReportS3Location
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BusinessReportS3Location&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363578"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; BusinessReportS3Location
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363889"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; BusinessReportS3Location
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location%27"><span class="hs-identifier hs-var">BusinessReportS3Location'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; BusinessReportS3Location)
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; BusinessReportS3Location)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; BusinessReportS3Location)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BusinessReportS3Location)
--&gt; Parser (Maybe Text) -&gt; Parser BusinessReportS3Location
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679363889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363572"><span id="local-6989586621679363574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span></span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span></span><span>
-</span><span id="line-78"></span></pre></body></html>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; BusinessReportS3Location)
+-&gt; Parser (Maybe Text) -&gt; Parser BusinessReportS3Location
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363883"><span id="local-6989586621679363885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span></span><span>
+</span><span id="line-77"></span></pre></body></html>

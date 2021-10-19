@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_parentFolderId"><span class="hs-identifier">updateDocument_parentFolderId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_name"><span class="hs-identifier">updateDocument_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_authenticationToken"><span class="hs-identifier">updateDocument_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_authenticationToken"><span class="hs-identifier">updateDocument_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_name"><span class="hs-identifier">updateDocument_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_resourceState"><span class="hs-identifier">updateDocument_resourceState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_documentId"><span class="hs-identifier">updateDocument_documentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
@@ -48,17 +48,17 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocument' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679275825"><span id="local-6989586621679275826"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocument"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-var">UpdateDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocument%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-var">UpdateDocument'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679275989"><span id="local-6989586621679275990"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocument"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-var">UpdateDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocument%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-var">UpdateDocument'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the parent folder.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AparentFolderId%3AUpdateDocument%27"><span class="annot"><span class="annottext">UpdateDocument -&gt; Maybe Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AparentFolderId%3AUpdateDocument%27"><span class="hs-identifier hs-var hs-var">parentFolderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the document.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aname%3AUpdateDocument%27"><span class="annot"><span class="annottext">UpdateDocument -&gt; Maybe Text
-</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3Aname%3AUpdateDocument%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AauthenticationToken%3AUpdateDocument%27"><span class="annot"><span class="annottext">UpdateDocument -&gt; Maybe (Sensitive Text)
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AauthenticationToken%3AUpdateDocument%27"><span class="annot"><span class="annottext">UpdateDocument -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AauthenticationToken%3AUpdateDocument%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the document.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3AUpdateDocument%27"><span class="annot"><span class="annottext">UpdateDocument -&gt; Maybe Text
+</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3Aname%3AUpdateDocument%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The resource state of the document. Only ACTIVE and RECYCLED are</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- supported.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AresourceState%3AUpdateDocument%27"><span class="annot"><span class="annottext">UpdateDocument -&gt; Maybe ResourceStateType
@@ -67,7 +67,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AdocumentId%3AUpdateDocument%27"><span class="annot"><span class="annottext">UpdateDocument -&gt; Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AdocumentId%3AUpdateDocument%27"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275815"><span id="local-6989586621679275817"><span class="annot"><span class="annottext">UpdateDocument -&gt; UpdateDocument -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275979"><span id="local-6989586621679275981"><span class="annot"><span class="annottext">UpdateDocument -&gt; UpdateDocument -&gt; Bool
 (UpdateDocument -&gt; UpdateDocument -&gt; Bool)
 -&gt; (UpdateDocument -&gt; UpdateDocument -&gt; Bool) -&gt; Eq UpdateDocument
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDocument -&gt; UpdateDocument -&gt; Bool
 == :: UpdateDocument -&gt; UpdateDocument -&gt; Bool
 $c== :: UpdateDocument -&gt; UpdateDocument -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275808"><span id="local-6989586621679275810"><span id="local-6989586621679275812"><span class="annot"><span class="annottext">Int -&gt; UpdateDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275972"><span id="local-6989586621679275974"><span id="local-6989586621679275976"><span class="annot"><span class="annottext">Int -&gt; UpdateDocument -&gt; ShowS
 [UpdateDocument] -&gt; ShowS
 UpdateDocument -&gt; String
 (Int -&gt; UpdateDocument -&gt; ShowS)
@@ -111,10 +111,10 @@ $cfrom :: forall x. UpdateDocument -&gt; Rep UpdateDocument x
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- 'parentFolderId', 'updateDocument_parentFolderId' - The ID of the parent folder.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'updateDocument_name' - The name of the document.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'authenticationToken', 'updateDocument_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'authenticationToken', 'updateDocument_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'name', 'updateDocument_name' - The name of the document.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'resourceState', 'updateDocument_resourceState' - The resource state of the document. Only ACTIVE and RECYCLED are</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- supported.</span><span>
@@ -125,11 +125,11 @@ $cfrom :: forall x. UpdateDocument -&gt; Rep UpdateDocument x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span>
 </span><span id="line-90"></span><span id="newUpdateDocument"><span class="annot"><span class="annottext">newUpdateDocument :: Text -&gt; UpdateDocument
-</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#newUpdateDocument"><span class="hs-identifier hs-var hs-var">newUpdateDocument</span></a></span></span><span> </span><span id="local-6989586621679275803"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275803"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#newUpdateDocument"><span class="hs-identifier hs-var hs-var">newUpdateDocument</span></a></span></span><span> </span><span id="local-6989586621679275967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275967"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocument' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
 -&gt; Maybe ResourceStateType
 -&gt; Text
 -&gt; UpdateDocument
@@ -138,12 +138,12 @@ $cfrom :: forall x. UpdateDocument -&gt; Rep UpdateDocument x
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AparentFolderId%3AUpdateDocument%27"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateDocument' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3Aname%3AUpdateDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocument' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AauthenticationToken%3AUpdateDocument%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocument' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AauthenticationToken%3AUpdateDocument%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateDocument' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3Aname%3AUpdateDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceState:UpdateDocument' :: Maybe ResourceStateType
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocument' :: Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AdocumentId%3AUpdateDocument%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275803"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span>
+</span><a href="#local-6989586621679275967"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The ID of the parent folder.</span><span>
@@ -163,40 +163,21 @@ forall a. Maybe a
 -&gt; (UpdateDocument -&gt; Maybe Text -&gt; UpdateDocument)
 -&gt; Lens UpdateDocument UpdateDocument (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275800"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275964"><span class="annot"><span class="annottext">Maybe Text
 parentFolderId :: Maybe Text
 $sel:parentFolderId:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679275800"><span class="hs-identifier hs-var hs-var">parentFolderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275800"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275799"><span class="annot"><span class="annottext">s :: UpdateDocument
-</span><a href="#local-6989586621679275799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275798"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
-</span><a href="#local-6989586621679275799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentFolderId:UpdateDocument' :: Maybe Text
+</span><a href="#local-6989586621679275964"><span class="hs-identifier hs-var hs-var">parentFolderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275964"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275963"><span class="annot"><span class="annottext">s :: UpdateDocument
+</span><a href="#local-6989586621679275963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275962"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
+</span><a href="#local-6989586621679275963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentFolderId:UpdateDocument' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AparentFolderId%3AUpdateDocument%27"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The name of the document.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_name"><span class="hs-identifier hs-type">updateDocument_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="updateDocument_name"><span class="annot"><span class="annottext">updateDocument_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateDocument -&gt; f UpdateDocument
-</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_name"><span class="hs-identifier hs-var hs-var">updateDocument_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocument -&gt; Maybe Text)
--&gt; (UpdateDocument -&gt; Maybe Text -&gt; UpdateDocument)
--&gt; Lens UpdateDocument UpdateDocument (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275797"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679275797"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275797"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275796"><span class="annot"><span class="annottext">s :: UpdateDocument
-</span><a href="#local-6989586621679275796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275795"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
-</span><a href="#local-6989586621679275796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateDocument' :: Maybe Text
-</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3Aname%3AUpdateDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_authenticationToken"><span class="hs-identifier hs-type">updateDocument_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="updateDocument_authenticationToken"><span class="annot"><span class="annottext">updateDocument_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-103"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_authenticationToken"><span class="hs-identifier hs-type">updateDocument_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="updateDocument_authenticationToken"><span class="annot"><span class="annottext">updateDocument_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateDocument -&gt; f UpdateDocument
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_authenticationToken"><span class="hs-identifier hs-var hs-var">updateDocument_authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocument -&gt; Maybe (Sensitive Text))
 -&gt; (UpdateDocument -&gt; Maybe (Sensitive Text) -&gt; UpdateDocument)
@@ -206,16 +187,16 @@ $sel:name:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275794"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275961"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:UpdateDocument' :: UpdateDocument -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679275794"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679275794"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275793"><span class="annot"><span class="annottext">s :: UpdateDocument
-</span><a href="#local-6989586621679275793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275792"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679275792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
-</span><a href="#local-6989586621679275793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocument' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275961"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275961"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275960"><span class="annot"><span class="annottext">s :: UpdateDocument
+</span><a href="#local-6989586621679275960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275959"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
+</span><a href="#local-6989586621679275960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:UpdateDocument' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AauthenticationToken%3AUpdateDocument%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679275792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679275959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UpdateDocument -&gt; f UpdateDocument)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -235,6 +216,25 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The name of the document.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_name"><span class="hs-identifier hs-type">updateDocument_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="updateDocument_name"><span class="annot"><span class="annottext">updateDocument_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDocument -&gt; f UpdateDocument
+</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_name"><span class="hs-identifier hs-var hs-var">updateDocument_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDocument -&gt; Maybe Text)
+-&gt; (UpdateDocument -&gt; Maybe Text -&gt; UpdateDocument)
+-&gt; Lens UpdateDocument UpdateDocument (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275955"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
+</span><a href="#local-6989586621679275955"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275955"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275954"><span class="annot"><span class="annottext">s :: UpdateDocument
+</span><a href="#local-6989586621679275954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
+</span><a href="#local-6989586621679275954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateDocument' :: Maybe Text
+</span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3Aname%3AUpdateDocument%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The resource state of the document. Only ACTIVE and RECYCLED are</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- supported.</span><span>
@@ -249,16 +249,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe ResourceStateType)
      (Maybe ResourceStateType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275788"><span class="annot"><span class="annottext">Maybe ResourceStateType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275952"><span class="annot"><span class="annottext">Maybe ResourceStateType
 resourceState :: Maybe ResourceStateType
 $sel:resourceState:UpdateDocument' :: UpdateDocument -&gt; Maybe ResourceStateType
-</span><a href="#local-6989586621679275788"><span class="hs-identifier hs-var hs-var">resourceState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStateType
-</span><a href="#local-6989586621679275788"><span class="hs-identifier hs-var">resourceState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275787"><span class="annot"><span class="annottext">s :: UpdateDocument
-</span><a href="#local-6989586621679275787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275786"><span class="annot"><span class="annottext">Maybe ResourceStateType
-</span><a href="#local-6989586621679275786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
-</span><a href="#local-6989586621679275787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceState:UpdateDocument' :: Maybe ResourceStateType
+</span><a href="#local-6989586621679275952"><span class="hs-identifier hs-var hs-var">resourceState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStateType
+</span><a href="#local-6989586621679275952"><span class="hs-identifier hs-var">resourceState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275951"><span class="annot"><span class="annottext">s :: UpdateDocument
+</span><a href="#local-6989586621679275951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275950"><span class="annot"><span class="annottext">Maybe ResourceStateType
+</span><a href="#local-6989586621679275950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
+</span><a href="#local-6989586621679275951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceState:UpdateDocument' :: Maybe ResourceStateType
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AresourceState%3AUpdateDocument%27"><span class="hs-identifier hs-var">resourceState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStateType
-</span><a href="#local-6989586621679275786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The ID of the document.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#updateDocument_documentId"><span class="hs-identifier hs-type">updateDocument_documentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -267,27 +267,27 @@ $sel:resourceState:UpdateDocument' :: UpdateDocument -&gt; Maybe ResourceStateTy
 -&gt; (UpdateDocument -&gt; Text -&gt; UpdateDocument)
 -&gt; Lens UpdateDocument UpdateDocument Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275785"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275949"><span class="annot"><span class="annottext">Text
 documentId :: Text
 $sel:documentId:UpdateDocument' :: UpdateDocument -&gt; Text
-</span><a href="#local-6989586621679275785"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275785"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275784"><span class="annot"><span class="annottext">s :: UpdateDocument
-</span><a href="#local-6989586621679275784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275783"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
-</span><a href="#local-6989586621679275784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocument' :: Text
+</span><a href="#local-6989586621679275949"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275949"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275948"><span class="annot"><span class="annottext">s :: UpdateDocument
+</span><a href="#local-6989586621679275948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocument
+</span><a href="#local-6989586621679275948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:UpdateDocument' :: Text
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#%24sel%3AdocumentId%3AUpdateDocument%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse"><span class="hs-identifier hs-type">UpdateDocumentResponse</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679275779"><span class="annot"><span class="annottext">request :: UpdateDocument -&gt; Request UpdateDocument
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679275943"><span class="annot"><span class="annottext">request :: UpdateDocument -&gt; Request UpdateDocument
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDocument -&gt; Request UpdateDocument
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679275775"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679275939"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDocument
 -&gt; ClientResponse ClientBody
@@ -311,27 +311,27 @@ AWSResponse a
 UpdateDocumentResponse
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse%27"><span class="hs-identifier hs-var">UpdateDocumentResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275768"><span id="local-6989586621679275770"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275932"><span id="local-6989586621679275934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679275761"><span class="annot"><span class="annottext">toHeaders :: UpdateDocument -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275755"><span id="local-6989586621679275756"><span id="local-6989586621679275757"><span id="local-6989586621679275758"><span id="local-6989586621679275759"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679275925"><span class="annot"><span class="annottext">toHeaders :: UpdateDocument -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275919"><span id="local-6989586621679275920"><span id="local-6989586621679275921"><span id="local-6989586621679275922"><span id="local-6989586621679275923"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Maybe ResourceStateType
 Text
 documentId :: Text
 resourceState :: Maybe ResourceStateType
-authenticationToken :: Maybe (Sensitive Text)
 name :: Maybe Text
+authenticationToken :: Maybe (Sensitive Text)
 parentFolderId :: Maybe Text
 $sel:documentId:UpdateDocument' :: UpdateDocument -&gt; Text
 $sel:resourceState:UpdateDocument' :: UpdateDocument -&gt; Maybe ResourceStateType
-$sel:authenticationToken:UpdateDocument' :: UpdateDocument -&gt; Maybe (Sensitive Text)
 $sel:name:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
+$sel:authenticationToken:UpdateDocument' :: UpdateDocument -&gt; Maybe (Sensitive Text)
 $sel:parentFolderId:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679275755"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275919"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -339,7 +339,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679275757"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275922"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
@@ -348,23 +348,23 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275747"><span id="local-6989586621679275749"><span id="local-6989586621679275751"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679275745"><span class="annot"><span class="annottext">toJSON :: UpdateDocument -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275739"><span id="local-6989586621679275740"><span id="local-6989586621679275741"><span id="local-6989586621679275742"><span id="local-6989586621679275743"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275911"><span id="local-6989586621679275913"><span id="local-6989586621679275915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679275909"><span class="annot"><span class="annottext">toJSON :: UpdateDocument -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275903"><span id="local-6989586621679275904"><span id="local-6989586621679275905"><span id="local-6989586621679275906"><span id="local-6989586621679275907"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Maybe ResourceStateType
 Text
 documentId :: Text
 resourceState :: Maybe ResourceStateType
-authenticationToken :: Maybe (Sensitive Text)
 name :: Maybe Text
+authenticationToken :: Maybe (Sensitive Text)
 parentFolderId :: Maybe Text
 $sel:documentId:UpdateDocument' :: UpdateDocument -&gt; Text
 $sel:resourceState:UpdateDocument' :: UpdateDocument -&gt; Maybe ResourceStateType
-$sel:authenticationToken:UpdateDocument' :: UpdateDocument -&gt; Maybe (Sensitive Text)
 $sel:name:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
+$sel:authenticationToken:UpdateDocument' :: UpdateDocument -&gt; Maybe (Sensitive Text)
 $sel:parentFolderId:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679275739"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275903"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -377,14 +377,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275743"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275907"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275742"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275905"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceStateType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -392,27 +392,27 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ResourceStateType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStateType
-</span><a href="#local-6989586621679275740"><span class="hs-identifier hs-var">resourceState</span></a></span><span>
+</span><a href="#local-6989586621679275904"><span class="hs-identifier hs-var">resourceState</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679275732"><span class="annot"><span class="annottext">toPath :: UpdateDocument -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275726"><span id="local-6989586621679275727"><span id="local-6989586621679275728"><span id="local-6989586621679275729"><span id="local-6989586621679275730"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679275896"><span class="annot"><span class="annottext">toPath :: UpdateDocument -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument%27"><span class="hs-identifier hs-type">UpdateDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275890"><span id="local-6989586621679275891"><span id="local-6989586621679275892"><span id="local-6989586621679275893"><span id="local-6989586621679275894"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Maybe ResourceStateType
 Text
 documentId :: Text
 resourceState :: Maybe ResourceStateType
-authenticationToken :: Maybe (Sensitive Text)
 name :: Maybe Text
+authenticationToken :: Maybe (Sensitive Text)
 parentFolderId :: Maybe Text
 $sel:documentId:UpdateDocument' :: UpdateDocument -&gt; Text
 $sel:resourceState:UpdateDocument' :: UpdateDocument -&gt; Maybe ResourceStateType
-$sel:authenticationToken:UpdateDocument' :: UpdateDocument -&gt; Maybe (Sensitive Text)
 $sel:name:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
+$sel:authenticationToken:UpdateDocument' :: UpdateDocument -&gt; Maybe (Sensitive Text)
 $sel:parentFolderId:UpdateDocument' :: UpdateDocument -&gt; Maybe Text
-</span><a href="#local-6989586621679275726"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275890"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -420,10 +420,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/api/v1/documents/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275726"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679275890"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocument"><span class="hs-identifier hs-type">UpdateDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679275722"><span class="annot"><span class="annottext">toQuery :: UpdateDocument -&gt; QueryString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679275886"><span class="annot"><span class="annottext">toQuery :: UpdateDocument -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDocument -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -431,10 +431,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocumentResponse' smart constructor.</span><span>
-</span><span id="line-161"></span><span id="local-6989586621679275718"><span id="local-6989586621679275719"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentResponse"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse"><span class="hs-identifier hs-var">UpdateDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse%27"><span class="hs-identifier hs-var">UpdateDocumentResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span id="local-6989586621679275882"><span id="local-6989586621679275883"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentResponse"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse"><span class="hs-identifier hs-var">UpdateDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse%27"><span class="hs-identifier hs-var">UpdateDocumentResponse'</span></a></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275714"><span id="local-6989586621679275716"><span class="annot"><span class="annottext">UpdateDocumentResponse -&gt; UpdateDocumentResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275878"><span id="local-6989586621679275880"><span class="annot"><span class="annottext">UpdateDocumentResponse -&gt; UpdateDocumentResponse -&gt; Bool
 (UpdateDocumentResponse -&gt; UpdateDocumentResponse -&gt; Bool)
 -&gt; (UpdateDocumentResponse -&gt; UpdateDocumentResponse -&gt; Bool)
 -&gt; Eq UpdateDocumentResponse
@@ -443,7 +443,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDocumentResponse -&gt; UpdateDocumentResponse -&gt; Bool
 == :: UpdateDocumentResponse -&gt; UpdateDocumentResponse -&gt; Bool
 $c== :: UpdateDocumentResponse -&gt; UpdateDocumentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275706"><span id="local-6989586621679275708"><span id="local-6989586621679275710"><span id="local-6989586621679275712"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275870"><span id="local-6989586621679275872"><span id="local-6989586621679275874"><span id="local-6989586621679275876"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentResponse]
 ReadPrec UpdateDocumentResponse
 Int -&gt; ReadS UpdateDocumentResponse
 ReadS [UpdateDocumentResponse]
@@ -463,7 +463,7 @@ readList :: ReadS [UpdateDocumentResponse]
 $creadList :: ReadS [UpdateDocumentResponse]
 readsPrec :: Int -&gt; ReadS UpdateDocumentResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDocumentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275699"><span id="local-6989586621679275701"><span id="local-6989586621679275703"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275863"><span id="local-6989586621679275865"><span id="local-6989586621679275867"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentResponse -&gt; ShowS
 [UpdateDocumentResponse] -&gt; ShowS
 UpdateDocumentResponse -&gt; String
 (Int -&gt; UpdateDocumentResponse -&gt; ShowS)
@@ -500,5 +500,5 @@ $cfrom :: forall x. UpdateDocumentResponse -&gt; Rep UpdateDocumentResponse x
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#newUpdateDocumentResponse"><span class="hs-identifier hs-var hs-var">newUpdateDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentResponse
 </span><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse%27"><span class="hs-identifier hs-var">UpdateDocumentResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse"><span class="hs-identifier hs-type">UpdateDocumentResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.UpdateDocument.html#UpdateDocumentResponse"><span class="hs-identifier hs-type">UpdateDocumentResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

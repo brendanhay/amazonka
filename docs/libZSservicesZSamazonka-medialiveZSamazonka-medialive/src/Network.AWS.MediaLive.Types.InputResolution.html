@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- | Input resolution based on lines of vertical resolution in the input; SD</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- is less than 720 lines, HD is 720 to 1080 lines, UHD is greater than</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- 1080 lines</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679889905"><span id="local-6989586621679889906"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputResolution"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputResolution.html#InputResolution"><span class="hs-identifier hs-var">InputResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputResolution%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputResolution.html#InputResolution%27"><span class="hs-identifier hs-var">InputResolution'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679896569"><span id="local-6989586621679896570"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputResolution"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputResolution.html#InputResolution"><span class="hs-identifier hs-var">InputResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputResolution%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputResolution.html#InputResolution%27"><span class="hs-identifier hs-var">InputResolution'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputResolution"><span class="annot"><span class="annottext">InputResolution -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.InputResolution.html#fromInputResolution"><span class="hs-identifier hs-var hs-var">fromInputResolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889897"><span id="local-6989586621679889899"><span id="local-6989586621679889901"><span class="annot"><span class="annottext">Int -&gt; InputResolution -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679896561"><span id="local-6989586621679896563"><span id="local-6989586621679896565"><span class="annot"><span class="annottext">Int -&gt; InputResolution -&gt; ShowS
 [InputResolution] -&gt; ShowS
 InputResolution -&gt; String
 (Int -&gt; InputResolution -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: InputResolution -&gt; String
 showsPrec :: Int -&gt; InputResolution -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputResolution -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679889888"><span id="local-6989586621679889890"><span id="local-6989586621679889892"><span id="local-6989586621679889894"><span class="annot"><span class="annottext">ReadPrec [InputResolution]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679896552"><span id="local-6989586621679896554"><span id="local-6989586621679896556"><span id="local-6989586621679896558"><span class="annot"><span class="annottext">ReadPrec [InputResolution]
 ReadPrec InputResolution
 Int -&gt; ReadS InputResolution
 ReadS [InputResolution]
@@ -76,7 +76,7 @@ $creadList :: ReadS [InputResolution]
 readsPrec :: Int -&gt; ReadS InputResolution
 $creadsPrec :: Int -&gt; ReadS InputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679889883"><span id="local-6989586621679889885"><span class="annot"><span class="annottext">InputResolution -&gt; InputResolution -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679896547"><span id="local-6989586621679896549"><span class="annot"><span class="annottext">InputResolution -&gt; InputResolution -&gt; Bool
 (InputResolution -&gt; InputResolution -&gt; Bool)
 -&gt; (InputResolution -&gt; InputResolution -&gt; Bool)
 -&gt; Eq InputResolution
@@ -86,7 +86,7 @@ $c/= :: InputResolution -&gt; InputResolution -&gt; Bool
 == :: InputResolution -&gt; InputResolution -&gt; Bool
 $c== :: InputResolution -&gt; InputResolution -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679889867"><span id="local-6989586621679889869"><span id="local-6989586621679889871"><span id="local-6989586621679889873"><span id="local-6989586621679889875"><span id="local-6989586621679889877"><span id="local-6989586621679889879"><span class="annot"><span class="annottext">Eq InputResolution
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679896531"><span id="local-6989586621679896533"><span id="local-6989586621679896535"><span id="local-6989586621679896537"><span id="local-6989586621679896539"><span id="local-6989586621679896541"><span id="local-6989586621679896543"><span class="annot"><span class="annottext">Eq InputResolution
 Eq InputResolution
 -&gt; (InputResolution -&gt; InputResolution -&gt; Ordering)
 -&gt; (InputResolution -&gt; InputResolution -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. InputResolution -&gt; Rep InputResolution x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889859"><span id="local-6989586621679889861"><span class="annot"><span class="annottext">Int -&gt; InputResolution -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679896523"><span id="local-6989586621679896525"><span class="annot"><span class="annottext">Int -&gt; InputResolution -&gt; Int
 InputResolution -&gt; Int
 (Int -&gt; InputResolution -&gt; Int)
 -&gt; (InputResolution -&gt; Int) -&gt; Hashable InputResolution
@@ -147,50 +147,50 @@ $chash :: InputResolution -&gt; Int
 hashWithSalt :: Int -&gt; InputResolution -&gt; Int
 $chashWithSalt :: Int -&gt; InputResolution -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679889856"><span class="annot"><span class="annottext">InputResolution -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679896520"><span class="annot"><span class="annottext">InputResolution -&gt; ()
 (InputResolution -&gt; ()) -&gt; NFData InputResolution
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputResolution -&gt; ()
 $crnf :: InputResolution -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679889853"><span class="annot"><span class="annottext">Text -&gt; Either String InputResolution
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679896517"><span class="annot"><span class="annottext">Text -&gt; Either String InputResolution
 (Text -&gt; Either String InputResolution) -&gt; FromText InputResolution
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputResolution
 $cfromText :: Text -&gt; Either String InputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679889850"><span class="annot"><span class="annottext">InputResolution -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679896514"><span class="annot"><span class="annottext">InputResolution -&gt; Text
 (InputResolution -&gt; Text) -&gt; ToText InputResolution
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputResolution -&gt; Text
 $ctoText :: InputResolution -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679889847"><span class="annot"><span class="annottext">InputResolution -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679896511"><span class="annot"><span class="annottext">InputResolution -&gt; ByteString
 (InputResolution -&gt; ByteString) -&gt; ToByteString InputResolution
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputResolution -&gt; ByteString
 $ctoBS :: InputResolution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679889844"><span class="annot"><span class="annottext">InputResolution -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679896508"><span class="annot"><span class="annottext">InputResolution -&gt; ByteStringBuilder
 (InputResolution -&gt; ByteStringBuilder) -&gt; ToLog InputResolution
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputResolution -&gt; ByteStringBuilder
 $cbuild :: InputResolution -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679889841"><span class="annot"><span class="annottext">HeaderName -&gt; InputResolution -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679896505"><span class="annot"><span class="annottext">HeaderName -&gt; InputResolution -&gt; [Header]
 (HeaderName -&gt; InputResolution -&gt; [Header])
 -&gt; ToHeader InputResolution
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputResolution -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputResolution -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679889838"><span class="annot"><span class="annottext">InputResolution -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679896502"><span class="annot"><span class="annottext">InputResolution -&gt; QueryString
 (InputResolution -&gt; QueryString) -&gt; ToQuery InputResolution
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputResolution -&gt; QueryString
 $ctoQuery :: InputResolution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679889833"><span id="local-6989586621679889835"><span class="annot"><span class="annottext">Value -&gt; Parser [InputResolution]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679896497"><span id="local-6989586621679896499"><span class="annot"><span class="annottext">Value -&gt; Parser [InputResolution]
 Value -&gt; Parser InputResolution
 (Value -&gt; Parser InputResolution)
 -&gt; (Value -&gt; Parser [InputResolution]) -&gt; FromJSON InputResolution
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [InputResolution]
 parseJSON :: Value -&gt; Parser InputResolution
 $cparseJSON :: Value -&gt; Parser InputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679889828"><span id="local-6989586621679889830"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputResolution]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679896492"><span id="local-6989586621679896494"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputResolution]
 FromJSONKeyFunction InputResolution
 FromJSONKeyFunction InputResolution
 -&gt; FromJSONKeyFunction [InputResolution]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputResolution]
 fromJSONKey :: FromJSONKeyFunction InputResolution
 $cfromJSONKey :: FromJSONKeyFunction InputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679889819"><span id="local-6989586621679889821"><span id="local-6989586621679889823"><span id="local-6989586621679889825"><span class="annot"><span class="annottext">[InputResolution] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679896483"><span id="local-6989586621679896485"><span id="local-6989586621679896487"><span id="local-6989586621679896489"><span class="annot"><span class="annottext">[InputResolution] -&gt; Encoding
 [InputResolution] -&gt; Value
 InputResolution -&gt; Encoding
 InputResolution -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: InputResolution -&gt; Encoding
 toJSON :: InputResolution -&gt; Value
 $ctoJSON :: InputResolution -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679889814"><span id="local-6989586621679889816"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputResolution]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679896478"><span id="local-6989586621679896480"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputResolution]
 ToJSONKeyFunction InputResolution
 ToJSONKeyFunction InputResolution
 -&gt; ToJSONKeyFunction [InputResolution] -&gt; ToJSONKey InputResolution
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputResolution]
 toJSONKey :: ToJSONKeyFunction InputResolution
 $ctoJSONKey :: ToJSONKeyFunction InputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679889811"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputResolution
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679896475"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputResolution
 ([Node] -&gt; Either String InputResolution)
 -&gt; FromXML InputResolution
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputResolution
 $cparseXML :: [Node] -&gt; Either String InputResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679889808"><span class="annot"><span class="annottext">InputResolution -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679896472"><span class="annot"><span class="annottext">InputResolution -&gt; XML
 (InputResolution -&gt; XML) -&gt; ToXML InputResolution
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputResolution -&gt; XML

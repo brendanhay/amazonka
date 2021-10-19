@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- AppSpec file.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTimeBasedLinear' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679314685"><span id="local-6989586621679314686"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeBasedLinear"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-var">TimeBasedLinear</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeBasedLinear%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-var">TimeBasedLinear'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679314984"><span id="local-6989586621679314985"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeBasedLinear"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-var">TimeBasedLinear</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeBasedLinear%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-var">TimeBasedLinear'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of minutes between each incremental traffic shift of a</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @TimeBasedLinear@ deployment.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AlinearInterval%3ATimeBasedLinear%27"><span class="annot"><span class="annottext">TimeBasedLinear -&gt; Maybe Int
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AlinearPercentage%3ATimeBasedLinear%27"><span class="annot"><span class="annottext">TimeBasedLinear -&gt; Maybe Int
 </span><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#%24sel%3AlinearPercentage%3ATimeBasedLinear%27"><span class="hs-identifier hs-var hs-var">linearPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314678"><span id="local-6989586621679314680"><span class="annot"><span class="annottext">TimeBasedLinear -&gt; TimeBasedLinear -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314977"><span id="local-6989586621679314979"><span class="annot"><span class="annottext">TimeBasedLinear -&gt; TimeBasedLinear -&gt; Bool
 (TimeBasedLinear -&gt; TimeBasedLinear -&gt; Bool)
 -&gt; (TimeBasedLinear -&gt; TimeBasedLinear -&gt; Bool)
 -&gt; Eq TimeBasedLinear
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimeBasedLinear -&gt; TimeBasedLinear -&gt; Bool
 == :: TimeBasedLinear -&gt; TimeBasedLinear -&gt; Bool
 $c== :: TimeBasedLinear -&gt; TimeBasedLinear -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314669"><span id="local-6989586621679314671"><span id="local-6989586621679314673"><span id="local-6989586621679314675"><span class="annot"><span class="annottext">ReadPrec [TimeBasedLinear]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314968"><span id="local-6989586621679314970"><span id="local-6989586621679314972"><span id="local-6989586621679314974"><span class="annot"><span class="annottext">ReadPrec [TimeBasedLinear]
 ReadPrec TimeBasedLinear
 Int -&gt; ReadS TimeBasedLinear
 ReadS [TimeBasedLinear]
@@ -69,7 +69,7 @@ readList :: ReadS [TimeBasedLinear]
 $creadList :: ReadS [TimeBasedLinear]
 readsPrec :: Int -&gt; ReadS TimeBasedLinear
 $creadsPrec :: Int -&gt; ReadS TimeBasedLinear
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314662"><span id="local-6989586621679314664"><span id="local-6989586621679314666"><span class="annot"><span class="annottext">Int -&gt; TimeBasedLinear -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314961"><span id="local-6989586621679314963"><span id="local-6989586621679314965"><span class="annot"><span class="annottext">Int -&gt; TimeBasedLinear -&gt; ShowS
 [TimeBasedLinear] -&gt; ShowS
 TimeBasedLinear -&gt; String
 (Int -&gt; TimeBasedLinear -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
 -&gt; (TimeBasedLinear -&gt; Maybe Int -&gt; TimeBasedLinear)
 -&gt; Lens TimeBasedLinear TimeBasedLinear (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314653"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314952"><span class="annot"><span class="annottext">Maybe Int
 linearInterval :: Maybe Int
 $sel:linearInterval:TimeBasedLinear' :: TimeBasedLinear -&gt; Maybe Int
-</span><a href="#local-6989586621679314653"><span class="hs-identifier hs-var hs-var">linearInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314653"><span class="hs-identifier hs-var">linearInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314652"><span class="annot"><span class="annottext">s :: TimeBasedLinear
-</span><a href="#local-6989586621679314652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314651"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeBasedLinear
-</span><a href="#local-6989586621679314652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linearInterval:TimeBasedLinear' :: Maybe Int
+</span><a href="#local-6989586621679314952"><span class="hs-identifier hs-var hs-var">linearInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679314952"><span class="hs-identifier hs-var">linearInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314951"><span class="annot"><span class="annottext">s :: TimeBasedLinear
+</span><a href="#local-6989586621679314951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314950"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679314950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeBasedLinear
+</span><a href="#local-6989586621679314951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linearInterval:TimeBasedLinear' :: Maybe Int
 </span><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#%24sel%3AlinearInterval%3ATimeBasedLinear%27"><span class="hs-identifier hs-var">linearInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The percentage of traffic that is shifted at the start of each increment</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- of a @TimeBasedLinear@ deployment.</span><span>
@@ -153,19 +153,19 @@ $sel:linearInterval:TimeBasedLinear' :: TimeBasedLinear -&gt; Maybe Int
 -&gt; (TimeBasedLinear -&gt; Maybe Int -&gt; TimeBasedLinear)
 -&gt; Lens TimeBasedLinear TimeBasedLinear (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314649"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314948"><span class="annot"><span class="annottext">Maybe Int
 linearPercentage :: Maybe Int
 $sel:linearPercentage:TimeBasedLinear' :: TimeBasedLinear -&gt; Maybe Int
-</span><a href="#local-6989586621679314649"><span class="hs-identifier hs-var hs-var">linearPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314649"><span class="hs-identifier hs-var">linearPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314648"><span class="annot"><span class="annottext">s :: TimeBasedLinear
-</span><a href="#local-6989586621679314648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314647"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeBasedLinear
-</span><a href="#local-6989586621679314648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linearPercentage:TimeBasedLinear' :: Maybe Int
+</span><a href="#local-6989586621679314948"><span class="hs-identifier hs-var hs-var">linearPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679314948"><span class="hs-identifier hs-var">linearPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314947"><span class="annot"><span class="annottext">s :: TimeBasedLinear
+</span><a href="#local-6989586621679314947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314946"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679314946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeBasedLinear
+</span><a href="#local-6989586621679314947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linearPercentage:TimeBasedLinear' :: Maybe Int
 </span><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#%24sel%3AlinearPercentage%3ATimeBasedLinear%27"><span class="hs-identifier hs-var">linearPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314644"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679314642"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeBasedLinear
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314943"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679314941"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeBasedLinear
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TimeBasedLinear)
@@ -175,15 +175,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimeBasedLinear&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314639"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314938"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314938"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; TimeBasedLinear
 </span><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-var">TimeBasedLinear'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; TimeBasedLinear)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; TimeBasedLinear)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679314938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;linearInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,24 +191,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser TimeBasedLinear
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679314938"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;linearPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314633"><span id="local-6989586621679314635"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314932"><span id="local-6989586621679314934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314622"><span id="local-6989586621679314624"><span id="local-6989586621679314626"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679314620"><span class="annot"><span class="annottext">toJSON :: TimeBasedLinear -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314617"><span id="local-6989586621679314618"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314921"><span id="local-6989586621679314923"><span id="local-6989586621679314925"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear"><span class="hs-identifier hs-type">TimeBasedLinear</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679314919"><span class="annot"><span class="annottext">toJSON :: TimeBasedLinear -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TimeBasedLinear.html#TimeBasedLinear%27"><span class="hs-identifier hs-type">TimeBasedLinear'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314916"><span id="local-6989586621679314917"><span class="annot"><span class="annottext">Maybe Int
 linearPercentage :: Maybe Int
 linearInterval :: Maybe Int
 $sel:linearPercentage:TimeBasedLinear' :: TimeBasedLinear -&gt; Maybe Int
 $sel:linearInterval:TimeBasedLinear' :: TimeBasedLinear -&gt; Maybe Int
-</span><a href="#local-6989586621679314617"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679314916"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -221,7 +221,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314618"><span class="hs-identifier hs-var">linearInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314917"><span class="hs-identifier hs-var">linearInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;linearPercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -229,7 +229,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679314617"><span class="hs-identifier hs-var">linearPercentage</span></a></span><span>
+</span><a href="#local-6989586621679314916"><span class="hs-identifier hs-var">linearPercentage</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

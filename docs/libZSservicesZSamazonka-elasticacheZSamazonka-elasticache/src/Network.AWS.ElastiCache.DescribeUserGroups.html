@@ -30,8 +30,8 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_userGroupId"><span class="hs-identifier">describeUserGroups_userGroupId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_maxRecords"><span class="hs-identifier">describeUserGroups_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_marker"><span class="hs-identifier">describeUserGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_marker"><span class="hs-identifier">describeUserGroups_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_maxRecords"><span class="hs-identifier">describeUserGroups_maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier">DescribeUserGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -52,23 +52,23 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeUserGroups' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679414887"><span id="local-6989586621679414888"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserGroups"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-var">DescribeUserGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserGroups%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-var">DescribeUserGroups'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679415456"><span id="local-6989586621679415457"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserGroups"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-var">DescribeUserGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserGroups%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-var">DescribeUserGroups'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the user group.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AuserGroupId%3ADescribeUserGroups%27"><span class="annot"><span class="annottext">DescribeUserGroups -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AuserGroupId%3ADescribeUserGroups%27"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- records exist than the specified MaxRecords value, a marker is included</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="annot"><span class="annottext">DescribeUserGroups -&gt; Maybe Int
-</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the value specified by MaxRecords. &gt;</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeUserGroups%27"><span class="annot"><span class="annottext">DescribeUserGroups -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3Amarker%3ADescribeUserGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the value specified by MaxRecords. &gt;</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeUserGroups%27"><span class="annot"><span class="annottext">DescribeUserGroups -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3Amarker%3ADescribeUserGroups%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- records exist than the specified MaxRecords value, a marker is included</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="annot"><span class="annottext">DescribeUserGroups -&gt; Maybe Int
+</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414879"><span id="local-6989586621679414881"><span class="annot"><span class="annottext">DescribeUserGroups -&gt; DescribeUserGroups -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415448"><span id="local-6989586621679415450"><span class="annot"><span class="annottext">DescribeUserGroups -&gt; DescribeUserGroups -&gt; Bool
 (DescribeUserGroups -&gt; DescribeUserGroups -&gt; Bool)
 -&gt; (DescribeUserGroups -&gt; DescribeUserGroups -&gt; Bool)
 -&gt; Eq DescribeUserGroups
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUserGroups -&gt; DescribeUserGroups -&gt; Bool
 == :: DescribeUserGroups -&gt; DescribeUserGroups -&gt; Bool
 $c== :: DescribeUserGroups -&gt; DescribeUserGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414870"><span id="local-6989586621679414872"><span id="local-6989586621679414874"><span id="local-6989586621679414876"><span class="annot"><span class="annottext">ReadPrec [DescribeUserGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415439"><span id="local-6989586621679415441"><span id="local-6989586621679415443"><span id="local-6989586621679415445"><span class="annot"><span class="annottext">ReadPrec [DescribeUserGroups]
 ReadPrec DescribeUserGroups
 Int -&gt; ReadS DescribeUserGroups
 ReadS [DescribeUserGroups]
@@ -97,7 +97,7 @@ readList :: ReadS [DescribeUserGroups]
 $creadList :: ReadS [DescribeUserGroups]
 readsPrec :: Int -&gt; ReadS DescribeUserGroups
 $creadsPrec :: Int -&gt; ReadS DescribeUserGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414863"><span id="local-6989586621679414865"><span id="local-6989586621679414867"><span class="annot"><span class="annottext">Int -&gt; DescribeUserGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415432"><span id="local-6989586621679415434"><span id="local-6989586621679415436"><span class="annot"><span class="annottext">Int -&gt; DescribeUserGroups -&gt; ShowS
 [DescribeUserGroups] -&gt; ShowS
 DescribeUserGroups -&gt; String
 (Int -&gt; DescribeUserGroups -&gt; ShowS)
@@ -133,30 +133,30 @@ $cfrom :: forall x. DescribeUserGroups -&gt; Rep DescribeUserGroups x
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- 'userGroupId', 'describeUserGroups_userGroupId' - The ID of the user group.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'maxRecords', 'describeUserGroups_maxRecords' - The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- records exist than the specified MaxRecords value, a marker is included</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'marker', 'describeUserGroups_marker' - An optional marker returned from a prior request. Use this marker for</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- the value specified by MaxRecords. &gt;</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'marker', 'describeUserGroups_marker' - An optional marker returned from a prior request. Use this marker for</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- the value specified by MaxRecords. &gt;</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxRecords', 'describeUserGroups_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- records exist than the specified MaxRecords value, a marker is included</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#newDescribeUserGroups"><span class="hs-identifier hs-type">newDescribeUserGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span>
 </span><span id="line-90"></span><span id="newDescribeUserGroups"><span class="annot"><span class="annottext">newDescribeUserGroups :: DescribeUserGroups
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#newDescribeUserGroups"><span class="hs-identifier hs-var hs-var">newDescribeUserGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserGroups' :: Maybe Text -&gt; Maybe Int -&gt; Maybe Text -&gt; DescribeUserGroups
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserGroups' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; DescribeUserGroups
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userGroupId:DescribeUserGroups' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AuserGroupId%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUserGroups' :: Maybe Int
-</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeUserGroups' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3Amarker%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeUserGroups' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3Amarker%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUserGroups' :: Maybe Int
+</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
@@ -170,74 +170,74 @@ forall a. Maybe a
 -&gt; Lens
      DescribeUserGroups DescribeUserGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414857"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415426"><span class="annot"><span class="annottext">Maybe Text
 userGroupId :: Maybe Text
 $sel:userGroupId:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679414857"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414857"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414856"><span class="annot"><span class="annottext">s :: DescribeUserGroups
-</span><a href="#local-6989586621679414856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414855"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroups
-</span><a href="#local-6989586621679414856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroupId:DescribeUserGroups' :: Maybe Text
+</span><a href="#local-6989586621679415426"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415426"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415425"><span class="annot"><span class="annottext">s :: DescribeUserGroups
+</span><a href="#local-6989586621679415425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroups
+</span><a href="#local-6989586621679415425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroupId:DescribeUserGroups' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AuserGroupId%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- records exist than the specified MaxRecords value, a marker is included</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_maxRecords"><span class="hs-identifier hs-type">describeUserGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="describeUserGroups_maxRecords"><span class="annot"><span class="annottext">describeUserGroups_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeUserGroups -&gt; f DescribeUserGroups
-</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeUserGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserGroups -&gt; Maybe Int)
--&gt; (DescribeUserGroups -&gt; Maybe Int -&gt; DescribeUserGroups)
--&gt; Lens
-     DescribeUserGroups DescribeUserGroups (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414854"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Int
-</span><a href="#local-6989586621679414854"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679414854"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414853"><span class="annot"><span class="annottext">s :: DescribeUserGroups
-</span><a href="#local-6989586621679414853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414852"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679414852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroups
-</span><a href="#local-6989586621679414853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUserGroups' :: Maybe Int
-</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679414852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- the value specified by MaxRecords. &gt;</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_marker"><span class="hs-identifier hs-type">describeUserGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="describeUserGroups_marker"><span class="annot"><span class="annottext">describeUserGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-101"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- specified, the response includes only records beyond the marker, up to</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the value specified by MaxRecords. &gt;</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_marker"><span class="hs-identifier hs-type">describeUserGroups_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="describeUserGroups_marker"><span class="annot"><span class="annottext">describeUserGroups_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeUserGroups -&gt; f DescribeUserGroups
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_marker"><span class="hs-identifier hs-var hs-var">describeUserGroups_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserGroups -&gt; Maybe Text)
 -&gt; (DescribeUserGroups -&gt; Maybe Text -&gt; DescribeUserGroups)
 -&gt; Lens
      DescribeUserGroups DescribeUserGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414851"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415423"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679414851"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414851"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414850"><span class="annot"><span class="annottext">s :: DescribeUserGroups
-</span><a href="#local-6989586621679414850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414849"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroups
-</span><a href="#local-6989586621679414850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUserGroups' :: Maybe Text
+</span><a href="#local-6989586621679415423"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415423"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415422"><span class="annot"><span class="annottext">s :: DescribeUserGroups
+</span><a href="#local-6989586621679415422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415421"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroups
+</span><a href="#local-6989586621679415422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUserGroups' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3Amarker%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- records exist than the specified MaxRecords value, a marker is included</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- in the response so that the remaining results can be retrieved.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_maxRecords"><span class="hs-identifier hs-type">describeUserGroups_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="describeUserGroups_maxRecords"><span class="annot"><span class="annottext">describeUserGroups_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeUserGroups -&gt; f DescribeUserGroups
+</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroups_maxRecords"><span class="hs-identifier hs-var hs-var">describeUserGroups_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUserGroups -&gt; Maybe Int)
+-&gt; (DescribeUserGroups -&gt; Maybe Int -&gt; DescribeUserGroups)
+-&gt; Lens
+     DescribeUserGroups DescribeUserGroups (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415420"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Int
+</span><a href="#local-6989586621679415420"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679415420"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415419"><span class="annot"><span class="annottext">s :: DescribeUserGroups
+</span><a href="#local-6989586621679415419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415418"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679415418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroups
+</span><a href="#local-6989586621679415419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUserGroups' :: Maybe Int
+</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AmaxRecords%3ADescribeUserGroups%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679415418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679414845"><span class="annot"><span class="annottext">page :: DescribeUserGroups
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679415414"><span class="annot"><span class="annottext">page :: DescribeUserGroups
 -&gt; AWSResponse DescribeUserGroups -&gt; Maybe DescribeUserGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679414843"><span class="annot"><span class="annottext">DescribeUserGroups
-</span><a href="#local-6989586621679414843"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679414842"><span class="annot"><span class="annottext">AWSResponse DescribeUserGroups
-</span><a href="#local-6989586621679414842"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679415412"><span class="annot"><span class="annottext">DescribeUserGroups
+</span><a href="#local-6989586621679415412"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679415411"><span class="annot"><span class="annottext">AWSResponse DescribeUserGroups
+</span><a href="#local-6989586621679415411"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUserGroups
 DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415411"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
 -&gt; Getting (First Text) DescribeUserGroupsResponse Text
 -&gt; Maybe Text
@@ -267,7 +267,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUserGroups
 DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415411"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
 -&gt; Getting
      (First [UserGroup]) DescribeUserGroupsResponse [UserGroup]
@@ -307,7 +307,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">DescribeUserGroups
-</span><a href="#local-6989586621679414843"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679415412"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">DescribeUserGroups
 -&gt; (DescribeUserGroups -&gt; DescribeUserGroups) -&gt; DescribeUserGroups
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -322,7 +322,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUserGroups
 DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414842"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415411"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
 -&gt; Getting (First Text) DescribeUserGroupsResponse Text
 -&gt; Maybe Text
@@ -348,12 +348,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679414832"><span class="annot"><span class="annottext">request :: DescribeUserGroups -&gt; Request DescribeUserGroups
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679415401"><span class="annot"><span class="annottext">request :: DescribeUserGroups -&gt; Request DescribeUserGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUserGroups -&gt; Request DescribeUserGroups
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679414828"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679415397"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeUserGroups
 -&gt; ClientResponse ClientBody
@@ -384,10 +384,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeUserGroupsResult&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414825"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414825"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414824"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679414824"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414823"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679414823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415394"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415394"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415393"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415393"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415392"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679415392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UserGroup]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeUserGroupsResponse
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-var">DescribeUserGroupsResponse'</span></a></span><span>
@@ -397,7 +397,7 @@ Text
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeUserGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679414823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679415392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -424,7 +424,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeUserGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679414823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679415392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -436,15 +436,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414825"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415394"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414812"><span id="local-6989586621679414814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415381"><span id="local-6989586621679415383"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679414805"><span class="annot"><span class="annottext">toHeaders :: DescribeUserGroups -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679415374"><span class="annot"><span class="annottext">toHeaders :: DescribeUserGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUserGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -452,23 +452,23 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679414800"><span class="annot"><span class="annottext">toPath :: DescribeUserGroups -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679415369"><span class="annot"><span class="annottext">toPath :: DescribeUserGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeUserGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups"><span class="hs-identifier hs-type">DescribeUserGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679414796"><span class="annot"><span class="annottext">toQuery :: DescribeUserGroups -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414792"><span id="local-6989586621679414793"><span id="local-6989586621679414794"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679415365"><span class="annot"><span class="annottext">toQuery :: DescribeUserGroups -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroups%27"><span class="hs-identifier hs-type">DescribeUserGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415361"><span id="local-6989586621679415362"><span id="local-6989586621679415363"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
-marker :: Maybe Text
 maxRecords :: Maybe Int
+marker :: Maybe Text
 userGroupId :: Maybe Text
-$sel:marker:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Text
 $sel:maxRecords:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Int
+$sel:marker:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Text
 $sel:userGroupId:DescribeUserGroups' :: DescribeUserGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679414792"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679415361"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -488,21 +488,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;UserGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414794"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415363"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679414793"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414792"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679415362"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679415361"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newDescribeUserGroupsResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679414789"><span id="local-6989586621679414790"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserGroupsResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-var">DescribeUserGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserGroupsResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-var">DescribeUserGroupsResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679415358"><span id="local-6989586621679415359"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserGroupsResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-var">DescribeUserGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserGroupsResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-var">DescribeUserGroupsResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a list of user groups.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AuserGroups%3ADescribeUserGroupsResponse%27"><span class="annot"><span class="annottext">DescribeUserGroupsResponse -&gt; Maybe [UserGroup]
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AuserGroups%3ADescribeUserGroupsResponse%27"><span class="hs-identifier hs-var hs-var">userGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -516,7 +516,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUserGroupsResponse%27"><span class="annot"><span class="annottext">DescribeUserGroupsResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AhttpStatus%3ADescribeUserGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414782"><span id="local-6989586621679414784"><span class="annot"><span class="annottext">DescribeUserGroupsResponse -&gt; DescribeUserGroupsResponse -&gt; Bool
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415351"><span id="local-6989586621679415353"><span class="annot"><span class="annottext">DescribeUserGroupsResponse -&gt; DescribeUserGroupsResponse -&gt; Bool
 (DescribeUserGroupsResponse -&gt; DescribeUserGroupsResponse -&gt; Bool)
 -&gt; (DescribeUserGroupsResponse
     -&gt; DescribeUserGroupsResponse -&gt; Bool)
@@ -526,7 +526,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUserGroupsResponse -&gt; DescribeUserGroupsResponse -&gt; Bool
 == :: DescribeUserGroupsResponse -&gt; DescribeUserGroupsResponse -&gt; Bool
 $c== :: DescribeUserGroupsResponse -&gt; DescribeUserGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414774"><span id="local-6989586621679414776"><span id="local-6989586621679414778"><span id="local-6989586621679414780"><span class="annot"><span class="annottext">ReadPrec [DescribeUserGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415343"><span id="local-6989586621679415345"><span id="local-6989586621679415347"><span id="local-6989586621679415349"><span class="annot"><span class="annottext">ReadPrec [DescribeUserGroupsResponse]
 ReadPrec DescribeUserGroupsResponse
 Int -&gt; ReadS DescribeUserGroupsResponse
 ReadS [DescribeUserGroupsResponse]
@@ -546,7 +546,7 @@ readList :: ReadS [DescribeUserGroupsResponse]
 $creadList :: ReadS [DescribeUserGroupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeUserGroupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeUserGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414768"><span id="local-6989586621679414770"><span id="local-6989586621679414772"><span class="annot"><span class="annottext">Int -&gt; DescribeUserGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415337"><span id="local-6989586621679415339"><span id="local-6989586621679415341"><span class="annot"><span class="annottext">Int -&gt; DescribeUserGroupsResponse -&gt; ShowS
 [DescribeUserGroupsResponse] -&gt; ShowS
 DescribeUserGroupsResponse -&gt; String
 (Int -&gt; DescribeUserGroupsResponse -&gt; ShowS)
@@ -599,8 +599,8 @@ DescribeUserGroupsResponse -&gt; Rep DescribeUserGroupsResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newDescribeUserGroupsResponse"><span class="annot"><span class="annottext">newDescribeUserGroupsResponse :: Int -&gt; DescribeUserGroupsResponse
-</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#newDescribeUserGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679414765"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414765"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#newDescribeUserGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679415334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse' :: Maybe [UserGroup]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeUserGroupsResponse
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span>
@@ -615,7 +615,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserGroupsResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AhttpStatus%3ADescribeUserGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414765"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679415334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | Returns a list of user groups.</span><span>
@@ -627,16 +627,16 @@ forall a. Maybe a
     -&gt; Maybe [UserGroup] -&gt; DescribeUserGroupsResponse)
 -&gt; Lens' DescribeUserGroupsResponse (Maybe [UserGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414764"><span class="annot"><span class="annottext">Maybe [UserGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415333"><span class="annot"><span class="annottext">Maybe [UserGroup]
 userGroups :: Maybe [UserGroup]
 $sel:userGroups:DescribeUserGroupsResponse' :: DescribeUserGroupsResponse -&gt; Maybe [UserGroup]
-</span><a href="#local-6989586621679414764"><span class="hs-identifier hs-var hs-var">userGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserGroup]
-</span><a href="#local-6989586621679414764"><span class="hs-identifier hs-var">userGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414763"><span class="annot"><span class="annottext">s :: DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414762"><span class="annot"><span class="annottext">Maybe [UserGroup]
-</span><a href="#local-6989586621679414762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroups:DescribeUserGroupsResponse' :: Maybe [UserGroup]
+</span><a href="#local-6989586621679415333"><span class="hs-identifier hs-var hs-var">userGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UserGroup]
+</span><a href="#local-6989586621679415333"><span class="hs-identifier hs-var">userGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415332"><span class="annot"><span class="annottext">s :: DescribeUserGroupsResponse
+</span><a href="#local-6989586621679415332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415331"><span class="annot"><span class="annottext">Maybe [UserGroup]
+</span><a href="#local-6989586621679415331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
+</span><a href="#local-6989586621679415332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroups:DescribeUserGroupsResponse' :: Maybe [UserGroup]
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AuserGroups%3ADescribeUserGroupsResponse%27"><span class="hs-identifier hs-var">userGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UserGroup]
-</span><a href="#local-6989586621679414762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserGroup] -&gt; f (Maybe [UserGroup]))
+</span><a href="#local-6989586621679415331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UserGroup] -&gt; f (Maybe [UserGroup]))
  -&gt; DescribeUserGroupsResponse -&gt; f DescribeUserGroupsResponse)
 -&gt; ((Maybe [UserGroup] -&gt; f (Maybe [UserGroup]))
     -&gt; Maybe [UserGroup] -&gt; f (Maybe [UserGroup]))
@@ -654,8 +654,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [UserGroup] [UserGroup] [UserGroup] [UserGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
@@ -669,16 +669,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeUserGroupsResponse)
 -&gt; Lens' DescribeUserGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414759"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415328"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeUserGroupsResponse' :: DescribeUserGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679414759"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414759"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414758"><span class="annot"><span class="annottext">s :: DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414757"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUserGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679415328"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415328"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415327"><span class="annot"><span class="annottext">s :: DescribeUserGroupsResponse
+</span><a href="#local-6989586621679415327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415326"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
+</span><a href="#local-6989586621679415327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUserGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3Amarker%3ADescribeUserGroupsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#describeUserGroupsResponse_httpStatus"><span class="hs-identifier hs-type">describeUserGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -690,16 +690,16 @@ $sel:marker:DescribeUserGroupsResponse' :: DescribeUserGroupsResponse -&gt; Mayb
 -&gt; Lens
      DescribeUserGroupsResponse DescribeUserGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414756"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415325"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeUserGroupsResponse' :: DescribeUserGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679414756"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414756"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414755"><span class="annot"><span class="annottext">s :: DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414754"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
-</span><a href="#local-6989586621679414755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserGroupsResponse' :: Int
+</span><a href="#local-6989586621679415325"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415325"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415324"><span class="annot"><span class="annottext">s :: DescribeUserGroupsResponse
+</span><a href="#local-6989586621679415324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse%27"><span class="hs-identifier hs-type">DescribeUserGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserGroupsResponse
+</span><a href="#local-6989586621679415324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserGroupsResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#%24sel%3AhttpStatus%3ADescribeUserGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUserGroups.html#DescribeUserGroupsResponse"><span class="hs-identifier hs-type">DescribeUserGroupsResponse</span></a></span></span><span>
 </span><span id="line-233"></span></pre></body></html>

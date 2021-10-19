@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span id="local-6989586621679294934"><span id="local-6989586621679294935"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateReasonCode"><span class="annot"><a href="Network.AWS.Lambda.Types.StateReasonCode.html#StateReasonCode"><span class="hs-identifier hs-var">StateReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateReasonCode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.StateReasonCode.html#StateReasonCode%27"><span class="hs-identifier hs-var">StateReasonCode'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679299796"><span id="local-6989586621679299797"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StateReasonCode"><span class="annot"><a href="Network.AWS.Lambda.Types.StateReasonCode.html#StateReasonCode"><span class="hs-identifier hs-var">StateReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StateReasonCode%27"><span class="annot"><a href="Network.AWS.Lambda.Types.StateReasonCode.html#StateReasonCode%27"><span class="hs-identifier hs-var">StateReasonCode'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStateReasonCode"><span class="annot"><span class="annottext">StateReasonCode -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.StateReasonCode.html#fromStateReasonCode"><span class="hs-identifier hs-var hs-var">fromStateReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294926"><span id="local-6989586621679294928"><span id="local-6989586621679294930"><span class="annot"><span class="annottext">Int -&gt; StateReasonCode -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299788"><span id="local-6989586621679299790"><span id="local-6989586621679299792"><span class="annot"><span class="annottext">Int -&gt; StateReasonCode -&gt; ShowS
 [StateReasonCode] -&gt; ShowS
 StateReasonCode -&gt; String
 (Int -&gt; StateReasonCode -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: StateReasonCode -&gt; String
 showsPrec :: Int -&gt; StateReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; StateReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294917"><span id="local-6989586621679294919"><span id="local-6989586621679294921"><span id="local-6989586621679294923"><span class="annot"><span class="annottext">ReadPrec [StateReasonCode]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299779"><span id="local-6989586621679299781"><span id="local-6989586621679299783"><span id="local-6989586621679299785"><span class="annot"><span class="annottext">ReadPrec [StateReasonCode]
 ReadPrec StateReasonCode
 Int -&gt; ReadS StateReasonCode
 ReadS [StateReasonCode]
@@ -83,7 +83,7 @@ $creadList :: ReadS [StateReasonCode]
 readsPrec :: Int -&gt; ReadS StateReasonCode
 $creadsPrec :: Int -&gt; ReadS StateReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294912"><span id="local-6989586621679294914"><span class="annot"><span class="annottext">StateReasonCode -&gt; StateReasonCode -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299774"><span id="local-6989586621679299776"><span class="annot"><span class="annottext">StateReasonCode -&gt; StateReasonCode -&gt; Bool
 (StateReasonCode -&gt; StateReasonCode -&gt; Bool)
 -&gt; (StateReasonCode -&gt; StateReasonCode -&gt; Bool)
 -&gt; Eq StateReasonCode
@@ -93,7 +93,7 @@ $c/= :: StateReasonCode -&gt; StateReasonCode -&gt; Bool
 == :: StateReasonCode -&gt; StateReasonCode -&gt; Bool
 $c== :: StateReasonCode -&gt; StateReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294896"><span id="local-6989586621679294898"><span id="local-6989586621679294900"><span id="local-6989586621679294902"><span id="local-6989586621679294904"><span id="local-6989586621679294906"><span id="local-6989586621679294908"><span class="annot"><span class="annottext">Eq StateReasonCode
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299758"><span id="local-6989586621679299760"><span id="local-6989586621679299762"><span id="local-6989586621679299764"><span id="local-6989586621679299766"><span id="local-6989586621679299768"><span id="local-6989586621679299770"><span class="annot"><span class="annottext">Eq StateReasonCode
 Eq StateReasonCode
 -&gt; (StateReasonCode -&gt; StateReasonCode -&gt; Ordering)
 -&gt; (StateReasonCode -&gt; StateReasonCode -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. StateReasonCode -&gt; Rep StateReasonCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294888"><span id="local-6989586621679294890"><span class="annot"><span class="annottext">Int -&gt; StateReasonCode -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299750"><span id="local-6989586621679299752"><span class="annot"><span class="annottext">Int -&gt; StateReasonCode -&gt; Int
 StateReasonCode -&gt; Int
 (Int -&gt; StateReasonCode -&gt; Int)
 -&gt; (StateReasonCode -&gt; Int) -&gt; Hashable StateReasonCode
@@ -154,50 +154,50 @@ $chash :: StateReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; StateReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; StateReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294885"><span class="annot"><span class="annottext">StateReasonCode -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299747"><span class="annot"><span class="annottext">StateReasonCode -&gt; ()
 (StateReasonCode -&gt; ()) -&gt; NFData StateReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StateReasonCode -&gt; ()
 $crnf :: StateReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294882"><span class="annot"><span class="annottext">Text -&gt; Either String StateReasonCode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299744"><span class="annot"><span class="annottext">Text -&gt; Either String StateReasonCode
 (Text -&gt; Either String StateReasonCode) -&gt; FromText StateReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StateReasonCode
 $cfromText :: Text -&gt; Either String StateReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294879"><span class="annot"><span class="annottext">StateReasonCode -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299741"><span class="annot"><span class="annottext">StateReasonCode -&gt; Text
 (StateReasonCode -&gt; Text) -&gt; ToText StateReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StateReasonCode -&gt; Text
 $ctoText :: StateReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294876"><span class="annot"><span class="annottext">StateReasonCode -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679299738"><span class="annot"><span class="annottext">StateReasonCode -&gt; ByteString
 (StateReasonCode -&gt; ByteString) -&gt; ToByteString StateReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StateReasonCode -&gt; ByteString
 $ctoBS :: StateReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679294873"><span class="annot"><span class="annottext">StateReasonCode -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679299735"><span class="annot"><span class="annottext">StateReasonCode -&gt; ByteStringBuilder
 (StateReasonCode -&gt; ByteStringBuilder) -&gt; ToLog StateReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StateReasonCode -&gt; ByteStringBuilder
 $cbuild :: StateReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679294870"><span class="annot"><span class="annottext">HeaderName -&gt; StateReasonCode -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679299732"><span class="annot"><span class="annottext">HeaderName -&gt; StateReasonCode -&gt; [Header]
 (HeaderName -&gt; StateReasonCode -&gt; [Header])
 -&gt; ToHeader StateReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StateReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StateReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679294867"><span class="annot"><span class="annottext">StateReasonCode -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679299729"><span class="annot"><span class="annottext">StateReasonCode -&gt; QueryString
 (StateReasonCode -&gt; QueryString) -&gt; ToQuery StateReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StateReasonCode -&gt; QueryString
 $ctoQuery :: StateReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679294862"><span id="local-6989586621679294864"><span class="annot"><span class="annottext">Value -&gt; Parser [StateReasonCode]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679299724"><span id="local-6989586621679299726"><span class="annot"><span class="annottext">Value -&gt; Parser [StateReasonCode]
 Value -&gt; Parser StateReasonCode
 (Value -&gt; Parser StateReasonCode)
 -&gt; (Value -&gt; Parser [StateReasonCode]) -&gt; FromJSON StateReasonCode
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [StateReasonCode]
 parseJSON :: Value -&gt; Parser StateReasonCode
 $cparseJSON :: Value -&gt; Parser StateReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679294857"><span id="local-6989586621679294859"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateReasonCode]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679299719"><span id="local-6989586621679299721"><span class="annot"><span class="annottext">FromJSONKeyFunction [StateReasonCode]
 FromJSONKeyFunction StateReasonCode
 FromJSONKeyFunction StateReasonCode
 -&gt; FromJSONKeyFunction [StateReasonCode]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StateReasonCode]
 fromJSONKey :: FromJSONKeyFunction StateReasonCode
 $cfromJSONKey :: FromJSONKeyFunction StateReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679294848"><span id="local-6989586621679294850"><span id="local-6989586621679294852"><span id="local-6989586621679294854"><span class="annot"><span class="annottext">[StateReasonCode] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679299710"><span id="local-6989586621679299712"><span id="local-6989586621679299714"><span id="local-6989586621679299716"><span class="annot"><span class="annottext">[StateReasonCode] -&gt; Encoding
 [StateReasonCode] -&gt; Value
 StateReasonCode -&gt; Encoding
 StateReasonCode -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: StateReasonCode -&gt; Encoding
 toJSON :: StateReasonCode -&gt; Value
 $ctoJSON :: StateReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679294843"><span id="local-6989586621679294845"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateReasonCode]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679299705"><span id="local-6989586621679299707"><span class="annot"><span class="annottext">ToJSONKeyFunction [StateReasonCode]
 ToJSONKeyFunction StateReasonCode
 ToJSONKeyFunction StateReasonCode
 -&gt; ToJSONKeyFunction [StateReasonCode] -&gt; ToJSONKey StateReasonCode
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StateReasonCode]
 toJSONKey :: ToJSONKeyFunction StateReasonCode
 $ctoJSONKey :: ToJSONKeyFunction StateReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679294840"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateReasonCode
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679299702"><span class="annot"><span class="annottext">[Node] -&gt; Either String StateReasonCode
 ([Node] -&gt; Either String StateReasonCode)
 -&gt; FromXML StateReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StateReasonCode
 $cparseXML :: [Node] -&gt; Either String StateReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679294837"><span class="annot"><span class="annottext">StateReasonCode -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679299699"><span class="annot"><span class="annottext">StateReasonCode -&gt; XML
 (StateReasonCode -&gt; XML) -&gt; ToXML StateReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StateReasonCode -&gt; XML

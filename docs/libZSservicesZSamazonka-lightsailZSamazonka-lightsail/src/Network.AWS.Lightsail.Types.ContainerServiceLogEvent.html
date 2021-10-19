@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- service.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newContainerServiceLogEvent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679606585"><span id="local-6989586621679606586"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceLogEvent"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-var">ContainerServiceLogEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceLogEvent%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-var">ContainerServiceLogEvent'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The message of the container service log event.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="annot"><span class="annottext">ContainerServiceLogEvent -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The timestamp when the container service log event was created.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreatedAt%3AContainerServiceLogEvent%27"><span class="annot"><span class="annottext">ContainerServiceLogEvent -&gt; Maybe POSIX
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3AcreatedAt%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679607472"><span id="local-6989586621679607473"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerServiceLogEvent"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-var">ContainerServiceLogEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerServiceLogEvent%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-var">ContainerServiceLogEvent'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp when the container service log event was created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreatedAt%3AContainerServiceLogEvent%27"><span class="annot"><span class="annottext">ContainerServiceLogEvent -&gt; Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3AcreatedAt%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The message of the container service log event.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="annot"><span class="annottext">ContainerServiceLogEvent -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679606578"><span id="local-6989586621679606580"><span class="annot"><span class="annottext">ContainerServiceLogEvent -&gt; ContainerServiceLogEvent -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679607465"><span id="local-6989586621679607467"><span class="annot"><span class="annottext">ContainerServiceLogEvent -&gt; ContainerServiceLogEvent -&gt; Bool
 (ContainerServiceLogEvent -&gt; ContainerServiceLogEvent -&gt; Bool)
 -&gt; (ContainerServiceLogEvent -&gt; ContainerServiceLogEvent -&gt; Bool)
 -&gt; Eq ContainerServiceLogEvent
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerServiceLogEvent -&gt; ContainerServiceLogEvent -&gt; Bool
 == :: ContainerServiceLogEvent -&gt; ContainerServiceLogEvent -&gt; Bool
 $c== :: ContainerServiceLogEvent -&gt; ContainerServiceLogEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606569"><span id="local-6989586621679606571"><span id="local-6989586621679606573"><span id="local-6989586621679606575"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceLogEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607456"><span id="local-6989586621679607458"><span id="local-6989586621679607460"><span id="local-6989586621679607462"><span class="annot"><span class="annottext">ReadPrec [ContainerServiceLogEvent]
 ReadPrec ContainerServiceLogEvent
 Int -&gt; ReadS ContainerServiceLogEvent
 ReadS [ContainerServiceLogEvent]
@@ -64,7 +64,7 @@ readList :: ReadS [ContainerServiceLogEvent]
 $creadList :: ReadS [ContainerServiceLogEvent]
 readsPrec :: Int -&gt; ReadS ContainerServiceLogEvent
 $creadsPrec :: Int -&gt; ReadS ContainerServiceLogEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679606562"><span id="local-6989586621679606564"><span id="local-6989586621679606566"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceLogEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679607449"><span id="local-6989586621679607451"><span id="local-6989586621679607453"><span class="annot"><span class="annottext">Int -&gt; ContainerServiceLogEvent -&gt; ShowS
 [ContainerServiceLogEvent] -&gt; ShowS
 ContainerServiceLogEvent -&gt; String
 (Int -&gt; ContainerServiceLogEvent -&gt; ShowS)
@@ -104,53 +104,29 @@ ContainerServiceLogEvent -&gt; Rep ContainerServiceLogEvent x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'message', 'containerServiceLogEvent_message' - The message of the container service log event.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'createdAt', 'containerServiceLogEvent_createdAt' - The timestamp when the container service log event was created.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'createdAt', 'containerServiceLogEvent_createdAt' - The timestamp when the container service log event was created.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'message', 'containerServiceLogEvent_message' - The message of the container service log event.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#newContainerServiceLogEvent"><span class="hs-identifier hs-type">newContainerServiceLogEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span>
 </span><span id="line-51"></span><span id="newContainerServiceLogEvent"><span class="annot"><span class="annottext">newContainerServiceLogEvent :: ContainerServiceLogEvent
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#newContainerServiceLogEvent"><span class="hs-identifier hs-var hs-var">newContainerServiceLogEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ContainerServiceLogEvent' :: Maybe Text -&gt; Maybe POSIX -&gt; ContainerServiceLogEvent
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ContainerServiceLogEvent' :: Maybe POSIX -&gt; Maybe Text -&gt; ContainerServiceLogEvent
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:ContainerServiceLogEvent' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAt:ContainerServiceLogEvent' :: Maybe POSIX
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3AcreatedAt%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ContainerServiceLogEvent' :: Maybe POSIX
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3AcreatedAt%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:ContainerServiceLogEvent' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The message of the container service log event.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#containerServiceLogEvent_message"><span class="hs-identifier hs-type">containerServiceLogEvent_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="containerServiceLogEvent_message"><span class="annot"><span class="annottext">containerServiceLogEvent_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ContainerServiceLogEvent -&gt; f ContainerServiceLogEvent
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#containerServiceLogEvent_message"><span class="hs-identifier hs-var hs-var">containerServiceLogEvent_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceLogEvent -&gt; Maybe Text)
--&gt; (ContainerServiceLogEvent
-    -&gt; Maybe Text -&gt; ContainerServiceLogEvent)
--&gt; Lens
-     ContainerServiceLogEvent
-     ContainerServiceLogEvent
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606553"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:ContainerServiceLogEvent' :: ContainerServiceLogEvent -&gt; Maybe Text
-</span><a href="#local-6989586621679606553"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606553"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606552"><span class="annot"><span class="annottext">s :: ContainerServiceLogEvent
-</span><a href="#local-6989586621679606552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606551"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceLogEvent
-</span><a href="#local-6989586621679606552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ContainerServiceLogEvent' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679606551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The timestamp when the container service log event was created.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#containerServiceLogEvent_createdAt"><span class="hs-identifier hs-type">containerServiceLogEvent_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="containerServiceLogEvent_createdAt"><span class="annot"><span class="annottext">containerServiceLogEvent_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-58"></span><span class="hs-comment">-- | The timestamp when the container service log event was created.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#containerServiceLogEvent_createdAt"><span class="hs-identifier hs-type">containerServiceLogEvent_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="containerServiceLogEvent_createdAt"><span class="annot"><span class="annottext">containerServiceLogEvent_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ContainerServiceLogEvent -&gt; f ContainerServiceLogEvent
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#containerServiceLogEvent_createdAt"><span class="hs-identifier hs-var hs-var">containerServiceLogEvent_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceLogEvent -&gt; Maybe POSIX)
 -&gt; (ContainerServiceLogEvent
@@ -161,16 +137,16 @@ $sel:message:ContainerServiceLogEvent' :: ContainerServiceLogEvent -&gt; Maybe T
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679606549"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607440"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:ContainerServiceLogEvent' :: ContainerServiceLogEvent -&gt; Maybe POSIX
-</span><a href="#local-6989586621679606549"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679606549"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679606548"><span class="annot"><span class="annottext">s :: ContainerServiceLogEvent
-</span><a href="#local-6989586621679606548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679606547"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679606547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceLogEvent
-</span><a href="#local-6989586621679606548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ContainerServiceLogEvent' :: Maybe POSIX
+</span><a href="#local-6989586621679607440"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679607440"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607439"><span class="annot"><span class="annottext">s :: ContainerServiceLogEvent
+</span><a href="#local-6989586621679607439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607438"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679607438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceLogEvent
+</span><a href="#local-6989586621679607439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ContainerServiceLogEvent' :: Maybe POSIX
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3AcreatedAt%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679606547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679607438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ContainerServiceLogEvent -&gt; f ContainerServiceLogEvent)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -186,9 +162,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The message of the container service log event.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#containerServiceLogEvent_message"><span class="hs-identifier hs-type">containerServiceLogEvent_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="containerServiceLogEvent_message"><span class="annot"><span class="annottext">containerServiceLogEvent_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContainerServiceLogEvent -&gt; f ContainerServiceLogEvent
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#containerServiceLogEvent_message"><span class="hs-identifier hs-var hs-var">containerServiceLogEvent_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceLogEvent -&gt; Maybe Text)
+-&gt; (ContainerServiceLogEvent
+    -&gt; Maybe Text -&gt; ContainerServiceLogEvent)
+-&gt; Lens
+     ContainerServiceLogEvent
+     ContainerServiceLogEvent
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679607433"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:ContainerServiceLogEvent' :: ContainerServiceLogEvent -&gt; Maybe Text
+</span><a href="#local-6989586621679607433"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607433"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679607432"><span class="annot"><span class="annottext">s :: ContainerServiceLogEvent
+</span><a href="#local-6989586621679607432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-type">ContainerServiceLogEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679607431"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServiceLogEvent
+</span><a href="#local-6989586621679607432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ContainerServiceLogEvent' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#%24sel%3Amessage%3AContainerServiceLogEvent%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679607431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606541"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679606539"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServiceLogEvent
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679607426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerServiceLogEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerServiceLogEvent)
@@ -198,30 +198,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerServiceLogEvent&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679606536"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; ContainerServiceLogEvent
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679607423"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Text -&gt; ContainerServiceLogEvent
 </span><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent%27"><span class="hs-identifier hs-var">ContainerServiceLogEvent'</span></a></span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; ContainerServiceLogEvent)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; ContainerServiceLogEvent)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Text -&gt; ContainerServiceLogEvent)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; ContainerServiceLogEvent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ContainerServiceLogEvent)
--&gt; Parser (Maybe POSIX) -&gt; Parser ContainerServiceLogEvent
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679606536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679607423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContainerServiceLogEvent)
+-&gt; Parser (Maybe Text) -&gt; Parser ContainerServiceLogEvent
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679607423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606530"><span id="local-6989586621679606532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607417"><span id="local-6989586621679607419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679606527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679607414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceLogEvent.html#ContainerServiceLogEvent"><span class="hs-identifier hs-type">ContainerServiceLogEvent</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

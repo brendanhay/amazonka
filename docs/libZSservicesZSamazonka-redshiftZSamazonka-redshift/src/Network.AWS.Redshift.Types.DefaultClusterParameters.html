@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the default cluster parameters for a parameter group family.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDefaultClusterParameters' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679493618"><span id="local-6989586621679493619"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultClusterParameters"><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-var">DefaultClusterParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultClusterParameters%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-var">DefaultClusterParameters'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cluster parameter group family to which the engine</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- default parameters apply.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var hs-var">parameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The list of cluster default parameters.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aparameters%3ADefaultClusterParameters%27"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; Maybe [Parameter]
+</span><span id="line-31"></span><span id="local-6989586621679494263"><span id="local-6989586621679494264"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultClusterParameters"><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-var">DefaultClusterParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultClusterParameters%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-var">DefaultClusterParameters'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The list of cluster default parameters.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aparameters%3ADefaultClusterParameters%27"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; Maybe [Parameter]
 </span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Aparameters%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the request.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the cluster parameter group family to which the engine</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- default parameters apply.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var hs-var">parameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679493610"><span id="local-6989586621679493612"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; DefaultClusterParameters -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679494255"><span id="local-6989586621679494257"><span class="annot"><span class="annottext">DefaultClusterParameters -&gt; DefaultClusterParameters -&gt; Bool
 (DefaultClusterParameters -&gt; DefaultClusterParameters -&gt; Bool)
 -&gt; (DefaultClusterParameters -&gt; DefaultClusterParameters -&gt; Bool)
 -&gt; Eq DefaultClusterParameters
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DefaultClusterParameters -&gt; DefaultClusterParameters -&gt; Bool
 == :: DefaultClusterParameters -&gt; DefaultClusterParameters -&gt; Bool
 $c== :: DefaultClusterParameters -&gt; DefaultClusterParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679493601"><span id="local-6989586621679493603"><span id="local-6989586621679493605"><span id="local-6989586621679493607"><span class="annot"><span class="annottext">ReadPrec [DefaultClusterParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494246"><span id="local-6989586621679494248"><span id="local-6989586621679494250"><span id="local-6989586621679494252"><span class="annot"><span class="annottext">ReadPrec [DefaultClusterParameters]
 ReadPrec DefaultClusterParameters
 Int -&gt; ReadS DefaultClusterParameters
 ReadS [DefaultClusterParameters]
@@ -74,7 +74,7 @@ readList :: ReadS [DefaultClusterParameters]
 $creadList :: ReadS [DefaultClusterParameters]
 readsPrec :: Int -&gt; ReadS DefaultClusterParameters
 $creadsPrec :: Int -&gt; ReadS DefaultClusterParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679493594"><span id="local-6989586621679493596"><span id="local-6989586621679493598"><span class="annot"><span class="annottext">Int -&gt; DefaultClusterParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679494239"><span id="local-6989586621679494241"><span id="local-6989586621679494243"><span class="annot"><span class="annottext">Int -&gt; DefaultClusterParameters -&gt; ShowS
 [DefaultClusterParameters] -&gt; ShowS
 DefaultClusterParameters -&gt; String
 (Int -&gt; DefaultClusterParameters -&gt; ShowS)
@@ -114,17 +114,17 @@ DefaultClusterParameters -&gt; Rep DefaultClusterParameters x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'parameterGroupFamily', 'defaultClusterParameters_parameterGroupFamily' - The name of the cluster parameter group family to which the engine</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- default parameters apply.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'parameters', 'defaultClusterParameters_parameters' - The list of cluster default parameters.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'marker', 'defaultClusterParameters_marker' - A value that indicates the starting point for the next set of response</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'marker', 'defaultClusterParameters_marker' - A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'parameters', 'defaultClusterParameters_parameters' - The list of cluster default parameters.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'parameterGroupFamily', 'defaultClusterParameters_parameterGroupFamily' - The name of the cluster parameter group family to which the engine</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- default parameters apply.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#newDefaultClusterParameters"><span class="hs-identifier hs-type">newDefaultClusterParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span>
 </span><span id="line-68"></span><span id="newDefaultClusterParameters"><span class="annot"><span class="annottext">newDefaultClusterParameters :: DefaultClusterParameters
@@ -132,27 +132,30 @@ DefaultClusterParameters -&gt; Rep DefaultClusterParameters x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DefaultClusterParameters' :: Maybe Text
 -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; DefaultClusterParameters
 </span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterGroupFamily:DefaultClusterParameters' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">parameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DefaultClusterParameters' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:DefaultClusterParameters' :: Maybe [Parameter]
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:DefaultClusterParameters' :: Maybe [Parameter]
 </span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Aparameters%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DefaultClusterParameters' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterGroupFamily:DefaultClusterParameters' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">parameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The name of the cluster parameter group family to which the engine</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- default parameters apply.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_parameterGroupFamily"><span class="hs-identifier hs-type">defaultClusterParameters_parameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="defaultClusterParameters_parameterGroupFamily"><span class="annot"><span class="annottext">defaultClusterParameters_parameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the request.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_marker"><span class="hs-identifier hs-type">defaultClusterParameters_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="defaultClusterParameters_marker"><span class="annot"><span class="annottext">defaultClusterParameters_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DefaultClusterParameters -&gt; f DefaultClusterParameters
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_parameterGroupFamily"><span class="hs-identifier hs-var hs-var">defaultClusterParameters_parameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultClusterParameters -&gt; Maybe Text)
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_marker"><span class="hs-identifier hs-var hs-var">defaultClusterParameters_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultClusterParameters -&gt; Maybe Text)
 -&gt; (DefaultClusterParameters
     -&gt; Maybe Text -&gt; DefaultClusterParameters)
 -&gt; Lens
@@ -161,20 +164,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679493585"><span class="annot"><span class="annottext">Maybe Text
-parameterGroupFamily :: Maybe Text
-$sel:parameterGroupFamily:DefaultClusterParameters' :: DefaultClusterParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679493585"><span class="hs-identifier hs-var hs-var">parameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679493585"><span class="hs-identifier hs-var">parameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679493584"><span class="annot"><span class="annottext">s :: DefaultClusterParameters
-</span><a href="#local-6989586621679493584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679493583"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679493583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultClusterParameters
-</span><a href="#local-6989586621679493584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupFamily:DefaultClusterParameters' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">parameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679493583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The list of cluster default parameters.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_parameters"><span class="hs-identifier hs-type">defaultClusterParameters_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="defaultClusterParameters_parameters"><span class="annot"><span class="annottext">defaultClusterParameters_parameters :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494230"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DefaultClusterParameters' :: DefaultClusterParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679494230"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494230"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494229"><span class="annot"><span class="annottext">s :: DefaultClusterParameters
+</span><a href="#local-6989586621679494229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultClusterParameters
+</span><a href="#local-6989586621679494229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DefaultClusterParameters' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The list of cluster default parameters.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_parameters"><span class="hs-identifier hs-type">defaultClusterParameters_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="defaultClusterParameters_parameters"><span class="annot"><span class="annottext">defaultClusterParameters_parameters :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
 -&gt; DefaultClusterParameters -&gt; f DefaultClusterParameters
 </span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_parameters"><span class="hs-identifier hs-var hs-var">defaultClusterParameters_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultClusterParameters -&gt; Maybe [Parameter])
 -&gt; (DefaultClusterParameters
@@ -185,16 +188,16 @@ $sel:parameterGroupFamily:DefaultClusterParameters' :: DefaultClusterParameters 
      (Maybe [Parameter])
      (Maybe [Parameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679493581"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494226"><span class="annot"><span class="annottext">Maybe [Parameter]
 parameters :: Maybe [Parameter]
 $sel:parameters:DefaultClusterParameters' :: DefaultClusterParameters -&gt; Maybe [Parameter]
-</span><a href="#local-6989586621679493581"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679493581"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679493580"><span class="annot"><span class="annottext">s :: DefaultClusterParameters
-</span><a href="#local-6989586621679493580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679493579"><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679493579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultClusterParameters
-</span><a href="#local-6989586621679493580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:DefaultClusterParameters' :: Maybe [Parameter]
+</span><a href="#local-6989586621679494226"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679494226"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494225"><span class="annot"><span class="annottext">s :: DefaultClusterParameters
+</span><a href="#local-6989586621679494225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494224"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679494224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultClusterParameters
+</span><a href="#local-6989586621679494225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:DefaultClusterParameters' :: Maybe [Parameter]
 </span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Aparameters%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679493579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+</span><a href="#local-6989586621679494224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
  -&gt; DefaultClusterParameters -&gt; f DefaultClusterParameters)
 -&gt; ((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
     -&gt; Maybe [Parameter] -&gt; f (Maybe [Parameter]))
@@ -212,19 +215,15 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- you can retrieve the next set of records by providing this returned</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- marker value in the @Marker@ parameter and retrying the command. If the</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- @Marker@ field is empty, all response records have been retrieved for</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- the request.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_marker"><span class="hs-identifier hs-type">defaultClusterParameters_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="defaultClusterParameters_marker"><span class="annot"><span class="annottext">defaultClusterParameters_marker :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The name of the cluster parameter group family to which the engine</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- default parameters apply.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_parameterGroupFamily"><span class="hs-identifier hs-type">defaultClusterParameters_parameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="defaultClusterParameters_parameterGroupFamily"><span class="annot"><span class="annottext">defaultClusterParameters_parameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DefaultClusterParameters -&gt; f DefaultClusterParameters
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_marker"><span class="hs-identifier hs-var hs-var">defaultClusterParameters_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultClusterParameters -&gt; Maybe Text)
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#defaultClusterParameters_parameterGroupFamily"><span class="hs-identifier hs-var hs-var">defaultClusterParameters_parameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultClusterParameters -&gt; Maybe Text)
 -&gt; (DefaultClusterParameters
     -&gt; Maybe Text -&gt; DefaultClusterParameters)
 -&gt; Lens
@@ -233,25 +232,25 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679493574"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:DefaultClusterParameters' :: DefaultClusterParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679493574"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679493574"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679493573"><span class="annot"><span class="annottext">s :: DefaultClusterParameters
-</span><a href="#local-6989586621679493573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679493572"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679493572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultClusterParameters
-</span><a href="#local-6989586621679493573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DefaultClusterParameters' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3Amarker%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679493572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679493569"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DefaultClusterParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679493567"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679493567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679494219"><span class="annot"><span class="annottext">Maybe Text
+parameterGroupFamily :: Maybe Text
+$sel:parameterGroupFamily:DefaultClusterParameters' :: DefaultClusterParameters -&gt; Maybe Text
+</span><a href="#local-6989586621679494219"><span class="hs-identifier hs-var hs-var">parameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494219"><span class="hs-identifier hs-var">parameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679494218"><span class="annot"><span class="annottext">s :: DefaultClusterParameters
+</span><a href="#local-6989586621679494218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-type">DefaultClusterParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679494217"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultClusterParameters
+</span><a href="#local-6989586621679494218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterGroupFamily:DefaultClusterParameters' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#%24sel%3AparameterGroupFamily%3ADefaultClusterParameters%27"><span class="hs-identifier hs-var">parameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679494217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679494214"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DefaultClusterParameters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679494212"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679494212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; DefaultClusterParameters
 </span><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters%27"><span class="hs-identifier hs-var">DefaultClusterParameters'</span></a></span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; DefaultClusterParameters)
 -&gt; Either String (Maybe Text)
 -&gt; Either
@@ -259,18 +258,18 @@ $sel:marker:DefaultClusterParameters' :: DefaultClusterParameters -&gt; Maybe Te
      (Maybe [Parameter] -&gt; Maybe Text -&gt; DefaultClusterParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679493567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [Parameter] -&gt; Maybe Text -&gt; DefaultClusterParameters)
 -&gt; Either String (Maybe [Parameter])
 -&gt; Either String (Maybe Text -&gt; DefaultClusterParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679493567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679494212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -278,7 +277,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-99"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-98"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Parameter]))
 -&gt; Either String (Maybe [Parameter])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -291,18 +290,18 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DefaultClusterParameters)
+</span><span id="line-99"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DefaultClusterParameters)
 -&gt; Either String (Maybe Text)
 -&gt; Either String DefaultClusterParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679493567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679494212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679493558"><span id="local-6989586621679493560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span></span></span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679493555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span></span><span>
-</span><span id="line-106"></span></pre></body></html>
+</span><span class="hs-string">&quot;ParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494203"><span id="local-6989586621679494205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679494200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DefaultClusterParameters.html#DefaultClusterParameters"><span class="hs-identifier hs-type">DefaultClusterParameters</span></a></span></span><span>
+</span><span id="line-105"></span></pre></body></html>

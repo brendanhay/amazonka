@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetFindings' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679309300"><span id="local-6989586621679309301"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFindings"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-var">GetFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFindings%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-var">GetFindings'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679309627"><span id="local-6989586621679309628"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFindings"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-var">GetFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFindings%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-var">GetFindings'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the criteria used for sorting findings.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AsortCriteria%3AGetFindings%27"><span class="annot"><span class="annottext">GetFindings -&gt; Maybe SortCriteria
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AsortCriteria%3AGetFindings%27"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.SortCriteria.html#SortCriteria"><span class="hs-identifier hs-type">SortCriteria</span></a></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AfindingIds%3AGetFindings%27"><span class="annot"><span class="annottext">GetFindings -&gt; [Text]
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AfindingIds%3AGetFindings%27"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309292"><span id="local-6989586621679309294"><span class="annot"><span class="annottext">GetFindings -&gt; GetFindings -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309619"><span id="local-6989586621679309621"><span class="annot"><span class="annottext">GetFindings -&gt; GetFindings -&gt; Bool
 (GetFindings -&gt; GetFindings -&gt; Bool)
 -&gt; (GetFindings -&gt; GetFindings -&gt; Bool) -&gt; Eq GetFindings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFindings -&gt; GetFindings -&gt; Bool
 == :: GetFindings -&gt; GetFindings -&gt; Bool
 $c== :: GetFindings -&gt; GetFindings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309283"><span id="local-6989586621679309285"><span id="local-6989586621679309287"><span id="local-6989586621679309289"><span class="annot"><span class="annottext">ReadPrec [GetFindings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309610"><span id="local-6989586621679309612"><span id="local-6989586621679309614"><span id="local-6989586621679309616"><span class="annot"><span class="annottext">ReadPrec [GetFindings]
 ReadPrec GetFindings
 Int -&gt; ReadS GetFindings
 ReadS [GetFindings]
@@ -89,7 +89,7 @@ readList :: ReadS [GetFindings]
 $creadList :: ReadS [GetFindings]
 readsPrec :: Int -&gt; ReadS GetFindings
 $creadsPrec :: Int -&gt; ReadS GetFindings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309276"><span id="local-6989586621679309278"><span id="local-6989586621679309280"><span class="annot"><span class="annottext">Int -&gt; GetFindings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309603"><span id="local-6989586621679309605"><span id="local-6989586621679309607"><span class="annot"><span class="annottext">Int -&gt; GetFindings -&gt; ShowS
 [GetFindings] -&gt; ShowS
 GetFindings -&gt; String
 (Int -&gt; GetFindings -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. GetFindings -&gt; Rep GetFindings x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span>
 </span><span id="line-81"></span><span id="newGetFindings"><span class="annot"><span class="annottext">newGetFindings :: Text -&gt; GetFindings
-</span><a href="Network.AWS.GuardDuty.GetFindings.html#newGetFindings"><span class="hs-identifier hs-var hs-var">newGetFindings</span></a></span></span><span> </span><span id="local-6989586621679309271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309271"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.GetFindings.html#newGetFindings"><span class="hs-identifier hs-var hs-var">newGetFindings</span></a></span></span><span> </span><span id="local-6989586621679309598"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309598"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">GetFindings' :: Maybe SortCriteria -&gt; Text -&gt; [Text] -&gt; GetFindings
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortCriteria:GetFindings' :: Maybe SortCriteria
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorId:GetFindings' :: Text
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AdetectorId%3AGetFindings%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309271"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309598"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:findingIds:GetFindings' :: [Text]
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AfindingIds%3AGetFindings%27"><span class="hs-identifier hs-var">findingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -160,16 +160,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      GetFindings GetFindings (Maybe SortCriteria) (Maybe SortCriteria)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309268"><span class="annot"><span class="annottext">Maybe SortCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309595"><span class="annot"><span class="annottext">Maybe SortCriteria
 sortCriteria :: Maybe SortCriteria
 $sel:sortCriteria:GetFindings' :: GetFindings -&gt; Maybe SortCriteria
-</span><a href="#local-6989586621679309268"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
-</span><a href="#local-6989586621679309268"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309267"><span class="annot"><span class="annottext">s :: GetFindings
-</span><a href="#local-6989586621679309267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309266"><span class="annot"><span class="annottext">Maybe SortCriteria
-</span><a href="#local-6989586621679309266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
-</span><a href="#local-6989586621679309267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:GetFindings' :: Maybe SortCriteria
+</span><a href="#local-6989586621679309595"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
+</span><a href="#local-6989586621679309595"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309594"><span class="annot"><span class="annottext">s :: GetFindings
+</span><a href="#local-6989586621679309594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309593"><span class="annot"><span class="annottext">Maybe SortCriteria
+</span><a href="#local-6989586621679309593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
+</span><a href="#local-6989586621679309594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:GetFindings' :: Maybe SortCriteria
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AsortCriteria%3AGetFindings%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
-</span><a href="#local-6989586621679309266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The ID of the detector that specifies the GuardDuty service whose</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- findings you want to retrieve.</span><span>
@@ -179,16 +179,16 @@ $sel:sortCriteria:GetFindings' :: GetFindings -&gt; Maybe SortCriteria
 -&gt; (GetFindings -&gt; Text -&gt; GetFindings)
 -&gt; Lens GetFindings GetFindings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309265"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309592"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:GetFindings' :: GetFindings -&gt; Text
-</span><a href="#local-6989586621679309265"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309265"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309264"><span class="annot"><span class="annottext">s :: GetFindings
-</span><a href="#local-6989586621679309264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309263"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
-</span><a href="#local-6989586621679309264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetFindings' :: Text
+</span><a href="#local-6989586621679309592"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309592"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309591"><span class="annot"><span class="annottext">s :: GetFindings
+</span><a href="#local-6989586621679309591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
+</span><a href="#local-6989586621679309591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetFindings' :: Text
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AdetectorId%3AGetFindings%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The IDs of the findings that you want to retrieve.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#getFindings_findingIds"><span class="hs-identifier hs-type">getFindings_findingIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -197,33 +197,33 @@ $sel:detectorId:GetFindings' :: GetFindings -&gt; Text
 -&gt; (GetFindings -&gt; [Text] -&gt; GetFindings)
 -&gt; Lens GetFindings GetFindings [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309262"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309589"><span class="annot"><span class="annottext">[Text]
 findingIds :: [Text]
 $sel:findingIds:GetFindings' :: GetFindings -&gt; [Text]
-</span><a href="#local-6989586621679309262"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679309262"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309261"><span class="annot"><span class="annottext">s :: GetFindings
-</span><a href="#local-6989586621679309261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309260"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679309260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
-</span><a href="#local-6989586621679309261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIds:GetFindings' :: [Text]
+</span><a href="#local-6989586621679309589"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679309589"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309588"><span class="annot"><span class="annottext">s :: GetFindings
+</span><a href="#local-6989586621679309588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309587"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679309587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
+</span><a href="#local-6989586621679309588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIds:GetFindings' :: [Text]
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AfindingIds%3AGetFindings%27"><span class="hs-identifier hs-var">findingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679309260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; GetFindings -&gt; f GetFindings)
+</span><a href="#local-6989586621679309587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; GetFindings -&gt; f GetFindings)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; GetFindings
 -&gt; f GetFindings
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679309254"><span class="annot"><span class="annottext">request :: GetFindings -&gt; Request GetFindings
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679309581"><span class="annot"><span class="annottext">request :: GetFindings -&gt; Request GetFindings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFindings -&gt; Request GetFindings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679309250"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679309577"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetFindings
 -&gt; ClientResponse ClientBody
@@ -247,10 +247,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309247"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309247"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309246"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679309246"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309245"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309245"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309574"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309573"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309573"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309572"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [Finding] -&gt; GetFindingsResponse
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-var">GetFindingsResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [Finding] -&gt; GetFindingsResponse)
@@ -262,12 +262,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309247"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309574"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Finding] -&gt; GetFindingsResponse)
 -&gt; Either String [Finding] -&gt; Either String GetFindingsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309245"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Finding])
+</span><a href="#local-6989586621679309572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Finding])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;findings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Finding])
@@ -278,12 +278,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309236"><span id="local-6989586621679309238"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309563"><span id="local-6989586621679309565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679309229"><span class="annot"><span class="annottext">toHeaders :: GetFindings -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679309556"><span class="annot"><span class="annottext">toHeaders :: GetFindings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFindings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -302,9 +302,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309219"><span id="local-6989586621679309221"><span id="local-6989586621679309223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679309217"><span class="annot"><span class="annottext">toJSON :: GetFindings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309213"><span id="local-6989586621679309214"><span id="local-6989586621679309215"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309546"><span id="local-6989586621679309548"><span id="local-6989586621679309550"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679309544"><span class="annot"><span class="annottext">toJSON :: GetFindings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309540"><span id="local-6989586621679309541"><span id="local-6989586621679309542"><span class="annot"><span class="annottext">[Text]
 Maybe SortCriteria
 Text
 findingIds :: [Text]
@@ -313,7 +313,7 @@ sortCriteria :: Maybe SortCriteria
 $sel:findingIds:GetFindings' :: GetFindings -&gt; [Text]
 $sel:detectorId:GetFindings' :: GetFindings -&gt; Text
 $sel:sortCriteria:GetFindings' :: GetFindings -&gt; Maybe SortCriteria
-</span><a href="#local-6989586621679309213"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309540"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -325,20 +325,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortCriteria -&gt; Pair) -&gt; Maybe SortCriteria -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
-</span><a href="#local-6989586621679309215"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309542"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;findingIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679309213"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309540"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679309207"><span class="annot"><span class="annottext">toPath :: GetFindings -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309203"><span id="local-6989586621679309204"><span id="local-6989586621679309205"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679309534"><span class="annot"><span class="annottext">toPath :: GetFindings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309530"><span id="local-6989586621679309531"><span id="local-6989586621679309532"><span class="annot"><span class="annottext">[Text]
 Maybe SortCriteria
 Text
 findingIds :: [Text]
@@ -347,7 +347,7 @@ sortCriteria :: Maybe SortCriteria
 $sel:findingIds:GetFindings' :: GetFindings -&gt; [Text]
 $sel:detectorId:GetFindings' :: GetFindings -&gt; Text
 $sel:sortCriteria:GetFindings' :: GetFindings -&gt; Maybe SortCriteria
-</span><a href="#local-6989586621679309203"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309530"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -355,11 +355,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309204"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679309531"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/findings/get&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679309199"><span class="annot"><span class="annottext">toQuery :: GetFindings -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679309526"><span class="annot"><span class="annottext">toQuery :: GetFindings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetFindings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newGetFindingsResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679309196"><span id="local-6989586621679309197"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFindingsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-var">GetFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFindingsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-var">GetFindingsResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679309523"><span id="local-6989586621679309524"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFindingsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-var">GetFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFindingsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-var">GetFindingsResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="annot"><span class="annottext">GetFindingsResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -375,7 +375,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3Afindings%3AGetFindingsResponse%27"><span class="annot"><span class="annottext">GetFindingsResponse -&gt; [Finding]
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3Afindings%3AGetFindingsResponse%27"><span class="hs-identifier hs-var hs-var">findings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309190"><span id="local-6989586621679309192"><span class="annot"><span class="annottext">GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309517"><span id="local-6989586621679309519"><span class="annot"><span class="annottext">GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
 (GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool)
 -&gt; (GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool)
 -&gt; Eq GetFindingsResponse
@@ -384,7 +384,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
 == :: GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
 $c== :: GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309182"><span id="local-6989586621679309184"><span id="local-6989586621679309186"><span id="local-6989586621679309188"><span class="annot"><span class="annottext">ReadPrec [GetFindingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309509"><span id="local-6989586621679309511"><span id="local-6989586621679309513"><span id="local-6989586621679309515"><span class="annot"><span class="annottext">ReadPrec [GetFindingsResponse]
 ReadPrec GetFindingsResponse
 Int -&gt; ReadS GetFindingsResponse
 ReadS [GetFindingsResponse]
@@ -404,7 +404,7 @@ readList :: ReadS [GetFindingsResponse]
 $creadList :: ReadS [GetFindingsResponse]
 readsPrec :: Int -&gt; ReadS GetFindingsResponse
 $creadsPrec :: Int -&gt; ReadS GetFindingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309176"><span id="local-6989586621679309178"><span id="local-6989586621679309180"><span class="annot"><span class="annottext">Int -&gt; GetFindingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309503"><span id="local-6989586621679309505"><span id="local-6989586621679309507"><span class="annot"><span class="annottext">Int -&gt; GetFindingsResponse -&gt; ShowS
 [GetFindingsResponse] -&gt; ShowS
 GetFindingsResponse -&gt; String
 (Int -&gt; GetFindingsResponse -&gt; ShowS)
@@ -446,13 +446,13 @@ $cfrom :: forall x. GetFindingsResponse -&gt; Rep GetFindingsResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newGetFindingsResponse"><span class="annot"><span class="annottext">newGetFindingsResponse :: Int -&gt; GetFindingsResponse
-</span><a href="Network.AWS.GuardDuty.GetFindings.html#newGetFindingsResponse"><span class="hs-identifier hs-var hs-var">newGetFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679309173"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.GetFindings.html#newGetFindingsResponse"><span class="hs-identifier hs-var hs-var">newGetFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679309500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">GetFindingsResponse' :: Int -&gt; [Finding] -&gt; GetFindingsResponse
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFindingsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309173"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:findings:GetFindingsResponse' :: [Finding]
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3Afindings%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">findings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Finding]
 forall a. Monoid a =&gt; a
@@ -466,16 +466,16 @@ forall a. Monoid a =&gt; a
 -&gt; (GetFindingsResponse -&gt; Int -&gt; GetFindingsResponse)
 -&gt; Lens GetFindingsResponse GetFindingsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309172"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309499"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetFindingsResponse' :: GetFindingsResponse -&gt; Int
-</span><a href="#local-6989586621679309172"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309172"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309171"><span class="annot"><span class="annottext">s :: GetFindingsResponse
-</span><a href="#local-6989586621679309171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309170"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingsResponse
-</span><a href="#local-6989586621679309171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFindingsResponse' :: Int
+</span><a href="#local-6989586621679309499"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309499"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309498"><span class="annot"><span class="annottext">s :: GetFindingsResponse
+</span><a href="#local-6989586621679309498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309497"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingsResponse
+</span><a href="#local-6989586621679309498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFindingsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | A list of findings.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#getFindingsResponse_findings"><span class="hs-identifier hs-type">getFindingsResponse_findings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">]</span><span>
@@ -485,16 +485,16 @@ $sel:httpStatus:GetFindingsResponse' :: GetFindingsResponse -&gt; Int
 -&gt; (GetFindingsResponse -&gt; [Finding] -&gt; GetFindingsResponse)
 -&gt; Lens GetFindingsResponse GetFindingsResponse [Finding] [Finding]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309169"><span class="annot"><span class="annottext">[Finding]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309496"><span class="annot"><span class="annottext">[Finding]
 findings :: [Finding]
 $sel:findings:GetFindingsResponse' :: GetFindingsResponse -&gt; [Finding]
-</span><a href="#local-6989586621679309169"><span class="hs-identifier hs-var hs-var">findings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Finding]
-</span><a href="#local-6989586621679309169"><span class="hs-identifier hs-var">findings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309168"><span class="annot"><span class="annottext">s :: GetFindingsResponse
-</span><a href="#local-6989586621679309168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309167"><span class="annot"><span class="annottext">[Finding]
-</span><a href="#local-6989586621679309167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingsResponse
-</span><a href="#local-6989586621679309168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findings:GetFindingsResponse' :: [Finding]
+</span><a href="#local-6989586621679309496"><span class="hs-identifier hs-var hs-var">findings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Finding]
+</span><a href="#local-6989586621679309496"><span class="hs-identifier hs-var">findings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309495"><span class="annot"><span class="annottext">s :: GetFindingsResponse
+</span><a href="#local-6989586621679309495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309494"><span class="annot"><span class="annottext">[Finding]
+</span><a href="#local-6989586621679309494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingsResponse
+</span><a href="#local-6989586621679309495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findings:GetFindingsResponse' :: [Finding]
 </span><a href="Network.AWS.GuardDuty.GetFindings.html#%24sel%3Afindings%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">findings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Finding]
-</span><a href="#local-6989586621679309167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Finding] -&gt; f [Finding])
+</span><a href="#local-6989586621679309494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Finding] -&gt; f [Finding])
  -&gt; GetFindingsResponse -&gt; f GetFindingsResponse)
 -&gt; (([Finding] -&gt; f [Finding]) -&gt; [Finding] -&gt; f [Finding])
 -&gt; ([Finding] -&gt; f [Finding])
@@ -502,8 +502,8 @@ $sel:findings:GetFindingsResponse' :: GetFindingsResponse -&gt; [Finding]
 -&gt; f GetFindingsResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Finding] -&gt; f [Finding]) -&gt; [Finding] -&gt; f [Finding]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

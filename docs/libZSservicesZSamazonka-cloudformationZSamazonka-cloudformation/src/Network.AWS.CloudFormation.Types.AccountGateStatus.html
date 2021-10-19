@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679413678"><span id="local-6989586621679413679"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountGateStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateStatus.html#AccountGateStatus"><span class="hs-identifier hs-var">AccountGateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountGateStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateStatus.html#AccountGateStatus%27"><span class="hs-identifier hs-var">AccountGateStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679414077"><span id="local-6989586621679414078"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountGateStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateStatus.html#AccountGateStatus"><span class="hs-identifier hs-var">AccountGateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountGateStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateStatus.html#AccountGateStatus%27"><span class="hs-identifier hs-var">AccountGateStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccountGateStatus"><span class="annot"><span class="annottext">AccountGateStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.AccountGateStatus.html#fromAccountGateStatus"><span class="hs-identifier hs-var hs-var">fromAccountGateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679413670"><span id="local-6989586621679413672"><span id="local-6989586621679413674"><span class="annot"><span class="annottext">Int -&gt; AccountGateStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414069"><span id="local-6989586621679414071"><span id="local-6989586621679414073"><span class="annot"><span class="annottext">Int -&gt; AccountGateStatus -&gt; ShowS
 [AccountGateStatus] -&gt; ShowS
 AccountGateStatus -&gt; String
 (Int -&gt; AccountGateStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AccountGateStatus -&gt; String
 showsPrec :: Int -&gt; AccountGateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AccountGateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679413661"><span id="local-6989586621679413663"><span id="local-6989586621679413665"><span id="local-6989586621679413667"><span class="annot"><span class="annottext">ReadPrec [AccountGateStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679414060"><span id="local-6989586621679414062"><span id="local-6989586621679414064"><span id="local-6989586621679414066"><span class="annot"><span class="annottext">ReadPrec [AccountGateStatus]
 ReadPrec AccountGateStatus
 Int -&gt; ReadS AccountGateStatus
 ReadS [AccountGateStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AccountGateStatus]
 readsPrec :: Int -&gt; ReadS AccountGateStatus
 $creadsPrec :: Int -&gt; ReadS AccountGateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679413656"><span id="local-6989586621679413658"><span class="annot"><span class="annottext">AccountGateStatus -&gt; AccountGateStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679414055"><span id="local-6989586621679414057"><span class="annot"><span class="annottext">AccountGateStatus -&gt; AccountGateStatus -&gt; Bool
 (AccountGateStatus -&gt; AccountGateStatus -&gt; Bool)
 -&gt; (AccountGateStatus -&gt; AccountGateStatus -&gt; Bool)
 -&gt; Eq AccountGateStatus
@@ -83,7 +83,7 @@ $c/= :: AccountGateStatus -&gt; AccountGateStatus -&gt; Bool
 == :: AccountGateStatus -&gt; AccountGateStatus -&gt; Bool
 $c== :: AccountGateStatus -&gt; AccountGateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679413640"><span id="local-6989586621679413642"><span id="local-6989586621679413644"><span id="local-6989586621679413646"><span id="local-6989586621679413648"><span id="local-6989586621679413650"><span id="local-6989586621679413652"><span class="annot"><span class="annottext">Eq AccountGateStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679414039"><span id="local-6989586621679414041"><span id="local-6989586621679414043"><span id="local-6989586621679414045"><span id="local-6989586621679414047"><span id="local-6989586621679414049"><span id="local-6989586621679414051"><span class="annot"><span class="annottext">Eq AccountGateStatus
 Eq AccountGateStatus
 -&gt; (AccountGateStatus -&gt; AccountGateStatus -&gt; Ordering)
 -&gt; (AccountGateStatus -&gt; AccountGateStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AccountGateStatus -&gt; Rep AccountGateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679413632"><span id="local-6989586621679413634"><span class="annot"><span class="annottext">Int -&gt; AccountGateStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414031"><span id="local-6989586621679414033"><span class="annot"><span class="annottext">Int -&gt; AccountGateStatus -&gt; Int
 AccountGateStatus -&gt; Int
 (Int -&gt; AccountGateStatus -&gt; Int)
 -&gt; (AccountGateStatus -&gt; Int) -&gt; Hashable AccountGateStatus
@@ -144,51 +144,51 @@ $chash :: AccountGateStatus -&gt; Int
 hashWithSalt :: Int -&gt; AccountGateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AccountGateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679413629"><span class="annot"><span class="annottext">AccountGateStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679414028"><span class="annot"><span class="annottext">AccountGateStatus -&gt; ()
 (AccountGateStatus -&gt; ()) -&gt; NFData AccountGateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AccountGateStatus -&gt; ()
 $crnf :: AccountGateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679413626"><span class="annot"><span class="annottext">Text -&gt; Either String AccountGateStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679414025"><span class="annot"><span class="annottext">Text -&gt; Either String AccountGateStatus
 (Text -&gt; Either String AccountGateStatus)
 -&gt; FromText AccountGateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AccountGateStatus
 $cfromText :: Text -&gt; Either String AccountGateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679413623"><span class="annot"><span class="annottext">AccountGateStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679414022"><span class="annot"><span class="annottext">AccountGateStatus -&gt; Text
 (AccountGateStatus -&gt; Text) -&gt; ToText AccountGateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AccountGateStatus -&gt; Text
 $ctoText :: AccountGateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679413620"><span class="annot"><span class="annottext">AccountGateStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679414019"><span class="annot"><span class="annottext">AccountGateStatus -&gt; ByteString
 (AccountGateStatus -&gt; ByteString) -&gt; ToByteString AccountGateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AccountGateStatus -&gt; ByteString
 $ctoBS :: AccountGateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679413617"><span class="annot"><span class="annottext">AccountGateStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679414016"><span class="annot"><span class="annottext">AccountGateStatus -&gt; ByteStringBuilder
 (AccountGateStatus -&gt; ByteStringBuilder) -&gt; ToLog AccountGateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AccountGateStatus -&gt; ByteStringBuilder
 $cbuild :: AccountGateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679413614"><span class="annot"><span class="annottext">HeaderName -&gt; AccountGateStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679414013"><span class="annot"><span class="annottext">HeaderName -&gt; AccountGateStatus -&gt; [Header]
 (HeaderName -&gt; AccountGateStatus -&gt; [Header])
 -&gt; ToHeader AccountGateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AccountGateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AccountGateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679413611"><span class="annot"><span class="annottext">AccountGateStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679414010"><span class="annot"><span class="annottext">AccountGateStatus -&gt; QueryString
 (AccountGateStatus -&gt; QueryString) -&gt; ToQuery AccountGateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AccountGateStatus -&gt; QueryString
 $ctoQuery :: AccountGateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679413606"><span id="local-6989586621679413608"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountGateStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679414005"><span id="local-6989586621679414007"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountGateStatus]
 Value -&gt; Parser AccountGateStatus
 (Value -&gt; Parser AccountGateStatus)
 -&gt; (Value -&gt; Parser [AccountGateStatus])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [AccountGateStatus]
 parseJSON :: Value -&gt; Parser AccountGateStatus
 $cparseJSON :: Value -&gt; Parser AccountGateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679413601"><span id="local-6989586621679413603"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountGateStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679414000"><span id="local-6989586621679414002"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountGateStatus]
 FromJSONKeyFunction AccountGateStatus
 FromJSONKeyFunction AccountGateStatus
 -&gt; FromJSONKeyFunction [AccountGateStatus]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AccountGateStatus]
 fromJSONKey :: FromJSONKeyFunction AccountGateStatus
 $cfromJSONKey :: FromJSONKeyFunction AccountGateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679413592"><span id="local-6989586621679413594"><span id="local-6989586621679413596"><span id="local-6989586621679413598"><span class="annot"><span class="annottext">[AccountGateStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679413991"><span id="local-6989586621679413993"><span id="local-6989586621679413995"><span id="local-6989586621679413997"><span class="annot"><span class="annottext">[AccountGateStatus] -&gt; Encoding
 [AccountGateStatus] -&gt; Value
 AccountGateStatus -&gt; Encoding
 AccountGateStatus -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: AccountGateStatus -&gt; Encoding
 toJSON :: AccountGateStatus -&gt; Value
 $ctoJSON :: AccountGateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679413587"><span id="local-6989586621679413589"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountGateStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679413986"><span id="local-6989586621679413988"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountGateStatus]
 ToJSONKeyFunction AccountGateStatus
 ToJSONKeyFunction AccountGateStatus
 -&gt; ToJSONKeyFunction [AccountGateStatus]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AccountGateStatus]
 toJSONKey :: ToJSONKeyFunction AccountGateStatus
 $ctoJSONKey :: ToJSONKeyFunction AccountGateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679413584"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountGateStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679413983"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountGateStatus
 ([Node] -&gt; Either String AccountGateStatus)
 -&gt; FromXML AccountGateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AccountGateStatus
 $cparseXML :: [Node] -&gt; Either String AccountGateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679413581"><span class="annot"><span class="annottext">AccountGateStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679413980"><span class="annot"><span class="annottext">AccountGateStatus -&gt; XML
 (AccountGateStatus -&gt; XML) -&gt; ToXML AccountGateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AccountGateStatus -&gt; XML

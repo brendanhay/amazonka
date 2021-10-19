@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectDominantLanguage' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679366833"><span id="local-6989586621679366834"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectDominantLanguage"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-var">BatchDetectDominantLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectDominantLanguage%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-var">BatchDetectDominantLanguage'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679367161"><span id="local-6989586621679367162"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectDominantLanguage"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-var">BatchDetectDominantLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectDominantLanguage%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-var">BatchDetectDominantLanguage'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list containing the text of the input documents. The list can contain</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- a maximum of 25 documents. Each document should contain at least 20</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- characters and must contain fewer than 5,000 bytes of UTF-8 encoded</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AtextList%3ABatchDetectDominantLanguage%27"><span class="annot"><span class="annottext">BatchDetectDominantLanguage -&gt; Sensitive [Sensitive Text]
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AtextList%3ABatchDetectDominantLanguage%27"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366827"><span id="local-6989586621679366829"><span class="annot"><span class="annottext">BatchDetectDominantLanguage -&gt; BatchDetectDominantLanguage -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367155"><span id="local-6989586621679367157"><span class="annot"><span class="annottext">BatchDetectDominantLanguage -&gt; BatchDetectDominantLanguage -&gt; Bool
 (BatchDetectDominantLanguage
  -&gt; BatchDetectDominantLanguage -&gt; Bool)
 -&gt; (BatchDetectDominantLanguage
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDetectDominantLanguage -&gt; BatchDetectDominantLanguage -&gt; Bool
 == :: BatchDetectDominantLanguage -&gt; BatchDetectDominantLanguage -&gt; Bool
 $c== :: BatchDetectDominantLanguage -&gt; BatchDetectDominantLanguage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366820"><span id="local-6989586621679366822"><span id="local-6989586621679366824"><span class="annot"><span class="annottext">Int -&gt; BatchDetectDominantLanguage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367148"><span id="local-6989586621679367150"><span id="local-6989586621679367152"><span class="annot"><span class="annottext">Int -&gt; BatchDetectDominantLanguage -&gt; ShowS
 [BatchDetectDominantLanguage] -&gt; ShowS
 BatchDetectDominantLanguage -&gt; String
 (Int -&gt; BatchDetectDominantLanguage -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Monoid a =&gt; a
      (Sensitive [Sensitive Text])
      (Sensitive [Sensitive Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366813"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367141"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
 textList :: Sensitive [Sensitive Text]
 $sel:textList:BatchDetectDominantLanguage' :: BatchDetectDominantLanguage -&gt; Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366813"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366813"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366812"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguage
-</span><a href="#local-6989586621679366812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366811"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguage
-</span><a href="#local-6989586621679366812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:BatchDetectDominantLanguage' :: Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679367141"><span class="hs-identifier hs-var hs-var">textList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679367141"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367140"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguage
+</span><a href="#local-6989586621679367140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367139"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><a href="#local-6989586621679367139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguage
+</span><a href="#local-6989586621679367140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textList:BatchDetectDominantLanguage' :: Sensitive [Sensitive Text]
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AtextList%3ABatchDetectDominantLanguage%27"><span class="hs-identifier hs-var">textList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
+</span><a href="#local-6989586621679367139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
  -&gt; BatchDetectDominantLanguage -&gt; f BatchDetectDominantLanguage)
 -&gt; (([Text] -&gt; f [Text])
     -&gt; Sensitive [Sensitive Text] -&gt; f (Sensitive [Sensitive Text]))
@@ -171,21 +171,21 @@ forall a. Iso' (Sensitive a) a
 -&gt; f (Sensitive [Sensitive Text])
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679366804"><span class="annot"><span class="annottext">request :: BatchDetectDominantLanguage -&gt; Request BatchDetectDominantLanguage
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679367132"><span class="annot"><span class="annottext">request :: BatchDetectDominantLanguage -&gt; Request BatchDetectDominantLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchDetectDominantLanguage
 -&gt; Request BatchDetectDominantLanguage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679366800"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679367128"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDetectDominantLanguage
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366797"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366797"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679366796"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679366796"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679366795"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367125"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679367124"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679367124"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679367123"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; [BatchDetectDominantLanguageItemResult]
 -&gt; [BatchItemError]
@@ -235,7 +235,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366797"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367125"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([BatchDetectDominantLanguageItemResult]
@@ -245,7 +245,7 @@ forall a. Enum a =&gt; a -&gt; Int
      String ([BatchItemError] -&gt; BatchDetectDominantLanguageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe [BatchDetectDominantLanguageItemResult])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String BatchDetectDominantLanguageResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [BatchItemError])
+</span><a href="#local-6989586621679367123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [BatchItemError])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [BatchItemError])
@@ -274,12 +274,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366786"><span id="local-6989586621679366788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367114"><span id="local-6989586621679367116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679366779"><span class="annot"><span class="annottext">toHeaders :: BatchDetectDominantLanguage -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679367107"><span class="annot"><span class="annottext">toHeaders :: BatchDetectDominantLanguage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDetectDominantLanguage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -306,12 +306,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366769"><span id="local-6989586621679366771"><span id="local-6989586621679366773"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679366767"><span class="annot"><span class="annottext">toJSON :: BatchDetectDominantLanguage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366765"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367097"><span id="local-6989586621679367099"><span id="local-6989586621679367101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679367095"><span class="annot"><span class="annottext">toJSON :: BatchDetectDominantLanguage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367093"><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
 textList :: Sensitive [Sensitive Text]
 $sel:textList:BatchDetectDominantLanguage' :: BatchDetectDominantLanguage -&gt; Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366765"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367093"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -323,18 +323,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TextList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive [Sensitive Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive [Sensitive Text]
-</span><a href="#local-6989586621679366765"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679367093"><span class="hs-identifier hs-var">textList</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679366759"><span class="annot"><span class="annottext">toPath :: BatchDetectDominantLanguage -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679367087"><span class="annot"><span class="annottext">toPath :: BatchDetectDominantLanguage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDetectDominantLanguage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguage"><span class="hs-identifier hs-type">BatchDetectDominantLanguage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679366755"><span class="annot"><span class="annottext">toQuery :: BatchDetectDominantLanguage -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679367083"><span class="annot"><span class="annottext">toQuery :: BatchDetectDominantLanguage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDetectDominantLanguage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,7 +342,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newBatchDetectDominantLanguageResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679366752"><span id="local-6989586621679366753"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectDominantLanguageResponse"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-var">BatchDetectDominantLanguageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectDominantLanguageResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">BatchDetectDominantLanguageResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679367080"><span id="local-6989586621679367081"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetectDominantLanguageResponse"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-var">BatchDetectDominantLanguageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetectDominantLanguageResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">BatchDetectDominantLanguageResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDetectDominantLanguageResponse%27"><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AhttpStatus%3ABatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -360,7 +360,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AerrorList%3ABatchDetectDominantLanguageResponse%27"><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse -&gt; [BatchItemError]
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AerrorList%3ABatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.BatchItemError.html#BatchItemError"><span class="hs-identifier hs-type">BatchItemError</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366745"><span id="local-6989586621679366747"><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367073"><span id="local-6989586621679367075"><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
 -&gt; BatchDetectDominantLanguageResponse -&gt; Bool
 (BatchDetectDominantLanguageResponse
  -&gt; BatchDetectDominantLanguageResponse -&gt; Bool)
@@ -376,7 +376,7 @@ $c/= :: BatchDetectDominantLanguageResponse
 -&gt; BatchDetectDominantLanguageResponse -&gt; Bool
 $c== :: BatchDetectDominantLanguageResponse
 -&gt; BatchDetectDominantLanguageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366739"><span id="local-6989586621679366741"><span id="local-6989586621679366743"><span class="annot"><span class="annottext">Int -&gt; BatchDetectDominantLanguageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367067"><span id="local-6989586621679367069"><span id="local-6989586621679367071"><span class="annot"><span class="annottext">Int -&gt; BatchDetectDominantLanguageResponse -&gt; ShowS
 [BatchDetectDominantLanguageResponse] -&gt; ShowS
 BatchDetectDominantLanguageResponse -&gt; String
 (Int -&gt; BatchDetectDominantLanguageResponse -&gt; ShowS)
@@ -438,8 +438,8 @@ BatchDetectDominantLanguageResponse
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newBatchDetectDominantLanguageResponse"><span class="annot"><span class="annottext">newBatchDetectDominantLanguageResponse :: Int -&gt; BatchDetectDominantLanguageResponse
-</span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#newBatchDetectDominantLanguageResponse"><span class="hs-identifier hs-var hs-var">newBatchDetectDominantLanguageResponse</span></a></span></span><span> </span><span id="local-6989586621679366736"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#newBatchDetectDominantLanguageResponse"><span class="hs-identifier hs-var hs-var">newBatchDetectDominantLanguageResponse</span></a></span></span><span> </span><span id="local-6989586621679367064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse' :: Int
 -&gt; [BatchDetectDominantLanguageItemResult]
 -&gt; [BatchItemError]
@@ -448,7 +448,7 @@ BatchDetectDominantLanguageResponse
 </span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectDominantLanguageResponse' :: Int
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AhttpStatus%3ABatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366736"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367064"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectDominantLanguageResponse' :: [BatchDetectDominantLanguageItemResult]
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AresultList%3ABatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
 forall a. Monoid a =&gt; a
@@ -473,16 +473,16 @@ forall a. Monoid a =&gt; a
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366735"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367063"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchDetectDominantLanguageResponse' :: BatchDetectDominantLanguageResponse -&gt; Int
-</span><a href="#local-6989586621679366735"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366735"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366734"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguageResponse
-</span><a href="#local-6989586621679366734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366733"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
-</span><a href="#local-6989586621679366734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectDominantLanguageResponse' :: Int
+</span><a href="#local-6989586621679367063"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367063"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367062"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguageResponse
+</span><a href="#local-6989586621679367062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
+</span><a href="#local-6989586621679367062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDetectDominantLanguageResponse' :: Int
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AhttpStatus%3ABatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | A list of objects containing the results of the operation. The results</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- are sorted in ascending order by the @Index@ field and match the order</span><span>
@@ -504,17 +504,17 @@ $sel:httpStatus:BatchDetectDominantLanguageResponse' :: BatchDetectDominantLangu
      [BatchDetectDominantLanguageItemResult]
      [BatchDetectDominantLanguageItemResult]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366732"><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367060"><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
 resultList :: [BatchDetectDominantLanguageItemResult]
 $sel:resultList:BatchDetectDominantLanguageResponse' :: BatchDetectDominantLanguageResponse
 -&gt; [BatchDetectDominantLanguageItemResult]
-</span><a href="#local-6989586621679366732"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
-</span><a href="#local-6989586621679366732"><span class="hs-identifier hs-var">resultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366731"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguageResponse
-</span><a href="#local-6989586621679366731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366730"><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
-</span><a href="#local-6989586621679366730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
-</span><a href="#local-6989586621679366731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectDominantLanguageResponse' :: [BatchDetectDominantLanguageItemResult]
+</span><a href="#local-6989586621679367060"><span class="hs-identifier hs-var hs-var">resultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
+</span><a href="#local-6989586621679367060"><span class="hs-identifier hs-var">resultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367059"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguageResponse
+</span><a href="#local-6989586621679367059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367058"><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
+</span><a href="#local-6989586621679367058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
+</span><a href="#local-6989586621679367059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultList:BatchDetectDominantLanguageResponse' :: [BatchDetectDominantLanguageItemResult]
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AresultList%3ABatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">resultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchDetectDominantLanguageItemResult]
-</span><a href="#local-6989586621679366730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchDetectDominantLanguageItemResult]
+</span><a href="#local-6989586621679367058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchDetectDominantLanguageItemResult]
   -&gt; f [BatchDetectDominantLanguageItemResult])
  -&gt; BatchDetectDominantLanguageResponse
  -&gt; f BatchDetectDominantLanguageResponse)
@@ -531,8 +531,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
  -&gt; f [BatchDetectDominantLanguageItemResult])
 -&gt; [BatchDetectDominantLanguageItemResult]
 -&gt; f [BatchDetectDominantLanguageItemResult]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | A list containing one object for each document that contained an error.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- The results are sorted in ascending order by the @Index@ field and match</span><span>
@@ -551,16 +551,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      [BatchItemError]
      [BatchItemError]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366729"><span class="annot"><span class="annottext">[BatchItemError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367057"><span class="annot"><span class="annottext">[BatchItemError]
 errorList :: [BatchItemError]
 $sel:errorList:BatchDetectDominantLanguageResponse' :: BatchDetectDominantLanguageResponse -&gt; [BatchItemError]
-</span><a href="#local-6989586621679366729"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
-</span><a href="#local-6989586621679366729"><span class="hs-identifier hs-var">errorList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366728"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguageResponse
-</span><a href="#local-6989586621679366728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366727"><span class="annot"><span class="annottext">[BatchItemError]
-</span><a href="#local-6989586621679366727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
-</span><a href="#local-6989586621679366728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectDominantLanguageResponse' :: [BatchItemError]
+</span><a href="#local-6989586621679367057"><span class="hs-identifier hs-var hs-var">errorList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679367057"><span class="hs-identifier hs-var">errorList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367056"><span class="annot"><span class="annottext">s :: BatchDetectDominantLanguageResponse
+</span><a href="#local-6989586621679367056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367055"><span class="annot"><span class="annottext">[BatchItemError]
+</span><a href="#local-6989586621679367055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetectDominantLanguageResponse
+</span><a href="#local-6989586621679367056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorList:BatchDetectDominantLanguageResponse' :: [BatchItemError]
 </span><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#%24sel%3AerrorList%3ABatchDetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">errorList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchItemError]
-</span><a href="#local-6989586621679366727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchItemError] -&gt; f [BatchItemError])
+</span><a href="#local-6989586621679367055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchItemError] -&gt; f [BatchItemError])
  -&gt; BatchDetectDominantLanguageResponse
  -&gt; f BatchDetectDominantLanguageResponse)
 -&gt; (([BatchItemError] -&gt; f [BatchItemError])
@@ -571,10 +571,10 @@ $sel:errorList:BatchDetectDominantLanguageResponse' :: BatchDetectDominantLangua
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchItemError] -&gt; f [BatchItemError])
 -&gt; [BatchItemError] -&gt; f [BatchItemError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679366725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679367053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-204"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.BatchDetectDominantLanguage.html#BatchDetectDominantLanguageResponse"><span class="hs-identifier hs-type">BatchDetectDominantLanguageResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

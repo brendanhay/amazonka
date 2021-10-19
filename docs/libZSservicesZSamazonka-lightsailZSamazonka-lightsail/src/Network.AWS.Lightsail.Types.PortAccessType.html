@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679617057"><span id="local-6989586621679617058"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PortAccessType"><span class="annot"><a href="Network.AWS.Lightsail.Types.PortAccessType.html#PortAccessType"><span class="hs-identifier hs-var">PortAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PortAccessType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.PortAccessType.html#PortAccessType%27"><span class="hs-identifier hs-var">PortAccessType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679617956"><span id="local-6989586621679617957"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PortAccessType"><span class="annot"><a href="Network.AWS.Lightsail.Types.PortAccessType.html#PortAccessType"><span class="hs-identifier hs-var">PortAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PortAccessType%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.PortAccessType.html#PortAccessType%27"><span class="hs-identifier hs-var">PortAccessType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPortAccessType"><span class="annot"><span class="annottext">PortAccessType -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.PortAccessType.html#fromPortAccessType"><span class="hs-identifier hs-var hs-var">fromPortAccessType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679617049"><span id="local-6989586621679617051"><span id="local-6989586621679617053"><span class="annot"><span class="annottext">Int -&gt; PortAccessType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679617948"><span id="local-6989586621679617950"><span id="local-6989586621679617952"><span class="annot"><span class="annottext">Int -&gt; PortAccessType -&gt; ShowS
 [PortAccessType] -&gt; ShowS
 PortAccessType -&gt; String
 (Int -&gt; PortAccessType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PortAccessType -&gt; String
 showsPrec :: Int -&gt; PortAccessType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PortAccessType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679617040"><span id="local-6989586621679617042"><span id="local-6989586621679617044"><span id="local-6989586621679617046"><span class="annot"><span class="annottext">ReadPrec [PortAccessType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679617939"><span id="local-6989586621679617941"><span id="local-6989586621679617943"><span id="local-6989586621679617945"><span class="annot"><span class="annottext">ReadPrec [PortAccessType]
 ReadPrec PortAccessType
 Int -&gt; ReadS PortAccessType
 ReadS [PortAccessType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PortAccessType]
 readsPrec :: Int -&gt; ReadS PortAccessType
 $creadsPrec :: Int -&gt; ReadS PortAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679617035"><span id="local-6989586621679617037"><span class="annot"><span class="annottext">PortAccessType -&gt; PortAccessType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679617934"><span id="local-6989586621679617936"><span class="annot"><span class="annottext">PortAccessType -&gt; PortAccessType -&gt; Bool
 (PortAccessType -&gt; PortAccessType -&gt; Bool)
 -&gt; (PortAccessType -&gt; PortAccessType -&gt; Bool) -&gt; Eq PortAccessType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: PortAccessType -&gt; PortAccessType -&gt; Bool
 == :: PortAccessType -&gt; PortAccessType -&gt; Bool
 $c== :: PortAccessType -&gt; PortAccessType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679617019"><span id="local-6989586621679617021"><span id="local-6989586621679617023"><span id="local-6989586621679617025"><span id="local-6989586621679617027"><span id="local-6989586621679617029"><span id="local-6989586621679617031"><span class="annot"><span class="annottext">Eq PortAccessType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679617918"><span id="local-6989586621679617920"><span id="local-6989586621679617922"><span id="local-6989586621679617924"><span id="local-6989586621679617926"><span id="local-6989586621679617928"><span id="local-6989586621679617930"><span class="annot"><span class="annottext">Eq PortAccessType
 Eq PortAccessType
 -&gt; (PortAccessType -&gt; PortAccessType -&gt; Ordering)
 -&gt; (PortAccessType -&gt; PortAccessType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PortAccessType -&gt; Rep PortAccessType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679617011"><span id="local-6989586621679617013"><span class="annot"><span class="annottext">Int -&gt; PortAccessType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679617910"><span id="local-6989586621679617912"><span class="annot"><span class="annottext">Int -&gt; PortAccessType -&gt; Int
 PortAccessType -&gt; Int
 (Int -&gt; PortAccessType -&gt; Int)
 -&gt; (PortAccessType -&gt; Int) -&gt; Hashable PortAccessType
@@ -142,50 +142,50 @@ $chash :: PortAccessType -&gt; Int
 hashWithSalt :: Int -&gt; PortAccessType -&gt; Int
 $chashWithSalt :: Int -&gt; PortAccessType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679617008"><span class="annot"><span class="annottext">PortAccessType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679617907"><span class="annot"><span class="annottext">PortAccessType -&gt; ()
 (PortAccessType -&gt; ()) -&gt; NFData PortAccessType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PortAccessType -&gt; ()
 $crnf :: PortAccessType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679617005"><span class="annot"><span class="annottext">Text -&gt; Either String PortAccessType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679617904"><span class="annot"><span class="annottext">Text -&gt; Either String PortAccessType
 (Text -&gt; Either String PortAccessType) -&gt; FromText PortAccessType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PortAccessType
 $cfromText :: Text -&gt; Either String PortAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679617002"><span class="annot"><span class="annottext">PortAccessType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679617901"><span class="annot"><span class="annottext">PortAccessType -&gt; Text
 (PortAccessType -&gt; Text) -&gt; ToText PortAccessType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PortAccessType -&gt; Text
 $ctoText :: PortAccessType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679616999"><span class="annot"><span class="annottext">PortAccessType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679617898"><span class="annot"><span class="annottext">PortAccessType -&gt; ByteString
 (PortAccessType -&gt; ByteString) -&gt; ToByteString PortAccessType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PortAccessType -&gt; ByteString
 $ctoBS :: PortAccessType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679616996"><span class="annot"><span class="annottext">PortAccessType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679617895"><span class="annot"><span class="annottext">PortAccessType -&gt; ByteStringBuilder
 (PortAccessType -&gt; ByteStringBuilder) -&gt; ToLog PortAccessType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PortAccessType -&gt; ByteStringBuilder
 $cbuild :: PortAccessType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679616993"><span class="annot"><span class="annottext">HeaderName -&gt; PortAccessType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679617892"><span class="annot"><span class="annottext">HeaderName -&gt; PortAccessType -&gt; [Header]
 (HeaderName -&gt; PortAccessType -&gt; [Header])
 -&gt; ToHeader PortAccessType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PortAccessType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PortAccessType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679616990"><span class="annot"><span class="annottext">PortAccessType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679617889"><span class="annot"><span class="annottext">PortAccessType -&gt; QueryString
 (PortAccessType -&gt; QueryString) -&gt; ToQuery PortAccessType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PortAccessType -&gt; QueryString
 $ctoQuery :: PortAccessType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679616985"><span id="local-6989586621679616987"><span class="annot"><span class="annottext">Value -&gt; Parser [PortAccessType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679617884"><span id="local-6989586621679617886"><span class="annot"><span class="annottext">Value -&gt; Parser [PortAccessType]
 Value -&gt; Parser PortAccessType
 (Value -&gt; Parser PortAccessType)
 -&gt; (Value -&gt; Parser [PortAccessType]) -&gt; FromJSON PortAccessType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [PortAccessType]
 parseJSON :: Value -&gt; Parser PortAccessType
 $cparseJSON :: Value -&gt; Parser PortAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679616980"><span id="local-6989586621679616982"><span class="annot"><span class="annottext">FromJSONKeyFunction [PortAccessType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679617879"><span id="local-6989586621679617881"><span class="annot"><span class="annottext">FromJSONKeyFunction [PortAccessType]
 FromJSONKeyFunction PortAccessType
 FromJSONKeyFunction PortAccessType
 -&gt; FromJSONKeyFunction [PortAccessType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PortAccessType]
 fromJSONKey :: FromJSONKeyFunction PortAccessType
 $cfromJSONKey :: FromJSONKeyFunction PortAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679616971"><span id="local-6989586621679616973"><span id="local-6989586621679616975"><span id="local-6989586621679616977"><span class="annot"><span class="annottext">[PortAccessType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679617870"><span id="local-6989586621679617872"><span id="local-6989586621679617874"><span id="local-6989586621679617876"><span class="annot"><span class="annottext">[PortAccessType] -&gt; Encoding
 [PortAccessType] -&gt; Value
 PortAccessType -&gt; Encoding
 PortAccessType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: PortAccessType -&gt; Encoding
 toJSON :: PortAccessType -&gt; Value
 $ctoJSON :: PortAccessType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679616966"><span id="local-6989586621679616968"><span class="annot"><span class="annottext">ToJSONKeyFunction [PortAccessType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679617865"><span id="local-6989586621679617867"><span class="annot"><span class="annottext">ToJSONKeyFunction [PortAccessType]
 ToJSONKeyFunction PortAccessType
 ToJSONKeyFunction PortAccessType
 -&gt; ToJSONKeyFunction [PortAccessType] -&gt; ToJSONKey PortAccessType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PortAccessType]
 toJSONKey :: ToJSONKeyFunction PortAccessType
 $ctoJSONKey :: ToJSONKeyFunction PortAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679616963"><span class="annot"><span class="annottext">[Node] -&gt; Either String PortAccessType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679617862"><span class="annot"><span class="annottext">[Node] -&gt; Either String PortAccessType
 ([Node] -&gt; Either String PortAccessType) -&gt; FromXML PortAccessType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PortAccessType
 $cparseXML :: [Node] -&gt; Either String PortAccessType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679616960"><span class="annot"><span class="annottext">PortAccessType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679617859"><span class="annot"><span class="annottext">PortAccessType -&gt; XML
 (PortAccessType -&gt; XML) -&gt; ToXML PortAccessType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PortAccessType -&gt; XML

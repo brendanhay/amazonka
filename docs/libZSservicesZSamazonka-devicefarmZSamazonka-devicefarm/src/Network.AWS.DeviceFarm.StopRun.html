@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Represents the request to stop a specific run.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newStopRun' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679373272"><span id="local-6989586621679373273"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRun"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-var">StopRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRun%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-var">StopRun'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679373526"><span id="local-6989586621679373527"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRun"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-var">StopRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRun%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-var">StopRun'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm run to</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- stop.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Aarn%3AStopRun%27"><span class="annot"><span class="annottext">StopRun -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3Aarn%3AStopRun%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373266"><span id="local-6989586621679373268"><span class="annot"><span class="annottext">StopRun -&gt; StopRun -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373520"><span id="local-6989586621679373522"><span class="annot"><span class="annottext">StopRun -&gt; StopRun -&gt; Bool
 (StopRun -&gt; StopRun -&gt; Bool)
 -&gt; (StopRun -&gt; StopRun -&gt; Bool) -&gt; Eq StopRun
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopRun -&gt; StopRun -&gt; Bool
 == :: StopRun -&gt; StopRun -&gt; Bool
 $c== :: StopRun -&gt; StopRun -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373257"><span id="local-6989586621679373259"><span id="local-6989586621679373261"><span id="local-6989586621679373263"><span class="annot"><span class="annottext">ReadPrec [StopRun]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373511"><span id="local-6989586621679373513"><span id="local-6989586621679373515"><span id="local-6989586621679373517"><span class="annot"><span class="annottext">ReadPrec [StopRun]
 ReadPrec StopRun
 Int -&gt; ReadS StopRun
 ReadS [StopRun]
@@ -88,7 +88,7 @@ readList :: ReadS [StopRun]
 $creadList :: ReadS [StopRun]
 readsPrec :: Int -&gt; ReadS StopRun
 $creadsPrec :: Int -&gt; ReadS StopRun
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373250"><span id="local-6989586621679373252"><span id="local-6989586621679373254"><span class="annot"><span class="annottext">Int -&gt; StopRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373504"><span id="local-6989586621679373506"><span id="local-6989586621679373508"><span class="annot"><span class="annottext">Int -&gt; StopRun -&gt; ShowS
 [StopRun] -&gt; ShowS
 StopRun -&gt; String
 (Int -&gt; StopRun -&gt; ShowS)
@@ -126,11 +126,11 @@ $cfrom :: forall x. StopRun -&gt; Rep StopRun x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span>
 </span><span id="line-78"></span><span id="newStopRun"><span class="annot"><span class="annottext">newStopRun :: Text -&gt; StopRun
-</span><a href="Network.AWS.DeviceFarm.StopRun.html#newStopRun"><span class="hs-identifier hs-var hs-var">newStopRun</span></a></span></span><span> </span><span id="local-6989586621679373245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373245"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopRun' :: Text -&gt; StopRun
+</span><a href="Network.AWS.DeviceFarm.StopRun.html#newStopRun"><span class="hs-identifier hs-var hs-var">newStopRun</span></a></span></span><span> </span><span id="local-6989586621679373499"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373499"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopRun' :: Text -&gt; StopRun
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRun' :: Text
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3Aarn%3AStopRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373245"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679373499"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm run to</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- stop.</span><span>
@@ -139,25 +139,25 @@ $cfrom :: forall x. StopRun -&gt; Rep StopRun x
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#stopRun_arn"><span class="hs-identifier hs-var hs-var">stopRun_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopRun -&gt; Text)
 -&gt; (StopRun -&gt; Text -&gt; StopRun) -&gt; Lens StopRun StopRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373242"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373496"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:StopRun' :: StopRun -&gt; Text
-</span><a href="#local-6989586621679373242"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373242"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373241"><span class="annot"><span class="annottext">s :: StopRun
-</span><a href="#local-6989586621679373241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRun
-</span><a href="#local-6989586621679373241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRun' :: Text
+</span><a href="#local-6989586621679373496"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373496"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373495"><span class="annot"><span class="annottext">s :: StopRun
+</span><a href="#local-6989586621679373495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373494"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRun
+</span><a href="#local-6989586621679373495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRun' :: Text
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3Aarn%3AStopRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679373236"><span class="annot"><span class="annottext">request :: StopRun -&gt; Request StopRun
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679373490"><span class="annot"><span class="annottext">request :: StopRun -&gt; Request StopRun
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopRun -&gt; Request StopRun
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679373232"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679373486"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopRun
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373229"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373228"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679373228"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373227"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373483"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373482"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679373482"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373481"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373481"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Run -&gt; Int -&gt; StopRunResponse
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-var">StopRunResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Run -&gt; Int -&gt; StopRunResponse)
@@ -192,7 +192,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StopRunResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Run)
+</span><a href="#local-6989586621679373481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Run)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;run&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,15 +204,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373483"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373219"><span id="local-6989586621679373221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373473"><span id="local-6989586621679373475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679373212"><span class="annot"><span class="annottext">toHeaders :: StopRun -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679373466"><span class="annot"><span class="annottext">toHeaders :: StopRun -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopRun -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -239,12 +239,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373202"><span id="local-6989586621679373204"><span id="local-6989586621679373206"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679373200"><span class="annot"><span class="annottext">toJSON :: StopRun -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373198"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373456"><span id="local-6989586621679373458"><span id="local-6989586621679373460"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679373454"><span class="annot"><span class="annottext">toJSON :: StopRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun%27"><span class="hs-identifier hs-type">StopRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373452"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:StopRun' :: StopRun -&gt; Text
-</span><a href="#local-6989586621679373198"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373452"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,18 +256,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373198"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679373452"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679373192"><span class="annot"><span class="annottext">toPath :: StopRun -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679373446"><span class="annot"><span class="annottext">toPath :: StopRun -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopRun -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRun"><span class="hs-identifier hs-type">StopRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679373188"><span class="annot"><span class="annottext">toQuery :: StopRun -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679373442"><span class="annot"><span class="annottext">toQuery :: StopRun -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopRun -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span class="hs-comment">-- | Represents the results of your stop run attempt.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newStopRunResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679373185"><span id="local-6989586621679373186"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRunResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-var">StopRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRunResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-var">StopRunResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679373439"><span id="local-6989586621679373440"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRunResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-var">StopRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRunResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-var">StopRunResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The run that was stopped.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Arun%3AStopRunResponse%27"><span class="annot"><span class="annottext">StopRunResponse -&gt; Maybe Run
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3Arun%3AStopRunResponse%27"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Run.html#Run"><span class="hs-identifier hs-type">Run</span></a></span><span class="hs-special">,</span><span>
@@ -285,7 +285,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="annot"><span class="annottext">StopRunResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373179"><span id="local-6989586621679373181"><span class="annot"><span class="annottext">StopRunResponse -&gt; StopRunResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373433"><span id="local-6989586621679373435"><span class="annot"><span class="annottext">StopRunResponse -&gt; StopRunResponse -&gt; Bool
 (StopRunResponse -&gt; StopRunResponse -&gt; Bool)
 -&gt; (StopRunResponse -&gt; StopRunResponse -&gt; Bool)
 -&gt; Eq StopRunResponse
@@ -294,7 +294,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopRunResponse -&gt; StopRunResponse -&gt; Bool
 == :: StopRunResponse -&gt; StopRunResponse -&gt; Bool
 $c== :: StopRunResponse -&gt; StopRunResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373171"><span id="local-6989586621679373173"><span id="local-6989586621679373175"><span id="local-6989586621679373177"><span class="annot"><span class="annottext">ReadPrec [StopRunResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373425"><span id="local-6989586621679373427"><span id="local-6989586621679373429"><span id="local-6989586621679373431"><span class="annot"><span class="annottext">ReadPrec [StopRunResponse]
 ReadPrec StopRunResponse
 Int -&gt; ReadS StopRunResponse
 ReadS [StopRunResponse]
@@ -314,7 +314,7 @@ readList :: ReadS [StopRunResponse]
 $creadList :: ReadS [StopRunResponse]
 readsPrec :: Int -&gt; ReadS StopRunResponse
 $creadsPrec :: Int -&gt; ReadS StopRunResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373165"><span id="local-6989586621679373167"><span id="local-6989586621679373169"><span class="annot"><span class="annottext">Int -&gt; StopRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373419"><span id="local-6989586621679373421"><span id="local-6989586621679373423"><span class="annot"><span class="annottext">Int -&gt; StopRunResponse -&gt; ShowS
 [StopRunResponse] -&gt; ShowS
 StopRunResponse -&gt; String
 (Int -&gt; StopRunResponse -&gt; ShowS)
@@ -356,8 +356,8 @@ $cfrom :: forall x. StopRunResponse -&gt; Rep StopRunResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newStopRunResponse"><span class="annot"><span class="annottext">newStopRunResponse :: Int -&gt; StopRunResponse
-</span><a href="Network.AWS.DeviceFarm.StopRun.html#newStopRunResponse"><span class="hs-identifier hs-var hs-var">newStopRunResponse</span></a></span></span><span> </span><span id="local-6989586621679373162"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373162"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.StopRun.html#newStopRunResponse"><span class="hs-identifier hs-var hs-var">newStopRunResponse</span></a></span></span><span> </span><span id="local-6989586621679373416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">StopRunResponse' :: Maybe Run -&gt; Int -&gt; StopRunResponse
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:run:StopRunResponse' :: Maybe Run
@@ -366,7 +366,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopRunResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373162"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679373416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The run that was stopped.</span><span>
@@ -377,16 +377,16 @@ forall a. Maybe a
 -&gt; (StopRunResponse -&gt; Maybe Run -&gt; StopRunResponse)
 -&gt; Lens StopRunResponse StopRunResponse (Maybe Run) (Maybe Run)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373161"><span class="annot"><span class="annottext">Maybe Run
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373415"><span class="annot"><span class="annottext">Maybe Run
 run :: Maybe Run
 $sel:run:StopRunResponse' :: StopRunResponse -&gt; Maybe Run
-</span><a href="#local-6989586621679373161"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Run
-</span><a href="#local-6989586621679373161"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373160"><span class="annot"><span class="annottext">s :: StopRunResponse
-</span><a href="#local-6989586621679373160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373159"><span class="annot"><span class="annottext">Maybe Run
-</span><a href="#local-6989586621679373159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRunResponse
-</span><a href="#local-6989586621679373160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:StopRunResponse' :: Maybe Run
+</span><a href="#local-6989586621679373415"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373415"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373414"><span class="annot"><span class="annottext">s :: StopRunResponse
+</span><a href="#local-6989586621679373414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373413"><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679373413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRunResponse
+</span><a href="#local-6989586621679373414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:StopRunResponse' :: Maybe Run
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3Arun%3AStopRunResponse%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Run
-</span><a href="#local-6989586621679373159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#stopRunResponse_httpStatus"><span class="hs-identifier hs-type">stopRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -395,16 +395,16 @@ $sel:run:StopRunResponse' :: StopRunResponse -&gt; Maybe Run
 -&gt; (StopRunResponse -&gt; Int -&gt; StopRunResponse)
 -&gt; Lens StopRunResponse StopRunResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373158"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373412"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopRunResponse' :: StopRunResponse -&gt; Int
-</span><a href="#local-6989586621679373158"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373158"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373157"><span class="annot"><span class="annottext">s :: StopRunResponse
-</span><a href="#local-6989586621679373157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373156"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRunResponse
-</span><a href="#local-6989586621679373157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopRunResponse' :: Int
+</span><a href="#local-6989586621679373412"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373412"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373411"><span class="annot"><span class="annottext">s :: StopRunResponse
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse%27"><span class="hs-identifier hs-type">StopRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRunResponse
+</span><a href="#local-6989586621679373411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopRunResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.StopRun.html#%24sel%3AhttpStatus%3AStopRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRun.html#StopRunResponse"><span class="hs-identifier hs-type">StopRunResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

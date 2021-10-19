@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information about an image scan finding.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newImageScanFinding' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679232367"><span id="local-6989586621679232368"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageScanFinding"><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-var">ImageScanFinding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageScanFinding%27"><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-var">ImageScanFinding'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A link containing additional details about the security vulnerability.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Auri%3AImageScanFinding%27"><span class="annot"><span class="annottext">ImageScanFinding -&gt; Maybe Text
-</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Auri%3AImageScanFinding%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The finding severity.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aseverity%3AImageScanFinding%27"><span class="annot"><span class="annottext">ImageScanFinding -&gt; Maybe FindingSeverity
+</span><span id="line-31"></span><span id="local-6989586621679232508"><span id="local-6989586621679232509"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageScanFinding"><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-var">ImageScanFinding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageScanFinding%27"><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-var">ImageScanFinding'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The finding severity.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aseverity%3AImageScanFinding%27"><span class="annot"><span class="annottext">ImageScanFinding -&gt; Maybe FindingSeverity
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Aseverity%3AImageScanFinding%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.FindingSeverity.html#FindingSeverity"><span class="hs-identifier hs-type">FindingSeverity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A link containing additional details about the security vulnerability.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Auri%3AImageScanFinding%27"><span class="annot"><span class="annottext">ImageScanFinding -&gt; Maybe Text
+</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Auri%3AImageScanFinding%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name associated with the finding, usually a CVE number.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AImageScanFinding%27"><span class="annot"><span class="annottext">ImageScanFinding -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Aname%3AImageScanFinding%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Adescription%3AImageScanFinding%27"><span class="annot"><span class="annottext">ImageScanFinding -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Adescription%3AImageScanFinding%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232357"><span id="local-6989586621679232359"><span class="annot"><span class="annottext">ImageScanFinding -&gt; ImageScanFinding -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232498"><span id="local-6989586621679232500"><span class="annot"><span class="annottext">ImageScanFinding -&gt; ImageScanFinding -&gt; Bool
 (ImageScanFinding -&gt; ImageScanFinding -&gt; Bool)
 -&gt; (ImageScanFinding -&gt; ImageScanFinding -&gt; Bool)
 -&gt; Eq ImageScanFinding
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImageScanFinding -&gt; ImageScanFinding -&gt; Bool
 == :: ImageScanFinding -&gt; ImageScanFinding -&gt; Bool
 $c== :: ImageScanFinding -&gt; ImageScanFinding -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232348"><span id="local-6989586621679232350"><span id="local-6989586621679232352"><span id="local-6989586621679232354"><span class="annot"><span class="annottext">ReadPrec [ImageScanFinding]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232489"><span id="local-6989586621679232491"><span id="local-6989586621679232493"><span id="local-6989586621679232495"><span class="annot"><span class="annottext">ReadPrec [ImageScanFinding]
 ReadPrec ImageScanFinding
 Int -&gt; ReadS ImageScanFinding
 ReadS [ImageScanFinding]
@@ -75,7 +75,7 @@ readList :: ReadS [ImageScanFinding]
 $creadList :: ReadS [ImageScanFinding]
 readsPrec :: Int -&gt; ReadS ImageScanFinding
 $creadsPrec :: Int -&gt; ReadS ImageScanFinding
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232341"><span id="local-6989586621679232343"><span id="local-6989586621679232345"><span class="annot"><span class="annottext">Int -&gt; ImageScanFinding -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232482"><span id="local-6989586621679232484"><span id="local-6989586621679232486"><span class="annot"><span class="annottext">Int -&gt; ImageScanFinding -&gt; ShowS
 [ImageScanFinding] -&gt; ShowS
 ImageScanFinding -&gt; String
 (Int -&gt; ImageScanFinding -&gt; ShowS)
@@ -109,9 +109,9 @@ $cfrom :: forall x. ImageScanFinding -&gt; Rep ImageScanFinding x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'uri', 'imageScanFinding_uri' - A link containing additional details about the security vulnerability.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'severity', 'imageScanFinding_severity' - The finding severity.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'severity', 'imageScanFinding_severity' - The finding severity.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'uri', 'imageScanFinding_uri' - A link containing additional details about the security vulnerability.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'name', 'imageScanFinding_name' - The name associated with the finding, usually a CVE number.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
@@ -123,19 +123,19 @@ $cfrom :: forall x. ImageScanFinding -&gt; Rep ImageScanFinding x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span>
 </span><span id="line-66"></span><span id="newImageScanFinding"><span class="annot"><span class="annottext">newImageScanFinding :: ImageScanFinding
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#newImageScanFinding"><span class="hs-identifier hs-var hs-var">newImageScanFinding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">ImageScanFinding' :: Maybe Text
--&gt; Maybe FindingSeverity
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">ImageScanFinding' :: Maybe FindingSeverity
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Attribute]
 -&gt; Maybe Text
 -&gt; ImageScanFinding
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uri:ImageScanFinding' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Auri%3AImageScanFinding%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:severity:ImageScanFinding' :: Maybe FindingSeverity
+</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Aseverity%3AImageScanFinding%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingSeverity
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:ImageScanFinding' :: Maybe FindingSeverity
-</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Aseverity%3AImageScanFinding%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingSeverity
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:uri:ImageScanFinding' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Auri%3AImageScanFinding%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ImageScanFinding' :: Maybe Text
@@ -152,28 +152,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | A link containing additional details about the security vulnerability.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_uri"><span class="hs-identifier hs-type">imageScanFinding_uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="imageScanFinding_uri"><span class="annot"><span class="annottext">imageScanFinding_uri :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ImageScanFinding -&gt; f ImageScanFinding
-</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_uri"><span class="hs-identifier hs-var hs-var">imageScanFinding_uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageScanFinding -&gt; Maybe Text)
--&gt; (ImageScanFinding -&gt; Maybe Text -&gt; ImageScanFinding)
--&gt; Lens ImageScanFinding ImageScanFinding (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232332"><span class="annot"><span class="annottext">Maybe Text
-uri :: Maybe Text
-$sel:uri:ImageScanFinding' :: ImageScanFinding -&gt; Maybe Text
-</span><a href="#local-6989586621679232332"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232332"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232331"><span class="annot"><span class="annottext">s :: ImageScanFinding
-</span><a href="#local-6989586621679232331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232330"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
-</span><a href="#local-6989586621679232331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:ImageScanFinding' :: Maybe Text
-</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Auri%3AImageScanFinding%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The finding severity.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_severity"><span class="hs-identifier hs-type">imageScanFinding_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.FindingSeverity.html#FindingSeverity"><span class="hs-identifier hs-type">FindingSeverity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="imageScanFinding_severity"><span class="annot"><span class="annottext">imageScanFinding_severity :: (Maybe FindingSeverity -&gt; f (Maybe FindingSeverity))
+</span><span id="line-75"></span><span class="hs-comment">-- | The finding severity.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_severity"><span class="hs-identifier hs-type">imageScanFinding_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.FindingSeverity.html#FindingSeverity"><span class="hs-identifier hs-type">FindingSeverity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="imageScanFinding_severity"><span class="annot"><span class="annottext">imageScanFinding_severity :: (Maybe FindingSeverity -&gt; f (Maybe FindingSeverity))
 -&gt; ImageScanFinding -&gt; f ImageScanFinding
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_severity"><span class="hs-identifier hs-var hs-var">imageScanFinding_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageScanFinding -&gt; Maybe FindingSeverity)
 -&gt; (ImageScanFinding -&gt; Maybe FindingSeverity -&gt; ImageScanFinding)
@@ -183,16 +164,35 @@ $sel:uri:ImageScanFinding' :: ImageScanFinding -&gt; Maybe Text
      (Maybe FindingSeverity)
      (Maybe FindingSeverity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232328"><span class="annot"><span class="annottext">Maybe FindingSeverity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232473"><span class="annot"><span class="annottext">Maybe FindingSeverity
 severity :: Maybe FindingSeverity
 $sel:severity:ImageScanFinding' :: ImageScanFinding -&gt; Maybe FindingSeverity
-</span><a href="#local-6989586621679232328"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingSeverity
-</span><a href="#local-6989586621679232328"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232327"><span class="annot"><span class="annottext">s :: ImageScanFinding
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232326"><span class="annot"><span class="annottext">Maybe FindingSeverity
-</span><a href="#local-6989586621679232326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
-</span><a href="#local-6989586621679232327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:ImageScanFinding' :: Maybe FindingSeverity
+</span><a href="#local-6989586621679232473"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingSeverity
+</span><a href="#local-6989586621679232473"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232472"><span class="annot"><span class="annottext">s :: ImageScanFinding
+</span><a href="#local-6989586621679232472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232471"><span class="annot"><span class="annottext">Maybe FindingSeverity
+</span><a href="#local-6989586621679232471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
+</span><a href="#local-6989586621679232472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:ImageScanFinding' :: Maybe FindingSeverity
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Aseverity%3AImageScanFinding%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingSeverity
-</span><a href="#local-6989586621679232326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A link containing additional details about the security vulnerability.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_uri"><span class="hs-identifier hs-type">imageScanFinding_uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="imageScanFinding_uri"><span class="annot"><span class="annottext">imageScanFinding_uri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImageScanFinding -&gt; f ImageScanFinding
+</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_uri"><span class="hs-identifier hs-var hs-var">imageScanFinding_uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageScanFinding -&gt; Maybe Text)
+-&gt; (ImageScanFinding -&gt; Maybe Text -&gt; ImageScanFinding)
+-&gt; Lens ImageScanFinding ImageScanFinding (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232469"><span class="annot"><span class="annottext">Maybe Text
+uri :: Maybe Text
+$sel:uri:ImageScanFinding' :: ImageScanFinding -&gt; Maybe Text
+</span><a href="#local-6989586621679232469"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232469"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232468"><span class="annot"><span class="annottext">s :: ImageScanFinding
+</span><a href="#local-6989586621679232468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
+</span><a href="#local-6989586621679232468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:ImageScanFinding' :: Maybe Text
+</span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Auri%3AImageScanFinding%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name associated with the finding, usually a CVE number.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_name"><span class="hs-identifier hs-type">imageScanFinding_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -202,16 +202,16 @@ $sel:severity:ImageScanFinding' :: ImageScanFinding -&gt; Maybe FindingSeverity
 -&gt; (ImageScanFinding -&gt; Maybe Text -&gt; ImageScanFinding)
 -&gt; Lens ImageScanFinding ImageScanFinding (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232324"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232465"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ImageScanFinding' :: ImageScanFinding -&gt; Maybe Text
-</span><a href="#local-6989586621679232324"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232324"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232323"><span class="annot"><span class="annottext">s :: ImageScanFinding
-</span><a href="#local-6989586621679232323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232322"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
-</span><a href="#local-6989586621679232323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ImageScanFinding' :: Maybe Text
+</span><a href="#local-6989586621679232465"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232465"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232464"><span class="annot"><span class="annottext">s :: ImageScanFinding
+</span><a href="#local-6989586621679232464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232463"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
+</span><a href="#local-6989586621679232464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ImageScanFinding' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Aname%3AImageScanFinding%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | A collection of attributes of the host from which the finding is</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- generated.</span><span>
@@ -226,16 +226,16 @@ $sel:name:ImageScanFinding' :: ImageScanFinding -&gt; Maybe Text
      (Maybe [Attribute])
      (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232320"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232461"><span class="annot"><span class="annottext">Maybe [Attribute]
 attributes :: Maybe [Attribute]
 $sel:attributes:ImageScanFinding' :: ImageScanFinding -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679232320"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679232320"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232319"><span class="annot"><span class="annottext">s :: ImageScanFinding
-</span><a href="#local-6989586621679232319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232318"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679232318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
-</span><a href="#local-6989586621679232319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ImageScanFinding' :: Maybe [Attribute]
+</span><a href="#local-6989586621679232461"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679232461"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232460"><span class="annot"><span class="annottext">s :: ImageScanFinding
+</span><a href="#local-6989586621679232460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232459"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679232459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
+</span><a href="#local-6989586621679232460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ImageScanFinding' :: Maybe [Attribute]
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Aattributes%3AImageScanFinding%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679232318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679232459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; ImageScanFinding -&gt; f ImageScanFinding)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -253,8 +253,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The description of the finding.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#imageScanFinding_description"><span class="hs-identifier hs-type">imageScanFinding_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -264,19 +264,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ImageScanFinding -&gt; Maybe Text -&gt; ImageScanFinding)
 -&gt; Lens ImageScanFinding ImageScanFinding (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232313"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232454"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ImageScanFinding' :: ImageScanFinding -&gt; Maybe Text
-</span><a href="#local-6989586621679232313"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232313"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232312"><span class="annot"><span class="annottext">s :: ImageScanFinding
-</span><a href="#local-6989586621679232312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232311"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
-</span><a href="#local-6989586621679232312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImageScanFinding' :: Maybe Text
+</span><a href="#local-6989586621679232454"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232454"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232453"><span class="annot"><span class="annottext">s :: ImageScanFinding
+</span><a href="#local-6989586621679232453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-type">ImageScanFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232452"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageScanFinding
+</span><a href="#local-6989586621679232453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ImageScanFinding' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#%24sel%3Adescription%3AImageScanFinding%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679232311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679232452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232308"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679232306"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageScanFinding
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232449"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679232447"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageScanFinding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImageScanFinding)
@@ -286,56 +286,56 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImageScanFinding&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232303"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232303"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe FindingSeverity
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232444"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe FindingSeverity
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Attribute]
 -&gt; Maybe Text
 -&gt; ImageScanFinding
 </span><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding%27"><span class="hs-identifier hs-var">ImageScanFinding'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe FindingSeverity
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FindingSeverity
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [Attribute]
  -&gt; Maybe Text
  -&gt; ImageScanFinding)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe FindingSeverity)
 -&gt; Parser
-     (Maybe FindingSeverity
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe [Attribute]
       -&gt; Maybe Text
       -&gt; ImageScanFinding)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FindingSeverity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;severity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe FindingSeverity
+  (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe [Attribute]
    -&gt; Maybe Text
    -&gt; ImageScanFinding)
--&gt; Parser (Maybe FindingSeverity)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text -&gt; Maybe [Attribute] -&gt; Maybe Text -&gt; ImageScanFinding)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FindingSeverity)
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;severity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe [Attribute] -&gt; Maybe Text -&gt; ImageScanFinding)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe [Attribute] -&gt; Maybe Text -&gt; ImageScanFinding)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -344,7 +344,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; ImageScanFinding)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attribute]))
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attribute]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Attribute]))
@@ -357,13 +357,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser ImageScanFinding
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679232303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679232444"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232296"><span id="local-6989586621679232298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232437"><span id="local-6989586621679232439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ImageScanFinding.html#ImageScanFinding"><span class="hs-identifier hs-type">ImageScanFinding</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

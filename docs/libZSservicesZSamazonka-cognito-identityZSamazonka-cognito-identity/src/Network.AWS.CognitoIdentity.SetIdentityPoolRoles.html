@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Input to the @SetIdentityPoolRoles@ action.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newSetIdentityPoolRoles' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679184861"><span id="local-6989586621679184862"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityPoolRoles"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-var">SetIdentityPoolRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityPoolRoles%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-var">SetIdentityPoolRoles'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679185030"><span id="local-6989586621679185031"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityPoolRoles"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-var">SetIdentityPoolRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityPoolRoles%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-var">SetIdentityPoolRoles'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | How users for a specific identity provider are to mapped to roles. This</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- is a string to RoleMapping object map. The string identifies the</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- identity provider, for example, \&quot;graph.facebook.com\&quot; or</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="annot"><span class="annottext">SetIdentityPoolRoles -&gt; HashMap Text Text
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184853"><span id="local-6989586621679184855"><span class="annot"><span class="annottext">SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185022"><span id="local-6989586621679185024"><span class="annot"><span class="annottext">SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
 (SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool)
 -&gt; (SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool)
 -&gt; Eq SetIdentityPoolRoles
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
 == :: SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
 $c== :: SetIdentityPoolRoles -&gt; SetIdentityPoolRoles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184844"><span id="local-6989586621679184846"><span id="local-6989586621679184848"><span id="local-6989586621679184850"><span class="annot"><span class="annottext">ReadPrec [SetIdentityPoolRoles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185013"><span id="local-6989586621679185015"><span id="local-6989586621679185017"><span id="local-6989586621679185019"><span class="annot"><span class="annottext">ReadPrec [SetIdentityPoolRoles]
 ReadPrec SetIdentityPoolRoles
 Int -&gt; ReadS SetIdentityPoolRoles
 ReadS [SetIdentityPoolRoles]
@@ -97,7 +97,7 @@ readList :: ReadS [SetIdentityPoolRoles]
 $creadList :: ReadS [SetIdentityPoolRoles]
 readsPrec :: Int -&gt; ReadS SetIdentityPoolRoles
 $creadsPrec :: Int -&gt; ReadS SetIdentityPoolRoles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184837"><span id="local-6989586621679184839"><span id="local-6989586621679184841"><span class="annot"><span class="annottext">Int -&gt; SetIdentityPoolRoles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185006"><span id="local-6989586621679185008"><span id="local-6989586621679185010"><span class="annot"><span class="annottext">Int -&gt; SetIdentityPoolRoles -&gt; ShowS
 [SetIdentityPoolRoles] -&gt; ShowS
 SetIdentityPoolRoles -&gt; String
 (Int -&gt; SetIdentityPoolRoles -&gt; ShowS)
@@ -148,8 +148,8 @@ $cfrom :: forall x. SetIdentityPoolRoles -&gt; Rep SetIdentityPoolRoles x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span>
 </span><span id="line-94"></span><span id="newSetIdentityPoolRoles"><span class="annot"><span class="annottext">newSetIdentityPoolRoles :: Text -&gt; SetIdentityPoolRoles
-</span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRoles"><span class="hs-identifier hs-var hs-var">newSetIdentityPoolRoles</span></a></span></span><span> </span><span id="local-6989586621679184832"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184832"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#newSetIdentityPoolRoles"><span class="hs-identifier hs-var hs-var">newSetIdentityPoolRoles</span></a></span></span><span> </span><span id="local-6989586621679185001"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185001"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityPoolRoles' :: Maybe (HashMap Text RoleMapping)
 -&gt; Text -&gt; HashMap Text Text -&gt; SetIdentityPoolRoles
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span>
@@ -160,7 +160,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityPoolId:SetIdentityPoolRoles' :: Text
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AidentityPoolId%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184832"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185001"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:roles:SetIdentityPoolRoles' :: HashMap Text Text
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
 forall a. Monoid a =&gt; a
@@ -186,16 +186,16 @@ forall a. Monoid a =&gt; a
      (Maybe (HashMap Text RoleMapping))
      (Maybe (HashMap Text RoleMapping))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184829"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184998"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
 roleMappings :: Maybe (HashMap Text RoleMapping)
 $sel:roleMappings:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Maybe (HashMap Text RoleMapping)
-</span><a href="#local-6989586621679184829"><span class="hs-identifier hs-var hs-var">roleMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
-</span><a href="#local-6989586621679184829"><span class="hs-identifier hs-var">roleMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184828"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
-</span><a href="#local-6989586621679184828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184827"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
-</span><a href="#local-6989586621679184827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
-</span><a href="#local-6989586621679184828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleMappings:SetIdentityPoolRoles' :: Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184998"><span class="hs-identifier hs-var hs-var">roleMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184998"><span class="hs-identifier hs-var">roleMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184997"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
+</span><a href="#local-6989586621679184997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184996"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
+</span><a href="#local-6989586621679184997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleMappings:SetIdentityPoolRoles' :: Maybe (HashMap Text RoleMapping)
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AroleMappings%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">roleMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
-</span><a href="#local-6989586621679184827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text RoleMapping)
+</span><a href="#local-6989586621679184996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text RoleMapping)
   -&gt; f (Maybe (HashMap Text RoleMapping)))
  -&gt; SetIdentityPoolRoles -&gt; f SetIdentityPoolRoles)
 -&gt; ((Maybe (HashMap Text RoleMapping)
@@ -225,8 +225,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text RoleMapping)
   (HashMap Text RoleMapping)
   (HashMap Text RoleMapping)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | An identity pool ID in the format REGION:GUID.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#setIdentityPoolRoles_identityPoolId"><span class="hs-identifier hs-type">setIdentityPoolRoles_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -235,16 +235,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (SetIdentityPoolRoles -&gt; Text -&gt; SetIdentityPoolRoles)
 -&gt; Lens SetIdentityPoolRoles SetIdentityPoolRoles Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184823"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184992"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Text
-</span><a href="#local-6989586621679184823"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184823"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184822"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
-</span><a href="#local-6989586621679184822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
-</span><a href="#local-6989586621679184822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:SetIdentityPoolRoles' :: Text
+</span><a href="#local-6989586621679184992"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184992"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184991"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
+</span><a href="#local-6989586621679184991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184990"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
+</span><a href="#local-6989586621679184991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:SetIdentityPoolRoles' :: Text
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3AidentityPoolId%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The map of roles associated with this pool. For a given role, the key</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- will be either \&quot;authenticated\&quot; or \&quot;unauthenticated\&quot; and the value</span><span>
@@ -261,16 +261,16 @@ $sel:identityPoolId:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Text
      (HashMap Text Text)
      (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184820"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184989"><span class="annot"><span class="annottext">HashMap Text Text
 roles :: HashMap Text Text
 $sel:roles:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; HashMap Text Text
-</span><a href="#local-6989586621679184820"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679184820"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184819"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
-</span><a href="#local-6989586621679184819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184818"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679184818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
-</span><a href="#local-6989586621679184819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:SetIdentityPoolRoles' :: HashMap Text Text
+</span><a href="#local-6989586621679184989"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184989"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184988"><span class="annot"><span class="annottext">s :: SetIdentityPoolRoles
+</span><a href="#local-6989586621679184988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184987"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityPoolRoles
+</span><a href="#local-6989586621679184988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:SetIdentityPoolRoles' :: HashMap Text Text
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#%24sel%3Aroles%3ASetIdentityPoolRoles%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679184818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679184987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; SetIdentityPoolRoles -&gt; f SetIdentityPoolRoles)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
@@ -280,19 +280,19 @@ $sel:roles:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; HashMap Text Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-type">SetIdentityPoolRolesResponse</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679184814"><span class="annot"><span class="annottext">request :: SetIdentityPoolRoles -&gt; Request SetIdentityPoolRoles
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679184983"><span class="annot"><span class="annottext">request :: SetIdentityPoolRoles -&gt; Request SetIdentityPoolRoles
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetIdentityPoolRoles -&gt; Request SetIdentityPoolRoles
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679184810"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679184979"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetIdentityPoolRoles
 -&gt; ClientResponse ClientBody
@@ -318,12 +318,12 @@ AWSResponse a
 SetIdentityPoolRolesResponse
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse%27"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184803"><span id="local-6989586621679184805"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184972"><span id="local-6989586621679184974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679184796"><span class="annot"><span class="annottext">toHeaders :: SetIdentityPoolRoles -&gt; [Header]
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679184965"><span class="annot"><span class="annottext">toHeaders :: SetIdentityPoolRoles -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; SetIdentityPoolRoles -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -350,9 +350,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184786"><span id="local-6989586621679184788"><span id="local-6989586621679184790"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679184784"><span class="annot"><span class="annottext">toJSON :: SetIdentityPoolRoles -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184780"><span id="local-6989586621679184781"><span id="local-6989586621679184782"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184955"><span id="local-6989586621679184957"><span id="local-6989586621679184959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679184953"><span class="annot"><span class="annottext">toJSON :: SetIdentityPoolRoles -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles%27"><span class="hs-identifier hs-type">SetIdentityPoolRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184949"><span id="local-6989586621679184950"><span id="local-6989586621679184951"><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
 Text
 HashMap Text Text
 roles :: HashMap Text Text
@@ -361,7 +361,7 @@ roleMappings :: Maybe (HashMap Text RoleMapping)
 $sel:roles:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; HashMap Text Text
 $sel:identityPoolId:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Text
 $sel:roleMappings:SetIdentityPoolRoles' :: SetIdentityPoolRoles -&gt; Maybe (HashMap Text RoleMapping)
-</span><a href="#local-6989586621679184780"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679184949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -374,7 +374,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text RoleMapping) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text RoleMapping)
-</span><a href="#local-6989586621679184782"><span class="hs-identifier hs-var">roleMappings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184951"><span class="hs-identifier hs-var">roleMappings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -382,26 +382,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184781"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184950"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Roles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679184780"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184949"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679184773"><span class="annot"><span class="annottext">toPath :: SetIdentityPoolRoles -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679184942"><span class="annot"><span class="annottext">toPath :: SetIdentityPoolRoles -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetIdentityPoolRoles -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRoles"><span class="hs-identifier hs-type">SetIdentityPoolRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679184769"><span class="annot"><span class="annottext">toQuery :: SetIdentityPoolRoles -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679184938"><span class="annot"><span class="annottext">toQuery :: SetIdentityPoolRoles -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetIdentityPoolRoles -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -409,10 +409,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newSetIdentityPoolRolesResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679184766"><span id="local-6989586621679184767"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityPoolRolesResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityPoolRolesResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse%27"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679184935"><span id="local-6989586621679184936"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityPoolRolesResponse"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityPoolRolesResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse%27"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184762"><span id="local-6989586621679184764"><span class="annot"><span class="annottext">SetIdentityPoolRolesResponse
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184931"><span id="local-6989586621679184933"><span class="annot"><span class="annottext">SetIdentityPoolRolesResponse
 -&gt; SetIdentityPoolRolesResponse -&gt; Bool
 (SetIdentityPoolRolesResponse
  -&gt; SetIdentityPoolRolesResponse -&gt; Bool)
@@ -428,7 +428,7 @@ $c/= :: SetIdentityPoolRolesResponse
 -&gt; SetIdentityPoolRolesResponse -&gt; Bool
 $c== :: SetIdentityPoolRolesResponse
 -&gt; SetIdentityPoolRolesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184754"><span id="local-6989586621679184756"><span id="local-6989586621679184758"><span id="local-6989586621679184760"><span class="annot"><span class="annottext">ReadPrec [SetIdentityPoolRolesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184923"><span id="local-6989586621679184925"><span id="local-6989586621679184927"><span id="local-6989586621679184929"><span class="annot"><span class="annottext">ReadPrec [SetIdentityPoolRolesResponse]
 ReadPrec SetIdentityPoolRolesResponse
 Int -&gt; ReadS SetIdentityPoolRolesResponse
 ReadS [SetIdentityPoolRolesResponse]
@@ -448,7 +448,7 @@ readList :: ReadS [SetIdentityPoolRolesResponse]
 $creadList :: ReadS [SetIdentityPoolRolesResponse]
 readsPrec :: Int -&gt; ReadS SetIdentityPoolRolesResponse
 $creadsPrec :: Int -&gt; ReadS SetIdentityPoolRolesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184748"><span id="local-6989586621679184750"><span id="local-6989586621679184752"><span class="annot"><span class="annottext">Int -&gt; SetIdentityPoolRolesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184917"><span id="local-6989586621679184919"><span id="local-6989586621679184921"><span class="annot"><span class="annottext">Int -&gt; SetIdentityPoolRolesResponse -&gt; ShowS
 [SetIdentityPoolRolesResponse] -&gt; ShowS
 SetIdentityPoolRolesResponse -&gt; String
 (Int -&gt; SetIdentityPoolRolesResponse -&gt; ShowS)
@@ -491,5 +491,5 @@ SetIdentityPoolRolesResponse -&gt; Rep SetIdentityPoolRolesResponse x
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityPoolRolesResponse
 </span><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse%27"><span class="hs-identifier hs-var">SetIdentityPoolRolesResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-type">SetIdentityPoolRolesResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.SetIdentityPoolRoles.html#SetIdentityPoolRolesResponse"><span class="hs-identifier hs-type">SetIdentityPoolRolesResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

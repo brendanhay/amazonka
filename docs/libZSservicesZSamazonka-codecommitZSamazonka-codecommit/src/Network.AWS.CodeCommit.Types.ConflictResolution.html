@@ -30,18 +30,18 @@
 </span><span id="line-30"></span><span class="hs-comment">-- use when resolving conflicts during a merge.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newConflictResolution' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679354570"><span id="local-6989586621679354571"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConflictResolution"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-var">ConflictResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictResolution%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-var">ConflictResolution'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Files to be deleted as part of the merge conflict resolution.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="annot"><span class="annottext">ConflictResolution -&gt; Maybe [DeleteFileEntry]
-</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="hs-identifier hs-var hs-var">deleteFiles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.DeleteFileEntry.html#DeleteFileEntry"><span class="hs-identifier hs-type">DeleteFileEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | File modes that are set as part of the merge conflict resolution.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsetFileModes%3AConflictResolution%27"><span class="annot"><span class="annottext">ConflictResolution -&gt; Maybe [SetFileModeEntry]
+</span><span id="line-33"></span><span id="local-6989586621679354848"><span id="local-6989586621679354849"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConflictResolution"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-var">ConflictResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConflictResolution%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-var">ConflictResolution'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | File modes that are set as part of the merge conflict resolution.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsetFileModes%3AConflictResolution%27"><span class="annot"><span class="annottext">ConflictResolution -&gt; Maybe [SetFileModeEntry]
 </span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AsetFileModes%3AConflictResolution%27"><span class="hs-identifier hs-var hs-var">setFileModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SetFileModeEntry.html#SetFileModeEntry"><span class="hs-identifier hs-type">SetFileModeEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Files to be deleted as part of the merge conflict resolution.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="annot"><span class="annottext">ConflictResolution -&gt; Maybe [DeleteFileEntry]
+</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="hs-identifier hs-var hs-var">deleteFiles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.DeleteFileEntry.html#DeleteFileEntry"><span class="hs-identifier hs-type">DeleteFileEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Files to have content replaced as part of the merge conflict resolution.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AreplaceContents%3AConflictResolution%27"><span class="annot"><span class="annottext">ConflictResolution -&gt; Maybe [ReplaceContentEntry]
 </span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AreplaceContents%3AConflictResolution%27"><span class="hs-identifier hs-var hs-var">replaceContents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReplaceContentEntry.html#ReplaceContentEntry"><span class="hs-identifier hs-type">ReplaceContentEntry</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354562"><span id="local-6989586621679354564"><span class="annot"><span class="annottext">ConflictResolution -&gt; ConflictResolution -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354840"><span id="local-6989586621679354842"><span class="annot"><span class="annottext">ConflictResolution -&gt; ConflictResolution -&gt; Bool
 (ConflictResolution -&gt; ConflictResolution -&gt; Bool)
 -&gt; (ConflictResolution -&gt; ConflictResolution -&gt; Bool)
 -&gt; Eq ConflictResolution
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConflictResolution -&gt; ConflictResolution -&gt; Bool
 == :: ConflictResolution -&gt; ConflictResolution -&gt; Bool
 $c== :: ConflictResolution -&gt; ConflictResolution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354553"><span id="local-6989586621679354555"><span id="local-6989586621679354557"><span id="local-6989586621679354559"><span class="annot"><span class="annottext">ReadPrec [ConflictResolution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354831"><span id="local-6989586621679354833"><span id="local-6989586621679354835"><span id="local-6989586621679354837"><span class="annot"><span class="annottext">ReadPrec [ConflictResolution]
 ReadPrec ConflictResolution
 Int -&gt; ReadS ConflictResolution
 ReadS [ConflictResolution]
@@ -70,7 +70,7 @@ readList :: ReadS [ConflictResolution]
 $creadList :: ReadS [ConflictResolution]
 readsPrec :: Int -&gt; ReadS ConflictResolution
 $creadsPrec :: Int -&gt; ReadS ConflictResolution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354546"><span id="local-6989586621679354548"><span id="local-6989586621679354550"><span class="annot"><span class="annottext">Int -&gt; ConflictResolution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354824"><span id="local-6989586621679354826"><span id="local-6989586621679354828"><span class="annot"><span class="annottext">Int -&gt; ConflictResolution -&gt; ShowS
 [ConflictResolution] -&gt; ShowS
 ConflictResolution -&gt; String
 (Int -&gt; ConflictResolution -&gt; ShowS)
@@ -104,26 +104,26 @@ $cfrom :: forall x. ConflictResolution -&gt; Rep ConflictResolution x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'deleteFiles', 'conflictResolution_deleteFiles' - Files to be deleted as part of the merge conflict resolution.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'setFileModes', 'conflictResolution_setFileModes' - File modes that are set as part of the merge conflict resolution.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'setFileModes', 'conflictResolution_setFileModes' - File modes that are set as part of the merge conflict resolution.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'deleteFiles', 'conflictResolution_deleteFiles' - Files to be deleted as part of the merge conflict resolution.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'replaceContents', 'conflictResolution_replaceContents' - Files to have content replaced as part of the merge conflict resolution.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#newConflictResolution"><span class="hs-identifier hs-type">newConflictResolution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span>
 </span><span id="line-58"></span><span id="newConflictResolution"><span class="annot"><span class="annottext">newConflictResolution :: ConflictResolution
 </span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#newConflictResolution"><span class="hs-identifier hs-var hs-var">newConflictResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ConflictResolution' :: Maybe [DeleteFileEntry]
--&gt; Maybe [SetFileModeEntry]
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ConflictResolution' :: Maybe [SetFileModeEntry]
+-&gt; Maybe [DeleteFileEntry]
 -&gt; Maybe [ReplaceContentEntry]
 -&gt; ConflictResolution
 </span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deleteFiles:ConflictResolution' :: Maybe [DeleteFileEntry]
-</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:setFileModes:ConflictResolution' :: Maybe [SetFileModeEntry]
+</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AsetFileModes%3AConflictResolution%27"><span class="hs-identifier hs-var">setFileModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:setFileModes:ConflictResolution' :: Maybe [SetFileModeEntry]
-</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AsetFileModes%3AConflictResolution%27"><span class="hs-identifier hs-var">setFileModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteFiles:ConflictResolution' :: Maybe [DeleteFileEntry]
+</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:replaceContents:ConflictResolution' :: Maybe [ReplaceContentEntry]
@@ -132,60 +132,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Files to be deleted as part of the merge conflict resolution.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_deleteFiles"><span class="hs-identifier hs-type">conflictResolution_deleteFiles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.DeleteFileEntry.html#DeleteFileEntry"><span class="hs-identifier hs-type">DeleteFileEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="conflictResolution_deleteFiles"><span class="annot"><span class="annottext">conflictResolution_deleteFiles :: (Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
--&gt; ConflictResolution -&gt; f ConflictResolution
-</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_deleteFiles"><span class="hs-identifier hs-var hs-var">conflictResolution_deleteFiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictResolution -&gt; Maybe [DeleteFileEntry])
--&gt; (ConflictResolution
-    -&gt; Maybe [DeleteFileEntry] -&gt; ConflictResolution)
--&gt; Lens
-     ConflictResolution
-     ConflictResolution
-     (Maybe [DeleteFileEntry])
-     (Maybe [DeleteFileEntry])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354537"><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
-deleteFiles :: Maybe [DeleteFileEntry]
-$sel:deleteFiles:ConflictResolution' :: ConflictResolution -&gt; Maybe [DeleteFileEntry]
-</span><a href="#local-6989586621679354537"><span class="hs-identifier hs-var hs-var">deleteFiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
-</span><a href="#local-6989586621679354537"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354536"><span class="annot"><span class="annottext">s :: ConflictResolution
-</span><a href="#local-6989586621679354536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354535"><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
-</span><a href="#local-6989586621679354535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictResolution
-</span><a href="#local-6989586621679354536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteFiles:ConflictResolution' :: Maybe [DeleteFileEntry]
-</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
-</span><a href="#local-6989586621679354535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
- -&gt; ConflictResolution -&gt; f ConflictResolution)
--&gt; ((Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
-    -&gt; Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
--&gt; (Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
--&gt; ConflictResolution
--&gt; f ConflictResolution
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [DeleteFileEntry]
-  [DeleteFileEntry]
-  [DeleteFileEntry]
-  [DeleteFileEntry]
--&gt; Iso
-     (Maybe [DeleteFileEntry])
-     (Maybe [DeleteFileEntry])
-     (Maybe [DeleteFileEntry])
-     (Maybe [DeleteFileEntry])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [DeleteFileEntry]
-  [DeleteFileEntry]
-  [DeleteFileEntry]
-  [DeleteFileEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | File modes that are set as part of the merge conflict resolution.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_setFileModes"><span class="hs-identifier hs-type">conflictResolution_setFileModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SetFileModeEntry.html#SetFileModeEntry"><span class="hs-identifier hs-type">SetFileModeEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="conflictResolution_setFileModes"><span class="annot"><span class="annottext">conflictResolution_setFileModes :: (Maybe [SetFileModeEntry] -&gt; f (Maybe [SetFileModeEntry]))
+</span><span id="line-65"></span><span class="hs-comment">-- | File modes that are set as part of the merge conflict resolution.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_setFileModes"><span class="hs-identifier hs-type">conflictResolution_setFileModes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SetFileModeEntry.html#SetFileModeEntry"><span class="hs-identifier hs-type">SetFileModeEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="conflictResolution_setFileModes"><span class="annot"><span class="annottext">conflictResolution_setFileModes :: (Maybe [SetFileModeEntry] -&gt; f (Maybe [SetFileModeEntry]))
 -&gt; ConflictResolution -&gt; f ConflictResolution
 </span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_setFileModes"><span class="hs-identifier hs-var hs-var">conflictResolution_setFileModes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictResolution -&gt; Maybe [SetFileModeEntry])
 -&gt; (ConflictResolution
@@ -196,16 +145,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [SetFileModeEntry])
      (Maybe [SetFileModeEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354530"><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354815"><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
 setFileModes :: Maybe [SetFileModeEntry]
 $sel:setFileModes:ConflictResolution' :: ConflictResolution -&gt; Maybe [SetFileModeEntry]
-</span><a href="#local-6989586621679354530"><span class="hs-identifier hs-var hs-var">setFileModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
-</span><a href="#local-6989586621679354530"><span class="hs-identifier hs-var">setFileModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354529"><span class="annot"><span class="annottext">s :: ConflictResolution
-</span><a href="#local-6989586621679354529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354528"><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
-</span><a href="#local-6989586621679354528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictResolution
-</span><a href="#local-6989586621679354529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setFileModes:ConflictResolution' :: Maybe [SetFileModeEntry]
+</span><a href="#local-6989586621679354815"><span class="hs-identifier hs-var hs-var">setFileModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
+</span><a href="#local-6989586621679354815"><span class="hs-identifier hs-var">setFileModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354814"><span class="annot"><span class="annottext">s :: ConflictResolution
+</span><a href="#local-6989586621679354814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354813"><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
+</span><a href="#local-6989586621679354813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictResolution
+</span><a href="#local-6989586621679354814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setFileModes:ConflictResolution' :: Maybe [SetFileModeEntry]
 </span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AsetFileModes%3AConflictResolution%27"><span class="hs-identifier hs-var">setFileModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
-</span><a href="#local-6989586621679354528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SetFileModeEntry] -&gt; f (Maybe [SetFileModeEntry]))
+</span><a href="#local-6989586621679354813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SetFileModeEntry] -&gt; f (Maybe [SetFileModeEntry]))
  -&gt; ConflictResolution -&gt; f ConflictResolution)
 -&gt; ((Maybe [SetFileModeEntry] -&gt; f (Maybe [SetFileModeEntry]))
     -&gt; Maybe [SetFileModeEntry] -&gt; f (Maybe [SetFileModeEntry]))
@@ -231,8 +180,59 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SetFileModeEntry]
   [SetFileModeEntry]
   [SetFileModeEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Files to be deleted as part of the merge conflict resolution.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_deleteFiles"><span class="hs-identifier hs-type">conflictResolution_deleteFiles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.DeleteFileEntry.html#DeleteFileEntry"><span class="hs-identifier hs-type">DeleteFileEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="conflictResolution_deleteFiles"><span class="annot"><span class="annottext">conflictResolution_deleteFiles :: (Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
+-&gt; ConflictResolution -&gt; f ConflictResolution
+</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_deleteFiles"><span class="hs-identifier hs-var hs-var">conflictResolution_deleteFiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConflictResolution -&gt; Maybe [DeleteFileEntry])
+-&gt; (ConflictResolution
+    -&gt; Maybe [DeleteFileEntry] -&gt; ConflictResolution)
+-&gt; Lens
+     ConflictResolution
+     ConflictResolution
+     (Maybe [DeleteFileEntry])
+     (Maybe [DeleteFileEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354808"><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
+deleteFiles :: Maybe [DeleteFileEntry]
+$sel:deleteFiles:ConflictResolution' :: ConflictResolution -&gt; Maybe [DeleteFileEntry]
+</span><a href="#local-6989586621679354808"><span class="hs-identifier hs-var hs-var">deleteFiles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
+</span><a href="#local-6989586621679354808"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354807"><span class="annot"><span class="annottext">s :: ConflictResolution
+</span><a href="#local-6989586621679354807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354806"><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
+</span><a href="#local-6989586621679354806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictResolution
+</span><a href="#local-6989586621679354807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteFiles:ConflictResolution' :: Maybe [DeleteFileEntry]
+</span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AdeleteFiles%3AConflictResolution%27"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
+</span><a href="#local-6989586621679354806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
+ -&gt; ConflictResolution -&gt; f ConflictResolution)
+-&gt; ((Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
+    -&gt; Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
+-&gt; (Maybe [DeleteFileEntry] -&gt; f (Maybe [DeleteFileEntry]))
+-&gt; ConflictResolution
+-&gt; f ConflictResolution
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DeleteFileEntry]
+  [DeleteFileEntry]
+  [DeleteFileEntry]
+  [DeleteFileEntry]
+-&gt; Iso
+     (Maybe [DeleteFileEntry])
+     (Maybe [DeleteFileEntry])
+     (Maybe [DeleteFileEntry])
+     (Maybe [DeleteFileEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DeleteFileEntry]
+  [DeleteFileEntry]
+  [DeleteFileEntry]
+  [DeleteFileEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Files to have content replaced as part of the merge conflict resolution.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#conflictResolution_replaceContents"><span class="hs-identifier hs-type">conflictResolution_replaceContents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReplaceContentEntry.html#ReplaceContentEntry"><span class="hs-identifier hs-type">ReplaceContentEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -247,16 +247,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [ReplaceContentEntry])
      (Maybe [ReplaceContentEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354526"><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354804"><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
 replaceContents :: Maybe [ReplaceContentEntry]
 $sel:replaceContents:ConflictResolution' :: ConflictResolution -&gt; Maybe [ReplaceContentEntry]
-</span><a href="#local-6989586621679354526"><span class="hs-identifier hs-var hs-var">replaceContents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
-</span><a href="#local-6989586621679354526"><span class="hs-identifier hs-var">replaceContents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354525"><span class="annot"><span class="annottext">s :: ConflictResolution
-</span><a href="#local-6989586621679354525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354524"><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
-</span><a href="#local-6989586621679354524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictResolution
-</span><a href="#local-6989586621679354525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceContents:ConflictResolution' :: Maybe [ReplaceContentEntry]
+</span><a href="#local-6989586621679354804"><span class="hs-identifier hs-var hs-var">replaceContents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
+</span><a href="#local-6989586621679354804"><span class="hs-identifier hs-var">replaceContents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354803"><span class="annot"><span class="annottext">s :: ConflictResolution
+</span><a href="#local-6989586621679354803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354802"><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
+</span><a href="#local-6989586621679354802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConflictResolution
+</span><a href="#local-6989586621679354803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceContents:ConflictResolution' :: Maybe [ReplaceContentEntry]
 </span><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#%24sel%3AreplaceContents%3AConflictResolution%27"><span class="hs-identifier hs-var">replaceContents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
-</span><a href="#local-6989586621679354524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplaceContentEntry] -&gt; f (Maybe [ReplaceContentEntry]))
+</span><a href="#local-6989586621679354802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplaceContentEntry] -&gt; f (Maybe [ReplaceContentEntry]))
  -&gt; ConflictResolution -&gt; f ConflictResolution)
 -&gt; ((Maybe [ReplaceContentEntry]
      -&gt; f (Maybe [ReplaceContentEntry]))
@@ -283,46 +283,46 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReplaceContentEntry]
   [ReplaceContentEntry]
   [ReplaceContentEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354520"><span id="local-6989586621679354522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354798"><span id="local-6989586621679354800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354509"><span id="local-6989586621679354511"><span id="local-6989586621679354513"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679354507"><span class="annot"><span class="annottext">toJSON :: ConflictResolution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354503"><span id="local-6989586621679354504"><span id="local-6989586621679354505"><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354787"><span id="local-6989586621679354789"><span id="local-6989586621679354791"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution"><span class="hs-identifier hs-type">ConflictResolution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679354785"><span class="annot"><span class="annottext">toJSON :: ConflictResolution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictResolution.html#ConflictResolution%27"><span class="hs-identifier hs-type">ConflictResolution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354781"><span id="local-6989586621679354782"><span id="local-6989586621679354783"><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
 Maybe [ReplaceContentEntry]
 Maybe [SetFileModeEntry]
 replaceContents :: Maybe [ReplaceContentEntry]
-setFileModes :: Maybe [SetFileModeEntry]
 deleteFiles :: Maybe [DeleteFileEntry]
+setFileModes :: Maybe [SetFileModeEntry]
 $sel:replaceContents:ConflictResolution' :: ConflictResolution -&gt; Maybe [ReplaceContentEntry]
-$sel:setFileModes:ConflictResolution' :: ConflictResolution -&gt; Maybe [SetFileModeEntry]
 $sel:deleteFiles:ConflictResolution' :: ConflictResolution -&gt; Maybe [DeleteFileEntry]
-</span><a href="#local-6989586621679354503"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:setFileModes:ConflictResolution' :: ConflictResolution -&gt; Maybe [SetFileModeEntry]
+</span><a href="#local-6989586621679354781"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;deleteFiles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DeleteFileEntry] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([DeleteFileEntry] -&gt; Pair)
--&gt; Maybe [DeleteFileEntry] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
-</span><a href="#local-6989586621679354505"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;setFileModes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SetFileModeEntry] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SetFileModeEntry] -&gt; Pair)
 -&gt; Maybe [SetFileModeEntry] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SetFileModeEntry]
-</span><a href="#local-6989586621679354504"><span class="hs-identifier hs-var">setFileModes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354783"><span class="hs-identifier hs-var">setFileModes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deleteFiles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DeleteFileEntry] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([DeleteFileEntry] -&gt; Pair)
+-&gt; Maybe [DeleteFileEntry] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeleteFileEntry]
+</span><a href="#local-6989586621679354782"><span class="hs-identifier hs-var">deleteFiles</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;replaceContents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ReplaceContentEntry] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -331,7 +331,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ReplaceContentEntry] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReplaceContentEntry]
-</span><a href="#local-6989586621679354503"><span class="hs-identifier hs-var">replaceContents</span></a></span><span>
+</span><a href="#local-6989586621679354781"><span class="hs-identifier hs-var">replaceContents</span></a></span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchDeletePartition' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679743819"><span id="local-6989586621679743820"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeletePartition"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-var">BatchDeletePartition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeletePartition%27"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-var">BatchDeletePartition'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679745660"><span id="local-6989586621679745661"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeletePartition"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-var">BatchDeletePartition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeletePartition%27"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-var">BatchDeletePartition'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the partition to be deleted resides. If</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- none is provided, the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AcatalogId%3ABatchDeletePartition%27"><span class="annot"><span class="annottext">BatchDeletePartition -&gt; Maybe Text
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3ApartitionsToDelete%3ABatchDeletePartition%27"><span class="annot"><span class="annottext">BatchDeletePartition -&gt; [PartitionValueList]
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3ApartitionsToDelete%3ABatchDeletePartition%27"><span class="hs-identifier hs-var hs-var">partitionsToDelete</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionValueList.html#PartitionValueList"><span class="hs-identifier hs-type">PartitionValueList</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679743810"><span id="local-6989586621679743812"><span class="annot"><span class="annottext">BatchDeletePartition -&gt; BatchDeletePartition -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679745651"><span id="local-6989586621679745653"><span class="annot"><span class="annottext">BatchDeletePartition -&gt; BatchDeletePartition -&gt; Bool
 (BatchDeletePartition -&gt; BatchDeletePartition -&gt; Bool)
 -&gt; (BatchDeletePartition -&gt; BatchDeletePartition -&gt; Bool)
 -&gt; Eq BatchDeletePartition
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeletePartition -&gt; BatchDeletePartition -&gt; Bool
 == :: BatchDeletePartition -&gt; BatchDeletePartition -&gt; Bool
 $c== :: BatchDeletePartition -&gt; BatchDeletePartition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743801"><span id="local-6989586621679743803"><span id="local-6989586621679743805"><span id="local-6989586621679743807"><span class="annot"><span class="annottext">ReadPrec [BatchDeletePartition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745642"><span id="local-6989586621679745644"><span id="local-6989586621679745646"><span id="local-6989586621679745648"><span class="annot"><span class="annottext">ReadPrec [BatchDeletePartition]
 ReadPrec BatchDeletePartition
 Int -&gt; ReadS BatchDeletePartition
 ReadS [BatchDeletePartition]
@@ -95,7 +95,7 @@ readList :: ReadS [BatchDeletePartition]
 $creadList :: ReadS [BatchDeletePartition]
 readsPrec :: Int -&gt; ReadS BatchDeletePartition
 $creadsPrec :: Int -&gt; ReadS BatchDeletePartition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743794"><span id="local-6989586621679743796"><span id="local-6989586621679743798"><span class="annot"><span class="annottext">Int -&gt; BatchDeletePartition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745635"><span id="local-6989586621679745637"><span id="local-6989586621679745639"><span class="annot"><span class="annottext">Int -&gt; BatchDeletePartition -&gt; ShowS
 [BatchDeletePartition] -&gt; ShowS
 BatchDeletePartition -&gt; String
 (Int -&gt; BatchDeletePartition -&gt; ShowS)
@@ -145,9 +145,9 @@ $cfrom :: forall x. BatchDeletePartition -&gt; Rep BatchDeletePartition x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span>
 </span><span id="line-90"></span><span id="newBatchDeletePartition"><span class="annot"><span class="annottext">newBatchDeletePartition :: Text -&gt; Text -&gt; BatchDeletePartition
-</span><a href="Network.AWS.Glue.BatchDeletePartition.html#newBatchDeletePartition"><span class="hs-identifier hs-var hs-var">newBatchDeletePartition</span></a></span></span><span> </span><span id="local-6989586621679743789"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743789"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679743788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743788"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.BatchDeletePartition.html#newBatchDeletePartition"><span class="hs-identifier hs-var hs-var">newBatchDeletePartition</span></a></span></span><span> </span><span id="local-6989586621679745630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679745630"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679745629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679745629"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">BatchDeletePartition' :: Maybe Text
 -&gt; Text -&gt; Text -&gt; [PartitionValueList] -&gt; BatchDeletePartition
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span>
@@ -157,10 +157,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:BatchDeletePartition' :: Text
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AdatabaseName%3ABatchDeletePartition%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743789"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679745630"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:BatchDeletePartition' :: Text
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AtableName%3ABatchDeletePartition%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743788"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679745629"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionsToDelete:BatchDeletePartition' :: [PartitionValueList]
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3ApartitionsToDelete%3ABatchDeletePartition%27"><span class="hs-identifier hs-var">partitionsToDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PartitionValueList]
 forall a. Monoid a =&gt; a
@@ -177,16 +177,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      BatchDeletePartition BatchDeletePartition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743785"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745626"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:BatchDeletePartition' :: BatchDeletePartition -&gt; Maybe Text
-</span><a href="#local-6989586621679743785"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679743785"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743784"><span class="annot"><span class="annottext">s :: BatchDeletePartition
-</span><a href="#local-6989586621679743784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743783"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679743783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
-</span><a href="#local-6989586621679743784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeletePartition' :: Maybe Text
+</span><a href="#local-6989586621679745626"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679745626"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745625"><span class="annot"><span class="annottext">s :: BatchDeletePartition
+</span><a href="#local-6989586621679745625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745624"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679745624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
+</span><a href="#local-6989586621679745625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:BatchDeletePartition' :: Maybe Text
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AcatalogId%3ABatchDeletePartition%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679743783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679745624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The name of the catalog database in which the table in question resides.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#batchDeletePartition_databaseName"><span class="hs-identifier hs-type">batchDeletePartition_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -195,16 +195,16 @@ $sel:catalogId:BatchDeletePartition' :: BatchDeletePartition -&gt; Maybe Text
 -&gt; (BatchDeletePartition -&gt; Text -&gt; BatchDeletePartition)
 -&gt; Lens BatchDeletePartition BatchDeletePartition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743782"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745623"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:BatchDeletePartition' :: BatchDeletePartition -&gt; Text
-</span><a href="#local-6989586621679743782"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743782"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743781"><span class="annot"><span class="annottext">s :: BatchDeletePartition
-</span><a href="#local-6989586621679743781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743780"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
-</span><a href="#local-6989586621679743781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:BatchDeletePartition' :: Text
+</span><a href="#local-6989586621679745623"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679745623"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745622"><span class="annot"><span class="annottext">s :: BatchDeletePartition
+</span><a href="#local-6989586621679745622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745621"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679745621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
+</span><a href="#local-6989586621679745622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:BatchDeletePartition' :: Text
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AdatabaseName%3ABatchDeletePartition%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679745621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The name of the table that contains the partitions to be deleted.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#batchDeletePartition_tableName"><span class="hs-identifier hs-type">batchDeletePartition_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -213,16 +213,16 @@ $sel:databaseName:BatchDeletePartition' :: BatchDeletePartition -&gt; Text
 -&gt; (BatchDeletePartition -&gt; Text -&gt; BatchDeletePartition)
 -&gt; Lens BatchDeletePartition BatchDeletePartition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743779"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745620"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:BatchDeletePartition' :: BatchDeletePartition -&gt; Text
-</span><a href="#local-6989586621679743779"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743779"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743778"><span class="annot"><span class="annottext">s :: BatchDeletePartition
-</span><a href="#local-6989586621679743778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743777"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
-</span><a href="#local-6989586621679743778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:BatchDeletePartition' :: Text
+</span><a href="#local-6989586621679745620"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679745620"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745619"><span class="annot"><span class="annottext">s :: BatchDeletePartition
+</span><a href="#local-6989586621679745619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745618"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679745618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
+</span><a href="#local-6989586621679745619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:BatchDeletePartition' :: Text
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AtableName%3ABatchDeletePartition%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679745618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | A list of @PartitionInput@ structures that define the partitions to be</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- deleted.</span><span>
@@ -238,16 +238,16 @@ $sel:tableName:BatchDeletePartition' :: BatchDeletePartition -&gt; Text
      [PartitionValueList]
      [PartitionValueList]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743776"><span class="annot"><span class="annottext">[PartitionValueList]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745617"><span class="annot"><span class="annottext">[PartitionValueList]
 partitionsToDelete :: [PartitionValueList]
 $sel:partitionsToDelete:BatchDeletePartition' :: BatchDeletePartition -&gt; [PartitionValueList]
-</span><a href="#local-6989586621679743776"><span class="hs-identifier hs-var hs-var">partitionsToDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PartitionValueList]
-</span><a href="#local-6989586621679743776"><span class="hs-identifier hs-var">partitionsToDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743775"><span class="annot"><span class="annottext">s :: BatchDeletePartition
-</span><a href="#local-6989586621679743775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743774"><span class="annot"><span class="annottext">[PartitionValueList]
-</span><a href="#local-6989586621679743774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
-</span><a href="#local-6989586621679743775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionsToDelete:BatchDeletePartition' :: [PartitionValueList]
+</span><a href="#local-6989586621679745617"><span class="hs-identifier hs-var hs-var">partitionsToDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PartitionValueList]
+</span><a href="#local-6989586621679745617"><span class="hs-identifier hs-var">partitionsToDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745616"><span class="annot"><span class="annottext">s :: BatchDeletePartition
+</span><a href="#local-6989586621679745616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745615"><span class="annot"><span class="annottext">[PartitionValueList]
+</span><a href="#local-6989586621679745615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartition
+</span><a href="#local-6989586621679745616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionsToDelete:BatchDeletePartition' :: [PartitionValueList]
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3ApartitionsToDelete%3ABatchDeletePartition%27"><span class="hs-identifier hs-var">partitionsToDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PartitionValueList]
-</span><a href="#local-6989586621679743774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PartitionValueList] -&gt; f [PartitionValueList])
+</span><a href="#local-6989586621679745615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PartitionValueList] -&gt; f [PartitionValueList])
  -&gt; BatchDeletePartition -&gt; f BatchDeletePartition)
 -&gt; (([PartitionValueList] -&gt; f [PartitionValueList])
     -&gt; [PartitionValueList] -&gt; f [PartitionValueList])
@@ -257,19 +257,19 @@ $sel:partitionsToDelete:BatchDeletePartition' :: BatchDeletePartition -&gt; [Par
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PartitionValueList] -&gt; f [PartitionValueList])
 -&gt; [PartitionValueList] -&gt; f [PartitionValueList]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679743768"><span class="annot"><span class="annottext">request :: BatchDeletePartition -&gt; Request BatchDeletePartition
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679745609"><span class="annot"><span class="annottext">request :: BatchDeletePartition -&gt; Request BatchDeletePartition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDeletePartition -&gt; Request BatchDeletePartition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679743764"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679745605"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDeletePartition
 -&gt; ClientResponse ClientBody
@@ -295,10 +295,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679743761"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679743761"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679743760"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679743760"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679743759"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679743759"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679745602"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745602"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679745601"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679745601"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679745600"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679745600"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PartitionError] -&gt; Int -&gt; BatchDeletePartitionResponse
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-var">BatchDeletePartitionResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PartitionError] -&gt; Int -&gt; BatchDeletePartitionResponse)
@@ -306,7 +306,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; BatchDeletePartitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679743759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PartitionError]))
+</span><a href="#local-6989586621679745600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PartitionError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PartitionError]))
@@ -323,15 +323,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679743761"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679745602"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743750"><span id="local-6989586621679743752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745591"><span id="local-6989586621679745593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679743743"><span class="annot"><span class="annottext">toHeaders :: BatchDeletePartition -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679745584"><span class="annot"><span class="annottext">toHeaders :: BatchDeletePartition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDeletePartition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -358,9 +358,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743733"><span id="local-6989586621679743735"><span id="local-6989586621679743737"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679743731"><span class="annot"><span class="annottext">toJSON :: BatchDeletePartition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743726"><span id="local-6989586621679743727"><span id="local-6989586621679743728"><span id="local-6989586621679743729"><span class="annot"><span class="annottext">[PartitionValueList]
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745574"><span id="local-6989586621679745576"><span id="local-6989586621679745578"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679745572"><span class="annot"><span class="annottext">toJSON :: BatchDeletePartition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition%27"><span class="hs-identifier hs-type">BatchDeletePartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745567"><span id="local-6989586621679745568"><span id="local-6989586621679745569"><span id="local-6989586621679745570"><span class="annot"><span class="annottext">[PartitionValueList]
 Maybe Text
 Text
 partitionsToDelete :: [PartitionValueList]
@@ -371,7 +371,7 @@ $sel:partitionsToDelete:BatchDeletePartition' :: BatchDeletePartition -&gt; [Par
 $sel:tableName:BatchDeletePartition' :: BatchDeletePartition -&gt; Text
 $sel:databaseName:BatchDeletePartition' :: BatchDeletePartition -&gt; Text
 $sel:catalogId:BatchDeletePartition' :: BatchDeletePartition -&gt; Maybe Text
-</span><a href="#local-6989586621679743726"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679745567"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -383,21 +383,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679743729"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679745570"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743728"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679745569"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679743727"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679745568"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -405,19 +405,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PartitionsToDelete&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PartitionValueList] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[PartitionValueList]
-</span><a href="#local-6989586621679743726"><span class="hs-identifier hs-var">partitionsToDelete</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679745567"><span class="hs-identifier hs-var">partitionsToDelete</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679743720"><span class="annot"><span class="annottext">toPath :: BatchDeletePartition -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679745561"><span class="annot"><span class="annottext">toPath :: BatchDeletePartition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeletePartition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartition"><span class="hs-identifier hs-type">BatchDeletePartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679743716"><span class="annot"><span class="annottext">toQuery :: BatchDeletePartition -&gt; QueryString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679745557"><span class="annot"><span class="annottext">toQuery :: BatchDeletePartition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDeletePartition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -425,7 +425,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newBatchDeletePartitionResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679743713"><span id="local-6989586621679743714"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeletePartitionResponse"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-var">BatchDeletePartitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeletePartitionResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-var">BatchDeletePartitionResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679745554"><span id="local-6989586621679745555"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeletePartitionResponse"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-var">BatchDeletePartitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeletePartitionResponse%27"><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-var">BatchDeletePartitionResponse'</span></a></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The errors encountered when trying to delete the requested partitions.</span><span>
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchDeletePartitionResponse%27"><span class="annot"><span class="annottext">BatchDeletePartitionResponse -&gt; Maybe [PartitionError]
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3Aerrors%3ABatchDeletePartitionResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionError.html#PartitionError"><span class="hs-identifier hs-type">PartitionError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -433,7 +433,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDeletePartitionResponse%27"><span class="annot"><span class="annottext">BatchDeletePartitionResponse -&gt; Int
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AhttpStatus%3ABatchDeletePartitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679743707"><span id="local-6989586621679743709"><span class="annot"><span class="annottext">BatchDeletePartitionResponse
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679745548"><span id="local-6989586621679745550"><span class="annot"><span class="annottext">BatchDeletePartitionResponse
 -&gt; BatchDeletePartitionResponse -&gt; Bool
 (BatchDeletePartitionResponse
  -&gt; BatchDeletePartitionResponse -&gt; Bool)
@@ -449,7 +449,7 @@ $c/= :: BatchDeletePartitionResponse
 -&gt; BatchDeletePartitionResponse -&gt; Bool
 $c== :: BatchDeletePartitionResponse
 -&gt; BatchDeletePartitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743699"><span id="local-6989586621679743701"><span id="local-6989586621679743703"><span id="local-6989586621679743705"><span class="annot"><span class="annottext">ReadPrec [BatchDeletePartitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745540"><span id="local-6989586621679745542"><span id="local-6989586621679745544"><span id="local-6989586621679745546"><span class="annot"><span class="annottext">ReadPrec [BatchDeletePartitionResponse]
 ReadPrec BatchDeletePartitionResponse
 Int -&gt; ReadS BatchDeletePartitionResponse
 ReadS [BatchDeletePartitionResponse]
@@ -469,7 +469,7 @@ readList :: ReadS [BatchDeletePartitionResponse]
 $creadList :: ReadS [BatchDeletePartitionResponse]
 readsPrec :: Int -&gt; ReadS BatchDeletePartitionResponse
 $creadsPrec :: Int -&gt; ReadS BatchDeletePartitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679743693"><span id="local-6989586621679743695"><span id="local-6989586621679743697"><span class="annot"><span class="annottext">Int -&gt; BatchDeletePartitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679745534"><span id="local-6989586621679745536"><span id="local-6989586621679745538"><span class="annot"><span class="annottext">Int -&gt; BatchDeletePartitionResponse -&gt; ShowS
 [BatchDeletePartitionResponse] -&gt; ShowS
 BatchDeletePartitionResponse -&gt; String
 (Int -&gt; BatchDeletePartitionResponse -&gt; ShowS)
@@ -517,8 +517,8 @@ BatchDeletePartitionResponse -&gt; Rep BatchDeletePartitionResponse x
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newBatchDeletePartitionResponse"><span class="annot"><span class="annottext">newBatchDeletePartitionResponse :: Int -&gt; BatchDeletePartitionResponse
-</span><a href="Network.AWS.Glue.BatchDeletePartition.html#newBatchDeletePartitionResponse"><span class="hs-identifier hs-var hs-var">newBatchDeletePartitionResponse</span></a></span></span><span> </span><span id="local-6989586621679743690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679743690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.BatchDeletePartition.html#newBatchDeletePartitionResponse"><span class="hs-identifier hs-var hs-var">newBatchDeletePartitionResponse</span></a></span></span><span> </span><span id="local-6989586621679745531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745531"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">BatchDeletePartitionResponse' :: Maybe [PartitionError] -&gt; Int -&gt; BatchDeletePartitionResponse
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errors:BatchDeletePartitionResponse' :: Maybe [PartitionError]
@@ -528,7 +528,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeletePartitionResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AhttpStatus%3ABatchDeletePartitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679743690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679745531"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The errors encountered when trying to delete the requested partitions.</span><span>
@@ -544,16 +544,16 @@ forall a. Maybe a
      (Maybe [PartitionError])
      (Maybe [PartitionError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743689"><span class="annot"><span class="annottext">Maybe [PartitionError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745530"><span class="annot"><span class="annottext">Maybe [PartitionError]
 errors :: Maybe [PartitionError]
 $sel:errors:BatchDeletePartitionResponse' :: BatchDeletePartitionResponse -&gt; Maybe [PartitionError]
-</span><a href="#local-6989586621679743689"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionError]
-</span><a href="#local-6989586621679743689"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743688"><span class="annot"><span class="annottext">s :: BatchDeletePartitionResponse
-</span><a href="#local-6989586621679743688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743687"><span class="annot"><span class="annottext">Maybe [PartitionError]
-</span><a href="#local-6989586621679743687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartitionResponse
-</span><a href="#local-6989586621679743688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDeletePartitionResponse' :: Maybe [PartitionError]
+</span><a href="#local-6989586621679745530"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionError]
+</span><a href="#local-6989586621679745530"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745529"><span class="annot"><span class="annottext">s :: BatchDeletePartitionResponse
+</span><a href="#local-6989586621679745529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745528"><span class="annot"><span class="annottext">Maybe [PartitionError]
+</span><a href="#local-6989586621679745528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartitionResponse
+</span><a href="#local-6989586621679745529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDeletePartitionResponse' :: Maybe [PartitionError]
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3Aerrors%3ABatchDeletePartitionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionError]
-</span><a href="#local-6989586621679743687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartitionError] -&gt; f (Maybe [PartitionError]))
+</span><a href="#local-6989586621679745528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartitionError] -&gt; f (Maybe [PartitionError]))
  -&gt; BatchDeletePartitionResponse -&gt; f BatchDeletePartitionResponse)
 -&gt; ((Maybe [PartitionError] -&gt; f (Maybe [PartitionError]))
     -&gt; Maybe [PartitionError] -&gt; f (Maybe [PartitionError]))
@@ -573,8 +573,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PartitionError] [PartitionError] [PartitionError] [PartitionError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#batchDeletePartitionResponse_httpStatus"><span class="hs-identifier hs-type">batchDeletePartitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -586,16 +586,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      BatchDeletePartitionResponse BatchDeletePartitionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679743685"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679745526"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchDeletePartitionResponse' :: BatchDeletePartitionResponse -&gt; Int
-</span><a href="#local-6989586621679743685"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679743685"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679743684"><span class="annot"><span class="annottext">s :: BatchDeletePartitionResponse
-</span><a href="#local-6989586621679743684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679743683"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679743683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartitionResponse
-</span><a href="#local-6989586621679743684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeletePartitionResponse' :: Int
+</span><a href="#local-6989586621679745526"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745526"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679745525"><span class="annot"><span class="annottext">s :: BatchDeletePartitionResponse
+</span><a href="#local-6989586621679745525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse%27"><span class="hs-identifier hs-type">BatchDeletePartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679745524"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679745524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeletePartitionResponse
+</span><a href="#local-6989586621679745525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeletePartitionResponse' :: Int
 </span><a href="Network.AWS.Glue.BatchDeletePartition.html#%24sel%3AhttpStatus%3ABatchDeletePartitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679743683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679745524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679743681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679745522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.BatchDeletePartition.html#BatchDeletePartitionResponse"><span class="hs-identifier hs-type">BatchDeletePartitionResponse</span></a></span></span><span>
 </span><span id="line-206"></span></pre></body></html>

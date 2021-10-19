@@ -31,34 +31,34 @@
 </span><span id="line-31"></span><span class="hs-comment">-- from, and the details about how to track and manage content delivery.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDistribution' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679406441"><span id="local-6989586621679406442"></span></span><span class="hs-keyword">data</span><span> </span><span id="Distribution"><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-var">Distribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Distribution%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-var">Distribution'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Web Services services in China customers must file for an</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AaliasICPRecordals%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe [AliasICPRecordal]
-</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AaliasICPRecordals%3ADistribution%27"><span class="hs-identifier hs-var hs-var">aliasICPRecordals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.AliasICPRecordal.html#AliasICPRecordal"><span class="hs-identifier hs-type">AliasICPRecordal</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- content using trusted signers. This field contains a list of account IDs</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- and the active CloudFront key pairs in each account that CloudFront can</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- use to verify the signatures of signed URLs or signed cookies.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AactiveTrustedSigners%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe ActiveTrustedSigners
-</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedSigners%3ADistribution%27"><span class="hs-identifier hs-var hs-var">activeTrustedSigners</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ActiveTrustedSigners.html#ActiveTrustedSigners"><span class="hs-identifier hs-type">ActiveTrustedSigners</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- content using key groups. This field contains a list of key groups and</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the public keys in each key group that CloudFront can use to verify the</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- signatures of signed URLs or signed cookies.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AactiveTrustedKeyGroups%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe ActiveTrustedKeyGroups
+</span><span id="line-34"></span><span id="local-6989586621679406721"><span id="local-6989586621679406722"></span></span><span class="hs-keyword">data</span><span> </span><span id="Distribution"><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-var">Distribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Distribution%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-var">Distribution'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- content using key groups. This field contains a list of key groups and</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the public keys in each key group that CloudFront can use to verify the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- signatures of signed URLs or signed cookies.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AactiveTrustedKeyGroups%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe ActiveTrustedKeyGroups
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedKeyGroups%3ADistribution%27"><span class="hs-identifier hs-var hs-var">activeTrustedKeyGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups.html#ActiveTrustedKeyGroups"><span class="hs-identifier hs-type">ActiveTrustedKeyGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Amazon Web Services services in China customers must file for an</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AaliasICPRecordals%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe [AliasICPRecordal]
+</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AaliasICPRecordals%3ADistribution%27"><span class="hs-identifier hs-var hs-var">aliasICPRecordals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.AliasICPRecordal.html#AliasICPRecordal"><span class="hs-identifier hs-type">AliasICPRecordal</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- content using trusted signers. This field contains a list of account IDs</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- and the active CloudFront key pairs in each account that CloudFront can</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- use to verify the signatures of signed URLs or signed cookies.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AactiveTrustedSigners%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Maybe ActiveTrustedSigners
+</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedSigners%3ADistribution%27"><span class="hs-identifier hs-var hs-var">activeTrustedSigners</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ActiveTrustedSigners.html#ActiveTrustedSigners"><span class="hs-identifier hs-type">ActiveTrustedSigners</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Aid%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3Aid%3ADistribution%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AdistributionConfig%3ADistribution%27"><span class="annot"><span class="annottext">Distribution -&gt; DistributionConfig
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AdistributionConfig%3ADistribution%27"><span class="hs-identifier hs-var hs-var">distributionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionConfig.html#DistributionConfig"><span class="hs-identifier hs-type">DistributionConfig</span></a></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406426"><span id="local-6989586621679406428"><span class="annot"><span class="annottext">Distribution -&gt; Distribution -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406706"><span id="local-6989586621679406708"><span class="annot"><span class="annottext">Distribution -&gt; Distribution -&gt; Bool
 (Distribution -&gt; Distribution -&gt; Bool)
 -&gt; (Distribution -&gt; Distribution -&gt; Bool) -&gt; Eq Distribution
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Distribution -&gt; Distribution -&gt; Bool
 == :: Distribution -&gt; Distribution -&gt; Bool
 $c== :: Distribution -&gt; Distribution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406419"><span id="local-6989586621679406421"><span id="local-6989586621679406423"><span class="annot"><span class="annottext">Int -&gt; Distribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406699"><span id="local-6989586621679406701"><span id="local-6989586621679406703"><span class="annot"><span class="annottext">Int -&gt; Distribution -&gt; ShowS
 [Distribution] -&gt; ShowS
 Distribution -&gt; String
 (Int -&gt; Distribution -&gt; ShowS)
@@ -130,29 +130,29 @@ $cfrom :: forall x. Distribution -&gt; Rep Distribution x
 </span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - Amazon Web Services services in China customers must file for an</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- content using key groups. This field contains a list of key groups and</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- the public keys in each key group that CloudFront can use to verify the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- signatures of signed URLs or signed cookies.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'activeTrustedSigners', 'distribution_activeTrustedSigners' - We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'aliasICPRecordals', 'distribution_aliasICPRecordals' - Amazon Web Services services in China customers must file for an</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- content using trusted signers. This field contains a list of account IDs</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- and the active CloudFront key pairs in each account that CloudFront can</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- use to verify the signatures of signed URLs or signed cookies.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'activeTrustedSigners', 'distribution_activeTrustedSigners' - We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'activeTrustedKeyGroups', 'distribution_activeTrustedKeyGroups' - CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- content using key groups. This field contains a list of key groups and</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- the public keys in each key group that CloudFront can use to verify the</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- signatures of signed URLs or signed cookies.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- content using trusted signers. This field contains a list of account IDs</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- and the active CloudFront key pairs in each account that CloudFront can</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- use to verify the signatures of signed URLs or signed cookies.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- 'id', 'distribution_id' - The identifier for the distribution. For example: @EDFDVBD632BHDS5@.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
@@ -199,23 +199,23 @@ $cfrom :: forall x. Distribution -&gt; Rep Distribution x
 -&gt; DistributionConfig
 -&gt; Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#newDistribution"><span class="hs-identifier hs-var hs-var">newDistribution</span></a></span></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679406413"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406413"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679406412"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406412"><span class="hs-identifier hs-var">pARN_</span></a></span></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679406411"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406411"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679406410"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679406410"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679406409"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679406409"><span class="hs-identifier hs-var">pInProgressInvalidationBatches_</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679406408"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406408"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679406407"><span class="annot"><span class="annottext">DistributionConfig
-</span><a href="#local-6989586621679406407"><span class="hs-identifier hs-var">pDistributionConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">Distribution' :: Maybe [AliasICPRecordal]
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679406693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406693"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679406692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406692"><span class="hs-identifier hs-var">pARN_</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679406691"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406691"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679406690"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679406690"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679406689"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406689"><span class="hs-identifier hs-var">pInProgressInvalidationBatches_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679406688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406688"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679406687"><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679406687"><span class="hs-identifier hs-var">pDistributionConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">Distribution' :: Maybe ActiveTrustedKeyGroups
+-&gt; Maybe [AliasICPRecordal]
 -&gt; Maybe ActiveTrustedSigners
--&gt; Maybe ActiveTrustedKeyGroups
 -&gt; Text
 -&gt; Text
 -&gt; Text
@@ -225,30 +225,31 @@ $cfrom :: forall x. Distribution -&gt; Rep Distribution x
 -&gt; DistributionConfig
 -&gt; Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aliasICPRecordals:Distribution' :: Maybe [AliasICPRecordal]
+</span><span id="line-160"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:activeTrustedKeyGroups:Distribution' :: Maybe ActiveTrustedKeyGroups
+</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedKeyGroups%3ADistribution%27"><span class="hs-identifier hs-var">activeTrustedKeyGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:aliasICPRecordals:Distribution' :: Maybe [AliasICPRecordal]
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AaliasICPRecordals%3ADistribution%27"><span class="hs-identifier hs-var">aliasICPRecordals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:activeTrustedSigners:Distribution' :: Maybe ActiveTrustedSigners
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:activeTrustedSigners:Distribution' :: Maybe ActiveTrustedSigners
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedSigners%3ADistribution%27"><span class="hs-identifier hs-var">activeTrustedSigners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:activeTrustedKeyGroups:Distribution' :: Maybe ActiveTrustedKeyGroups
-</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedKeyGroups%3ADistribution%27"><span class="hs-identifier hs-var">activeTrustedKeyGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:Distribution' :: Text
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3Aid%3ADistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406413"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:Distribution' :: Text
+</span><a href="#local-6989586621679406693"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3Aarn%3ADistribution%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406412"><span class="hs-identifier hs-var">pARN_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:Distribution' :: Text
+</span><a href="#local-6989586621679406692"><span class="hs-identifier hs-var">pARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3Astatus%3ADistribution%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406411"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Distribution' :: ISO8601
+</span><a href="#local-6989586621679406691"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Distribution' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AlastModifiedTime%3ADistribution%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
@@ -256,30 +257,57 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679406410"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:inProgressInvalidationBatches:Distribution' :: Int
+</span><a href="#local-6989586621679406690"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:inProgressInvalidationBatches:Distribution' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AinProgressInvalidationBatches%3ADistribution%27"><span class="hs-identifier hs-var">inProgressInvalidationBatches</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679406409"><span class="hs-identifier hs-var">pInProgressInvalidationBatches_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainName:Distribution' :: Text
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406689"><span class="hs-identifier hs-var">pInProgressInvalidationBatches_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainName:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AdomainName%3ADistribution%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406408"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:distributionConfig:Distribution' :: DistributionConfig
+</span><a href="#local-6989586621679406688"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:distributionConfig:Distribution' :: DistributionConfig
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AdistributionConfig%3ADistribution%27"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DistributionConfig
-</span><a href="#local-6989586621679406407"><span class="hs-identifier hs-var">pDistributionConfig_</span></a></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | Amazon Web Services services in China customers must file for an</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
-</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_aliasICPRecordals"><span class="hs-identifier hs-type">distribution_aliasICPRecordals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.AliasICPRecordal.html#AliasICPRecordal"><span class="hs-identifier hs-type">AliasICPRecordal</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span id="distribution_aliasICPRecordals"><span class="annot"><span class="annottext">distribution_aliasICPRecordals :: (Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
+</span><a href="#local-6989586621679406687"><span class="hs-identifier hs-var">pDistributionConfig_</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- content using key groups. This field contains a list of key groups and</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the public keys in each key group that CloudFront can use to verify the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- signatures of signed URLs or signed cookies.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_activeTrustedKeyGroups"><span class="hs-identifier hs-type">distribution_activeTrustedKeyGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups.html#ActiveTrustedKeyGroups"><span class="hs-identifier hs-type">ActiveTrustedKeyGroups</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="distribution_activeTrustedKeyGroups"><span class="annot"><span class="annottext">distribution_activeTrustedKeyGroups :: (Maybe ActiveTrustedKeyGroups -&gt; f (Maybe ActiveTrustedKeyGroups))
+-&gt; Distribution -&gt; f Distribution
+</span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_activeTrustedKeyGroups"><span class="hs-identifier hs-var hs-var">distribution_activeTrustedKeyGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe ActiveTrustedKeyGroups)
+-&gt; (Distribution -&gt; Maybe ActiveTrustedKeyGroups -&gt; Distribution)
+-&gt; Lens
+     Distribution
+     Distribution
+     (Maybe ActiveTrustedKeyGroups)
+     (Maybe ActiveTrustedKeyGroups)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406681"><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
+activeTrustedKeyGroups :: Maybe ActiveTrustedKeyGroups
+$sel:activeTrustedKeyGroups:Distribution' :: Distribution -&gt; Maybe ActiveTrustedKeyGroups
+</span><a href="#local-6989586621679406681"><span class="hs-identifier hs-var hs-var">activeTrustedKeyGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
+</span><a href="#local-6989586621679406681"><span class="hs-identifier hs-var">activeTrustedKeyGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406680"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406679"><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
+</span><a href="#local-6989586621679406679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeTrustedKeyGroups:Distribution' :: Maybe ActiveTrustedKeyGroups
+</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedKeyGroups%3ADistribution%27"><span class="hs-identifier hs-var">activeTrustedKeyGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
+</span><a href="#local-6989586621679406679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Amazon Web Services services in China customers must file for an</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Internet Content Provider (ICP) recordal if they want to serve content</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- publicly on an alternate domain name, also known as a CNAME, that</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- they\'ve added to CloudFront. AliasICPRecordal provides the ICP recordal</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- status for CNAMEs associated with distributions.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- For more information about ICP recordals, see</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- &lt;https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html Signup, Accounts, and Credentials&gt;</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- in /Getting Started with Amazon Web Services services in China/.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_aliasICPRecordals"><span class="hs-identifier hs-type">distribution_aliasICPRecordals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.AliasICPRecordal.html#AliasICPRecordal"><span class="hs-identifier hs-type">AliasICPRecordal</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="distribution_aliasICPRecordals"><span class="annot"><span class="annottext">distribution_aliasICPRecordals :: (Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
 -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_aliasICPRecordals"><span class="hs-identifier hs-var hs-var">distribution_aliasICPRecordals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe [AliasICPRecordal])
 -&gt; (Distribution -&gt; Maybe [AliasICPRecordal] -&gt; Distribution)
@@ -289,16 +317,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe [AliasICPRecordal])
      (Maybe [AliasICPRecordal])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406401"><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406677"><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
 aliasICPRecordals :: Maybe [AliasICPRecordal]
 $sel:aliasICPRecordals:Distribution' :: Distribution -&gt; Maybe [AliasICPRecordal]
-</span><a href="#local-6989586621679406401"><span class="hs-identifier hs-var hs-var">aliasICPRecordals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
-</span><a href="#local-6989586621679406401"><span class="hs-identifier hs-var">aliasICPRecordals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406400"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406399"><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
-</span><a href="#local-6989586621679406399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasICPRecordals:Distribution' :: Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679406677"><span class="hs-identifier hs-var hs-var">aliasICPRecordals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679406677"><span class="hs-identifier hs-var">aliasICPRecordals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406676"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406675"><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679406675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasICPRecordals:Distribution' :: Maybe [AliasICPRecordal]
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AaliasICPRecordals%3ADistribution%27"><span class="hs-identifier hs-var">aliasICPRecordals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
-</span><a href="#local-6989586621679406399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
+</span><a href="#local-6989586621679406675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
  -&gt; Distribution -&gt; f Distribution)
 -&gt; ((Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
     -&gt; Maybe [AliasICPRecordal] -&gt; f (Maybe [AliasICPRecordal]))
@@ -324,18 +352,18 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AliasICPRecordal]
   [AliasICPRecordal]
   [AliasICPRecordal]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.</span><span>
-</span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- content using trusted signers. This field contains a list of account IDs</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- and the active CloudFront key pairs in each account that CloudFront can</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- use to verify the signatures of signed URLs or signed cookies.</span><span>
-</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_activeTrustedSigners"><span class="hs-identifier hs-type">distribution_activeTrustedSigners</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ActiveTrustedSigners.html#ActiveTrustedSigners"><span class="hs-identifier hs-type">ActiveTrustedSigners</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span id="distribution_activeTrustedSigners"><span class="annot"><span class="annottext">distribution_activeTrustedSigners :: (Maybe ActiveTrustedSigners -&gt; f (Maybe ActiveTrustedSigners))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- content using trusted signers. This field contains a list of account IDs</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- and the active CloudFront key pairs in each account that CloudFront can</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- use to verify the signatures of signed URLs or signed cookies.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_activeTrustedSigners"><span class="hs-identifier hs-type">distribution_activeTrustedSigners</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ActiveTrustedSigners.html#ActiveTrustedSigners"><span class="hs-identifier hs-type">ActiveTrustedSigners</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="distribution_activeTrustedSigners"><span class="annot"><span class="annottext">distribution_activeTrustedSigners :: (Maybe ActiveTrustedSigners -&gt; f (Maybe ActiveTrustedSigners))
 -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_activeTrustedSigners"><span class="hs-identifier hs-var hs-var">distribution_activeTrustedSigners</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe ActiveTrustedSigners)
 -&gt; (Distribution -&gt; Maybe ActiveTrustedSigners -&gt; Distribution)
@@ -345,119 +373,92 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe ActiveTrustedSigners)
      (Maybe ActiveTrustedSigners)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406394"><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406670"><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
 activeTrustedSigners :: Maybe ActiveTrustedSigners
 $sel:activeTrustedSigners:Distribution' :: Distribution -&gt; Maybe ActiveTrustedSigners
-</span><a href="#local-6989586621679406394"><span class="hs-identifier hs-var hs-var">activeTrustedSigners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
-</span><a href="#local-6989586621679406394"><span class="hs-identifier hs-var">activeTrustedSigners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406393"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406392"><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
-</span><a href="#local-6989586621679406392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeTrustedSigners:Distribution' :: Maybe ActiveTrustedSigners
+</span><a href="#local-6989586621679406670"><span class="hs-identifier hs-var hs-var">activeTrustedSigners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
+</span><a href="#local-6989586621679406670"><span class="hs-identifier hs-var">activeTrustedSigners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406669"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406668"><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
+</span><a href="#local-6989586621679406668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeTrustedSigners:Distribution' :: Maybe ActiveTrustedSigners
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedSigners%3ADistribution%27"><span class="hs-identifier hs-var">activeTrustedSigners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedSigners
-</span><a href="#local-6989586621679406392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- | CloudFront automatically adds this field to the response if you&#8217;ve</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- configured a cache behavior in this distribution to serve private</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- content using key groups. This field contains a list of key groups and</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- the public keys in each key group that CloudFront can use to verify the</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- signatures of signed URLs or signed cookies.</span><span>
-</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_activeTrustedKeyGroups"><span class="hs-identifier hs-type">distribution_activeTrustedKeyGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups.html#ActiveTrustedKeyGroups"><span class="hs-identifier hs-type">ActiveTrustedKeyGroups</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span id="distribution_activeTrustedKeyGroups"><span class="annot"><span class="annottext">distribution_activeTrustedKeyGroups :: (Maybe ActiveTrustedKeyGroups -&gt; f (Maybe ActiveTrustedKeyGroups))
--&gt; Distribution -&gt; f Distribution
-</span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_activeTrustedKeyGroups"><span class="hs-identifier hs-var hs-var">distribution_activeTrustedKeyGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Maybe ActiveTrustedKeyGroups)
--&gt; (Distribution -&gt; Maybe ActiveTrustedKeyGroups -&gt; Distribution)
--&gt; Lens
-     Distribution
-     Distribution
-     (Maybe ActiveTrustedKeyGroups)
-     (Maybe ActiveTrustedKeyGroups)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406390"><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
-activeTrustedKeyGroups :: Maybe ActiveTrustedKeyGroups
-$sel:activeTrustedKeyGroups:Distribution' :: Distribution -&gt; Maybe ActiveTrustedKeyGroups
-</span><a href="#local-6989586621679406390"><span class="hs-identifier hs-var hs-var">activeTrustedKeyGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
-</span><a href="#local-6989586621679406390"><span class="hs-identifier hs-var">activeTrustedKeyGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406389"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406388"><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
-</span><a href="#local-6989586621679406388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeTrustedKeyGroups:Distribution' :: Maybe ActiveTrustedKeyGroups
-</span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AactiveTrustedKeyGroups%3ADistribution%27"><span class="hs-identifier hs-var">activeTrustedKeyGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
-</span><a href="#local-6989586621679406388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.</span><span>
-</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_id"><span class="hs-identifier hs-type">distribution_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-206"></span><span id="distribution_id"><span class="annot"><span class="annottext">distribution_id :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
+</span><a href="#local-6989586621679406668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_id"><span class="hs-identifier hs-type">distribution_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-207"></span><span id="distribution_id"><span class="annot"><span class="annottext">distribution_id :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_id"><span class="hs-identifier hs-var hs-var">distribution_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Text)
 -&gt; (Distribution -&gt; Text -&gt; Distribution)
 -&gt; Lens Distribution Distribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406386"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406666"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Distribution' :: Distribution -&gt; Text
-</span><a href="#local-6989586621679406386"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406386"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406385"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406384"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Distribution' :: Text
+</span><a href="#local-6989586621679406666"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406666"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406665"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406664"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3Aid%3ADistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the distribution. For example:</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- @123456789012@ is your account ID.</span><span>
-</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_arn"><span class="hs-identifier hs-type">distribution_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-212"></span><span id="distribution_arn"><span class="annot"><span class="annottext">distribution_arn :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
+</span><a href="#local-6989586621679406664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The ARN (Amazon Resource Name) for the distribution. For example:</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- @123456789012@ is your account ID.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_arn"><span class="hs-identifier hs-type">distribution_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-213"></span><span id="distribution_arn"><span class="annot"><span class="annottext">distribution_arn :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_arn"><span class="hs-identifier hs-var hs-var">distribution_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Text)
 -&gt; (Distribution -&gt; Text -&gt; Distribution)
 -&gt; Lens Distribution Distribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406382"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406662"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:Distribution' :: Distribution -&gt; Text
-</span><a href="#local-6989586621679406382"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406382"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406381"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406380"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Distribution' :: Text
+</span><a href="#local-6989586621679406662"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406662"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406661"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3Aarn%3ADistribution%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- | This response element indicates the current status of the distribution.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- When the status is @Deployed@, the distribution\'s information is fully</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- propagated to all CloudFront edge locations.</span><span>
-</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_status"><span class="hs-identifier hs-type">distribution_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-218"></span><span id="distribution_status"><span class="annot"><span class="annottext">distribution_status :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
+</span><a href="#local-6989586621679406660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | This response element indicates the current status of the distribution.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- When the status is @Deployed@, the distribution\'s information is fully</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- propagated to all CloudFront edge locations.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_status"><span class="hs-identifier hs-type">distribution_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-219"></span><span id="distribution_status"><span class="annot"><span class="annottext">distribution_status :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_status"><span class="hs-identifier hs-var hs-var">distribution_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Text)
 -&gt; (Distribution -&gt; Text -&gt; Distribution)
 -&gt; Lens Distribution Distribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406378"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406658"><span class="annot"><span class="annottext">Text
 status :: Text
 $sel:status:Distribution' :: Distribution -&gt; Text
-</span><a href="#local-6989586621679406378"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406378"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406377"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406376"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Distribution' :: Text
+</span><a href="#local-6989586621679406658"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406658"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406657"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406656"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3Astatus%3ADistribution%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- | The date and time the distribution was last modified.</span><span>
-</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_lastModifiedTime"><span class="hs-identifier hs-type">distribution_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
-</span><span id="line-222"></span><span id="distribution_lastModifiedTime"><span class="annot"><span class="annottext">distribution_lastModifiedTime :: (UTCTime -&gt; f UTCTime) -&gt; Distribution -&gt; f Distribution
+</span><a href="#local-6989586621679406656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The date and time the distribution was last modified.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_lastModifiedTime"><span class="hs-identifier hs-type">distribution_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-223"></span><span id="distribution_lastModifiedTime"><span class="annot"><span class="annottext">distribution_lastModifiedTime :: (UTCTime -&gt; f UTCTime) -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_lastModifiedTime"><span class="hs-identifier hs-var hs-var">distribution_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; ISO8601)
 -&gt; (Distribution -&gt; ISO8601 -&gt; Distribution)
 -&gt; Lens Distribution Distribution ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406374"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406654"><span class="annot"><span class="annottext">ISO8601
 lastModifiedTime :: ISO8601
 $sel:lastModifiedTime:Distribution' :: Distribution -&gt; ISO8601
-</span><a href="#local-6989586621679406374"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679406374"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406373"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406372"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679406372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Distribution' :: ISO8601
+</span><a href="#local-6989586621679406654"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679406654"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406653"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406652"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679406652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:Distribution' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AlastModifiedTime%3ADistribution%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679406372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Distribution -&gt; f Distribution)
+</span><a href="#local-6989586621679406652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Distribution -&gt; f Distribution)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Distribution
@@ -466,73 +467,73 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- | The number of invalidation batches currently in progress.</span><span>
-</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_inProgressInvalidationBatches"><span class="hs-identifier hs-type">distribution_inProgressInvalidationBatches</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-226"></span><span id="distribution_inProgressInvalidationBatches"><span class="annot"><span class="annottext">distribution_inProgressInvalidationBatches :: (Int -&gt; f Int) -&gt; Distribution -&gt; f Distribution
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The number of invalidation batches currently in progress.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_inProgressInvalidationBatches"><span class="hs-identifier hs-type">distribution_inProgressInvalidationBatches</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="distribution_inProgressInvalidationBatches"><span class="annot"><span class="annottext">distribution_inProgressInvalidationBatches :: (Int -&gt; f Int) -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_inProgressInvalidationBatches"><span class="hs-identifier hs-var hs-var">distribution_inProgressInvalidationBatches</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Int)
 -&gt; (Distribution -&gt; Int -&gt; Distribution)
 -&gt; Lens Distribution Distribution Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406370"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406650"><span class="annot"><span class="annottext">Int
 inProgressInvalidationBatches :: Int
 $sel:inProgressInvalidationBatches:Distribution' :: Distribution -&gt; Int
-</span><a href="#local-6989586621679406370"><span class="hs-identifier hs-var hs-var">inProgressInvalidationBatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679406370"><span class="hs-identifier hs-var">inProgressInvalidationBatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406369"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406368"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679406368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgressInvalidationBatches:Distribution' :: Int
+</span><a href="#local-6989586621679406650"><span class="hs-identifier hs-var hs-var">inProgressInvalidationBatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406650"><span class="hs-identifier hs-var">inProgressInvalidationBatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406649"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406648"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679406648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgressInvalidationBatches:Distribution' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AinProgressInvalidationBatches%3ADistribution%27"><span class="hs-identifier hs-var">inProgressInvalidationBatches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679406368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- | The domain name corresponding to the distribution, for example,</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_domainName"><span class="hs-identifier hs-type">distribution_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-231"></span><span id="distribution_domainName"><span class="annot"><span class="annottext">distribution_domainName :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
+</span><a href="#local-6989586621679406648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The domain name corresponding to the distribution, for example,</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- @d111111abcdef8.cloudfront.net@.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_domainName"><span class="hs-identifier hs-type">distribution_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-232"></span><span id="distribution_domainName"><span class="annot"><span class="annottext">distribution_domainName :: (Text -&gt; f Text) -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_domainName"><span class="hs-identifier hs-var hs-var">distribution_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Text)
 -&gt; (Distribution -&gt; Text -&gt; Distribution)
 -&gt; Lens Distribution Distribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406366"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406646"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:Distribution' :: Distribution -&gt; Text
-</span><a href="#local-6989586621679406366"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406366"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406365"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406364"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:Distribution' :: Text
+</span><a href="#local-6989586621679406646"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406646"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406645"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679406644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:Distribution' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AdomainName%3ADistribution%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679406364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The current configuration information for the distribution. Send a @GET@</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- request to the @\/CloudFront API version\/distribution ID\/config@</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_distributionConfig"><span class="hs-identifier hs-type">distribution_distributionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionConfig.html#DistributionConfig"><span class="hs-identifier hs-type">DistributionConfig</span></a></span><span>
-</span><span id="line-237"></span><span id="distribution_distributionConfig"><span class="annot"><span class="annottext">distribution_distributionConfig :: (DistributionConfig -&gt; f DistributionConfig)
+</span><a href="#local-6989586621679406644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The current configuration information for the distribution. Send a @GET@</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- request to the @\/CloudFront API version\/distribution ID\/config@</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_distributionConfig"><span class="hs-identifier hs-type">distribution_distributionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.DistributionConfig.html#DistributionConfig"><span class="hs-identifier hs-type">DistributionConfig</span></a></span><span>
+</span><span id="line-238"></span><span id="distribution_distributionConfig"><span class="annot"><span class="annottext">distribution_distributionConfig :: (DistributionConfig -&gt; f DistributionConfig)
 -&gt; Distribution -&gt; f Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#distribution_distributionConfig"><span class="hs-identifier hs-var hs-var">distribution_distributionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; DistributionConfig)
 -&gt; (Distribution -&gt; DistributionConfig -&gt; Distribution)
 -&gt; Lens
      Distribution Distribution DistributionConfig DistributionConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406362"><span class="annot"><span class="annottext">DistributionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406642"><span class="annot"><span class="annottext">DistributionConfig
 distributionConfig :: DistributionConfig
 $sel:distributionConfig:Distribution' :: Distribution -&gt; DistributionConfig
-</span><a href="#local-6989586621679406362"><span class="hs-identifier hs-var hs-var">distributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionConfig
-</span><a href="#local-6989586621679406362"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406361"><span class="annot"><span class="annottext">s :: Distribution
-</span><a href="#local-6989586621679406361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406360"><span class="annot"><span class="annottext">DistributionConfig
-</span><a href="#local-6989586621679406360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
-</span><a href="#local-6989586621679406361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionConfig:Distribution' :: DistributionConfig
+</span><a href="#local-6989586621679406642"><span class="hs-identifier hs-var hs-var">distributionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679406642"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406641"><span class="annot"><span class="annottext">s :: Distribution
+</span><a href="#local-6989586621679406641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-type">Distribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406640"><span class="annot"><span class="annottext">DistributionConfig
+</span><a href="#local-6989586621679406640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Distribution
+</span><a href="#local-6989586621679406641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionConfig:Distribution' :: DistributionConfig
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#%24sel%3AdistributionConfig%3ADistribution%27"><span class="hs-identifier hs-var">distributionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DistributionConfig
-</span><a href="#local-6989586621679406360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679406357"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Distribution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679406355"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">Maybe [AliasICPRecordal]
+</span><a href="#local-6989586621679406640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679406637"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Distribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679406635"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><span class="annottext">Maybe ActiveTrustedKeyGroups
+-&gt; Maybe [AliasICPRecordal]
 -&gt; Maybe ActiveTrustedSigners
--&gt; Maybe ActiveTrustedKeyGroups
 -&gt; Text
 -&gt; Text
 -&gt; Text
@@ -542,9 +543,9 @@ $sel:distributionConfig:Distribution' :: Distribution -&gt; DistributionConfig
 -&gt; DistributionConfig
 -&gt; Distribution
 </span><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution%27"><span class="hs-identifier hs-var">Distribution'</span></a></span><span>
-</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [AliasICPRecordal]
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ActiveTrustedKeyGroups
+ -&gt; Maybe [AliasICPRecordal]
  -&gt; Maybe ActiveTrustedSigners
- -&gt; Maybe ActiveTrustedKeyGroups
  -&gt; Text
  -&gt; Text
  -&gt; Text
@@ -553,11 +554,11 @@ $sel:distributionConfig:Distribution' :: Distribution -&gt; DistributionConfig
  -&gt; Text
  -&gt; DistributionConfig
  -&gt; Distribution)
--&gt; Either String (Maybe [AliasICPRecordal])
+-&gt; Either String (Maybe ActiveTrustedKeyGroups)
 -&gt; Either
      String
-     (Maybe ActiveTrustedSigners
-      -&gt; Maybe ActiveTrustedKeyGroups
+     (Maybe [AliasICPRecordal]
+      -&gt; Maybe ActiveTrustedSigners
       -&gt; Text
       -&gt; Text
       -&gt; Text
@@ -567,17 +568,47 @@ $sel:distributionConfig:Distribution' :: Distribution -&gt; DistributionConfig
       -&gt; DistributionConfig
       -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActiveTrustedKeyGroups)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActiveTrustedKeyGroups&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [AliasICPRecordal]
+   -&gt; Maybe ActiveTrustedSigners
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; Int
+   -&gt; Text
+   -&gt; DistributionConfig
+   -&gt; Distribution)
+-&gt; Either String (Maybe [AliasICPRecordal])
+-&gt; Either
+     String
+     (Maybe ActiveTrustedSigners
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; Int
+      -&gt; Text
+      -&gt; DistributionConfig
+      -&gt; Distribution)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AliasICPRecordals&quot;</span></span><span>
-</span><span id="line-243"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-245"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-244"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-246"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [AliasICPRecordal]))
 -&gt; Either String (Maybe [AliasICPRecordal])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -590,11 +621,10 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AliasICPRecordal&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-245"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-247"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ActiveTrustedSigners
-   -&gt; Maybe ActiveTrustedKeyGroups
    -&gt; Text
    -&gt; Text
    -&gt; Text
@@ -604,35 +634,6 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
    -&gt; DistributionConfig
    -&gt; Distribution)
 -&gt; Either String (Maybe ActiveTrustedSigners)
--&gt; Either
-     String
-     (Maybe ActiveTrustedKeyGroups
-      -&gt; Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; ISO8601
-      -&gt; Int
-      -&gt; Text
-      -&gt; DistributionConfig
-      -&gt; Distribution)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActiveTrustedSigners)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ActiveTrustedSigners&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ActiveTrustedKeyGroups
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; ISO8601
-   -&gt; Int
-   -&gt; Text
-   -&gt; DistributionConfig
-   -&gt; Distribution)
--&gt; Either String (Maybe ActiveTrustedKeyGroups)
 -&gt; Either
      String
      (Text
@@ -645,11 +646,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActiveTrustedKeyGroups)
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActiveTrustedSigners)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ActiveTrustedKeyGroups&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;ActiveTrustedSigners&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Text
    -&gt; Text
@@ -671,11 +672,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Text
    -&gt; Text
@@ -691,11 +692,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
       -&gt; ISO8601 -&gt; Int -&gt; Text -&gt; DistributionConfig -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Text
    -&gt; ISO8601 -&gt; Int -&gt; Text -&gt; DistributionConfig -&gt; Distribution)
@@ -705,11 +706,11 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      (ISO8601 -&gt; Int -&gt; Text -&gt; DistributionConfig -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (ISO8601 -&gt; Int -&gt; Text -&gt; DistributionConfig -&gt; Distribution)
 -&gt; Either String ISO8601
@@ -717,38 +718,38 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      String (Int -&gt; Text -&gt; DistributionConfig -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; Text -&gt; DistributionConfig -&gt; Distribution)
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">Either String (Int -&gt; Text -&gt; DistributionConfig -&gt; Distribution)
 -&gt; Either String Int
 -&gt; Either String (Text -&gt; DistributionConfig -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InProgressInvalidationBatches&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; DistributionConfig -&gt; Distribution)
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; DistributionConfig -&gt; Distribution)
 -&gt; Either String Text
 -&gt; Either String (DistributionConfig -&gt; Distribution)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">Either String (DistributionConfig -&gt; Distribution)
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">Either String (DistributionConfig -&gt; Distribution)
 -&gt; Either String DistributionConfig -&gt; Either String Distribution
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679406355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String DistributionConfig
+</span><a href="#local-6989586621679406635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String DistributionConfig
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DistributionConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406345"><span id="local-6989586621679406347"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span></span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span><span>
-</span><span id="line-259"></span></pre></body></html>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406625"><span id="local-6989586621679406627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span></span><span>
+</span><span id="line-260"></span></pre></body></html>

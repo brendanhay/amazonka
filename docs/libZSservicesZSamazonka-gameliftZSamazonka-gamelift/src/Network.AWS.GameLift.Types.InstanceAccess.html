@@ -29,25 +29,25 @@
 </span><span id="line-29"></span><span class="hs-comment">-- requested by calling GetInstanceAccess.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInstanceAccess' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679436180"><span id="local-6989586621679436181"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceAccess"><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-var">InstanceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAccess%27"><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-var">InstanceAccess'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679436631"><span id="local-6989586621679436632"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceAccess"><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-var">InstanceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAccess%27"><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-var">InstanceAccess'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the instance being accessed.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AinstanceId%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AinstanceId%3AInstanceAccess%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet containing the instance being</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- accessed.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfleetId%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AfleetId%3AInstanceAccess%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AipAddress%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AipAddress%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe Text
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AipAddress%3AInstanceAccess%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Operating system that is running on the instance.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe OperatingSystem
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Operating system that is running on the instance.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe OperatingSystem
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AoperatingSystem%3AInstanceAccess%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Credentials required to access the instance.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acredentials%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe (Sensitive InstanceCredentials)
-</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3Acredentials%3AInstanceAccess%27"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceCredentials.html#InstanceCredentials"><span class="hs-identifier hs-type">InstanceCredentials</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Credentials required to access the instance.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Acredentials%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe (Sensitive InstanceCredentials)
+</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3Acredentials%3AInstanceAccess%27"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceCredentials.html#InstanceCredentials"><span class="hs-identifier hs-type">InstanceCredentials</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet containing the instance being</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- accessed.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfleetId%3AInstanceAccess%27"><span class="annot"><span class="annottext">InstanceAccess -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AfleetId%3AInstanceAccess%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436170"><span id="local-6989586621679436172"><span class="annot"><span class="annottext">InstanceAccess -&gt; InstanceAccess -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679436621"><span id="local-6989586621679436623"><span class="annot"><span class="annottext">InstanceAccess -&gt; InstanceAccess -&gt; Bool
 (InstanceAccess -&gt; InstanceAccess -&gt; Bool)
 -&gt; (InstanceAccess -&gt; InstanceAccess -&gt; Bool) -&gt; Eq InstanceAccess
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceAccess -&gt; InstanceAccess -&gt; Bool
 == :: InstanceAccess -&gt; InstanceAccess -&gt; Bool
 $c== :: InstanceAccess -&gt; InstanceAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436163"><span id="local-6989586621679436165"><span id="local-6989586621679436167"><span class="annot"><span class="annottext">Int -&gt; InstanceAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679436614"><span id="local-6989586621679436616"><span id="local-6989586621679436618"><span class="annot"><span class="annottext">Int -&gt; InstanceAccess -&gt; ShowS
 [InstanceAccess] -&gt; ShowS
 InstanceAccess -&gt; String
 (Int -&gt; InstanceAccess -&gt; ShowS)
@@ -91,43 +91,43 @@ $cfrom :: forall x. InstanceAccess -&gt; Rep InstanceAccess x
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'instanceId', 'instanceAccess_instanceId' - A unique identifier for the instance being accessed.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'fleetId', 'instanceAccess_fleetId' - A unique identifier for the fleet containing the instance being</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- accessed.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'ipAddress', 'instanceAccess_ipAddress' - IP address that is assigned to the instance.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'operatingSystem', 'instanceAccess_operatingSystem' - Operating system that is running on the instance.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'credentials', 'instanceAccess_credentials' - Credentials required to access the instance.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'ipAddress', 'instanceAccess_ipAddress' - IP address that is assigned to the instance.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'operatingSystem', 'instanceAccess_operatingSystem' - Operating system that is running on the instance.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'credentials', 'instanceAccess_credentials' - Credentials required to access the instance.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'fleetId', 'instanceAccess_fleetId' - A unique identifier for the fleet containing the instance being</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- accessed.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#newInstanceAccess"><span class="hs-identifier hs-type">newInstanceAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span>
 </span><span id="line-67"></span><span id="newInstanceAccess"><span class="annot"><span class="annottext">newInstanceAccess :: InstanceAccess
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#newInstanceAccess"><span class="hs-identifier hs-var hs-var">newInstanceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">InstanceAccess' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe OperatingSystem
 -&gt; Maybe (Sensitive InstanceCredentials)
+-&gt; Maybe Text
 -&gt; InstanceAccess
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:InstanceAccess' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AinstanceId%3AInstanceAccess%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:InstanceAccess' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AfleetId%3AInstanceAccess%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:InstanceAccess' :: Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:InstanceAccess' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AipAddress%3AInstanceAccess%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:operatingSystem:InstanceAccess' :: Maybe OperatingSystem
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:operatingSystem:InstanceAccess' :: Maybe OperatingSystem
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AoperatingSystem%3AInstanceAccess%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:credentials:InstanceAccess' :: Maybe (Sensitive InstanceCredentials)
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:credentials:InstanceAccess' :: Maybe (Sensitive InstanceCredentials)
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3Acredentials%3AInstanceAccess%27"><span class="hs-identifier hs-var">credentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:InstanceAccess' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AfleetId%3AInstanceAccess%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
@@ -140,59 +140,39 @@ forall a. Maybe a
 -&gt; (InstanceAccess -&gt; Maybe Text -&gt; InstanceAccess)
 -&gt; Lens InstanceAccess InstanceAccess (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436154"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436605"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:InstanceAccess' :: InstanceAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679436154"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436154"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436153"><span class="annot"><span class="annottext">s :: InstanceAccess
-</span><a href="#local-6989586621679436153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436152"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
-</span><a href="#local-6989586621679436153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:InstanceAccess' :: Maybe Text
+</span><a href="#local-6989586621679436605"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436605"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436604"><span class="annot"><span class="annottext">s :: InstanceAccess
+</span><a href="#local-6989586621679436604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436603"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
+</span><a href="#local-6989586621679436604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:InstanceAccess' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AinstanceId%3AInstanceAccess%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679436603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | A unique identifier for the fleet containing the instance being</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- accessed.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_fleetId"><span class="hs-identifier hs-type">instanceAccess_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="instanceAccess_fleetId"><span class="annot"><span class="annottext">instanceAccess_fleetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceAccess -&gt; f InstanceAccess
-</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_fleetId"><span class="hs-identifier hs-var hs-var">instanceAccess_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAccess -&gt; Maybe Text)
--&gt; (InstanceAccess -&gt; Maybe Text -&gt; InstanceAccess)
--&gt; Lens InstanceAccess InstanceAccess (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436150"><span class="annot"><span class="annottext">Maybe Text
-fleetId :: Maybe Text
-$sel:fleetId:InstanceAccess' :: InstanceAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679436150"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436150"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436149"><span class="annot"><span class="annottext">s :: InstanceAccess
-</span><a href="#local-6989586621679436149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436148"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
-</span><a href="#local-6989586621679436149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:InstanceAccess' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AfleetId%3AInstanceAccess%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_ipAddress"><span class="hs-identifier hs-type">instanceAccess_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="instanceAccess_ipAddress"><span class="annot"><span class="annottext">instanceAccess_ipAddress :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-80"></span><span class="hs-comment">-- | IP address that is assigned to the instance.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_ipAddress"><span class="hs-identifier hs-type">instanceAccess_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="instanceAccess_ipAddress"><span class="annot"><span class="annottext">instanceAccess_ipAddress :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InstanceAccess -&gt; f InstanceAccess
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_ipAddress"><span class="hs-identifier hs-var hs-var">instanceAccess_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAccess -&gt; Maybe Text)
 -&gt; (InstanceAccess -&gt; Maybe Text -&gt; InstanceAccess)
 -&gt; Lens InstanceAccess InstanceAccess (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436146"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436601"><span class="annot"><span class="annottext">Maybe Text
 ipAddress :: Maybe Text
 $sel:ipAddress:InstanceAccess' :: InstanceAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679436146"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436146"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436145"><span class="annot"><span class="annottext">s :: InstanceAccess
-</span><a href="#local-6989586621679436145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436144"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
-</span><a href="#local-6989586621679436145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:InstanceAccess' :: Maybe Text
+</span><a href="#local-6989586621679436601"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436601"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436600"><span class="annot"><span class="annottext">s :: InstanceAccess
+</span><a href="#local-6989586621679436600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
+</span><a href="#local-6989586621679436600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:InstanceAccess' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AipAddress%3AInstanceAccess%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679436144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | Operating system that is running on the instance.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_operatingSystem"><span class="hs-identifier hs-type">instanceAccess_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="instanceAccess_operatingSystem"><span class="annot"><span class="annottext">instanceAccess_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
+</span><a href="#local-6989586621679436599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Operating system that is running on the instance.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_operatingSystem"><span class="hs-identifier hs-type">instanceAccess_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="instanceAccess_operatingSystem"><span class="annot"><span class="annottext">instanceAccess_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
 -&gt; InstanceAccess -&gt; f InstanceAccess
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_operatingSystem"><span class="hs-identifier hs-var hs-var">instanceAccess_operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAccess -&gt; Maybe OperatingSystem)
 -&gt; (InstanceAccess -&gt; Maybe OperatingSystem -&gt; InstanceAccess)
@@ -202,20 +182,20 @@ $sel:ipAddress:InstanceAccess' :: InstanceAccess -&gt; Maybe Text
      (Maybe OperatingSystem)
      (Maybe OperatingSystem)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436142"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436597"><span class="annot"><span class="annottext">Maybe OperatingSystem
 operatingSystem :: Maybe OperatingSystem
 $sel:operatingSystem:InstanceAccess' :: InstanceAccess -&gt; Maybe OperatingSystem
-</span><a href="#local-6989586621679436142"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436142"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436141"><span class="annot"><span class="annottext">s :: InstanceAccess
-</span><a href="#local-6989586621679436141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436140"><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
-</span><a href="#local-6989586621679436141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:InstanceAccess' :: Maybe OperatingSystem
+</span><a href="#local-6989586621679436597"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436597"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436596"><span class="annot"><span class="annottext">s :: InstanceAccess
+</span><a href="#local-6989586621679436596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436595"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679436595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
+</span><a href="#local-6989586621679436596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:InstanceAccess' :: Maybe OperatingSystem
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AoperatingSystem%3AInstanceAccess%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679436140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Credentials required to access the instance.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_credentials"><span class="hs-identifier hs-type">instanceAccess_credentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceCredentials.html#InstanceCredentials"><span class="hs-identifier hs-type">InstanceCredentials</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="instanceAccess_credentials"><span class="annot"><span class="annottext">instanceAccess_credentials :: (Maybe InstanceCredentials -&gt; f (Maybe InstanceCredentials))
+</span><a href="#local-6989586621679436595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Credentials required to access the instance.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_credentials"><span class="hs-identifier hs-type">instanceAccess_credentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceCredentials.html#InstanceCredentials"><span class="hs-identifier hs-type">InstanceCredentials</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="instanceAccess_credentials"><span class="annot"><span class="annottext">instanceAccess_credentials :: (Maybe InstanceCredentials -&gt; f (Maybe InstanceCredentials))
 -&gt; InstanceAccess -&gt; f InstanceAccess
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_credentials"><span class="hs-identifier hs-var hs-var">instanceAccess_credentials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAccess -&gt; Maybe (Sensitive InstanceCredentials))
 -&gt; (InstanceAccess
@@ -226,16 +206,16 @@ $sel:operatingSystem:InstanceAccess' :: InstanceAccess -&gt; Maybe OperatingSyst
      (Maybe (Sensitive InstanceCredentials))
      (Maybe (Sensitive InstanceCredentials))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436138"><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436593"><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
 credentials :: Maybe (Sensitive InstanceCredentials)
 $sel:credentials:InstanceAccess' :: InstanceAccess -&gt; Maybe (Sensitive InstanceCredentials)
-</span><a href="#local-6989586621679436138"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
-</span><a href="#local-6989586621679436138"><span class="hs-identifier hs-var">credentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436137"><span class="annot"><span class="annottext">s :: InstanceAccess
-</span><a href="#local-6989586621679436137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436136"><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
-</span><a href="#local-6989586621679436136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
-</span><a href="#local-6989586621679436137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentials:InstanceAccess' :: Maybe (Sensitive InstanceCredentials)
+</span><a href="#local-6989586621679436593"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
+</span><a href="#local-6989586621679436593"><span class="hs-identifier hs-var">credentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436592"><span class="annot"><span class="annottext">s :: InstanceAccess
+</span><a href="#local-6989586621679436592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436591"><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
+</span><a href="#local-6989586621679436591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
+</span><a href="#local-6989586621679436592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentials:InstanceAccess' :: Maybe (Sensitive InstanceCredentials)
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3Acredentials%3AInstanceAccess%27"><span class="hs-identifier hs-var">credentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive InstanceCredentials)
-</span><a href="#local-6989586621679436136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive InstanceCredentials)
+</span><a href="#local-6989586621679436591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive InstanceCredentials)
   -&gt; f (Maybe (Sensitive InstanceCredentials)))
  -&gt; InstanceAccess -&gt; f InstanceAccess)
 -&gt; ((Maybe InstanceCredentials -&gt; f (Maybe InstanceCredentials))
@@ -265,9 +245,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   InstanceCredentials
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A unique identifier for the fleet containing the instance being</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- accessed.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_fleetId"><span class="hs-identifier hs-type">instanceAccess_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="instanceAccess_fleetId"><span class="annot"><span class="annottext">instanceAccess_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceAccess -&gt; f InstanceAccess
+</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#instanceAccess_fleetId"><span class="hs-identifier hs-var hs-var">instanceAccess_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAccess -&gt; Maybe Text)
+-&gt; (InstanceAccess -&gt; Maybe Text -&gt; InstanceAccess)
+-&gt; Lens InstanceAccess InstanceAccess (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679436586"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:InstanceAccess' :: InstanceAccess -&gt; Maybe Text
+</span><a href="#local-6989586621679436586"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436586"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679436585"><span class="annot"><span class="annottext">s :: InstanceAccess
+</span><a href="#local-6989586621679436585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-type">InstanceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679436584"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAccess
+</span><a href="#local-6989586621679436585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:InstanceAccess' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#%24sel%3AfleetId%3AInstanceAccess%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679436584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436130"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679436128"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceAccess
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436581"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679436579"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceAccess)
@@ -277,90 +277,89 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceAccess&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436125"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679436576"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436576"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe OperatingSystem
 -&gt; Maybe (Sensitive InstanceCredentials)
+-&gt; Maybe Text
 -&gt; InstanceAccess
 </span><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess%27"><span class="hs-identifier hs-var">InstanceAccess'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe OperatingSystem
  -&gt; Maybe (Sensitive InstanceCredentials)
+ -&gt; Maybe Text
  -&gt; InstanceAccess)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe OperatingSystem
       -&gt; Maybe (Sensitive InstanceCredentials)
+      -&gt; Maybe Text
       -&gt; InstanceAccess)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe OperatingSystem
+   -&gt; Maybe (Sensitive InstanceCredentials)
    -&gt; Maybe Text
-   -&gt; Maybe OperatingSystem
-   -&gt; Maybe (Sensitive InstanceCredentials)
-   -&gt; InstanceAccess)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe OperatingSystem
-      -&gt; Maybe (Sensitive InstanceCredentials)
-      -&gt; InstanceAccess)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe OperatingSystem
-   -&gt; Maybe (Sensitive InstanceCredentials)
    -&gt; InstanceAccess)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe OperatingSystem
-      -&gt; Maybe (Sensitive InstanceCredentials) -&gt; InstanceAccess)
+      -&gt; Maybe (Sensitive InstanceCredentials)
+      -&gt; Maybe Text
+      -&gt; InstanceAccess)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679436576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe OperatingSystem
-   -&gt; Maybe (Sensitive InstanceCredentials) -&gt; InstanceAccess)
+   -&gt; Maybe (Sensitive InstanceCredentials)
+   -&gt; Maybe Text
+   -&gt; InstanceAccess)
 -&gt; Parser (Maybe OperatingSystem)
--&gt; Parser (Maybe (Sensitive InstanceCredentials) -&gt; InstanceAccess)
+-&gt; Parser
+     (Maybe (Sensitive InstanceCredentials)
+      -&gt; Maybe Text -&gt; InstanceAccess)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
+</span><a href="#local-6989586621679436576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OperatingSystem)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive InstanceCredentials) -&gt; InstanceAccess)
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive InstanceCredentials)
+   -&gt; Maybe Text -&gt; InstanceAccess)
 -&gt; Parser (Maybe (Sensitive InstanceCredentials))
--&gt; Parser InstanceAccess
+-&gt; Parser (Maybe Text -&gt; InstanceAccess)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679436125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive InstanceCredentials))
+</span><a href="#local-6989586621679436576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive InstanceCredentials))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Credentials&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InstanceAccess)
+-&gt; Parser (Maybe Text) -&gt; Parser InstanceAccess
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679436576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436119"><span id="local-6989586621679436121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436570"><span id="local-6989586621679436572"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679436567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.InstanceAccess.html#InstanceAccess"><span class="hs-identifier hs-type">InstanceAccess</span></a></span></span><span>
 </span><span id="line-113"></span></pre></body></html>

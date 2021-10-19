@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679256520"><span id="local-6989586621679256521"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ElasticsearchS3BackupMode"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchS3BackupMode.html#ElasticsearchS3BackupMode"><span class="hs-identifier hs-var">ElasticsearchS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchS3BackupMode%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchS3BackupMode.html#ElasticsearchS3BackupMode%27"><span class="hs-identifier hs-var">ElasticsearchS3BackupMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679270742"><span id="local-6989586621679270743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ElasticsearchS3BackupMode"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchS3BackupMode.html#ElasticsearchS3BackupMode"><span class="hs-identifier hs-var">ElasticsearchS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchS3BackupMode%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ElasticsearchS3BackupMode.html#ElasticsearchS3BackupMode%27"><span class="hs-identifier hs-var">ElasticsearchS3BackupMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromElasticsearchS3BackupMode"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.ElasticsearchS3BackupMode.html#fromElasticsearchS3BackupMode"><span class="hs-identifier hs-var hs-var">fromElasticsearchS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256512"><span id="local-6989586621679256514"><span id="local-6989586621679256516"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchS3BackupMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270734"><span id="local-6989586621679270736"><span id="local-6989586621679270738"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchS3BackupMode -&gt; ShowS
 [ElasticsearchS3BackupMode] -&gt; ShowS
 ElasticsearchS3BackupMode -&gt; String
 (Int -&gt; ElasticsearchS3BackupMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ElasticsearchS3BackupMode -&gt; String
 showsPrec :: Int -&gt; ElasticsearchS3BackupMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ElasticsearchS3BackupMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679256503"><span id="local-6989586621679256505"><span id="local-6989586621679256507"><span id="local-6989586621679256509"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchS3BackupMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679270725"><span id="local-6989586621679270727"><span id="local-6989586621679270729"><span id="local-6989586621679270731"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchS3BackupMode]
 ReadPrec ElasticsearchS3BackupMode
 Int -&gt; ReadS ElasticsearchS3BackupMode
 ReadS [ElasticsearchS3BackupMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ElasticsearchS3BackupMode]
 readsPrec :: Int -&gt; ReadS ElasticsearchS3BackupMode
 $creadsPrec :: Int -&gt; ReadS ElasticsearchS3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679256498"><span id="local-6989586621679256500"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ElasticsearchS3BackupMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679270720"><span id="local-6989586621679270722"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ElasticsearchS3BackupMode -&gt; Bool
 (ElasticsearchS3BackupMode -&gt; ElasticsearchS3BackupMode -&gt; Bool)
 -&gt; (ElasticsearchS3BackupMode -&gt; ElasticsearchS3BackupMode -&gt; Bool)
 -&gt; Eq ElasticsearchS3BackupMode
@@ -82,7 +82,7 @@ $c/= :: ElasticsearchS3BackupMode -&gt; ElasticsearchS3BackupMode -&gt; Bool
 == :: ElasticsearchS3BackupMode -&gt; ElasticsearchS3BackupMode -&gt; Bool
 $c== :: ElasticsearchS3BackupMode -&gt; ElasticsearchS3BackupMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679256482"><span id="local-6989586621679256484"><span id="local-6989586621679256486"><span id="local-6989586621679256488"><span id="local-6989586621679256490"><span id="local-6989586621679256492"><span id="local-6989586621679256494"><span class="annot"><span class="annottext">Eq ElasticsearchS3BackupMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679270704"><span id="local-6989586621679270706"><span id="local-6989586621679270708"><span id="local-6989586621679270710"><span id="local-6989586621679270712"><span id="local-6989586621679270714"><span id="local-6989586621679270716"><span class="annot"><span class="annottext">Eq ElasticsearchS3BackupMode
 Eq ElasticsearchS3BackupMode
 -&gt; (ElasticsearchS3BackupMode
     -&gt; ElasticsearchS3BackupMode -&gt; Ordering)
@@ -147,7 +147,7 @@ ElasticsearchS3BackupMode -&gt; Rep ElasticsearchS3BackupMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256474"><span id="local-6989586621679256476"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchS3BackupMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270696"><span id="local-6989586621679270698"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchS3BackupMode -&gt; Int
 ElasticsearchS3BackupMode -&gt; Int
 (Int -&gt; ElasticsearchS3BackupMode -&gt; Int)
 -&gt; (ElasticsearchS3BackupMode -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: ElasticsearchS3BackupMode -&gt; Int
 hashWithSalt :: Int -&gt; ElasticsearchS3BackupMode -&gt; Int
 $chashWithSalt :: Int -&gt; ElasticsearchS3BackupMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679256471"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679270693"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ()
 (ElasticsearchS3BackupMode -&gt; ())
 -&gt; NFData ElasticsearchS3BackupMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ElasticsearchS3BackupMode -&gt; ()
 $crnf :: ElasticsearchS3BackupMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679256468"><span class="annot"><span class="annottext">Text -&gt; Either String ElasticsearchS3BackupMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679270690"><span class="annot"><span class="annottext">Text -&gt; Either String ElasticsearchS3BackupMode
 (Text -&gt; Either String ElasticsearchS3BackupMode)
 -&gt; FromText ElasticsearchS3BackupMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ElasticsearchS3BackupMode
 $cfromText :: Text -&gt; Either String ElasticsearchS3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679256465"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679270687"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; Text
 (ElasticsearchS3BackupMode -&gt; Text)
 -&gt; ToText ElasticsearchS3BackupMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ElasticsearchS3BackupMode -&gt; Text
 $ctoText :: ElasticsearchS3BackupMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679256462"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679270684"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ByteString
 (ElasticsearchS3BackupMode -&gt; ByteString)
 -&gt; ToByteString ElasticsearchS3BackupMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ElasticsearchS3BackupMode -&gt; ByteString
 $ctoBS :: ElasticsearchS3BackupMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679256459"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679270681"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; ByteStringBuilder
 (ElasticsearchS3BackupMode -&gt; ByteStringBuilder)
 -&gt; ToLog ElasticsearchS3BackupMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ElasticsearchS3BackupMode -&gt; ByteStringBuilder
 $cbuild :: ElasticsearchS3BackupMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679256456"><span class="annot"><span class="annottext">HeaderName -&gt; ElasticsearchS3BackupMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270678"><span class="annot"><span class="annottext">HeaderName -&gt; ElasticsearchS3BackupMode -&gt; [Header]
 (HeaderName -&gt; ElasticsearchS3BackupMode -&gt; [Header])
 -&gt; ToHeader ElasticsearchS3BackupMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ElasticsearchS3BackupMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ElasticsearchS3BackupMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679256453"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270675"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; QueryString
 (ElasticsearchS3BackupMode -&gt; QueryString)
 -&gt; ToQuery ElasticsearchS3BackupMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ElasticsearchS3BackupMode -&gt; QueryString
 $ctoQuery :: ElasticsearchS3BackupMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679256448"><span id="local-6989586621679256450"><span class="annot"><span class="annottext">Value -&gt; Parser [ElasticsearchS3BackupMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270670"><span id="local-6989586621679270672"><span class="annot"><span class="annottext">Value -&gt; Parser [ElasticsearchS3BackupMode]
 Value -&gt; Parser ElasticsearchS3BackupMode
 (Value -&gt; Parser ElasticsearchS3BackupMode)
 -&gt; (Value -&gt; Parser [ElasticsearchS3BackupMode])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [ElasticsearchS3BackupMode]
 parseJSON :: Value -&gt; Parser ElasticsearchS3BackupMode
 $cparseJSON :: Value -&gt; Parser ElasticsearchS3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679256443"><span id="local-6989586621679256445"><span class="annot"><span class="annottext">FromJSONKeyFunction [ElasticsearchS3BackupMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270665"><span id="local-6989586621679270667"><span class="annot"><span class="annottext">FromJSONKeyFunction [ElasticsearchS3BackupMode]
 FromJSONKeyFunction ElasticsearchS3BackupMode
 FromJSONKeyFunction ElasticsearchS3BackupMode
 -&gt; FromJSONKeyFunction [ElasticsearchS3BackupMode]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ElasticsearchS3BackupMode]
 fromJSONKey :: FromJSONKeyFunction ElasticsearchS3BackupMode
 $cfromJSONKey :: FromJSONKeyFunction ElasticsearchS3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679256434"><span id="local-6989586621679256436"><span id="local-6989586621679256438"><span id="local-6989586621679256440"><span class="annot"><span class="annottext">[ElasticsearchS3BackupMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270656"><span id="local-6989586621679270658"><span id="local-6989586621679270660"><span id="local-6989586621679270662"><span class="annot"><span class="annottext">[ElasticsearchS3BackupMode] -&gt; Encoding
 [ElasticsearchS3BackupMode] -&gt; Value
 ElasticsearchS3BackupMode -&gt; Encoding
 ElasticsearchS3BackupMode -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: ElasticsearchS3BackupMode -&gt; Encoding
 toJSON :: ElasticsearchS3BackupMode -&gt; Value
 $ctoJSON :: ElasticsearchS3BackupMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679256429"><span id="local-6989586621679256431"><span class="annot"><span class="annottext">ToJSONKeyFunction [ElasticsearchS3BackupMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270651"><span id="local-6989586621679270653"><span class="annot"><span class="annottext">ToJSONKeyFunction [ElasticsearchS3BackupMode]
 ToJSONKeyFunction ElasticsearchS3BackupMode
 ToJSONKeyFunction ElasticsearchS3BackupMode
 -&gt; ToJSONKeyFunction [ElasticsearchS3BackupMode]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ElasticsearchS3BackupMode]
 toJSONKey :: ToJSONKeyFunction ElasticsearchS3BackupMode
 $ctoJSONKey :: ToJSONKeyFunction ElasticsearchS3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679256426"><span class="annot"><span class="annottext">[Node] -&gt; Either String ElasticsearchS3BackupMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270648"><span class="annot"><span class="annottext">[Node] -&gt; Either String ElasticsearchS3BackupMode
 ([Node] -&gt; Either String ElasticsearchS3BackupMode)
 -&gt; FromXML ElasticsearchS3BackupMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ElasticsearchS3BackupMode
 $cparseXML :: [Node] -&gt; Either String ElasticsearchS3BackupMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679256423"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270645"><span class="annot"><span class="annottext">ElasticsearchS3BackupMode -&gt; XML
 (ElasticsearchS3BackupMode -&gt; XML)
 -&gt; ToXML ElasticsearchS3BackupMode
 forall a. (a -&gt; XML) -&gt; ToXML a

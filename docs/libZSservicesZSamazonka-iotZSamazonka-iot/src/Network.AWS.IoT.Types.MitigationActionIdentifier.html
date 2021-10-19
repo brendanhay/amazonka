@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- returned by ListMitigationActions.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMitigationActionIdentifier' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679789747"><span id="local-6989586621679789748"></span></span><span class="hs-keyword">data</span><span> </span><span id="MitigationActionIdentifier"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-var">MitigationActionIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MitigationActionIdentifier%27"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-var">MitigationActionIdentifier'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679790606"><span id="local-6989586621679790607"></span></span><span class="hs-keyword">data</span><span> </span><span id="MitigationActionIdentifier"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-var">MitigationActionIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MitigationActionIdentifier%27"><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-var">MitigationActionIdentifier'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The friendly name of the mitigation action.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AactionName%3AMitigationActionIdentifier%27"><span class="annot"><span class="annottext">MitigationActionIdentifier -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionName%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The IAM role ARN used to apply this mitigation action.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="annot"><span class="annottext">MitigationActionIdentifier -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date when this mitigation action was created.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationDate%3AMitigationActionIdentifier%27"><span class="annot"><span class="annottext">MitigationActionIdentifier -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AcreationDate%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The date when this mitigation action was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationDate%3AMitigationActionIdentifier%27"><span class="annot"><span class="annottext">MitigationActionIdentifier -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AcreationDate%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The IAM role ARN used to apply this mitigation action.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="annot"><span class="annottext">MitigationActionIdentifier -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789739"><span id="local-6989586621679789741"><span class="annot"><span class="annottext">MitigationActionIdentifier -&gt; MitigationActionIdentifier -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790598"><span id="local-6989586621679790600"><span class="annot"><span class="annottext">MitigationActionIdentifier -&gt; MitigationActionIdentifier -&gt; Bool
 (MitigationActionIdentifier -&gt; MitigationActionIdentifier -&gt; Bool)
 -&gt; (MitigationActionIdentifier
     -&gt; MitigationActionIdentifier -&gt; Bool)
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MitigationActionIdentifier -&gt; MitigationActionIdentifier -&gt; Bool
 == :: MitigationActionIdentifier -&gt; MitigationActionIdentifier -&gt; Bool
 $c== :: MitigationActionIdentifier -&gt; MitigationActionIdentifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789730"><span id="local-6989586621679789732"><span id="local-6989586621679789734"><span id="local-6989586621679789736"><span class="annot"><span class="annottext">ReadPrec [MitigationActionIdentifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790589"><span id="local-6989586621679790591"><span id="local-6989586621679790593"><span id="local-6989586621679790595"><span class="annot"><span class="annottext">ReadPrec [MitigationActionIdentifier]
 ReadPrec MitigationActionIdentifier
 Int -&gt; ReadS MitigationActionIdentifier
 ReadS [MitigationActionIdentifier]
@@ -68,7 +68,7 @@ readList :: ReadS [MitigationActionIdentifier]
 $creadList :: ReadS [MitigationActionIdentifier]
 readsPrec :: Int -&gt; ReadS MitigationActionIdentifier
 $creadsPrec :: Int -&gt; ReadS MitigationActionIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789723"><span id="local-6989586621679789725"><span id="local-6989586621679789727"><span class="annot"><span class="annottext">Int -&gt; MitigationActionIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790582"><span id="local-6989586621679790584"><span id="local-6989586621679790586"><span class="annot"><span class="annottext">Int -&gt; MitigationActionIdentifier -&gt; ShowS
 [MitigationActionIdentifier] -&gt; ShowS
 MitigationActionIdentifier -&gt; String
 (Int -&gt; MitigationActionIdentifier -&gt; ShowS)
@@ -110,27 +110,27 @@ MitigationActionIdentifier -&gt; Rep MitigationActionIdentifier x
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- 'actionName', 'mitigationActionIdentifier_actionName' - The friendly name of the mitigation action.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'actionArn', 'mitigationActionIdentifier_actionArn' - The IAM role ARN used to apply this mitigation action.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'creationDate', 'mitigationActionIdentifier_creationDate' - The date when this mitigation action was created.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'creationDate', 'mitigationActionIdentifier_creationDate' - The date when this mitigation action was created.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'actionArn', 'mitigationActionIdentifier_actionArn' - The IAM role ARN used to apply this mitigation action.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#newMitigationActionIdentifier"><span class="hs-identifier hs-type">newMitigationActionIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span>
 </span><span id="line-55"></span><span id="newMitigationActionIdentifier"><span class="annot"><span class="annottext">newMitigationActionIdentifier :: MitigationActionIdentifier
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#newMitigationActionIdentifier"><span class="hs-identifier hs-var hs-var">newMitigationActionIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">MitigationActionIdentifier' :: Maybe Text
--&gt; Maybe Text -&gt; Maybe POSIX -&gt; MitigationActionIdentifier
+-&gt; Maybe POSIX -&gt; Maybe Text -&gt; MitigationActionIdentifier
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionName:MitigationActionIdentifier' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionName%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionArn:MitigationActionIdentifier' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">actionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:MitigationActionIdentifier' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AcreationDate%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:MitigationActionIdentifier' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AcreationDate%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionArn:MitigationActionIdentifier' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">actionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
@@ -148,44 +148,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789714"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790573"><span class="annot"><span class="annottext">Maybe Text
 actionName :: Maybe Text
 $sel:actionName:MitigationActionIdentifier' :: MitigationActionIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679789714"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789714"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789713"><span class="annot"><span class="annottext">s :: MitigationActionIdentifier
-</span><a href="#local-6989586621679789713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789712"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MitigationActionIdentifier
-</span><a href="#local-6989586621679789713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:MitigationActionIdentifier' :: Maybe Text
+</span><a href="#local-6989586621679790573"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790573"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790572"><span class="annot"><span class="annottext">s :: MitigationActionIdentifier
+</span><a href="#local-6989586621679790572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MitigationActionIdentifier
+</span><a href="#local-6989586621679790572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:MitigationActionIdentifier' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionName%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679790571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The IAM role ARN used to apply this mitigation action.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#mitigationActionIdentifier_actionArn"><span class="hs-identifier hs-type">mitigationActionIdentifier_actionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="mitigationActionIdentifier_actionArn"><span class="annot"><span class="annottext">mitigationActionIdentifier_actionArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MitigationActionIdentifier -&gt; f MitigationActionIdentifier
-</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#mitigationActionIdentifier_actionArn"><span class="hs-identifier hs-var hs-var">mitigationActionIdentifier_actionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MitigationActionIdentifier -&gt; Maybe Text)
--&gt; (MitigationActionIdentifier
-    -&gt; Maybe Text -&gt; MitigationActionIdentifier)
--&gt; Lens
-     MitigationActionIdentifier
-     MitigationActionIdentifier
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789710"><span class="annot"><span class="annottext">Maybe Text
-actionArn :: Maybe Text
-$sel:actionArn:MitigationActionIdentifier' :: MitigationActionIdentifier -&gt; Maybe Text
-</span><a href="#local-6989586621679789710"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789710"><span class="hs-identifier hs-var">actionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789709"><span class="annot"><span class="annottext">s :: MitigationActionIdentifier
-</span><a href="#local-6989586621679789709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789708"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MitigationActionIdentifier
-</span><a href="#local-6989586621679789709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionArn:MitigationActionIdentifier' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">actionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679789708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The date when this mitigation action was created.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#mitigationActionIdentifier_creationDate"><span class="hs-identifier hs-type">mitigationActionIdentifier_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="mitigationActionIdentifier_creationDate"><span class="annot"><span class="annottext">mitigationActionIdentifier_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-67"></span><span class="hs-comment">-- | The date when this mitigation action was created.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#mitigationActionIdentifier_creationDate"><span class="hs-identifier hs-type">mitigationActionIdentifier_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="mitigationActionIdentifier_creationDate"><span class="annot"><span class="annottext">mitigationActionIdentifier_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; MitigationActionIdentifier -&gt; f MitigationActionIdentifier
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#mitigationActionIdentifier_creationDate"><span class="hs-identifier hs-var hs-var">mitigationActionIdentifier_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MitigationActionIdentifier -&gt; Maybe POSIX)
 -&gt; (MitigationActionIdentifier
@@ -196,16 +172,16 @@ $sel:actionArn:MitigationActionIdentifier' :: MitigationActionIdentifier -&gt; M
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789706"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790569"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:MitigationActionIdentifier' :: MitigationActionIdentifier -&gt; Maybe POSIX
-</span><a href="#local-6989586621679789706"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679789706"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789705"><span class="annot"><span class="annottext">s :: MitigationActionIdentifier
-</span><a href="#local-6989586621679789705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789704"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679789704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MitigationActionIdentifier
-</span><a href="#local-6989586621679789705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:MitigationActionIdentifier' :: Maybe POSIX
+</span><a href="#local-6989586621679790569"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790569"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790568"><span class="annot"><span class="annottext">s :: MitigationActionIdentifier
+</span><a href="#local-6989586621679790568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790567"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MitigationActionIdentifier
+</span><a href="#local-6989586621679790568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:MitigationActionIdentifier' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AcreationDate%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679789704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679790567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; MitigationActionIdentifier -&gt; f MitigationActionIdentifier)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -221,9 +197,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The IAM role ARN used to apply this mitigation action.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#mitigationActionIdentifier_actionArn"><span class="hs-identifier hs-type">mitigationActionIdentifier_actionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="mitigationActionIdentifier_actionArn"><span class="annot"><span class="annottext">mitigationActionIdentifier_actionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MitigationActionIdentifier -&gt; f MitigationActionIdentifier
+</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#mitigationActionIdentifier_actionArn"><span class="hs-identifier hs-var hs-var">mitigationActionIdentifier_actionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MitigationActionIdentifier -&gt; Maybe Text)
+-&gt; (MitigationActionIdentifier
+    -&gt; Maybe Text -&gt; MitigationActionIdentifier)
+-&gt; Lens
+     MitigationActionIdentifier
+     MitigationActionIdentifier
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790562"><span class="annot"><span class="annottext">Maybe Text
+actionArn :: Maybe Text
+$sel:actionArn:MitigationActionIdentifier' :: MitigationActionIdentifier -&gt; Maybe Text
+</span><a href="#local-6989586621679790562"><span class="hs-identifier hs-var hs-var">actionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790562"><span class="hs-identifier hs-var">actionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790561"><span class="annot"><span class="annottext">s :: MitigationActionIdentifier
+</span><a href="#local-6989586621679790561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-type">MitigationActionIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790560"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MitigationActionIdentifier
+</span><a href="#local-6989586621679790561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionArn:MitigationActionIdentifier' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#%24sel%3AactionArn%3AMitigationActionIdentifier%27"><span class="hs-identifier hs-var">actionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789698"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679789696"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MitigationActionIdentifier
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790557"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679790555"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MitigationActionIdentifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MitigationActionIdentifier)
@@ -233,41 +233,41 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MitigationActionIdentifier&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789693"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679789693"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790552"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790552"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text -&gt; Maybe POSIX -&gt; MitigationActionIdentifier
+-&gt; Maybe POSIX -&gt; Maybe Text -&gt; MitigationActionIdentifier
 </span><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier%27"><span class="hs-identifier hs-var">MitigationActionIdentifier'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text -&gt; Maybe POSIX -&gt; MitigationActionIdentifier)
+ -&gt; Maybe POSIX -&gt; Maybe Text -&gt; MitigationActionIdentifier)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; MitigationActionIdentifier)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; MitigationActionIdentifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679789693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679790552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; MitigationActionIdentifier)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; MitigationActionIdentifier)
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; MitigationActionIdentifier)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; MitigationActionIdentifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679789693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;actionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; MitigationActionIdentifier)
--&gt; Parser (Maybe POSIX) -&gt; Parser MitigationActionIdentifier
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679789693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679790552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MitigationActionIdentifier)
+-&gt; Parser (Maybe Text) -&gt; Parser MitigationActionIdentifier
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790552"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;actionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789687"><span id="local-6989586621679789689"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790546"><span id="local-6989586621679790548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

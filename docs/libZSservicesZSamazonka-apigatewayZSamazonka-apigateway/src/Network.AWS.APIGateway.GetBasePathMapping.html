@@ -35,8 +35,8 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#newBasePathMapping"><span class="hs-identifier">newBasePathMapping</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_basePath"><span class="hs-identifier">basePathMapping_basePath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_stage"><span class="hs-identifier">basePathMapping_stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_stage"><span class="hs-identifier">basePathMapping_stage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_basePath"><span class="hs-identifier">basePathMapping_basePath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#basePathMapping_restApiId"><span class="hs-identifier">basePathMapping_restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span class="hs-keyword">where</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Request to describe a BasePathMapping resource.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetBasePathMapping' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679384451"><span id="local-6989586621679384452"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBasePathMapping"><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-var">GetBasePathMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBasePathMapping%27"><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-var">GetBasePathMapping'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679385004"><span id="local-6989586621679385005"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBasePathMapping"><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-var">GetBasePathMapping</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBasePathMapping%27"><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-var">GetBasePathMapping'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The domain name of the BasePathMapping resource to be</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- described.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AdomainName%3AGetBasePathMapping%27"><span class="annot"><span class="annottext">GetBasePathMapping -&gt; Text
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AbasePath%3AGetBasePathMapping%27"><span class="annot"><span class="annottext">GetBasePathMapping -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#%24sel%3AbasePath%3AGetBasePathMapping%27"><span class="hs-identifier hs-var hs-var">basePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384444"><span id="local-6989586621679384446"><span class="annot"><span class="annottext">GetBasePathMapping -&gt; GetBasePathMapping -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384997"><span id="local-6989586621679384999"><span class="annot"><span class="annottext">GetBasePathMapping -&gt; GetBasePathMapping -&gt; Bool
 (GetBasePathMapping -&gt; GetBasePathMapping -&gt; Bool)
 -&gt; (GetBasePathMapping -&gt; GetBasePathMapping -&gt; Bool)
 -&gt; Eq GetBasePathMapping
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBasePathMapping -&gt; GetBasePathMapping -&gt; Bool
 == :: GetBasePathMapping -&gt; GetBasePathMapping -&gt; Bool
 $c== :: GetBasePathMapping -&gt; GetBasePathMapping -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384435"><span id="local-6989586621679384437"><span id="local-6989586621679384439"><span id="local-6989586621679384441"><span class="annot"><span class="annottext">ReadPrec [GetBasePathMapping]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384988"><span id="local-6989586621679384990"><span id="local-6989586621679384992"><span id="local-6989586621679384994"><span class="annot"><span class="annottext">ReadPrec [GetBasePathMapping]
 ReadPrec GetBasePathMapping
 Int -&gt; ReadS GetBasePathMapping
 ReadS [GetBasePathMapping]
@@ -92,7 +92,7 @@ readList :: ReadS [GetBasePathMapping]
 $creadList :: ReadS [GetBasePathMapping]
 readsPrec :: Int -&gt; ReadS GetBasePathMapping
 $creadsPrec :: Int -&gt; ReadS GetBasePathMapping
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384428"><span id="local-6989586621679384430"><span id="local-6989586621679384432"><span class="annot"><span class="annottext">Int -&gt; GetBasePathMapping -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384981"><span id="local-6989586621679384983"><span id="local-6989586621679384985"><span class="annot"><span class="annottext">Int -&gt; GetBasePathMapping -&gt; ShowS
 [GetBasePathMapping] -&gt; ShowS
 GetBasePathMapping -&gt; String
 (Int -&gt; GetBasePathMapping -&gt; ShowS)
@@ -140,17 +140,17 @@ $cfrom :: forall x. GetBasePathMapping -&gt; Rep GetBasePathMapping x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span>
 </span><span id="line-87"></span><span id="newGetBasePathMapping"><span class="annot"><span class="annottext">newGetBasePathMapping :: Text -&gt; Text -&gt; GetBasePathMapping
-</span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#newGetBasePathMapping"><span class="hs-identifier hs-var hs-var">newGetBasePathMapping</span></a></span></span><span> </span><span id="local-6989586621679384423"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384423"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679384422"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384422"><span class="hs-identifier hs-var">pBasePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#newGetBasePathMapping"><span class="hs-identifier hs-var hs-var">newGetBasePathMapping</span></a></span></span><span> </span><span id="local-6989586621679384976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384976"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679384975"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384975"><span class="hs-identifier hs-var">pBasePath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">GetBasePathMapping' :: Text -&gt; Text -&gt; GetBasePathMapping
 </span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:GetBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#%24sel%3AdomainName%3AGetBasePathMapping%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384423"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384976"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:basePath:GetBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#%24sel%3AbasePath%3AGetBasePathMapping%27"><span class="hs-identifier hs-var">basePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384422"><span class="hs-identifier hs-var">pBasePath_</span></a></span><span>
+</span><a href="#local-6989586621679384975"><span class="hs-identifier hs-var">pBasePath_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | [Required] The domain name of the BasePathMapping resource to be</span><span>
@@ -161,16 +161,16 @@ $cfrom :: forall x. GetBasePathMapping -&gt; Rep GetBasePathMapping x
 -&gt; (GetBasePathMapping -&gt; Text -&gt; GetBasePathMapping)
 -&gt; Lens GetBasePathMapping GetBasePathMapping Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384419"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384972"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:GetBasePathMapping' :: GetBasePathMapping -&gt; Text
-</span><a href="#local-6989586621679384419"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384419"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384418"><span class="annot"><span class="annottext">s :: GetBasePathMapping
-</span><a href="#local-6989586621679384418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384417"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBasePathMapping
-</span><a href="#local-6989586621679384418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetBasePathMapping' :: Text
+</span><a href="#local-6989586621679384972"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384972"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384971"><span class="annot"><span class="annottext">s :: GetBasePathMapping
+</span><a href="#local-6989586621679384971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBasePathMapping
+</span><a href="#local-6989586621679384971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:GetBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#%24sel%3AdomainName%3AGetBasePathMapping%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | [Required] The base path name that callers of the API must provide as</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- part of the URL after the domain name. This value must be unique for all</span><span>
@@ -182,25 +182,25 @@ $sel:domainName:GetBasePathMapping' :: GetBasePathMapping -&gt; Text
 -&gt; (GetBasePathMapping -&gt; Text -&gt; GetBasePathMapping)
 -&gt; Lens GetBasePathMapping GetBasePathMapping Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384416"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384969"><span class="annot"><span class="annottext">Text
 basePath :: Text
 $sel:basePath:GetBasePathMapping' :: GetBasePathMapping -&gt; Text
-</span><a href="#local-6989586621679384416"><span class="hs-identifier hs-var hs-var">basePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384416"><span class="hs-identifier hs-var">basePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384415"><span class="annot"><span class="annottext">s :: GetBasePathMapping
-</span><a href="#local-6989586621679384415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384414"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBasePathMapping
-</span><a href="#local-6989586621679384415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:basePath:GetBasePathMapping' :: Text
+</span><a href="#local-6989586621679384969"><span class="hs-identifier hs-var hs-var">basePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384969"><span class="hs-identifier hs-var">basePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384968"><span class="annot"><span class="annottext">s :: GetBasePathMapping
+</span><a href="#local-6989586621679384968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBasePathMapping
+</span><a href="#local-6989586621679384968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:basePath:GetBasePathMapping' :: Text
 </span><a href="Network.AWS.APIGateway.GetBasePathMapping.html#%24sel%3AbasePath%3AGetBasePathMapping%27"><span class="hs-identifier hs-var">basePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.BasePathMapping.html#BasePathMapping"><span class="hs-identifier hs-type">BasePathMapping</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679384410"><span class="annot"><span class="annottext">request :: GetBasePathMapping -&gt; Request GetBasePathMapping
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679384963"><span class="annot"><span class="annottext">request :: GetBasePathMapping -&gt; Request GetBasePathMapping
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBasePathMapping -&gt; Request GetBasePathMapping
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679384406"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679384959"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBasePathMapping
 -&gt; ClientResponse ClientBody
@@ -226,20 +226,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384403"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384403"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384402"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679384402"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384401"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384401"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String BasePathMapping
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384956"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384955"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384955"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384954"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String BasePathMapping
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384401"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384954"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384396"><span id="local-6989586621679384398"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384949"><span id="local-6989586621679384951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679384389"><span class="annot"><span class="annottext">toHeaders :: GetBasePathMapping -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679384942"><span class="annot"><span class="annottext">toHeaders :: GetBasePathMapping -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBasePathMapping -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -257,13 +257,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679384383"><span class="annot"><span class="annottext">toPath :: GetBasePathMapping -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384380"><span id="local-6989586621679384381"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679384936"><span class="annot"><span class="annottext">toPath :: GetBasePathMapping -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping%27"><span class="hs-identifier hs-type">GetBasePathMapping'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384933"><span id="local-6989586621679384934"><span class="annot"><span class="annottext">Text
 basePath :: Text
 domainName :: Text
 $sel:basePath:GetBasePathMapping' :: GetBasePathMapping -&gt; Text
 $sel:domainName:GetBasePathMapping' :: GetBasePathMapping -&gt; Text
-</span><a href="#local-6989586621679384380"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384933"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -272,17 +272,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384381"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384934"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/basepathmappings/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384380"><span class="hs-identifier hs-var">basePath</span></a></span><span>
+</span><a href="#local-6989586621679384933"><span class="hs-identifier hs-var">basePath</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetBasePathMapping.html#GetBasePathMapping"><span class="hs-identifier hs-type">GetBasePathMapping</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679384376"><span class="annot"><span class="annottext">toQuery :: GetBasePathMapping -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679384929"><span class="annot"><span class="annottext">toQuery :: GetBasePathMapping -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBasePathMapping -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

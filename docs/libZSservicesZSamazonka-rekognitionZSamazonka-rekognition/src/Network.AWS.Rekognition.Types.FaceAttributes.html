@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679323575"><span id="local-6989586621679323576"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FaceAttributes"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceAttributes.html#FaceAttributes"><span class="hs-identifier hs-var">FaceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceAttributes%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceAttributes.html#FaceAttributes%27"><span class="hs-identifier hs-var">FaceAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679323852"><span id="local-6989586621679323853"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FaceAttributes"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceAttributes.html#FaceAttributes"><span class="hs-identifier hs-var">FaceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceAttributes%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceAttributes.html#FaceAttributes%27"><span class="hs-identifier hs-var">FaceAttributes'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFaceAttributes"><span class="annot"><span class="annottext">FaceAttributes -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.FaceAttributes.html#fromFaceAttributes"><span class="hs-identifier hs-var hs-var">fromFaceAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323567"><span id="local-6989586621679323569"><span id="local-6989586621679323571"><span class="annot"><span class="annottext">Int -&gt; FaceAttributes -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323844"><span id="local-6989586621679323846"><span id="local-6989586621679323848"><span class="annot"><span class="annottext">Int -&gt; FaceAttributes -&gt; ShowS
 [FaceAttributes] -&gt; ShowS
 FaceAttributes -&gt; String
 (Int -&gt; FaceAttributes -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FaceAttributes -&gt; String
 showsPrec :: Int -&gt; FaceAttributes -&gt; ShowS
 $cshowsPrec :: Int -&gt; FaceAttributes -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679323558"><span id="local-6989586621679323560"><span id="local-6989586621679323562"><span id="local-6989586621679323564"><span class="annot"><span class="annottext">ReadPrec [FaceAttributes]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679323835"><span id="local-6989586621679323837"><span id="local-6989586621679323839"><span id="local-6989586621679323841"><span class="annot"><span class="annottext">ReadPrec [FaceAttributes]
 ReadPrec FaceAttributes
 Int -&gt; ReadS FaceAttributes
 ReadS [FaceAttributes]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FaceAttributes]
 readsPrec :: Int -&gt; ReadS FaceAttributes
 $creadsPrec :: Int -&gt; ReadS FaceAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679323553"><span id="local-6989586621679323555"><span class="annot"><span class="annottext">FaceAttributes -&gt; FaceAttributes -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679323830"><span id="local-6989586621679323832"><span class="annot"><span class="annottext">FaceAttributes -&gt; FaceAttributes -&gt; Bool
 (FaceAttributes -&gt; FaceAttributes -&gt; Bool)
 -&gt; (FaceAttributes -&gt; FaceAttributes -&gt; Bool) -&gt; Eq FaceAttributes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: FaceAttributes -&gt; FaceAttributes -&gt; Bool
 == :: FaceAttributes -&gt; FaceAttributes -&gt; Bool
 $c== :: FaceAttributes -&gt; FaceAttributes -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679323537"><span id="local-6989586621679323539"><span id="local-6989586621679323541"><span id="local-6989586621679323543"><span id="local-6989586621679323545"><span id="local-6989586621679323547"><span id="local-6989586621679323549"><span class="annot"><span class="annottext">Eq FaceAttributes
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679323814"><span id="local-6989586621679323816"><span id="local-6989586621679323818"><span id="local-6989586621679323820"><span id="local-6989586621679323822"><span id="local-6989586621679323824"><span id="local-6989586621679323826"><span class="annot"><span class="annottext">Eq FaceAttributes
 Eq FaceAttributes
 -&gt; (FaceAttributes -&gt; FaceAttributes -&gt; Ordering)
 -&gt; (FaceAttributes -&gt; FaceAttributes -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. FaceAttributes -&gt; Rep FaceAttributes x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323529"><span id="local-6989586621679323531"><span class="annot"><span class="annottext">Int -&gt; FaceAttributes -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323806"><span id="local-6989586621679323808"><span class="annot"><span class="annottext">Int -&gt; FaceAttributes -&gt; Int
 FaceAttributes -&gt; Int
 (Int -&gt; FaceAttributes -&gt; Int)
 -&gt; (FaceAttributes -&gt; Int) -&gt; Hashable FaceAttributes
@@ -142,50 +142,50 @@ $chash :: FaceAttributes -&gt; Int
 hashWithSalt :: Int -&gt; FaceAttributes -&gt; Int
 $chashWithSalt :: Int -&gt; FaceAttributes -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323526"><span class="annot"><span class="annottext">FaceAttributes -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323803"><span class="annot"><span class="annottext">FaceAttributes -&gt; ()
 (FaceAttributes -&gt; ()) -&gt; NFData FaceAttributes
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FaceAttributes -&gt; ()
 $crnf :: FaceAttributes -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323523"><span class="annot"><span class="annottext">Text -&gt; Either String FaceAttributes
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323800"><span class="annot"><span class="annottext">Text -&gt; Either String FaceAttributes
 (Text -&gt; Either String FaceAttributes) -&gt; FromText FaceAttributes
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FaceAttributes
 $cfromText :: Text -&gt; Either String FaceAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323520"><span class="annot"><span class="annottext">FaceAttributes -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323797"><span class="annot"><span class="annottext">FaceAttributes -&gt; Text
 (FaceAttributes -&gt; Text) -&gt; ToText FaceAttributes
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FaceAttributes -&gt; Text
 $ctoText :: FaceAttributes -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679323517"><span class="annot"><span class="annottext">FaceAttributes -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679323794"><span class="annot"><span class="annottext">FaceAttributes -&gt; ByteString
 (FaceAttributes -&gt; ByteString) -&gt; ToByteString FaceAttributes
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FaceAttributes -&gt; ByteString
 $ctoBS :: FaceAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679323514"><span class="annot"><span class="annottext">FaceAttributes -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679323791"><span class="annot"><span class="annottext">FaceAttributes -&gt; ByteStringBuilder
 (FaceAttributes -&gt; ByteStringBuilder) -&gt; ToLog FaceAttributes
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FaceAttributes -&gt; ByteStringBuilder
 $cbuild :: FaceAttributes -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679323511"><span class="annot"><span class="annottext">HeaderName -&gt; FaceAttributes -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679323788"><span class="annot"><span class="annottext">HeaderName -&gt; FaceAttributes -&gt; [Header]
 (HeaderName -&gt; FaceAttributes -&gt; [Header])
 -&gt; ToHeader FaceAttributes
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FaceAttributes -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FaceAttributes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679323508"><span class="annot"><span class="annottext">FaceAttributes -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679323785"><span class="annot"><span class="annottext">FaceAttributes -&gt; QueryString
 (FaceAttributes -&gt; QueryString) -&gt; ToQuery FaceAttributes
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FaceAttributes -&gt; QueryString
 $ctoQuery :: FaceAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323503"><span id="local-6989586621679323505"><span class="annot"><span class="annottext">Value -&gt; Parser [FaceAttributes]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323780"><span id="local-6989586621679323782"><span class="annot"><span class="annottext">Value -&gt; Parser [FaceAttributes]
 Value -&gt; Parser FaceAttributes
 (Value -&gt; Parser FaceAttributes)
 -&gt; (Value -&gt; Parser [FaceAttributes]) -&gt; FromJSON FaceAttributes
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [FaceAttributes]
 parseJSON :: Value -&gt; Parser FaceAttributes
 $cparseJSON :: Value -&gt; Parser FaceAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323498"><span id="local-6989586621679323500"><span class="annot"><span class="annottext">FromJSONKeyFunction [FaceAttributes]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323775"><span id="local-6989586621679323777"><span class="annot"><span class="annottext">FromJSONKeyFunction [FaceAttributes]
 FromJSONKeyFunction FaceAttributes
 FromJSONKeyFunction FaceAttributes
 -&gt; FromJSONKeyFunction [FaceAttributes]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FaceAttributes]
 fromJSONKey :: FromJSONKeyFunction FaceAttributes
 $cfromJSONKey :: FromJSONKeyFunction FaceAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323489"><span id="local-6989586621679323491"><span id="local-6989586621679323493"><span id="local-6989586621679323495"><span class="annot"><span class="annottext">[FaceAttributes] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323766"><span id="local-6989586621679323768"><span id="local-6989586621679323770"><span id="local-6989586621679323772"><span class="annot"><span class="annottext">[FaceAttributes] -&gt; Encoding
 [FaceAttributes] -&gt; Value
 FaceAttributes -&gt; Encoding
 FaceAttributes -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: FaceAttributes -&gt; Encoding
 toJSON :: FaceAttributes -&gt; Value
 $ctoJSON :: FaceAttributes -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323484"><span id="local-6989586621679323486"><span class="annot"><span class="annottext">ToJSONKeyFunction [FaceAttributes]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323761"><span id="local-6989586621679323763"><span class="annot"><span class="annottext">ToJSONKeyFunction [FaceAttributes]
 ToJSONKeyFunction FaceAttributes
 ToJSONKeyFunction FaceAttributes
 -&gt; ToJSONKeyFunction [FaceAttributes] -&gt; ToJSONKey FaceAttributes
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FaceAttributes]
 toJSONKey :: ToJSONKeyFunction FaceAttributes
 $ctoJSONKey :: ToJSONKeyFunction FaceAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323481"><span class="annot"><span class="annottext">[Node] -&gt; Either String FaceAttributes
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323758"><span class="annot"><span class="annottext">[Node] -&gt; Either String FaceAttributes
 ([Node] -&gt; Either String FaceAttributes) -&gt; FromXML FaceAttributes
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FaceAttributes
 $cparseXML :: [Node] -&gt; Either String FaceAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323478"><span class="annot"><span class="annottext">FaceAttributes -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323755"><span class="annot"><span class="annottext">FaceAttributes -&gt; XML
 (FaceAttributes -&gt; XML) -&gt; ToXML FaceAttributes
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FaceAttributes -&gt; XML

@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-cloudsearch-domainsZSamazonka-cloudsearch-domains
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.CloudSearchDomains.Types.Bucket
@@ -11,14 +11,14 @@ module Network.AWS.CloudSearchDomains.Types.Bucket
 --   
 --   <i>See:</i> <a>newBucket</a> smart constructor.
 data Bucket
-Bucket' :: Maybe Integer -> Maybe Text -> Bucket
+Bucket' :: Maybe Text -> Maybe Integer -> Bucket
+
+-- | The facet value being counted.
+[$sel:value:Bucket'] :: Bucket -> Maybe Text
 
 -- | The number of hits that contain the facet value in the specified facet
 --   field.
 [$sel:count:Bucket'] :: Bucket -> Maybe Integer
-
--- | The facet value being counted.
-[$sel:value:Bucket'] :: Bucket -> Maybe Text
 
 -- | Create a value of <a>Bucket</a> with all optional fields omitted.
 --   
@@ -28,19 +28,19 @@ Bucket' :: Maybe Integer -> Maybe Text -> Bucket
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:count:Bucket'</a>, <a>bucket_count</a> - The number of hits
---   that contain the facet value in the specified facet field.
---   
 --   <a>$sel:value:Bucket'</a>, <a>bucket_value</a> - The facet value being
 --   counted.
+--   
+--   <a>$sel:count:Bucket'</a>, <a>bucket_count</a> - The number of hits
+--   that contain the facet value in the specified facet field.
 newBucket :: Bucket
+
+-- | The facet value being counted.
+bucket_value :: Lens' Bucket (Maybe Text)
 
 -- | The number of hits that contain the facet value in the specified facet
 --   field.
 bucket_count :: Lens' Bucket (Maybe Integer)
-
--- | The facet value being counted.
-bucket_value :: Lens' Bucket (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
 instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
 instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
@@ -154,7 +154,17 @@ module Network.AWS.CloudSearchDomains.Types.FieldStats
 --   
 --   <i>See:</i> <a>newFieldStats</a> smart constructor.
 data FieldStats
-FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Maybe Double -> Maybe Text -> Maybe Integer -> Maybe Double -> FieldStats
+FieldStats' :: Maybe Text -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Double -> Maybe Text -> Maybe Double -> Maybe Double -> FieldStats
+
+-- | The maximum value found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+[$sel:max:FieldStats'] :: FieldStats -> Maybe Text
 
 -- | The average of the values found in the specified field in the result
 --   set.
@@ -167,13 +177,17 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 [$sel:mean:FieldStats'] :: FieldStats -> Maybe Text
 
+-- | The number of documents that contain a value in the specified field in
+--   the result set.
+[$sel:count:FieldStats'] :: FieldStats -> Maybe Integer
+
 -- | The number of documents that do not contain a value in the specified
 --   field in the result set.
 [$sel:missing:FieldStats'] :: FieldStats -> Maybe Integer
 
--- | The sum of the field values across the documents in the result set.
---   <tt>null</tt> for date fields.
-[$sel:sum:FieldStats'] :: FieldStats -> Maybe Double
+-- | The standard deviation of the values in the specified field in the
+--   result set.
+[$sel:stddev:FieldStats'] :: FieldStats -> Maybe Double
 
 -- | The minimum value found in the specified field in the result set.
 --   
@@ -185,26 +199,12 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 [$sel:min:FieldStats'] :: FieldStats -> Maybe Text
 
--- | The standard deviation of the values in the specified field in the
---   result set.
-[$sel:stddev:FieldStats'] :: FieldStats -> Maybe Double
-
--- | The maximum value found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
-[$sel:max:FieldStats'] :: FieldStats -> Maybe Text
-
--- | The number of documents that contain a value in the specified field in
---   the result set.
-[$sel:count:FieldStats'] :: FieldStats -> Maybe Integer
-
 -- | The sum of all field values in the result set squared.
 [$sel:sumOfSquares:FieldStats'] :: FieldStats -> Maybe Double
+
+-- | The sum of the field values across the documents in the result set.
+--   <tt>null</tt> for date fields.
+[$sel:sum:FieldStats'] :: FieldStats -> Maybe Double
 
 -- | Create a value of <a>FieldStats</a> with all optional fields omitted.
 --   
@@ -213,38 +213,6 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:mean:FieldStats'</a>, <a>fieldStats_mean</a> - The average of
---   the values found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>mean</tt> is the
---   string representation of a double-precision 64-bit floating point
---   value. If the field is <tt>date</tt> or <tt>date-array</tt>,
---   <tt>mean</tt> is the string representation of a date with the format
---   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
---   
---   <a>$sel:missing:FieldStats'</a>, <a>fieldStats_missing</a> - The
---   number of documents that do not contain a value in the specified field
---   in the result set.
---   
---   <a>$sel:sum:FieldStats'</a>, <a>fieldStats_sum</a> - The sum of the
---   field values across the documents in the result set. <tt>null</tt> for
---   date fields.
---   
---   <a>$sel:min:FieldStats'</a>, <a>fieldStats_min</a> - The minimum value
---   found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>min</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>min</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
---   
---   <a>$sel:stddev:FieldStats'</a>, <a>fieldStats_stddev</a> - The
---   standard deviation of the values in the specified field in the result
---   set.
 --   
 --   <a>$sel:max:FieldStats'</a>, <a>fieldStats_max</a> - The maximum value
 --   found in the specified field in the result set.
@@ -256,13 +224,55 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   string representation of a date with the format specified in <a>IETF
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 --   
+--   <a>$sel:mean:FieldStats'</a>, <a>fieldStats_mean</a> - The average of
+--   the values found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>mean</tt> is the
+--   string representation of a double-precision 64-bit floating point
+--   value. If the field is <tt>date</tt> or <tt>date-array</tt>,
+--   <tt>mean</tt> is the string representation of a date with the format
+--   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+--   
 --   <a>$sel:count:FieldStats'</a>, <a>fieldStats_count</a> - The number of
 --   documents that contain a value in the specified field in the result
 --   set.
 --   
+--   <a>$sel:missing:FieldStats'</a>, <a>fieldStats_missing</a> - The
+--   number of documents that do not contain a value in the specified field
+--   in the result set.
+--   
+--   <a>$sel:stddev:FieldStats'</a>, <a>fieldStats_stddev</a> - The
+--   standard deviation of the values in the specified field in the result
+--   set.
+--   
+--   <a>$sel:min:FieldStats'</a>, <a>fieldStats_min</a> - The minimum value
+--   found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>min</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>min</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+--   
 --   <a>$sel:sumOfSquares:FieldStats'</a>, <a>fieldStats_sumOfSquares</a> -
 --   The sum of all field values in the result set squared.
+--   
+--   <a>$sel:sum:FieldStats'</a>, <a>fieldStats_sum</a> - The sum of the
+--   field values across the documents in the result set. <tt>null</tt> for
+--   date fields.
 newFieldStats :: FieldStats
+
+-- | The maximum value found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+fieldStats_max :: Lens' FieldStats (Maybe Text)
 
 -- | The average of the values found in the specified field in the result
 --   set.
@@ -275,13 +285,17 @@ newFieldStats :: FieldStats
 --   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_mean :: Lens' FieldStats (Maybe Text)
 
+-- | The number of documents that contain a value in the specified field in
+--   the result set.
+fieldStats_count :: Lens' FieldStats (Maybe Integer)
+
 -- | The number of documents that do not contain a value in the specified
 --   field in the result set.
 fieldStats_missing :: Lens' FieldStats (Maybe Integer)
 
--- | The sum of the field values across the documents in the result set.
---   <tt>null</tt> for date fields.
-fieldStats_sum :: Lens' FieldStats (Maybe Double)
+-- | The standard deviation of the values in the specified field in the
+--   result set.
+fieldStats_stddev :: Lens' FieldStats (Maybe Double)
 
 -- | The minimum value found in the specified field in the result set.
 --   
@@ -293,26 +307,12 @@ fieldStats_sum :: Lens' FieldStats (Maybe Double)
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_min :: Lens' FieldStats (Maybe Text)
 
--- | The standard deviation of the values in the specified field in the
---   result set.
-fieldStats_stddev :: Lens' FieldStats (Maybe Double)
-
--- | The maximum value found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
-fieldStats_max :: Lens' FieldStats (Maybe Text)
-
--- | The number of documents that contain a value in the specified field in
---   the result set.
-fieldStats_count :: Lens' FieldStats (Maybe Integer)
-
 -- | The sum of all field values in the result set squared.
 fieldStats_sumOfSquares :: Lens' FieldStats (Maybe Double)
+
+-- | The sum of the field values across the documents in the result set.
+--   <tt>null</tt> for date fields.
+fieldStats_sum :: Lens' FieldStats (Maybe Double)
 instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
 instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
 instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
@@ -328,21 +328,21 @@ module Network.AWS.CloudSearchDomains.Types.Hit
 --   
 --   <i>See:</i> <a>newHit</a> smart constructor.
 data Hit
-Hit' :: Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -> Maybe (HashMap Text Text) -> Hit
-
--- | The document ID of a document that matches the search request.
-[$sel:id:Hit'] :: Hit -> Maybe Text
+Hit' :: Maybe (HashMap Text Text) -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -> Hit
 
 -- | The expressions returned from a document that matches the search
 --   request.
 [$sel:exprs:Hit'] :: Hit -> Maybe (HashMap Text Text)
 
--- | The fields returned from a document that matches the search request.
-[$sel:fields:Hit'] :: Hit -> Maybe (HashMap Text [Text])
+-- | The document ID of a document that matches the search request.
+[$sel:id:Hit'] :: Hit -> Maybe Text
 
 -- | The highlights returned from a document that matches the search
 --   request.
 [$sel:highlights:Hit'] :: Hit -> Maybe (HashMap Text Text)
+
+-- | The fields returned from a document that matches the search request.
+[$sel:fields:Hit'] :: Hit -> Maybe (HashMap Text [Text])
 
 -- | Create a value of <a>Hit</a> with all optional fields omitted.
 --   
@@ -352,32 +352,32 @@ Hit' :: Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:id:Hit'</a>, <a>hit_id</a> - The document ID of a document
---   that matches the search request.
---   
 --   <a>$sel:exprs:Hit'</a>, <a>hit_exprs</a> - The expressions returned
 --   from a document that matches the search request.
 --   
---   <a>$sel:fields:Hit'</a>, <a>hit_fields</a> - The fields returned from
---   a document that matches the search request.
+--   <a>$sel:id:Hit'</a>, <a>hit_id</a> - The document ID of a document
+--   that matches the search request.
 --   
 --   <a>$sel:highlights:Hit'</a>, <a>hit_highlights</a> - The highlights
 --   returned from a document that matches the search request.
+--   
+--   <a>$sel:fields:Hit'</a>, <a>hit_fields</a> - The fields returned from
+--   a document that matches the search request.
 newHit :: Hit
-
--- | The document ID of a document that matches the search request.
-hit_id :: Lens' Hit (Maybe Text)
 
 -- | The expressions returned from a document that matches the search
 --   request.
 hit_exprs :: Lens' Hit (Maybe (HashMap Text Text))
 
--- | The fields returned from a document that matches the search request.
-hit_fields :: Lens' Hit (Maybe (HashMap Text [Text]))
+-- | The document ID of a document that matches the search request.
+hit_id :: Lens' Hit (Maybe Text)
 
 -- | The highlights returned from a document that matches the search
 --   request.
 hit_highlights :: Lens' Hit (Maybe (HashMap Text Text))
+
+-- | The fields returned from a document that matches the search request.
+hit_fields :: Lens' Hit (Maybe (HashMap Text [Text]))
 instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.Hit.Hit
 instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.Hit.Hit
 instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.Hit.Hit
@@ -393,20 +393,20 @@ module Network.AWS.CloudSearchDomains.Types.Hits
 --   
 --   <i>See:</i> <a>newHits</a> smart constructor.
 data Hits
-Hits' :: Maybe Integer -> Maybe [Hit] -> Maybe Text -> Maybe Integer -> Hits
-
--- | The total number of documents that match the search request.
-[$sel:found:Hits'] :: Hits -> Maybe Integer
-
--- | A document that matches the search request.
-[$sel:hit:Hits'] :: Hits -> Maybe [Hit]
+Hits' :: Maybe Text -> Maybe [Hit] -> Maybe Integer -> Maybe Integer -> Hits
 
 -- | A cursor that can be used to retrieve the next set of matching
 --   documents when you want to page through a large result set.
 [$sel:cursor:Hits'] :: Hits -> Maybe Text
 
+-- | A document that matches the search request.
+[$sel:hit:Hits'] :: Hits -> Maybe [Hit]
+
 -- | The index of the first matching document.
 [$sel:start:Hits'] :: Hits -> Maybe Integer
+
+-- | The total number of documents that match the search request.
+[$sel:found:Hits'] :: Hits -> Maybe Integer
 
 -- | Create a value of <a>Hits</a> with all optional fields omitted.
 --   
@@ -416,32 +416,32 @@ Hits' :: Maybe Integer -> Maybe [Hit] -> Maybe Text -> Maybe Integer -> Hits
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:found:Hits'</a>, <a>hits_found</a> - The total number of
---   documents that match the search request.
---   
---   <a>$sel:hit:Hits'</a>, <a>hits_hit</a> - A document that matches the
---   search request.
---   
 --   <a>$sel:cursor:Hits'</a>, <a>hits_cursor</a> - A cursor that can be
 --   used to retrieve the next set of matching documents when you want to
 --   page through a large result set.
 --   
+--   <a>$sel:hit:Hits'</a>, <a>hits_hit</a> - A document that matches the
+--   search request.
+--   
 --   <a>$sel:start:Hits'</a>, <a>hits_start</a> - The index of the first
 --   matching document.
+--   
+--   <a>$sel:found:Hits'</a>, <a>hits_found</a> - The total number of
+--   documents that match the search request.
 newHits :: Hits
-
--- | The total number of documents that match the search request.
-hits_found :: Lens' Hits (Maybe Integer)
-
--- | A document that matches the search request.
-hits_hit :: Lens' Hits (Maybe [Hit])
 
 -- | A cursor that can be used to retrieve the next set of matching
 --   documents when you want to page through a large result set.
 hits_cursor :: Lens' Hits (Maybe Text)
 
+-- | A document that matches the search request.
+hits_hit :: Lens' Hits (Maybe [Hit])
+
 -- | The index of the first matching document.
 hits_start :: Lens' Hits (Maybe Integer)
+
+-- | The total number of documents that match the search request.
+hits_found :: Lens' Hits (Maybe Integer)
 instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.Hits.Hits
 instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.Hits.Hits
 instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.Hits.Hits
@@ -487,13 +487,13 @@ module Network.AWS.CloudSearchDomains.Types.SearchStatus
 --   
 --   <i>See:</i> <a>newSearchStatus</a> smart constructor.
 data SearchStatus
-SearchStatus' :: Maybe Integer -> Maybe Text -> SearchStatus
-
--- | How long it took to process the request, in milliseconds.
-[$sel:timems:SearchStatus'] :: SearchStatus -> Maybe Integer
+SearchStatus' :: Maybe Text -> Maybe Integer -> SearchStatus
 
 -- | The encrypted resource ID for the request.
 [$sel:rid:SearchStatus'] :: SearchStatus -> Maybe Text
+
+-- | How long it took to process the request, in milliseconds.
+[$sel:timems:SearchStatus'] :: SearchStatus -> Maybe Integer
 
 -- | Create a value of <a>SearchStatus</a> with all optional fields
 --   omitted.
@@ -504,18 +504,18 @@ SearchStatus' :: Maybe Integer -> Maybe Text -> SearchStatus
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timems:SearchStatus'</a>, <a>searchStatus_timems</a> - How
---   long it took to process the request, in milliseconds.
---   
 --   <a>$sel:rid:SearchStatus'</a>, <a>searchStatus_rid</a> - The encrypted
 --   resource ID for the request.
+--   
+--   <a>$sel:timems:SearchStatus'</a>, <a>searchStatus_timems</a> - How
+--   long it took to process the request, in milliseconds.
 newSearchStatus :: SearchStatus
-
--- | How long it took to process the request, in milliseconds.
-searchStatus_timems :: Lens' SearchStatus (Maybe Integer)
 
 -- | The encrypted resource ID for the request.
 searchStatus_rid :: Lens' SearchStatus (Maybe Text)
+
+-- | How long it took to process the request, in milliseconds.
+searchStatus_timems :: Lens' SearchStatus (Maybe Integer)
 instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
 instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
 instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
@@ -532,13 +532,13 @@ module Network.AWS.CloudSearchDomains.Types.SuggestStatus
 --   
 --   <i>See:</i> <a>newSuggestStatus</a> smart constructor.
 data SuggestStatus
-SuggestStatus' :: Maybe Integer -> Maybe Text -> SuggestStatus
-
--- | How long it took to process the request, in milliseconds.
-[$sel:timems:SuggestStatus'] :: SuggestStatus -> Maybe Integer
+SuggestStatus' :: Maybe Text -> Maybe Integer -> SuggestStatus
 
 -- | The encrypted resource ID for the request.
 [$sel:rid:SuggestStatus'] :: SuggestStatus -> Maybe Text
+
+-- | How long it took to process the request, in milliseconds.
+[$sel:timems:SuggestStatus'] :: SuggestStatus -> Maybe Integer
 
 -- | Create a value of <a>SuggestStatus</a> with all optional fields
 --   omitted.
@@ -549,18 +549,18 @@ SuggestStatus' :: Maybe Integer -> Maybe Text -> SuggestStatus
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timems:SuggestStatus'</a>, <a>suggestStatus_timems</a> - How
---   long it took to process the request, in milliseconds.
---   
 --   <a>$sel:rid:SuggestStatus'</a>, <a>suggestStatus_rid</a> - The
 --   encrypted resource ID for the request.
+--   
+--   <a>$sel:timems:SuggestStatus'</a>, <a>suggestStatus_timems</a> - How
+--   long it took to process the request, in milliseconds.
 newSuggestStatus :: SuggestStatus
-
--- | How long it took to process the request, in milliseconds.
-suggestStatus_timems :: Lens' SuggestStatus (Maybe Integer)
 
 -- | The encrypted resource ID for the request.
 suggestStatus_rid :: Lens' SuggestStatus (Maybe Text)
+
+-- | How long it took to process the request, in milliseconds.
+suggestStatus_timems :: Lens' SuggestStatus (Maybe Integer)
 instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
 instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
 instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
@@ -577,17 +577,17 @@ module Network.AWS.CloudSearchDomains.Types.SuggestionMatch
 --   
 --   <i>See:</i> <a>newSuggestionMatch</a> smart constructor.
 data SuggestionMatch
-SuggestionMatch' :: Maybe Text -> Maybe Text -> Maybe Integer -> SuggestionMatch
+SuggestionMatch' :: Maybe Text -> Maybe Integer -> Maybe Text -> SuggestionMatch
 
 -- | The string that matches the query string specified in the
 --   <tt>SuggestRequest</tt>.
 [$sel:suggestion:SuggestionMatch'] :: SuggestionMatch -> Maybe Text
 
--- | The document ID of the suggested document.
-[$sel:id:SuggestionMatch'] :: SuggestionMatch -> Maybe Text
-
 -- | The relevance score of a suggested match.
 [$sel:score:SuggestionMatch'] :: SuggestionMatch -> Maybe Integer
+
+-- | The document ID of the suggested document.
+[$sel:id:SuggestionMatch'] :: SuggestionMatch -> Maybe Text
 
 -- | Create a value of <a>SuggestionMatch</a> with all optional fields
 --   omitted.
@@ -602,22 +602,22 @@ SuggestionMatch' :: Maybe Text -> Maybe Text -> Maybe Integer -> SuggestionMatch
 --   <a>suggestionMatch_suggestion</a> - The string that matches the query
 --   string specified in the <tt>SuggestRequest</tt>.
 --   
---   <a>$sel:id:SuggestionMatch'</a>, <a>suggestionMatch_id</a> - The
---   document ID of the suggested document.
---   
 --   <a>$sel:score:SuggestionMatch'</a>, <a>suggestionMatch_score</a> - The
 --   relevance score of a suggested match.
+--   
+--   <a>$sel:id:SuggestionMatch'</a>, <a>suggestionMatch_id</a> - The
+--   document ID of the suggested document.
 newSuggestionMatch :: SuggestionMatch
 
 -- | The string that matches the query string specified in the
 --   <tt>SuggestRequest</tt>.
 suggestionMatch_suggestion :: Lens' SuggestionMatch (Maybe Text)
 
--- | The document ID of the suggested document.
-suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
-
 -- | The relevance score of a suggested match.
 suggestionMatch_score :: Lens' SuggestionMatch (Maybe Integer)
+
+-- | The document ID of the suggested document.
+suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
 instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
 instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
@@ -634,13 +634,13 @@ module Network.AWS.CloudSearchDomains.Types.SuggestModel
 --   
 --   <i>See:</i> <a>newSuggestModel</a> smart constructor.
 data SuggestModel
-SuggestModel' :: Maybe [SuggestionMatch] -> Maybe Integer -> Maybe Text -> SuggestModel
-
--- | The documents that match the query string.
-[$sel:suggestions:SuggestModel'] :: SuggestModel -> Maybe [SuggestionMatch]
+SuggestModel' :: Maybe Integer -> Maybe [SuggestionMatch] -> Maybe Text -> SuggestModel
 
 -- | The number of documents that were found to match the query string.
 [$sel:found:SuggestModel'] :: SuggestModel -> Maybe Integer
+
+-- | The documents that match the query string.
+[$sel:suggestions:SuggestModel'] :: SuggestModel -> Maybe [SuggestionMatch]
 
 -- | The query string specified in the suggest request.
 [$sel:query:SuggestModel'] :: SuggestModel -> Maybe Text
@@ -654,21 +654,21 @@ SuggestModel' :: Maybe [SuggestionMatch] -> Maybe Integer -> Maybe Text -> Sugge
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:suggestions:SuggestModel'</a>, <a>suggestModel_suggestions</a>
---   - The documents that match the query string.
---   
 --   <a>$sel:found:SuggestModel'</a>, <a>suggestModel_found</a> - The
 --   number of documents that were found to match the query string.
+--   
+--   <a>$sel:suggestions:SuggestModel'</a>, <a>suggestModel_suggestions</a>
+--   - The documents that match the query string.
 --   
 --   <a>$sel:query:SuggestModel'</a>, <a>suggestModel_query</a> - The query
 --   string specified in the suggest request.
 newSuggestModel :: SuggestModel
 
--- | The documents that match the query string.
-suggestModel_suggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
-
 -- | The number of documents that were found to match the query string.
 suggestModel_found :: Lens' SuggestModel (Maybe Integer)
+
+-- | The documents that match the query string.
+suggestModel_suggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
 
 -- | The query string specified in the suggest request.
 suggestModel_query :: Lens' SuggestModel (Maybe Text)
@@ -687,13 +687,13 @@ module Network.AWS.CloudSearchDomains.Types
 --   configuration.
 defaultService :: Service
 
--- | Information about any problems encountered while processing a search
---   request.
-_SearchException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | Information about any problems encountered while processing an upload
 --   request.
 _DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Information about any problems encountered while processing a search
+--   request.
+_SearchException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype ContentType
 ContentType' :: Text -> ContentType
 [fromContentType] :: ContentType -> Text
@@ -711,14 +711,14 @@ pattern QueryParser_Structured :: QueryParser
 --   
 --   <i>See:</i> <a>newBucket</a> smart constructor.
 data Bucket
-Bucket' :: Maybe Integer -> Maybe Text -> Bucket
+Bucket' :: Maybe Text -> Maybe Integer -> Bucket
+
+-- | The facet value being counted.
+[$sel:value:Bucket'] :: Bucket -> Maybe Text
 
 -- | The number of hits that contain the facet value in the specified facet
 --   field.
 [$sel:count:Bucket'] :: Bucket -> Maybe Integer
-
--- | The facet value being counted.
-[$sel:value:Bucket'] :: Bucket -> Maybe Text
 
 -- | Create a value of <a>Bucket</a> with all optional fields omitted.
 --   
@@ -728,19 +728,19 @@ Bucket' :: Maybe Integer -> Maybe Text -> Bucket
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:count:Bucket'</a>, <a>bucket_count</a> - The number of hits
---   that contain the facet value in the specified facet field.
---   
 --   <a>$sel:value:Bucket'</a>, <a>bucket_value</a> - The facet value being
 --   counted.
+--   
+--   <a>$sel:count:Bucket'</a>, <a>bucket_count</a> - The number of hits
+--   that contain the facet value in the specified facet field.
 newBucket :: Bucket
+
+-- | The facet value being counted.
+bucket_value :: Lens' Bucket (Maybe Text)
 
 -- | The number of hits that contain the facet value in the specified facet
 --   field.
 bucket_count :: Lens' Bucket (Maybe Integer)
-
--- | The facet value being counted.
-bucket_value :: Lens' Bucket (Maybe Text)
 
 -- | A container for the calculated facet values and counts.
 --   
@@ -797,7 +797,17 @@ documentServiceWarning_message :: Lens' DocumentServiceWarning (Maybe Text)
 --   
 --   <i>See:</i> <a>newFieldStats</a> smart constructor.
 data FieldStats
-FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Maybe Double -> Maybe Text -> Maybe Integer -> Maybe Double -> FieldStats
+FieldStats' :: Maybe Text -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Double -> Maybe Text -> Maybe Double -> Maybe Double -> FieldStats
+
+-- | The maximum value found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+[$sel:max:FieldStats'] :: FieldStats -> Maybe Text
 
 -- | The average of the values found in the specified field in the result
 --   set.
@@ -810,13 +820,17 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 [$sel:mean:FieldStats'] :: FieldStats -> Maybe Text
 
+-- | The number of documents that contain a value in the specified field in
+--   the result set.
+[$sel:count:FieldStats'] :: FieldStats -> Maybe Integer
+
 -- | The number of documents that do not contain a value in the specified
 --   field in the result set.
 [$sel:missing:FieldStats'] :: FieldStats -> Maybe Integer
 
--- | The sum of the field values across the documents in the result set.
---   <tt>null</tt> for date fields.
-[$sel:sum:FieldStats'] :: FieldStats -> Maybe Double
+-- | The standard deviation of the values in the specified field in the
+--   result set.
+[$sel:stddev:FieldStats'] :: FieldStats -> Maybe Double
 
 -- | The minimum value found in the specified field in the result set.
 --   
@@ -828,26 +842,12 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 [$sel:min:FieldStats'] :: FieldStats -> Maybe Text
 
--- | The standard deviation of the values in the specified field in the
---   result set.
-[$sel:stddev:FieldStats'] :: FieldStats -> Maybe Double
-
--- | The maximum value found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
-[$sel:max:FieldStats'] :: FieldStats -> Maybe Text
-
--- | The number of documents that contain a value in the specified field in
---   the result set.
-[$sel:count:FieldStats'] :: FieldStats -> Maybe Integer
-
 -- | The sum of all field values in the result set squared.
 [$sel:sumOfSquares:FieldStats'] :: FieldStats -> Maybe Double
+
+-- | The sum of the field values across the documents in the result set.
+--   <tt>null</tt> for date fields.
+[$sel:sum:FieldStats'] :: FieldStats -> Maybe Double
 
 -- | Create a value of <a>FieldStats</a> with all optional fields omitted.
 --   
@@ -856,38 +856,6 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:mean:FieldStats'</a>, <a>fieldStats_mean</a> - The average of
---   the values found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>mean</tt> is the
---   string representation of a double-precision 64-bit floating point
---   value. If the field is <tt>date</tt> or <tt>date-array</tt>,
---   <tt>mean</tt> is the string representation of a date with the format
---   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
---   
---   <a>$sel:missing:FieldStats'</a>, <a>fieldStats_missing</a> - The
---   number of documents that do not contain a value in the specified field
---   in the result set.
---   
---   <a>$sel:sum:FieldStats'</a>, <a>fieldStats_sum</a> - The sum of the
---   field values across the documents in the result set. <tt>null</tt> for
---   date fields.
---   
---   <a>$sel:min:FieldStats'</a>, <a>fieldStats_min</a> - The minimum value
---   found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>min</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>min</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
---   
---   <a>$sel:stddev:FieldStats'</a>, <a>fieldStats_stddev</a> - The
---   standard deviation of the values in the specified field in the result
---   set.
 --   
 --   <a>$sel:max:FieldStats'</a>, <a>fieldStats_max</a> - The maximum value
 --   found in the specified field in the result set.
@@ -899,13 +867,55 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   string representation of a date with the format specified in <a>IETF
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 --   
+--   <a>$sel:mean:FieldStats'</a>, <a>fieldStats_mean</a> - The average of
+--   the values found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>mean</tt> is the
+--   string representation of a double-precision 64-bit floating point
+--   value. If the field is <tt>date</tt> or <tt>date-array</tt>,
+--   <tt>mean</tt> is the string representation of a date with the format
+--   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+--   
 --   <a>$sel:count:FieldStats'</a>, <a>fieldStats_count</a> - The number of
 --   documents that contain a value in the specified field in the result
 --   set.
 --   
+--   <a>$sel:missing:FieldStats'</a>, <a>fieldStats_missing</a> - The
+--   number of documents that do not contain a value in the specified field
+--   in the result set.
+--   
+--   <a>$sel:stddev:FieldStats'</a>, <a>fieldStats_stddev</a> - The
+--   standard deviation of the values in the specified field in the result
+--   set.
+--   
+--   <a>$sel:min:FieldStats'</a>, <a>fieldStats_min</a> - The minimum value
+--   found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>min</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>min</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+--   
 --   <a>$sel:sumOfSquares:FieldStats'</a>, <a>fieldStats_sumOfSquares</a> -
 --   The sum of all field values in the result set squared.
+--   
+--   <a>$sel:sum:FieldStats'</a>, <a>fieldStats_sum</a> - The sum of the
+--   field values across the documents in the result set. <tt>null</tt> for
+--   date fields.
 newFieldStats :: FieldStats
+
+-- | The maximum value found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+fieldStats_max :: Lens' FieldStats (Maybe Text)
 
 -- | The average of the values found in the specified field in the result
 --   set.
@@ -918,13 +928,17 @@ newFieldStats :: FieldStats
 --   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_mean :: Lens' FieldStats (Maybe Text)
 
+-- | The number of documents that contain a value in the specified field in
+--   the result set.
+fieldStats_count :: Lens' FieldStats (Maybe Integer)
+
 -- | The number of documents that do not contain a value in the specified
 --   field in the result set.
 fieldStats_missing :: Lens' FieldStats (Maybe Integer)
 
--- | The sum of the field values across the documents in the result set.
---   <tt>null</tt> for date fields.
-fieldStats_sum :: Lens' FieldStats (Maybe Double)
+-- | The standard deviation of the values in the specified field in the
+--   result set.
+fieldStats_stddev :: Lens' FieldStats (Maybe Double)
 
 -- | The minimum value found in the specified field in the result set.
 --   
@@ -936,46 +950,32 @@ fieldStats_sum :: Lens' FieldStats (Maybe Double)
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_min :: Lens' FieldStats (Maybe Text)
 
--- | The standard deviation of the values in the specified field in the
---   result set.
-fieldStats_stddev :: Lens' FieldStats (Maybe Double)
-
--- | The maximum value found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
-fieldStats_max :: Lens' FieldStats (Maybe Text)
-
--- | The number of documents that contain a value in the specified field in
---   the result set.
-fieldStats_count :: Lens' FieldStats (Maybe Integer)
-
 -- | The sum of all field values in the result set squared.
 fieldStats_sumOfSquares :: Lens' FieldStats (Maybe Double)
+
+-- | The sum of the field values across the documents in the result set.
+--   <tt>null</tt> for date fields.
+fieldStats_sum :: Lens' FieldStats (Maybe Double)
 
 -- | Information about a document that matches the search request.
 --   
 --   <i>See:</i> <a>newHit</a> smart constructor.
 data Hit
-Hit' :: Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -> Maybe (HashMap Text Text) -> Hit
-
--- | The document ID of a document that matches the search request.
-[$sel:id:Hit'] :: Hit -> Maybe Text
+Hit' :: Maybe (HashMap Text Text) -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -> Hit
 
 -- | The expressions returned from a document that matches the search
 --   request.
 [$sel:exprs:Hit'] :: Hit -> Maybe (HashMap Text Text)
 
--- | The fields returned from a document that matches the search request.
-[$sel:fields:Hit'] :: Hit -> Maybe (HashMap Text [Text])
+-- | The document ID of a document that matches the search request.
+[$sel:id:Hit'] :: Hit -> Maybe Text
 
 -- | The highlights returned from a document that matches the search
 --   request.
 [$sel:highlights:Hit'] :: Hit -> Maybe (HashMap Text Text)
+
+-- | The fields returned from a document that matches the search request.
+[$sel:fields:Hit'] :: Hit -> Maybe (HashMap Text [Text])
 
 -- | Create a value of <a>Hit</a> with all optional fields omitted.
 --   
@@ -985,51 +985,51 @@ Hit' :: Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:id:Hit'</a>, <a>hit_id</a> - The document ID of a document
---   that matches the search request.
---   
 --   <a>$sel:exprs:Hit'</a>, <a>hit_exprs</a> - The expressions returned
 --   from a document that matches the search request.
 --   
---   <a>$sel:fields:Hit'</a>, <a>hit_fields</a> - The fields returned from
---   a document that matches the search request.
+--   <a>$sel:id:Hit'</a>, <a>hit_id</a> - The document ID of a document
+--   that matches the search request.
 --   
 --   <a>$sel:highlights:Hit'</a>, <a>hit_highlights</a> - The highlights
 --   returned from a document that matches the search request.
+--   
+--   <a>$sel:fields:Hit'</a>, <a>hit_fields</a> - The fields returned from
+--   a document that matches the search request.
 newHit :: Hit
-
--- | The document ID of a document that matches the search request.
-hit_id :: Lens' Hit (Maybe Text)
 
 -- | The expressions returned from a document that matches the search
 --   request.
 hit_exprs :: Lens' Hit (Maybe (HashMap Text Text))
 
--- | The fields returned from a document that matches the search request.
-hit_fields :: Lens' Hit (Maybe (HashMap Text [Text]))
+-- | The document ID of a document that matches the search request.
+hit_id :: Lens' Hit (Maybe Text)
 
 -- | The highlights returned from a document that matches the search
 --   request.
 hit_highlights :: Lens' Hit (Maybe (HashMap Text Text))
 
+-- | The fields returned from a document that matches the search request.
+hit_fields :: Lens' Hit (Maybe (HashMap Text [Text]))
+
 -- | The collection of documents that match the search request.
 --   
 --   <i>See:</i> <a>newHits</a> smart constructor.
 data Hits
-Hits' :: Maybe Integer -> Maybe [Hit] -> Maybe Text -> Maybe Integer -> Hits
-
--- | The total number of documents that match the search request.
-[$sel:found:Hits'] :: Hits -> Maybe Integer
-
--- | A document that matches the search request.
-[$sel:hit:Hits'] :: Hits -> Maybe [Hit]
+Hits' :: Maybe Text -> Maybe [Hit] -> Maybe Integer -> Maybe Integer -> Hits
 
 -- | A cursor that can be used to retrieve the next set of matching
 --   documents when you want to page through a large result set.
 [$sel:cursor:Hits'] :: Hits -> Maybe Text
 
+-- | A document that matches the search request.
+[$sel:hit:Hits'] :: Hits -> Maybe [Hit]
+
 -- | The index of the first matching document.
 [$sel:start:Hits'] :: Hits -> Maybe Integer
+
+-- | The total number of documents that match the search request.
+[$sel:found:Hits'] :: Hits -> Maybe Integer
 
 -- | Create a value of <a>Hits</a> with all optional fields omitted.
 --   
@@ -1039,45 +1039,45 @@ Hits' :: Maybe Integer -> Maybe [Hit] -> Maybe Text -> Maybe Integer -> Hits
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:found:Hits'</a>, <a>hits_found</a> - The total number of
---   documents that match the search request.
---   
---   <a>$sel:hit:Hits'</a>, <a>hits_hit</a> - A document that matches the
---   search request.
---   
 --   <a>$sel:cursor:Hits'</a>, <a>hits_cursor</a> - A cursor that can be
 --   used to retrieve the next set of matching documents when you want to
 --   page through a large result set.
 --   
+--   <a>$sel:hit:Hits'</a>, <a>hits_hit</a> - A document that matches the
+--   search request.
+--   
 --   <a>$sel:start:Hits'</a>, <a>hits_start</a> - The index of the first
 --   matching document.
+--   
+--   <a>$sel:found:Hits'</a>, <a>hits_found</a> - The total number of
+--   documents that match the search request.
 newHits :: Hits
-
--- | The total number of documents that match the search request.
-hits_found :: Lens' Hits (Maybe Integer)
-
--- | A document that matches the search request.
-hits_hit :: Lens' Hits (Maybe [Hit])
 
 -- | A cursor that can be used to retrieve the next set of matching
 --   documents when you want to page through a large result set.
 hits_cursor :: Lens' Hits (Maybe Text)
 
+-- | A document that matches the search request.
+hits_hit :: Lens' Hits (Maybe [Hit])
+
 -- | The index of the first matching document.
 hits_start :: Lens' Hits (Maybe Integer)
+
+-- | The total number of documents that match the search request.
+hits_found :: Lens' Hits (Maybe Integer)
 
 -- | Contains the resource id (<tt>rid</tt>) and the time it took to
 --   process the request (<tt>timems</tt>).
 --   
 --   <i>See:</i> <a>newSearchStatus</a> smart constructor.
 data SearchStatus
-SearchStatus' :: Maybe Integer -> Maybe Text -> SearchStatus
-
--- | How long it took to process the request, in milliseconds.
-[$sel:timems:SearchStatus'] :: SearchStatus -> Maybe Integer
+SearchStatus' :: Maybe Text -> Maybe Integer -> SearchStatus
 
 -- | The encrypted resource ID for the request.
 [$sel:rid:SearchStatus'] :: SearchStatus -> Maybe Text
+
+-- | How long it took to process the request, in milliseconds.
+[$sel:timems:SearchStatus'] :: SearchStatus -> Maybe Integer
 
 -- | Create a value of <a>SearchStatus</a> with all optional fields
 --   omitted.
@@ -1088,31 +1088,31 @@ SearchStatus' :: Maybe Integer -> Maybe Text -> SearchStatus
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timems:SearchStatus'</a>, <a>searchStatus_timems</a> - How
---   long it took to process the request, in milliseconds.
---   
 --   <a>$sel:rid:SearchStatus'</a>, <a>searchStatus_rid</a> - The encrypted
 --   resource ID for the request.
+--   
+--   <a>$sel:timems:SearchStatus'</a>, <a>searchStatus_timems</a> - How
+--   long it took to process the request, in milliseconds.
 newSearchStatus :: SearchStatus
-
--- | How long it took to process the request, in milliseconds.
-searchStatus_timems :: Lens' SearchStatus (Maybe Integer)
 
 -- | The encrypted resource ID for the request.
 searchStatus_rid :: Lens' SearchStatus (Maybe Text)
+
+-- | How long it took to process the request, in milliseconds.
+searchStatus_timems :: Lens' SearchStatus (Maybe Integer)
 
 -- | Container for the suggestion information returned in a
 --   <tt>SuggestResponse</tt>.
 --   
 --   <i>See:</i> <a>newSuggestModel</a> smart constructor.
 data SuggestModel
-SuggestModel' :: Maybe [SuggestionMatch] -> Maybe Integer -> Maybe Text -> SuggestModel
-
--- | The documents that match the query string.
-[$sel:suggestions:SuggestModel'] :: SuggestModel -> Maybe [SuggestionMatch]
+SuggestModel' :: Maybe Integer -> Maybe [SuggestionMatch] -> Maybe Text -> SuggestModel
 
 -- | The number of documents that were found to match the query string.
 [$sel:found:SuggestModel'] :: SuggestModel -> Maybe Integer
+
+-- | The documents that match the query string.
+[$sel:suggestions:SuggestModel'] :: SuggestModel -> Maybe [SuggestionMatch]
 
 -- | The query string specified in the suggest request.
 [$sel:query:SuggestModel'] :: SuggestModel -> Maybe Text
@@ -1126,21 +1126,21 @@ SuggestModel' :: Maybe [SuggestionMatch] -> Maybe Integer -> Maybe Text -> Sugge
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:suggestions:SuggestModel'</a>, <a>suggestModel_suggestions</a>
---   - The documents that match the query string.
---   
 --   <a>$sel:found:SuggestModel'</a>, <a>suggestModel_found</a> - The
 --   number of documents that were found to match the query string.
+--   
+--   <a>$sel:suggestions:SuggestModel'</a>, <a>suggestModel_suggestions</a>
+--   - The documents that match the query string.
 --   
 --   <a>$sel:query:SuggestModel'</a>, <a>suggestModel_query</a> - The query
 --   string specified in the suggest request.
 newSuggestModel :: SuggestModel
 
--- | The documents that match the query string.
-suggestModel_suggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
-
 -- | The number of documents that were found to match the query string.
 suggestModel_found :: Lens' SuggestModel (Maybe Integer)
+
+-- | The documents that match the query string.
+suggestModel_suggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
 
 -- | The query string specified in the suggest request.
 suggestModel_query :: Lens' SuggestModel (Maybe Text)
@@ -1150,13 +1150,13 @@ suggestModel_query :: Lens' SuggestModel (Maybe Text)
 --   
 --   <i>See:</i> <a>newSuggestStatus</a> smart constructor.
 data SuggestStatus
-SuggestStatus' :: Maybe Integer -> Maybe Text -> SuggestStatus
-
--- | How long it took to process the request, in milliseconds.
-[$sel:timems:SuggestStatus'] :: SuggestStatus -> Maybe Integer
+SuggestStatus' :: Maybe Text -> Maybe Integer -> SuggestStatus
 
 -- | The encrypted resource ID for the request.
 [$sel:rid:SuggestStatus'] :: SuggestStatus -> Maybe Text
+
+-- | How long it took to process the request, in milliseconds.
+[$sel:timems:SuggestStatus'] :: SuggestStatus -> Maybe Integer
 
 -- | Create a value of <a>SuggestStatus</a> with all optional fields
 --   omitted.
@@ -1167,35 +1167,35 @@ SuggestStatus' :: Maybe Integer -> Maybe Text -> SuggestStatus
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timems:SuggestStatus'</a>, <a>suggestStatus_timems</a> - How
---   long it took to process the request, in milliseconds.
---   
 --   <a>$sel:rid:SuggestStatus'</a>, <a>suggestStatus_rid</a> - The
 --   encrypted resource ID for the request.
+--   
+--   <a>$sel:timems:SuggestStatus'</a>, <a>suggestStatus_timems</a> - How
+--   long it took to process the request, in milliseconds.
 newSuggestStatus :: SuggestStatus
-
--- | How long it took to process the request, in milliseconds.
-suggestStatus_timems :: Lens' SuggestStatus (Maybe Integer)
 
 -- | The encrypted resource ID for the request.
 suggestStatus_rid :: Lens' SuggestStatus (Maybe Text)
+
+-- | How long it took to process the request, in milliseconds.
+suggestStatus_timems :: Lens' SuggestStatus (Maybe Integer)
 
 -- | An autocomplete suggestion that matches the query string specified in
 --   a <tt>SuggestRequest</tt>.
 --   
 --   <i>See:</i> <a>newSuggestionMatch</a> smart constructor.
 data SuggestionMatch
-SuggestionMatch' :: Maybe Text -> Maybe Text -> Maybe Integer -> SuggestionMatch
+SuggestionMatch' :: Maybe Text -> Maybe Integer -> Maybe Text -> SuggestionMatch
 
 -- | The string that matches the query string specified in the
 --   <tt>SuggestRequest</tt>.
 [$sel:suggestion:SuggestionMatch'] :: SuggestionMatch -> Maybe Text
 
--- | The document ID of the suggested document.
-[$sel:id:SuggestionMatch'] :: SuggestionMatch -> Maybe Text
-
 -- | The relevance score of a suggested match.
 [$sel:score:SuggestionMatch'] :: SuggestionMatch -> Maybe Integer
+
+-- | The document ID of the suggested document.
+[$sel:id:SuggestionMatch'] :: SuggestionMatch -> Maybe Text
 
 -- | Create a value of <a>SuggestionMatch</a> with all optional fields
 --   omitted.
@@ -1210,22 +1210,22 @@ SuggestionMatch' :: Maybe Text -> Maybe Text -> Maybe Integer -> SuggestionMatch
 --   <a>suggestionMatch_suggestion</a> - The string that matches the query
 --   string specified in the <tt>SuggestRequest</tt>.
 --   
---   <a>$sel:id:SuggestionMatch'</a>, <a>suggestionMatch_id</a> - The
---   document ID of the suggested document.
---   
 --   <a>$sel:score:SuggestionMatch'</a>, <a>suggestionMatch_score</a> - The
 --   relevance score of a suggested match.
+--   
+--   <a>$sel:id:SuggestionMatch'</a>, <a>suggestionMatch_id</a> - The
+--   document ID of the suggested document.
 newSuggestionMatch :: SuggestionMatch
 
 -- | The string that matches the query string specified in the
 --   <tt>SuggestRequest</tt>.
 suggestionMatch_suggestion :: Lens' SuggestionMatch (Maybe Text)
 
--- | The document ID of the suggested document.
-suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
-
 -- | The relevance score of a suggested match.
 suggestionMatch_score :: Lens' SuggestionMatch (Maybe Integer)
+
+-- | The document ID of the suggested document.
+suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
 
 
 -- | Retrieves autocomplete suggestions for a partial query string. You can
@@ -1294,15 +1294,15 @@ suggest_suggester :: Lens' Suggest Text
 --   
 --   <i>See:</i> <a>newSuggestResponse</a> smart constructor.
 data SuggestResponse
-SuggestResponse' :: Maybe SuggestStatus -> Maybe SuggestModel -> Int -> SuggestResponse
+SuggestResponse' :: Maybe SuggestModel -> Maybe SuggestStatus -> Int -> SuggestResponse
+
+-- | Container for the matching search suggestion information.
+[$sel:suggest:SuggestResponse'] :: SuggestResponse -> Maybe SuggestModel
 
 -- | The status of a <tt>SuggestRequest</tt>. Contains the resource ID
 --   (<tt>rid</tt>) and how long it took to process the request
 --   (<tt>timems</tt>).
 [$sel:status:SuggestResponse'] :: SuggestResponse -> Maybe SuggestStatus
-
--- | Container for the matching search suggestion information.
-[$sel:suggest:SuggestResponse'] :: SuggestResponse -> Maybe SuggestModel
 
 -- | The response's http status code.
 [$sel:httpStatus:SuggestResponse'] :: SuggestResponse -> Int
@@ -1316,25 +1316,25 @@ SuggestResponse' :: Maybe SuggestStatus -> Maybe SuggestModel -> Int -> SuggestR
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:suggest:SuggestResponse'</a>, <a>suggestResponse_suggest</a> -
+--   Container for the matching search suggestion information.
+--   
 --   <a>$sel:status:SuggestResponse'</a>, <a>suggestResponse_status</a> -
 --   The status of a <tt>SuggestRequest</tt>. Contains the resource ID
 --   (<tt>rid</tt>) and how long it took to process the request
 --   (<tt>timems</tt>).
 --   
---   <a>$sel:suggest:SuggestResponse'</a>, <a>suggestResponse_suggest</a> -
---   Container for the matching search suggestion information.
---   
 --   <a>$sel:httpStatus:SuggestResponse'</a>,
 --   <a>suggestResponse_httpStatus</a> - The response's http status code.
 newSuggestResponse :: Int -> SuggestResponse
+
+-- | Container for the matching search suggestion information.
+suggestResponse_suggest :: Lens' SuggestResponse (Maybe SuggestModel)
 
 -- | The status of a <tt>SuggestRequest</tt>. Contains the resource ID
 --   (<tt>rid</tt>) and how long it took to process the request
 --   (<tt>timems</tt>).
 suggestResponse_status :: Lens' SuggestResponse (Maybe SuggestStatus)
-
--- | Container for the matching search suggestion information.
-suggestResponse_suggest :: Lens' SuggestResponse (Maybe SuggestModel)
 
 -- | The response's http status code.
 suggestResponse_httpStatus :: Lens' SuggestResponse Int
@@ -1388,7 +1388,7 @@ module Network.AWS.CloudSearchDomains.Search
 --   
 --   <i>See:</i> <a>newSearch</a> smart constructor.
 data Search
-Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Text -> Maybe Text -> Text -> Search
+Search' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integer -> Maybe QueryParser -> Maybe Integer -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Text -> Search
 
 -- | Defines one or more numeric expressions that can be used to sort
 --   results or specify search or filter criteria. You can also specify
@@ -1407,56 +1407,25 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   CloudSearch Developer Guide</i>.
 [$sel:expr:Search'] :: Search -> Maybe Text
 
--- | Enables partial results to be returned if one or more index partitions
---   are unavailable. When your search index is partitioned across multiple
---   search instances, by default Amazon CloudSearch only returns results
---   if every partition can be queried. This means that the failure of a
---   single search instance can result in 5xx (internal server) errors.
---   When you enable partial results, Amazon CloudSearch returns whatever
---   results are available and includes the percentage of documents
---   searched in the search results (percent-searched). This enables you to
---   more gracefully degrade your users' search experience. For example,
---   rather than displaying no results, you could display the partial
---   results and a message indicating that the results might be incomplete
---   due to a temporary system outage.
-[$sel:partial:Search'] :: Search -> Maybe Bool
+-- | Retrieves a cursor value you can use to page through large result
+--   sets. Use the <tt>size</tt> parameter to control the number of hits to
+--   include in each response. You can specify either the <tt>cursor</tt>
+--   or <tt>start</tt> parameter in a request; they are mutually exclusive.
+--   To get the first cursor, set the cursor value to <tt>initial</tt>. In
+--   subsequent requests, specify the cursor value returned in the hits
+--   section of the response.
+--   
+--   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   CloudSearch Developer Guide</i>.
+[$sel:cursor:Search'] :: Search -> Maybe Text
 
--- | Specifies which query parser to use to process the request. If
---   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
---   <tt>simple</tt> query parser.
---   
---   Amazon CloudSearch supports four query parsers:
---   
---   <ul>
---   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
---   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
---   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
---   can specify which fields to search by with the <tt>queryOptions</tt>
---   parameter. If you prefix a search term with a plus sign (+) documents
---   must contain the term to be considered a match. (This is the default,
---   unless you configure the default operator with the
---   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
---   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
---   particular terms, find results that match any of the specified terms,
---   or search for a prefix. To search for a phrase rather than individual
---   terms, enclose the phrase in double quotes. For more information, see
---   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
---   Guide</i>.</li>
---   <li><tt>structured</tt>: perform advanced searches by combining
---   multiple expressions to define the search criteria. You can also
---   search within particular fields, search for values and ranges of
---   values, and use advanced options such as term boosting,
---   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
---   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
---   Developer Guide</i>.</li>
---   <li><tt>lucene</tt>: search using the Apache Lucene query parser
---   syntax. For more information, see <a>Apache Lucene Query Parser
---   Syntax</a>.</li>
---   <li><tt>dismax</tt>: search using the simplified subset of the Apache
---   Lucene query parser syntax defined by the DisMax query parser. For
---   more information, see <a>DisMax Query Parser Syntax</a>.</li>
---   </ul>
-[$sel:queryParser:Search'] :: Search -> Maybe QueryParser
+-- | Specifies the field and expression values to include in the response.
+--   Multiple fields or expressions are specified as a comma-separated
+--   list. By default, a search response includes all return enabled fields
+--   (<tt>_all_fields</tt>). To return only the document IDs for the
+--   matching documents, specify <tt>_no_fields</tt>. To retrieve the
+--   relevance score calculated for each document, specify <tt>_score</tt>.
+[$sel:return':Search'] :: Search -> Maybe Text
 
 -- | Configures options for the query parser specified in the
 --   <tt>queryParser</tt> parameter. You specify the options in JSON using
@@ -1565,36 +1534,68 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   </ul>
 [$sel:queryOptions:Search'] :: Search -> Maybe Text
 
--- | Specifies the field and expression values to include in the response.
---   Multiple fields or expressions are specified as a comma-separated
---   list. By default, a search response includes all return enabled fields
---   (<tt>_all_fields</tt>). To return only the document IDs for the
---   matching documents, specify <tt>_no_fields</tt>. To retrieve the
---   relevance score calculated for each document, specify <tt>_score</tt>.
-[$sel:return':Search'] :: Search -> Maybe Text
+-- | Specifies a structured query that filters the results of a search
+--   without affecting how the results are scored and sorted. You use
+--   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
+--   to filter the documents that match the constraints specified in the
+--   <tt>query</tt> parameter. Specifying a filter controls only which
+--   matching documents are included in the results, it has no effect on
+--   how they are scored and sorted. The <tt>filterQuery</tt> parameter
+--   supports the full structured query syntax.
+--   
+--   For more information about using filters, see <a>Filtering Matching
+--   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+[$sel:filterQuery:Search'] :: Search -> Maybe Text
 
--- | Retrieves a cursor value you can use to page through large result
---   sets. Use the <tt>size</tt> parameter to control the number of hits to
---   include in each response. You can specify either the <tt>cursor</tt>
---   or <tt>start</tt> parameter in a request; they are mutually exclusive.
---   To get the first cursor, set the cursor value to <tt>initial</tt>. In
---   subsequent requests, specify the cursor value returned in the hits
---   section of the response.
+-- | Specifies the maximum number of search hits to include in the
+--   response.
+[$sel:size:Search'] :: Search -> Maybe Integer
+
+-- | Specifies which query parser to use to process the request. If
+--   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
+--   <tt>simple</tt> query parser.
+--   
+--   Amazon CloudSearch supports four query parsers:
+--   
+--   <ul>
+--   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
+--   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
+--   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
+--   can specify which fields to search by with the <tt>queryOptions</tt>
+--   parameter. If you prefix a search term with a plus sign (+) documents
+--   must contain the term to be considered a match. (This is the default,
+--   unless you configure the default operator with the
+--   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
+--   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
+--   particular terms, find results that match any of the specified terms,
+--   or search for a prefix. To search for a phrase rather than individual
+--   terms, enclose the phrase in double quotes. For more information, see
+--   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
+--   Guide</i>.</li>
+--   <li><tt>structured</tt>: perform advanced searches by combining
+--   multiple expressions to define the search criteria. You can also
+--   search within particular fields, search for values and ranges of
+--   values, and use advanced options such as term boosting,
+--   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
+--   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
+--   Developer Guide</i>.</li>
+--   <li><tt>lucene</tt>: search using the Apache Lucene query parser
+--   syntax. For more information, see <a>Apache Lucene Query Parser
+--   Syntax</a>.</li>
+--   <li><tt>dismax</tt>: search using the simplified subset of the Apache
+--   Lucene query parser syntax defined by the DisMax query parser. For
+--   more information, see <a>DisMax Query Parser Syntax</a>.</li>
+--   </ul>
+[$sel:queryParser:Search'] :: Search -> Maybe QueryParser
+
+-- | Specifies the offset of the first search hit you want to return. Note
+--   that the result set is zero-based; the first result is at index 0. You
+--   can specify either the <tt>start</tt> or <tt>cursor</tt> parameter in
+--   a request, they are mutually exclusive.
 --   
 --   For more information, see <a>Paginating Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-[$sel:cursor:Search'] :: Search -> Maybe Text
-
--- | Specifies one or more fields for which to get statistics information.
---   Each specified field must be facet-enabled in the domain
---   configuration. The fields are specified in JSON using the form:
---   
---   <pre>
---   {"FIELD-A":{},"FIELD-B":{}}
---   </pre>
---   
---   There are currently no options supported for statistics.
-[$sel:stats:Search'] :: Search -> Maybe Text
+[$sel:start:Search'] :: Search -> Maybe Integer
 
 -- | Retrieves highlights for matches in the specified <tt>text</tt> or
 --   <tt>text-array</tt> fields. Each specified field must be highlight
@@ -1634,14 +1635,31 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   </pre>
 [$sel:highlight:Search'] :: Search -> Maybe Text
 
--- | Specifies the offset of the first search hit you want to return. Note
---   that the result set is zero-based; the first result is at index 0. You
---   can specify either the <tt>start</tt> or <tt>cursor</tt> parameter in
---   a request, they are mutually exclusive.
+-- | Specifies one or more fields for which to get statistics information.
+--   Each specified field must be facet-enabled in the domain
+--   configuration. The fields are specified in JSON using the form:
 --   
---   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   <pre>
+--   {"FIELD-A":{},"FIELD-B":{}}
+--   </pre>
+--   
+--   There are currently no options supported for statistics.
+[$sel:stats:Search'] :: Search -> Maybe Text
+
+-- | Specifies the fields or custom expressions to use to sort the search
+--   results. Multiple fields or expressions are specified as a
+--   comma-separated list. You must specify the sort direction
+--   (<tt>asc</tt> or <tt>desc</tt>) for each field; for example, <tt>year
+--   desc,title asc</tt>. To use a field to sort results, the field must be
+--   sort-enabled in the domain configuration. Array type fields cannot be
+--   used for sorting. If no <tt>sort</tt> parameter is specified, results
+--   are sorted by their default relevance scores in descending order:
+--   <tt>_score desc</tt>. You can also sort by document ID (<tt>_id
+--   asc</tt>) and version (<tt>_version desc</tt>).
+--   
+--   For more information, see <a>Sorting Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-[$sel:start:Search'] :: Search -> Maybe Integer
+[$sel:sort:Search'] :: Search -> Maybe Text
 
 -- | Specifies one or more fields for which to get facet information, and
 --   options that control how the facet information is returned. Each
@@ -1708,37 +1726,19 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   in the <i>Amazon CloudSearch Developer Guide</i>.
 [$sel:facet:Search'] :: Search -> Maybe Text
 
--- | Specifies the maximum number of search hits to include in the
---   response.
-[$sel:size:Search'] :: Search -> Maybe Integer
-
--- | Specifies the fields or custom expressions to use to sort the search
---   results. Multiple fields or expressions are specified as a
---   comma-separated list. You must specify the sort direction
---   (<tt>asc</tt> or <tt>desc</tt>) for each field; for example, <tt>year
---   desc,title asc</tt>. To use a field to sort results, the field must be
---   sort-enabled in the domain configuration. Array type fields cannot be
---   used for sorting. If no <tt>sort</tt> parameter is specified, results
---   are sorted by their default relevance scores in descending order:
---   <tt>_score desc</tt>. You can also sort by document ID (<tt>_id
---   asc</tt>) and version (<tt>_version desc</tt>).
---   
---   For more information, see <a>Sorting Results</a> in the <i>Amazon
---   CloudSearch Developer Guide</i>.
-[$sel:sort:Search'] :: Search -> Maybe Text
-
--- | Specifies a structured query that filters the results of a search
---   without affecting how the results are scored and sorted. You use
---   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
---   to filter the documents that match the constraints specified in the
---   <tt>query</tt> parameter. Specifying a filter controls only which
---   matching documents are included in the results, it has no effect on
---   how they are scored and sorted. The <tt>filterQuery</tt> parameter
---   supports the full structured query syntax.
---   
---   For more information about using filters, see <a>Filtering Matching
---   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-[$sel:filterQuery:Search'] :: Search -> Maybe Text
+-- | Enables partial results to be returned if one or more index partitions
+--   are unavailable. When your search index is partitioned across multiple
+--   search instances, by default Amazon CloudSearch only returns results
+--   if every partition can be queried. This means that the failure of a
+--   single search instance can result in 5xx (internal server) errors.
+--   When you enable partial results, Amazon CloudSearch returns whatever
+--   results are available and includes the percentage of documents
+--   searched in the search results (percent-searched). This enables you to
+--   more gracefully degrade your users' search experience. For example,
+--   rather than displaying no results, you could display the partial
+--   results and a message indicating that the results might be incomplete
+--   due to a temporary system outage.
+[$sel:partial:Search'] :: Search -> Maybe Bool
 
 -- | Specifies the search criteria for the request. How you specify the
 --   search criteria depends on the query parser used for the request and
@@ -1777,56 +1777,25 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   use in expressions, see <a>Writing Expressions</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
 --   
---   <a>$sel:partial:Search'</a>, <a>search_partial</a> - Enables partial
---   results to be returned if one or more index partitions are
---   unavailable. When your search index is partitioned across multiple
---   search instances, by default Amazon CloudSearch only returns results
---   if every partition can be queried. This means that the failure of a
---   single search instance can result in 5xx (internal server) errors.
---   When you enable partial results, Amazon CloudSearch returns whatever
---   results are available and includes the percentage of documents
---   searched in the search results (percent-searched). This enables you to
---   more gracefully degrade your users' search experience. For example,
---   rather than displaying no results, you could display the partial
---   results and a message indicating that the results might be incomplete
---   due to a temporary system outage.
+--   <a>$sel:cursor:Search'</a>, <a>search_cursor</a> - Retrieves a cursor
+--   value you can use to page through large result sets. Use the
+--   <tt>size</tt> parameter to control the number of hits to include in
+--   each response. You can specify either the <tt>cursor</tt> or
+--   <tt>start</tt> parameter in a request; they are mutually exclusive. To
+--   get the first cursor, set the cursor value to <tt>initial</tt>. In
+--   subsequent requests, specify the cursor value returned in the hits
+--   section of the response.
 --   
---   <a>$sel:queryParser:Search'</a>, <a>search_queryParser</a> - Specifies
---   which query parser to use to process the request. If
---   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
---   <tt>simple</tt> query parser.
+--   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   CloudSearch Developer Guide</i>.
 --   
---   Amazon CloudSearch supports four query parsers:
---   
---   <ul>
---   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
---   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
---   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
---   can specify which fields to search by with the <tt>queryOptions</tt>
---   parameter. If you prefix a search term with a plus sign (+) documents
---   must contain the term to be considered a match. (This is the default,
---   unless you configure the default operator with the
---   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
---   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
---   particular terms, find results that match any of the specified terms,
---   or search for a prefix. To search for a phrase rather than individual
---   terms, enclose the phrase in double quotes. For more information, see
---   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
---   Guide</i>.</li>
---   <li><tt>structured</tt>: perform advanced searches by combining
---   multiple expressions to define the search criteria. You can also
---   search within particular fields, search for values and ranges of
---   values, and use advanced options such as term boosting,
---   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
---   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
---   Developer Guide</i>.</li>
---   <li><tt>lucene</tt>: search using the Apache Lucene query parser
---   syntax. For more information, see <a>Apache Lucene Query Parser
---   Syntax</a>.</li>
---   <li><tt>dismax</tt>: search using the simplified subset of the Apache
---   Lucene query parser syntax defined by the DisMax query parser. For
---   more information, see <a>DisMax Query Parser Syntax</a>.</li>
---   </ul>
+--   <a>$sel:return':Search'</a>, <a>search_return</a> - Specifies the
+--   field and expression values to include in the response. Multiple
+--   fields or expressions are specified as a comma-separated list. By
+--   default, a search response includes all return enabled fields
+--   (<tt>_all_fields</tt>). To return only the document IDs for the
+--   matching documents, specify <tt>_no_fields</tt>. To retrieve the
+--   relevance score calculated for each document, specify <tt>_score</tt>.
 --   
 --   <a>$sel:queryOptions:Search'</a>, <a>search_queryOptions</a> -
 --   Configures options for the query parser specified in the
@@ -1935,36 +1904,67 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   Default: 0.0. Valid for: <tt>dismax</tt>.</li>
 --   </ul>
 --   
---   <a>$sel:return':Search'</a>, <a>search_return</a> - Specifies the
---   field and expression values to include in the response. Multiple
---   fields or expressions are specified as a comma-separated list. By
---   default, a search response includes all return enabled fields
---   (<tt>_all_fields</tt>). To return only the document IDs for the
---   matching documents, specify <tt>_no_fields</tt>. To retrieve the
---   relevance score calculated for each document, specify <tt>_score</tt>.
+--   <a>$sel:filterQuery:Search'</a>, <a>search_filterQuery</a> - Specifies
+--   a structured query that filters the results of a search without
+--   affecting how the results are scored and sorted. You use
+--   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
+--   to filter the documents that match the constraints specified in the
+--   <tt>query</tt> parameter. Specifying a filter controls only which
+--   matching documents are included in the results, it has no effect on
+--   how they are scored and sorted. The <tt>filterQuery</tt> parameter
+--   supports the full structured query syntax.
 --   
---   <a>$sel:cursor:Search'</a>, <a>search_cursor</a> - Retrieves a cursor
---   value you can use to page through large result sets. Use the
---   <tt>size</tt> parameter to control the number of hits to include in
---   each response. You can specify either the <tt>cursor</tt> or
---   <tt>start</tt> parameter in a request; they are mutually exclusive. To
---   get the first cursor, set the cursor value to <tt>initial</tt>. In
---   subsequent requests, specify the cursor value returned in the hits
---   section of the response.
+--   For more information about using filters, see <a>Filtering Matching
+--   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+--   
+--   <a>$sel:size:Search'</a>, <a>search_size</a> - Specifies the maximum
+--   number of search hits to include in the response.
+--   
+--   <a>$sel:queryParser:Search'</a>, <a>search_queryParser</a> - Specifies
+--   which query parser to use to process the request. If
+--   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
+--   <tt>simple</tt> query parser.
+--   
+--   Amazon CloudSearch supports four query parsers:
+--   
+--   <ul>
+--   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
+--   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
+--   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
+--   can specify which fields to search by with the <tt>queryOptions</tt>
+--   parameter. If you prefix a search term with a plus sign (+) documents
+--   must contain the term to be considered a match. (This is the default,
+--   unless you configure the default operator with the
+--   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
+--   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
+--   particular terms, find results that match any of the specified terms,
+--   or search for a prefix. To search for a phrase rather than individual
+--   terms, enclose the phrase in double quotes. For more information, see
+--   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
+--   Guide</i>.</li>
+--   <li><tt>structured</tt>: perform advanced searches by combining
+--   multiple expressions to define the search criteria. You can also
+--   search within particular fields, search for values and ranges of
+--   values, and use advanced options such as term boosting,
+--   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
+--   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
+--   Developer Guide</i>.</li>
+--   <li><tt>lucene</tt>: search using the Apache Lucene query parser
+--   syntax. For more information, see <a>Apache Lucene Query Parser
+--   Syntax</a>.</li>
+--   <li><tt>dismax</tt>: search using the simplified subset of the Apache
+--   Lucene query parser syntax defined by the DisMax query parser. For
+--   more information, see <a>DisMax Query Parser Syntax</a>.</li>
+--   </ul>
+--   
+--   <a>$sel:start:Search'</a>, <a>search_start</a> - Specifies the offset
+--   of the first search hit you want to return. Note that the result set
+--   is zero-based; the first result is at index 0. You can specify either
+--   the <tt>start</tt> or <tt>cursor</tt> parameter in a request, they are
+--   mutually exclusive.
 --   
 --   For more information, see <a>Paginating Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
---   
---   <a>$sel:stats:Search'</a>, <a>search_stats</a> - Specifies one or more
---   fields for which to get statistics information. Each specified field
---   must be facet-enabled in the domain configuration. The fields are
---   specified in JSON using the form:
---   
---   <pre>
---   {"FIELD-A":{},"FIELD-B":{}}
---   </pre>
---   
---   There are currently no options supported for statistics.
 --   
 --   <a>$sel:highlight:Search'</a>, <a>search_highlight</a> - Retrieves
 --   highlights for matches in the specified <tt>text</tt> or
@@ -2004,13 +2004,30 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   { "actors": {}, "title": {"format": "text","max_phrases": 2,"pre_tag": "","post_tag": ""} }
 --   </pre>
 --   
---   <a>$sel:start:Search'</a>, <a>search_start</a> - Specifies the offset
---   of the first search hit you want to return. Note that the result set
---   is zero-based; the first result is at index 0. You can specify either
---   the <tt>start</tt> or <tt>cursor</tt> parameter in a request, they are
---   mutually exclusive.
+--   <a>$sel:stats:Search'</a>, <a>search_stats</a> - Specifies one or more
+--   fields for which to get statistics information. Each specified field
+--   must be facet-enabled in the domain configuration. The fields are
+--   specified in JSON using the form:
 --   
---   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   <pre>
+--   {"FIELD-A":{},"FIELD-B":{}}
+--   </pre>
+--   
+--   There are currently no options supported for statistics.
+--   
+--   <a>$sel:sort:Search'</a>, <a>search_sort</a> - Specifies the fields or
+--   custom expressions to use to sort the search results. Multiple fields
+--   or expressions are specified as a comma-separated list. You must
+--   specify the sort direction (<tt>asc</tt> or <tt>desc</tt>) for each
+--   field; for example, <tt>year desc,title asc</tt>. To use a field to
+--   sort results, the field must be sort-enabled in the domain
+--   configuration. Array type fields cannot be used for sorting. If no
+--   <tt>sort</tt> parameter is specified, results are sorted by their
+--   default relevance scores in descending order: <tt>_score desc</tt>.
+--   You can also sort by document ID (<tt>_id asc</tt>) and version
+--   (<tt>_version desc</tt>).
+--   
+--   For more information, see <a>Sorting Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
 --   
 --   <a>$sel:facet:Search'</a>, <a>search_facet</a> - Specifies one or more
@@ -2078,36 +2095,19 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   For more information, see <a>Getting and Using Facet Information</a>
 --   in the <i>Amazon CloudSearch Developer Guide</i>.
 --   
---   <a>$sel:size:Search'</a>, <a>search_size</a> - Specifies the maximum
---   number of search hits to include in the response.
---   
---   <a>$sel:sort:Search'</a>, <a>search_sort</a> - Specifies the fields or
---   custom expressions to use to sort the search results. Multiple fields
---   or expressions are specified as a comma-separated list. You must
---   specify the sort direction (<tt>asc</tt> or <tt>desc</tt>) for each
---   field; for example, <tt>year desc,title asc</tt>. To use a field to
---   sort results, the field must be sort-enabled in the domain
---   configuration. Array type fields cannot be used for sorting. If no
---   <tt>sort</tt> parameter is specified, results are sorted by their
---   default relevance scores in descending order: <tt>_score desc</tt>.
---   You can also sort by document ID (<tt>_id asc</tt>) and version
---   (<tt>_version desc</tt>).
---   
---   For more information, see <a>Sorting Results</a> in the <i>Amazon
---   CloudSearch Developer Guide</i>.
---   
---   <a>$sel:filterQuery:Search'</a>, <a>search_filterQuery</a> - Specifies
---   a structured query that filters the results of a search without
---   affecting how the results are scored and sorted. You use
---   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
---   to filter the documents that match the constraints specified in the
---   <tt>query</tt> parameter. Specifying a filter controls only which
---   matching documents are included in the results, it has no effect on
---   how they are scored and sorted. The <tt>filterQuery</tt> parameter
---   supports the full structured query syntax.
---   
---   For more information about using filters, see <a>Filtering Matching
---   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+--   <a>$sel:partial:Search'</a>, <a>search_partial</a> - Enables partial
+--   results to be returned if one or more index partitions are
+--   unavailable. When your search index is partitioned across multiple
+--   search instances, by default Amazon CloudSearch only returns results
+--   if every partition can be queried. This means that the failure of a
+--   single search instance can result in 5xx (internal server) errors.
+--   When you enable partial results, Amazon CloudSearch returns whatever
+--   results are available and includes the percentage of documents
+--   searched in the search results (percent-searched). This enables you to
+--   more gracefully degrade your users' search experience. For example,
+--   rather than displaying no results, you could display the partial
+--   results and a message indicating that the results might be incomplete
+--   due to a temporary system outage.
 --   
 --   <a>$sel:query:Search'</a>, <a>search_query</a> - Specifies the search
 --   criteria for the request. How you specify the search criteria depends
@@ -2139,56 +2139,25 @@ newSearch :: Text -> Search
 --   CloudSearch Developer Guide</i>.
 search_expr :: Lens' Search (Maybe Text)
 
--- | Enables partial results to be returned if one or more index partitions
---   are unavailable. When your search index is partitioned across multiple
---   search instances, by default Amazon CloudSearch only returns results
---   if every partition can be queried. This means that the failure of a
---   single search instance can result in 5xx (internal server) errors.
---   When you enable partial results, Amazon CloudSearch returns whatever
---   results are available and includes the percentage of documents
---   searched in the search results (percent-searched). This enables you to
---   more gracefully degrade your users' search experience. For example,
---   rather than displaying no results, you could display the partial
---   results and a message indicating that the results might be incomplete
---   due to a temporary system outage.
-search_partial :: Lens' Search (Maybe Bool)
+-- | Retrieves a cursor value you can use to page through large result
+--   sets. Use the <tt>size</tt> parameter to control the number of hits to
+--   include in each response. You can specify either the <tt>cursor</tt>
+--   or <tt>start</tt> parameter in a request; they are mutually exclusive.
+--   To get the first cursor, set the cursor value to <tt>initial</tt>. In
+--   subsequent requests, specify the cursor value returned in the hits
+--   section of the response.
+--   
+--   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   CloudSearch Developer Guide</i>.
+search_cursor :: Lens' Search (Maybe Text)
 
--- | Specifies which query parser to use to process the request. If
---   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
---   <tt>simple</tt> query parser.
---   
---   Amazon CloudSearch supports four query parsers:
---   
---   <ul>
---   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
---   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
---   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
---   can specify which fields to search by with the <tt>queryOptions</tt>
---   parameter. If you prefix a search term with a plus sign (+) documents
---   must contain the term to be considered a match. (This is the default,
---   unless you configure the default operator with the
---   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
---   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
---   particular terms, find results that match any of the specified terms,
---   or search for a prefix. To search for a phrase rather than individual
---   terms, enclose the phrase in double quotes. For more information, see
---   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
---   Guide</i>.</li>
---   <li><tt>structured</tt>: perform advanced searches by combining
---   multiple expressions to define the search criteria. You can also
---   search within particular fields, search for values and ranges of
---   values, and use advanced options such as term boosting,
---   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
---   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
---   Developer Guide</i>.</li>
---   <li><tt>lucene</tt>: search using the Apache Lucene query parser
---   syntax. For more information, see <a>Apache Lucene Query Parser
---   Syntax</a>.</li>
---   <li><tt>dismax</tt>: search using the simplified subset of the Apache
---   Lucene query parser syntax defined by the DisMax query parser. For
---   more information, see <a>DisMax Query Parser Syntax</a>.</li>
---   </ul>
-search_queryParser :: Lens' Search (Maybe QueryParser)
+-- | Specifies the field and expression values to include in the response.
+--   Multiple fields or expressions are specified as a comma-separated
+--   list. By default, a search response includes all return enabled fields
+--   (<tt>_all_fields</tt>). To return only the document IDs for the
+--   matching documents, specify <tt>_no_fields</tt>. To retrieve the
+--   relevance score calculated for each document, specify <tt>_score</tt>.
+search_return :: Lens' Search (Maybe Text)
 
 -- | Configures options for the query parser specified in the
 --   <tt>queryParser</tt> parameter. You specify the options in JSON using
@@ -2297,36 +2266,68 @@ search_queryParser :: Lens' Search (Maybe QueryParser)
 --   </ul>
 search_queryOptions :: Lens' Search (Maybe Text)
 
--- | Specifies the field and expression values to include in the response.
---   Multiple fields or expressions are specified as a comma-separated
---   list. By default, a search response includes all return enabled fields
---   (<tt>_all_fields</tt>). To return only the document IDs for the
---   matching documents, specify <tt>_no_fields</tt>. To retrieve the
---   relevance score calculated for each document, specify <tt>_score</tt>.
-search_return :: Lens' Search (Maybe Text)
+-- | Specifies a structured query that filters the results of a search
+--   without affecting how the results are scored and sorted. You use
+--   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
+--   to filter the documents that match the constraints specified in the
+--   <tt>query</tt> parameter. Specifying a filter controls only which
+--   matching documents are included in the results, it has no effect on
+--   how they are scored and sorted. The <tt>filterQuery</tt> parameter
+--   supports the full structured query syntax.
+--   
+--   For more information about using filters, see <a>Filtering Matching
+--   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+search_filterQuery :: Lens' Search (Maybe Text)
 
--- | Retrieves a cursor value you can use to page through large result
---   sets. Use the <tt>size</tt> parameter to control the number of hits to
---   include in each response. You can specify either the <tt>cursor</tt>
---   or <tt>start</tt> parameter in a request; they are mutually exclusive.
---   To get the first cursor, set the cursor value to <tt>initial</tt>. In
---   subsequent requests, specify the cursor value returned in the hits
---   section of the response.
+-- | Specifies the maximum number of search hits to include in the
+--   response.
+search_size :: Lens' Search (Maybe Integer)
+
+-- | Specifies which query parser to use to process the request. If
+--   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
+--   <tt>simple</tt> query parser.
+--   
+--   Amazon CloudSearch supports four query parsers:
+--   
+--   <ul>
+--   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
+--   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
+--   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
+--   can specify which fields to search by with the <tt>queryOptions</tt>
+--   parameter. If you prefix a search term with a plus sign (+) documents
+--   must contain the term to be considered a match. (This is the default,
+--   unless you configure the default operator with the
+--   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
+--   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
+--   particular terms, find results that match any of the specified terms,
+--   or search for a prefix. To search for a phrase rather than individual
+--   terms, enclose the phrase in double quotes. For more information, see
+--   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
+--   Guide</i>.</li>
+--   <li><tt>structured</tt>: perform advanced searches by combining
+--   multiple expressions to define the search criteria. You can also
+--   search within particular fields, search for values and ranges of
+--   values, and use advanced options such as term boosting,
+--   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
+--   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
+--   Developer Guide</i>.</li>
+--   <li><tt>lucene</tt>: search using the Apache Lucene query parser
+--   syntax. For more information, see <a>Apache Lucene Query Parser
+--   Syntax</a>.</li>
+--   <li><tt>dismax</tt>: search using the simplified subset of the Apache
+--   Lucene query parser syntax defined by the DisMax query parser. For
+--   more information, see <a>DisMax Query Parser Syntax</a>.</li>
+--   </ul>
+search_queryParser :: Lens' Search (Maybe QueryParser)
+
+-- | Specifies the offset of the first search hit you want to return. Note
+--   that the result set is zero-based; the first result is at index 0. You
+--   can specify either the <tt>start</tt> or <tt>cursor</tt> parameter in
+--   a request, they are mutually exclusive.
 --   
 --   For more information, see <a>Paginating Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-search_cursor :: Lens' Search (Maybe Text)
-
--- | Specifies one or more fields for which to get statistics information.
---   Each specified field must be facet-enabled in the domain
---   configuration. The fields are specified in JSON using the form:
---   
---   <pre>
---   {"FIELD-A":{},"FIELD-B":{}}
---   </pre>
---   
---   There are currently no options supported for statistics.
-search_stats :: Lens' Search (Maybe Text)
+search_start :: Lens' Search (Maybe Integer)
 
 -- | Retrieves highlights for matches in the specified <tt>text</tt> or
 --   <tt>text-array</tt> fields. Each specified field must be highlight
@@ -2366,14 +2367,31 @@ search_stats :: Lens' Search (Maybe Text)
 --   </pre>
 search_highlight :: Lens' Search (Maybe Text)
 
--- | Specifies the offset of the first search hit you want to return. Note
---   that the result set is zero-based; the first result is at index 0. You
---   can specify either the <tt>start</tt> or <tt>cursor</tt> parameter in
---   a request, they are mutually exclusive.
+-- | Specifies one or more fields for which to get statistics information.
+--   Each specified field must be facet-enabled in the domain
+--   configuration. The fields are specified in JSON using the form:
 --   
---   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   <pre>
+--   {"FIELD-A":{},"FIELD-B":{}}
+--   </pre>
+--   
+--   There are currently no options supported for statistics.
+search_stats :: Lens' Search (Maybe Text)
+
+-- | Specifies the fields or custom expressions to use to sort the search
+--   results. Multiple fields or expressions are specified as a
+--   comma-separated list. You must specify the sort direction
+--   (<tt>asc</tt> or <tt>desc</tt>) for each field; for example, <tt>year
+--   desc,title asc</tt>. To use a field to sort results, the field must be
+--   sort-enabled in the domain configuration. Array type fields cannot be
+--   used for sorting. If no <tt>sort</tt> parameter is specified, results
+--   are sorted by their default relevance scores in descending order:
+--   <tt>_score desc</tt>. You can also sort by document ID (<tt>_id
+--   asc</tt>) and version (<tt>_version desc</tt>).
+--   
+--   For more information, see <a>Sorting Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-search_start :: Lens' Search (Maybe Integer)
+search_sort :: Lens' Search (Maybe Text)
 
 -- | Specifies one or more fields for which to get facet information, and
 --   options that control how the facet information is returned. Each
@@ -2440,37 +2458,19 @@ search_start :: Lens' Search (Maybe Integer)
 --   in the <i>Amazon CloudSearch Developer Guide</i>.
 search_facet :: Lens' Search (Maybe Text)
 
--- | Specifies the maximum number of search hits to include in the
---   response.
-search_size :: Lens' Search (Maybe Integer)
-
--- | Specifies the fields or custom expressions to use to sort the search
---   results. Multiple fields or expressions are specified as a
---   comma-separated list. You must specify the sort direction
---   (<tt>asc</tt> or <tt>desc</tt>) for each field; for example, <tt>year
---   desc,title asc</tt>. To use a field to sort results, the field must be
---   sort-enabled in the domain configuration. Array type fields cannot be
---   used for sorting. If no <tt>sort</tt> parameter is specified, results
---   are sorted by their default relevance scores in descending order:
---   <tt>_score desc</tt>. You can also sort by document ID (<tt>_id
---   asc</tt>) and version (<tt>_version desc</tt>).
---   
---   For more information, see <a>Sorting Results</a> in the <i>Amazon
---   CloudSearch Developer Guide</i>.
-search_sort :: Lens' Search (Maybe Text)
-
--- | Specifies a structured query that filters the results of a search
---   without affecting how the results are scored and sorted. You use
---   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
---   to filter the documents that match the constraints specified in the
---   <tt>query</tt> parameter. Specifying a filter controls only which
---   matching documents are included in the results, it has no effect on
---   how they are scored and sorted. The <tt>filterQuery</tt> parameter
---   supports the full structured query syntax.
---   
---   For more information about using filters, see <a>Filtering Matching
---   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-search_filterQuery :: Lens' Search (Maybe Text)
+-- | Enables partial results to be returned if one or more index partitions
+--   are unavailable. When your search index is partitioned across multiple
+--   search instances, by default Amazon CloudSearch only returns results
+--   if every partition can be queried. This means that the failure of a
+--   single search instance can result in 5xx (internal server) errors.
+--   When you enable partial results, Amazon CloudSearch returns whatever
+--   results are available and includes the percentage of documents
+--   searched in the search results (percent-searched). This enables you to
+--   more gracefully degrade your users' search experience. For example,
+--   rather than displaying no results, you could display the partial
+--   results and a message indicating that the results might be incomplete
+--   due to a temporary system outage.
+search_partial :: Lens' Search (Maybe Bool)
 
 -- | Specifies the search criteria for the request. How you specify the
 --   search criteria depends on the query parser used for the request and
@@ -2491,19 +2491,19 @@ search_query :: Lens' Search Text
 --   
 --   <i>See:</i> <a>newSearchResponse</a> smart constructor.
 data SearchResponse
-SearchResponse' :: Maybe SearchStatus -> Maybe Hits -> Maybe (HashMap Text FieldStats) -> Maybe (HashMap Text BucketInfo) -> Int -> SearchResponse
+SearchResponse' :: Maybe SearchStatus -> Maybe (HashMap Text BucketInfo) -> Maybe (HashMap Text FieldStats) -> Maybe Hits -> Int -> SearchResponse
 
 -- | The status information returned for the search request.
 [$sel:status:SearchResponse'] :: SearchResponse -> Maybe SearchStatus
 
--- | The documents that match the search criteria.
-[$sel:hits:SearchResponse'] :: SearchResponse -> Maybe Hits
+-- | The requested facet information.
+[$sel:facets:SearchResponse'] :: SearchResponse -> Maybe (HashMap Text BucketInfo)
 
 -- | The requested field statistics information.
 [$sel:stats:SearchResponse'] :: SearchResponse -> Maybe (HashMap Text FieldStats)
 
--- | The requested facet information.
-[$sel:facets:SearchResponse'] :: SearchResponse -> Maybe (HashMap Text BucketInfo)
+-- | The documents that match the search criteria.
+[$sel:hits:SearchResponse'] :: SearchResponse -> Maybe Hits
 
 -- | The response's http status code.
 [$sel:httpStatus:SearchResponse'] :: SearchResponse -> Int
@@ -2520,14 +2520,14 @@ SearchResponse' :: Maybe SearchStatus -> Maybe Hits -> Maybe (HashMap Text Field
 --   <a>$sel:status:SearchResponse'</a>, <a>searchResponse_status</a> - The
 --   status information returned for the search request.
 --   
---   <a>$sel:hits:SearchResponse'</a>, <a>searchResponse_hits</a> - The
---   documents that match the search criteria.
+--   <a>$sel:facets:SearchResponse'</a>, <a>searchResponse_facets</a> - The
+--   requested facet information.
 --   
 --   <a>$sel:stats:Search'</a>, <a>searchResponse_stats</a> - The requested
 --   field statistics information.
 --   
---   <a>$sel:facets:SearchResponse'</a>, <a>searchResponse_facets</a> - The
---   requested facet information.
+--   <a>$sel:hits:SearchResponse'</a>, <a>searchResponse_hits</a> - The
+--   documents that match the search criteria.
 --   
 --   <a>$sel:httpStatus:SearchResponse'</a>,
 --   <a>searchResponse_httpStatus</a> - The response's http status code.
@@ -2536,14 +2536,14 @@ newSearchResponse :: Int -> SearchResponse
 -- | The status information returned for the search request.
 searchResponse_status :: Lens' SearchResponse (Maybe SearchStatus)
 
--- | The documents that match the search criteria.
-searchResponse_hits :: Lens' SearchResponse (Maybe Hits)
+-- | The requested facet information.
+searchResponse_facets :: Lens' SearchResponse (Maybe (HashMap Text BucketInfo))
 
 -- | The requested field statistics information.
 searchResponse_stats :: Lens' SearchResponse (Maybe (HashMap Text FieldStats))
 
--- | The requested facet information.
-searchResponse_facets :: Lens' SearchResponse (Maybe (HashMap Text BucketInfo))
+-- | The documents that match the search criteria.
+searchResponse_hits :: Lens' SearchResponse (Maybe Hits)
 
 -- | The response's http status code.
 searchResponse_httpStatus :: Lens' SearchResponse Int
@@ -2647,10 +2647,13 @@ uploadDocuments_documents :: Lens' UploadDocuments HashedBody
 --   
 --   <i>See:</i> <a>newUploadDocumentsResponse</a> smart constructor.
 data UploadDocumentsResponse
-UploadDocumentsResponse' :: Maybe Text -> Maybe [DocumentServiceWarning] -> Maybe Integer -> Maybe Integer -> Int -> UploadDocumentsResponse
+UploadDocumentsResponse' :: Maybe Text -> Maybe Integer -> Maybe [DocumentServiceWarning] -> Maybe Integer -> Int -> UploadDocumentsResponse
 
 -- | The status of an <tt>UploadDocumentsRequest</tt>.
 [$sel:status:UploadDocumentsResponse'] :: UploadDocumentsResponse -> Maybe Text
+
+-- | The number of documents that were added to the search domain.
+[$sel:adds:UploadDocumentsResponse'] :: UploadDocumentsResponse -> Maybe Integer
 
 -- | Any warnings returned by the document service about the documents
 --   being uploaded.
@@ -2658,9 +2661,6 @@ UploadDocumentsResponse' :: Maybe Text -> Maybe [DocumentServiceWarning] -> Mayb
 
 -- | The number of documents that were deleted from the search domain.
 [$sel:deletes:UploadDocumentsResponse'] :: UploadDocumentsResponse -> Maybe Integer
-
--- | The number of documents that were added to the search domain.
-[$sel:adds:UploadDocumentsResponse'] :: UploadDocumentsResponse -> Maybe Integer
 
 -- | The response's http status code.
 [$sel:httpStatus:UploadDocumentsResponse'] :: UploadDocumentsResponse -> Int
@@ -2678,6 +2678,10 @@ UploadDocumentsResponse' :: Maybe Text -> Maybe [DocumentServiceWarning] -> Mayb
 --   <a>uploadDocumentsResponse_status</a> - The status of an
 --   <tt>UploadDocumentsRequest</tt>.
 --   
+--   <a>$sel:adds:UploadDocumentsResponse'</a>,
+--   <a>uploadDocumentsResponse_adds</a> - The number of documents that
+--   were added to the search domain.
+--   
 --   <a>$sel:warnings:UploadDocumentsResponse'</a>,
 --   <a>uploadDocumentsResponse_warnings</a> - Any warnings returned by the
 --   document service about the documents being uploaded.
@@ -2685,10 +2689,6 @@ UploadDocumentsResponse' :: Maybe Text -> Maybe [DocumentServiceWarning] -> Mayb
 --   <a>$sel:deletes:UploadDocumentsResponse'</a>,
 --   <a>uploadDocumentsResponse_deletes</a> - The number of documents that
 --   were deleted from the search domain.
---   
---   <a>$sel:adds:UploadDocumentsResponse'</a>,
---   <a>uploadDocumentsResponse_adds</a> - The number of documents that
---   were added to the search domain.
 --   
 --   <a>$sel:httpStatus:UploadDocumentsResponse'</a>,
 --   <a>uploadDocumentsResponse_httpStatus</a> - The response's http status
@@ -2698,15 +2698,15 @@ newUploadDocumentsResponse :: Int -> UploadDocumentsResponse
 -- | The status of an <tt>UploadDocumentsRequest</tt>.
 uploadDocumentsResponse_status :: Lens' UploadDocumentsResponse (Maybe Text)
 
+-- | The number of documents that were added to the search domain.
+uploadDocumentsResponse_adds :: Lens' UploadDocumentsResponse (Maybe Integer)
+
 -- | Any warnings returned by the document service about the documents
 --   being uploaded.
 uploadDocumentsResponse_warnings :: Lens' UploadDocumentsResponse (Maybe [DocumentServiceWarning])
 
 -- | The number of documents that were deleted from the search domain.
 uploadDocumentsResponse_deletes :: Lens' UploadDocumentsResponse (Maybe Integer)
-
--- | The number of documents that were added to the search domain.
-uploadDocumentsResponse_adds :: Lens' UploadDocumentsResponse (Maybe Integer)
 
 -- | The response's http status code.
 uploadDocumentsResponse_httpStatus :: Lens' UploadDocumentsResponse Int
@@ -2726,6 +2726,26 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.UploadDoc
 
 module Network.AWS.CloudSearchDomains.Lens
 
+-- | Specifies the maximum number of suggestions to return.
+suggest_size :: Lens' Suggest (Maybe Integer)
+
+-- | Specifies the string for which you want to get suggestions.
+suggest_query :: Lens' Suggest Text
+
+-- | Specifies the name of the suggester to use to find suggested matches.
+suggest_suggester :: Lens' Suggest Text
+
+-- | Container for the matching search suggestion information.
+suggestResponse_suggest :: Lens' SuggestResponse (Maybe SuggestModel)
+
+-- | The status of a <tt>SuggestRequest</tt>. Contains the resource ID
+--   (<tt>rid</tt>) and how long it took to process the request
+--   (<tt>timems</tt>).
+suggestResponse_status :: Lens' SuggestResponse (Maybe SuggestStatus)
+
+-- | The response's http status code.
+suggestResponse_httpStatus :: Lens' SuggestResponse Int
+
 -- | The format of the batch you are uploading. Amazon CloudSearch supports
 --   two document batch formats:
 --   
@@ -2741,15 +2761,15 @@ uploadDocuments_documents :: Lens' UploadDocuments HashedBody
 -- | The status of an <tt>UploadDocumentsRequest</tt>.
 uploadDocumentsResponse_status :: Lens' UploadDocumentsResponse (Maybe Text)
 
+-- | The number of documents that were added to the search domain.
+uploadDocumentsResponse_adds :: Lens' UploadDocumentsResponse (Maybe Integer)
+
 -- | Any warnings returned by the document service about the documents
 --   being uploaded.
 uploadDocumentsResponse_warnings :: Lens' UploadDocumentsResponse (Maybe [DocumentServiceWarning])
 
 -- | The number of documents that were deleted from the search domain.
 uploadDocumentsResponse_deletes :: Lens' UploadDocumentsResponse (Maybe Integer)
-
--- | The number of documents that were added to the search domain.
-uploadDocumentsResponse_adds :: Lens' UploadDocumentsResponse (Maybe Integer)
 
 -- | The response's http status code.
 uploadDocumentsResponse_httpStatus :: Lens' UploadDocumentsResponse Int
@@ -2771,56 +2791,25 @@ uploadDocumentsResponse_httpStatus :: Lens' UploadDocumentsResponse Int
 --   CloudSearch Developer Guide</i>.
 search_expr :: Lens' Search (Maybe Text)
 
--- | Enables partial results to be returned if one or more index partitions
---   are unavailable. When your search index is partitioned across multiple
---   search instances, by default Amazon CloudSearch only returns results
---   if every partition can be queried. This means that the failure of a
---   single search instance can result in 5xx (internal server) errors.
---   When you enable partial results, Amazon CloudSearch returns whatever
---   results are available and includes the percentage of documents
---   searched in the search results (percent-searched). This enables you to
---   more gracefully degrade your users' search experience. For example,
---   rather than displaying no results, you could display the partial
---   results and a message indicating that the results might be incomplete
---   due to a temporary system outage.
-search_partial :: Lens' Search (Maybe Bool)
+-- | Retrieves a cursor value you can use to page through large result
+--   sets. Use the <tt>size</tt> parameter to control the number of hits to
+--   include in each response. You can specify either the <tt>cursor</tt>
+--   or <tt>start</tt> parameter in a request; they are mutually exclusive.
+--   To get the first cursor, set the cursor value to <tt>initial</tt>. In
+--   subsequent requests, specify the cursor value returned in the hits
+--   section of the response.
+--   
+--   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   CloudSearch Developer Guide</i>.
+search_cursor :: Lens' Search (Maybe Text)
 
--- | Specifies which query parser to use to process the request. If
---   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
---   <tt>simple</tt> query parser.
---   
---   Amazon CloudSearch supports four query parsers:
---   
---   <ul>
---   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
---   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
---   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
---   can specify which fields to search by with the <tt>queryOptions</tt>
---   parameter. If you prefix a search term with a plus sign (+) documents
---   must contain the term to be considered a match. (This is the default,
---   unless you configure the default operator with the
---   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
---   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
---   particular terms, find results that match any of the specified terms,
---   or search for a prefix. To search for a phrase rather than individual
---   terms, enclose the phrase in double quotes. For more information, see
---   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
---   Guide</i>.</li>
---   <li><tt>structured</tt>: perform advanced searches by combining
---   multiple expressions to define the search criteria. You can also
---   search within particular fields, search for values and ranges of
---   values, and use advanced options such as term boosting,
---   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
---   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
---   Developer Guide</i>.</li>
---   <li><tt>lucene</tt>: search using the Apache Lucene query parser
---   syntax. For more information, see <a>Apache Lucene Query Parser
---   Syntax</a>.</li>
---   <li><tt>dismax</tt>: search using the simplified subset of the Apache
---   Lucene query parser syntax defined by the DisMax query parser. For
---   more information, see <a>DisMax Query Parser Syntax</a>.</li>
---   </ul>
-search_queryParser :: Lens' Search (Maybe QueryParser)
+-- | Specifies the field and expression values to include in the response.
+--   Multiple fields or expressions are specified as a comma-separated
+--   list. By default, a search response includes all return enabled fields
+--   (<tt>_all_fields</tt>). To return only the document IDs for the
+--   matching documents, specify <tt>_no_fields</tt>. To retrieve the
+--   relevance score calculated for each document, specify <tt>_score</tt>.
+search_return :: Lens' Search (Maybe Text)
 
 -- | Configures options for the query parser specified in the
 --   <tt>queryParser</tt> parameter. You specify the options in JSON using
@@ -2929,36 +2918,68 @@ search_queryParser :: Lens' Search (Maybe QueryParser)
 --   </ul>
 search_queryOptions :: Lens' Search (Maybe Text)
 
--- | Specifies the field and expression values to include in the response.
---   Multiple fields or expressions are specified as a comma-separated
---   list. By default, a search response includes all return enabled fields
---   (<tt>_all_fields</tt>). To return only the document IDs for the
---   matching documents, specify <tt>_no_fields</tt>. To retrieve the
---   relevance score calculated for each document, specify <tt>_score</tt>.
-search_return :: Lens' Search (Maybe Text)
+-- | Specifies a structured query that filters the results of a search
+--   without affecting how the results are scored and sorted. You use
+--   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
+--   to filter the documents that match the constraints specified in the
+--   <tt>query</tt> parameter. Specifying a filter controls only which
+--   matching documents are included in the results, it has no effect on
+--   how they are scored and sorted. The <tt>filterQuery</tt> parameter
+--   supports the full structured query syntax.
+--   
+--   For more information about using filters, see <a>Filtering Matching
+--   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+search_filterQuery :: Lens' Search (Maybe Text)
 
--- | Retrieves a cursor value you can use to page through large result
---   sets. Use the <tt>size</tt> parameter to control the number of hits to
---   include in each response. You can specify either the <tt>cursor</tt>
---   or <tt>start</tt> parameter in a request; they are mutually exclusive.
---   To get the first cursor, set the cursor value to <tt>initial</tt>. In
---   subsequent requests, specify the cursor value returned in the hits
---   section of the response.
+-- | Specifies the maximum number of search hits to include in the
+--   response.
+search_size :: Lens' Search (Maybe Integer)
+
+-- | Specifies which query parser to use to process the request. If
+--   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
+--   <tt>simple</tt> query parser.
+--   
+--   Amazon CloudSearch supports four query parsers:
+--   
+--   <ul>
+--   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
+--   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
+--   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
+--   can specify which fields to search by with the <tt>queryOptions</tt>
+--   parameter. If you prefix a search term with a plus sign (+) documents
+--   must contain the term to be considered a match. (This is the default,
+--   unless you configure the default operator with the
+--   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
+--   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
+--   particular terms, find results that match any of the specified terms,
+--   or search for a prefix. To search for a phrase rather than individual
+--   terms, enclose the phrase in double quotes. For more information, see
+--   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
+--   Guide</i>.</li>
+--   <li><tt>structured</tt>: perform advanced searches by combining
+--   multiple expressions to define the search criteria. You can also
+--   search within particular fields, search for values and ranges of
+--   values, and use advanced options such as term boosting,
+--   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
+--   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
+--   Developer Guide</i>.</li>
+--   <li><tt>lucene</tt>: search using the Apache Lucene query parser
+--   syntax. For more information, see <a>Apache Lucene Query Parser
+--   Syntax</a>.</li>
+--   <li><tt>dismax</tt>: search using the simplified subset of the Apache
+--   Lucene query parser syntax defined by the DisMax query parser. For
+--   more information, see <a>DisMax Query Parser Syntax</a>.</li>
+--   </ul>
+search_queryParser :: Lens' Search (Maybe QueryParser)
+
+-- | Specifies the offset of the first search hit you want to return. Note
+--   that the result set is zero-based; the first result is at index 0. You
+--   can specify either the <tt>start</tt> or <tt>cursor</tt> parameter in
+--   a request, they are mutually exclusive.
 --   
 --   For more information, see <a>Paginating Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-search_cursor :: Lens' Search (Maybe Text)
-
--- | Specifies one or more fields for which to get statistics information.
---   Each specified field must be facet-enabled in the domain
---   configuration. The fields are specified in JSON using the form:
---   
---   <pre>
---   {"FIELD-A":{},"FIELD-B":{}}
---   </pre>
---   
---   There are currently no options supported for statistics.
-search_stats :: Lens' Search (Maybe Text)
+search_start :: Lens' Search (Maybe Integer)
 
 -- | Retrieves highlights for matches in the specified <tt>text</tt> or
 --   <tt>text-array</tt> fields. Each specified field must be highlight
@@ -2998,14 +3019,31 @@ search_stats :: Lens' Search (Maybe Text)
 --   </pre>
 search_highlight :: Lens' Search (Maybe Text)
 
--- | Specifies the offset of the first search hit you want to return. Note
---   that the result set is zero-based; the first result is at index 0. You
---   can specify either the <tt>start</tt> or <tt>cursor</tt> parameter in
---   a request, they are mutually exclusive.
+-- | Specifies one or more fields for which to get statistics information.
+--   Each specified field must be facet-enabled in the domain
+--   configuration. The fields are specified in JSON using the form:
 --   
---   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   <pre>
+--   {"FIELD-A":{},"FIELD-B":{}}
+--   </pre>
+--   
+--   There are currently no options supported for statistics.
+search_stats :: Lens' Search (Maybe Text)
+
+-- | Specifies the fields or custom expressions to use to sort the search
+--   results. Multiple fields or expressions are specified as a
+--   comma-separated list. You must specify the sort direction
+--   (<tt>asc</tt> or <tt>desc</tt>) for each field; for example, <tt>year
+--   desc,title asc</tt>. To use a field to sort results, the field must be
+--   sort-enabled in the domain configuration. Array type fields cannot be
+--   used for sorting. If no <tt>sort</tt> parameter is specified, results
+--   are sorted by their default relevance scores in descending order:
+--   <tt>_score desc</tt>. You can also sort by document ID (<tt>_id
+--   asc</tt>) and version (<tt>_version desc</tt>).
+--   
+--   For more information, see <a>Sorting Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-search_start :: Lens' Search (Maybe Integer)
+search_sort :: Lens' Search (Maybe Text)
 
 -- | Specifies one or more fields for which to get facet information, and
 --   options that control how the facet information is returned. Each
@@ -3072,37 +3110,19 @@ search_start :: Lens' Search (Maybe Integer)
 --   in the <i>Amazon CloudSearch Developer Guide</i>.
 search_facet :: Lens' Search (Maybe Text)
 
--- | Specifies the maximum number of search hits to include in the
---   response.
-search_size :: Lens' Search (Maybe Integer)
-
--- | Specifies the fields or custom expressions to use to sort the search
---   results. Multiple fields or expressions are specified as a
---   comma-separated list. You must specify the sort direction
---   (<tt>asc</tt> or <tt>desc</tt>) for each field; for example, <tt>year
---   desc,title asc</tt>. To use a field to sort results, the field must be
---   sort-enabled in the domain configuration. Array type fields cannot be
---   used for sorting. If no <tt>sort</tt> parameter is specified, results
---   are sorted by their default relevance scores in descending order:
---   <tt>_score desc</tt>. You can also sort by document ID (<tt>_id
---   asc</tt>) and version (<tt>_version desc</tt>).
---   
---   For more information, see <a>Sorting Results</a> in the <i>Amazon
---   CloudSearch Developer Guide</i>.
-search_sort :: Lens' Search (Maybe Text)
-
--- | Specifies a structured query that filters the results of a search
---   without affecting how the results are scored and sorted. You use
---   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
---   to filter the documents that match the constraints specified in the
---   <tt>query</tt> parameter. Specifying a filter controls only which
---   matching documents are included in the results, it has no effect on
---   how they are scored and sorted. The <tt>filterQuery</tt> parameter
---   supports the full structured query syntax.
---   
---   For more information about using filters, see <a>Filtering Matching
---   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-search_filterQuery :: Lens' Search (Maybe Text)
+-- | Enables partial results to be returned if one or more index partitions
+--   are unavailable. When your search index is partitioned across multiple
+--   search instances, by default Amazon CloudSearch only returns results
+--   if every partition can be queried. This means that the failure of a
+--   single search instance can result in 5xx (internal server) errors.
+--   When you enable partial results, Amazon CloudSearch returns whatever
+--   results are available and includes the percentage of documents
+--   searched in the search results (percent-searched). This enables you to
+--   more gracefully degrade your users' search experience. For example,
+--   rather than displaying no results, you could display the partial
+--   results and a message indicating that the results might be incomplete
+--   due to a temporary system outage.
+search_partial :: Lens' Search (Maybe Bool)
 
 -- | Specifies the search criteria for the request. How you specify the
 --   search criteria depends on the query parser used for the request and
@@ -3120,50 +3140,40 @@ search_query :: Lens' Search Text
 -- | The status information returned for the search request.
 searchResponse_status :: Lens' SearchResponse (Maybe SearchStatus)
 
--- | The documents that match the search criteria.
-searchResponse_hits :: Lens' SearchResponse (Maybe Hits)
+-- | The requested facet information.
+searchResponse_facets :: Lens' SearchResponse (Maybe (HashMap Text BucketInfo))
 
 -- | The requested field statistics information.
 searchResponse_stats :: Lens' SearchResponse (Maybe (HashMap Text FieldStats))
 
--- | The requested facet information.
-searchResponse_facets :: Lens' SearchResponse (Maybe (HashMap Text BucketInfo))
+-- | The documents that match the search criteria.
+searchResponse_hits :: Lens' SearchResponse (Maybe Hits)
 
 -- | The response's http status code.
 searchResponse_httpStatus :: Lens' SearchResponse Int
 
--- | Specifies the maximum number of suggestions to return.
-suggest_size :: Lens' Suggest (Maybe Integer)
-
--- | Specifies the string for which you want to get suggestions.
-suggest_query :: Lens' Suggest Text
-
--- | Specifies the name of the suggester to use to find suggested matches.
-suggest_suggester :: Lens' Suggest Text
-
--- | The status of a <tt>SuggestRequest</tt>. Contains the resource ID
---   (<tt>rid</tt>) and how long it took to process the request
---   (<tt>timems</tt>).
-suggestResponse_status :: Lens' SuggestResponse (Maybe SuggestStatus)
-
--- | Container for the matching search suggestion information.
-suggestResponse_suggest :: Lens' SuggestResponse (Maybe SuggestModel)
-
--- | The response's http status code.
-suggestResponse_httpStatus :: Lens' SuggestResponse Int
+-- | The facet value being counted.
+bucket_value :: Lens' Bucket (Maybe Text)
 
 -- | The number of hits that contain the facet value in the specified facet
 --   field.
 bucket_count :: Lens' Bucket (Maybe Integer)
-
--- | The facet value being counted.
-bucket_value :: Lens' Bucket (Maybe Text)
 
 -- | A list of the calculated facet values and counts.
 bucketInfo_buckets :: Lens' BucketInfo (Maybe [Bucket])
 
 -- | The description for a warning returned by the document service.
 documentServiceWarning_message :: Lens' DocumentServiceWarning (Maybe Text)
+
+-- | The maximum value found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+fieldStats_max :: Lens' FieldStats (Maybe Text)
 
 -- | The average of the values found in the specified field in the result
 --   set.
@@ -3176,13 +3186,17 @@ documentServiceWarning_message :: Lens' DocumentServiceWarning (Maybe Text)
 --   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_mean :: Lens' FieldStats (Maybe Text)
 
+-- | The number of documents that contain a value in the specified field in
+--   the result set.
+fieldStats_count :: Lens' FieldStats (Maybe Integer)
+
 -- | The number of documents that do not contain a value in the specified
 --   field in the result set.
 fieldStats_missing :: Lens' FieldStats (Maybe Integer)
 
--- | The sum of the field values across the documents in the result set.
---   <tt>null</tt> for date fields.
-fieldStats_sum :: Lens' FieldStats (Maybe Double)
+-- | The standard deviation of the values in the specified field in the
+--   result set.
+fieldStats_stddev :: Lens' FieldStats (Maybe Double)
 
 -- | The minimum value found in the specified field in the result set.
 --   
@@ -3194,84 +3208,70 @@ fieldStats_sum :: Lens' FieldStats (Maybe Double)
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 fieldStats_min :: Lens' FieldStats (Maybe Text)
 
--- | The standard deviation of the values in the specified field in the
---   result set.
-fieldStats_stddev :: Lens' FieldStats (Maybe Double)
-
--- | The maximum value found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>max</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>max</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
-fieldStats_max :: Lens' FieldStats (Maybe Text)
-
--- | The number of documents that contain a value in the specified field in
---   the result set.
-fieldStats_count :: Lens' FieldStats (Maybe Integer)
-
 -- | The sum of all field values in the result set squared.
 fieldStats_sumOfSquares :: Lens' FieldStats (Maybe Double)
 
--- | The document ID of a document that matches the search request.
-hit_id :: Lens' Hit (Maybe Text)
+-- | The sum of the field values across the documents in the result set.
+--   <tt>null</tt> for date fields.
+fieldStats_sum :: Lens' FieldStats (Maybe Double)
 
 -- | The expressions returned from a document that matches the search
 --   request.
 hit_exprs :: Lens' Hit (Maybe (HashMap Text Text))
 
--- | The fields returned from a document that matches the search request.
-hit_fields :: Lens' Hit (Maybe (HashMap Text [Text]))
+-- | The document ID of a document that matches the search request.
+hit_id :: Lens' Hit (Maybe Text)
 
 -- | The highlights returned from a document that matches the search
 --   request.
 hit_highlights :: Lens' Hit (Maybe (HashMap Text Text))
 
--- | The total number of documents that match the search request.
-hits_found :: Lens' Hits (Maybe Integer)
-
--- | A document that matches the search request.
-hits_hit :: Lens' Hits (Maybe [Hit])
+-- | The fields returned from a document that matches the search request.
+hit_fields :: Lens' Hit (Maybe (HashMap Text [Text]))
 
 -- | A cursor that can be used to retrieve the next set of matching
 --   documents when you want to page through a large result set.
 hits_cursor :: Lens' Hits (Maybe Text)
 
+-- | A document that matches the search request.
+hits_hit :: Lens' Hits (Maybe [Hit])
+
 -- | The index of the first matching document.
 hits_start :: Lens' Hits (Maybe Integer)
 
--- | How long it took to process the request, in milliseconds.
-searchStatus_timems :: Lens' SearchStatus (Maybe Integer)
+-- | The total number of documents that match the search request.
+hits_found :: Lens' Hits (Maybe Integer)
 
 -- | The encrypted resource ID for the request.
 searchStatus_rid :: Lens' SearchStatus (Maybe Text)
 
--- | The documents that match the query string.
-suggestModel_suggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
+-- | How long it took to process the request, in milliseconds.
+searchStatus_timems :: Lens' SearchStatus (Maybe Integer)
 
 -- | The number of documents that were found to match the query string.
 suggestModel_found :: Lens' SuggestModel (Maybe Integer)
 
+-- | The documents that match the query string.
+suggestModel_suggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
+
 -- | The query string specified in the suggest request.
 suggestModel_query :: Lens' SuggestModel (Maybe Text)
 
--- | How long it took to process the request, in milliseconds.
-suggestStatus_timems :: Lens' SuggestStatus (Maybe Integer)
-
 -- | The encrypted resource ID for the request.
 suggestStatus_rid :: Lens' SuggestStatus (Maybe Text)
+
+-- | How long it took to process the request, in milliseconds.
+suggestStatus_timems :: Lens' SuggestStatus (Maybe Integer)
 
 -- | The string that matches the query string specified in the
 --   <tt>SuggestRequest</tt>.
 suggestionMatch_suggestion :: Lens' SuggestionMatch (Maybe Text)
 
--- | The document ID of the suggested document.
-suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
-
 -- | The relevance score of a suggested match.
 suggestionMatch_score :: Lens' SuggestionMatch (Maybe Integer)
+
+-- | The document ID of the suggested document.
+suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
 
 
 module Network.AWS.CloudSearchDomains.Waiters
@@ -3299,13 +3299,64 @@ module Network.AWS.CloudSearchDomains
 --   configuration.
 defaultService :: Service
 
+-- | Information about any problems encountered while processing an upload
+--   request.
+_DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | Information about any problems encountered while processing a search
 --   request.
 _SearchException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Information about any problems encountered while processing an upload
---   request.
-_DocumentServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Container for the parameters to the <tt>Suggest</tt> request.
+--   
+--   <i>See:</i> <a>newSuggest</a> smart constructor.
+data Suggest
+Suggest' :: Maybe Integer -> Text -> Text -> Suggest
+
+-- | Create a value of <a>Suggest</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:size:Suggest'</a>, <a>suggest_size</a> - Specifies the maximum
+--   number of suggestions to return.
+--   
+--   <a>$sel:query:Suggest'</a>, <a>suggest_query</a> - Specifies the
+--   string for which you want to get suggestions.
+--   
+--   <a>$sel:suggester:Suggest'</a>, <a>suggest_suggester</a> - Specifies
+--   the name of the suggester to use to find suggested matches.
+newSuggest :: Text -> Text -> Suggest
+
+-- | Contains the response to a <tt>Suggest</tt> request.
+--   
+--   <i>See:</i> <a>newSuggestResponse</a> smart constructor.
+data SuggestResponse
+SuggestResponse' :: Maybe SuggestModel -> Maybe SuggestStatus -> Int -> SuggestResponse
+
+-- | Create a value of <a>SuggestResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:suggest:SuggestResponse'</a>, <a>suggestResponse_suggest</a> -
+--   Container for the matching search suggestion information.
+--   
+--   <a>$sel:status:SuggestResponse'</a>, <a>suggestResponse_status</a> -
+--   The status of a <tt>SuggestRequest</tt>. Contains the resource ID
+--   (<tt>rid</tt>) and how long it took to process the request
+--   (<tt>timems</tt>).
+--   
+--   <a>$sel:httpStatus:SuggestResponse'</a>,
+--   <a>suggestResponse_httpStatus</a> - The response's http status code.
+newSuggestResponse :: Int -> SuggestResponse
 
 -- | Container for the parameters to the <tt>UploadDocuments</tt> request.
 --   
@@ -3340,7 +3391,7 @@ newUploadDocuments :: ContentType -> HashedBody -> UploadDocuments
 --   
 --   <i>See:</i> <a>newUploadDocumentsResponse</a> smart constructor.
 data UploadDocumentsResponse
-UploadDocumentsResponse' :: Maybe Text -> Maybe [DocumentServiceWarning] -> Maybe Integer -> Maybe Integer -> Int -> UploadDocumentsResponse
+UploadDocumentsResponse' :: Maybe Text -> Maybe Integer -> Maybe [DocumentServiceWarning] -> Maybe Integer -> Int -> UploadDocumentsResponse
 
 -- | Create a value of <a>UploadDocumentsResponse</a> with all optional
 --   fields omitted.
@@ -3355,6 +3406,10 @@ UploadDocumentsResponse' :: Maybe Text -> Maybe [DocumentServiceWarning] -> Mayb
 --   <a>uploadDocumentsResponse_status</a> - The status of an
 --   <tt>UploadDocumentsRequest</tt>.
 --   
+--   <a>$sel:adds:UploadDocumentsResponse'</a>,
+--   <a>uploadDocumentsResponse_adds</a> - The number of documents that
+--   were added to the search domain.
+--   
 --   <a>$sel:warnings:UploadDocumentsResponse'</a>,
 --   <a>uploadDocumentsResponse_warnings</a> - Any warnings returned by the
 --   document service about the documents being uploaded.
@@ -3362,10 +3417,6 @@ UploadDocumentsResponse' :: Maybe Text -> Maybe [DocumentServiceWarning] -> Mayb
 --   <a>$sel:deletes:UploadDocumentsResponse'</a>,
 --   <a>uploadDocumentsResponse_deletes</a> - The number of documents that
 --   were deleted from the search domain.
---   
---   <a>$sel:adds:UploadDocumentsResponse'</a>,
---   <a>uploadDocumentsResponse_adds</a> - The number of documents that
---   were added to the search domain.
 --   
 --   <a>$sel:httpStatus:UploadDocumentsResponse'</a>,
 --   <a>uploadDocumentsResponse_httpStatus</a> - The response's http status
@@ -3376,7 +3427,7 @@ newUploadDocumentsResponse :: Int -> UploadDocumentsResponse
 --   
 --   <i>See:</i> <a>newSearch</a> smart constructor.
 data Search
-Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Text -> Maybe Text -> Text -> Search
+Search' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Integer -> Maybe QueryParser -> Maybe Integer -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Bool -> Text -> Search
 
 -- | Create a value of <a>Search</a> with all optional fields omitted.
 --   
@@ -3402,56 +3453,25 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   use in expressions, see <a>Writing Expressions</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
 --   
---   <a>$sel:partial:Search'</a>, <a>search_partial</a> - Enables partial
---   results to be returned if one or more index partitions are
---   unavailable. When your search index is partitioned across multiple
---   search instances, by default Amazon CloudSearch only returns results
---   if every partition can be queried. This means that the failure of a
---   single search instance can result in 5xx (internal server) errors.
---   When you enable partial results, Amazon CloudSearch returns whatever
---   results are available and includes the percentage of documents
---   searched in the search results (percent-searched). This enables you to
---   more gracefully degrade your users' search experience. For example,
---   rather than displaying no results, you could display the partial
---   results and a message indicating that the results might be incomplete
---   due to a temporary system outage.
+--   <a>$sel:cursor:Search'</a>, <a>search_cursor</a> - Retrieves a cursor
+--   value you can use to page through large result sets. Use the
+--   <tt>size</tt> parameter to control the number of hits to include in
+--   each response. You can specify either the <tt>cursor</tt> or
+--   <tt>start</tt> parameter in a request; they are mutually exclusive. To
+--   get the first cursor, set the cursor value to <tt>initial</tt>. In
+--   subsequent requests, specify the cursor value returned in the hits
+--   section of the response.
 --   
---   <a>$sel:queryParser:Search'</a>, <a>search_queryParser</a> - Specifies
---   which query parser to use to process the request. If
---   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
---   <tt>simple</tt> query parser.
+--   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   CloudSearch Developer Guide</i>.
 --   
---   Amazon CloudSearch supports four query parsers:
---   
---   <ul>
---   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
---   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
---   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
---   can specify which fields to search by with the <tt>queryOptions</tt>
---   parameter. If you prefix a search term with a plus sign (+) documents
---   must contain the term to be considered a match. (This is the default,
---   unless you configure the default operator with the
---   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
---   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
---   particular terms, find results that match any of the specified terms,
---   or search for a prefix. To search for a phrase rather than individual
---   terms, enclose the phrase in double quotes. For more information, see
---   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
---   Guide</i>.</li>
---   <li><tt>structured</tt>: perform advanced searches by combining
---   multiple expressions to define the search criteria. You can also
---   search within particular fields, search for values and ranges of
---   values, and use advanced options such as term boosting,
---   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
---   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
---   Developer Guide</i>.</li>
---   <li><tt>lucene</tt>: search using the Apache Lucene query parser
---   syntax. For more information, see <a>Apache Lucene Query Parser
---   Syntax</a>.</li>
---   <li><tt>dismax</tt>: search using the simplified subset of the Apache
---   Lucene query parser syntax defined by the DisMax query parser. For
---   more information, see <a>DisMax Query Parser Syntax</a>.</li>
---   </ul>
+--   <a>$sel:return':Search'</a>, <a>search_return</a> - Specifies the
+--   field and expression values to include in the response. Multiple
+--   fields or expressions are specified as a comma-separated list. By
+--   default, a search response includes all return enabled fields
+--   (<tt>_all_fields</tt>). To return only the document IDs for the
+--   matching documents, specify <tt>_no_fields</tt>. To retrieve the
+--   relevance score calculated for each document, specify <tt>_score</tt>.
 --   
 --   <a>$sel:queryOptions:Search'</a>, <a>search_queryOptions</a> -
 --   Configures options for the query parser specified in the
@@ -3560,36 +3580,67 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   Default: 0.0. Valid for: <tt>dismax</tt>.</li>
 --   </ul>
 --   
---   <a>$sel:return':Search'</a>, <a>search_return</a> - Specifies the
---   field and expression values to include in the response. Multiple
---   fields or expressions are specified as a comma-separated list. By
---   default, a search response includes all return enabled fields
---   (<tt>_all_fields</tt>). To return only the document IDs for the
---   matching documents, specify <tt>_no_fields</tt>. To retrieve the
---   relevance score calculated for each document, specify <tt>_score</tt>.
+--   <a>$sel:filterQuery:Search'</a>, <a>search_filterQuery</a> - Specifies
+--   a structured query that filters the results of a search without
+--   affecting how the results are scored and sorted. You use
+--   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
+--   to filter the documents that match the constraints specified in the
+--   <tt>query</tt> parameter. Specifying a filter controls only which
+--   matching documents are included in the results, it has no effect on
+--   how they are scored and sorted. The <tt>filterQuery</tt> parameter
+--   supports the full structured query syntax.
 --   
---   <a>$sel:cursor:Search'</a>, <a>search_cursor</a> - Retrieves a cursor
---   value you can use to page through large result sets. Use the
---   <tt>size</tt> parameter to control the number of hits to include in
---   each response. You can specify either the <tt>cursor</tt> or
---   <tt>start</tt> parameter in a request; they are mutually exclusive. To
---   get the first cursor, set the cursor value to <tt>initial</tt>. In
---   subsequent requests, specify the cursor value returned in the hits
---   section of the response.
+--   For more information about using filters, see <a>Filtering Matching
+--   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+--   
+--   <a>$sel:size:Search'</a>, <a>search_size</a> - Specifies the maximum
+--   number of search hits to include in the response.
+--   
+--   <a>$sel:queryParser:Search'</a>, <a>search_queryParser</a> - Specifies
+--   which query parser to use to process the request. If
+--   <tt>queryParser</tt> is not specified, Amazon CloudSearch uses the
+--   <tt>simple</tt> query parser.
+--   
+--   Amazon CloudSearch supports four query parsers:
+--   
+--   <ul>
+--   <li><tt>simple</tt>: perform simple searches of <tt>text</tt> and
+--   <tt>text-array</tt> fields. By default, the <tt>simple</tt> query
+--   parser searches all <tt>text</tt> and <tt>text-array</tt> fields. You
+--   can specify which fields to search by with the <tt>queryOptions</tt>
+--   parameter. If you prefix a search term with a plus sign (+) documents
+--   must contain the term to be considered a match. (This is the default,
+--   unless you configure the default operator with the
+--   <tt>queryOptions</tt> parameter.) You can use the <tt>-</tt> (NOT),
+--   <tt>|</tt> (OR), and <tt>*</tt> (wildcard) operators to exclude
+--   particular terms, find results that match any of the specified terms,
+--   or search for a prefix. To search for a phrase rather than individual
+--   terms, enclose the phrase in double quotes. For more information, see
+--   <a>Searching for Text</a> in the <i>Amazon CloudSearch Developer
+--   Guide</i>.</li>
+--   <li><tt>structured</tt>: perform advanced searches by combining
+--   multiple expressions to define the search criteria. You can also
+--   search within particular fields, search for values and ranges of
+--   values, and use advanced options such as term boosting,
+--   <tt>matchall</tt>, and <tt>near</tt>. For more information, see
+--   <a>Constructing Compound Queries</a> in the <i>Amazon CloudSearch
+--   Developer Guide</i>.</li>
+--   <li><tt>lucene</tt>: search using the Apache Lucene query parser
+--   syntax. For more information, see <a>Apache Lucene Query Parser
+--   Syntax</a>.</li>
+--   <li><tt>dismax</tt>: search using the simplified subset of the Apache
+--   Lucene query parser syntax defined by the DisMax query parser. For
+--   more information, see <a>DisMax Query Parser Syntax</a>.</li>
+--   </ul>
+--   
+--   <a>$sel:start:Search'</a>, <a>search_start</a> - Specifies the offset
+--   of the first search hit you want to return. Note that the result set
+--   is zero-based; the first result is at index 0. You can specify either
+--   the <tt>start</tt> or <tt>cursor</tt> parameter in a request, they are
+--   mutually exclusive.
 --   
 --   For more information, see <a>Paginating Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
---   
---   <a>$sel:stats:Search'</a>, <a>search_stats</a> - Specifies one or more
---   fields for which to get statistics information. Each specified field
---   must be facet-enabled in the domain configuration. The fields are
---   specified in JSON using the form:
---   
---   <pre>
---   {"FIELD-A":{},"FIELD-B":{}}
---   </pre>
---   
---   There are currently no options supported for statistics.
 --   
 --   <a>$sel:highlight:Search'</a>, <a>search_highlight</a> - Retrieves
 --   highlights for matches in the specified <tt>text</tt> or
@@ -3629,13 +3680,30 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   { "actors": {}, "title": {"format": "text","max_phrases": 2,"pre_tag": "","post_tag": ""} }
 --   </pre>
 --   
---   <a>$sel:start:Search'</a>, <a>search_start</a> - Specifies the offset
---   of the first search hit you want to return. Note that the result set
---   is zero-based; the first result is at index 0. You can specify either
---   the <tt>start</tt> or <tt>cursor</tt> parameter in a request, they are
---   mutually exclusive.
+--   <a>$sel:stats:Search'</a>, <a>search_stats</a> - Specifies one or more
+--   fields for which to get statistics information. Each specified field
+--   must be facet-enabled in the domain configuration. The fields are
+--   specified in JSON using the form:
 --   
---   For more information, see <a>Paginating Results</a> in the <i>Amazon
+--   <pre>
+--   {"FIELD-A":{},"FIELD-B":{}}
+--   </pre>
+--   
+--   There are currently no options supported for statistics.
+--   
+--   <a>$sel:sort:Search'</a>, <a>search_sort</a> - Specifies the fields or
+--   custom expressions to use to sort the search results. Multiple fields
+--   or expressions are specified as a comma-separated list. You must
+--   specify the sort direction (<tt>asc</tt> or <tt>desc</tt>) for each
+--   field; for example, <tt>year desc,title asc</tt>. To use a field to
+--   sort results, the field must be sort-enabled in the domain
+--   configuration. Array type fields cannot be used for sorting. If no
+--   <tt>sort</tt> parameter is specified, results are sorted by their
+--   default relevance scores in descending order: <tt>_score desc</tt>.
+--   You can also sort by document ID (<tt>_id asc</tt>) and version
+--   (<tt>_version desc</tt>).
+--   
+--   For more information, see <a>Sorting Results</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
 --   
 --   <a>$sel:facet:Search'</a>, <a>search_facet</a> - Specifies one or more
@@ -3703,36 +3771,19 @@ Search' :: Maybe Text -> Maybe Bool -> Maybe QueryParser -> Maybe Text -> Maybe 
 --   For more information, see <a>Getting and Using Facet Information</a>
 --   in the <i>Amazon CloudSearch Developer Guide</i>.
 --   
---   <a>$sel:size:Search'</a>, <a>search_size</a> - Specifies the maximum
---   number of search hits to include in the response.
---   
---   <a>$sel:sort:Search'</a>, <a>search_sort</a> - Specifies the fields or
---   custom expressions to use to sort the search results. Multiple fields
---   or expressions are specified as a comma-separated list. You must
---   specify the sort direction (<tt>asc</tt> or <tt>desc</tt>) for each
---   field; for example, <tt>year desc,title asc</tt>. To use a field to
---   sort results, the field must be sort-enabled in the domain
---   configuration. Array type fields cannot be used for sorting. If no
---   <tt>sort</tt> parameter is specified, results are sorted by their
---   default relevance scores in descending order: <tt>_score desc</tt>.
---   You can also sort by document ID (<tt>_id asc</tt>) and version
---   (<tt>_version desc</tt>).
---   
---   For more information, see <a>Sorting Results</a> in the <i>Amazon
---   CloudSearch Developer Guide</i>.
---   
---   <a>$sel:filterQuery:Search'</a>, <a>search_filterQuery</a> - Specifies
---   a structured query that filters the results of a search without
---   affecting how the results are scored and sorted. You use
---   <tt>filterQuery</tt> in conjunction with the <tt>query</tt> parameter
---   to filter the documents that match the constraints specified in the
---   <tt>query</tt> parameter. Specifying a filter controls only which
---   matching documents are included in the results, it has no effect on
---   how they are scored and sorted. The <tt>filterQuery</tt> parameter
---   supports the full structured query syntax.
---   
---   For more information about using filters, see <a>Filtering Matching
---   Documents</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+--   <a>$sel:partial:Search'</a>, <a>search_partial</a> - Enables partial
+--   results to be returned if one or more index partitions are
+--   unavailable. When your search index is partitioned across multiple
+--   search instances, by default Amazon CloudSearch only returns results
+--   if every partition can be queried. This means that the failure of a
+--   single search instance can result in 5xx (internal server) errors.
+--   When you enable partial results, Amazon CloudSearch returns whatever
+--   results are available and includes the percentage of documents
+--   searched in the search results (percent-searched). This enables you to
+--   more gracefully degrade your users' search experience. For example,
+--   rather than displaying no results, you could display the partial
+--   results and a message indicating that the results might be incomplete
+--   due to a temporary system outage.
 --   
 --   <a>$sel:query:Search'</a>, <a>search_query</a> - Specifies the search
 --   criteria for the request. How you specify the search criteria depends
@@ -3753,7 +3804,7 @@ newSearch :: Text -> Search
 --   
 --   <i>See:</i> <a>newSearchResponse</a> smart constructor.
 data SearchResponse
-SearchResponse' :: Maybe SearchStatus -> Maybe Hits -> Maybe (HashMap Text FieldStats) -> Maybe (HashMap Text BucketInfo) -> Int -> SearchResponse
+SearchResponse' :: Maybe SearchStatus -> Maybe (HashMap Text BucketInfo) -> Maybe (HashMap Text FieldStats) -> Maybe Hits -> Int -> SearchResponse
 
 -- | Create a value of <a>SearchResponse</a> with all optional fields
 --   omitted.
@@ -3767,69 +3818,18 @@ SearchResponse' :: Maybe SearchStatus -> Maybe Hits -> Maybe (HashMap Text Field
 --   <a>$sel:status:SearchResponse'</a>, <a>searchResponse_status</a> - The
 --   status information returned for the search request.
 --   
---   <a>$sel:hits:SearchResponse'</a>, <a>searchResponse_hits</a> - The
---   documents that match the search criteria.
+--   <a>$sel:facets:SearchResponse'</a>, <a>searchResponse_facets</a> - The
+--   requested facet information.
 --   
 --   <a>$sel:stats:Search'</a>, <a>searchResponse_stats</a> - The requested
 --   field statistics information.
 --   
---   <a>$sel:facets:SearchResponse'</a>, <a>searchResponse_facets</a> - The
---   requested facet information.
+--   <a>$sel:hits:SearchResponse'</a>, <a>searchResponse_hits</a> - The
+--   documents that match the search criteria.
 --   
 --   <a>$sel:httpStatus:SearchResponse'</a>,
 --   <a>searchResponse_httpStatus</a> - The response's http status code.
 newSearchResponse :: Int -> SearchResponse
-
--- | Container for the parameters to the <tt>Suggest</tt> request.
---   
---   <i>See:</i> <a>newSuggest</a> smart constructor.
-data Suggest
-Suggest' :: Maybe Integer -> Text -> Text -> Suggest
-
--- | Create a value of <a>Suggest</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:size:Suggest'</a>, <a>suggest_size</a> - Specifies the maximum
---   number of suggestions to return.
---   
---   <a>$sel:query:Suggest'</a>, <a>suggest_query</a> - Specifies the
---   string for which you want to get suggestions.
---   
---   <a>$sel:suggester:Suggest'</a>, <a>suggest_suggester</a> - Specifies
---   the name of the suggester to use to find suggested matches.
-newSuggest :: Text -> Text -> Suggest
-
--- | Contains the response to a <tt>Suggest</tt> request.
---   
---   <i>See:</i> <a>newSuggestResponse</a> smart constructor.
-data SuggestResponse
-SuggestResponse' :: Maybe SuggestStatus -> Maybe SuggestModel -> Int -> SuggestResponse
-
--- | Create a value of <a>SuggestResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:status:SuggestResponse'</a>, <a>suggestResponse_status</a> -
---   The status of a <tt>SuggestRequest</tt>. Contains the resource ID
---   (<tt>rid</tt>) and how long it took to process the request
---   (<tt>timems</tt>).
---   
---   <a>$sel:suggest:SuggestResponse'</a>, <a>suggestResponse_suggest</a> -
---   Container for the matching search suggestion information.
---   
---   <a>$sel:httpStatus:SuggestResponse'</a>,
---   <a>suggestResponse_httpStatus</a> - The response's http status code.
-newSuggestResponse :: Int -> SuggestResponse
 newtype ContentType
 ContentType' :: Text -> ContentType
 [fromContentType] :: ContentType -> Text
@@ -3847,7 +3847,7 @@ pattern QueryParser_Structured :: QueryParser
 --   
 --   <i>See:</i> <a>newBucket</a> smart constructor.
 data Bucket
-Bucket' :: Maybe Integer -> Maybe Text -> Bucket
+Bucket' :: Maybe Text -> Maybe Integer -> Bucket
 
 -- | Create a value of <a>Bucket</a> with all optional fields omitted.
 --   
@@ -3857,11 +3857,11 @@ Bucket' :: Maybe Integer -> Maybe Text -> Bucket
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:count:Bucket'</a>, <a>bucket_count</a> - The number of hits
---   that contain the facet value in the specified facet field.
---   
 --   <a>$sel:value:Bucket'</a>, <a>bucket_value</a> - The facet value being
 --   counted.
+--   
+--   <a>$sel:count:Bucket'</a>, <a>bucket_count</a> - The number of hits
+--   that contain the facet value in the specified facet field.
 newBucket :: Bucket
 
 -- | A container for the calculated facet values and counts.
@@ -3907,7 +3907,7 @@ newDocumentServiceWarning :: DocumentServiceWarning
 --   
 --   <i>See:</i> <a>newFieldStats</a> smart constructor.
 data FieldStats
-FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Maybe Double -> Maybe Text -> Maybe Integer -> Maybe Double -> FieldStats
+FieldStats' :: Maybe Text -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Double -> Maybe Text -> Maybe Double -> Maybe Double -> FieldStats
 
 -- | Create a value of <a>FieldStats</a> with all optional fields omitted.
 --   
@@ -3916,38 +3916,6 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:mean:FieldStats'</a>, <a>fieldStats_mean</a> - The average of
---   the values found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>mean</tt> is the
---   string representation of a double-precision 64-bit floating point
---   value. If the field is <tt>date</tt> or <tt>date-array</tt>,
---   <tt>mean</tt> is the string representation of a date with the format
---   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
---   
---   <a>$sel:missing:FieldStats'</a>, <a>fieldStats_missing</a> - The
---   number of documents that do not contain a value in the specified field
---   in the result set.
---   
---   <a>$sel:sum:FieldStats'</a>, <a>fieldStats_sum</a> - The sum of the
---   field values across the documents in the result set. <tt>null</tt> for
---   date fields.
---   
---   <a>$sel:min:FieldStats'</a>, <a>fieldStats_min</a> - The minimum value
---   found in the specified field in the result set.
---   
---   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
---   <tt>double</tt>, or <tt>double-array</tt>), <tt>min</tt> is the string
---   representation of a double-precision 64-bit floating point value. If
---   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>min</tt> is the
---   string representation of a date with the format specified in <a>IETF
---   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
---   
---   <a>$sel:stddev:FieldStats'</a>, <a>fieldStats_stddev</a> - The
---   standard deviation of the values in the specified field in the result
---   set.
 --   
 --   <a>$sel:max:FieldStats'</a>, <a>fieldStats_max</a> - The maximum value
 --   found in the specified field in the result set.
@@ -3959,19 +3927,51 @@ FieldStats' :: Maybe Text -> Maybe Integer -> Maybe Double -> Maybe Text -> Mayb
 --   string representation of a date with the format specified in <a>IETF
 --   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
 --   
+--   <a>$sel:mean:FieldStats'</a>, <a>fieldStats_mean</a> - The average of
+--   the values found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>mean</tt> is the
+--   string representation of a double-precision 64-bit floating point
+--   value. If the field is <tt>date</tt> or <tt>date-array</tt>,
+--   <tt>mean</tt> is the string representation of a date with the format
+--   specified in <a>IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+--   
 --   <a>$sel:count:FieldStats'</a>, <a>fieldStats_count</a> - The number of
 --   documents that contain a value in the specified field in the result
 --   set.
 --   
+--   <a>$sel:missing:FieldStats'</a>, <a>fieldStats_missing</a> - The
+--   number of documents that do not contain a value in the specified field
+--   in the result set.
+--   
+--   <a>$sel:stddev:FieldStats'</a>, <a>fieldStats_stddev</a> - The
+--   standard deviation of the values in the specified field in the result
+--   set.
+--   
+--   <a>$sel:min:FieldStats'</a>, <a>fieldStats_min</a> - The minimum value
+--   found in the specified field in the result set.
+--   
+--   If the field is numeric (<tt>int</tt>, <tt>int-array</tt>,
+--   <tt>double</tt>, or <tt>double-array</tt>), <tt>min</tt> is the string
+--   representation of a double-precision 64-bit floating point value. If
+--   the field is <tt>date</tt> or <tt>date-array</tt>, <tt>min</tt> is the
+--   string representation of a date with the format specified in <a>IETF
+--   RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.
+--   
 --   <a>$sel:sumOfSquares:FieldStats'</a>, <a>fieldStats_sumOfSquares</a> -
 --   The sum of all field values in the result set squared.
+--   
+--   <a>$sel:sum:FieldStats'</a>, <a>fieldStats_sum</a> - The sum of the
+--   field values across the documents in the result set. <tt>null</tt> for
+--   date fields.
 newFieldStats :: FieldStats
 
 -- | Information about a document that matches the search request.
 --   
 --   <i>See:</i> <a>newHit</a> smart constructor.
 data Hit
-Hit' :: Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -> Maybe (HashMap Text Text) -> Hit
+Hit' :: Maybe (HashMap Text Text) -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -> Hit
 
 -- | Create a value of <a>Hit</a> with all optional fields omitted.
 --   
@@ -3981,24 +3981,24 @@ Hit' :: Maybe Text -> Maybe (HashMap Text Text) -> Maybe (HashMap Text [Text]) -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:id:Hit'</a>, <a>hit_id</a> - The document ID of a document
---   that matches the search request.
---   
 --   <a>$sel:exprs:Hit'</a>, <a>hit_exprs</a> - The expressions returned
 --   from a document that matches the search request.
 --   
---   <a>$sel:fields:Hit'</a>, <a>hit_fields</a> - The fields returned from
---   a document that matches the search request.
+--   <a>$sel:id:Hit'</a>, <a>hit_id</a> - The document ID of a document
+--   that matches the search request.
 --   
 --   <a>$sel:highlights:Hit'</a>, <a>hit_highlights</a> - The highlights
 --   returned from a document that matches the search request.
+--   
+--   <a>$sel:fields:Hit'</a>, <a>hit_fields</a> - The fields returned from
+--   a document that matches the search request.
 newHit :: Hit
 
 -- | The collection of documents that match the search request.
 --   
 --   <i>See:</i> <a>newHits</a> smart constructor.
 data Hits
-Hits' :: Maybe Integer -> Maybe [Hit] -> Maybe Text -> Maybe Integer -> Hits
+Hits' :: Maybe Text -> Maybe [Hit] -> Maybe Integer -> Maybe Integer -> Hits
 
 -- | Create a value of <a>Hits</a> with all optional fields omitted.
 --   
@@ -4008,18 +4008,18 @@ Hits' :: Maybe Integer -> Maybe [Hit] -> Maybe Text -> Maybe Integer -> Hits
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:found:Hits'</a>, <a>hits_found</a> - The total number of
---   documents that match the search request.
---   
---   <a>$sel:hit:Hits'</a>, <a>hits_hit</a> - A document that matches the
---   search request.
---   
 --   <a>$sel:cursor:Hits'</a>, <a>hits_cursor</a> - A cursor that can be
 --   used to retrieve the next set of matching documents when you want to
 --   page through a large result set.
 --   
+--   <a>$sel:hit:Hits'</a>, <a>hits_hit</a> - A document that matches the
+--   search request.
+--   
 --   <a>$sel:start:Hits'</a>, <a>hits_start</a> - The index of the first
 --   matching document.
+--   
+--   <a>$sel:found:Hits'</a>, <a>hits_found</a> - The total number of
+--   documents that match the search request.
 newHits :: Hits
 
 -- | Contains the resource id (<tt>rid</tt>) and the time it took to
@@ -4027,7 +4027,7 @@ newHits :: Hits
 --   
 --   <i>See:</i> <a>newSearchStatus</a> smart constructor.
 data SearchStatus
-SearchStatus' :: Maybe Integer -> Maybe Text -> SearchStatus
+SearchStatus' :: Maybe Text -> Maybe Integer -> SearchStatus
 
 -- | Create a value of <a>SearchStatus</a> with all optional fields
 --   omitted.
@@ -4038,11 +4038,11 @@ SearchStatus' :: Maybe Integer -> Maybe Text -> SearchStatus
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timems:SearchStatus'</a>, <a>searchStatus_timems</a> - How
---   long it took to process the request, in milliseconds.
---   
 --   <a>$sel:rid:SearchStatus'</a>, <a>searchStatus_rid</a> - The encrypted
 --   resource ID for the request.
+--   
+--   <a>$sel:timems:SearchStatus'</a>, <a>searchStatus_timems</a> - How
+--   long it took to process the request, in milliseconds.
 newSearchStatus :: SearchStatus
 
 -- | Container for the suggestion information returned in a
@@ -4050,7 +4050,7 @@ newSearchStatus :: SearchStatus
 --   
 --   <i>See:</i> <a>newSuggestModel</a> smart constructor.
 data SuggestModel
-SuggestModel' :: Maybe [SuggestionMatch] -> Maybe Integer -> Maybe Text -> SuggestModel
+SuggestModel' :: Maybe Integer -> Maybe [SuggestionMatch] -> Maybe Text -> SuggestModel
 
 -- | Create a value of <a>SuggestModel</a> with all optional fields
 --   omitted.
@@ -4061,11 +4061,11 @@ SuggestModel' :: Maybe [SuggestionMatch] -> Maybe Integer -> Maybe Text -> Sugge
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:suggestions:SuggestModel'</a>, <a>suggestModel_suggestions</a>
---   - The documents that match the query string.
---   
 --   <a>$sel:found:SuggestModel'</a>, <a>suggestModel_found</a> - The
 --   number of documents that were found to match the query string.
+--   
+--   <a>$sel:suggestions:SuggestModel'</a>, <a>suggestModel_suggestions</a>
+--   - The documents that match the query string.
 --   
 --   <a>$sel:query:SuggestModel'</a>, <a>suggestModel_query</a> - The query
 --   string specified in the suggest request.
@@ -4076,7 +4076,7 @@ newSuggestModel :: SuggestModel
 --   
 --   <i>See:</i> <a>newSuggestStatus</a> smart constructor.
 data SuggestStatus
-SuggestStatus' :: Maybe Integer -> Maybe Text -> SuggestStatus
+SuggestStatus' :: Maybe Text -> Maybe Integer -> SuggestStatus
 
 -- | Create a value of <a>SuggestStatus</a> with all optional fields
 --   omitted.
@@ -4087,11 +4087,11 @@ SuggestStatus' :: Maybe Integer -> Maybe Text -> SuggestStatus
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timems:SuggestStatus'</a>, <a>suggestStatus_timems</a> - How
---   long it took to process the request, in milliseconds.
---   
 --   <a>$sel:rid:SuggestStatus'</a>, <a>suggestStatus_rid</a> - The
 --   encrypted resource ID for the request.
+--   
+--   <a>$sel:timems:SuggestStatus'</a>, <a>suggestStatus_timems</a> - How
+--   long it took to process the request, in milliseconds.
 newSuggestStatus :: SuggestStatus
 
 -- | An autocomplete suggestion that matches the query string specified in
@@ -4099,7 +4099,7 @@ newSuggestStatus :: SuggestStatus
 --   
 --   <i>See:</i> <a>newSuggestionMatch</a> smart constructor.
 data SuggestionMatch
-SuggestionMatch' :: Maybe Text -> Maybe Text -> Maybe Integer -> SuggestionMatch
+SuggestionMatch' :: Maybe Text -> Maybe Integer -> Maybe Text -> SuggestionMatch
 
 -- | Create a value of <a>SuggestionMatch</a> with all optional fields
 --   omitted.
@@ -4114,9 +4114,9 @@ SuggestionMatch' :: Maybe Text -> Maybe Text -> Maybe Integer -> SuggestionMatch
 --   <a>suggestionMatch_suggestion</a> - The string that matches the query
 --   string specified in the <tt>SuggestRequest</tt>.
 --   
---   <a>$sel:id:SuggestionMatch'</a>, <a>suggestionMatch_id</a> - The
---   document ID of the suggested document.
---   
 --   <a>$sel:score:SuggestionMatch'</a>, <a>suggestionMatch_score</a> - The
 --   relevance score of a suggested match.
+--   
+--   <a>$sel:id:SuggestionMatch'</a>, <a>suggestionMatch_id</a> - The
+--   document ID of the suggested document.
 newSuggestionMatch :: SuggestionMatch

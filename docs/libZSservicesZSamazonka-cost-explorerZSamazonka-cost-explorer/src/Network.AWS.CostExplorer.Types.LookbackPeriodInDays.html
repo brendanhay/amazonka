@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679330488"><span id="local-6989586621679330489"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LookbackPeriodInDays"><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-var">LookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookbackPeriodInDays%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays%27"><span class="hs-identifier hs-var">LookbackPeriodInDays'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679330818"><span id="local-6989586621679330819"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LookbackPeriodInDays"><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays"><span class="hs-identifier hs-var">LookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookbackPeriodInDays%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#LookbackPeriodInDays%27"><span class="hs-identifier hs-var">LookbackPeriodInDays'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLookbackPeriodInDays"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.LookbackPeriodInDays.html#fromLookbackPeriodInDays"><span class="hs-identifier hs-var hs-var">fromLookbackPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330480"><span id="local-6989586621679330482"><span id="local-6989586621679330484"><span class="annot"><span class="annottext">Int -&gt; LookbackPeriodInDays -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330810"><span id="local-6989586621679330812"><span id="local-6989586621679330814"><span class="annot"><span class="annottext">Int -&gt; LookbackPeriodInDays -&gt; ShowS
 [LookbackPeriodInDays] -&gt; ShowS
 LookbackPeriodInDays -&gt; String
 (Int -&gt; LookbackPeriodInDays -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: LookbackPeriodInDays -&gt; String
 showsPrec :: Int -&gt; LookbackPeriodInDays -&gt; ShowS
 $cshowsPrec :: Int -&gt; LookbackPeriodInDays -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679330471"><span id="local-6989586621679330473"><span id="local-6989586621679330475"><span id="local-6989586621679330477"><span class="annot"><span class="annottext">ReadPrec [LookbackPeriodInDays]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679330801"><span id="local-6989586621679330803"><span id="local-6989586621679330805"><span id="local-6989586621679330807"><span class="annot"><span class="annottext">ReadPrec [LookbackPeriodInDays]
 ReadPrec LookbackPeriodInDays
 Int -&gt; ReadS LookbackPeriodInDays
 ReadS [LookbackPeriodInDays]
@@ -73,7 +73,7 @@ $creadList :: ReadS [LookbackPeriodInDays]
 readsPrec :: Int -&gt; ReadS LookbackPeriodInDays
 $creadsPrec :: Int -&gt; ReadS LookbackPeriodInDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330466"><span id="local-6989586621679330468"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330796"><span id="local-6989586621679330798"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
 (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
 -&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
 -&gt; Eq LookbackPeriodInDays
@@ -83,7 +83,7 @@ $c/= :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
 == :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
 $c== :: LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679330450"><span id="local-6989586621679330452"><span id="local-6989586621679330454"><span id="local-6989586621679330456"><span id="local-6989586621679330458"><span id="local-6989586621679330460"><span id="local-6989586621679330462"><span class="annot"><span class="annottext">Eq LookbackPeriodInDays
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679330780"><span id="local-6989586621679330782"><span id="local-6989586621679330784"><span id="local-6989586621679330786"><span id="local-6989586621679330788"><span id="local-6989586621679330790"><span id="local-6989586621679330792"><span class="annot"><span class="annottext">Eq LookbackPeriodInDays
 Eq LookbackPeriodInDays
 -&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Ordering)
 -&gt; (LookbackPeriodInDays -&gt; LookbackPeriodInDays -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. LookbackPeriodInDays -&gt; Rep LookbackPeriodInDays x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330442"><span id="local-6989586621679330444"><span class="annot"><span class="annottext">Int -&gt; LookbackPeriodInDays -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330772"><span id="local-6989586621679330774"><span class="annot"><span class="annottext">Int -&gt; LookbackPeriodInDays -&gt; Int
 LookbackPeriodInDays -&gt; Int
 (Int -&gt; LookbackPeriodInDays -&gt; Int)
 -&gt; (LookbackPeriodInDays -&gt; Int) -&gt; Hashable LookbackPeriodInDays
@@ -151,54 +151,54 @@ $chash :: LookbackPeriodInDays -&gt; Int
 hashWithSalt :: Int -&gt; LookbackPeriodInDays -&gt; Int
 $chashWithSalt :: Int -&gt; LookbackPeriodInDays -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679330439"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679330769"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ()
 (LookbackPeriodInDays -&gt; ()) -&gt; NFData LookbackPeriodInDays
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LookbackPeriodInDays -&gt; ()
 $crnf :: LookbackPeriodInDays -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679330436"><span class="annot"><span class="annottext">Text -&gt; Either String LookbackPeriodInDays
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679330766"><span class="annot"><span class="annottext">Text -&gt; Either String LookbackPeriodInDays
 (Text -&gt; Either String LookbackPeriodInDays)
 -&gt; FromText LookbackPeriodInDays
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LookbackPeriodInDays
 $cfromText :: Text -&gt; Either String LookbackPeriodInDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330433"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330763"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; Text
 (LookbackPeriodInDays -&gt; Text) -&gt; ToText LookbackPeriodInDays
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LookbackPeriodInDays -&gt; Text
 $ctoText :: LookbackPeriodInDays -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330430"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330760"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ByteString
 (LookbackPeriodInDays -&gt; ByteString)
 -&gt; ToByteString LookbackPeriodInDays
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LookbackPeriodInDays -&gt; ByteString
 $ctoBS :: LookbackPeriodInDays -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330427"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330757"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; ByteStringBuilder
 (LookbackPeriodInDays -&gt; ByteStringBuilder)
 -&gt; ToLog LookbackPeriodInDays
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LookbackPeriodInDays -&gt; ByteStringBuilder
 $cbuild :: LookbackPeriodInDays -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330424"><span class="annot"><span class="annottext">HeaderName -&gt; LookbackPeriodInDays -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330754"><span class="annot"><span class="annottext">HeaderName -&gt; LookbackPeriodInDays -&gt; [Header]
 (HeaderName -&gt; LookbackPeriodInDays -&gt; [Header])
 -&gt; ToHeader LookbackPeriodInDays
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LookbackPeriodInDays -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LookbackPeriodInDays -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330421"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330751"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; QueryString
 (LookbackPeriodInDays -&gt; QueryString)
 -&gt; ToQuery LookbackPeriodInDays
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LookbackPeriodInDays -&gt; QueryString
 $ctoQuery :: LookbackPeriodInDays -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330416"><span id="local-6989586621679330418"><span class="annot"><span class="annottext">Value -&gt; Parser [LookbackPeriodInDays]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330746"><span id="local-6989586621679330748"><span class="annot"><span class="annottext">Value -&gt; Parser [LookbackPeriodInDays]
 Value -&gt; Parser LookbackPeriodInDays
 (Value -&gt; Parser LookbackPeriodInDays)
 -&gt; (Value -&gt; Parser [LookbackPeriodInDays])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [LookbackPeriodInDays]
 parseJSON :: Value -&gt; Parser LookbackPeriodInDays
 $cparseJSON :: Value -&gt; Parser LookbackPeriodInDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330411"><span id="local-6989586621679330413"><span class="annot"><span class="annottext">FromJSONKeyFunction [LookbackPeriodInDays]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330741"><span id="local-6989586621679330743"><span class="annot"><span class="annottext">FromJSONKeyFunction [LookbackPeriodInDays]
 FromJSONKeyFunction LookbackPeriodInDays
 FromJSONKeyFunction LookbackPeriodInDays
 -&gt; FromJSONKeyFunction [LookbackPeriodInDays]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LookbackPeriodInDays]
 fromJSONKey :: FromJSONKeyFunction LookbackPeriodInDays
 $cfromJSONKey :: FromJSONKeyFunction LookbackPeriodInDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330402"><span id="local-6989586621679330404"><span id="local-6989586621679330406"><span id="local-6989586621679330408"><span class="annot"><span class="annottext">[LookbackPeriodInDays] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330732"><span id="local-6989586621679330734"><span id="local-6989586621679330736"><span id="local-6989586621679330738"><span class="annot"><span class="annottext">[LookbackPeriodInDays] -&gt; Encoding
 [LookbackPeriodInDays] -&gt; Value
 LookbackPeriodInDays -&gt; Encoding
 LookbackPeriodInDays -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: LookbackPeriodInDays -&gt; Encoding
 toJSON :: LookbackPeriodInDays -&gt; Value
 $ctoJSON :: LookbackPeriodInDays -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330397"><span id="local-6989586621679330399"><span class="annot"><span class="annottext">ToJSONKeyFunction [LookbackPeriodInDays]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330727"><span id="local-6989586621679330729"><span class="annot"><span class="annottext">ToJSONKeyFunction [LookbackPeriodInDays]
 ToJSONKeyFunction LookbackPeriodInDays
 ToJSONKeyFunction LookbackPeriodInDays
 -&gt; ToJSONKeyFunction [LookbackPeriodInDays]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LookbackPeriodInDays]
 toJSONKey :: ToJSONKeyFunction LookbackPeriodInDays
 $ctoJSONKey :: ToJSONKeyFunction LookbackPeriodInDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330394"><span class="annot"><span class="annottext">[Node] -&gt; Either String LookbackPeriodInDays
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330724"><span class="annot"><span class="annottext">[Node] -&gt; Either String LookbackPeriodInDays
 ([Node] -&gt; Either String LookbackPeriodInDays)
 -&gt; FromXML LookbackPeriodInDays
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LookbackPeriodInDays
 $cparseXML :: [Node] -&gt; Either String LookbackPeriodInDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330391"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330721"><span class="annot"><span class="annottext">LookbackPeriodInDays -&gt; XML
 (LookbackPeriodInDays -&gt; XML) -&gt; ToXML LookbackPeriodInDays
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LookbackPeriodInDays -&gt; XML

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents a gateway\'s local disk.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDisk' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679367268"><span id="local-6989586621679367269"></span></span><span class="hs-keyword">data</span><span> </span><span id="Disk"><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-var">Disk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Disk%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-var">Disk'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679371527"><span id="local-6989586621679371528"></span></span><span class="hs-keyword">data</span><span> </span><span id="Disk"><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-var">Disk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Disk%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-var">Disk'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The iSCSI qualified name (IQN) that is defined for a disk. This field is</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- not included in the response if the local disk is not defined as an</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- iSCSI target. The format of this field is</span><span>
@@ -55,14 +55,14 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AdiskAttributeList%3ADisk%27"><span class="annot"><span class="annottext">Disk -&gt; Maybe [Text]
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskAttributeList%3ADisk%27"><span class="hs-identifier hs-var hs-var">diskAttributeList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367255"><span id="local-6989586621679367257"><span class="annot"><span class="annottext">Disk -&gt; Disk -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371514"><span id="local-6989586621679371516"><span class="annot"><span class="annottext">Disk -&gt; Disk -&gt; Bool
 (Disk -&gt; Disk -&gt; Bool) -&gt; (Disk -&gt; Disk -&gt; Bool) -&gt; Eq Disk
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Disk -&gt; Disk -&gt; Bool
 $c/= :: Disk -&gt; Disk -&gt; Bool
 == :: Disk -&gt; Disk -&gt; Bool
 $c== :: Disk -&gt; Disk -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367246"><span id="local-6989586621679367248"><span id="local-6989586621679367250"><span id="local-6989586621679367252"><span class="annot"><span class="annottext">ReadPrec [Disk]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371505"><span id="local-6989586621679371507"><span id="local-6989586621679371509"><span id="local-6989586621679371511"><span class="annot"><span class="annottext">ReadPrec [Disk]
 ReadPrec Disk
 Int -&gt; ReadS Disk
 ReadS [Disk]
@@ -79,7 +79,7 @@ readList :: ReadS [Disk]
 $creadList :: ReadS [Disk]
 readsPrec :: Int -&gt; ReadS Disk
 $creadsPrec :: Int -&gt; ReadS Disk
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367239"><span id="local-6989586621679367241"><span id="local-6989586621679367243"><span class="annot"><span class="annottext">Int -&gt; Disk -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371498"><span id="local-6989586621679371500"><span id="local-6989586621679371502"><span class="annot"><span class="annottext">Int -&gt; Disk -&gt; ShowS
 [Disk] -&gt; ShowS
 Disk -&gt; String
 (Int -&gt; Disk -&gt; ShowS)
@@ -188,16 +188,16 @@ forall a. Maybe a
 -&gt; (Disk -&gt; Maybe Text -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367230"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371489"><span class="annot"><span class="annottext">Maybe Text
 diskAllocationResource :: Maybe Text
 $sel:diskAllocationResource:Disk' :: Disk -&gt; Maybe Text
-</span><a href="#local-6989586621679367230"><span class="hs-identifier hs-var hs-var">diskAllocationResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367230"><span class="hs-identifier hs-var">diskAllocationResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367229"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367228"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskAllocationResource:Disk' :: Maybe Text
+</span><a href="#local-6989586621679371489"><span class="hs-identifier hs-var hs-var">diskAllocationResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371489"><span class="hs-identifier hs-var">diskAllocationResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371488"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskAllocationResource:Disk' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskAllocationResource%3ADisk%27"><span class="hs-identifier hs-var">diskAllocationResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#disk_diskAllocationType"><span class="hs-identifier hs-type">disk_diskAllocationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -206,16 +206,16 @@ $sel:diskAllocationResource:Disk' :: Disk -&gt; Maybe Text
 -&gt; (Disk -&gt; Maybe Text -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367226"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371485"><span class="annot"><span class="annottext">Maybe Text
 diskAllocationType :: Maybe Text
 $sel:diskAllocationType:Disk' :: Disk -&gt; Maybe Text
-</span><a href="#local-6989586621679367226"><span class="hs-identifier hs-var hs-var">diskAllocationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367226"><span class="hs-identifier hs-var">diskAllocationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367225"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367224"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskAllocationType:Disk' :: Maybe Text
+</span><a href="#local-6989586621679371485"><span class="hs-identifier hs-var hs-var">diskAllocationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371485"><span class="hs-identifier hs-var">diskAllocationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371484"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskAllocationType:Disk' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskAllocationType%3ADisk%27"><span class="hs-identifier hs-var">diskAllocationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The device node of a local disk as assigned by the virtualization</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- environment.</span><span>
@@ -225,16 +225,16 @@ $sel:diskAllocationType:Disk' :: Disk -&gt; Maybe Text
 -&gt; (Disk -&gt; Maybe Text -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367222"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371481"><span class="annot"><span class="annottext">Maybe Text
 diskNode :: Maybe Text
 $sel:diskNode:Disk' :: Disk -&gt; Maybe Text
-</span><a href="#local-6989586621679367222"><span class="hs-identifier hs-var hs-var">diskNode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367222"><span class="hs-identifier hs-var">diskNode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367221"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367220"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskNode:Disk' :: Maybe Text
+</span><a href="#local-6989586621679371481"><span class="hs-identifier hs-var hs-var">diskNode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371481"><span class="hs-identifier hs-var">diskNode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371480"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskNode:Disk' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskNode%3ADisk%27"><span class="hs-identifier hs-var">diskNode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The path of a local disk in the gateway virtual machine (VM).</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#disk_diskPath"><span class="hs-identifier hs-type">disk_diskPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -243,16 +243,16 @@ $sel:diskNode:Disk' :: Disk -&gt; Maybe Text
 -&gt; (Disk -&gt; Maybe Text -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367218"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371477"><span class="annot"><span class="annottext">Maybe Text
 diskPath :: Maybe Text
 $sel:diskPath:Disk' :: Disk -&gt; Maybe Text
-</span><a href="#local-6989586621679367218"><span class="hs-identifier hs-var hs-var">diskPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367218"><span class="hs-identifier hs-var">diskPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367217"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367216"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskPath:Disk' :: Maybe Text
+</span><a href="#local-6989586621679371477"><span class="hs-identifier hs-var hs-var">diskPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371477"><span class="hs-identifier hs-var">diskPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371476"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371475"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskPath:Disk' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskPath%3ADisk%27"><span class="hs-identifier hs-var">diskPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The local disk size in bytes.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#disk_diskSizeInBytes"><span class="hs-identifier hs-type">disk_diskSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
@@ -261,16 +261,16 @@ $sel:diskPath:Disk' :: Disk -&gt; Maybe Text
 -&gt; (Disk -&gt; Maybe Integer -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367214"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371473"><span class="annot"><span class="annottext">Maybe Integer
 diskSizeInBytes :: Maybe Integer
 $sel:diskSizeInBytes:Disk' :: Disk -&gt; Maybe Integer
-</span><a href="#local-6989586621679367214"><span class="hs-identifier hs-var hs-var">diskSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679367214"><span class="hs-identifier hs-var">diskSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367213"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367212"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679367212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSizeInBytes:Disk' :: Maybe Integer
+</span><a href="#local-6989586621679371473"><span class="hs-identifier hs-var hs-var">diskSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679371473"><span class="hs-identifier hs-var">diskSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371472"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371471"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679371471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSizeInBytes:Disk' :: Maybe Integer
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskSizeInBytes%3ADisk%27"><span class="hs-identifier hs-var">diskSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679367212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A value that represents the status of a local disk.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#disk_diskStatus"><span class="hs-identifier hs-type">disk_diskStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -279,16 +279,16 @@ $sel:diskSizeInBytes:Disk' :: Disk -&gt; Maybe Integer
 -&gt; (Disk -&gt; Maybe Text -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367210"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371469"><span class="annot"><span class="annottext">Maybe Text
 diskStatus :: Maybe Text
 $sel:diskStatus:Disk' :: Disk -&gt; Maybe Text
-</span><a href="#local-6989586621679367210"><span class="hs-identifier hs-var hs-var">diskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367210"><span class="hs-identifier hs-var">diskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367209"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367208"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskStatus:Disk' :: Maybe Text
+</span><a href="#local-6989586621679371469"><span class="hs-identifier hs-var hs-var">diskStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371469"><span class="hs-identifier hs-var">diskStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371468"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371467"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskStatus:Disk' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskStatus%3ADisk%27"><span class="hs-identifier hs-var">diskStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The unique device ID or other distinguishing data that identifies a</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- local disk.</span><span>
@@ -298,16 +298,16 @@ $sel:diskStatus:Disk' :: Disk -&gt; Maybe Text
 -&gt; (Disk -&gt; Maybe Text -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367206"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371465"><span class="annot"><span class="annottext">Maybe Text
 diskId :: Maybe Text
 $sel:diskId:Disk' :: Disk -&gt; Maybe Text
-</span><a href="#local-6989586621679367206"><span class="hs-identifier hs-var hs-var">diskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367206"><span class="hs-identifier hs-var">diskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367205"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367204"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskId:Disk' :: Maybe Text
+</span><a href="#local-6989586621679371465"><span class="hs-identifier hs-var hs-var">diskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371465"><span class="hs-identifier hs-var">diskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371464"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371463"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskId:Disk' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskId%3ADisk%27"><span class="hs-identifier hs-var">diskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#disk_diskAttributeList"><span class="hs-identifier hs-type">disk_diskAttributeList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -316,16 +316,16 @@ $sel:diskId:Disk' :: Disk -&gt; Maybe Text
 -&gt; (Disk -&gt; Maybe [Text] -&gt; Disk)
 -&gt; Lens Disk Disk (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367202"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371461"><span class="annot"><span class="annottext">Maybe [Text]
 diskAttributeList :: Maybe [Text]
 $sel:diskAttributeList:Disk' :: Disk -&gt; Maybe [Text]
-</span><a href="#local-6989586621679367202"><span class="hs-identifier hs-var hs-var">diskAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679367202"><span class="hs-identifier hs-var">diskAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367201"><span class="annot"><span class="annottext">s :: Disk
-</span><a href="#local-6989586621679367201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367200"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679367200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
-</span><a href="#local-6989586621679367201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskAttributeList:Disk' :: Maybe [Text]
+</span><a href="#local-6989586621679371461"><span class="hs-identifier hs-var hs-var">diskAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371461"><span class="hs-identifier hs-var">diskAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371460"><span class="annot"><span class="annottext">s :: Disk
+</span><a href="#local-6989586621679371460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk%27"><span class="hs-identifier hs-type">Disk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371459"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Disk
+</span><a href="#local-6989586621679371460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskAttributeList:Disk' :: Maybe [Text]
 </span><a href="Network.AWS.StorageGateway.Types.Disk.html#%24sel%3AdiskAttributeList%3ADisk%27"><span class="hs-identifier hs-var">diskAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679367200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Disk -&gt; f Disk)
+</span><a href="#local-6989586621679371459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Disk -&gt; f Disk)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -338,19 +338,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367194"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679367192"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Disk
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371453"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679371451"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Disk
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Disk) -&gt; Value -&gt; Parser Disk
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Disk&quot;</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367189"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371448"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -382,7 +382,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Disk)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskAllocationResource&quot;</span></span><span class="hs-special">)</span><span>
@@ -406,7 +406,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Disk)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskAllocationType&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,7 +428,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Disk)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskNode&quot;</span></span><span class="hs-special">)</span><span>
@@ -444,7 +444,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Integer -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Disk)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -454,7 +454,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Disk)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -463,7 +463,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; Disk)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -471,7 +471,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; Disk)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskId&quot;</span></span><span class="hs-special">)</span><span>
@@ -479,7 +479,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser Disk
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679371448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskAttributeList&quot;</span></span><span>
@@ -492,7 +492,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367182"><span id="local-6989586621679367184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371441"><span id="local-6989586621679371443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

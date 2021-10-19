@@ -29,33 +29,33 @@
 </span><span id="line-29"></span><span class="hs-comment">-- definition.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUserDefinedFunction' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679703622"><span id="local-6989586621679703623"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserDefinedFunction"><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-var">UserDefinedFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserDefinedFunction%27"><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-var">UserDefinedFunction'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Java class that contains the function code.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AclassName%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AclassName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">className</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The owner type.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AownerType%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe PrincipalType
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerType%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">ownerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The owner of the function.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AownerName%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679705335"><span id="local-6989586621679705336"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserDefinedFunction"><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-var">UserDefinedFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserDefinedFunction%27"><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-var">UserDefinedFunction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The owner of the function.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AownerName%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">ownerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the Data Catalog in which the function resides.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcatalogId%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the Data Catalog in which the function resides.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcatalogId%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AcatalogId%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The resource URIs for the function.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AresourceUris%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe [ResourceUri]
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AresourceUris%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">resourceUris</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the catalog database that contains the function.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the function.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AfunctionName%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AfunctionName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The resource URIs for the function.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AresourceUris%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe [ResourceUri]
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AresourceUris%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">resourceUris</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The owner type.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AownerType%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe PrincipalType
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerType%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">ownerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time at which the function was created.</span><span>
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AcreateTime%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AcreateTime%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the catalog database that contains the function.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Java class that contains the function code.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AclassName%3AUserDefinedFunction%27"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AclassName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var hs-var">className</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679703609"><span id="local-6989586621679703611"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; UserDefinedFunction -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679705322"><span id="local-6989586621679705324"><span class="annot"><span class="annottext">UserDefinedFunction -&gt; UserDefinedFunction -&gt; Bool
 (UserDefinedFunction -&gt; UserDefinedFunction -&gt; Bool)
 -&gt; (UserDefinedFunction -&gt; UserDefinedFunction -&gt; Bool)
 -&gt; Eq UserDefinedFunction
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserDefinedFunction -&gt; UserDefinedFunction -&gt; Bool
 == :: UserDefinedFunction -&gt; UserDefinedFunction -&gt; Bool
 $c== :: UserDefinedFunction -&gt; UserDefinedFunction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679703600"><span id="local-6989586621679703602"><span id="local-6989586621679703604"><span id="local-6989586621679703606"><span class="annot"><span class="annottext">ReadPrec [UserDefinedFunction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679705313"><span id="local-6989586621679705315"><span id="local-6989586621679705317"><span id="local-6989586621679705319"><span class="annot"><span class="annottext">ReadPrec [UserDefinedFunction]
 ReadPrec UserDefinedFunction
 Int -&gt; ReadS UserDefinedFunction
 ReadS [UserDefinedFunction]
@@ -84,7 +84,7 @@ readList :: ReadS [UserDefinedFunction]
 $creadList :: ReadS [UserDefinedFunction]
 readsPrec :: Int -&gt; ReadS UserDefinedFunction
 $creadsPrec :: Int -&gt; ReadS UserDefinedFunction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679703593"><span id="local-6989586621679703595"><span id="local-6989586621679703597"><span class="annot"><span class="annottext">Int -&gt; UserDefinedFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679705306"><span id="local-6989586621679705308"><span id="local-6989586621679705310"><span class="annot"><span class="annottext">Int -&gt; UserDefinedFunction -&gt; ShowS
 [UserDefinedFunction] -&gt; ShowS
 UserDefinedFunction -&gt; String
 (Int -&gt; UserDefinedFunction -&gt; ShowS)
@@ -118,176 +118,112 @@ $cfrom :: forall x. UserDefinedFunction -&gt; Rep UserDefinedFunction x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'className', 'userDefinedFunction_className' - The Java class that contains the function code.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'ownerName', 'userDefinedFunction_ownerName' - The owner of the function.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'ownerType', 'userDefinedFunction_ownerType' - The owner type.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'catalogId', 'userDefinedFunction_catalogId' - The ID of the Data Catalog in which the function resides.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'ownerName', 'userDefinedFunction_ownerName' - The owner of the function.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'resourceUris', 'userDefinedFunction_resourceUris' - The resource URIs for the function.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'catalogId', 'userDefinedFunction_catalogId' - The ID of the Data Catalog in which the function resides.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'databaseName', 'userDefinedFunction_databaseName' - The name of the catalog database that contains the function.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'functionName', 'userDefinedFunction_functionName' - The name of the function.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'resourceUris', 'userDefinedFunction_resourceUris' - The resource URIs for the function.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'ownerType', 'userDefinedFunction_ownerType' - The owner type.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'createTime', 'userDefinedFunction_createTime' - The time at which the function was created.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'databaseName', 'userDefinedFunction_databaseName' - The name of the catalog database that contains the function.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'className', 'userDefinedFunction_className' - The Java class that contains the function code.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#newUserDefinedFunction"><span class="hs-identifier hs-type">newUserDefinedFunction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span>
 </span><span id="line-77"></span><span id="newUserDefinedFunction"><span class="annot"><span class="annottext">newUserDefinedFunction :: UserDefinedFunction
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#newUserDefinedFunction"><span class="hs-identifier hs-var hs-var">newUserDefinedFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">UserDefinedFunction' :: Maybe Text
--&gt; Maybe PrincipalType
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [ResourceUri]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PrincipalType
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; UserDefinedFunction
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:className:UserDefinedFunction' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AclassName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">className</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerType:UserDefinedFunction' :: Maybe PrincipalType
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerType%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">ownerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerName:UserDefinedFunction' :: Maybe Text
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerName:UserDefinedFunction' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">ownerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogId:UserDefinedFunction' :: Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogId:UserDefinedFunction' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AcatalogId%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceUris:UserDefinedFunction' :: Maybe [ResourceUri]
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AresourceUris%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">resourceUris</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceUri]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:UserDefinedFunction' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionName:UserDefinedFunction' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AfunctionName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceUris:UserDefinedFunction' :: Maybe [ResourceUri]
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AresourceUris%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">resourceUris</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceUri]
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerType:UserDefinedFunction' :: Maybe PrincipalType
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerType%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">ownerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:UserDefinedFunction' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AcreateTime%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:UserDefinedFunction' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:className:UserDefinedFunction' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AclassName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">className</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The Java class that contains the function code.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_className"><span class="hs-identifier hs-type">userDefinedFunction_className</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="userDefinedFunction_className"><span class="annot"><span class="annottext">userDefinedFunction_className :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UserDefinedFunction -&gt; f UserDefinedFunction
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_className"><span class="hs-identifier hs-var hs-var">userDefinedFunction_className</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
--&gt; (UserDefinedFunction -&gt; Maybe Text -&gt; UserDefinedFunction)
--&gt; Lens
-     UserDefinedFunction UserDefinedFunction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703584"><span class="annot"><span class="annottext">Maybe Text
-className :: Maybe Text
-$sel:className:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679703584"><span class="hs-identifier hs-var hs-var">className</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703584"><span class="hs-identifier hs-var">className</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703583"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703582"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:className:UserDefinedFunction' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AclassName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">className</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The owner type.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_ownerType"><span class="hs-identifier hs-type">userDefinedFunction_ownerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="userDefinedFunction_ownerType"><span class="annot"><span class="annottext">userDefinedFunction_ownerType :: (Maybe PrincipalType -&gt; f (Maybe PrincipalType))
--&gt; UserDefinedFunction -&gt; f UserDefinedFunction
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_ownerType"><span class="hs-identifier hs-var hs-var">userDefinedFunction_ownerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe PrincipalType)
--&gt; (UserDefinedFunction
-    -&gt; Maybe PrincipalType -&gt; UserDefinedFunction)
--&gt; Lens
-     UserDefinedFunction
-     UserDefinedFunction
-     (Maybe PrincipalType)
-     (Maybe PrincipalType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703580"><span class="annot"><span class="annottext">Maybe PrincipalType
-ownerType :: Maybe PrincipalType
-$sel:ownerType:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe PrincipalType
-</span><a href="#local-6989586621679703580"><span class="hs-identifier hs-var hs-var">ownerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679703580"><span class="hs-identifier hs-var">ownerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703579"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703578"><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679703578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerType:UserDefinedFunction' :: Maybe PrincipalType
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerType%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">ownerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
-</span><a href="#local-6989586621679703578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The owner of the function.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_ownerName"><span class="hs-identifier hs-type">userDefinedFunction_ownerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="userDefinedFunction_ownerName"><span class="annot"><span class="annottext">userDefinedFunction_ownerName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-89"></span><span class="hs-comment">-- | The owner of the function.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_ownerName"><span class="hs-identifier hs-type">userDefinedFunction_ownerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="userDefinedFunction_ownerName"><span class="annot"><span class="annottext">userDefinedFunction_ownerName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UserDefinedFunction -&gt; f UserDefinedFunction
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_ownerName"><span class="hs-identifier hs-var hs-var">userDefinedFunction_ownerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
 -&gt; (UserDefinedFunction -&gt; Maybe Text -&gt; UserDefinedFunction)
 -&gt; Lens
      UserDefinedFunction UserDefinedFunction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703576"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705297"><span class="annot"><span class="annottext">Maybe Text
 ownerName :: Maybe Text
 $sel:ownerName:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679703576"><span class="hs-identifier hs-var hs-var">ownerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703576"><span class="hs-identifier hs-var">ownerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703575"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703574"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerName:UserDefinedFunction' :: Maybe Text
+</span><a href="#local-6989586621679705297"><span class="hs-identifier hs-var hs-var">ownerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705297"><span class="hs-identifier hs-var">ownerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705296"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerName:UserDefinedFunction' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">ownerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the Data Catalog in which the function resides.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_catalogId"><span class="hs-identifier hs-type">userDefinedFunction_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="userDefinedFunction_catalogId"><span class="annot"><span class="annottext">userDefinedFunction_catalogId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679705295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The ID of the Data Catalog in which the function resides.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_catalogId"><span class="hs-identifier hs-type">userDefinedFunction_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="userDefinedFunction_catalogId"><span class="annot"><span class="annottext">userDefinedFunction_catalogId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UserDefinedFunction -&gt; f UserDefinedFunction
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_catalogId"><span class="hs-identifier hs-var hs-var">userDefinedFunction_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
 -&gt; (UserDefinedFunction -&gt; Maybe Text -&gt; UserDefinedFunction)
 -&gt; Lens
      UserDefinedFunction UserDefinedFunction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703572"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705293"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679703572"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703572"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703571"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703570"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:UserDefinedFunction' :: Maybe Text
+</span><a href="#local-6989586621679705293"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705293"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705292"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:UserDefinedFunction' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AcatalogId%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The name of the function.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_functionName"><span class="hs-identifier hs-type">userDefinedFunction_functionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="userDefinedFunction_functionName"><span class="annot"><span class="annottext">userDefinedFunction_functionName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UserDefinedFunction -&gt; f UserDefinedFunction
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_functionName"><span class="hs-identifier hs-var hs-var">userDefinedFunction_functionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
--&gt; (UserDefinedFunction -&gt; Maybe Text -&gt; UserDefinedFunction)
--&gt; Lens
-     UserDefinedFunction UserDefinedFunction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703568"><span class="annot"><span class="annottext">Maybe Text
-functionName :: Maybe Text
-$sel:functionName:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679703568"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703568"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703567"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703566"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:UserDefinedFunction' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AfunctionName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The resource URIs for the function.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_resourceUris"><span class="hs-identifier hs-type">userDefinedFunction_resourceUris</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="userDefinedFunction_resourceUris"><span class="annot"><span class="annottext">userDefinedFunction_resourceUris :: (Maybe [ResourceUri] -&gt; f (Maybe [ResourceUri]))
+</span><a href="#local-6989586621679705291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The resource URIs for the function.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_resourceUris"><span class="hs-identifier hs-type">userDefinedFunction_resourceUris</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ResourceUri.html#ResourceUri"><span class="hs-identifier hs-type">ResourceUri</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="userDefinedFunction_resourceUris"><span class="annot"><span class="annottext">userDefinedFunction_resourceUris :: (Maybe [ResourceUri] -&gt; f (Maybe [ResourceUri]))
 -&gt; UserDefinedFunction -&gt; f UserDefinedFunction
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_resourceUris"><span class="hs-identifier hs-var hs-var">userDefinedFunction_resourceUris</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe [ResourceUri])
 -&gt; (UserDefinedFunction
@@ -298,16 +234,16 @@ $sel:functionName:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
      (Maybe [ResourceUri])
      (Maybe [ResourceUri])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703564"><span class="annot"><span class="annottext">Maybe [ResourceUri]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705289"><span class="annot"><span class="annottext">Maybe [ResourceUri]
 resourceUris :: Maybe [ResourceUri]
 $sel:resourceUris:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe [ResourceUri]
-</span><a href="#local-6989586621679703564"><span class="hs-identifier hs-var hs-var">resourceUris</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceUri]
-</span><a href="#local-6989586621679703564"><span class="hs-identifier hs-var">resourceUris</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703563"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703562"><span class="annot"><span class="annottext">Maybe [ResourceUri]
-</span><a href="#local-6989586621679703562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceUris:UserDefinedFunction' :: Maybe [ResourceUri]
+</span><a href="#local-6989586621679705289"><span class="hs-identifier hs-var hs-var">resourceUris</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceUri]
+</span><a href="#local-6989586621679705289"><span class="hs-identifier hs-var">resourceUris</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705288"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705287"><span class="annot"><span class="annottext">Maybe [ResourceUri]
+</span><a href="#local-6989586621679705287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceUris:UserDefinedFunction' :: Maybe [ResourceUri]
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AresourceUris%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">resourceUris</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceUri]
-</span><a href="#local-6989586621679703562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceUri] -&gt; f (Maybe [ResourceUri]))
+</span><a href="#local-6989586621679705287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceUri] -&gt; f (Maybe [ResourceUri]))
  -&gt; UserDefinedFunction -&gt; f UserDefinedFunction)
 -&gt; ((Maybe [ResourceUri] -&gt; f (Maybe [ResourceUri]))
     -&gt; Maybe [ResourceUri] -&gt; f (Maybe [ResourceUri]))
@@ -325,8 +261,72 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ResourceUri] [ResourceUri] [ResourceUri] [ResourceUri]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of the catalog database that contains the function.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_databaseName"><span class="hs-identifier hs-type">userDefinedFunction_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="userDefinedFunction_databaseName"><span class="annot"><span class="annottext">userDefinedFunction_databaseName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UserDefinedFunction -&gt; f UserDefinedFunction
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_databaseName"><span class="hs-identifier hs-var hs-var">userDefinedFunction_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
+-&gt; (UserDefinedFunction -&gt; Maybe Text -&gt; UserDefinedFunction)
+-&gt; Lens
+     UserDefinedFunction UserDefinedFunction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705282"><span class="annot"><span class="annottext">Maybe Text
+databaseName :: Maybe Text
+$sel:databaseName:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679705282"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705282"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705281"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705280"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:UserDefinedFunction' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the function.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_functionName"><span class="hs-identifier hs-type">userDefinedFunction_functionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="userDefinedFunction_functionName"><span class="annot"><span class="annottext">userDefinedFunction_functionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UserDefinedFunction -&gt; f UserDefinedFunction
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_functionName"><span class="hs-identifier hs-var hs-var">userDefinedFunction_functionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
+-&gt; (UserDefinedFunction -&gt; Maybe Text -&gt; UserDefinedFunction)
+-&gt; Lens
+     UserDefinedFunction UserDefinedFunction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705278"><span class="annot"><span class="annottext">Maybe Text
+functionName :: Maybe Text
+$sel:functionName:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679705278"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705278"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705277"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:UserDefinedFunction' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AfunctionName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The owner type.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_ownerType"><span class="hs-identifier hs-type">userDefinedFunction_ownerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PrincipalType.html#PrincipalType"><span class="hs-identifier hs-type">PrincipalType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="userDefinedFunction_ownerType"><span class="annot"><span class="annottext">userDefinedFunction_ownerType :: (Maybe PrincipalType -&gt; f (Maybe PrincipalType))
+-&gt; UserDefinedFunction -&gt; f UserDefinedFunction
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_ownerType"><span class="hs-identifier hs-var hs-var">userDefinedFunction_ownerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe PrincipalType)
+-&gt; (UserDefinedFunction
+    -&gt; Maybe PrincipalType -&gt; UserDefinedFunction)
+-&gt; Lens
+     UserDefinedFunction
+     UserDefinedFunction
+     (Maybe PrincipalType)
+     (Maybe PrincipalType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705274"><span class="annot"><span class="annottext">Maybe PrincipalType
+ownerType :: Maybe PrincipalType
+$sel:ownerType:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe PrincipalType
+</span><a href="#local-6989586621679705274"><span class="hs-identifier hs-var hs-var">ownerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679705274"><span class="hs-identifier hs-var">ownerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705273"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705272"><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679705272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerType:UserDefinedFunction' :: Maybe PrincipalType
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AownerType%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">ownerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PrincipalType
+</span><a href="#local-6989586621679705272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The time at which the function was created.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_createTime"><span class="hs-identifier hs-type">userDefinedFunction_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -337,16 +337,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      UserDefinedFunction UserDefinedFunction (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703557"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705270"><span class="annot"><span class="annottext">Maybe POSIX
 createTime :: Maybe POSIX
 $sel:createTime:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe POSIX
-</span><a href="#local-6989586621679703557"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679703557"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703556"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703555"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679703555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:UserDefinedFunction' :: Maybe POSIX
+</span><a href="#local-6989586621679705270"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705270"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705269"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705268"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679705268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:UserDefinedFunction' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AcreateTime%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679703555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679705268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; UserDefinedFunction -&gt; f UserDefinedFunction)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -363,28 +363,28 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The name of the catalog database that contains the function.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_databaseName"><span class="hs-identifier hs-type">userDefinedFunction_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="userDefinedFunction_databaseName"><span class="annot"><span class="annottext">userDefinedFunction_databaseName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-117"></span><span class="hs-comment">-- | The Java class that contains the function code.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_className"><span class="hs-identifier hs-type">userDefinedFunction_className</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="userDefinedFunction_className"><span class="annot"><span class="annottext">userDefinedFunction_className :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UserDefinedFunction -&gt; f UserDefinedFunction
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_databaseName"><span class="hs-identifier hs-var hs-var">userDefinedFunction_databaseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#userDefinedFunction_className"><span class="hs-identifier hs-var hs-var">userDefinedFunction_className</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDefinedFunction -&gt; Maybe Text)
 -&gt; (UserDefinedFunction -&gt; Maybe Text -&gt; UserDefinedFunction)
 -&gt; Lens
      UserDefinedFunction UserDefinedFunction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703552"><span class="annot"><span class="annottext">Maybe Text
-databaseName :: Maybe Text
-$sel:databaseName:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
-</span><a href="#local-6989586621679703552"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703552"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703551"><span class="annot"><span class="annottext">s :: UserDefinedFunction
-</span><a href="#local-6989586621679703551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703550"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
-</span><a href="#local-6989586621679703551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:UserDefinedFunction' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AdatabaseName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679703550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679705265"><span class="annot"><span class="annottext">Maybe Text
+className :: Maybe Text
+$sel:className:UserDefinedFunction' :: UserDefinedFunction -&gt; Maybe Text
+</span><a href="#local-6989586621679705265"><span class="hs-identifier hs-var hs-var">className</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705265"><span class="hs-identifier hs-var">className</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679705264"><span class="annot"><span class="annottext">s :: UserDefinedFunction
+</span><a href="#local-6989586621679705264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-type">UserDefinedFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679705263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDefinedFunction
+</span><a href="#local-6989586621679705264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:className:UserDefinedFunction' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#%24sel%3AclassName%3AUserDefinedFunction%27"><span class="hs-identifier hs-var">className</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679705263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679703547"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679703545"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserDefinedFunction
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679705260"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679705258"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserDefinedFunction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserDefinedFunction)
@@ -394,133 +394,86 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserDefinedFunction&quot;</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679703542"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679705255"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe PrincipalType
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [ResourceUri]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe PrincipalType
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; UserDefinedFunction
 </span><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction%27"><span class="hs-identifier hs-var">UserDefinedFunction'</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe PrincipalType
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [ResourceUri]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe PrincipalType
  -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; UserDefinedFunction)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe PrincipalType
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe Text
       -&gt; Maybe [ResourceUri]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PrincipalType
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; UserDefinedFunction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClassName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe PrincipalType
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [ResourceUri]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; UserDefinedFunction)
--&gt; Parser (Maybe PrincipalType)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [ResourceUri]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; UserDefinedFunction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PrincipalType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OwnerType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [ResourceUri]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; UserDefinedFunction)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [ResourceUri]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; UserDefinedFunction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OwnerName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [ResourceUri]
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; UserDefinedFunction)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [ResourceUri]
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; UserDefinedFunction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe [ResourceUri]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PrincipalType
    -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; UserDefinedFunction)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe [ResourceUri]
-      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; UserDefinedFunction)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PrincipalType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; UserDefinedFunction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FunctionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [ResourceUri]
-   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; UserDefinedFunction)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PrincipalType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; UserDefinedFunction)
 -&gt; Parser (Maybe [ResourceUri])
--&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; UserDefinedFunction)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe PrincipalType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; UserDefinedFunction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceUri]))
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResourceUri]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceUris&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ResourceUri]))
@@ -529,12 +482,59 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceUri]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe PrincipalType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; UserDefinedFunction)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PrincipalType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; UserDefinedFunction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PrincipalType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; UserDefinedFunction)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PrincipalType
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; UserDefinedFunction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FunctionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PrincipalType
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; UserDefinedFunction)
+-&gt; Parser (Maybe PrincipalType)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; UserDefinedFunction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PrincipalType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; UserDefinedFunction)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe Text -&gt; UserDefinedFunction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -542,13 +542,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser UserDefinedFunction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679703542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679705255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ClassName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679703535"><span id="local-6989586621679703537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679705248"><span id="local-6989586621679705250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679703532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679705245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.UserDefinedFunction.html#UserDefinedFunction"><span class="hs-identifier hs-type">UserDefinedFunction</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

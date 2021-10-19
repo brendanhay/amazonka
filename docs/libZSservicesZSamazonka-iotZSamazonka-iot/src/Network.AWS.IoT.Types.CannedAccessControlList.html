@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679779166"><span id="local-6989586621679779167"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CannedAccessControlList"><span class="annot"><a href="Network.AWS.IoT.Types.CannedAccessControlList.html#CannedAccessControlList"><span class="hs-identifier hs-var">CannedAccessControlList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CannedAccessControlList%27"><span class="annot"><a href="Network.AWS.IoT.Types.CannedAccessControlList.html#CannedAccessControlList%27"><span class="hs-identifier hs-var">CannedAccessControlList'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679780016"><span id="local-6989586621679780017"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CannedAccessControlList"><span class="annot"><a href="Network.AWS.IoT.Types.CannedAccessControlList.html#CannedAccessControlList"><span class="hs-identifier hs-var">CannedAccessControlList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CannedAccessControlList%27"><span class="annot"><a href="Network.AWS.IoT.Types.CannedAccessControlList.html#CannedAccessControlList%27"><span class="hs-identifier hs-var">CannedAccessControlList'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCannedAccessControlList"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CannedAccessControlList.html#fromCannedAccessControlList"><span class="hs-identifier hs-var hs-var">fromCannedAccessControlList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679779158"><span id="local-6989586621679779160"><span id="local-6989586621679779162"><span class="annot"><span class="annottext">Int -&gt; CannedAccessControlList -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679780008"><span id="local-6989586621679780010"><span id="local-6989586621679780012"><span class="annot"><span class="annottext">Int -&gt; CannedAccessControlList -&gt; ShowS
 [CannedAccessControlList] -&gt; ShowS
 CannedAccessControlList -&gt; String
 (Int -&gt; CannedAccessControlList -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: CannedAccessControlList -&gt; String
 showsPrec :: Int -&gt; CannedAccessControlList -&gt; ShowS
 $cshowsPrec :: Int -&gt; CannedAccessControlList -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679779149"><span id="local-6989586621679779151"><span id="local-6989586621679779153"><span id="local-6989586621679779155"><span class="annot"><span class="annottext">ReadPrec [CannedAccessControlList]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679779999"><span id="local-6989586621679780001"><span id="local-6989586621679780003"><span id="local-6989586621679780005"><span class="annot"><span class="annottext">ReadPrec [CannedAccessControlList]
 ReadPrec CannedAccessControlList
 Int -&gt; ReadS CannedAccessControlList
 ReadS [CannedAccessControlList]
@@ -78,7 +78,7 @@ $creadList :: ReadS [CannedAccessControlList]
 readsPrec :: Int -&gt; ReadS CannedAccessControlList
 $creadsPrec :: Int -&gt; ReadS CannedAccessControlList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679779144"><span id="local-6989586621679779146"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679779994"><span id="local-6989586621679779996"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool
 (CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool)
 -&gt; (CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool)
 -&gt; Eq CannedAccessControlList
@@ -88,7 +88,7 @@ $c/= :: CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool
 == :: CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool
 $c== :: CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679779128"><span id="local-6989586621679779130"><span id="local-6989586621679779132"><span id="local-6989586621679779134"><span id="local-6989586621679779136"><span id="local-6989586621679779138"><span id="local-6989586621679779140"><span class="annot"><span class="annottext">Eq CannedAccessControlList
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679779978"><span id="local-6989586621679779980"><span id="local-6989586621679779982"><span id="local-6989586621679779984"><span id="local-6989586621679779986"><span id="local-6989586621679779988"><span id="local-6989586621679779990"><span class="annot"><span class="annottext">Eq CannedAccessControlList
 Eq CannedAccessControlList
 -&gt; (CannedAccessControlList -&gt; CannedAccessControlList -&gt; Ordering)
 -&gt; (CannedAccessControlList -&gt; CannedAccessControlList -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. CannedAccessControlList -&gt; Rep CannedAccessControlList x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679779120"><span id="local-6989586621679779122"><span class="annot"><span class="annottext">Int -&gt; CannedAccessControlList -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679779970"><span id="local-6989586621679779972"><span class="annot"><span class="annottext">Int -&gt; CannedAccessControlList -&gt; Int
 CannedAccessControlList -&gt; Int
 (Int -&gt; CannedAccessControlList -&gt; Int)
 -&gt; (CannedAccessControlList -&gt; Int)
@@ -159,54 +159,54 @@ $chash :: CannedAccessControlList -&gt; Int
 hashWithSalt :: Int -&gt; CannedAccessControlList -&gt; Int
 $chashWithSalt :: Int -&gt; CannedAccessControlList -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679779117"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679779967"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; ()
 (CannedAccessControlList -&gt; ()) -&gt; NFData CannedAccessControlList
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CannedAccessControlList -&gt; ()
 $crnf :: CannedAccessControlList -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679779114"><span class="annot"><span class="annottext">Text -&gt; Either String CannedAccessControlList
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679779964"><span class="annot"><span class="annottext">Text -&gt; Either String CannedAccessControlList
 (Text -&gt; Either String CannedAccessControlList)
 -&gt; FromText CannedAccessControlList
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CannedAccessControlList
 $cfromText :: Text -&gt; Either String CannedAccessControlList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679779111"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679779961"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; Text
 (CannedAccessControlList -&gt; Text) -&gt; ToText CannedAccessControlList
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CannedAccessControlList -&gt; Text
 $ctoText :: CannedAccessControlList -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679779108"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679779958"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; ByteString
 (CannedAccessControlList -&gt; ByteString)
 -&gt; ToByteString CannedAccessControlList
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CannedAccessControlList -&gt; ByteString
 $ctoBS :: CannedAccessControlList -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679779105"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679779955"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; ByteStringBuilder
 (CannedAccessControlList -&gt; ByteStringBuilder)
 -&gt; ToLog CannedAccessControlList
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CannedAccessControlList -&gt; ByteStringBuilder
 $cbuild :: CannedAccessControlList -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679779102"><span class="annot"><span class="annottext">HeaderName -&gt; CannedAccessControlList -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679779952"><span class="annot"><span class="annottext">HeaderName -&gt; CannedAccessControlList -&gt; [Header]
 (HeaderName -&gt; CannedAccessControlList -&gt; [Header])
 -&gt; ToHeader CannedAccessControlList
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CannedAccessControlList -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CannedAccessControlList -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679779099"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679779949"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; QueryString
 (CannedAccessControlList -&gt; QueryString)
 -&gt; ToQuery CannedAccessControlList
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CannedAccessControlList -&gt; QueryString
 $ctoQuery :: CannedAccessControlList -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679779094"><span id="local-6989586621679779096"><span class="annot"><span class="annottext">Value -&gt; Parser [CannedAccessControlList]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679779944"><span id="local-6989586621679779946"><span class="annot"><span class="annottext">Value -&gt; Parser [CannedAccessControlList]
 Value -&gt; Parser CannedAccessControlList
 (Value -&gt; Parser CannedAccessControlList)
 -&gt; (Value -&gt; Parser [CannedAccessControlList])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [CannedAccessControlList]
 parseJSON :: Value -&gt; Parser CannedAccessControlList
 $cparseJSON :: Value -&gt; Parser CannedAccessControlList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679779089"><span id="local-6989586621679779091"><span class="annot"><span class="annottext">FromJSONKeyFunction [CannedAccessControlList]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679779939"><span id="local-6989586621679779941"><span class="annot"><span class="annottext">FromJSONKeyFunction [CannedAccessControlList]
 FromJSONKeyFunction CannedAccessControlList
 FromJSONKeyFunction CannedAccessControlList
 -&gt; FromJSONKeyFunction [CannedAccessControlList]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CannedAccessControlList]
 fromJSONKey :: FromJSONKeyFunction CannedAccessControlList
 $cfromJSONKey :: FromJSONKeyFunction CannedAccessControlList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679779080"><span id="local-6989586621679779082"><span id="local-6989586621679779084"><span id="local-6989586621679779086"><span class="annot"><span class="annottext">[CannedAccessControlList] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679779930"><span id="local-6989586621679779932"><span id="local-6989586621679779934"><span id="local-6989586621679779936"><span class="annot"><span class="annottext">[CannedAccessControlList] -&gt; Encoding
 [CannedAccessControlList] -&gt; Value
 CannedAccessControlList -&gt; Encoding
 CannedAccessControlList -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: CannedAccessControlList -&gt; Encoding
 toJSON :: CannedAccessControlList -&gt; Value
 $ctoJSON :: CannedAccessControlList -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679779075"><span id="local-6989586621679779077"><span class="annot"><span class="annottext">ToJSONKeyFunction [CannedAccessControlList]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679779925"><span id="local-6989586621679779927"><span class="annot"><span class="annottext">ToJSONKeyFunction [CannedAccessControlList]
 ToJSONKeyFunction CannedAccessControlList
 ToJSONKeyFunction CannedAccessControlList
 -&gt; ToJSONKeyFunction [CannedAccessControlList]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CannedAccessControlList]
 toJSONKey :: ToJSONKeyFunction CannedAccessControlList
 $ctoJSONKey :: ToJSONKeyFunction CannedAccessControlList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679779072"><span class="annot"><span class="annottext">[Node] -&gt; Either String CannedAccessControlList
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679779922"><span class="annot"><span class="annottext">[Node] -&gt; Either String CannedAccessControlList
 ([Node] -&gt; Either String CannedAccessControlList)
 -&gt; FromXML CannedAccessControlList
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CannedAccessControlList
 $cparseXML :: [Node] -&gt; Either String CannedAccessControlList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679779069"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679779919"><span class="annot"><span class="annottext">CannedAccessControlList -&gt; XML
 (CannedAccessControlList -&gt; XML) -&gt; ToXML CannedAccessControlList
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CannedAccessControlList -&gt; XML

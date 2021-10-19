@@ -40,9 +40,9 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#newResumeSessionResponse"><span class="hs-identifier">newResumeSessionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_sessionId"><span class="hs-identifier">resumeSessionResponse_sessionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_streamUrl"><span class="hs-identifier">resumeSessionResponse_streamUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_tokenValue"><span class="hs-identifier">resumeSessionResponse_tokenValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_streamUrl"><span class="hs-identifier">resumeSessionResponse_streamUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_tokenValue"><span class="hs-identifier">resumeSessionResponse_tokenValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_sessionId"><span class="hs-identifier">resumeSessionResponse_sessionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_httpStatus"><span class="hs-identifier">resumeSessionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,12 +55,12 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newResumeSession' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679824658"><span id="local-6989586621679824659"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeSession"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-var">ResumeSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeSession%27"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-var">ResumeSession'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679826403"><span id="local-6989586621679826404"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeSession"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-var">ResumeSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeSession%27"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-var">ResumeSession'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the disconnected session to resume.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AsessionId%3AResumeSession%27"><span class="annot"><span class="annottext">ResumeSession -&gt; Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSession%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824652"><span id="local-6989586621679824654"><span class="annot"><span class="annottext">ResumeSession -&gt; ResumeSession -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679826397"><span id="local-6989586621679826399"><span class="annot"><span class="annottext">ResumeSession -&gt; ResumeSession -&gt; Bool
 (ResumeSession -&gt; ResumeSession -&gt; Bool)
 -&gt; (ResumeSession -&gt; ResumeSession -&gt; Bool) -&gt; Eq ResumeSession
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResumeSession -&gt; ResumeSession -&gt; Bool
 == :: ResumeSession -&gt; ResumeSession -&gt; Bool
 $c== :: ResumeSession -&gt; ResumeSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824643"><span id="local-6989586621679824645"><span id="local-6989586621679824647"><span id="local-6989586621679824649"><span class="annot"><span class="annottext">ReadPrec [ResumeSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679826388"><span id="local-6989586621679826390"><span id="local-6989586621679826392"><span id="local-6989586621679826394"><span class="annot"><span class="annottext">ReadPrec [ResumeSession]
 ReadPrec ResumeSession
 Int -&gt; ReadS ResumeSession
 ReadS [ResumeSession]
@@ -88,7 +88,7 @@ readList :: ReadS [ResumeSession]
 $creadList :: ReadS [ResumeSession]
 readsPrec :: Int -&gt; ReadS ResumeSession
 $creadsPrec :: Int -&gt; ReadS ResumeSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824636"><span id="local-6989586621679824638"><span id="local-6989586621679824640"><span class="annot"><span class="annottext">Int -&gt; ResumeSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679826381"><span id="local-6989586621679826383"><span id="local-6989586621679826385"><span class="annot"><span class="annottext">Int -&gt; ResumeSession -&gt; ShowS
 [ResumeSession] -&gt; ShowS
 ResumeSession -&gt; String
 (Int -&gt; ResumeSession -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. ResumeSession -&gt; Rep ResumeSession x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span>
 </span><span id="line-77"></span><span id="newResumeSession"><span class="annot"><span class="annottext">newResumeSession :: Text -&gt; ResumeSession
-</span><a href="Network.AWS.SSM.ResumeSession.html#newResumeSession"><span class="hs-identifier hs-var hs-var">newResumeSession</span></a></span></span><span> </span><span id="local-6989586621679824631"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">pSessionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.ResumeSession.html#newResumeSession"><span class="hs-identifier hs-var hs-var">newResumeSession</span></a></span></span><span> </span><span id="local-6989586621679826376"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679826376"><span class="hs-identifier hs-var">pSessionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ResumeSession' :: Text -&gt; ResumeSession
 </span><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-type">ResumeSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ResumeSession' :: Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">pSessionId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679826376"><span class="hs-identifier hs-var">pSessionId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The ID of the disconnected session to resume.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSession_sessionId"><span class="hs-identifier hs-type">resumeSession_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. ResumeSession -&gt; Rep ResumeSession x
 -&gt; (ResumeSession -&gt; Text -&gt; ResumeSession)
 -&gt; Lens ResumeSession ResumeSession Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-type">ResumeSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824628"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-type">ResumeSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679826373"><span class="annot"><span class="annottext">Text
 sessionId :: Text
 $sel:sessionId:ResumeSession' :: ResumeSession -&gt; Text
-</span><a href="#local-6989586621679824628"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824628"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824627"><span class="annot"><span class="annottext">s :: ResumeSession
-</span><a href="#local-6989586621679824627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-type">ResumeSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824626"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSession
-</span><a href="#local-6989586621679824627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ResumeSession' :: Text
+</span><a href="#local-6989586621679826373"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679826373"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679826372"><span class="annot"><span class="annottext">s :: ResumeSession
+</span><a href="#local-6989586621679826372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-type">ResumeSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679826371"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679826371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSession
+</span><a href="#local-6989586621679826372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ResumeSession' :: Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679826371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679824622"><span class="annot"><span class="annottext">request :: ResumeSession -&gt; Request ResumeSession
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679826367"><span class="annot"><span class="annottext">request :: ResumeSession -&gt; Request ResumeSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResumeSession -&gt; Request ResumeSession
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679824618"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679826363"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResumeSession
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679824615"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824615"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679824614"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679824614"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679824613"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679826360"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679826360"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679826359"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679826359"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679826358"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679826358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResumeSessionResponse
 </span><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-var">ResumeSessionResponse'</span></a></span><span>
@@ -200,29 +200,29 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResumeSessionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679826358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SessionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StreamUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResumeSessionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ResumeSessionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679826358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StreamUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TokenValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ResumeSessionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; ResumeSessionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679826358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TokenValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SessionId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ResumeSessionResponse)
 -&gt; Either String Int -&gt; Either String ResumeSessionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -231,15 +231,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824615"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679826360"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824605"><span id="local-6989586621679824607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679826350"><span id="local-6989586621679826352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679826347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679824598"><span class="annot"><span class="annottext">toHeaders :: ResumeSession -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679826343"><span class="annot"><span class="annottext">toHeaders :: ResumeSession -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResumeSession -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -264,12 +264,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824588"><span id="local-6989586621679824590"><span id="local-6989586621679824592"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679824586"><span class="annot"><span class="annottext">toJSON :: ResumeSession -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-type">ResumeSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824584"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679826333"><span id="local-6989586621679826335"><span id="local-6989586621679826337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679826331"><span class="annot"><span class="annottext">toJSON :: ResumeSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession%27"><span class="hs-identifier hs-type">ResumeSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679826329"><span class="annot"><span class="annottext">Text
 sessionId :: Text
 $sel:sessionId:ResumeSession' :: ResumeSession -&gt; Text
-</span><a href="#local-6989586621679824584"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679826329"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -281,18 +281,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679824584"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679826329"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679824578"><span class="annot"><span class="annottext">toPath :: ResumeSession -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679826323"><span class="annot"><span class="annottext">toPath :: ResumeSession -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResumeSession -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSession"><span class="hs-identifier hs-type">ResumeSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679824574"><span class="annot"><span class="annottext">toQuery :: ResumeSession -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679826319"><span class="annot"><span class="annottext">toQuery :: ResumeSession -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ResumeSession -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -300,34 +300,34 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newResumeSessionResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679824571"><span id="local-6989586621679824572"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeSessionResponse"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-var">ResumeSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeSessionResponse%27"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-var">ResumeSessionResponse'</span></a></span></span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the session.</span><span>
-</span><span id="line-132"></span><span>    </span><span id="%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
-</span><span id="line-146"></span><span>    </span><span id="%24sel%3AstreamUrl%3AResumeSessionResponse%27"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; Maybe Text
+</span><span id="line-130"></span><span id="local-6989586621679826316"><span id="local-6989586621679826317"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeSessionResponse"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-var">ResumeSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeSessionResponse%27"><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-var">ResumeSessionResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AstreamUrl%3AResumeSessionResponse%27"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AstreamUrl%3AResumeSessionResponse%27"><span class="hs-identifier hs-var hs-var">streamUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | An encrypted token value containing session and caller information. Used</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
-</span><span id="line-149"></span><span>    </span><span id="%24sel%3AtokenValue%3AResumeSessionResponse%27"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; Maybe Text
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | An encrypted token value containing session and caller information. Used</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AtokenValue%3AResumeSessionResponse%27"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AtokenValue%3AResumeSessionResponse%27"><span class="hs-identifier hs-var hs-var">tokenValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The ID of the session.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResumeSessionResponse%27"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; Int
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AhttpStatus%3AResumeSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824563"><span id="local-6989586621679824565"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; ResumeSessionResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679826308"><span id="local-6989586621679826310"><span class="annot"><span class="annottext">ResumeSessionResponse -&gt; ResumeSessionResponse -&gt; Bool
 (ResumeSessionResponse -&gt; ResumeSessionResponse -&gt; Bool)
 -&gt; (ResumeSessionResponse -&gt; ResumeSessionResponse -&gt; Bool)
 -&gt; Eq ResumeSessionResponse
@@ -336,7 +336,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResumeSessionResponse -&gt; ResumeSessionResponse -&gt; Bool
 == :: ResumeSessionResponse -&gt; ResumeSessionResponse -&gt; Bool
 $c== :: ResumeSessionResponse -&gt; ResumeSessionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824555"><span id="local-6989586621679824557"><span id="local-6989586621679824559"><span id="local-6989586621679824561"><span class="annot"><span class="annottext">ReadPrec [ResumeSessionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679826300"><span id="local-6989586621679826302"><span id="local-6989586621679826304"><span id="local-6989586621679826306"><span class="annot"><span class="annottext">ReadPrec [ResumeSessionResponse]
 ReadPrec ResumeSessionResponse
 Int -&gt; ReadS ResumeSessionResponse
 ReadS [ResumeSessionResponse]
@@ -356,7 +356,7 @@ readList :: ReadS [ResumeSessionResponse]
 $creadList :: ReadS [ResumeSessionResponse]
 readsPrec :: Int -&gt; ReadS ResumeSessionResponse
 $creadsPrec :: Int -&gt; ReadS ResumeSessionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824549"><span id="local-6989586621679824551"><span id="local-6989586621679824553"><span class="annot"><span class="annottext">Int -&gt; ResumeSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679826294"><span id="local-6989586621679826296"><span id="local-6989586621679826298"><span class="annot"><span class="annottext">Int -&gt; ResumeSessionResponse -&gt; ShowS
 [ResumeSessionResponse] -&gt; ShowS
 ResumeSessionResponse -&gt; String
 (Int -&gt; ResumeSessionResponse -&gt; ShowS)
@@ -390,24 +390,24 @@ $cfrom :: forall x. ResumeSessionResponse -&gt; Rep ResumeSessionResponse x
 </span><span id="line-160"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- 'sessionId', 'resumeSessionResponse_sessionId' - The ID of the session.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'streamUrl', 'resumeSessionResponse_streamUrl' - A URL back to SSM Agent on the instance that the Session Manager client</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'tokenValue', 'resumeSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'streamUrl', 'resumeSessionResponse_streamUrl' - A URL back to SSM Agent on the instance that the Session Manager client</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'tokenValue', 'resumeSessionResponse_tokenValue' - An encrypted token value containing session and caller information. Used</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'sessionId', 'resumeSessionResponse_sessionId' - The ID of the session.</span><span>
 </span><span id="line-181"></span><span class="hs-comment">--</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'resumeSessionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#newResumeSessionResponse"><span class="hs-identifier hs-type">newResumeSessionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -415,66 +415,43 @@ $cfrom :: forall x. ResumeSessionResponse -&gt; Rep ResumeSessionResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newResumeSessionResponse"><span class="annot"><span class="annottext">newResumeSessionResponse :: Int -&gt; ResumeSessionResponse
-</span><a href="Network.AWS.SSM.ResumeSession.html#newResumeSessionResponse"><span class="hs-identifier hs-var hs-var">newResumeSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679824546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.ResumeSession.html#newResumeSessionResponse"><span class="hs-identifier hs-var hs-var">newResumeSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679826291"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679826291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">ResumeSessionResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; ResumeSessionResponse
 </span><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sessionId:ResumeSessionResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamUrl:ResumeSessionResponse' :: Maybe Text
+</span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamUrl:ResumeSessionResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AstreamUrl%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">streamUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenValue:ResumeSessionResponse' :: Maybe Text
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenValue:ResumeSessionResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AtokenValue%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">tokenValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionId:ResumeSessionResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ResumeSessionResponse' :: Int
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AhttpStatus%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679826291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- | The ID of the session.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_sessionId"><span class="hs-identifier hs-type">resumeSessionResponse_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span id="resumeSessionResponse_sessionId"><span class="annot"><span class="annottext">resumeSessionResponse_sessionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ResumeSessionResponse -&gt; f ResumeSessionResponse
-</span><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_sessionId"><span class="hs-identifier hs-var hs-var">resumeSessionResponse_sessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResumeSessionResponse -&gt; Maybe Text)
--&gt; (ResumeSessionResponse -&gt; Maybe Text -&gt; ResumeSessionResponse)
--&gt; Lens
-     ResumeSessionResponse
-     ResumeSessionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824545"><span class="annot"><span class="annottext">Maybe Text
-sessionId :: Maybe Text
-$sel:sessionId:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679824545"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824545"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824544"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
-</span><a href="#local-6989586621679824544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824543"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
-</span><a href="#local-6989586621679824544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ResumeSessionResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_streamUrl"><span class="hs-identifier hs-type">resumeSessionResponse_streamUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="resumeSessionResponse_streamUrl"><span class="annot"><span class="annottext">resumeSessionResponse_streamUrl :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-195"></span><span class="hs-comment">-- | A URL back to SSM Agent on the instance that the Session Manager client</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- uses to send commands and receive output from the instance. Format:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- __region__ represents the Region identifier for an Amazon Web Services</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Region supported by Amazon Web Services Systems Manager, such as</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- @us-east-2@ for the US East (Ohio) Region. For a list of supported</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- __region__ values, see the __Region__ column in</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints&gt;</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- __session-id__ represents the ID of a Session Manager session, such as</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @1a2b3c4dEXAMPLE@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_streamUrl"><span class="hs-identifier hs-type">resumeSessionResponse_streamUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="resumeSessionResponse_streamUrl"><span class="annot"><span class="annottext">resumeSessionResponse_streamUrl :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ResumeSessionResponse -&gt; f ResumeSessionResponse
 </span><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_streamUrl"><span class="hs-identifier hs-var hs-var">resumeSessionResponse_streamUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResumeSessionResponse -&gt; Maybe Text)
 -&gt; (ResumeSessionResponse -&gt; Maybe Text -&gt; ResumeSessionResponse)
@@ -484,21 +461,21 @@ $sel:sessionId:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824542"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679826290"><span class="annot"><span class="annottext">Maybe Text
 streamUrl :: Maybe Text
 $sel:streamUrl:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679824542"><span class="hs-identifier hs-var hs-var">streamUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824542"><span class="hs-identifier hs-var">streamUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824541"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
-</span><a href="#local-6989586621679824541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824540"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
-</span><a href="#local-6989586621679824541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamUrl:ResumeSessionResponse' :: Maybe Text
+</span><a href="#local-6989586621679826290"><span class="hs-identifier hs-var hs-var">streamUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679826290"><span class="hs-identifier hs-var">streamUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679826289"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
+</span><a href="#local-6989586621679826289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679826288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679826288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
+</span><a href="#local-6989586621679826289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamUrl:ResumeSessionResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AstreamUrl%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">streamUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | An encrypted token value containing session and caller information. Used</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
-</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_tokenValue"><span class="hs-identifier hs-type">resumeSessionResponse_tokenValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span id="resumeSessionResponse_tokenValue"><span class="annot"><span class="annottext">resumeSessionResponse_tokenValue :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679826288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | An encrypted token value containing session and caller information. Used</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- to authenticate the connection to the instance.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_tokenValue"><span class="hs-identifier hs-type">resumeSessionResponse_tokenValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="resumeSessionResponse_tokenValue"><span class="annot"><span class="annottext">resumeSessionResponse_tokenValue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ResumeSessionResponse -&gt; f ResumeSessionResponse
 </span><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_tokenValue"><span class="hs-identifier hs-var hs-var">resumeSessionResponse_tokenValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResumeSessionResponse -&gt; Maybe Text)
 -&gt; (ResumeSessionResponse -&gt; Maybe Text -&gt; ResumeSessionResponse)
@@ -508,16 +485,39 @@ $sel:streamUrl:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824539"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679826287"><span class="annot"><span class="annottext">Maybe Text
 tokenValue :: Maybe Text
 $sel:tokenValue:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679824539"><span class="hs-identifier hs-var hs-var">tokenValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824539"><span class="hs-identifier hs-var">tokenValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824538"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
-</span><a href="#local-6989586621679824538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824537"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
-</span><a href="#local-6989586621679824538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenValue:ResumeSessionResponse' :: Maybe Text
+</span><a href="#local-6989586621679826287"><span class="hs-identifier hs-var hs-var">tokenValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679826287"><span class="hs-identifier hs-var">tokenValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679826286"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
+</span><a href="#local-6989586621679826286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679826285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679826285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
+</span><a href="#local-6989586621679826286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenValue:ResumeSessionResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AtokenValue%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">tokenValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679826285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The ID of the session.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_sessionId"><span class="hs-identifier hs-type">resumeSessionResponse_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="resumeSessionResponse_sessionId"><span class="annot"><span class="annottext">resumeSessionResponse_sessionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResumeSessionResponse -&gt; f ResumeSessionResponse
+</span><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_sessionId"><span class="hs-identifier hs-var hs-var">resumeSessionResponse_sessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResumeSessionResponse -&gt; Maybe Text)
+-&gt; (ResumeSessionResponse -&gt; Maybe Text -&gt; ResumeSessionResponse)
+-&gt; Lens
+     ResumeSessionResponse
+     ResumeSessionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679826284"><span class="annot"><span class="annottext">Maybe Text
+sessionId :: Maybe Text
+$sel:sessionId:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679826284"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679826284"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679826283"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
+</span><a href="#local-6989586621679826283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679826282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679826282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
+</span><a href="#local-6989586621679826283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ResumeSessionResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AsessionId%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679826282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#resumeSessionResponse_httpStatus"><span class="hs-identifier hs-type">resumeSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -526,16 +526,16 @@ $sel:tokenValue:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Maybe Text
 -&gt; (ResumeSessionResponse -&gt; Int -&gt; ResumeSessionResponse)
 -&gt; Lens ResumeSessionResponse ResumeSessionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824536"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679826281"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ResumeSessionResponse' :: ResumeSessionResponse -&gt; Int
-</span><a href="#local-6989586621679824536"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824536"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824535"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
-</span><a href="#local-6989586621679824535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824534"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
-</span><a href="#local-6989586621679824535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResumeSessionResponse' :: Int
+</span><a href="#local-6989586621679826281"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679826281"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679826280"><span class="annot"><span class="annottext">s :: ResumeSessionResponse
+</span><a href="#local-6989586621679826280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse%27"><span class="hs-identifier hs-type">ResumeSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679826279"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679826279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeSessionResponse
+</span><a href="#local-6989586621679826280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResumeSessionResponse' :: Int
 </span><a href="Network.AWS.SSM.ResumeSession.html#%24sel%3AhttpStatus%3AResumeSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679826279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679826277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ResumeSession.html#ResumeSessionResponse"><span class="hs-identifier hs-type">ResumeSessionResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

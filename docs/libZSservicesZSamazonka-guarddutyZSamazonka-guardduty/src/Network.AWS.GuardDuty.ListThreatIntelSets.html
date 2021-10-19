@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListThreatIntelSets' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679304634"><span id="local-6989586621679304635"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThreatIntelSets"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-var">ListThreatIntelSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThreatIntelSets%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-var">ListThreatIntelSets'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679304935"><span id="local-6989586621679304936"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThreatIntelSets"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-var">ListThreatIntelSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThreatIntelSets%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-var">ListThreatIntelSets'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use this parameter to paginate results in the response. Set the</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- value of this parameter to null on your first call to the list action.</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- For subsequent calls to the action, fill nextToken in the request with</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AdetectorId%3AListThreatIntelSets%27"><span class="annot"><span class="annottext">ListThreatIntelSets -&gt; Text
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AdetectorId%3AListThreatIntelSets%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304626"><span id="local-6989586621679304628"><span class="annot"><span class="annottext">ListThreatIntelSets -&gt; ListThreatIntelSets -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304927"><span id="local-6989586621679304929"><span class="annot"><span class="annottext">ListThreatIntelSets -&gt; ListThreatIntelSets -&gt; Bool
 (ListThreatIntelSets -&gt; ListThreatIntelSets -&gt; Bool)
 -&gt; (ListThreatIntelSets -&gt; ListThreatIntelSets -&gt; Bool)
 -&gt; Eq ListThreatIntelSets
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListThreatIntelSets -&gt; ListThreatIntelSets -&gt; Bool
 == :: ListThreatIntelSets -&gt; ListThreatIntelSets -&gt; Bool
 $c== :: ListThreatIntelSets -&gt; ListThreatIntelSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304617"><span id="local-6989586621679304619"><span id="local-6989586621679304621"><span id="local-6989586621679304623"><span class="annot"><span class="annottext">ReadPrec [ListThreatIntelSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304918"><span id="local-6989586621679304920"><span id="local-6989586621679304922"><span id="local-6989586621679304924"><span class="annot"><span class="annottext">ReadPrec [ListThreatIntelSets]
 ReadPrec ListThreatIntelSets
 Int -&gt; ReadS ListThreatIntelSets
 ReadS [ListThreatIntelSets]
@@ -101,7 +101,7 @@ readList :: ReadS [ListThreatIntelSets]
 $creadList :: ReadS [ListThreatIntelSets]
 readsPrec :: Int -&gt; ReadS ListThreatIntelSets
 $creadsPrec :: Int -&gt; ReadS ListThreatIntelSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304610"><span id="local-6989586621679304612"><span id="local-6989586621679304614"><span class="annot"><span class="annottext">Int -&gt; ListThreatIntelSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304911"><span id="local-6989586621679304913"><span id="local-6989586621679304915"><span class="annot"><span class="annottext">Int -&gt; ListThreatIntelSets -&gt; ShowS
 [ListThreatIntelSets] -&gt; ShowS
 ListThreatIntelSets -&gt; String
 (Int -&gt; ListThreatIntelSets -&gt; ShowS)
@@ -152,8 +152,8 @@ $cfrom :: forall x. ListThreatIntelSets -&gt; Rep ListThreatIntelSets x
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span>
 </span><span id="line-98"></span><span id="newListThreatIntelSets"><span class="annot"><span class="annottext">newListThreatIntelSets :: Text -&gt; ListThreatIntelSets
-</span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#newListThreatIntelSets"><span class="hs-identifier hs-var hs-var">newListThreatIntelSets</span></a></span></span><span> </span><span id="local-6989586621679304605"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304605"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#newListThreatIntelSets"><span class="hs-identifier hs-var hs-var">newListThreatIntelSets</span></a></span></span><span> </span><span id="local-6989586621679304906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304906"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">ListThreatIntelSets' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListThreatIntelSets
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListThreatIntelSets' :: Maybe Text
@@ -166,7 +166,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorId:ListThreatIntelSets' :: Text
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AdetectorId%3AListThreatIntelSets%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304605"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span>
+</span><a href="#local-6989586621679304906"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | You can use this parameter to paginate results in the response. Set the</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
 -&gt; Lens
      ListThreatIntelSets ListThreatIntelSets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304603"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304904"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Text
-</span><a href="#local-6989586621679304603"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304603"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304602"><span class="annot"><span class="annottext">s :: ListThreatIntelSets
-</span><a href="#local-6989586621679304602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304601"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSets
-</span><a href="#local-6989586621679304602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThreatIntelSets' :: Maybe Text
+</span><a href="#local-6989586621679304904"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304904"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304903"><span class="annot"><span class="annottext">s :: ListThreatIntelSets
+</span><a href="#local-6989586621679304903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSets
+</span><a href="#local-6989586621679304903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThreatIntelSets' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AnextToken%3AListThreatIntelSets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items that</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- you want in the response. The default value is 50. The maximum value is</span><span>
@@ -207,16 +207,16 @@ $sel:nextToken:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304600"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304901"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Natural
-</span><a href="#local-6989586621679304600"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679304600"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304599"><span class="annot"><span class="annottext">s :: ListThreatIntelSets
-</span><a href="#local-6989586621679304599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304598"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679304598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSets
-</span><a href="#local-6989586621679304599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListThreatIntelSets' :: Maybe Natural
+</span><a href="#local-6989586621679304901"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304901"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304900"><span class="annot"><span class="annottext">s :: ListThreatIntelSets
+</span><a href="#local-6989586621679304900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304899"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679304899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSets
+</span><a href="#local-6989586621679304900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListThreatIntelSets' :: Maybe Natural
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AmaxResults%3AListThreatIntelSets%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679304598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The unique ID of the detector that the threatIntelSet is associated</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- with.</span><span>
@@ -226,29 +226,29 @@ $sel:maxResults:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Natural
 -&gt; (ListThreatIntelSets -&gt; Text -&gt; ListThreatIntelSets)
 -&gt; Lens ListThreatIntelSets ListThreatIntelSets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304597"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304898"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Text
-</span><a href="#local-6989586621679304597"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304597"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304596"><span class="annot"><span class="annottext">s :: ListThreatIntelSets
-</span><a href="#local-6989586621679304596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304595"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSets
-</span><a href="#local-6989586621679304596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:ListThreatIntelSets' :: Text
+</span><a href="#local-6989586621679304898"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304898"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304897"><span class="annot"><span class="annottext">s :: ListThreatIntelSets
+</span><a href="#local-6989586621679304897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304896"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSets
+</span><a href="#local-6989586621679304897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:ListThreatIntelSets' :: Text
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AdetectorId%3AListThreatIntelSets%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679304591"><span class="annot"><span class="annottext">page :: ListThreatIntelSets
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679304892"><span class="annot"><span class="annottext">page :: ListThreatIntelSets
 -&gt; AWSResponse ListThreatIntelSets -&gt; Maybe ListThreatIntelSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679304589"><span class="annot"><span class="annottext">ListThreatIntelSets
-</span><a href="#local-6989586621679304589"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679304588"><span class="annot"><span class="annottext">AWSResponse ListThreatIntelSets
-</span><a href="#local-6989586621679304588"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679304890"><span class="annot"><span class="annottext">ListThreatIntelSets
+</span><a href="#local-6989586621679304890"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679304889"><span class="annot"><span class="annottext">AWSResponse ListThreatIntelSets
+</span><a href="#local-6989586621679304889"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThreatIntelSets
 ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304588"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679304889"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
 -&gt; Getting (First Text) ListThreatIntelSetsResponse Text
 -&gt; Maybe Text
@@ -278,7 +278,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThreatIntelSets
 ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304588"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679304889"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
 -&gt; Getting [Text] ListThreatIntelSetsResponse [Text] -&gt; [Text]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -298,7 +298,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ListThreatIntelSets
-</span><a href="#local-6989586621679304589"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679304890"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ListThreatIntelSets
 -&gt; (ListThreatIntelSets -&gt; ListThreatIntelSets)
 -&gt; ListThreatIntelSets
@@ -314,7 +314,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThreatIntelSets
 ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304588"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679304889"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
 -&gt; Getting (First Text) ListThreatIntelSetsResponse Text
 -&gt; Maybe Text
@@ -340,12 +340,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679304577"><span class="annot"><span class="annottext">request :: ListThreatIntelSets -&gt; Request ListThreatIntelSets
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679304878"><span class="annot"><span class="annottext">request :: ListThreatIntelSets -&gt; Request ListThreatIntelSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListThreatIntelSets -&gt; Request ListThreatIntelSets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679304573"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679304874"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListThreatIntelSets
 -&gt; ClientResponse ClientBody
@@ -371,10 +371,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304570"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304570"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304569"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679304569"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304568"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304871"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304871"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304870"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304870"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304869"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Text] -&gt; ListThreatIntelSetsResponse
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">ListThreatIntelSetsResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Text] -&gt; ListThreatIntelSetsResponse)
@@ -382,7 +382,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [Text] -&gt; ListThreatIntelSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679304869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -395,13 +395,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304570"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304871"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; ListThreatIntelSetsResponse)
 -&gt; Either String [Text]
 -&gt; Either String ListThreatIntelSetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
+</span><a href="#local-6989586621679304869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;threatIntelSetIds&quot;</span></span><span>
@@ -413,12 +413,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-158"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304559"><span id="local-6989586621679304561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304860"><span id="local-6989586621679304862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679304552"><span class="annot"><span class="annottext">toHeaders :: ListThreatIntelSets -&gt; ResponseHeaders
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679304853"><span class="annot"><span class="annottext">toHeaders :: ListThreatIntelSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListThreatIntelSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -438,8 +438,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679304546"><span class="annot"><span class="annottext">toPath :: ListThreatIntelSets -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304542"><span id="local-6989586621679304543"><span id="local-6989586621679304544"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679304847"><span class="annot"><span class="annottext">toPath :: ListThreatIntelSets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304843"><span id="local-6989586621679304844"><span id="local-6989586621679304845"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 detectorId :: Text
@@ -448,7 +448,7 @@ nextToken :: Maybe Text
 $sel:detectorId:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Text
 $sel:maxResults:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Natural
 $sel:nextToken:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Text
-</span><a href="#local-6989586621679304542"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304843"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -457,14 +457,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304542"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304843"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/threatintelset&quot;</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets"><span class="hs-identifier hs-type">ListThreatIntelSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679304538"><span class="annot"><span class="annottext">toQuery :: ListThreatIntelSets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304534"><span id="local-6989586621679304535"><span id="local-6989586621679304536"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679304839"><span class="annot"><span class="annottext">toQuery :: ListThreatIntelSets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSets%27"><span class="hs-identifier hs-type">ListThreatIntelSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304835"><span id="local-6989586621679304836"><span id="local-6989586621679304837"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 detectorId :: Text
@@ -473,7 +473,7 @@ nextToken :: Maybe Text
 $sel:detectorId:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Text
 $sel:maxResults:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Natural
 $sel:nextToken:ListThreatIntelSets' :: ListThreatIntelSets -&gt; Maybe Text
-</span><a href="#local-6989586621679304534"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304835"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -481,16 +481,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304536"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304837"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679304535"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679304836"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newListThreatIntelSetsResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679304531"><span id="local-6989586621679304532"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThreatIntelSetsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-var">ListThreatIntelSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThreatIntelSetsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">ListThreatIntelSetsResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621679304832"><span id="local-6989586621679304833"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThreatIntelSetsResponse"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-var">ListThreatIntelSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThreatIntelSetsResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">ListThreatIntelSetsResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination parameter to be used on the next list operation to</span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-comment">-- retrieve more items.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AnextToken%3AListThreatIntelSetsResponse%27"><span class="annot"><span class="annottext">ListThreatIntelSetsResponse -&gt; Maybe Text
@@ -502,7 +502,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AthreatIntelSetIds%3AListThreatIntelSetsResponse%27"><span class="annot"><span class="annottext">ListThreatIntelSetsResponse -&gt; [Text]
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AthreatIntelSetIds%3AListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var hs-var">threatIntelSetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304524"><span id="local-6989586621679304526"><span class="annot"><span class="annottext">ListThreatIntelSetsResponse -&gt; ListThreatIntelSetsResponse -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304825"><span id="local-6989586621679304827"><span class="annot"><span class="annottext">ListThreatIntelSetsResponse -&gt; ListThreatIntelSetsResponse -&gt; Bool
 (ListThreatIntelSetsResponse
  -&gt; ListThreatIntelSetsResponse -&gt; Bool)
 -&gt; (ListThreatIntelSetsResponse
@@ -513,7 +513,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListThreatIntelSetsResponse -&gt; ListThreatIntelSetsResponse -&gt; Bool
 == :: ListThreatIntelSetsResponse -&gt; ListThreatIntelSetsResponse -&gt; Bool
 $c== :: ListThreatIntelSetsResponse -&gt; ListThreatIntelSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304516"><span id="local-6989586621679304518"><span id="local-6989586621679304520"><span id="local-6989586621679304522"><span class="annot"><span class="annottext">ReadPrec [ListThreatIntelSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304817"><span id="local-6989586621679304819"><span id="local-6989586621679304821"><span id="local-6989586621679304823"><span class="annot"><span class="annottext">ReadPrec [ListThreatIntelSetsResponse]
 ReadPrec ListThreatIntelSetsResponse
 Int -&gt; ReadS ListThreatIntelSetsResponse
 ReadS [ListThreatIntelSetsResponse]
@@ -533,7 +533,7 @@ readList :: ReadS [ListThreatIntelSetsResponse]
 $creadList :: ReadS [ListThreatIntelSetsResponse]
 readsPrec :: Int -&gt; ReadS ListThreatIntelSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListThreatIntelSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304510"><span id="local-6989586621679304512"><span id="local-6989586621679304514"><span class="annot"><span class="annottext">Int -&gt; ListThreatIntelSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304811"><span id="local-6989586621679304813"><span id="local-6989586621679304815"><span class="annot"><span class="annottext">Int -&gt; ListThreatIntelSetsResponse -&gt; ShowS
 [ListThreatIntelSetsResponse] -&gt; ShowS
 ListThreatIntelSetsResponse -&gt; String
 (Int -&gt; ListThreatIntelSetsResponse -&gt; ShowS)
@@ -584,8 +584,8 @@ ListThreatIntelSetsResponse -&gt; Rep ListThreatIntelSetsResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newListThreatIntelSetsResponse"><span class="annot"><span class="annottext">newListThreatIntelSetsResponse :: Int -&gt; ListThreatIntelSetsResponse
-</span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#newListThreatIntelSetsResponse"><span class="hs-identifier hs-var hs-var">newListThreatIntelSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679304507"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#newListThreatIntelSetsResponse"><span class="hs-identifier hs-var hs-var">newListThreatIntelSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679304808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse' :: Maybe Text -&gt; Int -&gt; [Text] -&gt; ListThreatIntelSetsResponse
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListThreatIntelSetsResponse' :: Maybe Text
@@ -595,7 +595,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListThreatIntelSetsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AhttpStatus%3AListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304808"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:threatIntelSetIds:ListThreatIntelSetsResponse' :: [Text]
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AthreatIntelSetIds%3AListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">threatIntelSetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -612,16 +612,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListThreatIntelSetsResponse)
 -&gt; Lens' ListThreatIntelSetsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304506"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304807"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListThreatIntelSetsResponse' :: ListThreatIntelSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679304506"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304506"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304505"><span class="annot"><span class="annottext">s :: ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304504"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThreatIntelSetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679304807"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304807"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304806"><span class="annot"><span class="annottext">s :: ListThreatIntelSetsResponse
+</span><a href="#local-6989586621679304806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304805"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
+</span><a href="#local-6989586621679304806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThreatIntelSetsResponse' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AnextToken%3AListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-235"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#listThreatIntelSetsResponse_httpStatus"><span class="hs-identifier hs-type">listThreatIntelSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -633,16 +633,16 @@ $sel:nextToken:ListThreatIntelSetsResponse' :: ListThreatIntelSetsResponse -&gt;
 -&gt; Lens
      ListThreatIntelSetsResponse ListThreatIntelSetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304503"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304804"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListThreatIntelSetsResponse' :: ListThreatIntelSetsResponse -&gt; Int
-</span><a href="#local-6989586621679304503"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304503"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304502"><span class="annot"><span class="annottext">s :: ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304501"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListThreatIntelSetsResponse' :: Int
+</span><a href="#local-6989586621679304804"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304804"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304803"><span class="annot"><span class="annottext">s :: ListThreatIntelSetsResponse
+</span><a href="#local-6989586621679304803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
+</span><a href="#local-6989586621679304803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListThreatIntelSetsResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AhttpStatus%3AListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The IDs of the ThreatIntelSet resources.</span><span>
 </span><span id="line-239"></span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#listThreatIntelSetsResponse_threatIntelSetIds"><span class="hs-identifier hs-type">listThreatIntelSetsResponse_threatIntelSetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -653,16 +653,16 @@ $sel:httpStatus:ListThreatIntelSetsResponse' :: ListThreatIntelSetsResponse -&gt
     -&gt; [Text] -&gt; ListThreatIntelSetsResponse)
 -&gt; Lens' ListThreatIntelSetsResponse [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304500"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304801"><span class="annot"><span class="annottext">[Text]
 threatIntelSetIds :: [Text]
 $sel:threatIntelSetIds:ListThreatIntelSetsResponse' :: ListThreatIntelSetsResponse -&gt; [Text]
-</span><a href="#local-6989586621679304500"><span class="hs-identifier hs-var hs-var">threatIntelSetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679304500"><span class="hs-identifier hs-var">threatIntelSetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304499"><span class="annot"><span class="annottext">s :: ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304498"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679304498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
-</span><a href="#local-6989586621679304499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatIntelSetIds:ListThreatIntelSetsResponse' :: [Text]
+</span><a href="#local-6989586621679304801"><span class="hs-identifier hs-var hs-var">threatIntelSetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679304801"><span class="hs-identifier hs-var">threatIntelSetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304800"><span class="annot"><span class="annottext">s :: ListThreatIntelSetsResponse
+</span><a href="#local-6989586621679304800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse%27"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304799"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679304799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThreatIntelSetsResponse
+</span><a href="#local-6989586621679304800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatIntelSetIds:ListThreatIntelSetsResponse' :: [Text]
 </span><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#%24sel%3AthreatIntelSetIds%3AListThreatIntelSetsResponse%27"><span class="hs-identifier hs-var">threatIntelSetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679304498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679304799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ListThreatIntelSetsResponse -&gt; f ListThreatIntelSetsResponse)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -670,8 +670,8 @@ $sel:threatIntelSetIds:ListThreatIntelSetsResponse' :: ListThreatIntelSetsRespon
 -&gt; f ListThreatIntelSetsResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.ListThreatIntelSets.html#ListThreatIntelSetsResponse"><span class="hs-identifier hs-type">ListThreatIntelSetsResponse</span></a></span></span><span>
 </span><span id="line-243"></span></pre></body></html>

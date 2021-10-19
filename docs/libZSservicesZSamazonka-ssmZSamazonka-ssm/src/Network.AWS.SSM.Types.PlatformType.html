@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679809075"><span id="local-6989586621679809076"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformType"><span class="annot"><a href="Network.AWS.SSM.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-var">PlatformType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformType%27"><span class="annot"><a href="Network.AWS.SSM.Types.PlatformType.html#PlatformType%27"><span class="hs-identifier hs-var">PlatformType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679810765"><span id="local-6989586621679810766"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformType"><span class="annot"><a href="Network.AWS.SSM.Types.PlatformType.html#PlatformType"><span class="hs-identifier hs-var">PlatformType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformType%27"><span class="annot"><a href="Network.AWS.SSM.Types.PlatformType.html#PlatformType%27"><span class="hs-identifier hs-var">PlatformType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlatformType"><span class="annot"><span class="annottext">PlatformType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.PlatformType.html#fromPlatformType"><span class="hs-identifier hs-var hs-var">fromPlatformType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809067"><span id="local-6989586621679809069"><span id="local-6989586621679809071"><span class="annot"><span class="annottext">Int -&gt; PlatformType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810757"><span id="local-6989586621679810759"><span id="local-6989586621679810761"><span class="annot"><span class="annottext">Int -&gt; PlatformType -&gt; ShowS
 [PlatformType] -&gt; ShowS
 PlatformType -&gt; String
 (Int -&gt; PlatformType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PlatformType -&gt; String
 showsPrec :: Int -&gt; PlatformType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PlatformType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679809058"><span id="local-6989586621679809060"><span id="local-6989586621679809062"><span id="local-6989586621679809064"><span class="annot"><span class="annottext">ReadPrec [PlatformType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679810748"><span id="local-6989586621679810750"><span id="local-6989586621679810752"><span id="local-6989586621679810754"><span class="annot"><span class="annottext">ReadPrec [PlatformType]
 ReadPrec PlatformType
 Int -&gt; ReadS PlatformType
 ReadS [PlatformType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PlatformType]
 readsPrec :: Int -&gt; ReadS PlatformType
 $creadsPrec :: Int -&gt; ReadS PlatformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679809053"><span id="local-6989586621679809055"><span class="annot"><span class="annottext">PlatformType -&gt; PlatformType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679810743"><span id="local-6989586621679810745"><span class="annot"><span class="annottext">PlatformType -&gt; PlatformType -&gt; Bool
 (PlatformType -&gt; PlatformType -&gt; Bool)
 -&gt; (PlatformType -&gt; PlatformType -&gt; Bool) -&gt; Eq PlatformType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: PlatformType -&gt; PlatformType -&gt; Bool
 == :: PlatformType -&gt; PlatformType -&gt; Bool
 $c== :: PlatformType -&gt; PlatformType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679809037"><span id="local-6989586621679809039"><span id="local-6989586621679809041"><span id="local-6989586621679809043"><span id="local-6989586621679809045"><span id="local-6989586621679809047"><span id="local-6989586621679809049"><span class="annot"><span class="annottext">Eq PlatformType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679810727"><span id="local-6989586621679810729"><span id="local-6989586621679810731"><span id="local-6989586621679810733"><span id="local-6989586621679810735"><span id="local-6989586621679810737"><span id="local-6989586621679810739"><span class="annot"><span class="annottext">Eq PlatformType
 Eq PlatformType
 -&gt; (PlatformType -&gt; PlatformType -&gt; Ordering)
 -&gt; (PlatformType -&gt; PlatformType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PlatformType -&gt; Rep PlatformType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809029"><span id="local-6989586621679809031"><span class="annot"><span class="annottext">Int -&gt; PlatformType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810719"><span id="local-6989586621679810721"><span class="annot"><span class="annottext">Int -&gt; PlatformType -&gt; Int
 PlatformType -&gt; Int
 (Int -&gt; PlatformType -&gt; Int)
 -&gt; (PlatformType -&gt; Int) -&gt; Hashable PlatformType
@@ -142,49 +142,49 @@ $chash :: PlatformType -&gt; Int
 hashWithSalt :: Int -&gt; PlatformType -&gt; Int
 $chashWithSalt :: Int -&gt; PlatformType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679809026"><span class="annot"><span class="annottext">PlatformType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679810716"><span class="annot"><span class="annottext">PlatformType -&gt; ()
 (PlatformType -&gt; ()) -&gt; NFData PlatformType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PlatformType -&gt; ()
 $crnf :: PlatformType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679809023"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679810713"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformType
 (Text -&gt; Either String PlatformType) -&gt; FromText PlatformType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PlatformType
 $cfromText :: Text -&gt; Either String PlatformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679809020"><span class="annot"><span class="annottext">PlatformType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679810710"><span class="annot"><span class="annottext">PlatformType -&gt; Text
 (PlatformType -&gt; Text) -&gt; ToText PlatformType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PlatformType -&gt; Text
 $ctoText :: PlatformType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679809017"><span class="annot"><span class="annottext">PlatformType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679810707"><span class="annot"><span class="annottext">PlatformType -&gt; ByteString
 (PlatformType -&gt; ByteString) -&gt; ToByteString PlatformType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PlatformType -&gt; ByteString
 $ctoBS :: PlatformType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679809014"><span class="annot"><span class="annottext">PlatformType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679810704"><span class="annot"><span class="annottext">PlatformType -&gt; ByteStringBuilder
 (PlatformType -&gt; ByteStringBuilder) -&gt; ToLog PlatformType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PlatformType -&gt; ByteStringBuilder
 $cbuild :: PlatformType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679809011"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679810701"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformType -&gt; [Header]
 (HeaderName -&gt; PlatformType -&gt; [Header]) -&gt; ToHeader PlatformType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PlatformType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PlatformType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679809008"><span class="annot"><span class="annottext">PlatformType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679810698"><span class="annot"><span class="annottext">PlatformType -&gt; QueryString
 (PlatformType -&gt; QueryString) -&gt; ToQuery PlatformType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PlatformType -&gt; QueryString
 $ctoQuery :: PlatformType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679809003"><span id="local-6989586621679809005"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679810693"><span id="local-6989586621679810695"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformType]
 Value -&gt; Parser PlatformType
 (Value -&gt; Parser PlatformType)
 -&gt; (Value -&gt; Parser [PlatformType]) -&gt; FromJSON PlatformType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [PlatformType]
 parseJSON :: Value -&gt; Parser PlatformType
 $cparseJSON :: Value -&gt; Parser PlatformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679808998"><span id="local-6989586621679809000"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679810688"><span id="local-6989586621679810690"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformType]
 FromJSONKeyFunction PlatformType
 FromJSONKeyFunction PlatformType
 -&gt; FromJSONKeyFunction [PlatformType] -&gt; FromJSONKey PlatformType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PlatformType]
 fromJSONKey :: FromJSONKeyFunction PlatformType
 $cfromJSONKey :: FromJSONKeyFunction PlatformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679808989"><span id="local-6989586621679808991"><span id="local-6989586621679808993"><span id="local-6989586621679808995"><span class="annot"><span class="annottext">[PlatformType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679810679"><span id="local-6989586621679810681"><span id="local-6989586621679810683"><span id="local-6989586621679810685"><span class="annot"><span class="annottext">[PlatformType] -&gt; Encoding
 [PlatformType] -&gt; Value
 PlatformType -&gt; Encoding
 PlatformType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: PlatformType -&gt; Encoding
 toJSON :: PlatformType -&gt; Value
 $ctoJSON :: PlatformType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679808984"><span id="local-6989586621679808986"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679810674"><span id="local-6989586621679810676"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformType]
 ToJSONKeyFunction PlatformType
 ToJSONKeyFunction PlatformType
 -&gt; ToJSONKeyFunction [PlatformType] -&gt; ToJSONKey PlatformType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PlatformType]
 toJSONKey :: ToJSONKeyFunction PlatformType
 $ctoJSONKey :: ToJSONKeyFunction PlatformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679808981"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679810671"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformType
 ([Node] -&gt; Either String PlatformType) -&gt; FromXML PlatformType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PlatformType
 $cparseXML :: [Node] -&gt; Either String PlatformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679808978"><span class="annot"><span class="annottext">PlatformType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679810668"><span class="annot"><span class="annottext">PlatformType -&gt; XML
 (PlatformType -&gt; XML) -&gt; ToXML PlatformType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PlatformType -&gt; XML

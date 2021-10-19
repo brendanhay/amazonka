@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679362955"><span id="local-6989586621679362956"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BusinessReportFailureCode"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode.html#BusinessReportFailureCode"><span class="hs-identifier hs-var">BusinessReportFailureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportFailureCode%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode.html#BusinessReportFailureCode%27"><span class="hs-identifier hs-var">BusinessReportFailureCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679363266"><span id="local-6989586621679363267"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BusinessReportFailureCode"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode.html#BusinessReportFailureCode"><span class="hs-identifier hs-var">BusinessReportFailureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportFailureCode%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode.html#BusinessReportFailureCode%27"><span class="hs-identifier hs-var">BusinessReportFailureCode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBusinessReportFailureCode"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode.html#fromBusinessReportFailureCode"><span class="hs-identifier hs-var hs-var">fromBusinessReportFailureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362947"><span id="local-6989586621679362949"><span id="local-6989586621679362951"><span class="annot"><span class="annottext">Int -&gt; BusinessReportFailureCode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363258"><span id="local-6989586621679363260"><span id="local-6989586621679363262"><span class="annot"><span class="annottext">Int -&gt; BusinessReportFailureCode -&gt; ShowS
 [BusinessReportFailureCode] -&gt; ShowS
 BusinessReportFailureCode -&gt; String
 (Int -&gt; BusinessReportFailureCode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BusinessReportFailureCode -&gt; String
 showsPrec :: Int -&gt; BusinessReportFailureCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; BusinessReportFailureCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679362938"><span id="local-6989586621679362940"><span id="local-6989586621679362942"><span id="local-6989586621679362944"><span class="annot"><span class="annottext">ReadPrec [BusinessReportFailureCode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679363249"><span id="local-6989586621679363251"><span id="local-6989586621679363253"><span id="local-6989586621679363255"><span class="annot"><span class="annottext">ReadPrec [BusinessReportFailureCode]
 ReadPrec BusinessReportFailureCode
 Int -&gt; ReadS BusinessReportFailureCode
 ReadS [BusinessReportFailureCode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BusinessReportFailureCode]
 readsPrec :: Int -&gt; ReadS BusinessReportFailureCode
 $creadsPrec :: Int -&gt; ReadS BusinessReportFailureCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679362933"><span id="local-6989586621679362935"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; BusinessReportFailureCode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679363244"><span id="local-6989586621679363246"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; BusinessReportFailureCode -&gt; Bool
 (BusinessReportFailureCode -&gt; BusinessReportFailureCode -&gt; Bool)
 -&gt; (BusinessReportFailureCode -&gt; BusinessReportFailureCode -&gt; Bool)
 -&gt; Eq BusinessReportFailureCode
@@ -83,7 +83,7 @@ $c/= :: BusinessReportFailureCode -&gt; BusinessReportFailureCode -&gt; Bool
 == :: BusinessReportFailureCode -&gt; BusinessReportFailureCode -&gt; Bool
 $c== :: BusinessReportFailureCode -&gt; BusinessReportFailureCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679362917"><span id="local-6989586621679362919"><span id="local-6989586621679362921"><span id="local-6989586621679362923"><span id="local-6989586621679362925"><span id="local-6989586621679362927"><span id="local-6989586621679362929"><span class="annot"><span class="annottext">Eq BusinessReportFailureCode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679363228"><span id="local-6989586621679363230"><span id="local-6989586621679363232"><span id="local-6989586621679363234"><span id="local-6989586621679363236"><span id="local-6989586621679363238"><span id="local-6989586621679363240"><span class="annot"><span class="annottext">Eq BusinessReportFailureCode
 Eq BusinessReportFailureCode
 -&gt; (BusinessReportFailureCode
     -&gt; BusinessReportFailureCode -&gt; Ordering)
@@ -148,7 +148,7 @@ BusinessReportFailureCode -&gt; Rep BusinessReportFailureCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362909"><span id="local-6989586621679362911"><span class="annot"><span class="annottext">Int -&gt; BusinessReportFailureCode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363220"><span id="local-6989586621679363222"><span class="annot"><span class="annottext">Int -&gt; BusinessReportFailureCode -&gt; Int
 BusinessReportFailureCode -&gt; Int
 (Int -&gt; BusinessReportFailureCode -&gt; Int)
 -&gt; (BusinessReportFailureCode -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: BusinessReportFailureCode -&gt; Int
 hashWithSalt :: Int -&gt; BusinessReportFailureCode -&gt; Int
 $chashWithSalt :: Int -&gt; BusinessReportFailureCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679362906"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679363217"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; ()
 (BusinessReportFailureCode -&gt; ())
 -&gt; NFData BusinessReportFailureCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BusinessReportFailureCode -&gt; ()
 $crnf :: BusinessReportFailureCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679362903"><span class="annot"><span class="annottext">Text -&gt; Either String BusinessReportFailureCode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679363214"><span class="annot"><span class="annottext">Text -&gt; Either String BusinessReportFailureCode
 (Text -&gt; Either String BusinessReportFailureCode)
 -&gt; FromText BusinessReportFailureCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BusinessReportFailureCode
 $cfromText :: Text -&gt; Either String BusinessReportFailureCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679362900"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679363211"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; Text
 (BusinessReportFailureCode -&gt; Text)
 -&gt; ToText BusinessReportFailureCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BusinessReportFailureCode -&gt; Text
 $ctoText :: BusinessReportFailureCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679362897"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679363208"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; ByteString
 (BusinessReportFailureCode -&gt; ByteString)
 -&gt; ToByteString BusinessReportFailureCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BusinessReportFailureCode -&gt; ByteString
 $ctoBS :: BusinessReportFailureCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362894"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679363205"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; ByteStringBuilder
 (BusinessReportFailureCode -&gt; ByteStringBuilder)
 -&gt; ToLog BusinessReportFailureCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BusinessReportFailureCode -&gt; ByteStringBuilder
 $cbuild :: BusinessReportFailureCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679362891"><span class="annot"><span class="annottext">HeaderName -&gt; BusinessReportFailureCode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679363202"><span class="annot"><span class="annottext">HeaderName -&gt; BusinessReportFailureCode -&gt; [Header]
 (HeaderName -&gt; BusinessReportFailureCode -&gt; [Header])
 -&gt; ToHeader BusinessReportFailureCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BusinessReportFailureCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BusinessReportFailureCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679362888"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679363199"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; QueryString
 (BusinessReportFailureCode -&gt; QueryString)
 -&gt; ToQuery BusinessReportFailureCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BusinessReportFailureCode -&gt; QueryString
 $ctoQuery :: BusinessReportFailureCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679362883"><span id="local-6989586621679362885"><span class="annot"><span class="annottext">Value -&gt; Parser [BusinessReportFailureCode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679363194"><span id="local-6989586621679363196"><span class="annot"><span class="annottext">Value -&gt; Parser [BusinessReportFailureCode]
 Value -&gt; Parser BusinessReportFailureCode
 (Value -&gt; Parser BusinessReportFailureCode)
 -&gt; (Value -&gt; Parser [BusinessReportFailureCode])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [BusinessReportFailureCode]
 parseJSON :: Value -&gt; Parser BusinessReportFailureCode
 $cparseJSON :: Value -&gt; Parser BusinessReportFailureCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679362878"><span id="local-6989586621679362880"><span class="annot"><span class="annottext">FromJSONKeyFunction [BusinessReportFailureCode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679363189"><span id="local-6989586621679363191"><span class="annot"><span class="annottext">FromJSONKeyFunction [BusinessReportFailureCode]
 FromJSONKeyFunction BusinessReportFailureCode
 FromJSONKeyFunction BusinessReportFailureCode
 -&gt; FromJSONKeyFunction [BusinessReportFailureCode]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BusinessReportFailureCode]
 fromJSONKey :: FromJSONKeyFunction BusinessReportFailureCode
 $cfromJSONKey :: FromJSONKeyFunction BusinessReportFailureCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362869"><span id="local-6989586621679362871"><span id="local-6989586621679362873"><span id="local-6989586621679362875"><span class="annot"><span class="annottext">[BusinessReportFailureCode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363180"><span id="local-6989586621679363182"><span id="local-6989586621679363184"><span id="local-6989586621679363186"><span class="annot"><span class="annottext">[BusinessReportFailureCode] -&gt; Encoding
 [BusinessReportFailureCode] -&gt; Value
 BusinessReportFailureCode -&gt; Encoding
 BusinessReportFailureCode -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: BusinessReportFailureCode -&gt; Encoding
 toJSON :: BusinessReportFailureCode -&gt; Value
 $ctoJSON :: BusinessReportFailureCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362864"><span id="local-6989586621679362866"><span class="annot"><span class="annottext">ToJSONKeyFunction [BusinessReportFailureCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363175"><span id="local-6989586621679363177"><span class="annot"><span class="annottext">ToJSONKeyFunction [BusinessReportFailureCode]
 ToJSONKeyFunction BusinessReportFailureCode
 ToJSONKeyFunction BusinessReportFailureCode
 -&gt; ToJSONKeyFunction [BusinessReportFailureCode]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BusinessReportFailureCode]
 toJSONKey :: ToJSONKeyFunction BusinessReportFailureCode
 $ctoJSONKey :: ToJSONKeyFunction BusinessReportFailureCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362861"><span class="annot"><span class="annottext">[Node] -&gt; Either String BusinessReportFailureCode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363172"><span class="annot"><span class="annottext">[Node] -&gt; Either String BusinessReportFailureCode
 ([Node] -&gt; Either String BusinessReportFailureCode)
 -&gt; FromXML BusinessReportFailureCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BusinessReportFailureCode
 $cparseXML :: [Node] -&gt; Either String BusinessReportFailureCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679362858"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679363169"><span class="annot"><span class="annottext">BusinessReportFailureCode -&gt; XML
 (BusinessReportFailureCode -&gt; XML)
 -&gt; ToXML BusinessReportFailureCode
 forall a. (a -&gt; XML) -&gt; ToXML a

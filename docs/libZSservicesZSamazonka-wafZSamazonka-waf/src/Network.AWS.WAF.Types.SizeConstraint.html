@@ -42,7 +42,7 @@
 </span><span id="line-42"></span><span class="hs-comment">-- considered to match.</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newSizeConstraint' smart constructor.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679305284"><span id="local-6989586621679305285"></span></span><span class="hs-keyword">data</span><span> </span><span id="SizeConstraint"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-var">SizeConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SizeConstraint%27"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-var">SizeConstraint'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679305527"><span id="local-6989586621679305528"></span></span><span class="hs-keyword">data</span><span> </span><span id="SizeConstraint"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-var">SizeConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SizeConstraint%27"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-var">SizeConstraint'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies where in a web request to look for the size constraint.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AfieldToMatch%3ASizeConstraint%27"><span class="annot"><span class="annottext">SizeConstraint -&gt; FieldToMatch
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3AfieldToMatch%3ASizeConstraint%27"><span class="hs-identifier hs-var hs-var">fieldToMatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.FieldToMatch.html#FieldToMatch"><span class="hs-identifier hs-type">FieldToMatch</span></a></span><span class="hs-special">,</span><span>
@@ -164,7 +164,7 @@
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3Asize%3ASizeConstraint%27"><span class="annot"><span class="annottext">SizeConstraint -&gt; Natural
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3Asize%3ASizeConstraint%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305275"><span id="local-6989586621679305277"><span class="annot"><span class="annottext">SizeConstraint -&gt; SizeConstraint -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305518"><span id="local-6989586621679305520"><span class="annot"><span class="annottext">SizeConstraint -&gt; SizeConstraint -&gt; Bool
 (SizeConstraint -&gt; SizeConstraint -&gt; Bool)
 -&gt; (SizeConstraint -&gt; SizeConstraint -&gt; Bool) -&gt; Eq SizeConstraint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -172,7 +172,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SizeConstraint -&gt; SizeConstraint -&gt; Bool
 == :: SizeConstraint -&gt; SizeConstraint -&gt; Bool
 $c== :: SizeConstraint -&gt; SizeConstraint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305266"><span id="local-6989586621679305268"><span id="local-6989586621679305270"><span id="local-6989586621679305272"><span class="annot"><span class="annottext">ReadPrec [SizeConstraint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305509"><span id="local-6989586621679305511"><span id="local-6989586621679305513"><span id="local-6989586621679305515"><span class="annot"><span class="annottext">ReadPrec [SizeConstraint]
 ReadPrec SizeConstraint
 Int -&gt; ReadS SizeConstraint
 ReadS [SizeConstraint]
@@ -192,7 +192,7 @@ readList :: ReadS [SizeConstraint]
 $creadList :: ReadS [SizeConstraint]
 readsPrec :: Int -&gt; ReadS SizeConstraint
 $creadsPrec :: Int -&gt; ReadS SizeConstraint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305259"><span id="local-6989586621679305261"><span id="local-6989586621679305263"><span class="annot"><span class="annottext">Int -&gt; SizeConstraint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305502"><span id="local-6989586621679305504"><span id="local-6989586621679305506"><span class="annot"><span class="annottext">Int -&gt; SizeConstraint -&gt; ShowS
 [SizeConstraint] -&gt; ShowS
 SizeConstraint -&gt; String
 (Int -&gt; SizeConstraint -&gt; ShowS)
@@ -357,14 +357,14 @@ $cfrom :: forall x. SizeConstraint -&gt; Rep SizeConstraint x
 -&gt; Natural
 -&gt; SizeConstraint
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#newSizeConstraint"><span class="hs-identifier hs-var hs-var">newSizeConstraint</span></a></span></span><span>
-</span><span id="line-299"></span><span>  </span><span id="local-6989586621679305253"><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679305253"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span></span><span>
-</span><span id="line-300"></span><span>  </span><span id="local-6989586621679305252"><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679305252"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span></span><span>
-</span><span id="line-301"></span><span>  </span><span id="local-6989586621679305251"><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679305251"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span>
-</span><span id="line-302"></span><span>  </span><span id="local-6989586621679305250"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679305250"><span class="hs-identifier hs-var">pSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-299"></span><span>  </span><span id="local-6989586621679305496"><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679305496"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span></span><span>
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621679305495"><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679305495"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span></span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679305494"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679305494"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679305493"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679305493"><span class="hs-identifier hs-var">pSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">SizeConstraint' :: FieldToMatch
 -&gt; TextTransformation
 -&gt; ComparisonOperator
@@ -373,16 +373,16 @@ $cfrom :: forall x. SizeConstraint -&gt; Rep SizeConstraint x
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span>
 </span><span id="line-304"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fieldToMatch:SizeConstraint' :: FieldToMatch
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3AfieldToMatch%3ASizeConstraint%27"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679305253"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305496"><span class="hs-identifier hs-var">pFieldToMatch_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-305"></span><span>        </span><span class="annot"><span class="annottext">$sel:textTransformation:SizeConstraint' :: TextTransformation
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3AtextTransformation%3ASizeConstraint%27"><span class="hs-identifier hs-var">textTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679305252"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305495"><span class="hs-identifier hs-var">pTextTransformation_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>        </span><span class="annot"><span class="annottext">$sel:comparisonOperator:SizeConstraint' :: ComparisonOperator
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3AcomparisonOperator%3ASizeConstraint%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679305251"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305494"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>        </span><span class="annot"><span class="annottext">$sel:size:SizeConstraint' :: Natural
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3Asize%3ASizeConstraint%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679305250"><span class="hs-identifier hs-var">pSize_</span></a></span><span>
+</span><a href="#local-6989586621679305493"><span class="hs-identifier hs-var">pSize_</span></a></span><span>
 </span><span id="line-308"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-309"></span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- | Specifies where in a web request to look for the size constraint.</span><span>
@@ -393,16 +393,16 @@ $cfrom :: forall x. SizeConstraint -&gt; Rep SizeConstraint x
 -&gt; (SizeConstraint -&gt; FieldToMatch -&gt; SizeConstraint)
 -&gt; Lens SizeConstraint SizeConstraint FieldToMatch FieldToMatch
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305246"><span class="annot"><span class="annottext">FieldToMatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305489"><span class="annot"><span class="annottext">FieldToMatch
 fieldToMatch :: FieldToMatch
 $sel:fieldToMatch:SizeConstraint' :: SizeConstraint -&gt; FieldToMatch
-</span><a href="#local-6989586621679305246"><span class="hs-identifier hs-var hs-var">fieldToMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679305246"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305245"><span class="annot"><span class="annottext">s :: SizeConstraint
-</span><a href="#local-6989586621679305245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305244"><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679305244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
-</span><a href="#local-6989586621679305245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldToMatch:SizeConstraint' :: FieldToMatch
+</span><a href="#local-6989586621679305489"><span class="hs-identifier hs-var hs-var">fieldToMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679305489"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305488"><span class="annot"><span class="annottext">s :: SizeConstraint
+</span><a href="#local-6989586621679305488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305487"><span class="annot"><span class="annottext">FieldToMatch
+</span><a href="#local-6989586621679305487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
+</span><a href="#local-6989586621679305488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldToMatch:SizeConstraint' :: FieldToMatch
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3AfieldToMatch%3ASizeConstraint%27"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679305244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | Text transformations eliminate some of the unusual formatting that</span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- attackers use in web requests in an effort to bypass AWS WAF. If you</span><span>
@@ -489,16 +489,16 @@ $sel:fieldToMatch:SizeConstraint' :: SizeConstraint -&gt; FieldToMatch
 -&gt; Lens
      SizeConstraint SizeConstraint TextTransformation TextTransformation
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305242"><span class="annot"><span class="annottext">TextTransformation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305485"><span class="annot"><span class="annottext">TextTransformation
 textTransformation :: TextTransformation
 $sel:textTransformation:SizeConstraint' :: SizeConstraint -&gt; TextTransformation
-</span><a href="#local-6989586621679305242"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679305242"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305241"><span class="annot"><span class="annottext">s :: SizeConstraint
-</span><a href="#local-6989586621679305241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305240"><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679305240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
-</span><a href="#local-6989586621679305241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textTransformation:SizeConstraint' :: TextTransformation
+</span><a href="#local-6989586621679305485"><span class="hs-identifier hs-var hs-var">textTransformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679305485"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305484"><span class="annot"><span class="annottext">s :: SizeConstraint
+</span><a href="#local-6989586621679305484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305483"><span class="annot"><span class="annottext">TextTransformation
+</span><a href="#local-6989586621679305483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
+</span><a href="#local-6989586621679305484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textTransformation:SizeConstraint' :: TextTransformation
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3AtextTransformation%3ASizeConstraint%27"><span class="hs-identifier hs-var">textTransformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679305240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-393"></span><span>
 </span><span id="line-394"></span><span class="hs-comment">-- | The type of comparison you want AWS WAF to perform. AWS WAF uses this in</span><span>
 </span><span id="line-395"></span><span class="hs-comment">-- combination with the provided @Size@ and @FieldToMatch@ to build an</span><span>
@@ -531,16 +531,16 @@ $sel:textTransformation:SizeConstraint' :: SizeConstraint -&gt; TextTransformati
 -&gt; Lens
      SizeConstraint SizeConstraint ComparisonOperator ComparisonOperator
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305238"><span class="annot"><span class="annottext">ComparisonOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305481"><span class="annot"><span class="annottext">ComparisonOperator
 comparisonOperator :: ComparisonOperator
 $sel:comparisonOperator:SizeConstraint' :: SizeConstraint -&gt; ComparisonOperator
-</span><a href="#local-6989586621679305238"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679305238"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305237"><span class="annot"><span class="annottext">s :: SizeConstraint
-</span><a href="#local-6989586621679305237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305236"><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679305236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
-</span><a href="#local-6989586621679305237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:SizeConstraint' :: ComparisonOperator
+</span><a href="#local-6989586621679305481"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679305481"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305480"><span class="annot"><span class="annottext">s :: SizeConstraint
+</span><a href="#local-6989586621679305480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305479"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679305479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
+</span><a href="#local-6989586621679305480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:SizeConstraint' :: ComparisonOperator
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3AcomparisonOperator%3ASizeConstraint%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679305236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-419"></span><span>
 </span><span id="line-420"></span><span class="hs-comment">-- | The size in bytes that you want AWS WAF to compare against the size of</span><span>
 </span><span id="line-421"></span><span class="hs-comment">-- the specified @FieldToMatch@. AWS WAF uses this in combination with</span><span>
@@ -559,19 +559,19 @@ $sel:comparisonOperator:SizeConstraint' :: SizeConstraint -&gt; ComparisonOperat
 -&gt; (SizeConstraint -&gt; Natural -&gt; SizeConstraint)
 -&gt; Lens SizeConstraint SizeConstraint Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305234"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305477"><span class="annot"><span class="annottext">Natural
 size :: Natural
 $sel:size:SizeConstraint' :: SizeConstraint -&gt; Natural
-</span><a href="#local-6989586621679305234"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679305234"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305233"><span class="annot"><span class="annottext">s :: SizeConstraint
-</span><a href="#local-6989586621679305233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305232"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679305232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
-</span><a href="#local-6989586621679305233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:SizeConstraint' :: Natural
+</span><a href="#local-6989586621679305477"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679305477"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305476"><span class="annot"><span class="annottext">s :: SizeConstraint
+</span><a href="#local-6989586621679305476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305475"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679305475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraint
+</span><a href="#local-6989586621679305476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:SizeConstraint' :: Natural
 </span><a href="Network.AWS.WAF.Types.SizeConstraint.html#%24sel%3Asize%3ASizeConstraint%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679305232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-433"></span><span>
-</span><span id="line-434"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305229"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-435"></span><span>  </span><span id="local-6989586621679305227"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SizeConstraint
+</span><span id="line-434"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305472"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-435"></span><span>  </span><span id="local-6989586621679305470"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SizeConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-436"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SizeConstraint)
@@ -581,8 +581,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-437"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SizeConstraint&quot;</span></span><span>
-</span><span id="line-438"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305224"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-438"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305467"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305467"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-439"></span><span>          </span><span class="annot"><span class="annottext">FieldToMatch
 -&gt; TextTransformation
 -&gt; ComparisonOperator
@@ -600,7 +600,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ComparisonOperator -&gt; Natural -&gt; SizeConstraint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldToMatch
+</span><a href="#local-6989586621679305467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FieldToMatch
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FieldToMatch&quot;</span></span><span class="hs-special">)</span><span>
@@ -611,7 +611,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ComparisonOperator -&gt; Natural -&gt; SizeConstraint)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TextTransformation
+</span><a href="#local-6989586621679305467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TextTransformation
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TextTransformation&quot;</span></span><span class="hs-special">)</span><span>
@@ -619,7 +619,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ComparisonOperator -&gt; Parser (Natural -&gt; SizeConstraint)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComparisonOperator
+</span><a href="#local-6989586621679305467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComparisonOperator
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComparisonOperator&quot;</span></span><span class="hs-special">)</span><span>
@@ -627,19 +627,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser SizeConstraint
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679305467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-444"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-445"></span><span>
-</span><span id="line-446"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305218"><span id="local-6989586621679305220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span></span><span>
+</span><span id="line-446"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305461"><span id="local-6989586621679305463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span></span><span>
 </span><span id="line-447"></span><span>
-</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span><span>
+</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span><span>
 </span><span id="line-449"></span><span>
-</span><span id="line-450"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305207"><span id="local-6989586621679305209"><span id="local-6989586621679305211"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-451"></span><span>  </span><span id="local-6989586621679305205"><span class="annot"><span class="annottext">toJSON :: SizeConstraint -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305200"><span id="local-6989586621679305201"><span id="local-6989586621679305202"><span id="local-6989586621679305203"><span class="annot"><span class="annottext">Natural
+</span><span id="line-450"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305450"><span id="local-6989586621679305452"><span id="local-6989586621679305454"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-451"></span><span>  </span><span id="local-6989586621679305448"><span class="annot"><span class="annottext">toJSON :: SizeConstraint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint%27"><span class="hs-identifier hs-type">SizeConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305443"><span id="local-6989586621679305444"><span id="local-6989586621679305445"><span id="local-6989586621679305446"><span class="annot"><span class="annottext">Natural
 ComparisonOperator
 FieldToMatch
 TextTransformation
@@ -651,7 +651,7 @@ $sel:size:SizeConstraint' :: SizeConstraint -&gt; Natural
 $sel:comparisonOperator:SizeConstraint' :: SizeConstraint -&gt; ComparisonOperator
 $sel:textTransformation:SizeConstraint' :: SizeConstraint -&gt; TextTransformation
 $sel:fieldToMatch:SizeConstraint' :: SizeConstraint -&gt; FieldToMatch
-</span><a href="#local-6989586621679305200"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679305443"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-452"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-453"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -663,7 +663,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FieldToMatch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FieldToMatch -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FieldToMatch
-</span><a href="#local-6989586621679305203"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305446"><span class="hs-identifier hs-var">fieldToMatch</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-455"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -671,7 +671,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TextTransformation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TextTransformation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TextTransformation
-</span><a href="#local-6989586621679305202"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305445"><span class="hs-identifier hs-var">textTransformation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-457"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -679,14 +679,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ComparisonOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComparisonOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679305201"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305444"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-459"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Size&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679305200"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305443"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-460"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-461"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-462"></span></pre></body></html>

@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaselineResponse"><span class="hs-identifier">newGetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier">getDefaultPatchBaselineResponse_baselineId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier">getDefaultPatchBaselineResponse_operatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier">getDefaultPatchBaselineResponse_operatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier">getDefaultPatchBaselineResponse_baselineId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_httpStatus"><span class="hs-identifier">getDefaultPatchBaselineResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetDefaultPatchBaseline' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679837380"><span id="local-6989586621679837381"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDefaultPatchBaseline"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-var">GetDefaultPatchBaseline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDefaultPatchBaseline%27"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-var">GetDefaultPatchBaseline'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679839171"><span id="local-6989586621679839172"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDefaultPatchBaseline"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-var">GetDefaultPatchBaseline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDefaultPatchBaseline%27"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-var">GetDefaultPatchBaseline'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns the default patch baseline for the specified operating system.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AGetDefaultPatchBaseline%27"><span class="annot"><span class="annottext">GetDefaultPatchBaseline -&gt; Maybe OperatingSystem
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaseline%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837374"><span id="local-6989586621679837376"><span class="annot"><span class="annottext">GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839165"><span id="local-6989586621679839167"><span class="annot"><span class="annottext">GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
 (GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool)
 -&gt; (GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool)
 -&gt; Eq GetDefaultPatchBaseline
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
 == :: GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
 $c== :: GetDefaultPatchBaseline -&gt; GetDefaultPatchBaseline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837365"><span id="local-6989586621679837367"><span id="local-6989586621679837369"><span id="local-6989586621679837371"><span class="annot"><span class="annottext">ReadPrec [GetDefaultPatchBaseline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839156"><span id="local-6989586621679839158"><span id="local-6989586621679839160"><span id="local-6989586621679839162"><span class="annot"><span class="annottext">ReadPrec [GetDefaultPatchBaseline]
 ReadPrec GetDefaultPatchBaseline
 Int -&gt; ReadS GetDefaultPatchBaseline
 ReadS [GetDefaultPatchBaseline]
@@ -87,7 +87,7 @@ readList :: ReadS [GetDefaultPatchBaseline]
 $creadList :: ReadS [GetDefaultPatchBaseline]
 readsPrec :: Int -&gt; ReadS GetDefaultPatchBaseline
 $creadsPrec :: Int -&gt; ReadS GetDefaultPatchBaseline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837358"><span id="local-6989586621679837360"><span id="local-6989586621679837362"><span class="annot"><span class="annottext">Int -&gt; GetDefaultPatchBaseline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839149"><span id="local-6989586621679839151"><span id="local-6989586621679839153"><span class="annot"><span class="annottext">Int -&gt; GetDefaultPatchBaseline -&gt; ShowS
 [GetDefaultPatchBaseline] -&gt; ShowS
 GetDefaultPatchBaseline -&gt; String
 (Int -&gt; GetDefaultPatchBaseline -&gt; ShowS)
@@ -150,28 +150,28 @@ forall a. Maybe a
      (Maybe OperatingSystem)
      (Maybe OperatingSystem)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837351"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839142"><span class="annot"><span class="annottext">Maybe OperatingSystem
 operatingSystem :: Maybe OperatingSystem
 $sel:operatingSystem:GetDefaultPatchBaseline' :: GetDefaultPatchBaseline -&gt; Maybe OperatingSystem
-</span><a href="#local-6989586621679837351"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679837351"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837350"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaseline
-</span><a href="#local-6989586621679837350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837349"><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679837349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaseline
-</span><a href="#local-6989586621679837350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaseline' :: Maybe OperatingSystem
+</span><a href="#local-6989586621679839142"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679839142"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839141"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaseline
+</span><a href="#local-6989586621679839141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839140"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679839140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaseline
+</span><a href="#local-6989586621679839141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaseline' :: Maybe OperatingSystem
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaseline%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679837349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679837345"><span class="annot"><span class="annottext">request :: GetDefaultPatchBaseline -&gt; Request GetDefaultPatchBaseline
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679839136"><span class="annot"><span class="annottext">request :: GetDefaultPatchBaseline -&gt; Request GetDefaultPatchBaseline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetDefaultPatchBaseline -&gt; Request GetDefaultPatchBaseline
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679837341"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679839132"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDefaultPatchBaseline
 -&gt; ClientResponse ClientBody
@@ -197,36 +197,34 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679837338"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679837337"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679837337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679837336"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe OperatingSystem -&gt; Int -&gt; GetDefaultPatchBaselineResponse
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679839129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839129"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679839128"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679839128"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679839127"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679839127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+-&gt; Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe OperatingSystem -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OperatingSystem
+ -&gt; Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Either String (Maybe OperatingSystem)
 -&gt; Either
-     String
-     (Maybe OperatingSystem -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
+     String (Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BaselineId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe OperatingSystem -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
--&gt; Either String (Maybe OperatingSystem)
--&gt; Either String (Int -&gt; GetDefaultPatchBaselineResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OperatingSystem)
+</span><a href="#local-6989586621679839127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe OperatingSystem)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperatingSystem&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetDefaultPatchBaselineResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679839127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaselineId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDefaultPatchBaselineResponse)
 -&gt; Either String Int
 -&gt; Either String GetDefaultPatchBaselineResponse
@@ -236,15 +234,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839129"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837328"><span id="local-6989586621679837330"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839119"><span id="local-6989586621679839121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679837321"><span class="annot"><span class="annottext">toHeaders :: GetDefaultPatchBaseline -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679839112"><span class="annot"><span class="annottext">toHeaders :: GetDefaultPatchBaseline -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDefaultPatchBaseline -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,12 +269,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837311"><span id="local-6989586621679837313"><span id="local-6989586621679837315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679837309"><span class="annot"><span class="annottext">toJSON :: GetDefaultPatchBaseline -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837307"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679839102"><span id="local-6989586621679839104"><span id="local-6989586621679839106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679839100"><span class="annot"><span class="annottext">toJSON :: GetDefaultPatchBaseline -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline%27"><span class="hs-identifier hs-type">GetDefaultPatchBaseline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839098"><span class="annot"><span class="annottext">Maybe OperatingSystem
 operatingSystem :: Maybe OperatingSystem
 $sel:operatingSystem:GetDefaultPatchBaseline' :: GetDefaultPatchBaseline -&gt; Maybe OperatingSystem
-</span><a href="#local-6989586621679837307"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679839098"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -289,19 +287,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(OperatingSystem -&gt; Pair) -&gt; Maybe OperatingSystem -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679837307"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span>
+</span><a href="#local-6989586621679839098"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679837301"><span class="annot"><span class="annottext">toPath :: GetDefaultPatchBaseline -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679839092"><span class="annot"><span class="annottext">toPath :: GetDefaultPatchBaseline -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDefaultPatchBaseline -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaseline"><span class="hs-identifier hs-type">GetDefaultPatchBaseline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679837297"><span class="annot"><span class="annottext">toQuery :: GetDefaultPatchBaseline -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679839088"><span class="annot"><span class="annottext">toQuery :: GetDefaultPatchBaseline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDefaultPatchBaseline -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -309,18 +307,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newGetDefaultPatchBaselineResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679837294"><span id="local-6989586621679837295"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDefaultPatchBaselineResponse"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDefaultPatchBaselineResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse'</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the default patch baseline.</span><span>
-</span><span id="line-134"></span><span>    </span><span id="%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The operating system for the returned patch baseline.</span><span>
-</span><span id="line-136"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Maybe OperatingSystem
+</span><span id="line-132"></span><span id="local-6989586621679839085"><span id="local-6989586621679839086"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDefaultPatchBaselineResponse"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDefaultPatchBaselineResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">GetDefaultPatchBaselineResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operating system for the returned patch baseline.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Maybe OperatingSystem
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The ID of the default patch baseline.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse -&gt; Int
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837287"><span id="local-6989586621679837289"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679839078"><span id="local-6989586621679839080"><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
 -&gt; GetDefaultPatchBaselineResponse -&gt; Bool
 (GetDefaultPatchBaselineResponse
  -&gt; GetDefaultPatchBaselineResponse -&gt; Bool)
@@ -336,7 +334,7 @@ $c/= :: GetDefaultPatchBaselineResponse
 -&gt; GetDefaultPatchBaselineResponse -&gt; Bool
 $c== :: GetDefaultPatchBaselineResponse
 -&gt; GetDefaultPatchBaselineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837279"><span id="local-6989586621679837281"><span id="local-6989586621679837283"><span id="local-6989586621679837285"><span class="annot"><span class="annottext">ReadPrec [GetDefaultPatchBaselineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839070"><span id="local-6989586621679839072"><span id="local-6989586621679839074"><span id="local-6989586621679839076"><span class="annot"><span class="annottext">ReadPrec [GetDefaultPatchBaselineResponse]
 ReadPrec GetDefaultPatchBaselineResponse
 Int -&gt; ReadS GetDefaultPatchBaselineResponse
 ReadS [GetDefaultPatchBaselineResponse]
@@ -356,7 +354,7 @@ readList :: ReadS [GetDefaultPatchBaselineResponse]
 $creadList :: ReadS [GetDefaultPatchBaselineResponse]
 readsPrec :: Int -&gt; ReadS GetDefaultPatchBaselineResponse
 $creadsPrec :: Int -&gt; ReadS GetDefaultPatchBaselineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837273"><span id="local-6989586621679837275"><span id="local-6989586621679837277"><span class="annot"><span class="annottext">Int -&gt; GetDefaultPatchBaselineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679839064"><span id="local-6989586621679839066"><span id="local-6989586621679839068"><span class="annot"><span class="annottext">Int -&gt; GetDefaultPatchBaselineResponse -&gt; ShowS
 [GetDefaultPatchBaselineResponse] -&gt; ShowS
 GetDefaultPatchBaselineResponse -&gt; String
 (Int -&gt; GetDefaultPatchBaselineResponse -&gt; ShowS)
@@ -402,9 +400,9 @@ GetDefaultPatchBaselineResponse
 </span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- 'baselineId', 'getDefaultPatchBaselineResponse_baselineId' - The ID of the default patch baseline.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'operatingSystem', 'getDefaultPatchBaselineResponse_operatingSystem' - The operating system for the returned patch baseline.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- 'operatingSystem', 'getDefaultPatchBaselineResponse_operatingSystem' - The operating system for the returned patch baseline.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'baselineId', 'getDefaultPatchBaselineResponse_baselineId' - The ID of the default patch baseline.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- 'httpStatus', 'getDefaultPatchBaselineResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">newGetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -412,53 +410,28 @@ GetDefaultPatchBaselineResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newGetDefaultPatchBaselineResponse"><span class="annot"><span class="annottext">newGetDefaultPatchBaselineResponse :: Int -&gt; GetDefaultPatchBaselineResponse
-</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaselineResponse"><span class="hs-identifier hs-var hs-var">newGetDefaultPatchBaselineResponse</span></a></span></span><span> </span><span id="local-6989586621679837270"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837270"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse' :: Maybe Text
--&gt; Maybe OperatingSystem -&gt; Int -&gt; GetDefaultPatchBaselineResponse
+</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#newGetDefaultPatchBaselineResponse"><span class="hs-identifier hs-var hs-var">newGetDefaultPatchBaselineResponse</span></a></span></span><span> </span><span id="local-6989586621679839061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
+-&gt; Maybe Text -&gt; Int -&gt; GetDefaultPatchBaselineResponse
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span>
-</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baselineId:GetDefaultPatchBaselineResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
+</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Maybe OperatingSystem
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
-</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:baselineId:GetDefaultPatchBaselineResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDefaultPatchBaselineResponse' :: Int
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837270"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679839061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | The ID of the default patch baseline.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_baselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="getDefaultPatchBaselineResponse_baselineId"><span class="annot"><span class="annottext">getDefaultPatchBaselineResponse_baselineId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetDefaultPatchBaselineResponse
--&gt; f GetDefaultPatchBaselineResponse
-</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier hs-var hs-var">getDefaultPatchBaselineResponse_baselineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDefaultPatchBaselineResponse -&gt; Maybe Text)
--&gt; (GetDefaultPatchBaselineResponse
-    -&gt; Maybe Text -&gt; GetDefaultPatchBaselineResponse)
--&gt; Lens
-     GetDefaultPatchBaselineResponse
-     GetDefaultPatchBaselineResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837269"><span class="annot"><span class="annottext">Maybe Text
-baselineId :: Maybe Text
-$sel:baselineId:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679837269"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837269"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837268"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
-</span><a href="#local-6989586621679837268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837267"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
-</span><a href="#local-6989586621679837268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:GetDefaultPatchBaselineResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | The operating system for the returned patch baseline.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="getDefaultPatchBaselineResponse_operatingSystem"><span class="annot"><span class="annottext">getDefaultPatchBaselineResponse_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
+</span><span id="line-167"></span><span class="hs-comment">-- | The operating system for the returned patch baseline.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_operatingSystem</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-type">OperatingSystem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="getDefaultPatchBaselineResponse_operatingSystem"><span class="annot"><span class="annottext">getDefaultPatchBaselineResponse_operatingSystem :: (Maybe OperatingSystem -&gt; f (Maybe OperatingSystem))
 -&gt; GetDefaultPatchBaselineResponse
 -&gt; f GetDefaultPatchBaselineResponse
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_operatingSystem"><span class="hs-identifier hs-var hs-var">getDefaultPatchBaselineResponse_operatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDefaultPatchBaselineResponse -&gt; Maybe OperatingSystem)
@@ -470,16 +443,41 @@ $sel:baselineId:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineRespo
      (Maybe OperatingSystem)
      (Maybe OperatingSystem)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837266"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839060"><span class="annot"><span class="annottext">Maybe OperatingSystem
 operatingSystem :: Maybe OperatingSystem
 $sel:operatingSystem:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineResponse -&gt; Maybe OperatingSystem
-</span><a href="#local-6989586621679837266"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679837266"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837265"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
-</span><a href="#local-6989586621679837265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837264"><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679837264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
-</span><a href="#local-6989586621679837265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
+</span><a href="#local-6989586621679839060"><span class="hs-identifier hs-var hs-var">operatingSystem</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679839060"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839059"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679839059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839058"><span class="annot"><span class="annottext">Maybe OperatingSystem
+</span><a href="#local-6989586621679839058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679839059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operatingSystem:GetDefaultPatchBaselineResponse' :: Maybe OperatingSystem
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AoperatingSystem%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">operatingSystem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OperatingSystem
-</span><a href="#local-6989586621679837264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The ID of the default patch baseline.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_baselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="getDefaultPatchBaselineResponse_baselineId"><span class="annot"><span class="annottext">getDefaultPatchBaselineResponse_baselineId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDefaultPatchBaselineResponse
+-&gt; f GetDefaultPatchBaselineResponse
+</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_baselineId"><span class="hs-identifier hs-var hs-var">getDefaultPatchBaselineResponse_baselineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDefaultPatchBaselineResponse -&gt; Maybe Text)
+-&gt; (GetDefaultPatchBaselineResponse
+    -&gt; Maybe Text -&gt; GetDefaultPatchBaselineResponse)
+-&gt; Lens
+     GetDefaultPatchBaselineResponse
+     GetDefaultPatchBaselineResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839057"><span class="annot"><span class="annottext">Maybe Text
+baselineId :: Maybe Text
+$sel:baselineId:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679839057"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679839057"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839056"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679839056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679839055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679839056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:GetDefaultPatchBaselineResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AbaselineId%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679839055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#getDefaultPatchBaselineResponse_httpStatus"><span class="hs-identifier hs-type">getDefaultPatchBaselineResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -495,18 +493,18 @@ $sel:operatingSystem:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaseline
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837263"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679839054"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDefaultPatchBaselineResponse' :: GetDefaultPatchBaselineResponse -&gt; Int
-</span><a href="#local-6989586621679837263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837262"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
-</span><a href="#local-6989586621679837262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837261"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
-</span><a href="#local-6989586621679837262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDefaultPatchBaselineResponse' :: Int
+</span><a href="#local-6989586621679839054"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839054"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679839053"><span class="annot"><span class="annottext">s :: GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679839053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679839052"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679839052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDefaultPatchBaselineResponse
+</span><a href="#local-6989586621679839053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDefaultPatchBaselineResponse' :: Int
 </span><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#%24sel%3AhttpStatus%3AGetDefaultPatchBaselineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679839052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679837259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679839050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetDefaultPatchBaseline.html#GetDefaultPatchBaselineResponse"><span class="hs-identifier hs-type">GetDefaultPatchBaselineResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

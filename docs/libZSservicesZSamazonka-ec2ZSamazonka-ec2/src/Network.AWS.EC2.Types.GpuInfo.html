@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the GPU accelerators for the instance type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newGpuInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681076501"><span id="local-6989586621681076502"></span></span><span class="hs-keyword">data</span><span> </span><span id="GpuInfo"><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-var">GpuInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GpuInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-var">GpuInfo'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the GPU accelerators for the instance type.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Agpus%3AGpuInfo%27"><span class="annot"><span class="annottext">GpuInfo -&gt; Maybe [GpuDeviceInfo]
-</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3Agpus%3AGpuInfo%27"><span class="hs-identifier hs-var hs-var">gpus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuDeviceInfo.html#GpuDeviceInfo"><span class="hs-identifier hs-type">GpuDeviceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The total size of the memory for the GPU accelerators for the instance</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- type, in MiB.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="annot"><span class="annottext">GpuInfo -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="hs-identifier hs-var hs-var">totalGpuMemoryInMiB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681110850"><span id="local-6989586621681110851"></span></span><span class="hs-keyword">data</span><span> </span><span id="GpuInfo"><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-var">GpuInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GpuInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-var">GpuInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total size of the memory for the GPU accelerators for the instance</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- type, in MiB.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="annot"><span class="annottext">GpuInfo -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="hs-identifier hs-var hs-var">totalGpuMemoryInMiB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Describes the GPU accelerators for the instance type.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Agpus%3AGpuInfo%27"><span class="annot"><span class="annottext">GpuInfo -&gt; Maybe [GpuDeviceInfo]
+</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3Agpus%3AGpuInfo%27"><span class="hs-identifier hs-var hs-var">gpus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuDeviceInfo.html#GpuDeviceInfo"><span class="hs-identifier hs-type">GpuDeviceInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681076494"><span id="local-6989586621681076496"><span class="annot"><span class="annottext">GpuInfo -&gt; GpuInfo -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681110843"><span id="local-6989586621681110845"><span class="annot"><span class="annottext">GpuInfo -&gt; GpuInfo -&gt; Bool
 (GpuInfo -&gt; GpuInfo -&gt; Bool)
 -&gt; (GpuInfo -&gt; GpuInfo -&gt; Bool) -&gt; Eq GpuInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GpuInfo -&gt; GpuInfo -&gt; Bool
 == :: GpuInfo -&gt; GpuInfo -&gt; Bool
 $c== :: GpuInfo -&gt; GpuInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681076485"><span id="local-6989586621681076487"><span id="local-6989586621681076489"><span id="local-6989586621681076491"><span class="annot"><span class="annottext">ReadPrec [GpuInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110834"><span id="local-6989586621681110836"><span id="local-6989586621681110838"><span id="local-6989586621681110840"><span class="annot"><span class="annottext">ReadPrec [GpuInfo]
 ReadPrec GpuInfo
 Int -&gt; ReadS GpuInfo
 ReadS [GpuInfo]
@@ -65,7 +65,7 @@ readList :: ReadS [GpuInfo]
 $creadList :: ReadS [GpuInfo]
 readsPrec :: Int -&gt; ReadS GpuInfo
 $creadsPrec :: Int -&gt; ReadS GpuInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681076478"><span id="local-6989586621681076480"><span id="local-6989586621681076482"><span class="annot"><span class="annottext">Int -&gt; GpuInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110827"><span id="local-6989586621681110829"><span id="local-6989586621681110831"><span class="annot"><span class="annottext">Int -&gt; GpuInfo -&gt; ShowS
 [GpuInfo] -&gt; ShowS
 GpuInfo -&gt; String
 (Int -&gt; GpuInfo -&gt; ShowS)
@@ -96,45 +96,64 @@ $cfrom :: forall x. GpuInfo -&gt; Rep GpuInfo x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'gpus', 'gpuInfo_gpus' - Describes the GPU accelerators for the instance type.</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'totalGpuMemoryInMiB', 'gpuInfo_totalGpuMemoryInMiB' - The total size of the memory for the GPU accelerators for the instance</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- type, in MiB.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'totalGpuMemoryInMiB', 'gpuInfo_totalGpuMemoryInMiB' - The total size of the memory for the GPU accelerators for the instance</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- type, in MiB.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'gpus', 'gpuInfo_gpus' - Describes the GPU accelerators for the instance type.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#newGpuInfo"><span class="hs-identifier hs-type">newGpuInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span>
 </span><span id="line-54"></span><span id="newGpuInfo"><span class="annot"><span class="annottext">newGpuInfo :: GpuInfo
 </span><a href="Network.AWS.EC2.Types.GpuInfo.html#newGpuInfo"><span class="hs-identifier hs-var hs-var">newGpuInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">GpuInfo' :: Maybe [GpuDeviceInfo] -&gt; Maybe Int -&gt; GpuInfo
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">GpuInfo' :: Maybe Int -&gt; Maybe [GpuDeviceInfo] -&gt; GpuInfo
 </span><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gpus:GpuInfo' :: Maybe [GpuDeviceInfo]
-</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3Agpus%3AGpuInfo%27"><span class="hs-identifier hs-var">gpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalGpuMemoryInMiB:GpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="hs-identifier hs-var">totalGpuMemoryInMiB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalGpuMemoryInMiB:GpuInfo' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="hs-identifier hs-var">totalGpuMemoryInMiB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:gpus:GpuInfo' :: Maybe [GpuDeviceInfo]
+</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3Agpus%3AGpuInfo%27"><span class="hs-identifier hs-var">gpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Describes the GPU accelerators for the instance type.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#gpuInfo_gpus"><span class="hs-identifier hs-type">gpuInfo_gpus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuDeviceInfo.html#GpuDeviceInfo"><span class="hs-identifier hs-type">GpuDeviceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="gpuInfo_gpus"><span class="annot"><span class="annottext">gpuInfo_gpus :: (Maybe [GpuDeviceInfo] -&gt; f (Maybe [GpuDeviceInfo]))
+</span><span id="line-60"></span><span class="hs-comment">-- | The total size of the memory for the GPU accelerators for the instance</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- type, in MiB.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#gpuInfo_totalGpuMemoryInMiB"><span class="hs-identifier hs-type">gpuInfo_totalGpuMemoryInMiB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="gpuInfo_totalGpuMemoryInMiB"><span class="annot"><span class="annottext">gpuInfo_totalGpuMemoryInMiB :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GpuInfo -&gt; f GpuInfo
+</span><a href="Network.AWS.EC2.Types.GpuInfo.html#gpuInfo_totalGpuMemoryInMiB"><span class="hs-identifier hs-var hs-var">gpuInfo_totalGpuMemoryInMiB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GpuInfo -&gt; Maybe Int)
+-&gt; (GpuInfo -&gt; Maybe Int -&gt; GpuInfo)
+-&gt; Lens GpuInfo GpuInfo (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110818"><span class="annot"><span class="annottext">Maybe Int
+totalGpuMemoryInMiB :: Maybe Int
+$sel:totalGpuMemoryInMiB:GpuInfo' :: GpuInfo -&gt; Maybe Int
+</span><a href="#local-6989586621681110818"><span class="hs-identifier hs-var hs-var">totalGpuMemoryInMiB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681110818"><span class="hs-identifier hs-var">totalGpuMemoryInMiB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110817"><span class="annot"><span class="annottext">s :: GpuInfo
+</span><a href="#local-6989586621681110817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110816"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681110816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GpuInfo
+</span><a href="#local-6989586621681110817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalGpuMemoryInMiB:GpuInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="hs-identifier hs-var">totalGpuMemoryInMiB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681110816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Describes the GPU accelerators for the instance type.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#gpuInfo_gpus"><span class="hs-identifier hs-type">gpuInfo_gpus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuDeviceInfo.html#GpuDeviceInfo"><span class="hs-identifier hs-type">GpuDeviceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="gpuInfo_gpus"><span class="annot"><span class="annottext">gpuInfo_gpus :: (Maybe [GpuDeviceInfo] -&gt; f (Maybe [GpuDeviceInfo]))
 -&gt; GpuInfo -&gt; f GpuInfo
 </span><a href="Network.AWS.EC2.Types.GpuInfo.html#gpuInfo_gpus"><span class="hs-identifier hs-var hs-var">gpuInfo_gpus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GpuInfo -&gt; Maybe [GpuDeviceInfo])
 -&gt; (GpuInfo -&gt; Maybe [GpuDeviceInfo] -&gt; GpuInfo)
 -&gt; Lens
      GpuInfo GpuInfo (Maybe [GpuDeviceInfo]) (Maybe [GpuDeviceInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681076469"><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110814"><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
 gpus :: Maybe [GpuDeviceInfo]
 $sel:gpus:GpuInfo' :: GpuInfo -&gt; Maybe [GpuDeviceInfo]
-</span><a href="#local-6989586621681076469"><span class="hs-identifier hs-var hs-var">gpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
-</span><a href="#local-6989586621681076469"><span class="hs-identifier hs-var">gpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681076468"><span class="annot"><span class="annottext">s :: GpuInfo
-</span><a href="#local-6989586621681076468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681076467"><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
-</span><a href="#local-6989586621681076467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GpuInfo
-</span><a href="#local-6989586621681076468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gpus:GpuInfo' :: Maybe [GpuDeviceInfo]
+</span><a href="#local-6989586621681110814"><span class="hs-identifier hs-var hs-var">gpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
+</span><a href="#local-6989586621681110814"><span class="hs-identifier hs-var">gpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110813"><span class="annot"><span class="annottext">s :: GpuInfo
+</span><a href="#local-6989586621681110813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110812"><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
+</span><a href="#local-6989586621681110812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GpuInfo
+</span><a href="#local-6989586621681110813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gpus:GpuInfo' :: Maybe [GpuDeviceInfo]
 </span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3Agpus%3AGpuInfo%27"><span class="hs-identifier hs-var">gpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo]
-</span><a href="#local-6989586621681076467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GpuDeviceInfo] -&gt; f (Maybe [GpuDeviceInfo]))
+</span><a href="#local-6989586621681110812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GpuDeviceInfo] -&gt; f (Maybe [GpuDeviceInfo]))
  -&gt; GpuInfo -&gt; f GpuInfo)
 -&gt; ((Maybe [GpuDeviceInfo] -&gt; f (Maybe [GpuDeviceInfo]))
     -&gt; Maybe [GpuDeviceInfo] -&gt; f (Maybe [GpuDeviceInfo]))
@@ -154,40 +173,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [GpuDeviceInfo] [GpuDeviceInfo] [GpuDeviceInfo] [GpuDeviceInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | The total size of the memory for the GPU accelerators for the instance</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- type, in MiB.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#gpuInfo_totalGpuMemoryInMiB"><span class="hs-identifier hs-type">gpuInfo_totalGpuMemoryInMiB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="gpuInfo_totalGpuMemoryInMiB"><span class="annot"><span class="annottext">gpuInfo_totalGpuMemoryInMiB :: (Maybe Int -&gt; f (Maybe Int)) -&gt; GpuInfo -&gt; f GpuInfo
-</span><a href="Network.AWS.EC2.Types.GpuInfo.html#gpuInfo_totalGpuMemoryInMiB"><span class="hs-identifier hs-var hs-var">gpuInfo_totalGpuMemoryInMiB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GpuInfo -&gt; Maybe Int)
--&gt; (GpuInfo -&gt; Maybe Int -&gt; GpuInfo)
--&gt; Lens GpuInfo GpuInfo (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681076462"><span class="annot"><span class="annottext">Maybe Int
-totalGpuMemoryInMiB :: Maybe Int
-$sel:totalGpuMemoryInMiB:GpuInfo' :: GpuInfo -&gt; Maybe Int
-</span><a href="#local-6989586621681076462"><span class="hs-identifier hs-var hs-var">totalGpuMemoryInMiB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681076462"><span class="hs-identifier hs-var">totalGpuMemoryInMiB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681076461"><span class="annot"><span class="annottext">s :: GpuInfo
-</span><a href="#local-6989586621681076461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-type">GpuInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681076460"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681076460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GpuInfo
-</span><a href="#local-6989586621681076461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalGpuMemoryInMiB:GpuInfo' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.GpuInfo.html#%24sel%3AtotalGpuMemoryInMiB%3AGpuInfo%27"><span class="hs-identifier hs-var">totalGpuMemoryInMiB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681076460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681076457"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GpuInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681076455"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681076455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Maybe [GpuDeviceInfo] -&gt; Maybe Int -&gt; GpuInfo
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681110806"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GpuInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681110804"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe [GpuDeviceInfo] -&gt; GpuInfo
 </span><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo%27"><span class="hs-identifier hs-var">GpuInfo'</span></a></span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [GpuDeviceInfo] -&gt; Maybe Int -&gt; GpuInfo)
--&gt; Either String (Maybe [GpuDeviceInfo])
--&gt; Either String (Maybe Int -&gt; GpuInfo)
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe [GpuDeviceInfo] -&gt; GpuInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe [GpuDeviceInfo] -&gt; GpuInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681076455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalGpuMemoryInMiB&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [GpuDeviceInfo] -&gt; GpuInfo)
+-&gt; Either String (Maybe [GpuDeviceInfo]) -&gt; Either String GpuInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gpus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -195,7 +203,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-73"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-74"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [GpuDeviceInfo]))
 -&gt; Either String (Maybe [GpuDeviceInfo])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -208,17 +216,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; GpuInfo)
--&gt; Either String (Maybe Int) -&gt; Either String GpuInfo
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681076455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;totalGpuMemoryInMiB&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681076446"><span id="local-6989586621681076448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110795"><span id="local-6989586621681110797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681076443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GpuInfo.html#GpuInfo"><span class="hs-identifier hs-type">GpuInfo</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

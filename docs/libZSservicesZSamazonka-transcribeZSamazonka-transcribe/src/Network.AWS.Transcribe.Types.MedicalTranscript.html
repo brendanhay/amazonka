@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Identifies the location of a medical transcript.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMedicalTranscript' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679272594"><span id="local-6989586621679272595"></span></span><span class="hs-keyword">data</span><span> </span><span id="MedicalTranscript"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-var">MedicalTranscript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MedicalTranscript%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript%27"><span class="hs-identifier hs-var">MedicalTranscript'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679272757"><span id="local-6989586621679272758"></span></span><span class="hs-keyword">data</span><span> </span><span id="MedicalTranscript"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-var">MedicalTranscript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MedicalTranscript%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript%27"><span class="hs-identifier hs-var">MedicalTranscript'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The S3 object location of the medical transcript.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Use this URI to access the medical transcript. This URI points to the S3</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AtranscriptFileUri%3AMedicalTranscript%27"><span class="annot"><span class="annottext">MedicalTranscript -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#%24sel%3AtranscriptFileUri%3AMedicalTranscript%27"><span class="hs-identifier hs-var hs-var">transcriptFileUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272588"><span id="local-6989586621679272590"><span class="annot"><span class="annottext">MedicalTranscript -&gt; MedicalTranscript -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272751"><span id="local-6989586621679272753"><span class="annot"><span class="annottext">MedicalTranscript -&gt; MedicalTranscript -&gt; Bool
 (MedicalTranscript -&gt; MedicalTranscript -&gt; Bool)
 -&gt; (MedicalTranscript -&gt; MedicalTranscript -&gt; Bool)
 -&gt; Eq MedicalTranscript
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MedicalTranscript -&gt; MedicalTranscript -&gt; Bool
 == :: MedicalTranscript -&gt; MedicalTranscript -&gt; Bool
 $c== :: MedicalTranscript -&gt; MedicalTranscript -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272579"><span id="local-6989586621679272581"><span id="local-6989586621679272583"><span id="local-6989586621679272585"><span class="annot"><span class="annottext">ReadPrec [MedicalTranscript]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272742"><span id="local-6989586621679272744"><span id="local-6989586621679272746"><span id="local-6989586621679272748"><span class="annot"><span class="annottext">ReadPrec [MedicalTranscript]
 ReadPrec MedicalTranscript
 Int -&gt; ReadS MedicalTranscript
 ReadS [MedicalTranscript]
@@ -63,7 +63,7 @@ readList :: ReadS [MedicalTranscript]
 $creadList :: ReadS [MedicalTranscript]
 readsPrec :: Int -&gt; ReadS MedicalTranscript
 $creadsPrec :: Int -&gt; ReadS MedicalTranscript
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272572"><span id="local-6989586621679272574"><span id="local-6989586621679272576"><span class="annot"><span class="annottext">Int -&gt; MedicalTranscript -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272735"><span id="local-6989586621679272737"><span id="local-6989586621679272739"><span class="annot"><span class="annottext">Int -&gt; MedicalTranscript -&gt; ShowS
 [MedicalTranscript] -&gt; ShowS
 MedicalTranscript -&gt; String
 (Int -&gt; MedicalTranscript -&gt; ShowS)
@@ -126,19 +126,19 @@ forall a. Maybe a
 -&gt; Lens
      MedicalTranscript MedicalTranscript (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript%27"><span class="hs-identifier hs-type">MedicalTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272563"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript%27"><span class="hs-identifier hs-type">MedicalTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272726"><span class="annot"><span class="annottext">Maybe Text
 transcriptFileUri :: Maybe Text
 $sel:transcriptFileUri:MedicalTranscript' :: MedicalTranscript -&gt; Maybe Text
-</span><a href="#local-6989586621679272563"><span class="hs-identifier hs-var hs-var">transcriptFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272563"><span class="hs-identifier hs-var">transcriptFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272562"><span class="annot"><span class="annottext">s :: MedicalTranscript
-</span><a href="#local-6989586621679272562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript%27"><span class="hs-identifier hs-type">MedicalTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272561"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscript
-</span><a href="#local-6989586621679272562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptFileUri:MedicalTranscript' :: Maybe Text
+</span><a href="#local-6989586621679272726"><span class="hs-identifier hs-var hs-var">transcriptFileUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272726"><span class="hs-identifier hs-var">transcriptFileUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272725"><span class="annot"><span class="annottext">s :: MedicalTranscript
+</span><a href="#local-6989586621679272725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript%27"><span class="hs-identifier hs-type">MedicalTranscript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679272724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MedicalTranscript
+</span><a href="#local-6989586621679272725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptFileUri:MedicalTranscript' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#%24sel%3AtranscriptFileUri%3AMedicalTranscript%27"><span class="hs-identifier hs-var">transcriptFileUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272558"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679272556"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MedicalTranscript
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272721"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679272719"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MedicalTranscript
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MedicalTranscript)
@@ -148,21 +148,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MedicalTranscript&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272553"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272716"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679272716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; MedicalTranscript
 </span><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript%27"><span class="hs-identifier hs-var">MedicalTranscript'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; MedicalTranscript)
 -&gt; Parser (Maybe Text) -&gt; Parser MedicalTranscript
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679272553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679272716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TranscriptFileUri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272547"><span id="local-6989586621679272549"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272710"><span id="local-6989586621679272712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.MedicalTranscript.html#MedicalTranscript"><span class="hs-identifier hs-type">MedicalTranscript</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

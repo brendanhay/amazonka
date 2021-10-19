@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newListTagsForResource' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679178061"><span id="local-6989586621679178062"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResource"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-var">ListTagsForResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResource%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-var">ListTagsForResource'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679178122"><span id="local-6989586621679178123"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResource"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-var">ListTagsForResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResource%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-var">ListTagsForResource'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify this parameter and the result of a @ListTagsForResource@</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- call is truncated, the response includes a token that you can use in the</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- next request to fetch the next batch of tags.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AresourceARN%3AListTagsForResource%27"><span class="annot"><span class="annottext">ListTagsForResource -&gt; Text
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AresourceARN%3AListTagsForResource%27"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178054"><span id="local-6989586621679178056"><span class="annot"><span class="annottext">ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178115"><span id="local-6989586621679178117"><span class="annot"><span class="annottext">ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 (ListTagsForResource -&gt; ListTagsForResource -&gt; Bool)
 -&gt; (ListTagsForResource -&gt; ListTagsForResource -&gt; Bool)
 -&gt; Eq ListTagsForResource
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 == :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
 $c== :: ListTagsForResource -&gt; ListTagsForResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178045"><span id="local-6989586621679178047"><span id="local-6989586621679178049"><span id="local-6989586621679178051"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178106"><span id="local-6989586621679178108"><span id="local-6989586621679178110"><span id="local-6989586621679178112"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResource]
 ReadPrec ListTagsForResource
 Int -&gt; ReadS ListTagsForResource
 ReadS [ListTagsForResource]
@@ -89,7 +89,7 @@ readList :: ReadS [ListTagsForResource]
 $creadList :: ReadS [ListTagsForResource]
 readsPrec :: Int -&gt; ReadS ListTagsForResource
 $creadsPrec :: Int -&gt; ReadS ListTagsForResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178038"><span id="local-6989586621679178040"><span id="local-6989586621679178042"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178099"><span id="local-6989586621679178101"><span id="local-6989586621679178103"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResource -&gt; ShowS
 [ListTagsForResource] -&gt; ShowS
 ListTagsForResource -&gt; String
 (Int -&gt; ListTagsForResource -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. ListTagsForResource -&gt; Rep ListTagsForResource x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span>
 </span><span id="line-81"></span><span id="newListTagsForResource"><span class="annot"><span class="annottext">newListTagsForResource :: Text -&gt; ListTagsForResource
-</span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier hs-var hs-var">newListTagsForResource</span></a></span></span><span> </span><span id="local-6989586621679178033"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178033"><span class="hs-identifier hs-var">pResourceARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier hs-var hs-var">newListTagsForResource</span></a></span></span><span> </span><span id="local-6989586621679178094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178094"><span class="hs-identifier hs-var">pResourceARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForResource' :: Maybe Text -&gt; Text -&gt; ListTagsForResource
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForResource' :: Maybe Text
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceARN:ListTagsForResource' :: Text
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AresourceARN%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178033"><span class="hs-identifier hs-var">pResourceARN_</span></a></span><span>
+</span><a href="#local-6989586621679178094"><span class="hs-identifier hs-var">pResourceARN_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | If you specify this parameter and the result of a @ListTagsForResource@</span><span>
@@ -158,16 +158,16 @@ forall a. Maybe a
 -&gt; Lens
      ListTagsForResource ListTagsForResource (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178030"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178091"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTagsForResource' :: ListTagsForResource -&gt; Maybe Text
-</span><a href="#local-6989586621679178030"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178030"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178029"><span class="annot"><span class="annottext">s :: ListTagsForResource
-</span><a href="#local-6989586621679178029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178028"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
-</span><a href="#local-6989586621679178029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForResource' :: Maybe Text
+</span><a href="#local-6989586621679178091"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178091"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178090"><span class="annot"><span class="annottext">s :: ListTagsForResource
+</span><a href="#local-6989586621679178090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
+</span><a href="#local-6989586621679178090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForResource' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AnextToken%3AListTagsForResource%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679178028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the signaling channel for which you</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- want to list tags.</span><span>
@@ -177,27 +177,27 @@ $sel:nextToken:ListTagsForResource' :: ListTagsForResource -&gt; Maybe Text
 -&gt; (ListTagsForResource -&gt; Text -&gt; ListTagsForResource)
 -&gt; Lens ListTagsForResource ListTagsForResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178027"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178088"><span class="annot"><span class="annottext">Text
 resourceARN :: Text
 $sel:resourceARN:ListTagsForResource' :: ListTagsForResource -&gt; Text
-</span><a href="#local-6989586621679178027"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178027"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178026"><span class="annot"><span class="annottext">s :: ListTagsForResource
-</span><a href="#local-6989586621679178026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178025"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
-</span><a href="#local-6989586621679178026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:ListTagsForResource' :: Text
+</span><a href="#local-6989586621679178088"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178088"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178087"><span class="annot"><span class="annottext">s :: ListTagsForResource
+</span><a href="#local-6989586621679178087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResource
+</span><a href="#local-6989586621679178087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:ListTagsForResource' :: Text
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AresourceARN%3AListTagsForResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679178021"><span class="annot"><span class="annottext">request :: ListTagsForResource -&gt; Request ListTagsForResource
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679178082"><span class="annot"><span class="annottext">request :: ListTagsForResource -&gt; Request ListTagsForResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTagsForResource -&gt; Request ListTagsForResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679178017"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679178078"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTagsForResource
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178014"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178014"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178013"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178013"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178012"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178075"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178074"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178074"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178073"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679178073"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForResourceResponse
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span><span>
@@ -238,7 +238,7 @@ MonadResource m =&gt;
      (Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForResourceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679178073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,7 +249,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListTagsForResourceResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679178012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679178073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -267,30 +267,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178014"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178075"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178003"><span id="local-6989586621679178005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178064"><span id="local-6989586621679178066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679177996"><span class="annot"><span class="annottext">toHeaders :: ListTagsForResource -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679178057"><span class="annot"><span class="annottext">toHeaders :: ListTagsForResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTagsForResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177987"><span id="local-6989586621679177989"><span id="local-6989586621679177991"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679177985"><span class="annot"><span class="annottext">toJSON :: ListTagsForResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177982"><span id="local-6989586621679177983"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178048"><span id="local-6989586621679178050"><span id="local-6989586621679178052"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679178046"><span class="annot"><span class="annottext">toJSON :: ListTagsForResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier hs-type">ListTagsForResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178043"><span id="local-6989586621679178044"><span class="annot"><span class="annottext">Maybe Text
 Text
 resourceARN :: Text
 nextToken :: Maybe Text
 $sel:resourceARN:ListTagsForResource' :: ListTagsForResource -&gt; Text
 $sel:nextToken:ListTagsForResource' :: ListTagsForResource -&gt; Maybe Text
-</span><a href="#local-6989586621679177982"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178043"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,26 +302,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177983"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178044"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177982"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178043"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679177976"><span class="annot"><span class="annottext">toPath :: ListTagsForResource -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679178037"><span class="annot"><span class="annottext">toPath :: ListTagsForResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTagsForResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/ListTagsForResource&quot;</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier hs-type">ListTagsForResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679177972"><span class="annot"><span class="annottext">toQuery :: ListTagsForResource -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679178033"><span class="annot"><span class="annottext">toQuery :: ListTagsForResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTagsForResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newListTagsForResourceResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679177969"><span id="local-6989586621679177970"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResourceResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-var">ListTagsForResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResourceResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679178030"><span id="local-6989586621679178031"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTagsForResourceResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-var">ListTagsForResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTagsForResourceResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-var">ListTagsForResourceResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify this parameter and the result of a @ListTagsForResource@</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- call is truncated, the response includes a token that you can use in the</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- next request to fetch the next set of tags.</span><span>
@@ -343,7 +343,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; Int
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177962"><span id="local-6989586621679177964"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178023"><span id="local-6989586621679178025"><span class="annot"><span class="annottext">ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 (ListTagsForResourceResponse
  -&gt; ListTagsForResourceResponse -&gt; Bool)
 -&gt; (ListTagsForResourceResponse
@@ -354,7 +354,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 == :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
 $c== :: ListTagsForResourceResponse -&gt; ListTagsForResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177954"><span id="local-6989586621679177956"><span id="local-6989586621679177958"><span id="local-6989586621679177960"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178015"><span id="local-6989586621679178017"><span id="local-6989586621679178019"><span id="local-6989586621679178021"><span class="annot"><span class="annottext">ReadPrec [ListTagsForResourceResponse]
 ReadPrec ListTagsForResourceResponse
 Int -&gt; ReadS ListTagsForResourceResponse
 ReadS [ListTagsForResourceResponse]
@@ -374,7 +374,7 @@ readList :: ReadS [ListTagsForResourceResponse]
 $creadList :: ReadS [ListTagsForResourceResponse]
 readsPrec :: Int -&gt; ReadS ListTagsForResourceResponse
 $creadsPrec :: Int -&gt; ReadS ListTagsForResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177948"><span id="local-6989586621679177950"><span id="local-6989586621679177952"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178009"><span id="local-6989586621679178011"><span id="local-6989586621679178013"><span class="annot"><span class="annottext">Int -&gt; ListTagsForResourceResponse -&gt; ShowS
 [ListTagsForResourceResponse] -&gt; ShowS
 ListTagsForResourceResponse -&gt; String
 (Int -&gt; ListTagsForResourceResponse -&gt; ShowS)
@@ -427,8 +427,8 @@ ListTagsForResourceResponse -&gt; Rep ListTagsForResourceResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newListTagsForResourceResponse"><span class="annot"><span class="annottext">newListTagsForResourceResponse :: Int -&gt; ListTagsForResourceResponse
-</span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier hs-var hs-var">newListTagsForResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679177945"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier hs-var hs-var">newListTagsForResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679178006"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178006"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">ListTagsForResourceResponse' :: Maybe Text
 -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; ListTagsForResourceResponse
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span>
@@ -443,7 +443,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679178006"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | If you specify this parameter and the result of a @ListTagsForResource@</span><span>
@@ -461,16 +461,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177944"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178005"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177943"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
-</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177942"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
-</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForResourceResponse' :: Maybe Text
+</span><a href="#local-6989586621679178005"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178005"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178004"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
+</span><a href="#local-6989586621679178004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679178003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
+</span><a href="#local-6989586621679178004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTagsForResourceResponse' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AnextToken%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | A map of tag keys and values associated with the specified signaling</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- channel.</span><span>
@@ -486,16 +486,16 @@ $sel:nextToken:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt;
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177941"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178002"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177941"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177941"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177940"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
-</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177939"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
-</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForResourceResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679178002"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679178002"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178001"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
+</span><a href="#local-6989586621679178001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178000"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679178000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
+</span><a href="#local-6989586621679178001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListTagsForResourceResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3Atags%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679178000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ListTagsForResourceResponse -&gt; f ListTagsForResourceResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -521,8 +521,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#listTagsForResourceResponse_httpStatus"><span class="hs-identifier hs-type">listTagsForResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -534,16 +534,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListTagsForResourceResponse ListTagsForResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177935"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177996"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTagsForResourceResponse' :: ListTagsForResourceResponse -&gt; Int
-</span><a href="#local-6989586621679177935"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177935"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177934"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
-</span><a href="#local-6989586621679177934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
-</span><a href="#local-6989586621679177934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
+</span><a href="#local-6989586621679177996"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177996"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177995"><span class="annot"><span class="annottext">s :: ListTagsForResourceResponse
+</span><a href="#local-6989586621679177995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier hs-type">ListTagsForResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177994"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTagsForResourceResponse
+</span><a href="#local-6989586621679177995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTagsForResourceResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#%24sel%3AhttpStatus%3AListTagsForResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier hs-type">ListTagsForResourceResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

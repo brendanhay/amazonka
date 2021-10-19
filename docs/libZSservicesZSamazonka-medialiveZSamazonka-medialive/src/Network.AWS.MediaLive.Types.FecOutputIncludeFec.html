@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Fec Output Include Fec</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679869999"><span id="local-6989586621679870000"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FecOutputIncludeFec"><span class="annot"><a href="Network.AWS.MediaLive.Types.FecOutputIncludeFec.html#FecOutputIncludeFec"><span class="hs-identifier hs-var">FecOutputIncludeFec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FecOutputIncludeFec%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FecOutputIncludeFec.html#FecOutputIncludeFec%27"><span class="hs-identifier hs-var">FecOutputIncludeFec'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679876660"><span id="local-6989586621679876661"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FecOutputIncludeFec"><span class="annot"><a href="Network.AWS.MediaLive.Types.FecOutputIncludeFec.html#FecOutputIncludeFec"><span class="hs-identifier hs-var">FecOutputIncludeFec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FecOutputIncludeFec%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FecOutputIncludeFec.html#FecOutputIncludeFec%27"><span class="hs-identifier hs-var">FecOutputIncludeFec'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFecOutputIncludeFec"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.FecOutputIncludeFec.html#fromFecOutputIncludeFec"><span class="hs-identifier hs-var hs-var">fromFecOutputIncludeFec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869991"><span id="local-6989586621679869993"><span id="local-6989586621679869995"><span class="annot"><span class="annottext">Int -&gt; FecOutputIncludeFec -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876652"><span id="local-6989586621679876654"><span id="local-6989586621679876656"><span class="annot"><span class="annottext">Int -&gt; FecOutputIncludeFec -&gt; ShowS
 [FecOutputIncludeFec] -&gt; ShowS
 FecOutputIncludeFec -&gt; String
 (Int -&gt; FecOutputIncludeFec -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: FecOutputIncludeFec -&gt; String
 showsPrec :: Int -&gt; FecOutputIncludeFec -&gt; ShowS
 $cshowsPrec :: Int -&gt; FecOutputIncludeFec -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679869982"><span id="local-6989586621679869984"><span id="local-6989586621679869986"><span id="local-6989586621679869988"><span class="annot"><span class="annottext">ReadPrec [FecOutputIncludeFec]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679876643"><span id="local-6989586621679876645"><span id="local-6989586621679876647"><span id="local-6989586621679876649"><span class="annot"><span class="annottext">ReadPrec [FecOutputIncludeFec]
 ReadPrec FecOutputIncludeFec
 Int -&gt; ReadS FecOutputIncludeFec
 ReadS [FecOutputIncludeFec]
@@ -73,7 +73,7 @@ $creadList :: ReadS [FecOutputIncludeFec]
 readsPrec :: Int -&gt; ReadS FecOutputIncludeFec
 $creadsPrec :: Int -&gt; ReadS FecOutputIncludeFec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679869977"><span id="local-6989586621679869979"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679876638"><span id="local-6989586621679876640"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool
 (FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool)
 -&gt; (FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool)
 -&gt; Eq FecOutputIncludeFec
@@ -83,7 +83,7 @@ $c/= :: FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool
 == :: FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool
 $c== :: FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679869961"><span id="local-6989586621679869963"><span id="local-6989586621679869965"><span id="local-6989586621679869967"><span id="local-6989586621679869969"><span id="local-6989586621679869971"><span id="local-6989586621679869973"><span class="annot"><span class="annottext">Eq FecOutputIncludeFec
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679876622"><span id="local-6989586621679876624"><span id="local-6989586621679876626"><span id="local-6989586621679876628"><span id="local-6989586621679876630"><span id="local-6989586621679876632"><span id="local-6989586621679876634"><span class="annot"><span class="annottext">Eq FecOutputIncludeFec
 Eq FecOutputIncludeFec
 -&gt; (FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Ordering)
 -&gt; (FecOutputIncludeFec -&gt; FecOutputIncludeFec -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. FecOutputIncludeFec -&gt; Rep FecOutputIncludeFec x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869953"><span id="local-6989586621679869955"><span class="annot"><span class="annottext">Int -&gt; FecOutputIncludeFec -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876614"><span id="local-6989586621679876616"><span class="annot"><span class="annottext">Int -&gt; FecOutputIncludeFec -&gt; Int
 FecOutputIncludeFec -&gt; Int
 (Int -&gt; FecOutputIncludeFec -&gt; Int)
 -&gt; (FecOutputIncludeFec -&gt; Int) -&gt; Hashable FecOutputIncludeFec
@@ -146,53 +146,53 @@ $chash :: FecOutputIncludeFec -&gt; Int
 hashWithSalt :: Int -&gt; FecOutputIncludeFec -&gt; Int
 $chashWithSalt :: Int -&gt; FecOutputIncludeFec -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679869950"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679876611"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; ()
 (FecOutputIncludeFec -&gt; ()) -&gt; NFData FecOutputIncludeFec
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FecOutputIncludeFec -&gt; ()
 $crnf :: FecOutputIncludeFec -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679869947"><span class="annot"><span class="annottext">Text -&gt; Either String FecOutputIncludeFec
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679876608"><span class="annot"><span class="annottext">Text -&gt; Either String FecOutputIncludeFec
 (Text -&gt; Either String FecOutputIncludeFec)
 -&gt; FromText FecOutputIncludeFec
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FecOutputIncludeFec
 $cfromText :: Text -&gt; Either String FecOutputIncludeFec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679869944"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679876605"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; Text
 (FecOutputIncludeFec -&gt; Text) -&gt; ToText FecOutputIncludeFec
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FecOutputIncludeFec -&gt; Text
 $ctoText :: FecOutputIncludeFec -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679869941"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679876602"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; ByteString
 (FecOutputIncludeFec -&gt; ByteString)
 -&gt; ToByteString FecOutputIncludeFec
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FecOutputIncludeFec -&gt; ByteString
 $ctoBS :: FecOutputIncludeFec -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679869938"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679876599"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; ByteStringBuilder
 (FecOutputIncludeFec -&gt; ByteStringBuilder)
 -&gt; ToLog FecOutputIncludeFec
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FecOutputIncludeFec -&gt; ByteStringBuilder
 $cbuild :: FecOutputIncludeFec -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679869935"><span class="annot"><span class="annottext">HeaderName -&gt; FecOutputIncludeFec -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679876596"><span class="annot"><span class="annottext">HeaderName -&gt; FecOutputIncludeFec -&gt; [Header]
 (HeaderName -&gt; FecOutputIncludeFec -&gt; [Header])
 -&gt; ToHeader FecOutputIncludeFec
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FecOutputIncludeFec -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FecOutputIncludeFec -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679869932"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679876593"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; QueryString
 (FecOutputIncludeFec -&gt; QueryString) -&gt; ToQuery FecOutputIncludeFec
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FecOutputIncludeFec -&gt; QueryString
 $ctoQuery :: FecOutputIncludeFec -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679869927"><span id="local-6989586621679869929"><span class="annot"><span class="annottext">Value -&gt; Parser [FecOutputIncludeFec]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679876588"><span id="local-6989586621679876590"><span class="annot"><span class="annottext">Value -&gt; Parser [FecOutputIncludeFec]
 Value -&gt; Parser FecOutputIncludeFec
 (Value -&gt; Parser FecOutputIncludeFec)
 -&gt; (Value -&gt; Parser [FecOutputIncludeFec])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [FecOutputIncludeFec]
 parseJSON :: Value -&gt; Parser FecOutputIncludeFec
 $cparseJSON :: Value -&gt; Parser FecOutputIncludeFec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679869922"><span id="local-6989586621679869924"><span class="annot"><span class="annottext">FromJSONKeyFunction [FecOutputIncludeFec]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679876583"><span id="local-6989586621679876585"><span class="annot"><span class="annottext">FromJSONKeyFunction [FecOutputIncludeFec]
 FromJSONKeyFunction FecOutputIncludeFec
 FromJSONKeyFunction FecOutputIncludeFec
 -&gt; FromJSONKeyFunction [FecOutputIncludeFec]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FecOutputIncludeFec]
 fromJSONKey :: FromJSONKeyFunction FecOutputIncludeFec
 $cfromJSONKey :: FromJSONKeyFunction FecOutputIncludeFec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679869913"><span id="local-6989586621679869915"><span id="local-6989586621679869917"><span id="local-6989586621679869919"><span class="annot"><span class="annottext">[FecOutputIncludeFec] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679876574"><span id="local-6989586621679876576"><span id="local-6989586621679876578"><span id="local-6989586621679876580"><span class="annot"><span class="annottext">[FecOutputIncludeFec] -&gt; Encoding
 [FecOutputIncludeFec] -&gt; Value
 FecOutputIncludeFec -&gt; Encoding
 FecOutputIncludeFec -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: FecOutputIncludeFec -&gt; Encoding
 toJSON :: FecOutputIncludeFec -&gt; Value
 $ctoJSON :: FecOutputIncludeFec -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679869908"><span id="local-6989586621679869910"><span class="annot"><span class="annottext">ToJSONKeyFunction [FecOutputIncludeFec]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679876569"><span id="local-6989586621679876571"><span class="annot"><span class="annottext">ToJSONKeyFunction [FecOutputIncludeFec]
 ToJSONKeyFunction FecOutputIncludeFec
 ToJSONKeyFunction FecOutputIncludeFec
 -&gt; ToJSONKeyFunction [FecOutputIncludeFec]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FecOutputIncludeFec]
 toJSONKey :: ToJSONKeyFunction FecOutputIncludeFec
 $ctoJSONKey :: ToJSONKeyFunction FecOutputIncludeFec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679869905"><span class="annot"><span class="annottext">[Node] -&gt; Either String FecOutputIncludeFec
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679876566"><span class="annot"><span class="annottext">[Node] -&gt; Either String FecOutputIncludeFec
 ([Node] -&gt; Either String FecOutputIncludeFec)
 -&gt; FromXML FecOutputIncludeFec
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FecOutputIncludeFec
 $cparseXML :: [Node] -&gt; Either String FecOutputIncludeFec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679869902"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679876563"><span class="annot"><span class="annottext">FecOutputIncludeFec -&gt; XML
 (FecOutputIncludeFec -&gt; XML) -&gt; ToXML FecOutputIncludeFec
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FecOutputIncludeFec -&gt; XML

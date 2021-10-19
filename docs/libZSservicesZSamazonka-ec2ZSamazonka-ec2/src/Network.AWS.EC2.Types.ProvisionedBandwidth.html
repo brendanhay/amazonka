@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProvisionedBandwidth' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681106579"><span id="local-6989586621681106580"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisionedBandwidth"><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-var">ProvisionedBandwidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedBandwidth%27"><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-var">ProvisionedBandwidth'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681141293"><span id="local-6989586621681141294"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisionedBandwidth"><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-var">ProvisionedBandwidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedBandwidth%27"><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-var">ProvisionedBandwidth'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- contact us through the</span><span>
@@ -41,28 +41,28 @@
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">provisionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Arequested%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Arequested%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">requested</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3ArequestTime%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3ArequestTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">requestTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aprovisioned%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Aprovisioned%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">provisioned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Arequested%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Arequested%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">requested</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArequestTime%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3ArequestTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">requestTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aprovisioned%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Aprovisioned%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">provisioned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var hs-var">provisionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681106569"><span id="local-6989586621681106571"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; ProvisionedBandwidth -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681141283"><span id="local-6989586621681141285"><span class="annot"><span class="annottext">ProvisionedBandwidth -&gt; ProvisionedBandwidth -&gt; Bool
 (ProvisionedBandwidth -&gt; ProvisionedBandwidth -&gt; Bool)
 -&gt; (ProvisionedBandwidth -&gt; ProvisionedBandwidth -&gt; Bool)
 -&gt; Eq ProvisionedBandwidth
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProvisionedBandwidth -&gt; ProvisionedBandwidth -&gt; Bool
 == :: ProvisionedBandwidth -&gt; ProvisionedBandwidth -&gt; Bool
 $c== :: ProvisionedBandwidth -&gt; ProvisionedBandwidth -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106560"><span id="local-6989586621681106562"><span id="local-6989586621681106564"><span id="local-6989586621681106566"><span class="annot"><span class="annottext">ReadPrec [ProvisionedBandwidth]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141274"><span id="local-6989586621681141276"><span id="local-6989586621681141278"><span id="local-6989586621681141280"><span class="annot"><span class="annottext">ReadPrec [ProvisionedBandwidth]
 ReadPrec ProvisionedBandwidth
 Int -&gt; ReadS ProvisionedBandwidth
 ReadS [ProvisionedBandwidth]
@@ -91,7 +91,7 @@ readList :: ReadS [ProvisionedBandwidth]
 $creadList :: ReadS [ProvisionedBandwidth]
 readsPrec :: Int -&gt; ReadS ProvisionedBandwidth
 $creadsPrec :: Int -&gt; ReadS ProvisionedBandwidth
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106553"><span id="local-6989586621681106555"><span id="local-6989586621681106557"><span class="annot"><span class="annottext">Int -&gt; ProvisionedBandwidth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141267"><span id="local-6989586621681141269"><span id="local-6989586621681141271"><span class="annot"><span class="annottext">Int -&gt; ProvisionedBandwidth -&gt; ShowS
 [ProvisionedBandwidth] -&gt; ShowS
 ProvisionedBandwidth -&gt; String
 (Int -&gt; ProvisionedBandwidth -&gt; ShowS)
@@ -130,22 +130,22 @@ $cfrom :: forall x. ProvisionedBandwidth -&gt; Rep ProvisionedBandwidth x
 </span><span id="line-72"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'provisionTime', 'provisionedBandwidth_provisionTime' - Reserved. If you need to sustain traffic greater than the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'requested', 'provisionedBandwidth_requested' - Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'requestTime', 'provisionedBandwidth_requestTime' - Reserved. If you need to sustain traffic greater than the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'provisioned', 'provisionedBandwidth_provisioned' - Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'requested', 'provisionedBandwidth_requested' - Reserved. If you need to sustain traffic greater than the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'requestTime', 'provisionedBandwidth_requestTime' - Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'provisioned', 'provisionedBandwidth_provisioned' - Reserved. If you need to sustain traffic greater than the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'provisionTime', 'provisionedBandwidth_provisionTime' - Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
@@ -154,30 +154,30 @@ $cfrom :: forall x. ProvisionedBandwidth -&gt; Rep ProvisionedBandwidth x
 </span><span id="line-96"></span><span id="newProvisionedBandwidth"><span class="annot"><span class="annottext">newProvisionedBandwidth :: ProvisionedBandwidth
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#newProvisionedBandwidth"><span class="hs-identifier hs-var hs-var">newProvisionedBandwidth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">ProvisionedBandwidth' :: Maybe Text
--&gt; Maybe ISO8601
--&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
 -&gt; ProvisionedBandwidth
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ProvisionedBandwidth' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Astatus%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionTime:ProvisionedBandwidth' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">provisionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestTime:ProvisionedBandwidth' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3ArequestTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">requestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:requested:ProvisionedBandwidth' :: Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:requested:ProvisionedBandwidth' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Arequested%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">requested</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioned:ProvisionedBandwidth' :: Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioned:ProvisionedBandwidth' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Aprovisioned%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">provisioned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestTime:ProvisionedBandwidth' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3ArequestTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">requestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionTime:ProvisionedBandwidth' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">provisionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
@@ -194,65 +194,69 @@ forall a. Maybe a
 -&gt; Lens
      ProvisionedBandwidth ProvisionedBandwidth (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106544"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141258"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe Text
-</span><a href="#local-6989586621681106544"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106544"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106543"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
-</span><a href="#local-6989586621681106543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106542"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
-</span><a href="#local-6989586621681106543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ProvisionedBandwidth' :: Maybe Text
+</span><a href="#local-6989586621681141258"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141258"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141257"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
+</span><a href="#local-6989586621681141257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141256"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
+</span><a href="#local-6989586621681141257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ProvisionedBandwidth' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Astatus%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681141256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisionTime"><span class="hs-identifier hs-type">provisionedBandwidth_provisionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="provisionedBandwidth_provisionTime"><span class="annot"><span class="annottext">provisionedBandwidth_provisionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_requested"><span class="hs-identifier hs-type">provisionedBandwidth_requested</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="provisionedBandwidth_requested"><span class="annot"><span class="annottext">provisionedBandwidth_requested :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisionTime"><span class="hs-identifier hs-var hs-var">provisionedBandwidth_provisionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedBandwidth -&gt; Maybe ISO8601)
--&gt; (ProvisionedBandwidth -&gt; Maybe ISO8601 -&gt; ProvisionedBandwidth)
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_requested"><span class="hs-identifier hs-var hs-var">provisionedBandwidth_requested</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedBandwidth -&gt; Maybe Text)
+-&gt; (ProvisionedBandwidth -&gt; Maybe Text -&gt; ProvisionedBandwidth)
 -&gt; Lens
-     ProvisionedBandwidth
-     ProvisionedBandwidth
-     (Maybe ISO8601)
-     (Maybe ISO8601)
+     ProvisionedBandwidth ProvisionedBandwidth (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106540"><span class="annot"><span class="annottext">Maybe ISO8601
-provisionTime :: Maybe ISO8601
-$sel:provisionTime:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681106540"><span class="hs-identifier hs-var hs-var">provisionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681106540"><span class="hs-identifier hs-var">provisionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106539"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
-</span><a href="#local-6989586621681106539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106538"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681106538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
-</span><a href="#local-6989586621681106539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionTime:ProvisionedBandwidth' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">provisionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681106538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ProvisionedBandwidth
--&gt; f ProvisionedBandwidth
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141254"><span class="annot"><span class="annottext">Maybe Text
+requested :: Maybe Text
+$sel:requested:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe Text
+</span><a href="#local-6989586621681141254"><span class="hs-identifier hs-var hs-var">requested</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141254"><span class="hs-identifier hs-var">requested</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141253"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
+</span><a href="#local-6989586621681141253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
+</span><a href="#local-6989586621681141253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requested:ProvisionedBandwidth' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Arequested%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">requested</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_requestTime"><span class="hs-identifier hs-type">provisionedBandwidth_requestTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="provisionedBandwidth_requestTime"><span class="annot"><span class="annottext">provisionedBandwidth_requestTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisioned"><span class="hs-identifier hs-type">provisionedBandwidth_provisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="provisionedBandwidth_provisioned"><span class="annot"><span class="annottext">provisionedBandwidth_provisioned :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisioned"><span class="hs-identifier hs-var hs-var">provisionedBandwidth_provisioned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedBandwidth -&gt; Maybe Text)
+-&gt; (ProvisionedBandwidth -&gt; Maybe Text -&gt; ProvisionedBandwidth)
+-&gt; Lens
+     ProvisionedBandwidth ProvisionedBandwidth (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141250"><span class="annot"><span class="annottext">Maybe Text
+provisioned :: Maybe Text
+$sel:provisioned:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe Text
+</span><a href="#local-6989586621681141250"><span class="hs-identifier hs-var hs-var">provisioned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141250"><span class="hs-identifier hs-var">provisioned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141249"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
+</span><a href="#local-6989586621681141249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
+</span><a href="#local-6989586621681141249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioned:ProvisionedBandwidth' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Aprovisioned%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">provisioned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- contact us through the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_requestTime"><span class="hs-identifier hs-type">provisionedBandwidth_requestTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="provisionedBandwidth_requestTime"><span class="annot"><span class="annottext">provisionedBandwidth_requestTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_requestTime"><span class="hs-identifier hs-var hs-var">provisionedBandwidth_requestTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedBandwidth -&gt; Maybe ISO8601)
 -&gt; (ProvisionedBandwidth -&gt; Maybe ISO8601 -&gt; ProvisionedBandwidth)
@@ -262,16 +266,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106533"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141246"><span class="annot"><span class="annottext">Maybe ISO8601
 requestTime :: Maybe ISO8601
 $sel:requestTime:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681106533"><span class="hs-identifier hs-var hs-var">requestTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681106533"><span class="hs-identifier hs-var">requestTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106532"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
-</span><a href="#local-6989586621681106532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106531"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681106531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
-</span><a href="#local-6989586621681106532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestTime:ProvisionedBandwidth' :: Maybe ISO8601
+</span><a href="#local-6989586621681141246"><span class="hs-identifier hs-var hs-var">requestTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681141246"><span class="hs-identifier hs-var">requestTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141245"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
+</span><a href="#local-6989586621681141245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141244"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681141244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
+</span><a href="#local-6989586621681141245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestTime:ProvisionedBandwidth' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3ArequestTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">requestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681106531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681141244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -288,131 +292,132 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- contact us through the</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_requested"><span class="hs-identifier hs-type">provisionedBandwidth_requested</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="provisionedBandwidth_requested"><span class="annot"><span class="annottext">provisionedBandwidth_requested :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_requested"><span class="hs-identifier hs-var hs-var">provisionedBandwidth_requested</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedBandwidth -&gt; Maybe Text)
--&gt; (ProvisionedBandwidth -&gt; Maybe Text -&gt; ProvisionedBandwidth)
--&gt; Lens
-     ProvisionedBandwidth ProvisionedBandwidth (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106529"><span class="annot"><span class="annottext">Maybe Text
-requested :: Maybe Text
-$sel:requested:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe Text
-</span><a href="#local-6989586621681106529"><span class="hs-identifier hs-var hs-var">requested</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106529"><span class="hs-identifier hs-var">requested</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106528"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
-</span><a href="#local-6989586621681106528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106527"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
-</span><a href="#local-6989586621681106528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requested:ProvisionedBandwidth' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Arequested%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">requested</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | Reserved. If you need to sustain traffic greater than the</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html documented limits&gt;,</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- contact us through the</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home? Support Center&gt;.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisioned"><span class="hs-identifier hs-type">provisionedBandwidth_provisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="provisionedBandwidth_provisioned"><span class="annot"><span class="annottext">provisionedBandwidth_provisioned :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisionTime"><span class="hs-identifier hs-type">provisionedBandwidth_provisionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="provisionedBandwidth_provisionTime"><span class="annot"><span class="annottext">provisionedBandwidth_provisionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisioned"><span class="hs-identifier hs-var hs-var">provisionedBandwidth_provisioned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedBandwidth -&gt; Maybe Text)
--&gt; (ProvisionedBandwidth -&gt; Maybe Text -&gt; ProvisionedBandwidth)
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#provisionedBandwidth_provisionTime"><span class="hs-identifier hs-var hs-var">provisionedBandwidth_provisionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedBandwidth -&gt; Maybe ISO8601)
+-&gt; (ProvisionedBandwidth -&gt; Maybe ISO8601 -&gt; ProvisionedBandwidth)
 -&gt; Lens
-     ProvisionedBandwidth ProvisionedBandwidth (Maybe Text) (Maybe Text)
+     ProvisionedBandwidth
+     ProvisionedBandwidth
+     (Maybe ISO8601)
+     (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106525"><span class="annot"><span class="annottext">Maybe Text
-provisioned :: Maybe Text
-$sel:provisioned:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe Text
-</span><a href="#local-6989586621681106525"><span class="hs-identifier hs-var hs-var">provisioned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106525"><span class="hs-identifier hs-var">provisioned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106524"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
-</span><a href="#local-6989586621681106524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106523"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
-</span><a href="#local-6989586621681106524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioned:ProvisionedBandwidth' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3Aprovisioned%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">provisioned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141239"><span class="annot"><span class="annottext">Maybe ISO8601
+provisionTime :: Maybe ISO8601
+$sel:provisionTime:ProvisionedBandwidth' :: ProvisionedBandwidth -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681141239"><span class="hs-identifier hs-var hs-var">provisionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681141239"><span class="hs-identifier hs-var">provisionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141238"><span class="annot"><span class="annottext">s :: ProvisionedBandwidth
+</span><a href="#local-6989586621681141238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-type">ProvisionedBandwidth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141237"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681141237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedBandwidth
+</span><a href="#local-6989586621681141238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionTime:ProvisionedBandwidth' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#%24sel%3AprovisionTime%3AProvisionedBandwidth%27"><span class="hs-identifier hs-var">provisionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681141237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ProvisionedBandwidth -&gt; f ProvisionedBandwidth)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProvisionedBandwidth
+-&gt; f ProvisionedBandwidth
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621681106520"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProvisionedBandwidth
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681106518"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681141234"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProvisionedBandwidth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681141232"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ISO8601
--&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
 -&gt; ProvisionedBandwidth
 </span><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth%27"><span class="hs-identifier hs-var">ProvisionedBandwidth'</span></a></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ISO8601
- -&gt; Maybe ISO8601
  -&gt; Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
  -&gt; ProvisionedBandwidth)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe ISO8601
+     (Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
       -&gt; ProvisionedBandwidth)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681141232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
+  (Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
    -&gt; ProvisionedBandwidth)
--&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; ProvisionedBandwidth)
+     (Maybe Text
+      -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; ProvisionedBandwidth)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;provisionTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe Text -&gt; ProvisionedBandwidth)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; ProvisionedBandwidth)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;requestTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ProvisionedBandwidth)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; ProvisionedBandwidth)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681141232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requested&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ProvisionedBandwidth)
--&gt; Either String (Maybe Text) -&gt; Either String ProvisionedBandwidth
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; ProvisionedBandwidth)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; ProvisionedBandwidth)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681141232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;provisioned&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; ProvisionedBandwidth)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe ISO8601 -&gt; ProvisionedBandwidth)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; ProvisionedBandwidth)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String ProvisionedBandwidth
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;provisionTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681106512"><span id="local-6989586621681106514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141226"><span id="local-6989586621681141228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681106509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ProvisionedBandwidth.html#ProvisionedBandwidth"><span class="hs-identifier hs-type">ProvisionedBandwidth</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

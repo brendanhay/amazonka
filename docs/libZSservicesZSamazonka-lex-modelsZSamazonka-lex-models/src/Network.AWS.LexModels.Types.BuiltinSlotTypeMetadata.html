@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides information about a built in slot type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBuiltinSlotTypeMetadata' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679311847"><span id="local-6989586621679311848"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuiltinSlotTypeMetadata"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-var">BuiltinSlotTypeMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuiltinSlotTypeMetadata%27"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-var">BuiltinSlotTypeMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679312129"><span id="local-6989586621679312130"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuiltinSlotTypeMetadata"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-var">BuiltinSlotTypeMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuiltinSlotTypeMetadata%27"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-var">BuiltinSlotTypeMetadata'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the built-in slot type. To find the signature</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- for a slot type, see</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference&gt;</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AsupportedLocales%3ABuiltinSlotTypeMetadata%27"><span class="annot"><span class="annottext">BuiltinSlotTypeMetadata -&gt; Maybe [Locale]
 </span><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#%24sel%3AsupportedLocales%3ABuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-var hs-var">supportedLocales</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311840"><span id="local-6989586621679311842"><span class="annot"><span class="annottext">BuiltinSlotTypeMetadata -&gt; BuiltinSlotTypeMetadata -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312122"><span id="local-6989586621679312124"><span class="annot"><span class="annottext">BuiltinSlotTypeMetadata -&gt; BuiltinSlotTypeMetadata -&gt; Bool
 (BuiltinSlotTypeMetadata -&gt; BuiltinSlotTypeMetadata -&gt; Bool)
 -&gt; (BuiltinSlotTypeMetadata -&gt; BuiltinSlotTypeMetadata -&gt; Bool)
 -&gt; Eq BuiltinSlotTypeMetadata
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BuiltinSlotTypeMetadata -&gt; BuiltinSlotTypeMetadata -&gt; Bool
 == :: BuiltinSlotTypeMetadata -&gt; BuiltinSlotTypeMetadata -&gt; Bool
 $c== :: BuiltinSlotTypeMetadata -&gt; BuiltinSlotTypeMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311831"><span id="local-6989586621679311833"><span id="local-6989586621679311835"><span id="local-6989586621679311837"><span class="annot"><span class="annottext">ReadPrec [BuiltinSlotTypeMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312113"><span id="local-6989586621679312115"><span id="local-6989586621679312117"><span id="local-6989586621679312119"><span class="annot"><span class="annottext">ReadPrec [BuiltinSlotTypeMetadata]
 ReadPrec BuiltinSlotTypeMetadata
 Int -&gt; ReadS BuiltinSlotTypeMetadata
 ReadS [BuiltinSlotTypeMetadata]
@@ -67,7 +67,7 @@ readList :: ReadS [BuiltinSlotTypeMetadata]
 $creadList :: ReadS [BuiltinSlotTypeMetadata]
 readsPrec :: Int -&gt; ReadS BuiltinSlotTypeMetadata
 $creadsPrec :: Int -&gt; ReadS BuiltinSlotTypeMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311824"><span id="local-6989586621679311826"><span id="local-6989586621679311828"><span class="annot"><span class="annottext">Int -&gt; BuiltinSlotTypeMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312106"><span id="local-6989586621679312108"><span id="local-6989586621679312110"><span class="annot"><span class="annottext">Int -&gt; BuiltinSlotTypeMetadata -&gt; ShowS
 [BuiltinSlotTypeMetadata] -&gt; ShowS
 BuiltinSlotTypeMetadata -&gt; String
 (Int -&gt; BuiltinSlotTypeMetadata -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311815"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312097"><span class="annot"><span class="annottext">Maybe Text
 signature :: Maybe Text
 $sel:signature:BuiltinSlotTypeMetadata' :: BuiltinSlotTypeMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679311815"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311815"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311814"><span class="annot"><span class="annottext">s :: BuiltinSlotTypeMetadata
-</span><a href="#local-6989586621679311814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311813"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinSlotTypeMetadata
-</span><a href="#local-6989586621679311814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:BuiltinSlotTypeMetadata' :: Maybe Text
+</span><a href="#local-6989586621679312097"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312097"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312096"><span class="annot"><span class="annottext">s :: BuiltinSlotTypeMetadata
+</span><a href="#local-6989586621679312096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinSlotTypeMetadata
+</span><a href="#local-6989586621679312096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:BuiltinSlotTypeMetadata' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#%24sel%3Asignature%3ABuiltinSlotTypeMetadata%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | A list of target locales for the slot.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#builtinSlotTypeMetadata_supportedLocales"><span class="hs-identifier hs-type">builtinSlotTypeMetadata_supportedLocales</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -166,16 +166,16 @@ $sel:signature:BuiltinSlotTypeMetadata' :: BuiltinSlotTypeMetadata -&gt; Maybe T
      (Maybe [Locale])
      (Maybe [Locale])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311811"><span class="annot"><span class="annottext">Maybe [Locale]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312093"><span class="annot"><span class="annottext">Maybe [Locale]
 supportedLocales :: Maybe [Locale]
 $sel:supportedLocales:BuiltinSlotTypeMetadata' :: BuiltinSlotTypeMetadata -&gt; Maybe [Locale]
-</span><a href="#local-6989586621679311811"><span class="hs-identifier hs-var hs-var">supportedLocales</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Locale]
-</span><a href="#local-6989586621679311811"><span class="hs-identifier hs-var">supportedLocales</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311810"><span class="annot"><span class="annottext">s :: BuiltinSlotTypeMetadata
-</span><a href="#local-6989586621679311810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311809"><span class="annot"><span class="annottext">Maybe [Locale]
-</span><a href="#local-6989586621679311809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinSlotTypeMetadata
-</span><a href="#local-6989586621679311810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedLocales:BuiltinSlotTypeMetadata' :: Maybe [Locale]
+</span><a href="#local-6989586621679312093"><span class="hs-identifier hs-var hs-var">supportedLocales</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Locale]
+</span><a href="#local-6989586621679312093"><span class="hs-identifier hs-var">supportedLocales</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312092"><span class="annot"><span class="annottext">s :: BuiltinSlotTypeMetadata
+</span><a href="#local-6989586621679312092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312091"><span class="annot"><span class="annottext">Maybe [Locale]
+</span><a href="#local-6989586621679312091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinSlotTypeMetadata
+</span><a href="#local-6989586621679312092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedLocales:BuiltinSlotTypeMetadata' :: Maybe [Locale]
 </span><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#%24sel%3AsupportedLocales%3ABuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-var">supportedLocales</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Locale]
-</span><a href="#local-6989586621679311809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Locale] -&gt; f (Maybe [Locale]))
+</span><a href="#local-6989586621679312091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Locale] -&gt; f (Maybe [Locale]))
  -&gt; BuiltinSlotTypeMetadata -&gt; f BuiltinSlotTypeMetadata)
 -&gt; ((Maybe [Locale] -&gt; f (Maybe [Locale]))
     -&gt; Maybe [Locale] -&gt; f (Maybe [Locale]))
@@ -190,11 +190,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Locale] [Locale] [Locale] [Locale]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311803"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679311801"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuiltinSlotTypeMetadata
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312085"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679312083"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuiltinSlotTypeMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BuiltinSlotTypeMetadata)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BuiltinSlotTypeMetadata&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311798"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312080"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312080"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Locale] -&gt; BuiltinSlotTypeMetadata
 </span><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata%27"><span class="hs-identifier hs-var">BuiltinSlotTypeMetadata'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Locale] -&gt; BuiltinSlotTypeMetadata)
@@ -213,7 +213,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Locale] -&gt; BuiltinSlotTypeMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679312080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;signature&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,7 +221,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Locale]) -&gt; Parser BuiltinSlotTypeMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Locale]))
+</span><a href="#local-6989586621679312080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Locale]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;supportedLocales&quot;</span></span><span>
@@ -234,7 +234,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-84"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311791"><span id="local-6989586621679311793"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312073"><span id="local-6989586621679312075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata.html#BuiltinSlotTypeMetadata"><span class="hs-identifier hs-type">BuiltinSlotTypeMetadata</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

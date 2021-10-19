@@ -48,10 +48,10 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetContainerServicePowers' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679644356"><span id="local-6989586621679644357"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServicePowers"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-var">GetContainerServicePowers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServicePowers%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers%27"><span class="hs-identifier hs-var">GetContainerServicePowers'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679645348"><span id="local-6989586621679645349"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServicePowers"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-var">GetContainerServicePowers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServicePowers%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers%27"><span class="hs-identifier hs-var">GetContainerServicePowers'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644351"><span id="local-6989586621679644353"><span class="annot"><span class="annottext">GetContainerServicePowers -&gt; GetContainerServicePowers -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645343"><span id="local-6989586621679645345"><span class="annot"><span class="annottext">GetContainerServicePowers -&gt; GetContainerServicePowers -&gt; Bool
 (GetContainerServicePowers -&gt; GetContainerServicePowers -&gt; Bool)
 -&gt; (GetContainerServicePowers -&gt; GetContainerServicePowers -&gt; Bool)
 -&gt; Eq GetContainerServicePowers
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContainerServicePowers -&gt; GetContainerServicePowers -&gt; Bool
 == :: GetContainerServicePowers -&gt; GetContainerServicePowers -&gt; Bool
 $c== :: GetContainerServicePowers -&gt; GetContainerServicePowers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644342"><span id="local-6989586621679644344"><span id="local-6989586621679644346"><span id="local-6989586621679644348"><span class="annot"><span class="annottext">ReadPrec [GetContainerServicePowers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645334"><span id="local-6989586621679645336"><span id="local-6989586621679645338"><span id="local-6989586621679645340"><span class="annot"><span class="annottext">ReadPrec [GetContainerServicePowers]
 ReadPrec GetContainerServicePowers
 Int -&gt; ReadS GetContainerServicePowers
 ReadS [GetContainerServicePowers]
@@ -80,7 +80,7 @@ readList :: ReadS [GetContainerServicePowers]
 $creadList :: ReadS [GetContainerServicePowers]
 readsPrec :: Int -&gt; ReadS GetContainerServicePowers
 $creadsPrec :: Int -&gt; ReadS GetContainerServicePowers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644335"><span id="local-6989586621679644337"><span id="local-6989586621679644339"><span class="annot"><span class="annottext">Int -&gt; GetContainerServicePowers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645327"><span id="local-6989586621679645329"><span id="local-6989586621679645331"><span class="annot"><span class="annottext">Int -&gt; GetContainerServicePowers -&gt; ShowS
 [GetContainerServicePowers] -&gt; ShowS
 GetContainerServicePowers -&gt; String
 (Int -&gt; GetContainerServicePowers -&gt; ShowS)
@@ -127,13 +127,13 @@ GetContainerServicePowers -&gt; Rep GetContainerServicePowers x
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-67"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679644327"><span class="annot"><span class="annottext">request :: GetContainerServicePowers -&gt; Request GetContainerServicePowers
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679645319"><span class="annot"><span class="annottext">request :: GetContainerServicePowers -&gt; Request GetContainerServicePowers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetContainerServicePowers -&gt; Request GetContainerServicePowers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679644323"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679645315"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetContainerServicePowers
 -&gt; ClientResponse ClientBody
@@ -159,10 +159,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679644320"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644320"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679644319"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679644319"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679644318"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679644318"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679645312"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645312"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679645311"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679645311"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679645310"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679645310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
 -&gt; Int -&gt; GetContainerServicePowersResponse
 </span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-var">GetContainerServicePowersResponse'</span></a></span><span>
@@ -172,7 +172,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetContainerServicePowersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679644318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679645310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ContainerServicePower]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -192,15 +192,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644320"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679645312"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644309"><span id="local-6989586621679644311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645301"><span id="local-6989586621679645303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679644302"><span class="annot"><span class="annottext">toHeaders :: GetContainerServicePowers -&gt; ResponseHeaders
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679645294"><span class="annot"><span class="annottext">toHeaders :: GetContainerServicePowers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetContainerServicePowers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,8 +227,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644292"><span id="local-6989586621679644294"><span id="local-6989586621679644296"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679644290"><span class="annot"><span class="annottext">toJSON :: GetContainerServicePowers -&gt; Value
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645284"><span id="local-6989586621679645286"><span id="local-6989586621679645288"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679645282"><span class="annot"><span class="annottext">toJSON :: GetContainerServicePowers -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetContainerServicePowers -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -237,14 +237,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679644285"><span class="annot"><span class="annottext">toPath :: GetContainerServicePowers -&gt; ByteString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679645277"><span class="annot"><span class="annottext">toPath :: GetContainerServicePowers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContainerServicePowers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowers"><span class="hs-identifier hs-type">GetContainerServicePowers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679644281"><span class="annot"><span class="annottext">toQuery :: GetContainerServicePowers -&gt; QueryString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679645273"><span class="annot"><span class="annottext">toQuery :: GetContainerServicePowers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContainerServicePowers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -252,7 +252,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newGetContainerServicePowersResponse' smart constructor.</span><span>
-</span><span id="line-107"></span><span id="local-6989586621679644278"><span id="local-6989586621679644279"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServicePowersResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-var">GetContainerServicePowersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServicePowersResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-var">GetContainerServicePowersResponse'</span></a></span></span><span>
+</span><span id="line-107"></span><span id="local-6989586621679645270"><span id="local-6989586621679645271"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServicePowersResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-var">GetContainerServicePowersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServicePowersResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-var">GetContainerServicePowersResponse'</span></a></span></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the powers that can be specified for a</span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-comment">-- container service.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3Apowers%3AGetContainerServicePowersResponse%27"><span class="annot"><span class="annottext">GetContainerServicePowersResponse -&gt; Maybe [ContainerServicePower]
@@ -261,7 +261,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContainerServicePowersResponse%27"><span class="annot"><span class="annottext">GetContainerServicePowersResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#%24sel%3AhttpStatus%3AGetContainerServicePowersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644272"><span id="local-6989586621679644274"><span class="annot"><span class="annottext">GetContainerServicePowersResponse
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645264"><span id="local-6989586621679645266"><span class="annot"><span class="annottext">GetContainerServicePowersResponse
 -&gt; GetContainerServicePowersResponse -&gt; Bool
 (GetContainerServicePowersResponse
  -&gt; GetContainerServicePowersResponse -&gt; Bool)
@@ -277,7 +277,7 @@ $c/= :: GetContainerServicePowersResponse
 -&gt; GetContainerServicePowersResponse -&gt; Bool
 $c== :: GetContainerServicePowersResponse
 -&gt; GetContainerServicePowersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644264"><span id="local-6989586621679644266"><span id="local-6989586621679644268"><span id="local-6989586621679644270"><span class="annot"><span class="annottext">ReadPrec [GetContainerServicePowersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645256"><span id="local-6989586621679645258"><span id="local-6989586621679645260"><span id="local-6989586621679645262"><span class="annot"><span class="annottext">ReadPrec [GetContainerServicePowersResponse]
 ReadPrec GetContainerServicePowersResponse
 Int -&gt; ReadS GetContainerServicePowersResponse
 ReadS [GetContainerServicePowersResponse]
@@ -297,7 +297,7 @@ readList :: ReadS [GetContainerServicePowersResponse]
 $creadList :: ReadS [GetContainerServicePowersResponse]
 readsPrec :: Int -&gt; ReadS GetContainerServicePowersResponse
 $creadsPrec :: Int -&gt; ReadS GetContainerServicePowersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644258"><span id="local-6989586621679644260"><span id="local-6989586621679644262"><span class="annot"><span class="annottext">Int -&gt; GetContainerServicePowersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645250"><span id="local-6989586621679645252"><span id="local-6989586621679645254"><span class="annot"><span class="annottext">Int -&gt; GetContainerServicePowersResponse -&gt; ShowS
 [GetContainerServicePowersResponse] -&gt; ShowS
 GetContainerServicePowersResponse -&gt; String
 (Int -&gt; GetContainerServicePowersResponse -&gt; ShowS)
@@ -352,8 +352,8 @@ GetContainerServicePowersResponse
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span><span>
 </span><span id="line-132"></span><span id="newGetContainerServicePowersResponse"><span class="annot"><span class="annottext">newGetContainerServicePowersResponse :: Int -&gt; GetContainerServicePowersResponse
-</span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#newGetContainerServicePowersResponse"><span class="hs-identifier hs-var hs-var">newGetContainerServicePowersResponse</span></a></span></span><span> </span><span id="local-6989586621679644255"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#newGetContainerServicePowersResponse"><span class="hs-identifier hs-var hs-var">newGetContainerServicePowersResponse</span></a></span></span><span> </span><span id="local-6989586621679645247"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">GetContainerServicePowersResponse' :: Maybe [ContainerServicePower]
 -&gt; Int -&gt; GetContainerServicePowersResponse
 </span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span>
@@ -364,7 +364,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerServicePowersResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#%24sel%3AhttpStatus%3AGetContainerServicePowersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644255"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679645247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | An array of objects that describe the powers that can be specified for a</span><span>
@@ -385,16 +385,16 @@ forall a. Maybe a
      (Maybe [ContainerServicePower])
      (Maybe [ContainerServicePower])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644252"><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645244"><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
 powers :: Maybe [ContainerServicePower]
 $sel:powers:GetContainerServicePowersResponse' :: GetContainerServicePowersResponse -&gt; Maybe [ContainerServicePower]
-</span><a href="#local-6989586621679644252"><span class="hs-identifier hs-var hs-var">powers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
-</span><a href="#local-6989586621679644252"><span class="hs-identifier hs-var">powers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644251"><span class="annot"><span class="annottext">s :: GetContainerServicePowersResponse
-</span><a href="#local-6989586621679644251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644250"><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
-</span><a href="#local-6989586621679644250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServicePowersResponse
-</span><a href="#local-6989586621679644251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:powers:GetContainerServicePowersResponse' :: Maybe [ContainerServicePower]
+</span><a href="#local-6989586621679645244"><span class="hs-identifier hs-var hs-var">powers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
+</span><a href="#local-6989586621679645244"><span class="hs-identifier hs-var">powers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645243"><span class="annot"><span class="annottext">s :: GetContainerServicePowersResponse
+</span><a href="#local-6989586621679645243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645242"><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
+</span><a href="#local-6989586621679645242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServicePowersResponse
+</span><a href="#local-6989586621679645243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:powers:GetContainerServicePowersResponse' :: Maybe [ContainerServicePower]
 </span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#%24sel%3Apowers%3AGetContainerServicePowersResponse%27"><span class="hs-identifier hs-var">powers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerServicePower]
-</span><a href="#local-6989586621679644250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerServicePower]
+</span><a href="#local-6989586621679645242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerServicePower]
   -&gt; f (Maybe [ContainerServicePower]))
  -&gt; GetContainerServicePowersResponse
  -&gt; f GetContainerServicePowersResponse)
@@ -425,8 +425,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ContainerServicePower]
   [ContainerServicePower]
   [ContainerServicePower]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#getContainerServicePowersResponse_httpStatus"><span class="hs-identifier hs-type">getContainerServicePowersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -442,18 +442,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644246"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645238"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetContainerServicePowersResponse' :: GetContainerServicePowersResponse -&gt; Int
-</span><a href="#local-6989586621679644246"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644246"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644245"><span class="annot"><span class="annottext">s :: GetContainerServicePowersResponse
-</span><a href="#local-6989586621679644245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644244"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServicePowersResponse
-</span><a href="#local-6989586621679644245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerServicePowersResponse' :: Int
+</span><a href="#local-6989586621679645238"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645238"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645237"><span class="annot"><span class="annottext">s :: GetContainerServicePowersResponse
+</span><a href="#local-6989586621679645237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse%27"><span class="hs-identifier hs-type">GetContainerServicePowersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServicePowersResponse
+</span><a href="#local-6989586621679645237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerServicePowersResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#%24sel%3AhttpStatus%3AGetContainerServicePowersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679645236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679644242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679645234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServicePowers.html#GetContainerServicePowersResponse"><span class="hs-identifier hs-type">GetContainerServicePowersResponse</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

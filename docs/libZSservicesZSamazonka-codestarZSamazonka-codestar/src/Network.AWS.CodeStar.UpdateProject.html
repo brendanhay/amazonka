@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateProject' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679178631"><span id="local-6989586621679178632"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProject"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-var">UpdateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProject%27"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-var">UpdateProject'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679178683"><span id="local-6989586621679178684"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProject"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-var">UpdateProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProject%27"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-var">UpdateProject'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the project you want to update.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3AUpdateProject%27"><span class="annot"><span class="annottext">UpdateProject -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3Aname%3AUpdateProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aid%3AUpdateProject%27"><span class="annot"><span class="annottext">UpdateProject -&gt; Text
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3Aid%3AUpdateProject%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178623"><span id="local-6989586621679178625"><span class="annot"><span class="annottext">UpdateProject -&gt; UpdateProject -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178675"><span id="local-6989586621679178677"><span class="annot"><span class="annottext">UpdateProject -&gt; UpdateProject -&gt; Bool
 (UpdateProject -&gt; UpdateProject -&gt; Bool)
 -&gt; (UpdateProject -&gt; UpdateProject -&gt; Bool) -&gt; Eq UpdateProject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateProject -&gt; UpdateProject -&gt; Bool
 == :: UpdateProject -&gt; UpdateProject -&gt; Bool
 $c== :: UpdateProject -&gt; UpdateProject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178616"><span id="local-6989586621679178618"><span id="local-6989586621679178620"><span class="annot"><span class="annottext">Int -&gt; UpdateProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178668"><span id="local-6989586621679178670"><span id="local-6989586621679178672"><span class="annot"><span class="annottext">Int -&gt; UpdateProject -&gt; ShowS
 [UpdateProject] -&gt; ShowS
 UpdateProject -&gt; String
 (Int -&gt; UpdateProject -&gt; ShowS)
@@ -111,8 +111,8 @@ $cfrom :: forall x. UpdateProject -&gt; Rep UpdateProject x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span>
 </span><span id="line-78"></span><span id="newUpdateProject"><span class="annot"><span class="annottext">newUpdateProject :: Text -&gt; UpdateProject
-</span><a href="Network.AWS.CodeStar.UpdateProject.html#newUpdateProject"><span class="hs-identifier hs-var hs-var">newUpdateProject</span></a></span></span><span> </span><span id="local-6989586621679178611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178611"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.UpdateProject.html#newUpdateProject"><span class="hs-identifier hs-var hs-var">newUpdateProject</span></a></span></span><span> </span><span id="local-6989586621679178663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178663"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">UpdateProject' :: Maybe (Sensitive Text)
 -&gt; Maybe (Sensitive Text) -&gt; Text -&gt; UpdateProject
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span>
@@ -126,7 +126,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UpdateProject' :: Text
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3Aid%3AUpdateProject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178611"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679178663"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the project you want to update.</span><span>
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178608"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178660"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 name :: Maybe (Sensitive Text)
 $sel:name:UpdateProject' :: UpdateProject -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178608"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178608"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178607"><span class="annot"><span class="annottext">s :: UpdateProject
-</span><a href="#local-6989586621679178607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178606"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
-</span><a href="#local-6989586621679178607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateProject' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178660"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178660"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178659"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679178659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178658"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679178659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateProject' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3Aname%3AUpdateProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679178658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UpdateProject -&gt; f UpdateProject)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -181,16 +181,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178602"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178654"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 description :: Maybe (Sensitive Text)
 $sel:description:UpdateProject' :: UpdateProject -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178602"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178602"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178601"><span class="annot"><span class="annottext">s :: UpdateProject
-</span><a href="#local-6989586621679178601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178600"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
-</span><a href="#local-6989586621679178601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateProject' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178654"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178654"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178653"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679178653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178652"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679178653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateProject' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3Adescription%3AUpdateProject%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679178652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UpdateProject -&gt; f UpdateProject)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -218,27 +218,27 @@ forall a. Iso' (Sensitive a) a
 -&gt; (UpdateProject -&gt; Text -&gt; UpdateProject)
 -&gt; Lens UpdateProject UpdateProject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178599"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178651"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:UpdateProject' :: UpdateProject -&gt; Text
-</span><a href="#local-6989586621679178599"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178599"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178598"><span class="annot"><span class="annottext">s :: UpdateProject
-</span><a href="#local-6989586621679178598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178597"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
-</span><a href="#local-6989586621679178598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateProject' :: Text
+</span><a href="#local-6989586621679178651"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178651"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178650"><span class="annot"><span class="annottext">s :: UpdateProject
+</span><a href="#local-6989586621679178650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679178649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProject
+</span><a href="#local-6989586621679178650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdateProject' :: Text
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3Aid%3AUpdateProject%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679178593"><span class="annot"><span class="annottext">request :: UpdateProject -&gt; Request UpdateProject
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679178645"><span class="annot"><span class="annottext">request :: UpdateProject -&gt; Request UpdateProject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateProject -&gt; Request UpdateProject
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679178589"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679178641"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateProject
 -&gt; ClientResponse ClientBody
@@ -262,10 +262,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178586"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178586"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178585"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679178585"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178584"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679178584"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679178638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178638"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679178637"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679178637"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679178636"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679178636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateProjectResponse
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateProjectResponse)
@@ -276,15 +276,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178586"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178638"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178577"><span id="local-6989586621679178579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178629"><span id="local-6989586621679178631"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679178570"><span class="annot"><span class="annottext">toHeaders :: UpdateProject -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679178622"><span class="annot"><span class="annottext">toHeaders :: UpdateProject -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateProject -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -311,9 +311,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178560"><span id="local-6989586621679178562"><span id="local-6989586621679178564"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679178558"><span class="annot"><span class="annottext">toJSON :: UpdateProject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178554"><span id="local-6989586621679178555"><span id="local-6989586621679178556"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178612"><span id="local-6989586621679178614"><span id="local-6989586621679178616"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679178610"><span class="annot"><span class="annottext">toJSON :: UpdateProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject%27"><span class="hs-identifier hs-type">UpdateProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178606"><span id="local-6989586621679178607"><span id="local-6989586621679178608"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Text
 id :: Text
 description :: Maybe (Sensitive Text)
@@ -321,7 +321,7 @@ name :: Maybe (Sensitive Text)
 $sel:id:UpdateProject' :: UpdateProject -&gt; Text
 $sel:description:UpdateProject' :: UpdateProject -&gt; Maybe (Sensitive Text)
 $sel:name:UpdateProject' :: UpdateProject -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178554"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679178606"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -333,33 +333,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178556"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178608"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679178555"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679178607"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679178554"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178606"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679178548"><span class="annot"><span class="annottext">toPath :: UpdateProject -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679178600"><span class="annot"><span class="annottext">toPath :: UpdateProject -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateProject -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProject"><span class="hs-identifier hs-type">UpdateProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679178544"><span class="annot"><span class="annottext">toQuery :: UpdateProject -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679178596"><span class="annot"><span class="annottext">toQuery :: UpdateProject -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateProject -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,12 +367,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newUpdateProjectResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679178541"><span id="local-6989586621679178542"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProjectResponse"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-var">UpdateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProjectResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679178593"><span id="local-6989586621679178594"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProjectResponse"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-var">UpdateProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProjectResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-var">UpdateProjectResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; Int
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178536"><span id="local-6989586621679178538"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178588"><span id="local-6989586621679178590"><span class="annot"><span class="annottext">UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
 (UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool)
 -&gt; (UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool)
 -&gt; Eq UpdateProjectResponse
@@ -381,7 +381,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
 == :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
 $c== :: UpdateProjectResponse -&gt; UpdateProjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178528"><span id="local-6989586621679178530"><span id="local-6989586621679178532"><span id="local-6989586621679178534"><span class="annot"><span class="annottext">ReadPrec [UpdateProjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178580"><span id="local-6989586621679178582"><span id="local-6989586621679178584"><span id="local-6989586621679178586"><span class="annot"><span class="annottext">ReadPrec [UpdateProjectResponse]
 ReadPrec UpdateProjectResponse
 Int -&gt; ReadS UpdateProjectResponse
 ReadS [UpdateProjectResponse]
@@ -401,7 +401,7 @@ readList :: ReadS [UpdateProjectResponse]
 $creadList :: ReadS [UpdateProjectResponse]
 readsPrec :: Int -&gt; ReadS UpdateProjectResponse
 $creadsPrec :: Int -&gt; ReadS UpdateProjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178521"><span id="local-6989586621679178523"><span id="local-6989586621679178525"><span class="annot"><span class="annottext">Int -&gt; UpdateProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178573"><span id="local-6989586621679178575"><span id="local-6989586621679178577"><span class="annot"><span class="annottext">Int -&gt; UpdateProjectResponse -&gt; ShowS
 [UpdateProjectResponse] -&gt; ShowS
 UpdateProjectResponse -&gt; String
 (Int -&gt; UpdateProjectResponse -&gt; ShowS)
@@ -441,12 +441,12 @@ $cfrom :: forall x. UpdateProjectResponse -&gt; Rep UpdateProjectResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newUpdateProjectResponse"><span class="annot"><span class="annottext">newUpdateProjectResponse :: Int -&gt; UpdateProjectResponse
-</span><a href="Network.AWS.CodeStar.UpdateProject.html#newUpdateProjectResponse"><span class="hs-identifier hs-var hs-var">newUpdateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679178518"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178518"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.UpdateProject.html#newUpdateProjectResponse"><span class="hs-identifier hs-var hs-var">newUpdateProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679178570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">UpdateProjectResponse' :: Int -&gt; UpdateProjectResponse
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178518"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679178570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#updateProjectResponse_httpStatus"><span class="hs-identifier hs-type">updateProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -455,16 +455,16 @@ $cfrom :: forall x. UpdateProjectResponse -&gt; Rep UpdateProjectResponse x
 -&gt; (UpdateProjectResponse -&gt; Int -&gt; UpdateProjectResponse)
 -&gt; Lens UpdateProjectResponse UpdateProjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178517"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178569"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateProjectResponse' :: UpdateProjectResponse -&gt; Int
-</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178517"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178516"><span class="annot"><span class="annottext">s :: UpdateProjectResponse
-</span><a href="#local-6989586621679178516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178515"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProjectResponse
-</span><a href="#local-6989586621679178516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
+</span><a href="#local-6989586621679178569"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178569"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178568"><span class="annot"><span class="annottext">s :: UpdateProjectResponse
+</span><a href="#local-6989586621679178568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse%27"><span class="hs-identifier hs-type">UpdateProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178567"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679178567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProjectResponse
+</span><a href="#local-6989586621679178568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProjectResponse' :: Int
 </span><a href="Network.AWS.CodeStar.UpdateProject.html#%24sel%3AhttpStatus%3AUpdateProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679178515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679178567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.UpdateProject.html#UpdateProjectResponse"><span class="hs-identifier hs-type">UpdateProjectResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

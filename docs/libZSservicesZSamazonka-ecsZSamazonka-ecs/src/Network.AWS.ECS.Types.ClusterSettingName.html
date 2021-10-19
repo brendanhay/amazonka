@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679448445"><span id="local-6989586621679448446"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterSettingName"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSettingName.html#ClusterSettingName"><span class="hs-identifier hs-var">ClusterSettingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterSettingName%27"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSettingName.html#ClusterSettingName%27"><span class="hs-identifier hs-var">ClusterSettingName'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679449156"><span id="local-6989586621679449157"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterSettingName"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSettingName.html#ClusterSettingName"><span class="hs-identifier hs-var">ClusterSettingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterSettingName%27"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterSettingName.html#ClusterSettingName%27"><span class="hs-identifier hs-var">ClusterSettingName'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClusterSettingName"><span class="annot"><span class="annottext">ClusterSettingName -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ClusterSettingName.html#fromClusterSettingName"><span class="hs-identifier hs-var hs-var">fromClusterSettingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679448437"><span id="local-6989586621679448439"><span id="local-6989586621679448441"><span class="annot"><span class="annottext">Int -&gt; ClusterSettingName -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679449148"><span id="local-6989586621679449150"><span id="local-6989586621679449152"><span class="annot"><span class="annottext">Int -&gt; ClusterSettingName -&gt; ShowS
 [ClusterSettingName] -&gt; ShowS
 ClusterSettingName -&gt; String
 (Int -&gt; ClusterSettingName -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ClusterSettingName -&gt; String
 showsPrec :: Int -&gt; ClusterSettingName -&gt; ShowS
 $cshowsPrec :: Int -&gt; ClusterSettingName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679448428"><span id="local-6989586621679448430"><span id="local-6989586621679448432"><span id="local-6989586621679448434"><span class="annot"><span class="annottext">ReadPrec [ClusterSettingName]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679449139"><span id="local-6989586621679449141"><span id="local-6989586621679449143"><span id="local-6989586621679449145"><span class="annot"><span class="annottext">ReadPrec [ClusterSettingName]
 ReadPrec ClusterSettingName
 Int -&gt; ReadS ClusterSettingName
 ReadS [ClusterSettingName]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ClusterSettingName]
 readsPrec :: Int -&gt; ReadS ClusterSettingName
 $creadsPrec :: Int -&gt; ReadS ClusterSettingName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679448423"><span id="local-6989586621679448425"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ClusterSettingName -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679449134"><span id="local-6989586621679449136"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ClusterSettingName -&gt; Bool
 (ClusterSettingName -&gt; ClusterSettingName -&gt; Bool)
 -&gt; (ClusterSettingName -&gt; ClusterSettingName -&gt; Bool)
 -&gt; Eq ClusterSettingName
@@ -81,7 +81,7 @@ $c/= :: ClusterSettingName -&gt; ClusterSettingName -&gt; Bool
 == :: ClusterSettingName -&gt; ClusterSettingName -&gt; Bool
 $c== :: ClusterSettingName -&gt; ClusterSettingName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679448407"><span id="local-6989586621679448409"><span id="local-6989586621679448411"><span id="local-6989586621679448413"><span id="local-6989586621679448415"><span id="local-6989586621679448417"><span id="local-6989586621679448419"><span class="annot"><span class="annottext">Eq ClusterSettingName
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679449118"><span id="local-6989586621679449120"><span id="local-6989586621679449122"><span id="local-6989586621679449124"><span id="local-6989586621679449126"><span id="local-6989586621679449128"><span id="local-6989586621679449130"><span class="annot"><span class="annottext">Eq ClusterSettingName
 Eq ClusterSettingName
 -&gt; (ClusterSettingName -&gt; ClusterSettingName -&gt; Ordering)
 -&gt; (ClusterSettingName -&gt; ClusterSettingName -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ClusterSettingName -&gt; Rep ClusterSettingName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679448399"><span id="local-6989586621679448401"><span class="annot"><span class="annottext">Int -&gt; ClusterSettingName -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679449110"><span id="local-6989586621679449112"><span class="annot"><span class="annottext">Int -&gt; ClusterSettingName -&gt; Int
 ClusterSettingName -&gt; Int
 (Int -&gt; ClusterSettingName -&gt; Int)
 -&gt; (ClusterSettingName -&gt; Int) -&gt; Hashable ClusterSettingName
@@ -142,53 +142,53 @@ $chash :: ClusterSettingName -&gt; Int
 hashWithSalt :: Int -&gt; ClusterSettingName -&gt; Int
 $chashWithSalt :: Int -&gt; ClusterSettingName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679448396"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679449107"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ()
 (ClusterSettingName -&gt; ()) -&gt; NFData ClusterSettingName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ClusterSettingName -&gt; ()
 $crnf :: ClusterSettingName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679448393"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterSettingName
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679449104"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterSettingName
 (Text -&gt; Either String ClusterSettingName)
 -&gt; FromText ClusterSettingName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ClusterSettingName
 $cfromText :: Text -&gt; Either String ClusterSettingName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679448390"><span class="annot"><span class="annottext">ClusterSettingName -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679449101"><span class="annot"><span class="annottext">ClusterSettingName -&gt; Text
 (ClusterSettingName -&gt; Text) -&gt; ToText ClusterSettingName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ClusterSettingName -&gt; Text
 $ctoText :: ClusterSettingName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679448387"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679449098"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ByteString
 (ClusterSettingName -&gt; ByteString)
 -&gt; ToByteString ClusterSettingName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ClusterSettingName -&gt; ByteString
 $ctoBS :: ClusterSettingName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679448384"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679449095"><span class="annot"><span class="annottext">ClusterSettingName -&gt; ByteStringBuilder
 (ClusterSettingName -&gt; ByteStringBuilder)
 -&gt; ToLog ClusterSettingName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ClusterSettingName -&gt; ByteStringBuilder
 $cbuild :: ClusterSettingName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679448381"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterSettingName -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679449092"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterSettingName -&gt; [Header]
 (HeaderName -&gt; ClusterSettingName -&gt; [Header])
 -&gt; ToHeader ClusterSettingName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ClusterSettingName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ClusterSettingName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679448378"><span class="annot"><span class="annottext">ClusterSettingName -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679449089"><span class="annot"><span class="annottext">ClusterSettingName -&gt; QueryString
 (ClusterSettingName -&gt; QueryString) -&gt; ToQuery ClusterSettingName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ClusterSettingName -&gt; QueryString
 $ctoQuery :: ClusterSettingName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679448373"><span id="local-6989586621679448375"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterSettingName]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679449084"><span id="local-6989586621679449086"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterSettingName]
 Value -&gt; Parser ClusterSettingName
 (Value -&gt; Parser ClusterSettingName)
 -&gt; (Value -&gt; Parser [ClusterSettingName])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ClusterSettingName]
 parseJSON :: Value -&gt; Parser ClusterSettingName
 $cparseJSON :: Value -&gt; Parser ClusterSettingName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679448368"><span id="local-6989586621679448370"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterSettingName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679449079"><span id="local-6989586621679449081"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterSettingName]
 FromJSONKeyFunction ClusterSettingName
 FromJSONKeyFunction ClusterSettingName
 -&gt; FromJSONKeyFunction [ClusterSettingName]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ClusterSettingName]
 fromJSONKey :: FromJSONKeyFunction ClusterSettingName
 $cfromJSONKey :: FromJSONKeyFunction ClusterSettingName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679448359"><span id="local-6989586621679448361"><span id="local-6989586621679448363"><span id="local-6989586621679448365"><span class="annot"><span class="annottext">[ClusterSettingName] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679449070"><span id="local-6989586621679449072"><span id="local-6989586621679449074"><span id="local-6989586621679449076"><span class="annot"><span class="annottext">[ClusterSettingName] -&gt; Encoding
 [ClusterSettingName] -&gt; Value
 ClusterSettingName -&gt; Encoding
 ClusterSettingName -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ClusterSettingName -&gt; Encoding
 toJSON :: ClusterSettingName -&gt; Value
 $ctoJSON :: ClusterSettingName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679448354"><span id="local-6989586621679448356"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterSettingName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679449065"><span id="local-6989586621679449067"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterSettingName]
 ToJSONKeyFunction ClusterSettingName
 ToJSONKeyFunction ClusterSettingName
 -&gt; ToJSONKeyFunction [ClusterSettingName]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ClusterSettingName]
 toJSONKey :: ToJSONKeyFunction ClusterSettingName
 $ctoJSONKey :: ToJSONKeyFunction ClusterSettingName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679448351"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterSettingName
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679449062"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterSettingName
 ([Node] -&gt; Either String ClusterSettingName)
 -&gt; FromXML ClusterSettingName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ClusterSettingName
 $cparseXML :: [Node] -&gt; Either String ClusterSettingName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679448348"><span class="annot"><span class="annottext">ClusterSettingName -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679449059"><span class="annot"><span class="annottext">ClusterSettingName -&gt; XML
 (ClusterSettingName -&gt; XML) -&gt; ToXML ClusterSettingName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ClusterSettingName -&gt; XML

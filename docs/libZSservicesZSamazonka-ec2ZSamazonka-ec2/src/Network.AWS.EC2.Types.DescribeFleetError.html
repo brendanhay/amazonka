@@ -29,28 +29,28 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes the instances that could not be launched by the fleet.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDescribeFleetError' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681101100"><span id="local-6989586621681101101"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetError"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-var">DescribeFleetError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetError%27"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-var">DescribeFleetError'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- values in the launch template.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe LaunchTemplateAndOverridesResponse
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetError%27"><span class="hs-identifier hs-var hs-var">launchTemplateAndOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse.html#LaunchTemplateAndOverridesResponse"><span class="hs-identifier hs-type">LaunchTemplateAndOverridesResponse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Indicates if the instance that could not be launched was a Spot Instance</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- or On-Demand Instance.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Alifecycle%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe InstanceLifecycle
+</span><span id="line-32"></span><span id="local-6989586621681135801"><span id="local-6989586621681135802"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFleetError"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-var">DescribeFleetError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFleetError%27"><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-var">DescribeFleetError'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates if the instance that could not be launched was a Spot Instance</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- or On-Demand Instance.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Alifecycle%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe InstanceLifecycle
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3Alifecycle%3ADescribeFleetError%27"><span class="hs-identifier hs-var hs-var">lifecycle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The error message that describes why the instance could not be launched.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- For more information about error messages, see</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- values in the launch template.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe LaunchTemplateAndOverridesResponse
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetError%27"><span class="hs-identifier hs-var hs-var">launchTemplateAndOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse.html#LaunchTemplateAndOverridesResponse"><span class="hs-identifier hs-type">LaunchTemplateAndOverridesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The error code that indicates why the instance could not be launched.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- For more information about error codes, see</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AerrorMessage%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorMessage%3ADescribeFleetError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The error code that indicates why the instance could not be launched.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- For more information about error codes, see</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AerrorCode%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorCode%3ADescribeFleetError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The error message that describes why the instance could not be launched.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- For more information about error messages, see</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AerrorCode%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorCode%3ADescribeFleetError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AerrorMessage%3ADescribeFleetError%27"><span class="annot"><span class="annottext">DescribeFleetError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorMessage%3ADescribeFleetError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681101091"><span id="local-6989586621681101093"><span class="annot"><span class="annottext">DescribeFleetError -&gt; DescribeFleetError -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681135792"><span id="local-6989586621681135794"><span class="annot"><span class="annottext">DescribeFleetError -&gt; DescribeFleetError -&gt; Bool
 (DescribeFleetError -&gt; DescribeFleetError -&gt; Bool)
 -&gt; (DescribeFleetError -&gt; DescribeFleetError -&gt; Bool)
 -&gt; Eq DescribeFleetError
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeFleetError -&gt; DescribeFleetError -&gt; Bool
 == :: DescribeFleetError -&gt; DescribeFleetError -&gt; Bool
 $c== :: DescribeFleetError -&gt; DescribeFleetError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681101082"><span id="local-6989586621681101084"><span id="local-6989586621681101086"><span id="local-6989586621681101088"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135783"><span id="local-6989586621681135785"><span id="local-6989586621681135787"><span id="local-6989586621681135789"><span class="annot"><span class="annottext">ReadPrec [DescribeFleetError]
 ReadPrec DescribeFleetError
 Int -&gt; ReadS DescribeFleetError
 ReadS [DescribeFleetError]
@@ -79,7 +79,7 @@ readList :: ReadS [DescribeFleetError]
 $creadList :: ReadS [DescribeFleetError]
 readsPrec :: Int -&gt; ReadS DescribeFleetError
 $creadsPrec :: Int -&gt; ReadS DescribeFleetError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681101075"><span id="local-6989586621681101077"><span id="local-6989586621681101079"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135776"><span id="local-6989586621681135778"><span id="local-6989586621681135780"><span class="annot"><span class="annottext">Int -&gt; DescribeFleetError -&gt; ShowS
 [DescribeFleetError] -&gt; ShowS
 DescribeFleetError -&gt; String
 (Int -&gt; DescribeFleetError -&gt; ShowS)
@@ -113,54 +113,78 @@ $cfrom :: forall x. DescribeFleetError -&gt; Rep DescribeFleetError x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'launchTemplateAndOverrides', 'describeFleetError_launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- values in the launch template.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'lifecycle', 'describeFleetError_lifecycle' - Indicates if the instance that could not be launched was a Spot Instance</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- or On-Demand Instance.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'lifecycle', 'describeFleetError_lifecycle' - Indicates if the instance that could not be launched was a Spot Instance</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- or On-Demand Instance.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'launchTemplateAndOverrides', 'describeFleetError_launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- values in the launch template.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'errorMessage', 'describeFleetError_errorMessage' - The error message that describes why the instance could not be launched.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- For more information about error messages, see</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'errorCode', 'describeFleetError_errorCode' - The error code that indicates why the instance could not be launched.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- For more information about error codes, see</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'errorCode', 'describeFleetError_errorCode' - The error code that indicates why the instance could not be launched.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- For more information about error codes, see</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'errorMessage', 'describeFleetError_errorMessage' - The error message that describes why the instance could not be launched.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- For more information about error messages, see</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#newDescribeFleetError"><span class="hs-identifier hs-type">newDescribeFleetError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span>
 </span><span id="line-75"></span><span id="newDescribeFleetError"><span class="annot"><span class="annottext">newDescribeFleetError :: DescribeFleetError
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#newDescribeFleetError"><span class="hs-identifier hs-var hs-var">newDescribeFleetError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetError' :: Maybe LaunchTemplateAndOverridesResponse
--&gt; Maybe InstanceLifecycle
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeFleetError' :: Maybe InstanceLifecycle
+-&gt; Maybe LaunchTemplateAndOverridesResponse
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; DescribeFleetError
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplateAndOverrides:DescribeFleetError' :: Maybe LaunchTemplateAndOverridesResponse
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetError%27"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetError' :: Maybe InstanceLifecycle
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3Alifecycle%3ADescribeFleetError%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetError' :: Maybe InstanceLifecycle
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3Alifecycle%3ADescribeFleetError%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplateAndOverrides:DescribeFleetError' :: Maybe LaunchTemplateAndOverridesResponse
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetError%27"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:DescribeFleetError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorCode%3ADescribeFleetError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:DescribeFleetError' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorMessage%3ADescribeFleetError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:DescribeFleetError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorCode%3ADescribeFleetError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- values in the launch template.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_launchTemplateAndOverrides"><span class="hs-identifier hs-type">describeFleetError_launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse.html#LaunchTemplateAndOverridesResponse"><span class="hs-identifier hs-type">LaunchTemplateAndOverridesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="describeFleetError_launchTemplateAndOverrides"><span class="annot"><span class="annottext">describeFleetError_launchTemplateAndOverrides :: (Maybe LaunchTemplateAndOverridesResponse
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Indicates if the instance that could not be launched was a Spot Instance</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- or On-Demand Instance.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_lifecycle"><span class="hs-identifier hs-type">describeFleetError_lifecycle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="describeFleetError_lifecycle"><span class="annot"><span class="annottext">describeFleetError_lifecycle :: (Maybe InstanceLifecycle -&gt; f (Maybe InstanceLifecycle))
+-&gt; DescribeFleetError -&gt; f DescribeFleetError
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_lifecycle"><span class="hs-identifier hs-var hs-var">describeFleetError_lifecycle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetError -&gt; Maybe InstanceLifecycle)
+-&gt; (DescribeFleetError
+    -&gt; Maybe InstanceLifecycle -&gt; DescribeFleetError)
+-&gt; Lens
+     DescribeFleetError
+     DescribeFleetError
+     (Maybe InstanceLifecycle)
+     (Maybe InstanceLifecycle)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135767"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+lifecycle :: Maybe InstanceLifecycle
+$sel:lifecycle:DescribeFleetError' :: DescribeFleetError -&gt; Maybe InstanceLifecycle
+</span><a href="#local-6989586621681135767"><span class="hs-identifier hs-var hs-var">lifecycle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><a href="#local-6989586621681135767"><span class="hs-identifier hs-var">lifecycle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135766"><span class="annot"><span class="annottext">s :: DescribeFleetError
+</span><a href="#local-6989586621681135766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135765"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><a href="#local-6989586621681135765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
+</span><a href="#local-6989586621681135766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetError' :: Maybe InstanceLifecycle
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3Alifecycle%3ADescribeFleetError%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+</span><a href="#local-6989586621681135765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The launch templates and overrides that were used for launching the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- instances. The values that you specify in the Overrides replace the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- values in the launch template.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_launchTemplateAndOverrides"><span class="hs-identifier hs-type">describeFleetError_launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse.html#LaunchTemplateAndOverridesResponse"><span class="hs-identifier hs-type">LaunchTemplateAndOverridesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="describeFleetError_launchTemplateAndOverrides"><span class="annot"><span class="annottext">describeFleetError_launchTemplateAndOverrides :: (Maybe LaunchTemplateAndOverridesResponse
  -&gt; f (Maybe LaunchTemplateAndOverridesResponse))
 -&gt; DescribeFleetError -&gt; f DescribeFleetError
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_launchTemplateAndOverrides"><span class="hs-identifier hs-var hs-var">describeFleetError_launchTemplateAndOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetError -&gt; Maybe LaunchTemplateAndOverridesResponse)
@@ -172,144 +196,119 @@ forall a. Maybe a
      (Maybe LaunchTemplateAndOverridesResponse)
      (Maybe LaunchTemplateAndOverridesResponse)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101066"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135763"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
 launchTemplateAndOverrides :: Maybe LaunchTemplateAndOverridesResponse
 $sel:launchTemplateAndOverrides:DescribeFleetError' :: DescribeFleetError -&gt; Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101066"><span class="hs-identifier hs-var hs-var">launchTemplateAndOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101066"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101065"><span class="annot"><span class="annottext">s :: DescribeFleetError
-</span><a href="#local-6989586621681101065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101064"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
-</span><a href="#local-6989586621681101065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateAndOverrides:DescribeFleetError' :: Maybe LaunchTemplateAndOverridesResponse
+</span><a href="#local-6989586621681135763"><span class="hs-identifier hs-var hs-var">launchTemplateAndOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+</span><a href="#local-6989586621681135763"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135762"><span class="annot"><span class="annottext">s :: DescribeFleetError
+</span><a href="#local-6989586621681135762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135761"><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
+</span><a href="#local-6989586621681135761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
+</span><a href="#local-6989586621681135762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplateAndOverrides:DescribeFleetError' :: Maybe LaunchTemplateAndOverridesResponse
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AlaunchTemplateAndOverrides%3ADescribeFleetError%27"><span class="hs-identifier hs-var">launchTemplateAndOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
-</span><a href="#local-6989586621681101064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | Indicates if the instance that could not be launched was a Spot Instance</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- or On-Demand Instance.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_lifecycle"><span class="hs-identifier hs-type">describeFleetError_lifecycle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceLifecycle.html#InstanceLifecycle"><span class="hs-identifier hs-type">InstanceLifecycle</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="describeFleetError_lifecycle"><span class="annot"><span class="annottext">describeFleetError_lifecycle :: (Maybe InstanceLifecycle -&gt; f (Maybe InstanceLifecycle))
--&gt; DescribeFleetError -&gt; f DescribeFleetError
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_lifecycle"><span class="hs-identifier hs-var hs-var">describeFleetError_lifecycle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetError -&gt; Maybe InstanceLifecycle)
--&gt; (DescribeFleetError
-    -&gt; Maybe InstanceLifecycle -&gt; DescribeFleetError)
--&gt; Lens
-     DescribeFleetError
-     DescribeFleetError
-     (Maybe InstanceLifecycle)
-     (Maybe InstanceLifecycle)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101062"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-lifecycle :: Maybe InstanceLifecycle
-$sel:lifecycle:DescribeFleetError' :: DescribeFleetError -&gt; Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101062"><span class="hs-identifier hs-var hs-var">lifecycle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101062"><span class="hs-identifier hs-var">lifecycle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101061"><span class="annot"><span class="annottext">s :: DescribeFleetError
-</span><a href="#local-6989586621681101061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101060"><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
-</span><a href="#local-6989586621681101061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycle:DescribeFleetError' :: Maybe InstanceLifecycle
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3Alifecycle%3ADescribeFleetError%27"><span class="hs-identifier hs-var">lifecycle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
-</span><a href="#local-6989586621681101060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The error message that describes why the instance could not be launched.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- For more information about error messages, see</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_errorMessage"><span class="hs-identifier hs-type">describeFleetError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="describeFleetError_errorMessage"><span class="annot"><span class="annottext">describeFleetError_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeFleetError -&gt; f DescribeFleetError
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_errorMessage"><span class="hs-identifier hs-var hs-var">describeFleetError_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetError -&gt; Maybe Text)
--&gt; (DescribeFleetError -&gt; Maybe Text -&gt; DescribeFleetError)
--&gt; Lens
-     DescribeFleetError DescribeFleetError (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101058"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:DescribeFleetError' :: DescribeFleetError -&gt; Maybe Text
-</span><a href="#local-6989586621681101058"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681101058"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101057"><span class="annot"><span class="annottext">s :: DescribeFleetError
-</span><a href="#local-6989586621681101057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101056"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681101056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
-</span><a href="#local-6989586621681101057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:DescribeFleetError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorMessage%3ADescribeFleetError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681101056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The error code that indicates why the instance could not be launched.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- For more information about error codes, see</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_errorCode"><span class="hs-identifier hs-type">describeFleetError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="describeFleetError_errorCode"><span class="annot"><span class="annottext">describeFleetError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681135761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The error code that indicates why the instance could not be launched.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- For more information about error codes, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_errorCode"><span class="hs-identifier hs-type">describeFleetError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="describeFleetError_errorCode"><span class="annot"><span class="annottext">describeFleetError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeFleetError -&gt; f DescribeFleetError
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_errorCode"><span class="hs-identifier hs-var hs-var">describeFleetError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetError -&gt; Maybe Text)
 -&gt; (DescribeFleetError -&gt; Maybe Text -&gt; DescribeFleetError)
 -&gt; Lens
      DescribeFleetError DescribeFleetError (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681101054"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135759"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:DescribeFleetError' :: DescribeFleetError -&gt; Maybe Text
-</span><a href="#local-6989586621681101054"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681101054"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681101053"><span class="annot"><span class="annottext">s :: DescribeFleetError
-</span><a href="#local-6989586621681101053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681101052"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681101052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
-</span><a href="#local-6989586621681101053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:DescribeFleetError' :: Maybe Text
+</span><a href="#local-6989586621681135759"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135759"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135758"><span class="annot"><span class="annottext">s :: DescribeFleetError
+</span><a href="#local-6989586621681135758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
+</span><a href="#local-6989586621681135758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:DescribeFleetError' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorCode%3ADescribeFleetError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681101052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621681101049"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DescribeFleetError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681101047"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">Maybe LaunchTemplateAndOverridesResponse
--&gt; Maybe InstanceLifecycle
+</span><a href="#local-6989586621681135757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The error message that describes why the instance could not be launched.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- For more information about error messages, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes&gt;.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_errorMessage"><span class="hs-identifier hs-type">describeFleetError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="describeFleetError_errorMessage"><span class="annot"><span class="annottext">describeFleetError_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFleetError -&gt; f DescribeFleetError
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#describeFleetError_errorMessage"><span class="hs-identifier hs-var hs-var">describeFleetError_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFleetError -&gt; Maybe Text)
+-&gt; (DescribeFleetError -&gt; Maybe Text -&gt; DescribeFleetError)
+-&gt; Lens
+     DescribeFleetError DescribeFleetError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135755"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:DescribeFleetError' :: DescribeFleetError -&gt; Maybe Text
+</span><a href="#local-6989586621681135755"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135755"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135754"><span class="annot"><span class="annottext">s :: DescribeFleetError
+</span><a href="#local-6989586621681135754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-type">DescribeFleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFleetError
+</span><a href="#local-6989586621681135754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:DescribeFleetError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#%24sel%3AerrorMessage%3ADescribeFleetError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681135750"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DescribeFleetError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681135748"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Maybe InstanceLifecycle
+-&gt; Maybe LaunchTemplateAndOverridesResponse
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; DescribeFleetError
 </span><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError%27"><span class="hs-identifier hs-var">DescribeFleetError'</span></a></span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">(Maybe LaunchTemplateAndOverridesResponse
- -&gt; Maybe InstanceLifecycle
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">(Maybe InstanceLifecycle
+ -&gt; Maybe LaunchTemplateAndOverridesResponse
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; DescribeFleetError)
--&gt; Either String (Maybe LaunchTemplateAndOverridesResponse)
+-&gt; Either String (Maybe InstanceLifecycle)
 -&gt; Either
      String
-     (Maybe InstanceLifecycle
+     (Maybe LaunchTemplateAndOverridesResponse
       -&gt; Maybe Text -&gt; Maybe Text -&gt; DescribeFleetError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceLifecycle)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lifecycle&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LaunchTemplateAndOverridesResponse
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; DescribeFleetError)
+-&gt; Either String (Maybe LaunchTemplateAndOverridesResponse)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DescribeFleetError)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe LaunchTemplateAndOverridesResponse)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;launchTemplateAndOverrides&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe InstanceLifecycle
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; DescribeFleetError)
--&gt; Either String (Maybe InstanceLifecycle)
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DescribeFleetError)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceLifecycle)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lifecycle&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; DescribeFleetError)
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; DescribeFleetError)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; DescribeFleetError)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DescribeFleetError)
--&gt; Either String (Maybe Text) -&gt; Either String DescribeFleetError
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681101047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681135748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681101041"><span id="local-6989586621681101043"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span></span></span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681101038"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span></span><span>
-</span><span id="line-118"></span></pre></body></html>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DescribeFleetError)
+-&gt; Either String (Maybe Text) -&gt; Either String DescribeFleetError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135742"><span id="local-6989586621681135744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DescribeFleetError.html#DescribeFleetError"><span class="hs-identifier hs-type">DescribeFleetError</span></a></span></span><span>
+</span><span id="line-117"></span></pre></body></html>

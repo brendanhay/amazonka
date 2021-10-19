@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about pipeline reprocessing.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReprocessingSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679257957"><span id="local-6989586621679257958"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReprocessingSummary"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-var">ReprocessingSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReprocessingSummary%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-var">ReprocessingSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the pipeline reprocessing.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3AReprocessingSummary%27"><span class="annot"><span class="annottext">ReprocessingSummary -&gt; Maybe ReprocessingStatus
-</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Astatus%3AReprocessingSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingStatus.html#ReprocessingStatus"><span class="hs-identifier hs-type">ReprocessingStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time the pipeline reprocessing was created.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3AReprocessingSummary%27"><span class="annot"><span class="annottext">ReprocessingSummary -&gt; Maybe POSIX
+</span><span id="line-30"></span><span id="local-6989586621679258161"><span id="local-6989586621679258162"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReprocessingSummary"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-var">ReprocessingSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReprocessingSummary%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-var">ReprocessingSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the pipeline reprocessing was created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3AReprocessingSummary%27"><span class="annot"><span class="annottext">ReprocessingSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3AcreationTime%3AReprocessingSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the pipeline reprocessing.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AReprocessingSummary%27"><span class="annot"><span class="annottext">ReprocessingSummary -&gt; Maybe ReprocessingStatus
+</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Astatus%3AReprocessingSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingStatus.html#ReprocessingStatus"><span class="hs-identifier hs-type">ReprocessingStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The @reprocessingId@ returned by @StartPipelineReprocessing@.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aid%3AReprocessingSummary%27"><span class="annot"><span class="annottext">ReprocessingSummary -&gt; Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Aid%3AReprocessingSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257949"><span id="local-6989586621679257951"><span class="annot"><span class="annottext">ReprocessingSummary -&gt; ReprocessingSummary -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258153"><span id="local-6989586621679258155"><span class="annot"><span class="annottext">ReprocessingSummary -&gt; ReprocessingSummary -&gt; Bool
 (ReprocessingSummary -&gt; ReprocessingSummary -&gt; Bool)
 -&gt; (ReprocessingSummary -&gt; ReprocessingSummary -&gt; Bool)
 -&gt; Eq ReprocessingSummary
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReprocessingSummary -&gt; ReprocessingSummary -&gt; Bool
 == :: ReprocessingSummary -&gt; ReprocessingSummary -&gt; Bool
 $c== :: ReprocessingSummary -&gt; ReprocessingSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257940"><span id="local-6989586621679257942"><span id="local-6989586621679257944"><span id="local-6989586621679257946"><span class="annot"><span class="annottext">ReadPrec [ReprocessingSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258144"><span id="local-6989586621679258146"><span id="local-6989586621679258148"><span id="local-6989586621679258150"><span class="annot"><span class="annottext">ReadPrec [ReprocessingSummary]
 ReadPrec ReprocessingSummary
 Int -&gt; ReadS ReprocessingSummary
 ReadS [ReprocessingSummary]
@@ -67,7 +67,7 @@ readList :: ReadS [ReprocessingSummary]
 $creadList :: ReadS [ReprocessingSummary]
 readsPrec :: Int -&gt; ReadS ReprocessingSummary
 $creadsPrec :: Int -&gt; ReadS ReprocessingSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257933"><span id="local-6989586621679257935"><span id="local-6989586621679257937"><span class="annot"><span class="annottext">Int -&gt; ReprocessingSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258137"><span id="local-6989586621679258139"><span id="local-6989586621679258141"><span class="annot"><span class="annottext">Int -&gt; ReprocessingSummary -&gt; ShowS
 [ReprocessingSummary] -&gt; ShowS
 ReprocessingSummary -&gt; String
 (Int -&gt; ReprocessingSummary -&gt; ShowS)
@@ -101,75 +101,52 @@ $cfrom :: forall x. ReprocessingSummary -&gt; Rep ReprocessingSummary x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'status', 'reprocessingSummary_status' - The status of the pipeline reprocessing.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'creationTime', 'reprocessingSummary_creationTime' - The time the pipeline reprocessing was created.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'creationTime', 'reprocessingSummary_creationTime' - The time the pipeline reprocessing was created.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'status', 'reprocessingSummary_status' - The status of the pipeline reprocessing.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'id', 'reprocessingSummary_id' - The @reprocessingId@ returned by @StartPipelineReprocessing@.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#newReprocessingSummary"><span class="hs-identifier hs-type">newReprocessingSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span>
 </span><span id="line-55"></span><span id="newReprocessingSummary"><span class="annot"><span class="annottext">newReprocessingSummary :: ReprocessingSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#newReprocessingSummary"><span class="hs-identifier hs-var hs-var">newReprocessingSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ReprocessingSummary' :: Maybe ReprocessingStatus
--&gt; Maybe POSIX -&gt; Maybe Text -&gt; ReprocessingSummary
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ReprocessingSummary' :: Maybe POSIX
+-&gt; Maybe ReprocessingStatus -&gt; Maybe Text -&gt; ReprocessingSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ReprocessingSummary' :: Maybe ReprocessingStatus
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:ReprocessingSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3AcreationTime%3AReprocessingSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ReprocessingSummary' :: Maybe ReprocessingStatus
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Astatus%3AReprocessingSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReprocessingStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:ReprocessingSummary' :: Maybe POSIX
-</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3AcreationTime%3AReprocessingSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ReprocessingSummary' :: Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ReprocessingSummary' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Aid%3AReprocessingSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The status of the pipeline reprocessing.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_status"><span class="hs-identifier hs-type">reprocessingSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingStatus.html#ReprocessingStatus"><span class="hs-identifier hs-type">ReprocessingStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="reprocessingSummary_status"><span class="annot"><span class="annottext">reprocessingSummary_status :: (Maybe ReprocessingStatus -&gt; f (Maybe ReprocessingStatus))
--&gt; ReprocessingSummary -&gt; f ReprocessingSummary
-</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_status"><span class="hs-identifier hs-var hs-var">reprocessingSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReprocessingSummary -&gt; Maybe ReprocessingStatus)
--&gt; (ReprocessingSummary
-    -&gt; Maybe ReprocessingStatus -&gt; ReprocessingSummary)
--&gt; Lens
-     ReprocessingSummary
-     ReprocessingSummary
-     (Maybe ReprocessingStatus)
-     (Maybe ReprocessingStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257924"><span class="annot"><span class="annottext">Maybe ReprocessingStatus
-status :: Maybe ReprocessingStatus
-$sel:status:ReprocessingSummary' :: ReprocessingSummary -&gt; Maybe ReprocessingStatus
-</span><a href="#local-6989586621679257924"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReprocessingStatus
-</span><a href="#local-6989586621679257924"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257923"><span class="annot"><span class="annottext">s :: ReprocessingSummary
-</span><a href="#local-6989586621679257923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257922"><span class="annot"><span class="annottext">Maybe ReprocessingStatus
-</span><a href="#local-6989586621679257922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReprocessingSummary
-</span><a href="#local-6989586621679257923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReprocessingSummary' :: Maybe ReprocessingStatus
-</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Astatus%3AReprocessingSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReprocessingStatus
-</span><a href="#local-6989586621679257922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The time the pipeline reprocessing was created.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_creationTime"><span class="hs-identifier hs-type">reprocessingSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="reprocessingSummary_creationTime"><span class="annot"><span class="annottext">reprocessingSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The time the pipeline reprocessing was created.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_creationTime"><span class="hs-identifier hs-type">reprocessingSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="reprocessingSummary_creationTime"><span class="annot"><span class="annottext">reprocessingSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ReprocessingSummary -&gt; f ReprocessingSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_creationTime"><span class="hs-identifier hs-var hs-var">reprocessingSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReprocessingSummary -&gt; Maybe POSIX)
 -&gt; (ReprocessingSummary -&gt; Maybe POSIX -&gt; ReprocessingSummary)
 -&gt; Lens
      ReprocessingSummary ReprocessingSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257920"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258128"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:ReprocessingSummary' :: ReprocessingSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679257920"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679257920"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257919"><span class="annot"><span class="annottext">s :: ReprocessingSummary
-</span><a href="#local-6989586621679257919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257918"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679257918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReprocessingSummary
-</span><a href="#local-6989586621679257919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ReprocessingSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679258128"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679258128"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258127"><span class="annot"><span class="annottext">s :: ReprocessingSummary
+</span><a href="#local-6989586621679258127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258126"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679258126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReprocessingSummary
+</span><a href="#local-6989586621679258127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ReprocessingSummary' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3AcreationTime%3AReprocessingSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679257918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679258126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ReprocessingSummary -&gt; f ReprocessingSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -185,73 +162,99 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The @reprocessingId@ returned by @StartPipelineReprocessing@.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_id"><span class="hs-identifier hs-type">reprocessingSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="reprocessingSummary_id"><span class="annot"><span class="annottext">reprocessingSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The status of the pipeline reprocessing.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_status"><span class="hs-identifier hs-type">reprocessingSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingStatus.html#ReprocessingStatus"><span class="hs-identifier hs-type">ReprocessingStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="reprocessingSummary_status"><span class="annot"><span class="annottext">reprocessingSummary_status :: (Maybe ReprocessingStatus -&gt; f (Maybe ReprocessingStatus))
+-&gt; ReprocessingSummary -&gt; f ReprocessingSummary
+</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_status"><span class="hs-identifier hs-var hs-var">reprocessingSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReprocessingSummary -&gt; Maybe ReprocessingStatus)
+-&gt; (ReprocessingSummary
+    -&gt; Maybe ReprocessingStatus -&gt; ReprocessingSummary)
+-&gt; Lens
+     ReprocessingSummary
+     ReprocessingSummary
+     (Maybe ReprocessingStatus)
+     (Maybe ReprocessingStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258121"><span class="annot"><span class="annottext">Maybe ReprocessingStatus
+status :: Maybe ReprocessingStatus
+$sel:status:ReprocessingSummary' :: ReprocessingSummary -&gt; Maybe ReprocessingStatus
+</span><a href="#local-6989586621679258121"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReprocessingStatus
+</span><a href="#local-6989586621679258121"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258120"><span class="annot"><span class="annottext">s :: ReprocessingSummary
+</span><a href="#local-6989586621679258120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258119"><span class="annot"><span class="annottext">Maybe ReprocessingStatus
+</span><a href="#local-6989586621679258119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReprocessingSummary
+</span><a href="#local-6989586621679258120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReprocessingSummary' :: Maybe ReprocessingStatus
+</span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Astatus%3AReprocessingSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReprocessingStatus
+</span><a href="#local-6989586621679258119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The @reprocessingId@ returned by @StartPipelineReprocessing@.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_id"><span class="hs-identifier hs-type">reprocessingSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="reprocessingSummary_id"><span class="annot"><span class="annottext">reprocessingSummary_id :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReprocessingSummary -&gt; f ReprocessingSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_id"><span class="hs-identifier hs-var hs-var">reprocessingSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReprocessingSummary -&gt; Maybe Text)
 -&gt; (ReprocessingSummary -&gt; Maybe Text -&gt; ReprocessingSummary)
 -&gt; Lens
      ReprocessingSummary ReprocessingSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257913"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258117"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:ReprocessingSummary' :: ReprocessingSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679257913"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257913"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257912"><span class="annot"><span class="annottext">s :: ReprocessingSummary
-</span><a href="#local-6989586621679257912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257911"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReprocessingSummary
-</span><a href="#local-6989586621679257912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReprocessingSummary' :: Maybe Text
+</span><a href="#local-6989586621679258117"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258117"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258116"><span class="annot"><span class="annottext">s :: ReprocessingSummary
+</span><a href="#local-6989586621679258116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-type">ReprocessingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReprocessingSummary
+</span><a href="#local-6989586621679258116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ReprocessingSummary' :: Maybe Text
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#%24sel%3Aid%3AReprocessingSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257908"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679257906"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReprocessingSummary
+</span><a href="#local-6989586621679258115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258112"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679258110"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReprocessingSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReprocessingSummary)
 -&gt; Value
 -&gt; Parser ReprocessingSummary
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReprocessingSummary&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257903"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257903"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReprocessingStatus
--&gt; Maybe POSIX -&gt; Maybe Text -&gt; ReprocessingSummary
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258107"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ReprocessingStatus -&gt; Maybe Text -&gt; ReprocessingSummary
 </span><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary%27"><span class="hs-identifier hs-var">ReprocessingSummary'</span></a></span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReprocessingStatus
- -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ReprocessingSummary)
--&gt; Parser (Maybe ReprocessingStatus)
--&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; ReprocessingSummary)
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ReprocessingStatus -&gt; Maybe Text -&gt; ReprocessingSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ReprocessingStatus -&gt; Maybe Text -&gt; ReprocessingSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReprocessingStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; ReprocessingSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Text -&gt; ReprocessingSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679258107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReprocessingSummary)
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReprocessingStatus -&gt; Maybe Text -&gt; ReprocessingSummary)
+-&gt; Parser (Maybe ReprocessingStatus)
+-&gt; Parser (Maybe Text -&gt; ReprocessingSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReprocessingStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReprocessingSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser ReprocessingSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679258107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257897"><span id="local-6989586621679257899"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span></span></span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span></span><span>
-</span><span id="line-88"></span></pre></body></html>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258101"><span id="local-6989586621679258103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier hs-type">ReprocessingSummary</span></a></span></span><span>
+</span><span id="line-89"></span></pre></body></html>

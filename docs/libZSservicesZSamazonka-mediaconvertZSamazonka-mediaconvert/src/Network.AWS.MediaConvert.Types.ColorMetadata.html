@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- this output. Choose Ignore (IGNORE) to exclude color metadata from this</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- output. If you don\'t specify a value, the service sets this to Insert</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- by default.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679946778"><span id="local-6989586621679946779"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ColorMetadata"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorMetadata.html#ColorMetadata"><span class="hs-identifier hs-var">ColorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColorMetadata%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorMetadata.html#ColorMetadata%27"><span class="hs-identifier hs-var">ColorMetadata'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679951401"><span id="local-6989586621679951402"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ColorMetadata"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorMetadata.html#ColorMetadata"><span class="hs-identifier hs-var">ColorMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColorMetadata%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ColorMetadata.html#ColorMetadata%27"><span class="hs-identifier hs-var">ColorMetadata'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromColorMetadata"><span class="annot"><span class="annottext">ColorMetadata -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ColorMetadata.html#fromColorMetadata"><span class="hs-identifier hs-var hs-var">fromColorMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946770"><span id="local-6989586621679946772"><span id="local-6989586621679946774"><span class="annot"><span class="annottext">Int -&gt; ColorMetadata -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951393"><span id="local-6989586621679951395"><span id="local-6989586621679951397"><span class="annot"><span class="annottext">Int -&gt; ColorMetadata -&gt; ShowS
 [ColorMetadata] -&gt; ShowS
 ColorMetadata -&gt; String
 (Int -&gt; ColorMetadata -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ColorMetadata -&gt; String
 showsPrec :: Int -&gt; ColorMetadata -&gt; ShowS
 $cshowsPrec :: Int -&gt; ColorMetadata -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679946761"><span id="local-6989586621679946763"><span id="local-6989586621679946765"><span id="local-6989586621679946767"><span class="annot"><span class="annottext">ReadPrec [ColorMetadata]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679951384"><span id="local-6989586621679951386"><span id="local-6989586621679951388"><span id="local-6989586621679951390"><span class="annot"><span class="annottext">ReadPrec [ColorMetadata]
 ReadPrec ColorMetadata
 Int -&gt; ReadS ColorMetadata
 ReadS [ColorMetadata]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ColorMetadata]
 readsPrec :: Int -&gt; ReadS ColorMetadata
 $creadsPrec :: Int -&gt; ReadS ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679946756"><span id="local-6989586621679946758"><span class="annot"><span class="annottext">ColorMetadata -&gt; ColorMetadata -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679951379"><span id="local-6989586621679951381"><span class="annot"><span class="annottext">ColorMetadata -&gt; ColorMetadata -&gt; Bool
 (ColorMetadata -&gt; ColorMetadata -&gt; Bool)
 -&gt; (ColorMetadata -&gt; ColorMetadata -&gt; Bool) -&gt; Eq ColorMetadata
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: ColorMetadata -&gt; ColorMetadata -&gt; Bool
 == :: ColorMetadata -&gt; ColorMetadata -&gt; Bool
 $c== :: ColorMetadata -&gt; ColorMetadata -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679946740"><span id="local-6989586621679946742"><span id="local-6989586621679946744"><span id="local-6989586621679946746"><span id="local-6989586621679946748"><span id="local-6989586621679946750"><span id="local-6989586621679946752"><span class="annot"><span class="annottext">Eq ColorMetadata
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679951363"><span id="local-6989586621679951365"><span id="local-6989586621679951367"><span id="local-6989586621679951369"><span id="local-6989586621679951371"><span id="local-6989586621679951373"><span id="local-6989586621679951375"><span class="annot"><span class="annottext">Eq ColorMetadata
 Eq ColorMetadata
 -&gt; (ColorMetadata -&gt; ColorMetadata -&gt; Ordering)
 -&gt; (ColorMetadata -&gt; ColorMetadata -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ColorMetadata -&gt; Rep ColorMetadata x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679946732"><span id="local-6989586621679946734"><span class="annot"><span class="annottext">Int -&gt; ColorMetadata -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679951355"><span id="local-6989586621679951357"><span class="annot"><span class="annottext">Int -&gt; ColorMetadata -&gt; Int
 ColorMetadata -&gt; Int
 (Int -&gt; ColorMetadata -&gt; Int)
 -&gt; (ColorMetadata -&gt; Int) -&gt; Hashable ColorMetadata
@@ -146,49 +146,49 @@ $chash :: ColorMetadata -&gt; Int
 hashWithSalt :: Int -&gt; ColorMetadata -&gt; Int
 $chashWithSalt :: Int -&gt; ColorMetadata -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679946729"><span class="annot"><span class="annottext">ColorMetadata -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679951352"><span class="annot"><span class="annottext">ColorMetadata -&gt; ()
 (ColorMetadata -&gt; ()) -&gt; NFData ColorMetadata
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ColorMetadata -&gt; ()
 $crnf :: ColorMetadata -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679946726"><span class="annot"><span class="annottext">Text -&gt; Either String ColorMetadata
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679951349"><span class="annot"><span class="annottext">Text -&gt; Either String ColorMetadata
 (Text -&gt; Either String ColorMetadata) -&gt; FromText ColorMetadata
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ColorMetadata
 $cfromText :: Text -&gt; Either String ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679946723"><span class="annot"><span class="annottext">ColorMetadata -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679951346"><span class="annot"><span class="annottext">ColorMetadata -&gt; Text
 (ColorMetadata -&gt; Text) -&gt; ToText ColorMetadata
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ColorMetadata -&gt; Text
 $ctoText :: ColorMetadata -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679946720"><span class="annot"><span class="annottext">ColorMetadata -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679951343"><span class="annot"><span class="annottext">ColorMetadata -&gt; ByteString
 (ColorMetadata -&gt; ByteString) -&gt; ToByteString ColorMetadata
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ColorMetadata -&gt; ByteString
 $ctoBS :: ColorMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679946717"><span class="annot"><span class="annottext">ColorMetadata -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679951340"><span class="annot"><span class="annottext">ColorMetadata -&gt; ByteStringBuilder
 (ColorMetadata -&gt; ByteStringBuilder) -&gt; ToLog ColorMetadata
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ColorMetadata -&gt; ByteStringBuilder
 $cbuild :: ColorMetadata -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679946714"><span class="annot"><span class="annottext">HeaderName -&gt; ColorMetadata -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679951337"><span class="annot"><span class="annottext">HeaderName -&gt; ColorMetadata -&gt; [Header]
 (HeaderName -&gt; ColorMetadata -&gt; [Header]) -&gt; ToHeader ColorMetadata
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ColorMetadata -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ColorMetadata -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679946711"><span class="annot"><span class="annottext">ColorMetadata -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679951334"><span class="annot"><span class="annottext">ColorMetadata -&gt; QueryString
 (ColorMetadata -&gt; QueryString) -&gt; ToQuery ColorMetadata
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ColorMetadata -&gt; QueryString
 $ctoQuery :: ColorMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679946706"><span id="local-6989586621679946708"><span class="annot"><span class="annottext">Value -&gt; Parser [ColorMetadata]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679951329"><span id="local-6989586621679951331"><span class="annot"><span class="annottext">Value -&gt; Parser [ColorMetadata]
 Value -&gt; Parser ColorMetadata
 (Value -&gt; Parser ColorMetadata)
 -&gt; (Value -&gt; Parser [ColorMetadata]) -&gt; FromJSON ColorMetadata
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ColorMetadata]
 parseJSON :: Value -&gt; Parser ColorMetadata
 $cparseJSON :: Value -&gt; Parser ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679946701"><span id="local-6989586621679946703"><span class="annot"><span class="annottext">FromJSONKeyFunction [ColorMetadata]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679951324"><span id="local-6989586621679951326"><span class="annot"><span class="annottext">FromJSONKeyFunction [ColorMetadata]
 FromJSONKeyFunction ColorMetadata
 FromJSONKeyFunction ColorMetadata
 -&gt; FromJSONKeyFunction [ColorMetadata] -&gt; FromJSONKey ColorMetadata
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ColorMetadata]
 fromJSONKey :: FromJSONKeyFunction ColorMetadata
 $cfromJSONKey :: FromJSONKeyFunction ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679946692"><span id="local-6989586621679946694"><span id="local-6989586621679946696"><span id="local-6989586621679946698"><span class="annot"><span class="annottext">[ColorMetadata] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679951315"><span id="local-6989586621679951317"><span id="local-6989586621679951319"><span id="local-6989586621679951321"><span class="annot"><span class="annottext">[ColorMetadata] -&gt; Encoding
 [ColorMetadata] -&gt; Value
 ColorMetadata -&gt; Encoding
 ColorMetadata -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ColorMetadata -&gt; Encoding
 toJSON :: ColorMetadata -&gt; Value
 $ctoJSON :: ColorMetadata -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679946687"><span id="local-6989586621679946689"><span class="annot"><span class="annottext">ToJSONKeyFunction [ColorMetadata]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679951310"><span id="local-6989586621679951312"><span class="annot"><span class="annottext">ToJSONKeyFunction [ColorMetadata]
 ToJSONKeyFunction ColorMetadata
 ToJSONKeyFunction ColorMetadata
 -&gt; ToJSONKeyFunction [ColorMetadata] -&gt; ToJSONKey ColorMetadata
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ColorMetadata]
 toJSONKey :: ToJSONKeyFunction ColorMetadata
 $ctoJSONKey :: ToJSONKeyFunction ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679946684"><span class="annot"><span class="annottext">[Node] -&gt; Either String ColorMetadata
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679951307"><span class="annot"><span class="annottext">[Node] -&gt; Either String ColorMetadata
 ([Node] -&gt; Either String ColorMetadata) -&gt; FromXML ColorMetadata
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ColorMetadata
 $cparseXML :: [Node] -&gt; Either String ColorMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679946681"><span class="annot"><span class="annottext">ColorMetadata -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679951304"><span class="annot"><span class="annottext">ColorMetadata -&gt; XML
 (ColorMetadata -&gt; XML) -&gt; ToXML ColorMetadata
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ColorMetadata -&gt; XML

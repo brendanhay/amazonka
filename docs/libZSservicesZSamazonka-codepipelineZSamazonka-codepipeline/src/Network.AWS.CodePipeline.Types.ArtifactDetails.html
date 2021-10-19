@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Returns information about the details of an artifact.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newArtifactDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679275669"><span id="local-6989586621679275670"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactDetails"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-var">ArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactDetails%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-var">ArtifactDetails'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679275868"><span id="local-6989586621679275869"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactDetails"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-var">ArtifactDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactDetails%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-var">ArtifactDetails'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum number of artifacts allowed for the action type.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AminimumCount%3AArtifactDetails%27"><span class="annot"><span class="annottext">ArtifactDetails -&gt; Natural
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#%24sel%3AminimumCount%3AArtifactDetails%27"><span class="hs-identifier hs-var hs-var">minimumCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaximumCount%3AArtifactDetails%27"><span class="annot"><span class="annottext">ArtifactDetails -&gt; Natural
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#%24sel%3AmaximumCount%3AArtifactDetails%27"><span class="hs-identifier hs-var hs-var">maximumCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275662"><span id="local-6989586621679275664"><span class="annot"><span class="annottext">ArtifactDetails -&gt; ArtifactDetails -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275861"><span id="local-6989586621679275863"><span class="annot"><span class="annottext">ArtifactDetails -&gt; ArtifactDetails -&gt; Bool
 (ArtifactDetails -&gt; ArtifactDetails -&gt; Bool)
 -&gt; (ArtifactDetails -&gt; ArtifactDetails -&gt; Bool)
 -&gt; Eq ArtifactDetails
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArtifactDetails -&gt; ArtifactDetails -&gt; Bool
 == :: ArtifactDetails -&gt; ArtifactDetails -&gt; Bool
 $c== :: ArtifactDetails -&gt; ArtifactDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275653"><span id="local-6989586621679275655"><span id="local-6989586621679275657"><span id="local-6989586621679275659"><span class="annot"><span class="annottext">ReadPrec [ArtifactDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275852"><span id="local-6989586621679275854"><span id="local-6989586621679275856"><span id="local-6989586621679275858"><span class="annot"><span class="annottext">ReadPrec [ArtifactDetails]
 ReadPrec ArtifactDetails
 Int -&gt; ReadS ArtifactDetails
 ReadS [ArtifactDetails]
@@ -63,7 +63,7 @@ readList :: ReadS [ArtifactDetails]
 $creadList :: ReadS [ArtifactDetails]
 readsPrec :: Int -&gt; ReadS ArtifactDetails
 $creadsPrec :: Int -&gt; ReadS ArtifactDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275646"><span id="local-6989586621679275648"><span id="local-6989586621679275650"><span class="annot"><span class="annottext">Int -&gt; ArtifactDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275845"><span id="local-6989586621679275847"><span id="local-6989586621679275849"><span class="annot"><span class="annottext">Int -&gt; ArtifactDetails -&gt; ShowS
 [ArtifactDetails] -&gt; ShowS
 ArtifactDetails -&gt; String
 (Int -&gt; ArtifactDetails -&gt; ShowS)
@@ -107,17 +107,17 @@ $cfrom :: forall x. ArtifactDetails -&gt; Rep ArtifactDetails x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span>
 </span><span id="line-54"></span><span id="newArtifactDetails"><span class="annot"><span class="annottext">newArtifactDetails :: Natural -&gt; Natural -&gt; ArtifactDetails
-</span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#newArtifactDetails"><span class="hs-identifier hs-var hs-var">newArtifactDetails</span></a></span></span><span> </span><span id="local-6989586621679275640"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275640"><span class="hs-identifier hs-var">pMinimumCount_</span></a></span></span><span> </span><span id="local-6989586621679275639"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275639"><span class="hs-identifier hs-var">pMaximumCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#newArtifactDetails"><span class="hs-identifier hs-var hs-var">newArtifactDetails</span></a></span></span><span> </span><span id="local-6989586621679275839"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679275839"><span class="hs-identifier hs-var">pMinimumCount_</span></a></span></span><span> </span><span id="local-6989586621679275838"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679275838"><span class="hs-identifier hs-var">pMaximumCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ArtifactDetails' :: Natural -&gt; Natural -&gt; ArtifactDetails
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minimumCount:ArtifactDetails' :: Natural
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#%24sel%3AminimumCount%3AArtifactDetails%27"><span class="hs-identifier hs-var">minimumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275640"><span class="hs-identifier hs-var">pMinimumCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275839"><span class="hs-identifier hs-var">pMinimumCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumCount:ArtifactDetails' :: Natural
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#%24sel%3AmaximumCount%3AArtifactDetails%27"><span class="hs-identifier hs-var">maximumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275639"><span class="hs-identifier hs-var">pMaximumCount_</span></a></span><span>
+</span><a href="#local-6989586621679275838"><span class="hs-identifier hs-var">pMaximumCount_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The minimum number of artifacts allowed for the action type.</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. ArtifactDetails -&gt; Rep ArtifactDetails x
 -&gt; (ArtifactDetails -&gt; Natural -&gt; ArtifactDetails)
 -&gt; Lens ArtifactDetails ArtifactDetails Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275635"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275834"><span class="annot"><span class="annottext">Natural
 minimumCount :: Natural
 $sel:minimumCount:ArtifactDetails' :: ArtifactDetails -&gt; Natural
-</span><a href="#local-6989586621679275635"><span class="hs-identifier hs-var hs-var">minimumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275635"><span class="hs-identifier hs-var">minimumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275634"><span class="annot"><span class="annottext">s :: ArtifactDetails
-</span><a href="#local-6989586621679275634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275633"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
-</span><a href="#local-6989586621679275634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumCount:ArtifactDetails' :: Natural
+</span><a href="#local-6989586621679275834"><span class="hs-identifier hs-var hs-var">minimumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679275834"><span class="hs-identifier hs-var">minimumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275833"><span class="annot"><span class="annottext">s :: ArtifactDetails
+</span><a href="#local-6989586621679275833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275832"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679275832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679275833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumCount:ArtifactDetails' :: Natural
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#%24sel%3AminimumCount%3AArtifactDetails%27"><span class="hs-identifier hs-var">minimumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The maximum number of artifacts allowed for the action type.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#artifactDetails_maximumCount"><span class="hs-identifier hs-type">artifactDetails_maximumCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -145,19 +145,19 @@ $sel:minimumCount:ArtifactDetails' :: ArtifactDetails -&gt; Natural
 -&gt; (ArtifactDetails -&gt; Natural -&gt; ArtifactDetails)
 -&gt; Lens ArtifactDetails ArtifactDetails Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275631"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275830"><span class="annot"><span class="annottext">Natural
 maximumCount :: Natural
 $sel:maximumCount:ArtifactDetails' :: ArtifactDetails -&gt; Natural
-</span><a href="#local-6989586621679275631"><span class="hs-identifier hs-var hs-var">maximumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275631"><span class="hs-identifier hs-var">maximumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275630"><span class="annot"><span class="annottext">s :: ArtifactDetails
-</span><a href="#local-6989586621679275630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275629"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
-</span><a href="#local-6989586621679275630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumCount:ArtifactDetails' :: Natural
+</span><a href="#local-6989586621679275830"><span class="hs-identifier hs-var hs-var">maximumCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679275830"><span class="hs-identifier hs-var">maximumCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275829"><span class="annot"><span class="annottext">s :: ArtifactDetails
+</span><a href="#local-6989586621679275829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275828"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679275828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactDetails
+</span><a href="#local-6989586621679275829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumCount:ArtifactDetails' :: Natural
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#%24sel%3AmaximumCount%3AArtifactDetails%27"><span class="hs-identifier hs-var">maximumCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275626"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679275624"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactDetails
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275825"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679275823"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArtifactDetails)
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArtifactDetails&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275621"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275820"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275820"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; ArtifactDetails
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-var">ArtifactDetails'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; ArtifactDetails)
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; ArtifactDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679275820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;minimumCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,24 +183,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser ArtifactDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679275820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275615"><span id="local-6989586621679275617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275814"><span id="local-6989586621679275816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275604"><span id="local-6989586621679275606"><span id="local-6989586621679275608"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679275602"><span class="annot"><span class="annottext">toJSON :: ArtifactDetails -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275599"><span id="local-6989586621679275600"><span class="annot"><span class="annottext">Natural
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275803"><span id="local-6989586621679275805"><span id="local-6989586621679275807"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails"><span class="hs-identifier hs-type">ArtifactDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679275801"><span class="annot"><span class="annottext">toJSON :: ArtifactDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactDetails.html#ArtifactDetails%27"><span class="hs-identifier hs-type">ArtifactDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275798"><span id="local-6989586621679275799"><span class="annot"><span class="annottext">Natural
 maximumCount :: Natural
 minimumCount :: Natural
 $sel:maximumCount:ArtifactDetails' :: ArtifactDetails -&gt; Natural
 $sel:minimumCount:ArtifactDetails' :: ArtifactDetails -&gt; Natural
-</span><a href="#local-6989586621679275599"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275798"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -212,14 +212,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;minimumCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275600"><span class="hs-identifier hs-var">minimumCount</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275799"><span class="hs-identifier hs-var">minimumCount</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679275599"><span class="hs-identifier hs-var">maximumCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275798"><span class="hs-identifier hs-var">maximumCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

@@ -60,13 +60,13 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDeleteDiskSnapshot' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679653113"><span id="local-6989586621679653114"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDiskSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-var">DeleteDiskSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDiskSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-var">DeleteDiskSnapshot'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679654139"><span id="local-6989586621679654140"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDiskSnapshot"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-var">DeleteDiskSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDiskSnapshot%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-var">DeleteDiskSnapshot'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the disk snapshot you want to delete (e.g.,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @my-disk-snapshot@).</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AdiskSnapshotName%3ADeleteDiskSnapshot%27"><span class="annot"><span class="annottext">DeleteDiskSnapshot -&gt; Text
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#%24sel%3AdiskSnapshotName%3ADeleteDiskSnapshot%27"><span class="hs-identifier hs-var hs-var">diskSnapshotName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653107"><span id="local-6989586621679653109"><span class="annot"><span class="annottext">DeleteDiskSnapshot -&gt; DeleteDiskSnapshot -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654133"><span id="local-6989586621679654135"><span class="annot"><span class="annottext">DeleteDiskSnapshot -&gt; DeleteDiskSnapshot -&gt; Bool
 (DeleteDiskSnapshot -&gt; DeleteDiskSnapshot -&gt; Bool)
 -&gt; (DeleteDiskSnapshot -&gt; DeleteDiskSnapshot -&gt; Bool)
 -&gt; Eq DeleteDiskSnapshot
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDiskSnapshot -&gt; DeleteDiskSnapshot -&gt; Bool
 == :: DeleteDiskSnapshot -&gt; DeleteDiskSnapshot -&gt; Bool
 $c== :: DeleteDiskSnapshot -&gt; DeleteDiskSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653098"><span id="local-6989586621679653100"><span id="local-6989586621679653102"><span id="local-6989586621679653104"><span class="annot"><span class="annottext">ReadPrec [DeleteDiskSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654124"><span id="local-6989586621679654126"><span id="local-6989586621679654128"><span id="local-6989586621679654130"><span class="annot"><span class="annottext">ReadPrec [DeleteDiskSnapshot]
 ReadPrec DeleteDiskSnapshot
 Int -&gt; ReadS DeleteDiskSnapshot
 ReadS [DeleteDiskSnapshot]
@@ -95,7 +95,7 @@ readList :: ReadS [DeleteDiskSnapshot]
 $creadList :: ReadS [DeleteDiskSnapshot]
 readsPrec :: Int -&gt; ReadS DeleteDiskSnapshot
 $creadsPrec :: Int -&gt; ReadS DeleteDiskSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653091"><span id="local-6989586621679653093"><span id="local-6989586621679653095"><span class="annot"><span class="annottext">Int -&gt; DeleteDiskSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654117"><span id="local-6989586621679654119"><span id="local-6989586621679654121"><span class="annot"><span class="annottext">Int -&gt; DeleteDiskSnapshot -&gt; ShowS
 [DeleteDiskSnapshot] -&gt; ShowS
 DeleteDiskSnapshot -&gt; String
 (Int -&gt; DeleteDiskSnapshot -&gt; ShowS)
@@ -136,14 +136,14 @@ $cfrom :: forall x. DeleteDiskSnapshot -&gt; Rep DeleteDiskSnapshot x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span>
 </span><span id="line-84"></span><span id="newDeleteDiskSnapshot"><span class="annot"><span class="annottext">newDeleteDiskSnapshot :: Text -&gt; DeleteDiskSnapshot
-</span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#newDeleteDiskSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteDiskSnapshot</span></a></span></span><span> </span><span id="local-6989586621679653086"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653086"><span class="hs-identifier hs-var">pDiskSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#newDeleteDiskSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteDiskSnapshot</span></a></span></span><span> </span><span id="local-6989586621679654112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654112"><span class="hs-identifier hs-var">pDiskSnapshotName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DeleteDiskSnapshot' :: Text -&gt; DeleteDiskSnapshot
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-type">DeleteDiskSnapshot'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:diskSnapshotName:DeleteDiskSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#%24sel%3AdiskSnapshotName%3ADeleteDiskSnapshot%27"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653086"><span class="hs-identifier hs-var">pDiskSnapshotName_</span></a></span><span>
+</span><a href="#local-6989586621679654112"><span class="hs-identifier hs-var">pDiskSnapshotName_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The name of the disk snapshot you want to delete (e.g.,</span><span>
@@ -154,27 +154,27 @@ $cfrom :: forall x. DeleteDiskSnapshot -&gt; Rep DeleteDiskSnapshot x
 -&gt; (DeleteDiskSnapshot -&gt; Text -&gt; DeleteDiskSnapshot)
 -&gt; Lens DeleteDiskSnapshot DeleteDiskSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-type">DeleteDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653083"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-type">DeleteDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654109"><span class="annot"><span class="annottext">Text
 diskSnapshotName :: Text
 $sel:diskSnapshotName:DeleteDiskSnapshot' :: DeleteDiskSnapshot -&gt; Text
-</span><a href="#local-6989586621679653083"><span class="hs-identifier hs-var hs-var">diskSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653083"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653082"><span class="annot"><span class="annottext">s :: DeleteDiskSnapshot
-</span><a href="#local-6989586621679653082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-type">DeleteDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679653081"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskSnapshot
-</span><a href="#local-6989586621679653082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSnapshotName:DeleteDiskSnapshot' :: Text
+</span><a href="#local-6989586621679654109"><span class="hs-identifier hs-var hs-var">diskSnapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654109"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654108"><span class="annot"><span class="annottext">s :: DeleteDiskSnapshot
+</span><a href="#local-6989586621679654108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-type">DeleteDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679654107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskSnapshot
+</span><a href="#local-6989586621679654108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskSnapshotName:DeleteDiskSnapshot' :: Text
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#%24sel%3AdiskSnapshotName%3ADeleteDiskSnapshot%27"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679653077"><span class="annot"><span class="annottext">request :: DeleteDiskSnapshot -&gt; Request DeleteDiskSnapshot
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679654103"><span class="annot"><span class="annottext">request :: DeleteDiskSnapshot -&gt; Request DeleteDiskSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDiskSnapshot -&gt; Request DeleteDiskSnapshot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679653073"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679654099"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDiskSnapshot
 -&gt; ClientResponse ClientBody
@@ -200,10 +200,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679653070"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653070"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679653069"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679653069"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679653068"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679653068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679654096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654096"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679654095"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679654095"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679654094"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679654094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteDiskSnapshotResponse
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteDiskSnapshotResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteDiskSnapshotResponse)
@@ -211,7 +211,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteDiskSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679653068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679654094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -228,15 +228,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653070"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654096"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653059"><span id="local-6989586621679653061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654085"><span id="local-6989586621679654087"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679653052"><span class="annot"><span class="annottext">toHeaders :: DeleteDiskSnapshot -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679654078"><span class="annot"><span class="annottext">toHeaders :: DeleteDiskSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDiskSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -263,12 +263,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679653042"><span id="local-6989586621679653044"><span id="local-6989586621679653046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679653040"><span class="annot"><span class="annottext">toJSON :: DeleteDiskSnapshot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-type">DeleteDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653038"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654068"><span id="local-6989586621679654070"><span id="local-6989586621679654072"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679654066"><span class="annot"><span class="annottext">toJSON :: DeleteDiskSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot%27"><span class="hs-identifier hs-type">DeleteDiskSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654064"><span class="annot"><span class="annottext">Text
 diskSnapshotName :: Text
 $sel:diskSnapshotName:DeleteDiskSnapshot' :: DeleteDiskSnapshot -&gt; Text
-</span><a href="#local-6989586621679653038"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679654064"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -281,19 +281,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;diskSnapshotName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679653038"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654064"><span class="hs-identifier hs-var">diskSnapshotName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679653032"><span class="annot"><span class="annottext">toPath :: DeleteDiskSnapshot -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679654058"><span class="annot"><span class="annottext">toPath :: DeleteDiskSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDiskSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshot"><span class="hs-identifier hs-type">DeleteDiskSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679653028"><span class="annot"><span class="annottext">toQuery :: DeleteDiskSnapshot -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679654054"><span class="annot"><span class="annottext">toQuery :: DeleteDiskSnapshot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDiskSnapshot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDeleteDiskSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679653025"><span id="local-6989586621679653026"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDiskSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-var">DeleteDiskSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDiskSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteDiskSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679654051"><span id="local-6989586621679654052"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDiskSnapshotResponse"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-var">DeleteDiskSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDiskSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteDiskSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDiskSnapshotResponse%27"><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#%24sel%3AhttpStatus%3ADeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679653019"><span id="local-6989586621679653021"><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse -&gt; DeleteDiskSnapshotResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679654045"><span id="local-6989586621679654047"><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse -&gt; DeleteDiskSnapshotResponse -&gt; Bool
 (DeleteDiskSnapshotResponse -&gt; DeleteDiskSnapshotResponse -&gt; Bool)
 -&gt; (DeleteDiskSnapshotResponse
     -&gt; DeleteDiskSnapshotResponse -&gt; Bool)
@@ -321,7 +321,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDiskSnapshotResponse -&gt; DeleteDiskSnapshotResponse -&gt; Bool
 == :: DeleteDiskSnapshotResponse -&gt; DeleteDiskSnapshotResponse -&gt; Bool
 $c== :: DeleteDiskSnapshotResponse -&gt; DeleteDiskSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653011"><span id="local-6989586621679653013"><span id="local-6989586621679653015"><span id="local-6989586621679653017"><span class="annot"><span class="annottext">ReadPrec [DeleteDiskSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654037"><span id="local-6989586621679654039"><span id="local-6989586621679654041"><span id="local-6989586621679654043"><span class="annot"><span class="annottext">ReadPrec [DeleteDiskSnapshotResponse]
 ReadPrec DeleteDiskSnapshotResponse
 Int -&gt; ReadS DeleteDiskSnapshotResponse
 ReadS [DeleteDiskSnapshotResponse]
@@ -341,7 +341,7 @@ readList :: ReadS [DeleteDiskSnapshotResponse]
 $creadList :: ReadS [DeleteDiskSnapshotResponse]
 readsPrec :: Int -&gt; ReadS DeleteDiskSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDiskSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679653005"><span id="local-6989586621679653007"><span id="local-6989586621679653009"><span class="annot"><span class="annottext">Int -&gt; DeleteDiskSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679654031"><span id="local-6989586621679654033"><span id="local-6989586621679654035"><span class="annot"><span class="annottext">Int -&gt; DeleteDiskSnapshotResponse -&gt; ShowS
 [DeleteDiskSnapshotResponse] -&gt; ShowS
 DeleteDiskSnapshotResponse -&gt; String
 (Int -&gt; DeleteDiskSnapshotResponse -&gt; ShowS)
@@ -391,8 +391,8 @@ DeleteDiskSnapshotResponse -&gt; Rep DeleteDiskSnapshotResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newDeleteDiskSnapshotResponse"><span class="annot"><span class="annottext">newDeleteDiskSnapshotResponse :: Int -&gt; DeleteDiskSnapshotResponse
-</span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#newDeleteDiskSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteDiskSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679653002"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#newDeleteDiskSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteDiskSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679654028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteDiskSnapshotResponse
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteDiskSnapshotResponse' :: Maybe [Operation]
@@ -402,7 +402,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDiskSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#%24sel%3AhttpStatus%3ADeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679653002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679654028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -420,16 +420,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679653001"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654027"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DeleteDiskSnapshotResponse' :: DeleteDiskSnapshotResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679653001"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679653001"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679653000"><span class="annot"><span class="annottext">s :: DeleteDiskSnapshotResponse
-</span><a href="#local-6989586621679653000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652999"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse
-</span><a href="#local-6989586621679653000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteDiskSnapshotResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679654027"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679654027"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654026"><span class="annot"><span class="annottext">s :: DeleteDiskSnapshotResponse
+</span><a href="#local-6989586621679654026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654025"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679654025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse
+</span><a href="#local-6989586621679654026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteDiskSnapshotResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#%24sel%3Aoperations%3ADeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679652999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679654025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DeleteDiskSnapshotResponse -&gt; f DeleteDiskSnapshotResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -447,8 +447,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#deleteDiskSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">deleteDiskSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -460,16 +460,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DeleteDiskSnapshotResponse DeleteDiskSnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679652995"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679654021"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDiskSnapshotResponse' :: DeleteDiskSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679652995"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652995"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679652994"><span class="annot"><span class="annottext">s :: DeleteDiskSnapshotResponse
-</span><a href="#local-6989586621679652994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679652993"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse
-</span><a href="#local-6989586621679652994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDiskSnapshotResponse' :: Int
+</span><a href="#local-6989586621679654021"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654021"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679654020"><span class="annot"><span class="annottext">s :: DeleteDiskSnapshotResponse
+</span><a href="#local-6989586621679654020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679654019"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679654019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDiskSnapshotResponse
+</span><a href="#local-6989586621679654020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDiskSnapshotResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#%24sel%3AhttpStatus%3ADeleteDiskSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679652993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679654019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679652991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679654017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DeleteDiskSnapshot.html#DeleteDiskSnapshotResponse"><span class="hs-identifier hs-type">DeleteDiskSnapshotResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

@@ -29,30 +29,30 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a subnet CIDR reservation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSubnetCidrReservation' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681121178"><span id="local-6989586621681121179"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetCidrReservation"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-var">SubnetCidrReservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetCidrReservation%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-var">SubnetCidrReservation'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the account that owns the subnet CIDR reservation.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AownerId%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621681156026"><span id="local-6989586621681156027"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetCidrReservation"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-var">SubnetCidrReservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetCidrReservation%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-var">SubnetCidrReservation'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the subnet.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the account that owns the subnet CIDR reservation.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AownerId%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AownerId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of reservation.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AreservationType%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe SubnetCidrReservationType
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AreservationType%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">reservationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType"><span class="hs-identifier hs-type">SubnetCidrReservationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet CIDR reservation.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">subnetCidrReservationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The CIDR that has been reserved.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Acidr%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The CIDR that has been reserved.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Acidr%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Acidr%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the subnet CIDR reservation.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Atags%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Atags%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet CIDR reservation.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">subnetCidrReservationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The type of reservation.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AreservationType%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe SubnetCidrReservationType
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AreservationType%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">reservationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType"><span class="hs-identifier hs-type">SubnetCidrReservationType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The description assigned to the subnet CIDR reservation.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Adescription%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Adescription%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the subnet CIDR reservation.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atags%3ASubnetCidrReservation%27"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Atags%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681121166"><span id="local-6989586621681121168"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; SubnetCidrReservation -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681156014"><span id="local-6989586621681156016"><span class="annot"><span class="annottext">SubnetCidrReservation -&gt; SubnetCidrReservation -&gt; Bool
 (SubnetCidrReservation -&gt; SubnetCidrReservation -&gt; Bool)
 -&gt; (SubnetCidrReservation -&gt; SubnetCidrReservation -&gt; Bool)
 -&gt; Eq SubnetCidrReservation
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubnetCidrReservation -&gt; SubnetCidrReservation -&gt; Bool
 == :: SubnetCidrReservation -&gt; SubnetCidrReservation -&gt; Bool
 $c== :: SubnetCidrReservation -&gt; SubnetCidrReservation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121157"><span id="local-6989586621681121159"><span id="local-6989586621681121161"><span id="local-6989586621681121163"><span class="annot"><span class="annottext">ReadPrec [SubnetCidrReservation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681156005"><span id="local-6989586621681156007"><span id="local-6989586621681156009"><span id="local-6989586621681156011"><span class="annot"><span class="annottext">ReadPrec [SubnetCidrReservation]
 ReadPrec SubnetCidrReservation
 Int -&gt; ReadS SubnetCidrReservation
 ReadS [SubnetCidrReservation]
@@ -81,7 +81,7 @@ readList :: ReadS [SubnetCidrReservation]
 $creadList :: ReadS [SubnetCidrReservation]
 readsPrec :: Int -&gt; ReadS SubnetCidrReservation
 $creadsPrec :: Int -&gt; ReadS SubnetCidrReservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121150"><span id="local-6989586621681121152"><span id="local-6989586621681121154"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrReservation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681155998"><span id="local-6989586621681156000"><span id="local-6989586621681156002"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrReservation -&gt; ShowS
 [SubnetCidrReservation] -&gt; ShowS
 SubnetCidrReservation -&gt; String
 (Int -&gt; SubnetCidrReservation -&gt; ShowS)
@@ -115,65 +115,88 @@ $cfrom :: forall x. SubnetCidrReservation -&gt; Rep SubnetCidrReservation x
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'ownerId', 'subnetCidrReservation_ownerId' - The ID of the account that owns the subnet CIDR reservation.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'subnetId', 'subnetCidrReservation_subnetId' - The ID of the subnet.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'reservationType', 'subnetCidrReservation_reservationType' - The type of reservation.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'ownerId', 'subnetCidrReservation_ownerId' - The ID of the account that owns the subnet CIDR reservation.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'subnetCidrReservationId', 'subnetCidrReservation_subnetCidrReservationId' - The ID of the subnet CIDR reservation.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'cidr', 'subnetCidrReservation_cidr' - The CIDR that has been reserved.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'cidr', 'subnetCidrReservation_cidr' - The CIDR that has been reserved.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'subnetCidrReservationId', 'subnetCidrReservation_subnetCidrReservationId' - The ID of the subnet CIDR reservation.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'tags', 'subnetCidrReservation_tags' - The tags assigned to the subnet CIDR reservation.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'reservationType', 'subnetCidrReservation_reservationType' - The type of reservation.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- 'description', 'subnetCidrReservation_description' - The description assigned to the subnet CIDR reservation.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'subnetId', 'subnetCidrReservation_subnetId' - The ID of the subnet.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'tags', 'subnetCidrReservation_tags' - The tags assigned to the subnet CIDR reservation.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#newSubnetCidrReservation"><span class="hs-identifier hs-type">newSubnetCidrReservation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span>
 </span><span id="line-73"></span><span id="newSubnetCidrReservation"><span class="annot"><span class="annottext">newSubnetCidrReservation :: SubnetCidrReservation
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#newSubnetCidrReservation"><span class="hs-identifier hs-var hs-var">newSubnetCidrReservation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">SubnetCidrReservation' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe SubnetCidrReservationType
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; SubnetCidrReservation
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:SubnetCidrReservation' :: Maybe Text
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetId:SubnetCidrReservation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:SubnetCidrReservation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AownerId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservationType:SubnetCidrReservation' :: Maybe SubnetCidrReservationType
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AreservationType%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">reservationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetCidrReservationId:SubnetCidrReservation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetCidrReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidr:SubnetCidrReservation' :: Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidr:SubnetCidrReservation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Acidr%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SubnetCidrReservation' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Atags%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetCidrReservationId:SubnetCidrReservation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetCidrReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservationType:SubnetCidrReservation' :: Maybe SubnetCidrReservationType
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AreservationType%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">reservationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:SubnetCidrReservation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Adescription%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:SubnetCidrReservation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:SubnetCidrReservation' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Atags%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The ID of the account that owns the subnet CIDR reservation.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_ownerId"><span class="hs-identifier hs-type">subnetCidrReservation_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="subnetCidrReservation_ownerId"><span class="annot"><span class="annottext">subnetCidrReservation_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-84"></span><span class="hs-comment">-- | The ID of the subnet.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetId"><span class="hs-identifier hs-type">subnetCidrReservation_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="subnetCidrReservation_subnetId"><span class="annot"><span class="annottext">subnetCidrReservation_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetId"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe Text)
+-&gt; (SubnetCidrReservation -&gt; Maybe Text -&gt; SubnetCidrReservation)
+-&gt; Lens
+     SubnetCidrReservation
+     SubnetCidrReservation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155989"><span class="annot"><span class="annottext">Maybe Text
+subnetId :: Maybe Text
+$sel:subnetId:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
+</span><a href="#local-6989586621681155989"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155989"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155988"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
+</span><a href="#local-6989586621681155988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155987"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
+</span><a href="#local-6989586621681155988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:SubnetCidrReservation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the account that owns the subnet CIDR reservation.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_ownerId"><span class="hs-identifier hs-type">subnetCidrReservation_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="subnetCidrReservation_ownerId"><span class="annot"><span class="annottext">subnetCidrReservation_ownerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_ownerId"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe Text)
 -&gt; (SubnetCidrReservation -&gt; Maybe Text -&gt; SubnetCidrReservation)
@@ -183,20 +206,66 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121141"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155985"><span class="annot"><span class="annottext">Maybe Text
 ownerId :: Maybe Text
 $sel:ownerId:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
-</span><a href="#local-6989586621681121141"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121141"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121140"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
-</span><a href="#local-6989586621681121140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121139"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
-</span><a href="#local-6989586621681121140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:SubnetCidrReservation' :: Maybe Text
+</span><a href="#local-6989586621681155985"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155985"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155984"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
+</span><a href="#local-6989586621681155984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155983"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
+</span><a href="#local-6989586621681155984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:SubnetCidrReservation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AownerId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The type of reservation.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_reservationType"><span class="hs-identifier hs-type">subnetCidrReservation_reservationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType"><span class="hs-identifier hs-type">SubnetCidrReservationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="subnetCidrReservation_reservationType"><span class="annot"><span class="annottext">subnetCidrReservation_reservationType :: (Maybe SubnetCidrReservationType
+</span><a href="#local-6989586621681155983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The CIDR that has been reserved.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_cidr"><span class="hs-identifier hs-type">subnetCidrReservation_cidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="subnetCidrReservation_cidr"><span class="annot"><span class="annottext">subnetCidrReservation_cidr :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_cidr"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_cidr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe Text)
+-&gt; (SubnetCidrReservation -&gt; Maybe Text -&gt; SubnetCidrReservation)
+-&gt; Lens
+     SubnetCidrReservation
+     SubnetCidrReservation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155981"><span class="annot"><span class="annottext">Maybe Text
+cidr :: Maybe Text
+$sel:cidr:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
+</span><a href="#local-6989586621681155981"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155981"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155980"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
+</span><a href="#local-6989586621681155980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155979"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
+</span><a href="#local-6989586621681155980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:SubnetCidrReservation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Acidr%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the subnet CIDR reservation.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetCidrReservationId"><span class="hs-identifier hs-type">subnetCidrReservation_subnetCidrReservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="subnetCidrReservation_subnetCidrReservationId"><span class="annot"><span class="annottext">subnetCidrReservation_subnetCidrReservationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetCidrReservationId"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_subnetCidrReservationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe Text)
+-&gt; (SubnetCidrReservation -&gt; Maybe Text -&gt; SubnetCidrReservation)
+-&gt; Lens
+     SubnetCidrReservation
+     SubnetCidrReservation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155977"><span class="annot"><span class="annottext">Maybe Text
+subnetCidrReservationId :: Maybe Text
+$sel:subnetCidrReservationId:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
+</span><a href="#local-6989586621681155977"><span class="hs-identifier hs-var hs-var">subnetCidrReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155977"><span class="hs-identifier hs-var">subnetCidrReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155976"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
+</span><a href="#local-6989586621681155976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155975"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
+</span><a href="#local-6989586621681155976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetCidrReservationId:SubnetCidrReservation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetCidrReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The type of reservation.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_reservationType"><span class="hs-identifier hs-type">subnetCidrReservation_reservationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservationType.html#SubnetCidrReservationType"><span class="hs-identifier hs-type">SubnetCidrReservationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="subnetCidrReservation_reservationType"><span class="annot"><span class="annottext">subnetCidrReservation_reservationType :: (Maybe SubnetCidrReservationType
  -&gt; f (Maybe SubnetCidrReservationType))
 -&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_reservationType"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_reservationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe SubnetCidrReservationType)
@@ -208,100 +277,16 @@ $sel:ownerId:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
      (Maybe SubnetCidrReservationType)
      (Maybe SubnetCidrReservationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121137"><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155973"><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
 reservationType :: Maybe SubnetCidrReservationType
 $sel:reservationType:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe SubnetCidrReservationType
-</span><a href="#local-6989586621681121137"><span class="hs-identifier hs-var hs-var">reservationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
-</span><a href="#local-6989586621681121137"><span class="hs-identifier hs-var">reservationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121136"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
-</span><a href="#local-6989586621681121136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121135"><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
-</span><a href="#local-6989586621681121135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
-</span><a href="#local-6989586621681121136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationType:SubnetCidrReservation' :: Maybe SubnetCidrReservationType
+</span><a href="#local-6989586621681155973"><span class="hs-identifier hs-var hs-var">reservationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
+</span><a href="#local-6989586621681155973"><span class="hs-identifier hs-var">reservationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155972"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
+</span><a href="#local-6989586621681155972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155971"><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
+</span><a href="#local-6989586621681155971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
+</span><a href="#local-6989586621681155972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationType:SubnetCidrReservation' :: Maybe SubnetCidrReservationType
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AreservationType%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">reservationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrReservationType
-</span><a href="#local-6989586621681121135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The ID of the subnet CIDR reservation.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetCidrReservationId"><span class="hs-identifier hs-type">subnetCidrReservation_subnetCidrReservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="subnetCidrReservation_subnetCidrReservationId"><span class="annot"><span class="annottext">subnetCidrReservation_subnetCidrReservationId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetCidrReservationId"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_subnetCidrReservationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe Text)
--&gt; (SubnetCidrReservation -&gt; Maybe Text -&gt; SubnetCidrReservation)
--&gt; Lens
-     SubnetCidrReservation
-     SubnetCidrReservation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121133"><span class="annot"><span class="annottext">Maybe Text
-subnetCidrReservationId :: Maybe Text
-$sel:subnetCidrReservationId:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
-</span><a href="#local-6989586621681121133"><span class="hs-identifier hs-var hs-var">subnetCidrReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121133"><span class="hs-identifier hs-var">subnetCidrReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121132"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
-</span><a href="#local-6989586621681121132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
-</span><a href="#local-6989586621681121132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetCidrReservationId:SubnetCidrReservation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetCidrReservationId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetCidrReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The CIDR that has been reserved.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_cidr"><span class="hs-identifier hs-type">subnetCidrReservation_cidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="subnetCidrReservation_cidr"><span class="annot"><span class="annottext">subnetCidrReservation_cidr :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_cidr"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_cidr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe Text)
--&gt; (SubnetCidrReservation -&gt; Maybe Text -&gt; SubnetCidrReservation)
--&gt; Lens
-     SubnetCidrReservation
-     SubnetCidrReservation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121129"><span class="annot"><span class="annottext">Maybe Text
-cidr :: Maybe Text
-$sel:cidr:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
-</span><a href="#local-6989586621681121129"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121129"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121128"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
-</span><a href="#local-6989586621681121128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121127"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
-</span><a href="#local-6989586621681121128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:SubnetCidrReservation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Acidr%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The tags assigned to the subnet CIDR reservation.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_tags"><span class="hs-identifier hs-type">subnetCidrReservation_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="subnetCidrReservation_tags"><span class="annot"><span class="annottext">subnetCidrReservation_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_tags"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe [Tag])
--&gt; (SubnetCidrReservation -&gt; Maybe [Tag] -&gt; SubnetCidrReservation)
--&gt; Lens
-     SubnetCidrReservation
-     SubnetCidrReservation
-     (Maybe [Tag])
-     (Maybe [Tag])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121125"><span class="annot"><span class="annottext">Maybe [Tag]
-tags :: Maybe [Tag]
-$sel:tags:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681121125"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681121125"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121124"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
-</span><a href="#local-6989586621681121124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121123"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681121123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
-</span><a href="#local-6989586621681121124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SubnetCidrReservation' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Atags%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681121123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
- -&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation)
--&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
-    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; SubnetCidrReservation
--&gt; f SubnetCidrReservation
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
--&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><a href="#local-6989586621681155971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The description assigned to the subnet CIDR reservation.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_description"><span class="hs-identifier hs-type">subnetCidrReservation_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -315,149 +300,184 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121118"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155969"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
-</span><a href="#local-6989586621681121118"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121118"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121117"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
-</span><a href="#local-6989586621681121117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121116"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
-</span><a href="#local-6989586621681121117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:SubnetCidrReservation' :: Maybe Text
+</span><a href="#local-6989586621681155969"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155969"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155968"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
+</span><a href="#local-6989586621681155968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681155967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
+</span><a href="#local-6989586621681155968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:SubnetCidrReservation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Adescription%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681155967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the subnet.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetId"><span class="hs-identifier hs-type">subnetCidrReservation_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="subnetCidrReservation_subnetId"><span class="annot"><span class="annottext">subnetCidrReservation_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-108"></span><span class="hs-comment">-- | The tags assigned to the subnet CIDR reservation.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_tags"><span class="hs-identifier hs-type">subnetCidrReservation_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="subnetCidrReservation_tags"><span class="annot"><span class="annottext">subnetCidrReservation_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_subnetId"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe Text)
--&gt; (SubnetCidrReservation -&gt; Maybe Text -&gt; SubnetCidrReservation)
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#subnetCidrReservation_tags"><span class="hs-identifier hs-var hs-var">subnetCidrReservation_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrReservation -&gt; Maybe [Tag])
+-&gt; (SubnetCidrReservation -&gt; Maybe [Tag] -&gt; SubnetCidrReservation)
 -&gt; Lens
      SubnetCidrReservation
      SubnetCidrReservation
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe [Tag])
+     (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121114"><span class="annot"><span class="annottext">Maybe Text
-subnetId :: Maybe Text
-$sel:subnetId:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe Text
-</span><a href="#local-6989586621681121114"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121114"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121113"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
-</span><a href="#local-6989586621681121113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121112"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
-</span><a href="#local-6989586621681121113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:SubnetCidrReservation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3AsubnetId%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681121112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155965"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:SubnetCidrReservation' :: SubnetCidrReservation -&gt; Maybe [Tag]
+</span><a href="#local-6989586621681155965"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681155965"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155964"><span class="annot"><span class="annottext">s :: SubnetCidrReservation
+</span><a href="#local-6989586621681155964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-type">SubnetCidrReservation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155963"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681155963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrReservation
+</span><a href="#local-6989586621681155964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:SubnetCidrReservation' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#%24sel%3Atags%3ASubnetCidrReservation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681155963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; SubnetCidrReservation -&gt; f SubnetCidrReservation)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; SubnetCidrReservation
+-&gt; f SubnetCidrReservation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621681121109"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetCidrReservation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681121107"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621681155957"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetCidrReservation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681155955"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe SubnetCidrReservationType
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; SubnetCidrReservation
 </span><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation%27"><span class="hs-identifier hs-var">SubnetCidrReservation'</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe SubnetCidrReservationType
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe [Tag]
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; SubnetCidrReservation)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe SubnetCidrReservationType
+     (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe SubnetCidrReservationType
       -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; SubnetCidrReservation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe SubnetCidrReservationType
+  (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe SubnetCidrReservationType
    -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; SubnetCidrReservation)
--&gt; Either String (Maybe SubnetCidrReservationType)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe SubnetCidrReservationType
+      -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; SubnetCidrReservation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SubnetCidrReservationType)
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;reservationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe SubnetCidrReservationType
+   -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; SubnetCidrReservation)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
+      -&gt; Maybe SubnetCidrReservationType
+      -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; SubnetCidrReservation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subnetCidrReservationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;cidr&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
+   -&gt; Maybe SubnetCidrReservationType
+   -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; SubnetCidrReservation)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; SubnetCidrReservation)
+     (Maybe SubnetCidrReservationType
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; SubnetCidrReservation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cidr&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;subnetCidrReservationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; SubnetCidrReservation)
--&gt; Either String (Maybe [Tag])
+  (Maybe SubnetCidrReservationType
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; SubnetCidrReservation)
+-&gt; Either String (Maybe SubnetCidrReservationType)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe Text -&gt; SubnetCidrReservation)
+     String (Maybe Text -&gt; Maybe [Tag] -&gt; SubnetCidrReservation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SubnetCidrReservationType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; SubnetCidrReservation)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; SubnetCidrReservation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; SubnetCidrReservation)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String SubnetCidrReservation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681155955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -465,7 +485,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-120"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-122"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -478,27 +498,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; SubnetCidrReservation)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; SubnetCidrReservation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; SubnetCidrReservation)
--&gt; Either String (Maybe Text)
--&gt; Either String SubnetCidrReservation
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681121107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681121098"><span id="local-6989586621681121100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681155946"><span id="local-6989586621681155948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681121095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681155943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrReservation.html#SubnetCidrReservation"><span class="hs-identifier hs-type">SubnetCidrReservation</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

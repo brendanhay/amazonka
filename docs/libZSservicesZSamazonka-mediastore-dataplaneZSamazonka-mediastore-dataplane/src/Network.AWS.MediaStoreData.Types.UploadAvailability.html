@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679147525"><span id="local-6989586621679147526"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UploadAvailability"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.UploadAvailability.html#UploadAvailability"><span class="hs-identifier hs-var">UploadAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadAvailability%27"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.UploadAvailability.html#UploadAvailability%27"><span class="hs-identifier hs-var">UploadAvailability'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679147530"><span id="local-6989586621679147531"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UploadAvailability"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.UploadAvailability.html#UploadAvailability"><span class="hs-identifier hs-var">UploadAvailability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadAvailability%27"><span class="annot"><a href="Network.AWS.MediaStoreData.Types.UploadAvailability.html#UploadAvailability%27"><span class="hs-identifier hs-var">UploadAvailability'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUploadAvailability"><span class="annot"><span class="annottext">UploadAvailability -&gt; Text
 </span><a href="Network.AWS.MediaStoreData.Types.UploadAvailability.html#fromUploadAvailability"><span class="hs-identifier hs-var hs-var">fromUploadAvailability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147517"><span id="local-6989586621679147519"><span id="local-6989586621679147521"><span class="annot"><span class="annottext">Int -&gt; UploadAvailability -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147522"><span id="local-6989586621679147524"><span id="local-6989586621679147526"><span class="annot"><span class="annottext">Int -&gt; UploadAvailability -&gt; ShowS
 [UploadAvailability] -&gt; ShowS
 UploadAvailability -&gt; String
 (Int -&gt; UploadAvailability -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: UploadAvailability -&gt; String
 showsPrec :: Int -&gt; UploadAvailability -&gt; ShowS
 $cshowsPrec :: Int -&gt; UploadAvailability -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679147508"><span id="local-6989586621679147510"><span id="local-6989586621679147512"><span id="local-6989586621679147514"><span class="annot"><span class="annottext">ReadPrec [UploadAvailability]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679147513"><span id="local-6989586621679147515"><span id="local-6989586621679147517"><span id="local-6989586621679147519"><span class="annot"><span class="annottext">ReadPrec [UploadAvailability]
 ReadPrec UploadAvailability
 Int -&gt; ReadS UploadAvailability
 ReadS [UploadAvailability]
@@ -72,7 +72,7 @@ $creadList :: ReadS [UploadAvailability]
 readsPrec :: Int -&gt; ReadS UploadAvailability
 $creadsPrec :: Int -&gt; ReadS UploadAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679147503"><span id="local-6989586621679147505"><span class="annot"><span class="annottext">UploadAvailability -&gt; UploadAvailability -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679147508"><span id="local-6989586621679147510"><span class="annot"><span class="annottext">UploadAvailability -&gt; UploadAvailability -&gt; Bool
 (UploadAvailability -&gt; UploadAvailability -&gt; Bool)
 -&gt; (UploadAvailability -&gt; UploadAvailability -&gt; Bool)
 -&gt; Eq UploadAvailability
@@ -82,7 +82,7 @@ $c/= :: UploadAvailability -&gt; UploadAvailability -&gt; Bool
 == :: UploadAvailability -&gt; UploadAvailability -&gt; Bool
 $c== :: UploadAvailability -&gt; UploadAvailability -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679147487"><span id="local-6989586621679147489"><span id="local-6989586621679147491"><span id="local-6989586621679147493"><span id="local-6989586621679147495"><span id="local-6989586621679147497"><span id="local-6989586621679147499"><span class="annot"><span class="annottext">Eq UploadAvailability
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679147492"><span id="local-6989586621679147494"><span id="local-6989586621679147496"><span id="local-6989586621679147498"><span id="local-6989586621679147500"><span id="local-6989586621679147502"><span id="local-6989586621679147504"><span class="annot"><span class="annottext">Eq UploadAvailability
 Eq UploadAvailability
 -&gt; (UploadAvailability -&gt; UploadAvailability -&gt; Ordering)
 -&gt; (UploadAvailability -&gt; UploadAvailability -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. UploadAvailability -&gt; Rep UploadAvailability x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147479"><span id="local-6989586621679147481"><span class="annot"><span class="annottext">Int -&gt; UploadAvailability -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679147484"><span id="local-6989586621679147486"><span class="annot"><span class="annottext">Int -&gt; UploadAvailability -&gt; Int
 UploadAvailability -&gt; Int
 (Int -&gt; UploadAvailability -&gt; Int)
 -&gt; (UploadAvailability -&gt; Int) -&gt; Hashable UploadAvailability
@@ -143,53 +143,53 @@ $chash :: UploadAvailability -&gt; Int
 hashWithSalt :: Int -&gt; UploadAvailability -&gt; Int
 $chashWithSalt :: Int -&gt; UploadAvailability -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679147476"><span class="annot"><span class="annottext">UploadAvailability -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679147481"><span class="annot"><span class="annottext">UploadAvailability -&gt; ()
 (UploadAvailability -&gt; ()) -&gt; NFData UploadAvailability
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UploadAvailability -&gt; ()
 $crnf :: UploadAvailability -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679147473"><span class="annot"><span class="annottext">Text -&gt; Either String UploadAvailability
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679147478"><span class="annot"><span class="annottext">Text -&gt; Either String UploadAvailability
 (Text -&gt; Either String UploadAvailability)
 -&gt; FromText UploadAvailability
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UploadAvailability
 $cfromText :: Text -&gt; Either String UploadAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679147470"><span class="annot"><span class="annottext">UploadAvailability -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679147475"><span class="annot"><span class="annottext">UploadAvailability -&gt; Text
 (UploadAvailability -&gt; Text) -&gt; ToText UploadAvailability
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UploadAvailability -&gt; Text
 $ctoText :: UploadAvailability -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679147467"><span class="annot"><span class="annottext">UploadAvailability -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679147472"><span class="annot"><span class="annottext">UploadAvailability -&gt; ByteString
 (UploadAvailability -&gt; ByteString)
 -&gt; ToByteString UploadAvailability
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UploadAvailability -&gt; ByteString
 $ctoBS :: UploadAvailability -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679147464"><span class="annot"><span class="annottext">UploadAvailability -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679147469"><span class="annot"><span class="annottext">UploadAvailability -&gt; ByteStringBuilder
 (UploadAvailability -&gt; ByteStringBuilder)
 -&gt; ToLog UploadAvailability
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UploadAvailability -&gt; ByteStringBuilder
 $cbuild :: UploadAvailability -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679147461"><span class="annot"><span class="annottext">HeaderName -&gt; UploadAvailability -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679147466"><span class="annot"><span class="annottext">HeaderName -&gt; UploadAvailability -&gt; [Header]
 (HeaderName -&gt; UploadAvailability -&gt; [Header])
 -&gt; ToHeader UploadAvailability
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UploadAvailability -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UploadAvailability -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679147458"><span class="annot"><span class="annottext">UploadAvailability -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679147463"><span class="annot"><span class="annottext">UploadAvailability -&gt; QueryString
 (UploadAvailability -&gt; QueryString) -&gt; ToQuery UploadAvailability
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UploadAvailability -&gt; QueryString
 $ctoQuery :: UploadAvailability -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679147453"><span id="local-6989586621679147455"><span class="annot"><span class="annottext">Value -&gt; Parser [UploadAvailability]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679147458"><span id="local-6989586621679147460"><span class="annot"><span class="annottext">Value -&gt; Parser [UploadAvailability]
 Value -&gt; Parser UploadAvailability
 (Value -&gt; Parser UploadAvailability)
 -&gt; (Value -&gt; Parser [UploadAvailability])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [UploadAvailability]
 parseJSON :: Value -&gt; Parser UploadAvailability
 $cparseJSON :: Value -&gt; Parser UploadAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679147448"><span id="local-6989586621679147450"><span class="annot"><span class="annottext">FromJSONKeyFunction [UploadAvailability]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679147453"><span id="local-6989586621679147455"><span class="annot"><span class="annottext">FromJSONKeyFunction [UploadAvailability]
 FromJSONKeyFunction UploadAvailability
 FromJSONKeyFunction UploadAvailability
 -&gt; FromJSONKeyFunction [UploadAvailability]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UploadAvailability]
 fromJSONKey :: FromJSONKeyFunction UploadAvailability
 $cfromJSONKey :: FromJSONKeyFunction UploadAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679147439"><span id="local-6989586621679147441"><span id="local-6989586621679147443"><span id="local-6989586621679147445"><span class="annot"><span class="annottext">[UploadAvailability] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679147444"><span id="local-6989586621679147446"><span id="local-6989586621679147448"><span id="local-6989586621679147450"><span class="annot"><span class="annottext">[UploadAvailability] -&gt; Encoding
 [UploadAvailability] -&gt; Value
 UploadAvailability -&gt; Encoding
 UploadAvailability -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: UploadAvailability -&gt; Encoding
 toJSON :: UploadAvailability -&gt; Value
 $ctoJSON :: UploadAvailability -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679147434"><span id="local-6989586621679147436"><span class="annot"><span class="annottext">ToJSONKeyFunction [UploadAvailability]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679147439"><span id="local-6989586621679147441"><span class="annot"><span class="annottext">ToJSONKeyFunction [UploadAvailability]
 ToJSONKeyFunction UploadAvailability
 ToJSONKeyFunction UploadAvailability
 -&gt; ToJSONKeyFunction [UploadAvailability]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UploadAvailability]
 toJSONKey :: ToJSONKeyFunction UploadAvailability
 $ctoJSONKey :: ToJSONKeyFunction UploadAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679147431"><span class="annot"><span class="annottext">[Node] -&gt; Either String UploadAvailability
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679147436"><span class="annot"><span class="annottext">[Node] -&gt; Either String UploadAvailability
 ([Node] -&gt; Either String UploadAvailability)
 -&gt; FromXML UploadAvailability
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UploadAvailability
 $cparseXML :: [Node] -&gt; Either String UploadAvailability
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679147428"><span class="annot"><span class="annottext">UploadAvailability -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679147433"><span class="annot"><span class="annottext">UploadAvailability -&gt; XML
 (UploadAvailability -&gt; XML) -&gt; ToXML UploadAvailability
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UploadAvailability -&gt; XML

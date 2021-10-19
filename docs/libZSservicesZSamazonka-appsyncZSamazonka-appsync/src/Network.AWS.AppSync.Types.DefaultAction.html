@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679249035"><span id="local-6989586621679249036"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefaultAction"><span class="annot"><a href="Network.AWS.AppSync.Types.DefaultAction.html#DefaultAction"><span class="hs-identifier hs-var">DefaultAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultAction%27"><span class="annot"><a href="Network.AWS.AppSync.Types.DefaultAction.html#DefaultAction%27"><span class="hs-identifier hs-var">DefaultAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249111"><span id="local-6989586621679249112"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefaultAction"><span class="annot"><a href="Network.AWS.AppSync.Types.DefaultAction.html#DefaultAction"><span class="hs-identifier hs-var">DefaultAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultAction%27"><span class="annot"><a href="Network.AWS.AppSync.Types.DefaultAction.html#DefaultAction%27"><span class="hs-identifier hs-var">DefaultAction'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDefaultAction"><span class="annot"><span class="annottext">DefaultAction -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.DefaultAction.html#fromDefaultAction"><span class="hs-identifier hs-var hs-var">fromDefaultAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249027"><span id="local-6989586621679249029"><span id="local-6989586621679249031"><span class="annot"><span class="annottext">Int -&gt; DefaultAction -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249103"><span id="local-6989586621679249105"><span id="local-6989586621679249107"><span class="annot"><span class="annottext">Int -&gt; DefaultAction -&gt; ShowS
 [DefaultAction] -&gt; ShowS
 DefaultAction -&gt; String
 (Int -&gt; DefaultAction -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DefaultAction -&gt; String
 showsPrec :: Int -&gt; DefaultAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; DefaultAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679249018"><span id="local-6989586621679249020"><span id="local-6989586621679249022"><span id="local-6989586621679249024"><span class="annot"><span class="annottext">ReadPrec [DefaultAction]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679249094"><span id="local-6989586621679249096"><span id="local-6989586621679249098"><span id="local-6989586621679249100"><span class="annot"><span class="annottext">ReadPrec [DefaultAction]
 ReadPrec DefaultAction
 Int -&gt; ReadS DefaultAction
 ReadS [DefaultAction]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DefaultAction]
 readsPrec :: Int -&gt; ReadS DefaultAction
 $creadsPrec :: Int -&gt; ReadS DefaultAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679249013"><span id="local-6989586621679249015"><span class="annot"><span class="annottext">DefaultAction -&gt; DefaultAction -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679249089"><span id="local-6989586621679249091"><span class="annot"><span class="annottext">DefaultAction -&gt; DefaultAction -&gt; Bool
 (DefaultAction -&gt; DefaultAction -&gt; Bool)
 -&gt; (DefaultAction -&gt; DefaultAction -&gt; Bool) -&gt; Eq DefaultAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: DefaultAction -&gt; DefaultAction -&gt; Bool
 == :: DefaultAction -&gt; DefaultAction -&gt; Bool
 $c== :: DefaultAction -&gt; DefaultAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679248997"><span id="local-6989586621679248999"><span id="local-6989586621679249001"><span id="local-6989586621679249003"><span id="local-6989586621679249005"><span id="local-6989586621679249007"><span id="local-6989586621679249009"><span class="annot"><span class="annottext">Eq DefaultAction
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679249073"><span id="local-6989586621679249075"><span id="local-6989586621679249077"><span id="local-6989586621679249079"><span id="local-6989586621679249081"><span id="local-6989586621679249083"><span id="local-6989586621679249085"><span class="annot"><span class="annottext">Eq DefaultAction
 Eq DefaultAction
 -&gt; (DefaultAction -&gt; DefaultAction -&gt; Ordering)
 -&gt; (DefaultAction -&gt; DefaultAction -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. DefaultAction -&gt; Rep DefaultAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248989"><span id="local-6989586621679248991"><span class="annot"><span class="annottext">Int -&gt; DefaultAction -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249065"><span id="local-6989586621679249067"><span class="annot"><span class="annottext">Int -&gt; DefaultAction -&gt; Int
 DefaultAction -&gt; Int
 (Int -&gt; DefaultAction -&gt; Int)
 -&gt; (DefaultAction -&gt; Int) -&gt; Hashable DefaultAction
@@ -142,49 +142,49 @@ $chash :: DefaultAction -&gt; Int
 hashWithSalt :: Int -&gt; DefaultAction -&gt; Int
 $chashWithSalt :: Int -&gt; DefaultAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248986"><span class="annot"><span class="annottext">DefaultAction -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679249062"><span class="annot"><span class="annottext">DefaultAction -&gt; ()
 (DefaultAction -&gt; ()) -&gt; NFData DefaultAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DefaultAction -&gt; ()
 $crnf :: DefaultAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248983"><span class="annot"><span class="annottext">Text -&gt; Either String DefaultAction
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679249059"><span class="annot"><span class="annottext">Text -&gt; Either String DefaultAction
 (Text -&gt; Either String DefaultAction) -&gt; FromText DefaultAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DefaultAction
 $cfromText :: Text -&gt; Either String DefaultAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248980"><span class="annot"><span class="annottext">DefaultAction -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679249056"><span class="annot"><span class="annottext">DefaultAction -&gt; Text
 (DefaultAction -&gt; Text) -&gt; ToText DefaultAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DefaultAction -&gt; Text
 $ctoText :: DefaultAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248977"><span class="annot"><span class="annottext">DefaultAction -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679249053"><span class="annot"><span class="annottext">DefaultAction -&gt; ByteString
 (DefaultAction -&gt; ByteString) -&gt; ToByteString DefaultAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DefaultAction -&gt; ByteString
 $ctoBS :: DefaultAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248974"><span class="annot"><span class="annottext">DefaultAction -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679249050"><span class="annot"><span class="annottext">DefaultAction -&gt; ByteStringBuilder
 (DefaultAction -&gt; ByteStringBuilder) -&gt; ToLog DefaultAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DefaultAction -&gt; ByteStringBuilder
 $cbuild :: DefaultAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248971"><span class="annot"><span class="annottext">HeaderName -&gt; DefaultAction -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679249047"><span class="annot"><span class="annottext">HeaderName -&gt; DefaultAction -&gt; [Header]
 (HeaderName -&gt; DefaultAction -&gt; [Header]) -&gt; ToHeader DefaultAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DefaultAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DefaultAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248968"><span class="annot"><span class="annottext">DefaultAction -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679249044"><span class="annot"><span class="annottext">DefaultAction -&gt; QueryString
 (DefaultAction -&gt; QueryString) -&gt; ToQuery DefaultAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DefaultAction -&gt; QueryString
 $ctoQuery :: DefaultAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248963"><span id="local-6989586621679248965"><span class="annot"><span class="annottext">Value -&gt; Parser [DefaultAction]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679249039"><span id="local-6989586621679249041"><span class="annot"><span class="annottext">Value -&gt; Parser [DefaultAction]
 Value -&gt; Parser DefaultAction
 (Value -&gt; Parser DefaultAction)
 -&gt; (Value -&gt; Parser [DefaultAction]) -&gt; FromJSON DefaultAction
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [DefaultAction]
 parseJSON :: Value -&gt; Parser DefaultAction
 $cparseJSON :: Value -&gt; Parser DefaultAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248958"><span id="local-6989586621679248960"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefaultAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679249034"><span id="local-6989586621679249036"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefaultAction]
 FromJSONKeyFunction DefaultAction
 FromJSONKeyFunction DefaultAction
 -&gt; FromJSONKeyFunction [DefaultAction] -&gt; FromJSONKey DefaultAction
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DefaultAction]
 fromJSONKey :: FromJSONKeyFunction DefaultAction
 $cfromJSONKey :: FromJSONKeyFunction DefaultAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248949"><span id="local-6989586621679248951"><span id="local-6989586621679248953"><span id="local-6989586621679248955"><span class="annot"><span class="annottext">[DefaultAction] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679249025"><span id="local-6989586621679249027"><span id="local-6989586621679249029"><span id="local-6989586621679249031"><span class="annot"><span class="annottext">[DefaultAction] -&gt; Encoding
 [DefaultAction] -&gt; Value
 DefaultAction -&gt; Encoding
 DefaultAction -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: DefaultAction -&gt; Encoding
 toJSON :: DefaultAction -&gt; Value
 $ctoJSON :: DefaultAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248944"><span id="local-6989586621679248946"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefaultAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679249020"><span id="local-6989586621679249022"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefaultAction]
 ToJSONKeyFunction DefaultAction
 ToJSONKeyFunction DefaultAction
 -&gt; ToJSONKeyFunction [DefaultAction] -&gt; ToJSONKey DefaultAction
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DefaultAction]
 toJSONKey :: ToJSONKeyFunction DefaultAction
 $ctoJSONKey :: ToJSONKeyFunction DefaultAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248941"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefaultAction
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679249017"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefaultAction
 ([Node] -&gt; Either String DefaultAction) -&gt; FromXML DefaultAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DefaultAction
 $cparseXML :: [Node] -&gt; Either String DefaultAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248938"><span class="annot"><span class="annottext">DefaultAction -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679249014"><span class="annot"><span class="annottext">DefaultAction -&gt; XML
 (DefaultAction -&gt; XML) -&gt; ToXML DefaultAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DefaultAction -&gt; XML

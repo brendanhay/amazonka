@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Defines the possible values for a continuous hyperparameter.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newContinuousParameterRangeSpecification' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680298274"><span id="local-6989586621680298275"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinuousParameterRangeSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-var">ContinuousParameterRangeSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinuousParameterRangeSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var">ContinuousParameterRangeSpecification'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680299642"><span id="local-6989586621680299643"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinuousParameterRangeSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-var">ContinuousParameterRangeSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinuousParameterRangeSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var">ContinuousParameterRangeSpecification'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum floating-point value allowed.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AminValue%3AContinuousParameterRangeSpecification%27"><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#%24sel%3AminValue%3AContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var hs-var">minValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaxValue%3AContinuousParameterRangeSpecification%27"><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#%24sel%3AmaxValue%3AContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var hs-var">maxValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680298267"><span id="local-6989586621680298269"><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680299635"><span id="local-6989586621680299637"><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification
 -&gt; ContinuousParameterRangeSpecification -&gt; Bool
 (ContinuousParameterRangeSpecification
  -&gt; ContinuousParameterRangeSpecification -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: ContinuousParameterRangeSpecification
 -&gt; ContinuousParameterRangeSpecification -&gt; Bool
 $c== :: ContinuousParameterRangeSpecification
 -&gt; ContinuousParameterRangeSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680298258"><span id="local-6989586621680298260"><span id="local-6989586621680298262"><span id="local-6989586621680298264"><span class="annot"><span class="annottext">ReadPrec [ContinuousParameterRangeSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680299626"><span id="local-6989586621680299628"><span id="local-6989586621680299630"><span id="local-6989586621680299632"><span class="annot"><span class="annottext">ReadPrec [ContinuousParameterRangeSpecification]
 ReadPrec ContinuousParameterRangeSpecification
 Int -&gt; ReadS ContinuousParameterRangeSpecification
 ReadS [ContinuousParameterRangeSpecification]
@@ -70,7 +70,7 @@ readList :: ReadS [ContinuousParameterRangeSpecification]
 $creadList :: ReadS [ContinuousParameterRangeSpecification]
 readsPrec :: Int -&gt; ReadS ContinuousParameterRangeSpecification
 $creadsPrec :: Int -&gt; ReadS ContinuousParameterRangeSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680298251"><span id="local-6989586621680298253"><span id="local-6989586621680298255"><span class="annot"><span class="annottext">Int -&gt; ContinuousParameterRangeSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680299619"><span id="local-6989586621680299621"><span id="local-6989586621680299623"><span class="annot"><span class="annottext">Int -&gt; ContinuousParameterRangeSpecification -&gt; ShowS
 [ContinuousParameterRangeSpecification] -&gt; ShowS
 ContinuousParameterRangeSpecification -&gt; String
 (Int -&gt; ContinuousParameterRangeSpecification -&gt; ShowS)
@@ -127,19 +127,19 @@ ContinuousParameterRangeSpecification
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span><span>
 </span><span id="line-54"></span><span id="newContinuousParameterRangeSpecification"><span class="annot"><span class="annottext">newContinuousParameterRangeSpecification :: Text -&gt; Text -&gt; ContinuousParameterRangeSpecification
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#newContinuousParameterRangeSpecification"><span class="hs-identifier hs-var hs-var">newContinuousParameterRangeSpecification</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621680298245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298245"><span class="hs-identifier hs-var">pMinValue_</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621680298244"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298244"><span class="hs-identifier hs-var">pMaxValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621680299613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680299613"><span class="hs-identifier hs-var">pMinValue_</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621680299612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680299612"><span class="hs-identifier hs-var">pMaxValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification' :: Text -&gt; Text -&gt; ContinuousParameterRangeSpecification
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minValue:ContinuousParameterRangeSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#%24sel%3AminValue%3AContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var">minValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298245"><span class="hs-identifier hs-var">pMinValue_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680299613"><span class="hs-identifier hs-var">pMinValue_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxValue:ContinuousParameterRangeSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#%24sel%3AmaxValue%3AContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var">maxValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298244"><span class="hs-identifier hs-var">pMaxValue_</span></a></span><span>
+</span><a href="#local-6989586621680299612"><span class="hs-identifier hs-var">pMaxValue_</span></a></span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The minimum floating-point value allowed.</span><span>
@@ -156,16 +156,16 @@ ContinuousParameterRangeSpecification
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298240"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680299608"><span class="annot"><span class="annottext">Text
 minValue :: Text
 $sel:minValue:ContinuousParameterRangeSpecification' :: ContinuousParameterRangeSpecification -&gt; Text
-</span><a href="#local-6989586621680298240"><span class="hs-identifier hs-var hs-var">minValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298240"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680298239"><span class="annot"><span class="annottext">s :: ContinuousParameterRangeSpecification
-</span><a href="#local-6989586621680298239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680298238"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification
-</span><a href="#local-6989586621680298239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minValue:ContinuousParameterRangeSpecification' :: Text
+</span><a href="#local-6989586621680299608"><span class="hs-identifier hs-var hs-var">minValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680299608"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680299607"><span class="annot"><span class="annottext">s :: ContinuousParameterRangeSpecification
+</span><a href="#local-6989586621680299607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680299606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680299606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification
+</span><a href="#local-6989586621680299607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minValue:ContinuousParameterRangeSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#%24sel%3AminValue%3AContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var">minValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680299606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The maximum floating-point value allowed.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#continuousParameterRangeSpecification_maxValue"><span class="hs-identifier hs-type">continuousParameterRangeSpecification_maxValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -181,22 +181,22 @@ $sel:minValue:ContinuousParameterRangeSpecification' :: ContinuousParameterRange
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298236"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680299604"><span class="annot"><span class="annottext">Text
 maxValue :: Text
 $sel:maxValue:ContinuousParameterRangeSpecification' :: ContinuousParameterRangeSpecification -&gt; Text
-</span><a href="#local-6989586621680298236"><span class="hs-identifier hs-var hs-var">maxValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298236"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680298235"><span class="annot"><span class="annottext">s :: ContinuousParameterRangeSpecification
-</span><a href="#local-6989586621680298235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680298234"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification
-</span><a href="#local-6989586621680298235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxValue:ContinuousParameterRangeSpecification' :: Text
+</span><a href="#local-6989586621680299604"><span class="hs-identifier hs-var hs-var">maxValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680299604"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680299603"><span class="annot"><span class="annottext">s :: ContinuousParameterRangeSpecification
+</span><a href="#local-6989586621680299603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680299602"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680299602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousParameterRangeSpecification
+</span><a href="#local-6989586621680299603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxValue:ContinuousParameterRangeSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#%24sel%3AmaxValue%3AContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var">maxValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680299602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621680298231"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621680299599"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680298229"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContinuousParameterRangeSpecification
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680299597"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContinuousParameterRangeSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContinuousParameterRangeSpecification)
@@ -206,8 +206,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContinuousParameterRangeSpecification&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680298226"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680298226"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680299594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680299594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ContinuousParameterRangeSpecification
 </span><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-var">ContinuousParameterRangeSpecification'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ContinuousParameterRangeSpecification)
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; ContinuousParameterRangeSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680298226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680299594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,31 +223,31 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ContinuousParameterRangeSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680298226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680299594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621680298220"><span id="local-6989586621680298222"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680299588"><span id="local-6989586621680299590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621680298217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680299585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621680298209"><span id="local-6989586621680298211"><span id="local-6989586621680298213"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680299577"><span id="local-6989586621680299579"><span id="local-6989586621680299581"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification</span></a></span></span></span></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621680298207"><span class="annot"><span class="annottext">toJSON :: ContinuousParameterRangeSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298204"><span id="local-6989586621680298205"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621680299575"><span class="annot"><span class="annottext">toJSON :: ContinuousParameterRangeSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification.html#ContinuousParameterRangeSpecification%27"><span class="hs-identifier hs-type">ContinuousParameterRangeSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680299572"><span id="local-6989586621680299573"><span class="annot"><span class="annottext">Text
 maxValue :: Text
 minValue :: Text
 $sel:maxValue:ContinuousParameterRangeSpecification' :: ContinuousParameterRangeSpecification -&gt; Text
 $sel:minValue:ContinuousParameterRangeSpecification' :: ContinuousParameterRangeSpecification -&gt; Text
-</span><a href="#local-6989586621680298204"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680299572"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -259,14 +259,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MinValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298205"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680299573"><span class="hs-identifier hs-var">minValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680298204"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680299572"><span class="hs-identifier hs-var">maxValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

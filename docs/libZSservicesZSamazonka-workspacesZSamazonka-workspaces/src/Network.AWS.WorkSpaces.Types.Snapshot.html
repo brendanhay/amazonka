@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a snapshot.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSnapshot' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679270962"><span id="local-6989586621679270963"></span></span><span class="hs-keyword">data</span><span> </span><span id="Snapshot"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-var">Snapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Snapshot%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-var">Snapshot'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679273693"><span id="local-6989586621679273694"></span></span><span class="hs-keyword">data</span><span> </span><span id="Snapshot"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-var">Snapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Snapshot%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-var">Snapshot'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the snapshot was created.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AsnapshotTime%3ASnapshot%27"><span class="annot"><span class="annottext">Snapshot -&gt; Maybe POSIX
 </span><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#%24sel%3AsnapshotTime%3ASnapshot%27"><span class="hs-identifier hs-var hs-var">snapshotTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270956"><span id="local-6989586621679270958"><span class="annot"><span class="annottext">Snapshot -&gt; Snapshot -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273687"><span id="local-6989586621679273689"><span class="annot"><span class="annottext">Snapshot -&gt; Snapshot -&gt; Bool
 (Snapshot -&gt; Snapshot -&gt; Bool)
 -&gt; (Snapshot -&gt; Snapshot -&gt; Bool) -&gt; Eq Snapshot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Snapshot -&gt; Snapshot -&gt; Bool
 == :: Snapshot -&gt; Snapshot -&gt; Bool
 $c== :: Snapshot -&gt; Snapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270947"><span id="local-6989586621679270949"><span id="local-6989586621679270951"><span id="local-6989586621679270953"><span class="annot"><span class="annottext">ReadPrec [Snapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273678"><span id="local-6989586621679273680"><span id="local-6989586621679273682"><span id="local-6989586621679273684"><span class="annot"><span class="annottext">ReadPrec [Snapshot]
 ReadPrec Snapshot
 Int -&gt; ReadS Snapshot
 ReadS [Snapshot]
@@ -59,7 +59,7 @@ readList :: ReadS [Snapshot]
 $creadList :: ReadS [Snapshot]
 readsPrec :: Int -&gt; ReadS Snapshot
 $creadsPrec :: Int -&gt; ReadS Snapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270940"><span id="local-6989586621679270942"><span id="local-6989586621679270944"><span class="annot"><span class="annottext">Int -&gt; Snapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273671"><span id="local-6989586621679273673"><span id="local-6989586621679273675"><span class="annot"><span class="annottext">Int -&gt; Snapshot -&gt; ShowS
 [Snapshot] -&gt; ShowS
 Snapshot -&gt; String
 (Int -&gt; Snapshot -&gt; ShowS)
@@ -108,16 +108,16 @@ forall a. Maybe a
 -&gt; (Snapshot -&gt; Maybe POSIX -&gt; Snapshot)
 -&gt; Lens Snapshot Snapshot (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270931"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273662"><span class="annot"><span class="annottext">Maybe POSIX
 snapshotTime :: Maybe POSIX
 $sel:snapshotTime:Snapshot' :: Snapshot -&gt; Maybe POSIX
-</span><a href="#local-6989586621679270931"><span class="hs-identifier hs-var hs-var">snapshotTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679270931"><span class="hs-identifier hs-var">snapshotTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270930"><span class="annot"><span class="annottext">s :: Snapshot
-</span><a href="#local-6989586621679270930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270929"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679270929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
-</span><a href="#local-6989586621679270930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotTime:Snapshot' :: Maybe POSIX
+</span><a href="#local-6989586621679273662"><span class="hs-identifier hs-var hs-var">snapshotTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273662"><span class="hs-identifier hs-var">snapshotTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273661"><span class="annot"><span class="annottext">s :: Snapshot
+</span><a href="#local-6989586621679273661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-type">Snapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273660"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679273660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Snapshot
+</span><a href="#local-6989586621679273661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotTime:Snapshot' :: Maybe POSIX
 </span><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#%24sel%3AsnapshotTime%3ASnapshot%27"><span class="hs-identifier hs-var">snapshotTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679270929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Snapshot -&gt; f Snapshot)
+</span><a href="#local-6989586621679273660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Snapshot -&gt; f Snapshot)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -133,28 +133,28 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270923"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679270921"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Snapshot
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273654"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679273652"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Snapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Snapshot) -&gt; Value -&gt; Parser Snapshot
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Snapshot&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270918"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270918"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273649"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273649"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Snapshot
 </span><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot%27"><span class="hs-identifier hs-var">Snapshot'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Snapshot)
 -&gt; Parser (Maybe POSIX) -&gt; Parser Snapshot
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270918"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679273649"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnapshotTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270912"><span id="local-6989586621679270914"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273643"><span id="local-6989586621679273645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

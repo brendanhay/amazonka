@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679549414"><span id="local-6989586621679549415"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationRuleStatus"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleStatus.html#ReplicationRuleStatus"><span class="hs-identifier hs-var">ReplicationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationRuleStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleStatus.html#ReplicationRuleStatus%27"><span class="hs-identifier hs-var">ReplicationRuleStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679550047"><span id="local-6989586621679550048"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationRuleStatus"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleStatus.html#ReplicationRuleStatus"><span class="hs-identifier hs-var">ReplicationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationRuleStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRuleStatus.html#ReplicationRuleStatus%27"><span class="hs-identifier hs-var">ReplicationRuleStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationRuleStatus"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.ReplicationRuleStatus.html#fromReplicationRuleStatus"><span class="hs-identifier hs-var hs-var">fromReplicationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549406"><span id="local-6989586621679549408"><span id="local-6989586621679549410"><span class="annot"><span class="annottext">Int -&gt; ReplicationRuleStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679550039"><span id="local-6989586621679550041"><span id="local-6989586621679550043"><span class="annot"><span class="annottext">Int -&gt; ReplicationRuleStatus -&gt; ShowS
 [ReplicationRuleStatus] -&gt; ShowS
 ReplicationRuleStatus -&gt; String
 (Int -&gt; ReplicationRuleStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReplicationRuleStatus -&gt; String
 showsPrec :: Int -&gt; ReplicationRuleStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplicationRuleStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679549397"><span id="local-6989586621679549399"><span id="local-6989586621679549401"><span id="local-6989586621679549403"><span class="annot"><span class="annottext">ReadPrec [ReplicationRuleStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679550030"><span id="local-6989586621679550032"><span id="local-6989586621679550034"><span id="local-6989586621679550036"><span class="annot"><span class="annottext">ReadPrec [ReplicationRuleStatus]
 ReadPrec ReplicationRuleStatus
 Int -&gt; ReadS ReplicationRuleStatus
 ReadS [ReplicationRuleStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReplicationRuleStatus]
 readsPrec :: Int -&gt; ReadS ReplicationRuleStatus
 $creadsPrec :: Int -&gt; ReadS ReplicationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679549392"><span id="local-6989586621679549394"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679550025"><span id="local-6989586621679550027"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool
 (ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool)
 -&gt; (ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool)
 -&gt; Eq ReplicationRuleStatus
@@ -83,7 +83,7 @@ $c/= :: ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool
 == :: ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool
 $c== :: ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679549376"><span id="local-6989586621679549378"><span id="local-6989586621679549380"><span id="local-6989586621679549382"><span id="local-6989586621679549384"><span id="local-6989586621679549386"><span id="local-6989586621679549388"><span class="annot"><span class="annottext">Eq ReplicationRuleStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679550009"><span id="local-6989586621679550011"><span id="local-6989586621679550013"><span id="local-6989586621679550015"><span id="local-6989586621679550017"><span id="local-6989586621679550019"><span id="local-6989586621679550021"><span class="annot"><span class="annottext">Eq ReplicationRuleStatus
 Eq ReplicationRuleStatus
 -&gt; (ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Ordering)
 -&gt; (ReplicationRuleStatus -&gt; ReplicationRuleStatus -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. ReplicationRuleStatus -&gt; Rep ReplicationRuleStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549368"><span id="local-6989586621679549370"><span class="annot"><span class="annottext">Int -&gt; ReplicationRuleStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679550001"><span id="local-6989586621679550003"><span class="annot"><span class="annottext">Int -&gt; ReplicationRuleStatus -&gt; Int
 ReplicationRuleStatus -&gt; Int
 (Int -&gt; ReplicationRuleStatus -&gt; Int)
 -&gt; (ReplicationRuleStatus -&gt; Int) -&gt; Hashable ReplicationRuleStatus
@@ -151,54 +151,54 @@ $chash :: ReplicationRuleStatus -&gt; Int
 hashWithSalt :: Int -&gt; ReplicationRuleStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ReplicationRuleStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679549365"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679549998"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ()
 (ReplicationRuleStatus -&gt; ()) -&gt; NFData ReplicationRuleStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplicationRuleStatus -&gt; ()
 $crnf :: ReplicationRuleStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679549362"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationRuleStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679549995"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationRuleStatus
 (Text -&gt; Either String ReplicationRuleStatus)
 -&gt; FromText ReplicationRuleStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplicationRuleStatus
 $cfromText :: Text -&gt; Either String ReplicationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679549359"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679549992"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; Text
 (ReplicationRuleStatus -&gt; Text) -&gt; ToText ReplicationRuleStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplicationRuleStatus -&gt; Text
 $ctoText :: ReplicationRuleStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679549356"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679549989"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ByteString
 (ReplicationRuleStatus -&gt; ByteString)
 -&gt; ToByteString ReplicationRuleStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplicationRuleStatus -&gt; ByteString
 $ctoBS :: ReplicationRuleStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679549353"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679549986"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; ByteStringBuilder
 (ReplicationRuleStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ReplicationRuleStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplicationRuleStatus -&gt; ByteStringBuilder
 $cbuild :: ReplicationRuleStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679549350"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationRuleStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679549983"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationRuleStatus -&gt; [Header]
 (HeaderName -&gt; ReplicationRuleStatus -&gt; [Header])
 -&gt; ToHeader ReplicationRuleStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplicationRuleStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplicationRuleStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679549347"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679549980"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; QueryString
 (ReplicationRuleStatus -&gt; QueryString)
 -&gt; ToQuery ReplicationRuleStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplicationRuleStatus -&gt; QueryString
 $ctoQuery :: ReplicationRuleStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679549342"><span id="local-6989586621679549344"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationRuleStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679549975"><span id="local-6989586621679549977"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationRuleStatus]
 Value -&gt; Parser ReplicationRuleStatus
 (Value -&gt; Parser ReplicationRuleStatus)
 -&gt; (Value -&gt; Parser [ReplicationRuleStatus])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplicationRuleStatus]
 parseJSON :: Value -&gt; Parser ReplicationRuleStatus
 $cparseJSON :: Value -&gt; Parser ReplicationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679549337"><span id="local-6989586621679549339"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationRuleStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679549970"><span id="local-6989586621679549972"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationRuleStatus]
 FromJSONKeyFunction ReplicationRuleStatus
 FromJSONKeyFunction ReplicationRuleStatus
 -&gt; FromJSONKeyFunction [ReplicationRuleStatus]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplicationRuleStatus]
 fromJSONKey :: FromJSONKeyFunction ReplicationRuleStatus
 $cfromJSONKey :: FromJSONKeyFunction ReplicationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679549328"><span id="local-6989586621679549330"><span id="local-6989586621679549332"><span id="local-6989586621679549334"><span class="annot"><span class="annottext">[ReplicationRuleStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679549961"><span id="local-6989586621679549963"><span id="local-6989586621679549965"><span id="local-6989586621679549967"><span class="annot"><span class="annottext">[ReplicationRuleStatus] -&gt; Encoding
 [ReplicationRuleStatus] -&gt; Value
 ReplicationRuleStatus -&gt; Encoding
 ReplicationRuleStatus -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: ReplicationRuleStatus -&gt; Encoding
 toJSON :: ReplicationRuleStatus -&gt; Value
 $ctoJSON :: ReplicationRuleStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679549323"><span id="local-6989586621679549325"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationRuleStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679549956"><span id="local-6989586621679549958"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationRuleStatus]
 ToJSONKeyFunction ReplicationRuleStatus
 ToJSONKeyFunction ReplicationRuleStatus
 -&gt; ToJSONKeyFunction [ReplicationRuleStatus]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplicationRuleStatus]
 toJSONKey :: ToJSONKeyFunction ReplicationRuleStatus
 $ctoJSONKey :: ToJSONKeyFunction ReplicationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679549320"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationRuleStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679549953"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationRuleStatus
 ([Node] -&gt; Either String ReplicationRuleStatus)
 -&gt; FromXML ReplicationRuleStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplicationRuleStatus
 $cparseXML :: [Node] -&gt; Either String ReplicationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679549317"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679549950"><span class="annot"><span class="annottext">ReplicationRuleStatus -&gt; XML
 (ReplicationRuleStatus -&gt; XML) -&gt; ToXML ReplicationRuleStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReplicationRuleStatus -&gt; XML

@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides summary information about a model package.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newModelPackageSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680317980"><span id="local-6989586621680317981"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelPackageSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-var">ModelPackageSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-var">ModelPackageSummary'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the model package is a versioned model, the version of the model.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The approval status of the model. This can be one of the following</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621680319363"><span id="local-6989586621680319364"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelPackageSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-var">ModelPackageSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-var">ModelPackageSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The approval status of the model. This can be one of the following</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @APPROVED@ - The model is approved</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @APPROVED@ - The model is approved</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @REJECTED@ - The model is rejected.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @REJECTED@ - The model is rejected.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     approval.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmodelApprovalStatus%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; Maybe ModelApprovalStatus
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     approval.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmodelApprovalStatus%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; Maybe ModelApprovalStatus
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelApprovalStatus%3AModelPackageSummary%27"><span class="hs-identifier hs-var hs-var">modelApprovalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus"><span class="hs-identifier hs-type">ModelApprovalStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A brief description of the model package.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AmodelPackageDescription%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; Maybe Text
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A brief description of the model package.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmodelPackageDescription%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageDescription%3AModelPackageSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | If the model package is a versioned model, the version of the model.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | If the model package is a versioned model, the model group that the</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- versioned model belongs to.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AmodelPackageGroupName%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; Maybe Text
@@ -63,7 +63,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AmodelPackageStatus%3AModelPackageSummary%27"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; ModelPackageStatus
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageStatus%3AModelPackageSummary%27"><span class="hs-identifier hs-var hs-var">modelPackageStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageStatus.html#ModelPackageStatus"><span class="hs-identifier hs-type">ModelPackageStatus</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317967"><span id="local-6989586621680317969"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; ModelPackageSummary -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680319350"><span id="local-6989586621680319352"><span class="annot"><span class="annottext">ModelPackageSummary -&gt; ModelPackageSummary -&gt; Bool
 (ModelPackageSummary -&gt; ModelPackageSummary -&gt; Bool)
 -&gt; (ModelPackageSummary -&gt; ModelPackageSummary -&gt; Bool)
 -&gt; Eq ModelPackageSummary
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelPackageSummary -&gt; ModelPackageSummary -&gt; Bool
 == :: ModelPackageSummary -&gt; ModelPackageSummary -&gt; Bool
 $c== :: ModelPackageSummary -&gt; ModelPackageSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317958"><span id="local-6989586621680317960"><span id="local-6989586621680317962"><span id="local-6989586621680317964"><span class="annot"><span class="annottext">ReadPrec [ModelPackageSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680319341"><span id="local-6989586621680319343"><span id="local-6989586621680319345"><span id="local-6989586621680319347"><span class="annot"><span class="annottext">ReadPrec [ModelPackageSummary]
 ReadPrec ModelPackageSummary
 Int -&gt; ReadS ModelPackageSummary
 ReadS [ModelPackageSummary]
@@ -92,7 +92,7 @@ readList :: ReadS [ModelPackageSummary]
 $creadList :: ReadS [ModelPackageSummary]
 readsPrec :: Int -&gt; ReadS ModelPackageSummary
 $creadsPrec :: Int -&gt; ReadS ModelPackageSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317951"><span id="local-6989586621680317953"><span id="local-6989586621680317955"><span class="annot"><span class="annottext">Int -&gt; ModelPackageSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680319334"><span id="local-6989586621680319336"><span id="local-6989586621680319338"><span class="annot"><span class="annottext">Int -&gt; ModelPackageSummary -&gt; ShowS
 [ModelPackageSummary] -&gt; ShowS
 ModelPackageSummary -&gt; String
 (Int -&gt; ModelPackageSummary -&gt; ShowS)
@@ -126,19 +126,19 @@ $cfrom :: forall x. ModelPackageSummary -&gt; Rep ModelPackageSummary x
 </span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'modelPackageVersion', 'modelPackageSummary_modelPackageVersion' - If the model package is a versioned model, the version of the model.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'modelApprovalStatus', 'modelPackageSummary_modelApprovalStatus' - The approval status of the model. This can be one of the following</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'modelApprovalStatus', 'modelPackageSummary_modelApprovalStatus' - The approval status of the model. This can be one of the following</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -   @APPROVED@ - The model is approved</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- -   @APPROVED@ - The model is approved</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- -   @REJECTED@ - The model is rejected.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- -   @REJECTED@ - The model is rejected.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--     approval.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--     approval.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'modelPackageDescription', 'modelPackageSummary_modelPackageDescription' - A brief description of the model package.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'modelPackageDescription', 'modelPackageSummary_modelPackageDescription' - A brief description of the model package.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'modelPackageVersion', 'modelPackageSummary_modelPackageVersion' - If the model package is a versioned model, the version of the model.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'modelPackageGroupName', 'modelPackageSummary_modelPackageGroupName' - If the model package is a versioned model, the model group that the</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- versioned model belongs to.</span><span>
@@ -163,17 +163,17 @@ $cfrom :: forall x. ModelPackageSummary -&gt; Rep ModelPackageSummary x
 </span><span id="line-102"></span><span id="newModelPackageSummary"><span class="annot"><span class="annottext">newModelPackageSummary :: Text
 -&gt; Text -&gt; UTCTime -&gt; ModelPackageStatus -&gt; ModelPackageSummary
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#newModelPackageSummary"><span class="hs-identifier hs-var hs-var">newModelPackageSummary</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680317945"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317945"><span class="hs-identifier hs-var">pModelPackageName_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680317944"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317944"><span class="hs-identifier hs-var">pModelPackageArn_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680317943"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680317943"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621680317942"><span class="annot"><span class="annottext">ModelPackageStatus
-</span><a href="#local-6989586621680317942"><span class="hs-identifier hs-var">pModelPackageStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ModelPackageSummary' :: Maybe Natural
--&gt; Maybe ModelApprovalStatus
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680319328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680319328"><span class="hs-identifier hs-var">pModelPackageName_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680319327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680319327"><span class="hs-identifier hs-var">pModelPackageArn_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680319326"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680319326"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680319325"><span class="annot"><span class="annottext">ModelPackageStatus
+</span><a href="#local-6989586621680319325"><span class="hs-identifier hs-var">pModelPackageStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ModelPackageSummary' :: Maybe ModelApprovalStatus
 -&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Text
 -&gt; Text
@@ -181,17 +181,17 @@ $cfrom :: forall x. ModelPackageSummary -&gt; Rep ModelPackageSummary x
 -&gt; ModelPackageStatus
 -&gt; ModelPackageSummary
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelPackageVersion:ModelPackageSummary' :: Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:modelApprovalStatus:ModelPackageSummary' :: Maybe ModelApprovalStatus
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelApprovalStatus%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelApprovalStatus:ModelPackageSummary' :: Maybe ModelApprovalStatus
-</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelApprovalStatus%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageDescription:ModelPackageSummary' :: Maybe Text
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageDescription:ModelPackageSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageDescription%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageVersion:ModelPackageSummary' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageGroupName:ModelPackageSummary' :: Maybe Text
@@ -200,10 +200,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageName:ModelPackageSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageName%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317945"><span class="hs-identifier hs-var">pModelPackageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680319328"><span class="hs-identifier hs-var">pModelPackageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageArn:ModelPackageSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageArn%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317944"><span class="hs-identifier hs-var">pModelPackageArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680319327"><span class="hs-identifier hs-var">pModelPackageArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:ModelPackageSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AcreationTime%3AModelPackageSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -212,46 +212,23 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680317943"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680319326"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelPackageStatus:ModelPackageSummary' :: ModelPackageStatus
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageStatus%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelPackageStatus
-</span><a href="#local-6989586621680317942"><span class="hs-identifier hs-var">pModelPackageStatus_</span></a></span><span>
+</span><a href="#local-6989586621680319325"><span class="hs-identifier hs-var">pModelPackageStatus_</span></a></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | If the model package is a versioned model, the version of the model.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageVersion"><span class="hs-identifier hs-type">modelPackageSummary_modelPackageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="modelPackageSummary_modelPackageVersion"><span class="annot"><span class="annottext">modelPackageSummary_modelPackageVersion :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ModelPackageSummary -&gt; f ModelPackageSummary
-</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageVersion"><span class="hs-identifier hs-var hs-var">modelPackageSummary_modelPackageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageSummary -&gt; Maybe Natural)
--&gt; (ModelPackageSummary -&gt; Maybe Natural -&gt; ModelPackageSummary)
--&gt; Lens
-     ModelPackageSummary
-     ModelPackageSummary
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317936"><span class="annot"><span class="annottext">Maybe Natural
-modelPackageVersion :: Maybe Natural
-$sel:modelPackageVersion:ModelPackageSummary' :: ModelPackageSummary -&gt; Maybe Natural
-</span><a href="#local-6989586621680317936"><span class="hs-identifier hs-var hs-var">modelPackageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317936"><span class="hs-identifier hs-var">modelPackageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317935"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317934"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageVersion:ModelPackageSummary' :: Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680317934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The approval status of the model. This can be one of the following</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The approval status of the model. This can be one of the following</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   @APPROVED@ - The model is approved</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @REJECTED@ - The model is rejected.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- -   @APPROVED@ - The model is approved</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- -   @REJECTED@ - The model is rejected.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--     approval.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelApprovalStatus"><span class="hs-identifier hs-type">modelPackageSummary_modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus"><span class="hs-identifier hs-type">ModelApprovalStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="modelPackageSummary_modelApprovalStatus"><span class="annot"><span class="annottext">modelPackageSummary_modelApprovalStatus :: (Maybe ModelApprovalStatus -&gt; f (Maybe ModelApprovalStatus))
+</span><span id="line-126"></span><span class="hs-comment">-- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     approval.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelApprovalStatus"><span class="hs-identifier hs-type">modelPackageSummary_modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelApprovalStatus.html#ModelApprovalStatus"><span class="hs-identifier hs-type">ModelApprovalStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="modelPackageSummary_modelApprovalStatus"><span class="annot"><span class="annottext">modelPackageSummary_modelApprovalStatus :: (Maybe ModelApprovalStatus -&gt; f (Maybe ModelApprovalStatus))
 -&gt; ModelPackageSummary -&gt; f ModelPackageSummary
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelApprovalStatus"><span class="hs-identifier hs-var hs-var">modelPackageSummary_modelApprovalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageSummary -&gt; Maybe ModelApprovalStatus)
 -&gt; (ModelPackageSummary
@@ -262,36 +239,59 @@ $sel:modelPackageVersion:ModelPackageSummary' :: ModelPackageSummary -&gt; Maybe
      (Maybe ModelApprovalStatus)
      (Maybe ModelApprovalStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317932"><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319319"><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
 modelApprovalStatus :: Maybe ModelApprovalStatus
 $sel:modelApprovalStatus:ModelPackageSummary' :: ModelPackageSummary -&gt; Maybe ModelApprovalStatus
-</span><a href="#local-6989586621680317932"><span class="hs-identifier hs-var hs-var">modelApprovalStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
-</span><a href="#local-6989586621680317932"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317931"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317930"><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
-</span><a href="#local-6989586621680317930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelApprovalStatus:ModelPackageSummary' :: Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680319319"><span class="hs-identifier hs-var hs-var">modelApprovalStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680319319"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319318"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319317"><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
+</span><a href="#local-6989586621680319317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelApprovalStatus:ModelPackageSummary' :: Maybe ModelApprovalStatus
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelApprovalStatus%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelApprovalStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
-</span><a href="#local-6989586621680317930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | A brief description of the model package.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageDescription"><span class="hs-identifier hs-type">modelPackageSummary_modelPackageDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="modelPackageSummary_modelPackageDescription"><span class="annot"><span class="annottext">modelPackageSummary_modelPackageDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680319317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | A brief description of the model package.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageDescription"><span class="hs-identifier hs-type">modelPackageSummary_modelPackageDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="modelPackageSummary_modelPackageDescription"><span class="annot"><span class="annottext">modelPackageSummary_modelPackageDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModelPackageSummary -&gt; f ModelPackageSummary
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageDescription"><span class="hs-identifier hs-var hs-var">modelPackageSummary_modelPackageDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageSummary -&gt; Maybe Text)
 -&gt; (ModelPackageSummary -&gt; Maybe Text -&gt; ModelPackageSummary)
 -&gt; Lens
      ModelPackageSummary ModelPackageSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317928"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319315"><span class="annot"><span class="annottext">Maybe Text
 modelPackageDescription :: Maybe Text
 $sel:modelPackageDescription:ModelPackageSummary' :: ModelPackageSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680317928"><span class="hs-identifier hs-var hs-var">modelPackageDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317928"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317927"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317926"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageDescription:ModelPackageSummary' :: Maybe Text
+</span><a href="#local-6989586621680319315"><span class="hs-identifier hs-var hs-var">modelPackageDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680319315"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319314"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680319313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageDescription:ModelPackageSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageDescription%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680319313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | If the model package is a versioned model, the version of the model.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageVersion"><span class="hs-identifier hs-type">modelPackageSummary_modelPackageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="modelPackageSummary_modelPackageVersion"><span class="annot"><span class="annottext">modelPackageSummary_modelPackageVersion :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ModelPackageSummary -&gt; f ModelPackageSummary
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageVersion"><span class="hs-identifier hs-var hs-var">modelPackageSummary_modelPackageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelPackageSummary -&gt; Maybe Natural)
+-&gt; (ModelPackageSummary -&gt; Maybe Natural -&gt; ModelPackageSummary)
+-&gt; Lens
+     ModelPackageSummary
+     ModelPackageSummary
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319311"><span class="annot"><span class="annottext">Maybe Natural
+modelPackageVersion :: Maybe Natural
+$sel:modelPackageVersion:ModelPackageSummary' :: ModelPackageSummary -&gt; Maybe Natural
+</span><a href="#local-6989586621680319311"><span class="hs-identifier hs-var hs-var">modelPackageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680319311"><span class="hs-identifier hs-var">modelPackageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319310"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319309"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680319309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageVersion:ModelPackageSummary' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageVersion%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680319309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | If the model package is a versioned model, the model group that the</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- versioned model belongs to.</span><span>
@@ -303,16 +303,16 @@ $sel:modelPackageDescription:ModelPackageSummary' :: ModelPackageSummary -&gt; M
 -&gt; Lens
      ModelPackageSummary ModelPackageSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317924"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319307"><span class="annot"><span class="annottext">Maybe Text
 modelPackageGroupName :: Maybe Text
 $sel:modelPackageGroupName:ModelPackageSummary' :: ModelPackageSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680317924"><span class="hs-identifier hs-var hs-var">modelPackageGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317924"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317923"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317922"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroupName:ModelPackageSummary' :: Maybe Text
+</span><a href="#local-6989586621680319307"><span class="hs-identifier hs-var hs-var">modelPackageGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680319307"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319306"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680319305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageGroupName:ModelPackageSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageGroupName%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680317922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680319305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The name of the model package.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageName"><span class="hs-identifier hs-type">modelPackageSummary_modelPackageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -321,16 +321,16 @@ $sel:modelPackageGroupName:ModelPackageSummary' :: ModelPackageSummary -&gt; May
 -&gt; (ModelPackageSummary -&gt; Text -&gt; ModelPackageSummary)
 -&gt; Lens ModelPackageSummary ModelPackageSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317920"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319303"><span class="annot"><span class="annottext">Text
 modelPackageName :: Text
 $sel:modelPackageName:ModelPackageSummary' :: ModelPackageSummary -&gt; Text
-</span><a href="#local-6989586621680317920"><span class="hs-identifier hs-var hs-var">modelPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317920"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317919"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317918"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageName:ModelPackageSummary' :: Text
+</span><a href="#local-6989586621680319303"><span class="hs-identifier hs-var hs-var">modelPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680319303"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319302"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680319301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageName:ModelPackageSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageName%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680319301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the model package.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_modelPackageArn"><span class="hs-identifier hs-type">modelPackageSummary_modelPackageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -339,16 +339,16 @@ $sel:modelPackageName:ModelPackageSummary' :: ModelPackageSummary -&gt; Text
 -&gt; (ModelPackageSummary -&gt; Text -&gt; ModelPackageSummary)
 -&gt; Lens ModelPackageSummary ModelPackageSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317916"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319299"><span class="annot"><span class="annottext">Text
 modelPackageArn :: Text
 $sel:modelPackageArn:ModelPackageSummary' :: ModelPackageSummary -&gt; Text
-</span><a href="#local-6989586621680317916"><span class="hs-identifier hs-var hs-var">modelPackageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317916"><span class="hs-identifier hs-var">modelPackageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317915"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317914"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageArn:ModelPackageSummary' :: Text
+</span><a href="#local-6989586621680319299"><span class="hs-identifier hs-var hs-var">modelPackageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680319299"><span class="hs-identifier hs-var">modelPackageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319298"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319297"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680319297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageArn:ModelPackageSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageArn%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680319297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | A timestamp that shows when the model package was created.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#modelPackageSummary_creationTime"><span class="hs-identifier hs-type">modelPackageSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -358,16 +358,16 @@ $sel:modelPackageArn:ModelPackageSummary' :: ModelPackageSummary -&gt; Text
 -&gt; (ModelPackageSummary -&gt; POSIX -&gt; ModelPackageSummary)
 -&gt; Lens ModelPackageSummary ModelPackageSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317912"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319295"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:ModelPackageSummary' :: ModelPackageSummary -&gt; POSIX
-</span><a href="#local-6989586621680317912"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680317912"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317911"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317910"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680317910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ModelPackageSummary' :: POSIX
+</span><a href="#local-6989586621680319295"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680319295"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319294"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319293"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680319293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ModelPackageSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AcreationTime%3AModelPackageSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680317910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621680319293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; ModelPackageSummary -&gt; f ModelPackageSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -391,19 +391,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      ModelPackageStatus
      ModelPackageStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317907"><span class="annot"><span class="annottext">ModelPackageStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680319290"><span class="annot"><span class="annottext">ModelPackageStatus
 modelPackageStatus :: ModelPackageStatus
 $sel:modelPackageStatus:ModelPackageSummary' :: ModelPackageSummary -&gt; ModelPackageStatus
-</span><a href="#local-6989586621680317907"><span class="hs-identifier hs-var hs-var">modelPackageStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageStatus
-</span><a href="#local-6989586621680317907"><span class="hs-identifier hs-var">modelPackageStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317906"><span class="annot"><span class="annottext">s :: ModelPackageSummary
-</span><a href="#local-6989586621680317906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317905"><span class="annot"><span class="annottext">ModelPackageStatus
-</span><a href="#local-6989586621680317905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
-</span><a href="#local-6989586621680317906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageStatus:ModelPackageSummary' :: ModelPackageStatus
+</span><a href="#local-6989586621680319290"><span class="hs-identifier hs-var hs-var">modelPackageStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageStatus
+</span><a href="#local-6989586621680319290"><span class="hs-identifier hs-var">modelPackageStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680319289"><span class="annot"><span class="annottext">s :: ModelPackageSummary
+</span><a href="#local-6989586621680319289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-type">ModelPackageSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680319288"><span class="annot"><span class="annottext">ModelPackageStatus
+</span><a href="#local-6989586621680319288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelPackageSummary
+</span><a href="#local-6989586621680319289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageStatus:ModelPackageSummary' :: ModelPackageStatus
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#%24sel%3AmodelPackageStatus%3AModelPackageSummary%27"><span class="hs-identifier hs-var">modelPackageStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ModelPackageStatus
-</span><a href="#local-6989586621680317905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680319288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317902"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621680317900"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelPackageSummary
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319285"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621680319283"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelPackageSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelPackageSummary)
@@ -413,11 +413,11 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelPackageSummary&quot;</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317897"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe ModelApprovalStatus
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680319280"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe ModelApprovalStatus
 -&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Text
 -&gt; Text
@@ -425,19 +425,19 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; ModelPackageStatus
 -&gt; ModelPackageSummary
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary%27"><span class="hs-identifier hs-var">ModelPackageSummary'</span></a></span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe ModelApprovalStatus
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ModelApprovalStatus
  -&gt; Maybe Text
+ -&gt; Maybe Natural
  -&gt; Maybe Text
  -&gt; Text
  -&gt; Text
  -&gt; POSIX
  -&gt; ModelPackageStatus
  -&gt; ModelPackageSummary)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe ModelApprovalStatus)
 -&gt; Parser
-     (Maybe ModelApprovalStatus
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe Natural
       -&gt; Maybe Text
       -&gt; Text
       -&gt; Text
@@ -446,36 +446,13 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ModelPackageSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ModelPackageVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ModelApprovalStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; POSIX
-   -&gt; ModelPackageStatus
-   -&gt; ModelPackageSummary)
--&gt; Parser (Maybe ModelApprovalStatus)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; POSIX
-      -&gt; ModelPackageStatus
-      -&gt; ModelPackageSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelApprovalStatus)
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelApprovalStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelApprovalStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe Natural
    -&gt; Maybe Text
    -&gt; Text
    -&gt; Text
@@ -484,6 +461,29 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
    -&gt; ModelPackageSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; ModelPackageStatus
+      -&gt; ModelPackageSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelPackageDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; ModelPackageStatus
+   -&gt; ModelPackageSummary)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
      (Maybe Text
       -&gt; Text
       -&gt; Text
@@ -492,10 +492,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ModelPackageSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ModelPackageDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ModelPackageVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Text
@@ -509,7 +509,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Text -&gt; POSIX -&gt; ModelPackageStatus -&gt; ModelPackageSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelPackageGroupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -521,7 +521,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; POSIX -&gt; ModelPackageStatus -&gt; ModelPackageSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelPackageName&quot;</span></span><span class="hs-special">)</span><span>
@@ -530,7 +530,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; ModelPackageStatus -&gt; ModelPackageSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelPackageArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -539,7 +539,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ModelPackageStatus -&gt; ModelPackageSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -547,13 +547,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ModelPackageStatus -&gt; Parser ModelPackageSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ModelPackageStatus
+</span><a href="#local-6989586621680319280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ModelPackageStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelPackageStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317890"><span id="local-6989586621680317892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319273"><span id="local-6989586621680319275"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680319270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageSummary.html#ModelPackageSummary"><span class="hs-identifier hs-type">ModelPackageSummary</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

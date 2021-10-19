@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about conflicts in a merge operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newConflict' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679350597"><span id="local-6989586621679350598"></span></span><span class="hs-keyword">data</span><span> </span><span id="Conflict"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-var">Conflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Conflict%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-var">Conflict'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Metadata about a conflict in a merge operation.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AconflictMetadata%3AConflict%27"><span class="annot"><span class="annottext">Conflict -&gt; Maybe ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AconflictMetadata%3AConflict%27"><span class="hs-identifier hs-var hs-var">conflictMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of hunks that contain the differences between files or lines</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- causing the conflict.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmergeHunks%3AConflict%27"><span class="annot"><span class="annottext">Conflict -&gt; Maybe [MergeHunk]
-</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AmergeHunks%3AConflict%27"><span class="hs-identifier hs-var hs-var">mergeHunks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeHunk.html#MergeHunk"><span class="hs-identifier hs-type">MergeHunk</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679350868"><span id="local-6989586621679350869"></span></span><span class="hs-keyword">data</span><span> </span><span id="Conflict"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-var">Conflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Conflict%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-var">Conflict'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of hunks that contain the differences between files or lines</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- causing the conflict.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmergeHunks%3AConflict%27"><span class="annot"><span class="annottext">Conflict -&gt; Maybe [MergeHunk]
+</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AmergeHunks%3AConflict%27"><span class="hs-identifier hs-var hs-var">mergeHunks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeHunk.html#MergeHunk"><span class="hs-identifier hs-type">MergeHunk</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Metadata about a conflict in a merge operation.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconflictMetadata%3AConflict%27"><span class="annot"><span class="annottext">Conflict -&gt; Maybe ConflictMetadata
+</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AconflictMetadata%3AConflict%27"><span class="hs-identifier hs-var hs-var">conflictMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350590"><span id="local-6989586621679350592"><span class="annot"><span class="annottext">Conflict -&gt; Conflict -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350861"><span id="local-6989586621679350863"><span class="annot"><span class="annottext">Conflict -&gt; Conflict -&gt; Bool
 (Conflict -&gt; Conflict -&gt; Bool)
 -&gt; (Conflict -&gt; Conflict -&gt; Bool) -&gt; Eq Conflict
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Conflict -&gt; Conflict -&gt; Bool
 == :: Conflict -&gt; Conflict -&gt; Bool
 $c== :: Conflict -&gt; Conflict -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350581"><span id="local-6989586621679350583"><span id="local-6989586621679350585"><span id="local-6989586621679350587"><span class="annot"><span class="annottext">ReadPrec [Conflict]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350852"><span id="local-6989586621679350854"><span id="local-6989586621679350856"><span id="local-6989586621679350858"><span class="annot"><span class="annottext">ReadPrec [Conflict]
 ReadPrec Conflict
 Int -&gt; ReadS Conflict
 ReadS [Conflict]
@@ -65,7 +65,7 @@ readList :: ReadS [Conflict]
 $creadList :: ReadS [Conflict]
 readsPrec :: Int -&gt; ReadS Conflict
 $creadsPrec :: Int -&gt; ReadS Conflict
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350574"><span id="local-6989586621679350576"><span id="local-6989586621679350578"><span class="annot"><span class="annottext">Int -&gt; Conflict -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350845"><span id="local-6989586621679350847"><span id="local-6989586621679350849"><span class="annot"><span class="annottext">Int -&gt; Conflict -&gt; ShowS
 [Conflict] -&gt; ShowS
 Conflict -&gt; String
 (Int -&gt; Conflict -&gt; ShowS)
@@ -96,65 +96,45 @@ $cfrom :: forall x. Conflict -&gt; Rep Conflict x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'conflictMetadata', 'conflict_conflictMetadata' - Metadata about a conflict in a merge operation.</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'mergeHunks', 'conflict_mergeHunks' - A list of hunks that contain the differences between files or lines</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- causing the conflict.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'mergeHunks', 'conflict_mergeHunks' - A list of hunks that contain the differences between files or lines</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- causing the conflict.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'conflictMetadata', 'conflict_conflictMetadata' - Metadata about a conflict in a merge operation.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#newConflict"><span class="hs-identifier hs-type">newConflict</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span>
 </span><span id="line-54"></span><span id="newConflict"><span class="annot"><span class="annottext">newConflict :: Conflict
 </span><a href="Network.AWS.CodeCommit.Types.Conflict.html#newConflict"><span class="hs-identifier hs-var hs-var">newConflict</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Conflict' :: Maybe ConflictMetadata -&gt; Maybe [MergeHunk] -&gt; Conflict
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Conflict' :: Maybe [MergeHunk] -&gt; Maybe ConflictMetadata -&gt; Conflict
 </span><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:conflictMetadata:Conflict' :: Maybe ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AconflictMetadata%3AConflict%27"><span class="hs-identifier hs-var">conflictMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictMetadata
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mergeHunks:Conflict' :: Maybe [MergeHunk]
+</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AmergeHunks%3AConflict%27"><span class="hs-identifier hs-var">mergeHunks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MergeHunk]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:mergeHunks:Conflict' :: Maybe [MergeHunk]
-</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AmergeHunks%3AConflict%27"><span class="hs-identifier hs-var">mergeHunks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MergeHunk]
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:conflictMetadata:Conflict' :: Maybe ConflictMetadata
+</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AconflictMetadata%3AConflict%27"><span class="hs-identifier hs-var">conflictMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictMetadata
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Metadata about a conflict in a merge operation.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#conflict_conflictMetadata"><span class="hs-identifier hs-type">conflict_conflictMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="conflict_conflictMetadata"><span class="annot"><span class="annottext">conflict_conflictMetadata :: (Maybe ConflictMetadata -&gt; f (Maybe ConflictMetadata))
--&gt; Conflict -&gt; f Conflict
-</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#conflict_conflictMetadata"><span class="hs-identifier hs-var hs-var">conflict_conflictMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Conflict -&gt; Maybe ConflictMetadata)
--&gt; (Conflict -&gt; Maybe ConflictMetadata -&gt; Conflict)
--&gt; Lens
-     Conflict Conflict (Maybe ConflictMetadata) (Maybe ConflictMetadata)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350565"><span class="annot"><span class="annottext">Maybe ConflictMetadata
-conflictMetadata :: Maybe ConflictMetadata
-$sel:conflictMetadata:Conflict' :: Conflict -&gt; Maybe ConflictMetadata
-</span><a href="#local-6989586621679350565"><span class="hs-identifier hs-var hs-var">conflictMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictMetadata
-</span><a href="#local-6989586621679350565"><span class="hs-identifier hs-var">conflictMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350564"><span class="annot"><span class="annottext">s :: Conflict
-</span><a href="#local-6989586621679350564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350563"><span class="annot"><span class="annottext">Maybe ConflictMetadata
-</span><a href="#local-6989586621679350563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Conflict
-</span><a href="#local-6989586621679350564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictMetadata:Conflict' :: Maybe ConflictMetadata
-</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AconflictMetadata%3AConflict%27"><span class="hs-identifier hs-var">conflictMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictMetadata
-</span><a href="#local-6989586621679350563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | A list of hunks that contain the differences between files or lines</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- causing the conflict.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#conflict_mergeHunks"><span class="hs-identifier hs-type">conflict_mergeHunks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeHunk.html#MergeHunk"><span class="hs-identifier hs-type">MergeHunk</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="conflict_mergeHunks"><span class="annot"><span class="annottext">conflict_mergeHunks :: (Maybe [MergeHunk] -&gt; f (Maybe [MergeHunk]))
+</span><span id="line-60"></span><span class="hs-comment">-- | A list of hunks that contain the differences between files or lines</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- causing the conflict.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#conflict_mergeHunks"><span class="hs-identifier hs-type">conflict_mergeHunks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.MergeHunk.html#MergeHunk"><span class="hs-identifier hs-type">MergeHunk</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="conflict_mergeHunks"><span class="annot"><span class="annottext">conflict_mergeHunks :: (Maybe [MergeHunk] -&gt; f (Maybe [MergeHunk]))
 -&gt; Conflict -&gt; f Conflict
 </span><a href="Network.AWS.CodeCommit.Types.Conflict.html#conflict_mergeHunks"><span class="hs-identifier hs-var hs-var">conflict_mergeHunks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Conflict -&gt; Maybe [MergeHunk])
 -&gt; (Conflict -&gt; Maybe [MergeHunk] -&gt; Conflict)
 -&gt; Lens Conflict Conflict (Maybe [MergeHunk]) (Maybe [MergeHunk])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350561"><span class="annot"><span class="annottext">Maybe [MergeHunk]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350836"><span class="annot"><span class="annottext">Maybe [MergeHunk]
 mergeHunks :: Maybe [MergeHunk]
 $sel:mergeHunks:Conflict' :: Conflict -&gt; Maybe [MergeHunk]
-</span><a href="#local-6989586621679350561"><span class="hs-identifier hs-var hs-var">mergeHunks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MergeHunk]
-</span><a href="#local-6989586621679350561"><span class="hs-identifier hs-var">mergeHunks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350560"><span class="annot"><span class="annottext">s :: Conflict
-</span><a href="#local-6989586621679350560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350559"><span class="annot"><span class="annottext">Maybe [MergeHunk]
-</span><a href="#local-6989586621679350559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Conflict
-</span><a href="#local-6989586621679350560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeHunks:Conflict' :: Maybe [MergeHunk]
+</span><a href="#local-6989586621679350836"><span class="hs-identifier hs-var hs-var">mergeHunks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MergeHunk]
+</span><a href="#local-6989586621679350836"><span class="hs-identifier hs-var">mergeHunks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350835"><span class="annot"><span class="annottext">s :: Conflict
+</span><a href="#local-6989586621679350835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350834"><span class="annot"><span class="annottext">Maybe [MergeHunk]
+</span><a href="#local-6989586621679350834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Conflict
+</span><a href="#local-6989586621679350835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergeHunks:Conflict' :: Maybe [MergeHunk]
 </span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AmergeHunks%3AConflict%27"><span class="hs-identifier hs-var">mergeHunks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MergeHunk]
-</span><a href="#local-6989586621679350559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MergeHunk] -&gt; f (Maybe [MergeHunk]))
+</span><a href="#local-6989586621679350834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MergeHunk] -&gt; f (Maybe [MergeHunk]))
  -&gt; Conflict -&gt; f Conflict)
 -&gt; ((Maybe [MergeHunk] -&gt; f (Maybe [MergeHunk]))
     -&gt; Maybe [MergeHunk] -&gt; f (Maybe [MergeHunk]))
@@ -172,35 +152,47 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MergeHunk] [MergeHunk] [MergeHunk] [MergeHunk]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | Metadata about a conflict in a merge operation.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#conflict_conflictMetadata"><span class="hs-identifier hs-type">conflict_conflictMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ConflictMetadata.html#ConflictMetadata"><span class="hs-identifier hs-type">ConflictMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="conflict_conflictMetadata"><span class="annot"><span class="annottext">conflict_conflictMetadata :: (Maybe ConflictMetadata -&gt; f (Maybe ConflictMetadata))
+-&gt; Conflict -&gt; f Conflict
+</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#conflict_conflictMetadata"><span class="hs-identifier hs-var hs-var">conflict_conflictMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Conflict -&gt; Maybe ConflictMetadata)
+-&gt; (Conflict -&gt; Maybe ConflictMetadata -&gt; Conflict)
+-&gt; Lens
+     Conflict Conflict (Maybe ConflictMetadata) (Maybe ConflictMetadata)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350829"><span class="annot"><span class="annottext">Maybe ConflictMetadata
+conflictMetadata :: Maybe ConflictMetadata
+$sel:conflictMetadata:Conflict' :: Conflict -&gt; Maybe ConflictMetadata
+</span><a href="#local-6989586621679350829"><span class="hs-identifier hs-var hs-var">conflictMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictMetadata
+</span><a href="#local-6989586621679350829"><span class="hs-identifier hs-var">conflictMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350828"><span class="annot"><span class="annottext">s :: Conflict
+</span><a href="#local-6989586621679350828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-type">Conflict'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350827"><span class="annot"><span class="annottext">Maybe ConflictMetadata
+</span><a href="#local-6989586621679350827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Conflict
+</span><a href="#local-6989586621679350828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conflictMetadata:Conflict' :: Maybe ConflictMetadata
+</span><a href="Network.AWS.CodeCommit.Types.Conflict.html#%24sel%3AconflictMetadata%3AConflict%27"><span class="hs-identifier hs-var">conflictMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConflictMetadata
+</span><a href="#local-6989586621679350827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350553"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679350551"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Conflict
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350824"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679350822"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Conflict
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Conflict) -&gt; Value -&gt; Parser Conflict
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Conflict&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350548"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350548"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConflictMetadata -&gt; Maybe [MergeHunk] -&gt; Conflict
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350819"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MergeHunk] -&gt; Maybe ConflictMetadata -&gt; Conflict
 </span><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict%27"><span class="hs-identifier hs-var">Conflict'</span></a></span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConflictMetadata -&gt; Maybe [MergeHunk] -&gt; Conflict)
--&gt; Parser (Maybe ConflictMetadata)
--&gt; Parser (Maybe [MergeHunk] -&gt; Conflict)
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MergeHunk] -&gt; Maybe ConflictMetadata -&gt; Conflict)
+-&gt; Parser (Maybe [MergeHunk])
+-&gt; Parser (Maybe ConflictMetadata -&gt; Conflict)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConflictMetadata)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;conflictMetadata&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [MergeHunk] -&gt; Conflict)
--&gt; Parser (Maybe [MergeHunk]) -&gt; Parser Conflict
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350548"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MergeHunk]))
+</span><a href="#local-6989586621679350819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MergeHunk]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mergeHunks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MergeHunk]))
@@ -209,9 +201,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MergeHunk]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ConflictMetadata -&gt; Conflict)
+-&gt; Parser (Maybe ConflictMetadata) -&gt; Parser Conflict
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConflictMetadata)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;conflictMetadata&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350541"><span id="local-6989586621679350543"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350812"><span id="local-6989586621679350814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Conflict.html#Conflict"><span class="hs-identifier hs-type">Conflict</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

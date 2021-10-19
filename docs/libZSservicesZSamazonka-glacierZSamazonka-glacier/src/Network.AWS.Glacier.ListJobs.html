@@ -65,10 +65,10 @@
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#newListJobs"><span class="hs-identifier">newListJobs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_statuscode"><span class="hs-identifier">listJobs_statuscode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_marker"><span class="hs-identifier">listJobs_marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_completed"><span class="hs-identifier">listJobs_completed</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_limit"><span class="hs-identifier">listJobs_limit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_marker"><span class="hs-identifier">listJobs_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_statuscode"><span class="hs-identifier">listJobs_statuscode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_accountId"><span class="hs-identifier">listJobs_accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_vaultName"><span class="hs-identifier">listJobs_vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>
@@ -77,8 +77,8 @@
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#newListJobsResponse"><span class="hs-identifier">newListJobsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_jobList"><span class="hs-identifier">listJobsResponse_jobList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_marker"><span class="hs-identifier">listJobsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_marker"><span class="hs-identifier">listJobsResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_jobList"><span class="hs-identifier">listJobsResponse_jobList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_httpStatus"><span class="hs-identifier">listJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span class="hs-keyword">where</span><span>
@@ -94,26 +94,26 @@
 </span><span id="line-94"></span><span class="hs-comment">-- vault.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- /See:/ 'newListJobs' smart constructor.</span><span>
-</span><span id="line-97"></span><span id="local-6989586621679222309"><span id="local-6989586621679222310"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobs"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-var">ListJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobs%27"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-var">ListJobs'</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of job status to return. You can specify the following values:</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- @InProgress@, @Succeeded@, or @Failed@.</span><span>
-</span><span id="line-100"></span><span>    </span><span id="%24sel%3Astatuscode%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Astatuscode%3AListJobs%27"><span class="hs-identifier hs-var hs-var">statuscode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The state of the jobs to return. You can specify @true@ or @false@.</span><span>
-</span><span id="line-102"></span><span>    </span><span id="%24sel%3Acompleted%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Acompleted%3AListJobs%27"><span class="hs-identifier hs-var hs-var">completed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The maximum number of jobs to be returned. The default limit is 50. The</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- number of jobs returned might be fewer than the specified limit, but the</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- number of returned jobs never exceeds the limit.</span><span>
-</span><span id="line-106"></span><span>    </span><span id="%24sel%3Alimit%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Alimit%3AListJobs%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | An opaque string used for pagination. This value specifies the job at</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- which the listing of jobs should begin. Get the marker value from a</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- previous List Jobs response. You only need to include the marker if you</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- are continuing the pagination of results started in a previous List Jobs</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-112"></span><span>    </span><span id="%24sel%3Amarker%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
+</span><span id="line-97"></span><span id="local-6989586621679222367"><span id="local-6989586621679222368"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobs"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-var">ListJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobs%27"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-var">ListJobs'</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An opaque string used for pagination. This value specifies the job at</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- which the listing of jobs should begin. Get the marker value from a</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- previous List Jobs response. You only need to include the marker if you</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- are continuing the pagination of results started in a previous List Jobs</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3Amarker%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobs%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The state of the jobs to return. You can specify @true@ or @false@.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Acompleted%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Acompleted%3AListJobs%27"><span class="hs-identifier hs-var hs-var">completed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The maximum number of jobs to be returned. The default limit is 50. The</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- number of jobs returned might be fewer than the specified limit, but the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- number of returned jobs never exceeds the limit.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3Alimit%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Alimit%3AListJobs%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The type of job status to return. You can specify the following values:</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- @InProgress@, @Succeeded@, or @Failed@.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3Astatuscode%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Astatuscode%3AListJobs%27"><span class="hs-identifier hs-var hs-var">statuscode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
@@ -125,7 +125,7 @@
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AvaultName%3AListJobs%27"><span class="annot"><span class="annottext">ListJobs -&gt; Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AvaultName%3AListJobs%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222298"><span id="local-6989586621679222300"><span class="annot"><span class="annottext">ListJobs -&gt; ListJobs -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222356"><span id="local-6989586621679222358"><span class="annot"><span class="annottext">ListJobs -&gt; ListJobs -&gt; Bool
 (ListJobs -&gt; ListJobs -&gt; Bool)
 -&gt; (ListJobs -&gt; ListJobs -&gt; Bool) -&gt; Eq ListJobs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -133,7 +133,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobs -&gt; ListJobs -&gt; Bool
 == :: ListJobs -&gt; ListJobs -&gt; Bool
 $c== :: ListJobs -&gt; ListJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222289"><span id="local-6989586621679222291"><span id="local-6989586621679222293"><span id="local-6989586621679222295"><span class="annot"><span class="annottext">ReadPrec [ListJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222347"><span id="local-6989586621679222349"><span id="local-6989586621679222351"><span id="local-6989586621679222353"><span class="annot"><span class="annottext">ReadPrec [ListJobs]
 ReadPrec ListJobs
 Int -&gt; ReadS ListJobs
 ReadS [ListJobs]
@@ -153,7 +153,7 @@ readList :: ReadS [ListJobs]
 $creadList :: ReadS [ListJobs]
 readsPrec :: Int -&gt; ReadS ListJobs
 $creadsPrec :: Int -&gt; ReadS ListJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222282"><span id="local-6989586621679222284"><span id="local-6989586621679222286"><span class="annot"><span class="annottext">Int -&gt; ListJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222340"><span id="local-6989586621679222342"><span id="local-6989586621679222344"><span class="annot"><span class="annottext">Int -&gt; ListJobs -&gt; ShowS
 [ListJobs] -&gt; ShowS
 ListJobs -&gt; String
 (Int -&gt; ListJobs -&gt; ShowS)
@@ -184,20 +184,20 @@ $cfrom :: forall x. ListJobs -&gt; Rep ListJobs x
 </span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- 'statuscode', 'listJobs_statuscode' - The type of job status to return. You can specify the following values:</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @InProgress@, @Succeeded@, or @Failed@.</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- 'completed', 'listJobs_completed' - The state of the jobs to return. You can specify @true@ or @false@.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- 'limit', 'listJobs_limit' - The maximum number of jobs to be returned. The default limit is 50. The</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- number of jobs returned might be fewer than the specified limit, but the</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- number of returned jobs never exceeds the limit.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- 'marker', 'listJobs_marker' - An opaque string used for pagination. This value specifies the job at</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- which the listing of jobs should begin. Get the marker value from a</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- previous List Jobs response. You only need to include the marker if you</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- are continuing the pagination of results started in a previous List Jobs</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'marker', 'listJobs_marker' - An opaque string used for pagination. This value specifies the job at</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- which the listing of jobs should begin. Get the marker value from a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- previous List Jobs response. You only need to include the marker if you</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- are continuing the pagination of results started in a previous List Jobs</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'completed', 'listJobs_completed' - The state of the jobs to return. You can specify @true@ or @false@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'limit', 'listJobs_limit' - The maximum number of jobs to be returned. The default limit is 50. The</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- number of jobs returned might be fewer than the specified limit, but the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- number of returned jobs never exceeds the limit.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'statuscode', 'listJobs_statuscode' - The type of job status to return. You can specify the following values:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @InProgress@, @Succeeded@, or @Failed@.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- 'accountId', 'listJobs_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -213,9 +213,9 @@ $cfrom :: forall x. ListJobs -&gt; Rep ListJobs x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span>
 </span><span id="line-160"></span><span id="newListJobs"><span class="annot"><span class="annottext">newListJobs :: Text -&gt; Text -&gt; ListJobs
-</span><a href="Network.AWS.Glacier.ListJobs.html#newListJobs"><span class="hs-identifier hs-var hs-var">newListJobs</span></a></span></span><span> </span><span id="local-6989586621679222277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222277"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679222276"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222276"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.ListJobs.html#newListJobs"><span class="hs-identifier hs-var hs-var">newListJobs</span></a></span></span><span> </span><span id="local-6989586621679222335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222335"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679222334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222334"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">ListJobs' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -224,8 +224,8 @@ $cfrom :: forall x. ListJobs -&gt; Rep ListJobs x
 -&gt; Text
 -&gt; ListJobs
 </span><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statuscode:ListJobs' :: Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Astatuscode%3AListJobs%27"><span class="hs-identifier hs-var">statuscode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListJobs' :: Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobs%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:completed:ListJobs' :: Maybe Text
@@ -236,96 +236,96 @@ forall a. Maybe a
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Alimit%3AListJobs%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListJobs' :: Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobs%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:statuscode:ListJobs' :: Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Astatuscode%3AListJobs%27"><span class="hs-identifier hs-var">statuscode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:ListJobs' :: Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AaccountId%3AListJobs%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222277"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222335"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:ListJobs' :: Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AvaultName%3AListJobs%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222276"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679222334"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The type of job status to return. You can specify the following values:</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- @InProgress@, @Succeeded@, or @Failed@.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_statuscode"><span class="hs-identifier hs-type">listJobs_statuscode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="listJobs_statuscode"><span class="annot"><span class="annottext">listJobs_statuscode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
-</span><a href="Network.AWS.Glacier.ListJobs.html#listJobs_statuscode"><span class="hs-identifier hs-var hs-var">listJobs_statuscode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobs -&gt; Maybe Text)
--&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
--&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222274"><span class="annot"><span class="annottext">Maybe Text
-statuscode :: Maybe Text
-$sel:statuscode:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679222274"><span class="hs-identifier hs-var hs-var">statuscode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222274"><span class="hs-identifier hs-var">statuscode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222273"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679222273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222272"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statuscode:ListJobs' :: Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Astatuscode%3AListJobs%27"><span class="hs-identifier hs-var">statuscode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | The state of the jobs to return. You can specify @true@ or @false@.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_completed"><span class="hs-identifier hs-type">listJobs_completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="listJobs_completed"><span class="annot"><span class="annottext">listJobs_completed :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
-</span><a href="Network.AWS.Glacier.ListJobs.html#listJobs_completed"><span class="hs-identifier hs-var hs-var">listJobs_completed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobs -&gt; Maybe Text)
--&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
--&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222271"><span class="annot"><span class="annottext">Maybe Text
-completed :: Maybe Text
-$sel:completed:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679222271"><span class="hs-identifier hs-var hs-var">completed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222271"><span class="hs-identifier hs-var">completed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222270"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679222270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222269"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completed:ListJobs' :: Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Acompleted%3AListJobs%27"><span class="hs-identifier hs-var">completed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- | The maximum number of jobs to be returned. The default limit is 50. The</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- number of jobs returned might be fewer than the specified limit, but the</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- number of returned jobs never exceeds the limit.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_limit"><span class="hs-identifier hs-type">listJobs_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="listJobs_limit"><span class="annot"><span class="annottext">listJobs_limit :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
-</span><a href="Network.AWS.Glacier.ListJobs.html#listJobs_limit"><span class="hs-identifier hs-var hs-var">listJobs_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobs -&gt; Maybe Text)
--&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
--&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222268"><span class="annot"><span class="annottext">Maybe Text
-limit :: Maybe Text
-$sel:limit:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679222268"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222268"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222267"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679222267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222266"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListJobs' :: Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Alimit%3AListJobs%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- | An opaque string used for pagination. This value specifies the job at</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- which the listing of jobs should begin. Get the marker value from a</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- previous List Jobs response. You only need to include the marker if you</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- are continuing the pagination of results started in a previous List Jobs</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_marker"><span class="hs-identifier hs-type">listJobs_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="listJobs_marker"><span class="annot"><span class="annottext">listJobs_marker :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
+</span><span id="line-170"></span><span class="hs-comment">-- | An opaque string used for pagination. This value specifies the job at</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- which the listing of jobs should begin. Get the marker value from a</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- previous List Jobs response. You only need to include the marker if you</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- are continuing the pagination of results started in a previous List Jobs</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_marker"><span class="hs-identifier hs-type">listJobs_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="listJobs_marker"><span class="annot"><span class="annottext">listJobs_marker :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
 </span><a href="Network.AWS.Glacier.ListJobs.html#listJobs_marker"><span class="hs-identifier hs-var hs-var">listJobs_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobs -&gt; Maybe Text)
 -&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222265"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222332"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679222265"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222265"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222264"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679222264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222263"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListJobs' :: Maybe Text
+</span><a href="#local-6989586621679222332"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222332"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222331"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679222331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222330"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679222331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListJobs' :: Maybe Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobs%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The state of the jobs to return. You can specify @true@ or @false@.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_completed"><span class="hs-identifier hs-type">listJobs_completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="listJobs_completed"><span class="annot"><span class="annottext">listJobs_completed :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
+</span><a href="Network.AWS.Glacier.ListJobs.html#listJobs_completed"><span class="hs-identifier hs-var hs-var">listJobs_completed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobs -&gt; Maybe Text)
+-&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
+-&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222329"><span class="annot"><span class="annottext">Maybe Text
+completed :: Maybe Text
+$sel:completed:ListJobs' :: ListJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679222329"><span class="hs-identifier hs-var hs-var">completed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222329"><span class="hs-identifier hs-var">completed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222328"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679222328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222327"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679222328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completed:ListJobs' :: Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Acompleted%3AListJobs%27"><span class="hs-identifier hs-var">completed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The maximum number of jobs to be returned. The default limit is 50. The</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- number of jobs returned might be fewer than the specified limit, but the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- number of returned jobs never exceeds the limit.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_limit"><span class="hs-identifier hs-type">listJobs_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listJobs_limit"><span class="annot"><span class="annottext">listJobs_limit :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
+</span><a href="Network.AWS.Glacier.ListJobs.html#listJobs_limit"><span class="hs-identifier hs-var hs-var">listJobs_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobs -&gt; Maybe Text)
+-&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
+-&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222326"><span class="annot"><span class="annottext">Maybe Text
+limit :: Maybe Text
+$sel:limit:ListJobs' :: ListJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679222326"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222326"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222325"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679222325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679222325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListJobs' :: Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Alimit%3AListJobs%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The type of job status to return. You can specify the following values:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- @InProgress@, @Succeeded@, or @Failed@.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_statuscode"><span class="hs-identifier hs-type">listJobs_statuscode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="listJobs_statuscode"><span class="annot"><span class="annottext">listJobs_statuscode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListJobs -&gt; f ListJobs
+</span><a href="Network.AWS.Glacier.ListJobs.html#listJobs_statuscode"><span class="hs-identifier hs-var hs-var">listJobs_statuscode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobs -&gt; Maybe Text)
+-&gt; (ListJobs -&gt; Maybe Text -&gt; ListJobs)
+-&gt; Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222323"><span class="annot"><span class="annottext">Maybe Text
+statuscode :: Maybe Text
+$sel:statuscode:ListJobs' :: ListJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679222323"><span class="hs-identifier hs-var hs-var">statuscode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222323"><span class="hs-identifier hs-var">statuscode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222322"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679222322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222321"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679222322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statuscode:ListJobs' :: Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Astatuscode%3AListJobs%27"><span class="hs-identifier hs-var">statuscode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -338,16 +338,16 @@ $sel:marker:ListJobs' :: ListJobs -&gt; Maybe Text
 -&gt; (ListJobs -&gt; Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222262"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222320"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:ListJobs' :: ListJobs -&gt; Text
-</span><a href="#local-6989586621679222262"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222262"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222261"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679222261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222260"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListJobs' :: Text
+</span><a href="#local-6989586621679222320"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222320"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222319"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679222319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222318"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679222319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListJobs' :: Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AaccountId%3AListJobs%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobs_vaultName"><span class="hs-identifier hs-type">listJobs_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -356,28 +356,28 @@ $sel:accountId:ListJobs' :: ListJobs -&gt; Text
 -&gt; (ListJobs -&gt; Text -&gt; ListJobs)
 -&gt; Lens ListJobs ListJobs Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222259"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222317"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:ListJobs' :: ListJobs -&gt; Text
-</span><a href="#local-6989586621679222259"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222259"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222258"><span class="annot"><span class="annottext">s :: ListJobs
-</span><a href="#local-6989586621679222258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222257"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:ListJobs' :: Text
+</span><a href="#local-6989586621679222317"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222317"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222316"><span class="annot"><span class="annottext">s :: ListJobs
+</span><a href="#local-6989586621679222316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222315"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679222316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:ListJobs' :: Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AvaultName%3AListJobs%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679222253"><span class="annot"><span class="annottext">page :: ListJobs -&gt; AWSResponse ListJobs -&gt; Maybe ListJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679222251"><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222251"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679222250"><span class="annot"><span class="annottext">AWSResponse ListJobs
-</span><a href="#local-6989586621679222250"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679222311"><span class="annot"><span class="annottext">page :: ListJobs -&gt; AWSResponse ListJobs -&gt; Maybe ListJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679222309"><span class="annot"><span class="annottext">ListJobs
+</span><a href="#local-6989586621679222309"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679222308"><span class="annot"><span class="annottext">AWSResponse ListJobs
+</span><a href="#local-6989586621679222308"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-208"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679222250"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679222308"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First Text) ListJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -403,7 +403,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-213"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679222250"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679222308"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting
      (First [GlacierJobDescription])
@@ -451,7 +451,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ListJobs
-</span><a href="#local-6989586621679222251"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679222309"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">ListJobs -&gt; (ListJobs -&gt; ListJobs) -&gt; ListJobs
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -464,7 +464,7 @@ Lens ListJobs ListJobs (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobs
 ListJobsResponse
-</span><a href="#local-6989586621679222250"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679222308"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">ListJobsResponse
 -&gt; Getting (First Text) ListJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -484,7 +484,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679222240"><span class="annot"><span class="annottext">request :: ListJobs -&gt; Request ListJobs
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679222298"><span class="annot"><span class="annottext">request :: ListJobs -&gt; Request ListJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request ListJobs -&gt; Request ListJobs
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -498,7 +498,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679222234"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679222292"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJobs
 -&gt; ClientResponse ClientBody
@@ -522,20 +522,31 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222231"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222231"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222230"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679222230"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222229"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222229"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
--&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse
+</span><span id="line-231"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222289"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222289"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222288"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222288"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222287"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222287"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [GlacierJobDescription] -&gt; Int -&gt; ListJobsResponse
 </span><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span><span>
-</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [GlacierJobDescription]
- -&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse)
--&gt; Either String (Maybe [GlacierJobDescription])
--&gt; Either String (Maybe Text -&gt; Int -&gt; ListJobsResponse)
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [GlacierJobDescription] -&gt; Int -&gt; ListJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [GlacierJobDescription] -&gt; Int -&gt; ListJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [GlacierJobDescription] -&gt; Int -&gt; ListJobsResponse)
+-&gt; Either String (Maybe [GlacierJobDescription])
+-&gt; Either String (Int -&gt; ListJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222287"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [GlacierJobDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -546,15 +557,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListJobsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListJobsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListJobsResponse)
 -&gt; Either String Int -&gt; Either String ListJobsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -563,15 +565,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222231"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222289"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222220"><span id="local-6989586621679222222"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222278"><span id="local-6989586621679222280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span></span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span></span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679222213"><span class="annot"><span class="annottext">toHeaders :: ListJobs -&gt; ResponseHeaders
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679222271"><span class="annot"><span class="annottext">toHeaders :: ListJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -579,22 +581,22 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679222208"><span class="annot"><span class="annottext">toPath :: ListJobs -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222201"><span id="local-6989586621679222202"><span id="local-6989586621679222203"><span id="local-6989586621679222204"><span id="local-6989586621679222205"><span id="local-6989586621679222206"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679222266"><span class="annot"><span class="annottext">toPath :: ListJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222259"><span id="local-6989586621679222260"><span id="local-6989586621679222261"><span id="local-6989586621679222262"><span id="local-6989586621679222263"><span id="local-6989586621679222264"><span class="annot"><span class="annottext">Maybe Text
 Text
 vaultName :: Text
 accountId :: Text
-marker :: Maybe Text
+statuscode :: Maybe Text
 limit :: Maybe Text
 completed :: Maybe Text
-statuscode :: Maybe Text
+marker :: Maybe Text
 $sel:vaultName:ListJobs' :: ListJobs -&gt; Text
 $sel:accountId:ListJobs' :: ListJobs -&gt; Text
-$sel:marker:ListJobs' :: ListJobs -&gt; Maybe Text
+$sel:statuscode:ListJobs' :: ListJobs -&gt; Maybe Text
 $sel:limit:ListJobs' :: ListJobs -&gt; Maybe Text
 $sel:completed:ListJobs' :: ListJobs -&gt; Maybe Text
-$sel:statuscode:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679222201"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:ListJobs' :: ListJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679222259"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -603,79 +605,79 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222202"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222260"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222201"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222259"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs&quot;</span></span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs"><span class="hs-identifier hs-type">ListJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679222197"><span class="annot"><span class="annottext">toQuery :: ListJobs -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222190"><span id="local-6989586621679222191"><span id="local-6989586621679222192"><span id="local-6989586621679222193"><span id="local-6989586621679222194"><span id="local-6989586621679222195"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679222255"><span class="annot"><span class="annottext">toQuery :: ListJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobs%27"><span class="hs-identifier hs-type">ListJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222248"><span id="local-6989586621679222249"><span id="local-6989586621679222250"><span id="local-6989586621679222251"><span id="local-6989586621679222252"><span id="local-6989586621679222253"><span class="annot"><span class="annottext">Maybe Text
 Text
 vaultName :: Text
 accountId :: Text
-marker :: Maybe Text
+statuscode :: Maybe Text
 limit :: Maybe Text
 completed :: Maybe Text
-statuscode :: Maybe Text
+marker :: Maybe Text
 $sel:vaultName:ListJobs' :: ListJobs -&gt; Text
 $sel:accountId:ListJobs' :: ListJobs -&gt; Text
-$sel:marker:ListJobs' :: ListJobs -&gt; Maybe Text
+$sel:statuscode:ListJobs' :: ListJobs -&gt; Maybe Text
 $sel:limit:ListJobs' :: ListJobs -&gt; Maybe Text
 $sel:completed:ListJobs' :: ListJobs -&gt; Maybe Text
-$sel:statuscode:ListJobs' :: ListJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679222190"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:ListJobs' :: ListJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679222248"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;statuscode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222195"><span class="hs-identifier hs-var">statuscode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222253"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;completed&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222194"><span class="hs-identifier hs-var">completed</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222252"><span class="hs-identifier hs-var">completed</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222193"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222251"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;statuscode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222192"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679222250"><span class="hs-identifier hs-var">statuscode</span></a></span><span>
 </span><span id="line-262"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-265"></span><span class="hs-comment">--</span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- /See:/ 'newListJobsResponse' smart constructor.</span><span>
-</span><span id="line-267"></span><span id="local-6989586621679222187"><span id="local-6989586621679222188"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsResponse"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-var">ListJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span></span><span>
-</span><span id="line-268"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of job objects. Each job object contains metadata describing the</span><span>
-</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- job.</span><span>
-</span><span id="line-270"></span><span>    </span><span id="%24sel%3AjobList%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Maybe [GlacierJobDescription]
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AjobList%3AListJobsResponse%27"><span class="hs-identifier hs-var hs-var">jobList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glacier.Types.GlacierJobDescription.html#GlacierJobDescription"><span class="hs-identifier hs-type">GlacierJobDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- | An opaque string used for pagination that specifies the job at which the</span><span>
-</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- listing of jobs should begin. You get the @marker@ value from a previous</span><span>
-</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- List Jobs response. You only need to include the marker if you are</span><span>
-</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- continuing the pagination of the results started in a previous List Jobs</span><span>
-</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-276"></span><span>    </span><span id="%24sel%3Amarker%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Maybe Text
+</span><span id="line-267"></span><span id="local-6989586621679222245"><span id="local-6989586621679222246"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobsResponse"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-var">ListJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobsResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-var">ListJobsResponse'</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An opaque string used for pagination that specifies the job at which the</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- listing of jobs should begin. You get the @marker@ value from a previous</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- List Jobs response. You only need to include the marker if you are</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- continuing the pagination of the results started in a previous List Jobs</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-273"></span><span>    </span><span id="%24sel%3Amarker%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobsResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- | A list of job objects. Each job object contains metadata describing the</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-276"></span><span>    </span><span id="%24sel%3AjobList%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Maybe [GlacierJobDescription]
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AjobList%3AListJobsResponse%27"><span class="hs-identifier hs-var hs-var">jobList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glacier.Types.GlacierJobDescription.html#GlacierJobDescription"><span class="hs-identifier hs-type">GlacierJobDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-278"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="annot"><span class="annottext">ListJobsResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-279"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-280"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222180"><span id="local-6989586621679222182"><span class="annot"><span class="annottext">ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
+</span><span id="line-280"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222238"><span id="local-6989586621679222240"><span class="annot"><span class="annottext">ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 (ListJobsResponse -&gt; ListJobsResponse -&gt; Bool)
 -&gt; (ListJobsResponse -&gt; ListJobsResponse -&gt; Bool)
 -&gt; Eq ListJobsResponse
@@ -684,7 +686,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 == :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
 $c== :: ListJobsResponse -&gt; ListJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222172"><span id="local-6989586621679222174"><span id="local-6989586621679222176"><span id="local-6989586621679222178"><span class="annot"><span class="annottext">ReadPrec [ListJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222230"><span id="local-6989586621679222232"><span id="local-6989586621679222234"><span id="local-6989586621679222236"><span class="annot"><span class="annottext">ReadPrec [ListJobsResponse]
 ReadPrec ListJobsResponse
 Int -&gt; ReadS ListJobsResponse
 ReadS [ListJobsResponse]
@@ -704,7 +706,7 @@ readList :: ReadS [ListJobsResponse]
 $creadList :: ReadS [ListJobsResponse]
 readsPrec :: Int -&gt; ReadS ListJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222166"><span id="local-6989586621679222168"><span id="local-6989586621679222170"><span class="annot"><span class="annottext">Int -&gt; ListJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222224"><span id="local-6989586621679222226"><span id="local-6989586621679222228"><span class="annot"><span class="annottext">Int -&gt; ListJobsResponse -&gt; ShowS
 [ListJobsResponse] -&gt; ShowS
 ListJobsResponse -&gt; String
 (Int -&gt; ListJobsResponse -&gt; ShowS)
@@ -738,14 +740,14 @@ $cfrom :: forall x. ListJobsResponse -&gt; Rep ListJobsResponse x
 </span><span id="line-287"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-289"></span><span class="hs-comment">--</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- 'jobList', 'listJobsResponse_jobList' - A list of job objects. Each job object contains metadata describing the</span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- job.</span><span>
-</span><span id="line-292"></span><span class="hs-comment">--</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- 'marker', 'listJobsResponse_marker' - An opaque string used for pagination that specifies the job at which the</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- listing of jobs should begin. You get the @marker@ value from a previous</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- List Jobs response. You only need to include the marker if you are</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- continuing the pagination of the results started in a previous List Jobs</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- 'marker', 'listJobsResponse_marker' - An opaque string used for pagination that specifies the job at which the</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- listing of jobs should begin. You get the @marker@ value from a previous</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- List Jobs response. You only need to include the marker if you are</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- continuing the pagination of the results started in a previous List Jobs</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- 'jobList', 'listJobsResponse_jobList' - A list of job objects. Each job object contains metadata describing the</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- job.</span><span>
 </span><span id="line-298"></span><span class="hs-comment">--</span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-300"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#newListJobsResponse"><span class="hs-identifier hs-type">newListJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -753,28 +755,51 @@ $cfrom :: forall x. ListJobsResponse -&gt; Rep ListJobsResponse x
 </span><span id="line-302"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-303"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span>
 </span><span id="line-304"></span><span id="newListJobsResponse"><span class="annot"><span class="annottext">newListJobsResponse :: Int -&gt; ListJobsResponse
-</span><a href="Network.AWS.Glacier.ListJobs.html#newListJobsResponse"><span class="hs-identifier hs-var hs-var">newListJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679222163"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222163"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-305"></span><span>  </span><span class="annot"><span class="annottext">ListJobsResponse' :: Maybe [GlacierJobDescription]
--&gt; Maybe Text -&gt; Int -&gt; ListJobsResponse
+</span><a href="Network.AWS.Glacier.ListJobs.html#newListJobsResponse"><span class="hs-identifier hs-var hs-var">newListJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679222221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-305"></span><span>  </span><span class="annot"><span class="annottext">ListJobsResponse' :: Maybe Text
+-&gt; Maybe [GlacierJobDescription] -&gt; Int -&gt; ListJobsResponse
 </span><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span>
-</span><span id="line-306"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobList:ListJobsResponse' :: Maybe [GlacierJobDescription]
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AjobList%3AListJobsResponse%27"><span class="hs-identifier hs-var">jobList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
+</span><span id="line-306"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListJobsResponse' :: Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobList:ListJobsResponse' :: Maybe [GlacierJobDescription]
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AjobList%3AListJobsResponse%27"><span class="hs-identifier hs-var">jobList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-308"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222163"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679222221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-309"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-310"></span><span>
-</span><span id="line-311"></span><span class="hs-comment">-- | A list of job objects. Each job object contains metadata describing the</span><span>
-</span><span id="line-312"></span><span class="hs-comment">-- job.</span><span>
-</span><span id="line-313"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_jobList"><span class="hs-identifier hs-type">listJobsResponse_jobList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glacier.Types.GlacierJobDescription.html#GlacierJobDescription"><span class="hs-identifier hs-type">GlacierJobDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-314"></span><span id="listJobsResponse_jobList"><span class="annot"><span class="annottext">listJobsResponse_jobList :: (Maybe [GlacierJobDescription]
+</span><span id="line-311"></span><span class="hs-comment">-- | An opaque string used for pagination that specifies the job at which the</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- listing of jobs should begin. You get the @marker@ value from a previous</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- List Jobs response. You only need to include the marker if you are</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- continuing the pagination of the results started in a previous List Jobs</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_marker"><span class="hs-identifier hs-type">listJobsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="listJobsResponse_marker"><span class="annot"><span class="annottext">listJobsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListJobsResponse -&gt; f ListJobsResponse
+</span><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_marker"><span class="hs-identifier hs-var hs-var">listJobsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobsResponse -&gt; Maybe Text)
+-&gt; (ListJobsResponse -&gt; Maybe Text -&gt; ListJobsResponse)
+-&gt; Lens' ListJobsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222220"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListJobsResponse' :: ListJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222220"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222220"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222219"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679222219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222218"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679222219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | A list of job objects. Each job object contains metadata describing the</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- job.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_jobList"><span class="hs-identifier hs-type">listJobsResponse_jobList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glacier.Types.GlacierJobDescription.html#GlacierJobDescription"><span class="hs-identifier hs-type">GlacierJobDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="listJobsResponse_jobList"><span class="annot"><span class="annottext">listJobsResponse_jobList :: (Maybe [GlacierJobDescription]
  -&gt; f (Maybe [GlacierJobDescription]))
 -&gt; ListJobsResponse -&gt; f ListJobsResponse
 </span><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_jobList"><span class="hs-identifier hs-var hs-var">listJobsResponse_jobList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobsResponse -&gt; Maybe [GlacierJobDescription])
@@ -782,16 +807,16 @@ forall a. Maybe a
     -&gt; Maybe [GlacierJobDescription] -&gt; ListJobsResponse)
 -&gt; Lens' ListJobsResponse (Maybe [GlacierJobDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222162"><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222217"><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
 jobList :: Maybe [GlacierJobDescription]
 $sel:jobList:ListJobsResponse' :: ListJobsResponse -&gt; Maybe [GlacierJobDescription]
-</span><a href="#local-6989586621679222162"><span class="hs-identifier hs-var hs-var">jobList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
-</span><a href="#local-6989586621679222162"><span class="hs-identifier hs-var">jobList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222161"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679222161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222160"><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
-</span><a href="#local-6989586621679222160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679222161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobList:ListJobsResponse' :: Maybe [GlacierJobDescription]
+</span><a href="#local-6989586621679222217"><span class="hs-identifier hs-var hs-var">jobList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
+</span><a href="#local-6989586621679222217"><span class="hs-identifier hs-var">jobList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222216"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679222216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222215"><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
+</span><a href="#local-6989586621679222215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679222216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobList:ListJobsResponse' :: Maybe [GlacierJobDescription]
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AjobList%3AListJobsResponse%27"><span class="hs-identifier hs-var">jobList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GlacierJobDescription]
-</span><a href="#local-6989586621679222160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GlacierJobDescription]
+</span><a href="#local-6989586621679222215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GlacierJobDescription]
   -&gt; f (Maybe [GlacierJobDescription]))
  -&gt; ListJobsResponse -&gt; f ListJobsResponse)
 -&gt; ((Maybe [GlacierJobDescription]
@@ -821,31 +846,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [GlacierJobDescription]
   [GlacierJobDescription]
   [GlacierJobDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-315"></span><span>
-</span><span id="line-316"></span><span class="hs-comment">-- | An opaque string used for pagination that specifies the job at which the</span><span>
-</span><span id="line-317"></span><span class="hs-comment">-- listing of jobs should begin. You get the @marker@ value from a previous</span><span>
-</span><span id="line-318"></span><span class="hs-comment">-- List Jobs response. You only need to include the marker if you are</span><span>
-</span><span id="line-319"></span><span class="hs-comment">-- continuing the pagination of the results started in a previous List Jobs</span><span>
-</span><span id="line-320"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_marker"><span class="hs-identifier hs-type">listJobsResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-322"></span><span id="listJobsResponse_marker"><span class="annot"><span class="annottext">listJobsResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListJobsResponse -&gt; f ListJobsResponse
-</span><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_marker"><span class="hs-identifier hs-var hs-var">listJobsResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobsResponse -&gt; Maybe Text)
--&gt; (ListJobsResponse -&gt; Maybe Text -&gt; ListJobsResponse)
--&gt; Lens' ListJobsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222157"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:ListJobsResponse' :: ListJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679222157"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222157"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222156"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679222156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222155"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679222156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListJobsResponse' :: Maybe Text
-</span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3Amarker%3AListJobsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-323"></span><span>
 </span><span id="line-324"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-325"></span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#listJobsResponse_httpStatus"><span class="hs-identifier hs-type">listJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -854,16 +856,16 @@ $sel:marker:ListJobsResponse' :: ListJobsResponse -&gt; Maybe Text
 -&gt; (ListJobsResponse -&gt; Int -&gt; ListJobsResponse)
 -&gt; Lens ListJobsResponse ListJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222154"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222212"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJobsResponse' :: ListJobsResponse -&gt; Int
-</span><a href="#local-6989586621679222154"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222154"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222153"><span class="annot"><span class="annottext">s :: ListJobsResponse
-</span><a href="#local-6989586621679222153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222152"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
-</span><a href="#local-6989586621679222153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
+</span><a href="#local-6989586621679222212"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222212"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222211"><span class="annot"><span class="annottext">s :: ListJobsResponse
+</span><a href="#local-6989586621679222211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse%27"><span class="hs-identifier hs-type">ListJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222210"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobsResponse
+</span><a href="#local-6989586621679222211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobsResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListJobs.html#%24sel%3AhttpStatus%3AListJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span><span>
-</span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListJobs.html#ListJobsResponse"><span class="hs-identifier hs-type">ListJobsResponse</span></a></span></span><span>
 </span><span id="line-329"></span></pre></body></html>

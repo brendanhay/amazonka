@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Video Selector Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVideoSelectorSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679923368"><span id="local-6989586621679923369"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelectorSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-var">VideoSelectorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelectorSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-var">VideoSelectorSettings'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="annot"><span class="annottext">VideoSelectorSettings -&gt; Maybe VideoSelectorPid
-</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var hs-var">videoSelectorPid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorPid.html#VideoSelectorPid"><span class="hs-identifier hs-type">VideoSelectorPid</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AvideoSelectorProgramId%3AVideoSelectorSettings%27"><span class="annot"><span class="annottext">VideoSelectorSettings -&gt; Maybe VideoSelectorProgramId
-</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorProgramId%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var hs-var">videoSelectorProgramId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorProgramId.html#VideoSelectorProgramId"><span class="hs-identifier hs-type">VideoSelectorProgramId</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679930883"><span id="local-6989586621679930884"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelectorSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-var">VideoSelectorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelectorSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-var">VideoSelectorSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AvideoSelectorProgramId%3AVideoSelectorSettings%27"><span class="annot"><span class="annottext">VideoSelectorSettings -&gt; Maybe VideoSelectorProgramId
+</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorProgramId%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var hs-var">videoSelectorProgramId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorProgramId.html#VideoSelectorProgramId"><span class="hs-identifier hs-type">VideoSelectorProgramId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="annot"><span class="annottext">VideoSelectorSettings -&gt; Maybe VideoSelectorPid
+</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var hs-var">videoSelectorPid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorPid.html#VideoSelectorPid"><span class="hs-identifier hs-type">VideoSelectorPid</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923361"><span id="local-6989586621679923363"><span class="annot"><span class="annottext">VideoSelectorSettings -&gt; VideoSelectorSettings -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679930876"><span id="local-6989586621679930878"><span class="annot"><span class="annottext">VideoSelectorSettings -&gt; VideoSelectorSettings -&gt; Bool
 (VideoSelectorSettings -&gt; VideoSelectorSettings -&gt; Bool)
 -&gt; (VideoSelectorSettings -&gt; VideoSelectorSettings -&gt; Bool)
 -&gt; Eq VideoSelectorSettings
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VideoSelectorSettings -&gt; VideoSelectorSettings -&gt; Bool
 == :: VideoSelectorSettings -&gt; VideoSelectorSettings -&gt; Bool
 $c== :: VideoSelectorSettings -&gt; VideoSelectorSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923352"><span id="local-6989586621679923354"><span id="local-6989586621679923356"><span id="local-6989586621679923358"><span class="annot"><span class="annottext">ReadPrec [VideoSelectorSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930867"><span id="local-6989586621679930869"><span id="local-6989586621679930871"><span id="local-6989586621679930873"><span class="annot"><span class="annottext">ReadPrec [VideoSelectorSettings]
 ReadPrec VideoSelectorSettings
 Int -&gt; ReadS VideoSelectorSettings
 ReadS [VideoSelectorSettings]
@@ -63,7 +63,7 @@ readList :: ReadS [VideoSelectorSettings]
 $creadList :: ReadS [VideoSelectorSettings]
 readsPrec :: Int -&gt; ReadS VideoSelectorSettings
 $creadsPrec :: Int -&gt; ReadS VideoSelectorSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923345"><span id="local-6989586621679923347"><span id="local-6989586621679923349"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930860"><span id="local-6989586621679930862"><span id="local-6989586621679930864"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorSettings -&gt; ShowS
 [VideoSelectorSettings] -&gt; ShowS
 VideoSelectorSettings -&gt; String
 (Int -&gt; VideoSelectorSettings -&gt; ShowS)
@@ -97,54 +97,30 @@ $cfrom :: forall x. VideoSelectorSettings -&gt; Rep VideoSelectorSettings x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'videoSelectorPid', 'videoSelectorSettings_videoSelectorPid' - Undocumented member.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'videoSelectorProgramId', 'videoSelectorSettings_videoSelectorProgramId' - Undocumented member.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'videoSelectorProgramId', 'videoSelectorSettings_videoSelectorProgramId' - Undocumented member.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'videoSelectorPid', 'videoSelectorSettings_videoSelectorPid' - Undocumented member.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#newVideoSelectorSettings"><span class="hs-identifier hs-type">newVideoSelectorSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span>
 </span><span id="line-50"></span><span id="newVideoSelectorSettings"><span class="annot"><span class="annottext">newVideoSelectorSettings :: VideoSelectorSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#newVideoSelectorSettings"><span class="hs-identifier hs-var hs-var">newVideoSelectorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">VideoSelectorSettings' :: Maybe VideoSelectorPid
--&gt; Maybe VideoSelectorProgramId -&gt; VideoSelectorSettings
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">VideoSelectorSettings' :: Maybe VideoSelectorProgramId
+-&gt; Maybe VideoSelectorPid -&gt; VideoSelectorSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:videoSelectorPid:VideoSelectorSettings' :: Maybe VideoSelectorPid
-</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:videoSelectorProgramId:VideoSelectorSettings' :: Maybe VideoSelectorProgramId
+</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorProgramId%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var">videoSelectorProgramId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoSelectorProgramId:VideoSelectorSettings' :: Maybe VideoSelectorProgramId
-</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorProgramId%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var">videoSelectorProgramId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoSelectorPid:VideoSelectorSettings' :: Maybe VideoSelectorPid
+</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#videoSelectorSettings_videoSelectorPid"><span class="hs-identifier hs-type">videoSelectorSettings_videoSelectorPid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorPid.html#VideoSelectorPid"><span class="hs-identifier hs-type">VideoSelectorPid</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="videoSelectorSettings_videoSelectorPid"><span class="annot"><span class="annottext">videoSelectorSettings_videoSelectorPid :: (Maybe VideoSelectorPid -&gt; f (Maybe VideoSelectorPid))
--&gt; VideoSelectorSettings -&gt; f VideoSelectorSettings
-</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#videoSelectorSettings_videoSelectorPid"><span class="hs-identifier hs-var hs-var">videoSelectorSettings_videoSelectorPid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelectorSettings -&gt; Maybe VideoSelectorPid)
--&gt; (VideoSelectorSettings
-    -&gt; Maybe VideoSelectorPid -&gt; VideoSelectorSettings)
--&gt; Lens
-     VideoSelectorSettings
-     VideoSelectorSettings
-     (Maybe VideoSelectorPid)
-     (Maybe VideoSelectorPid)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923336"><span class="annot"><span class="annottext">Maybe VideoSelectorPid
-videoSelectorPid :: Maybe VideoSelectorPid
-$sel:videoSelectorPid:VideoSelectorSettings' :: VideoSelectorSettings -&gt; Maybe VideoSelectorPid
-</span><a href="#local-6989586621679923336"><span class="hs-identifier hs-var hs-var">videoSelectorPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
-</span><a href="#local-6989586621679923336"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923335"><span class="annot"><span class="annottext">s :: VideoSelectorSettings
-</span><a href="#local-6989586621679923335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923334"><span class="annot"><span class="annottext">Maybe VideoSelectorPid
-</span><a href="#local-6989586621679923334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelectorSettings
-</span><a href="#local-6989586621679923335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSelectorPid:VideoSelectorSettings' :: Maybe VideoSelectorPid
-</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
-</span><a href="#local-6989586621679923334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#videoSelectorSettings_videoSelectorProgramId"><span class="hs-identifier hs-type">videoSelectorSettings_videoSelectorProgramId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorProgramId.html#VideoSelectorProgramId"><span class="hs-identifier hs-type">VideoSelectorProgramId</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="videoSelectorSettings_videoSelectorProgramId"><span class="annot"><span class="annottext">videoSelectorSettings_videoSelectorProgramId :: (Maybe VideoSelectorProgramId -&gt; f (Maybe VideoSelectorProgramId))
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#videoSelectorSettings_videoSelectorProgramId"><span class="hs-identifier hs-type">videoSelectorSettings_videoSelectorProgramId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorProgramId.html#VideoSelectorProgramId"><span class="hs-identifier hs-type">VideoSelectorProgramId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="videoSelectorSettings_videoSelectorProgramId"><span class="annot"><span class="annottext">videoSelectorSettings_videoSelectorProgramId :: (Maybe VideoSelectorProgramId -&gt; f (Maybe VideoSelectorProgramId))
 -&gt; VideoSelectorSettings -&gt; f VideoSelectorSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#videoSelectorSettings_videoSelectorProgramId"><span class="hs-identifier hs-var hs-var">videoSelectorSettings_videoSelectorProgramId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelectorSettings -&gt; Maybe VideoSelectorProgramId)
 -&gt; (VideoSelectorSettings
@@ -155,19 +131,43 @@ $sel:videoSelectorPid:VideoSelectorSettings' :: VideoSelectorSettings -&gt; Mayb
      (Maybe VideoSelectorProgramId)
      (Maybe VideoSelectorProgramId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923332"><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930851"><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
 videoSelectorProgramId :: Maybe VideoSelectorProgramId
 $sel:videoSelectorProgramId:VideoSelectorSettings' :: VideoSelectorSettings -&gt; Maybe VideoSelectorProgramId
-</span><a href="#local-6989586621679923332"><span class="hs-identifier hs-var hs-var">videoSelectorProgramId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
-</span><a href="#local-6989586621679923332"><span class="hs-identifier hs-var">videoSelectorProgramId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923331"><span class="annot"><span class="annottext">s :: VideoSelectorSettings
-</span><a href="#local-6989586621679923331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923330"><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
-</span><a href="#local-6989586621679923330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelectorSettings
-</span><a href="#local-6989586621679923331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSelectorProgramId:VideoSelectorSettings' :: Maybe VideoSelectorProgramId
+</span><a href="#local-6989586621679930851"><span class="hs-identifier hs-var hs-var">videoSelectorProgramId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
+</span><a href="#local-6989586621679930851"><span class="hs-identifier hs-var">videoSelectorProgramId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930850"><span class="annot"><span class="annottext">s :: VideoSelectorSettings
+</span><a href="#local-6989586621679930850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930849"><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
+</span><a href="#local-6989586621679930849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelectorSettings
+</span><a href="#local-6989586621679930850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSelectorProgramId:VideoSelectorSettings' :: Maybe VideoSelectorProgramId
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorProgramId%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var">videoSelectorProgramId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
-</span><a href="#local-6989586621679923330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679930849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#videoSelectorSettings_videoSelectorPid"><span class="hs-identifier hs-type">videoSelectorSettings_videoSelectorPid</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorPid.html#VideoSelectorPid"><span class="hs-identifier hs-type">VideoSelectorPid</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="videoSelectorSettings_videoSelectorPid"><span class="annot"><span class="annottext">videoSelectorSettings_videoSelectorPid :: (Maybe VideoSelectorPid -&gt; f (Maybe VideoSelectorPid))
+-&gt; VideoSelectorSettings -&gt; f VideoSelectorSettings
+</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#videoSelectorSettings_videoSelectorPid"><span class="hs-identifier hs-var hs-var">videoSelectorSettings_videoSelectorPid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelectorSettings -&gt; Maybe VideoSelectorPid)
+-&gt; (VideoSelectorSettings
+    -&gt; Maybe VideoSelectorPid -&gt; VideoSelectorSettings)
+-&gt; Lens
+     VideoSelectorSettings
+     VideoSelectorSettings
+     (Maybe VideoSelectorPid)
+     (Maybe VideoSelectorPid)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930847"><span class="annot"><span class="annottext">Maybe VideoSelectorPid
+videoSelectorPid :: Maybe VideoSelectorPid
+$sel:videoSelectorPid:VideoSelectorSettings' :: VideoSelectorSettings -&gt; Maybe VideoSelectorPid
+</span><a href="#local-6989586621679930847"><span class="hs-identifier hs-var hs-var">videoSelectorPid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
+</span><a href="#local-6989586621679930847"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930846"><span class="annot"><span class="annottext">s :: VideoSelectorSettings
+</span><a href="#local-6989586621679930846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930845"><span class="annot"><span class="annottext">Maybe VideoSelectorPid
+</span><a href="#local-6989586621679930845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelectorSettings
+</span><a href="#local-6989586621679930846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoSelectorPid:VideoSelectorSettings' :: Maybe VideoSelectorPid
+</span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#%24sel%3AvideoSelectorPid%3AVideoSelectorSettings%27"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
+</span><a href="#local-6989586621679930845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923327"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679923325"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelectorSettings
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930842"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679930840"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelectorSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VideoSelectorSettings)
@@ -177,67 +177,66 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VideoSelectorSettings&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679923322"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
--&gt; Maybe VideoSelectorProgramId -&gt; VideoSelectorSettings
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679930837"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679930837"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
+-&gt; Maybe VideoSelectorPid -&gt; VideoSelectorSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-var">VideoSelectorSettings'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VideoSelectorPid
- -&gt; Maybe VideoSelectorProgramId -&gt; VideoSelectorSettings)
--&gt; Parser (Maybe VideoSelectorPid)
--&gt; Parser (Maybe VideoSelectorProgramId -&gt; VideoSelectorSettings)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VideoSelectorProgramId
+ -&gt; Maybe VideoSelectorPid -&gt; VideoSelectorSettings)
+-&gt; Parser (Maybe VideoSelectorProgramId)
+-&gt; Parser (Maybe VideoSelectorPid -&gt; VideoSelectorSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorPid)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;videoSelectorPid&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VideoSelectorProgramId -&gt; VideoSelectorSettings)
--&gt; Parser (Maybe VideoSelectorProgramId)
--&gt; Parser VideoSelectorSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorProgramId)
+</span><a href="#local-6989586621679930837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorProgramId)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoSelectorProgramId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VideoSelectorPid -&gt; VideoSelectorSettings)
+-&gt; Parser (Maybe VideoSelectorPid) -&gt; Parser VideoSelectorSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679930837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorPid)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoSelectorPid&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923316"><span id="local-6989586621679923318"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930831"><span id="local-6989586621679930833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923313"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923305"><span id="local-6989586621679923307"><span id="local-6989586621679923309"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679923303"><span class="annot"><span class="annottext">toJSON :: VideoSelectorSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923300"><span id="local-6989586621679923301"><span class="annot"><span class="annottext">Maybe VideoSelectorPid
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930820"><span id="local-6989586621679930822"><span id="local-6989586621679930824"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679930818"><span class="annot"><span class="annottext">toJSON :: VideoSelectorSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings%27"><span class="hs-identifier hs-type">VideoSelectorSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930815"><span id="local-6989586621679930816"><span class="annot"><span class="annottext">Maybe VideoSelectorPid
 Maybe VideoSelectorProgramId
-videoSelectorProgramId :: Maybe VideoSelectorProgramId
 videoSelectorPid :: Maybe VideoSelectorPid
-$sel:videoSelectorProgramId:VideoSelectorSettings' :: VideoSelectorSettings -&gt; Maybe VideoSelectorProgramId
+videoSelectorProgramId :: Maybe VideoSelectorProgramId
 $sel:videoSelectorPid:VideoSelectorSettings' :: VideoSelectorSettings -&gt; Maybe VideoSelectorPid
-</span><a href="#local-6989586621679923300"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:videoSelectorProgramId:VideoSelectorSettings' :: VideoSelectorSettings -&gt; Maybe VideoSelectorProgramId
+</span><a href="#local-6989586621679930815"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;videoSelectorPid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorPid -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorPid -&gt; Pair) -&gt; Maybe VideoSelectorPid -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
-</span><a href="#local-6989586621679923301"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoSelectorProgramId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorProgramId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorProgramId -&gt; Pair)
+</span><span id="line-84"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorProgramId -&gt; Pair)
 -&gt; Maybe VideoSelectorProgramId -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorProgramId
-</span><a href="#local-6989586621679923300"><span class="hs-identifier hs-var">videoSelectorProgramId</span></a></span><span>
+</span><a href="#local-6989586621679930816"><span class="hs-identifier hs-var">videoSelectorProgramId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoSelectorPid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorPid -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorPid -&gt; Pair) -&gt; Maybe VideoSelectorPid -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorPid
+</span><a href="#local-6989586621679930815"><span class="hs-identifier hs-var">videoSelectorPid</span></a></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

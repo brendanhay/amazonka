@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- stream.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCloudWatchLoggingOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679254789"><span id="local-6989586621679254790"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchLoggingOptions"><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-var">CloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLoggingOptions%27"><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">CloudWatchLoggingOptions'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The CloudWatch log stream name for logging. This value is required if</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; Maybe Text
-</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Enables or disables CloudWatch logging.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aenabled%3ACloudWatchLoggingOptions%27"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; Maybe Bool
+</span><span id="line-30"></span><span id="local-6989586621679269011"><span id="local-6989586621679269012"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchLoggingOptions"><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-var">CloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLoggingOptions%27"><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">CloudWatchLoggingOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enables or disables CloudWatch logging.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aenabled%3ACloudWatchLoggingOptions%27"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3Aenabled%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The CloudWatch group name for logging. This value is required if</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The CloudWatch group name for logging. This value is required if</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACloudWatchLoggingOptions%27"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogGroupName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The CloudWatch log stream name for logging. This value is required if</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlogGroupName%3ACloudWatchLoggingOptions%27"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; Maybe Text
-</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogGroupName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254781"><span id="local-6989586621679254783"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; CloudWatchLoggingOptions -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269003"><span id="local-6989586621679269005"><span class="annot"><span class="annottext">CloudWatchLoggingOptions -&gt; CloudWatchLoggingOptions -&gt; Bool
 (CloudWatchLoggingOptions -&gt; CloudWatchLoggingOptions -&gt; Bool)
 -&gt; (CloudWatchLoggingOptions -&gt; CloudWatchLoggingOptions -&gt; Bool)
 -&gt; Eq CloudWatchLoggingOptions
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CloudWatchLoggingOptions -&gt; CloudWatchLoggingOptions -&gt; Bool
 == :: CloudWatchLoggingOptions -&gt; CloudWatchLoggingOptions -&gt; Bool
 $c== :: CloudWatchLoggingOptions -&gt; CloudWatchLoggingOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254772"><span id="local-6989586621679254774"><span id="local-6989586621679254776"><span id="local-6989586621679254778"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLoggingOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268994"><span id="local-6989586621679268996"><span id="local-6989586621679268998"><span id="local-6989586621679269000"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLoggingOptions]
 ReadPrec CloudWatchLoggingOptions
 Int -&gt; ReadS CloudWatchLoggingOptions
 ReadS [CloudWatchLoggingOptions]
@@ -69,7 +69,7 @@ readList :: ReadS [CloudWatchLoggingOptions]
 $creadList :: ReadS [CloudWatchLoggingOptions]
 readsPrec :: Int -&gt; ReadS CloudWatchLoggingOptions
 $creadsPrec :: Int -&gt; ReadS CloudWatchLoggingOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254765"><span id="local-6989586621679254767"><span id="local-6989586621679254769"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLoggingOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268987"><span id="local-6989586621679268989"><span id="local-6989586621679268991"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLoggingOptions -&gt; ShowS
 [CloudWatchLoggingOptions] -&gt; ShowS
 CloudWatchLoggingOptions -&gt; String
 (Int -&gt; CloudWatchLoggingOptions -&gt; ShowS)
@@ -109,62 +109,37 @@ CloudWatchLoggingOptions -&gt; Rep CloudWatchLoggingOptions x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'logStreamName', 'cloudWatchLoggingOptions_logStreamName' - The CloudWatch log stream name for logging. This value is required if</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'enabled', 'cloudWatchLoggingOptions_enabled' - Enables or disables CloudWatch logging.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'enabled', 'cloudWatchLoggingOptions_enabled' - Enables or disables CloudWatch logging.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'logGroupName', 'cloudWatchLoggingOptions_logGroupName' - The CloudWatch group name for logging. This value is required if</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'logGroupName', 'cloudWatchLoggingOptions_logGroupName' - The CloudWatch group name for logging. This value is required if</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'logStreamName', 'cloudWatchLoggingOptions_logStreamName' - The CloudWatch log stream name for logging. This value is required if</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#newCloudWatchLoggingOptions"><span class="hs-identifier hs-type">newCloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span>
 </span><span id="line-59"></span><span id="newCloudWatchLoggingOptions"><span class="annot"><span class="annottext">newCloudWatchLoggingOptions :: CloudWatchLoggingOptions
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#newCloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">newCloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions' :: Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; CloudWatchLoggingOptions
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions' :: Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; CloudWatchLoggingOptions
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logStreamName:CloudWatchLoggingOptions' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:CloudWatchLoggingOptions' :: Maybe Bool
+</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3Aenabled%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:CloudWatchLoggingOptions' :: Maybe Bool
-</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3Aenabled%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchLoggingOptions' :: Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchLoggingOptions' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogGroupName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:logStreamName:CloudWatchLoggingOptions' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The CloudWatch log stream name for logging. This value is required if</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_logStreamName"><span class="hs-identifier hs-type">cloudWatchLoggingOptions_logStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="cloudWatchLoggingOptions_logStreamName"><span class="annot"><span class="annottext">cloudWatchLoggingOptions_logStreamName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CloudWatchLoggingOptions -&gt; f CloudWatchLoggingOptions
-</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_logStreamName"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions_logStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Maybe Text)
--&gt; (CloudWatchLoggingOptions
-    -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
--&gt; Lens
-     CloudWatchLoggingOptions
-     CloudWatchLoggingOptions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254756"><span class="annot"><span class="annottext">Maybe Text
-logStreamName :: Maybe Text
-$sel:logStreamName:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679254756"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254756"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254755"><span class="annot"><span class="annottext">s :: CloudWatchLoggingOptions
-</span><a href="#local-6989586621679254755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254754"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions
-</span><a href="#local-6989586621679254755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamName:CloudWatchLoggingOptions' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | Enables or disables CloudWatch logging.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_enabled"><span class="hs-identifier hs-type">cloudWatchLoggingOptions_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="cloudWatchLoggingOptions_enabled"><span class="annot"><span class="annottext">cloudWatchLoggingOptions_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-67"></span><span class="hs-comment">-- | Enables or disables CloudWatch logging.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_enabled"><span class="hs-identifier hs-type">cloudWatchLoggingOptions_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="cloudWatchLoggingOptions_enabled"><span class="annot"><span class="annottext">cloudWatchLoggingOptions_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; CloudWatchLoggingOptions -&gt; f CloudWatchLoggingOptions
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_enabled"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Maybe Bool)
 -&gt; (CloudWatchLoggingOptions
@@ -175,21 +150,21 @@ $sel:logStreamName:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; M
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254752"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268978"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679254752"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679254752"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254751"><span class="annot"><span class="annottext">s :: CloudWatchLoggingOptions
-</span><a href="#local-6989586621679254751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254750"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679254750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions
-</span><a href="#local-6989586621679254751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:CloudWatchLoggingOptions' :: Maybe Bool
+</span><a href="#local-6989586621679268978"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268978"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268977"><span class="annot"><span class="annottext">s :: CloudWatchLoggingOptions
+</span><a href="#local-6989586621679268977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268976"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679268976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions
+</span><a href="#local-6989586621679268977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:CloudWatchLoggingOptions' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3Aenabled%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679254750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The CloudWatch group name for logging. This value is required if</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_logGroupName"><span class="hs-identifier hs-type">cloudWatchLoggingOptions_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="cloudWatchLoggingOptions_logGroupName"><span class="annot"><span class="annottext">cloudWatchLoggingOptions_logGroupName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679268976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The CloudWatch group name for logging. This value is required if</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_logGroupName"><span class="hs-identifier hs-type">cloudWatchLoggingOptions_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="cloudWatchLoggingOptions_logGroupName"><span class="annot"><span class="annottext">cloudWatchLoggingOptions_logGroupName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CloudWatchLoggingOptions -&gt; f CloudWatchLoggingOptions
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_logGroupName"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions_logGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Maybe Text)
 -&gt; (CloudWatchLoggingOptions
@@ -200,19 +175,44 @@ $sel:enabled:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe B
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254748"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268974"><span class="annot"><span class="annottext">Maybe Text
 logGroupName :: Maybe Text
 $sel:logGroupName:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679254748"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254748"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254747"><span class="annot"><span class="annottext">s :: CloudWatchLoggingOptions
-</span><a href="#local-6989586621679254747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254746"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions
-</span><a href="#local-6989586621679254747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchLoggingOptions' :: Maybe Text
+</span><a href="#local-6989586621679268974"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268974"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268973"><span class="annot"><span class="annottext">s :: CloudWatchLoggingOptions
+</span><a href="#local-6989586621679268973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268972"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions
+</span><a href="#local-6989586621679268973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:CloudWatchLoggingOptions' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogGroupName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The CloudWatch log stream name for logging. This value is required if</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- CloudWatch logging is enabled.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_logStreamName"><span class="hs-identifier hs-type">cloudWatchLoggingOptions_logStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="cloudWatchLoggingOptions_logStreamName"><span class="annot"><span class="annottext">cloudWatchLoggingOptions_logStreamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CloudWatchLoggingOptions -&gt; f CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#cloudWatchLoggingOptions_logStreamName"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions_logStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Maybe Text)
+-&gt; (CloudWatchLoggingOptions
+    -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
+-&gt; Lens
+     CloudWatchLoggingOptions
+     CloudWatchLoggingOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268970"><span class="annot"><span class="annottext">Maybe Text
+logStreamName :: Maybe Text
+$sel:logStreamName:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679268970"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268970"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268969"><span class="annot"><span class="annottext">s :: CloudWatchLoggingOptions
+</span><a href="#local-6989586621679268969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchLoggingOptions
+</span><a href="#local-6989586621679268969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamName:CloudWatchLoggingOptions' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#%24sel%3AlogStreamName%3ACloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254743"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679254741"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchLoggingOptions
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679268963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchLoggingOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchLoggingOptions)
@@ -222,80 +222,80 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679254738"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; Maybe Text -&gt; CloudWatchLoggingOptions
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; CloudWatchLoggingOptions
 </span><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-var">CloudWatchLoggingOptions'</span></a></span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Bool -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Bool -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LogStreamName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
--&gt; Parser (Maybe Bool)
--&gt; Parser (Maybe Text -&gt; CloudWatchLoggingOptions)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679268960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; CloudWatchLoggingOptions)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; CloudWatchLoggingOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CloudWatchLoggingOptions)
 -&gt; Parser (Maybe Text) -&gt; Parser CloudWatchLoggingOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679254738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679268960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LogStreamName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254732"><span id="local-6989586621679254734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268954"><span id="local-6989586621679268956"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254721"><span id="local-6989586621679254723"><span id="local-6989586621679254725"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679254719"><span class="annot"><span class="annottext">toJSON :: CloudWatchLoggingOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254715"><span id="local-6989586621679254716"><span id="local-6989586621679254717"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268943"><span id="local-6989586621679268945"><span id="local-6989586621679268947"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679268941"><span class="annot"><span class="annottext">toJSON :: CloudWatchLoggingOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions%27"><span class="hs-identifier hs-type">CloudWatchLoggingOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268937"><span id="local-6989586621679268938"><span id="local-6989586621679268939"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
+logStreamName :: Maybe Text
 logGroupName :: Maybe Text
 enabled :: Maybe Bool
-logStreamName :: Maybe Text
+$sel:logStreamName:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Text
 $sel:logGroupName:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Text
 $sel:enabled:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Bool
-$sel:logStreamName:CloudWatchLoggingOptions' :: CloudWatchLoggingOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679254715"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679268937"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LogStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254717"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679254716"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268939"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679254715"><span class="hs-identifier hs-var">logGroupName</span></a></span><span>
+</span><a href="#local-6989586621679268938"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679268937"><span class="hs-identifier hs-var">logStreamName</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

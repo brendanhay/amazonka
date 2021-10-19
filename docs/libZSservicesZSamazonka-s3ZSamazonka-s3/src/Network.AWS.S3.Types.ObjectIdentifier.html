@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Object Identifier is unique value to identify objects.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newObjectIdentifier' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679544397"><span id="local-6989586621679544398"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectIdentifier"><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-var">ObjectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectIdentifier%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-var">ObjectIdentifier'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679545026"><span id="local-6989586621679545027"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectIdentifier"><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-var">ObjectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectIdentifier%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-var">ObjectIdentifier'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | VersionId for the specific version of the object to delete.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AversionId%3AObjectIdentifier%27"><span class="annot"><span class="annottext">ObjectIdentifier -&gt; Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#%24sel%3AversionId%3AObjectIdentifier%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectVersionId"><span class="hs-identifier hs-type">ObjectVersionId</span></a></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Akey%3AObjectIdentifier%27"><span class="annot"><span class="annottext">ObjectIdentifier -&gt; ObjectKey
 </span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#%24sel%3Akey%3AObjectIdentifier%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679544390"><span id="local-6989586621679544392"><span class="annot"><span class="annottext">ObjectIdentifier -&gt; ObjectIdentifier -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679545019"><span id="local-6989586621679545021"><span class="annot"><span class="annottext">ObjectIdentifier -&gt; ObjectIdentifier -&gt; Bool
 (ObjectIdentifier -&gt; ObjectIdentifier -&gt; Bool)
 -&gt; (ObjectIdentifier -&gt; ObjectIdentifier -&gt; Bool)
 -&gt; Eq ObjectIdentifier
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ObjectIdentifier -&gt; ObjectIdentifier -&gt; Bool
 == :: ObjectIdentifier -&gt; ObjectIdentifier -&gt; Bool
 $c== :: ObjectIdentifier -&gt; ObjectIdentifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544381"><span id="local-6989586621679544383"><span id="local-6989586621679544385"><span id="local-6989586621679544387"><span class="annot"><span class="annottext">ReadPrec [ObjectIdentifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545010"><span id="local-6989586621679545012"><span id="local-6989586621679545014"><span id="local-6989586621679545016"><span class="annot"><span class="annottext">ReadPrec [ObjectIdentifier]
 ReadPrec ObjectIdentifier
 Int -&gt; ReadS ObjectIdentifier
 ReadS [ObjectIdentifier]
@@ -69,7 +69,7 @@ readList :: ReadS [ObjectIdentifier]
 $creadList :: ReadS [ObjectIdentifier]
 readsPrec :: Int -&gt; ReadS ObjectIdentifier
 $creadsPrec :: Int -&gt; ReadS ObjectIdentifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544374"><span id="local-6989586621679544376"><span id="local-6989586621679544378"><span class="annot"><span class="annottext">Int -&gt; ObjectIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679545003"><span id="local-6989586621679545005"><span id="local-6989586621679545007"><span class="annot"><span class="annottext">Int -&gt; ObjectIdentifier -&gt; ShowS
 [ObjectIdentifier] -&gt; ShowS
 ObjectIdentifier -&gt; String
 (Int -&gt; ObjectIdentifier -&gt; ShowS)
@@ -116,8 +116,8 @@ $cfrom :: forall x. ObjectIdentifier -&gt; Rep ObjectIdentifier x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span><span>
 </span><span id="line-63"></span><span id="newObjectIdentifier"><span class="annot"><span class="annottext">newObjectIdentifier :: ObjectKey -&gt; ObjectIdentifier
-</span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#newObjectIdentifier"><span class="hs-identifier hs-var hs-var">newObjectIdentifier</span></a></span></span><span> </span><span id="local-6989586621679544368"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679544368"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#newObjectIdentifier"><span class="hs-identifier hs-var hs-var">newObjectIdentifier</span></a></span></span><span> </span><span id="local-6989586621679544997"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679544997"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">ObjectIdentifier' :: Maybe ObjectVersionId -&gt; ObjectKey -&gt; ObjectIdentifier
 </span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:ObjectIdentifier' :: Maybe ObjectVersionId
@@ -126,7 +126,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:ObjectIdentifier' :: ObjectKey
 </span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#%24sel%3Akey%3AObjectIdentifier%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679544368"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><a href="#local-6989586621679544997"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | VersionId for the specific version of the object to delete.</span><span>
@@ -141,16 +141,16 @@ forall a. Maybe a
      (Maybe ObjectVersionId)
      (Maybe ObjectVersionId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544364"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544993"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 versionId :: Maybe ObjectVersionId
 $sel:versionId:ObjectIdentifier' :: ObjectIdentifier -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679544364"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679544364"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544363"><span class="annot"><span class="annottext">s :: ObjectIdentifier
-</span><a href="#local-6989586621679544363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544362"><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679544362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectIdentifier
-</span><a href="#local-6989586621679544363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:ObjectIdentifier' :: Maybe ObjectVersionId
+</span><a href="#local-6989586621679544993"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679544993"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544992"><span class="annot"><span class="annottext">s :: ObjectIdentifier
+</span><a href="#local-6989586621679544992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544991"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><a href="#local-6989586621679544991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectIdentifier
+</span><a href="#local-6989586621679544992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:ObjectIdentifier' :: Maybe ObjectVersionId
 </span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#%24sel%3AversionId%3AObjectIdentifier%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679544362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679544991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Key name of the object.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
@@ -165,30 +165,30 @@ $sel:versionId:ObjectIdentifier' :: ObjectIdentifier -&gt; Maybe ObjectVersionId
 -&gt; (ObjectIdentifier -&gt; ObjectKey -&gt; ObjectIdentifier)
 -&gt; Lens ObjectIdentifier ObjectIdentifier ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544360"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544989"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:ObjectIdentifier' :: ObjectIdentifier -&gt; ObjectKey
-</span><a href="#local-6989586621679544360"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679544360"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544359"><span class="annot"><span class="annottext">s :: ObjectIdentifier
-</span><a href="#local-6989586621679544359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544358"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679544358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectIdentifier
-</span><a href="#local-6989586621679544359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ObjectIdentifier' :: ObjectKey
+</span><a href="#local-6989586621679544989"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679544989"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544988"><span class="annot"><span class="annottext">s :: ObjectIdentifier
+</span><a href="#local-6989586621679544988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544987"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679544987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectIdentifier
+</span><a href="#local-6989586621679544988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ObjectIdentifier' :: ObjectKey
 </span><a href="Network.AWS.S3.Types.ObjectIdentifier.html#%24sel%3Akey%3AObjectIdentifier%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679544358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679544987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544354"><span id="local-6989586621679544356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544983"><span id="local-6989586621679544985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier"><span class="hs-identifier hs-type">ObjectIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679544347"><span class="annot"><span class="annottext">toXML :: ObjectIdentifier -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544344"><span id="local-6989586621679544345"><span class="annot"><span class="annottext">Maybe ObjectVersionId
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679544976"><span class="annot"><span class="annottext">toXML :: ObjectIdentifier -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ObjectIdentifier.html#ObjectIdentifier%27"><span class="hs-identifier hs-type">ObjectIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544973"><span id="local-6989586621679544974"><span class="annot"><span class="annottext">Maybe ObjectVersionId
 ObjectKey
 key :: ObjectKey
 versionId :: Maybe ObjectVersionId
 $sel:key:ObjectIdentifier' :: ObjectIdentifier -&gt; ObjectKey
 $sel:versionId:ObjectIdentifier' :: ObjectIdentifier -&gt; Maybe ObjectVersionId
-</span><a href="#local-6989586621679544344"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679544973"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -196,9 +196,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;VersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ObjectVersionId -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObjectVersionId
-</span><a href="#local-6989586621679544345"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
+</span><a href="#local-6989586621679544974"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ObjectKey -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679544344"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679544973"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span></pre></body></html>

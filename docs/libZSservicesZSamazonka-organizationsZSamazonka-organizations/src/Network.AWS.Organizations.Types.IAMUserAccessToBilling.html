@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679238108"><span id="local-6989586621679238109"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IAMUserAccessToBilling"><span class="annot"><a href="Network.AWS.Organizations.Types.IAMUserAccessToBilling.html#IAMUserAccessToBilling"><span class="hs-identifier hs-var">IAMUserAccessToBilling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IAMUserAccessToBilling%27"><span class="annot"><a href="Network.AWS.Organizations.Types.IAMUserAccessToBilling.html#IAMUserAccessToBilling%27"><span class="hs-identifier hs-var">IAMUserAccessToBilling'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238231"><span id="local-6989586621679238232"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IAMUserAccessToBilling"><span class="annot"><a href="Network.AWS.Organizations.Types.IAMUserAccessToBilling.html#IAMUserAccessToBilling"><span class="hs-identifier hs-var">IAMUserAccessToBilling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IAMUserAccessToBilling%27"><span class="annot"><a href="Network.AWS.Organizations.Types.IAMUserAccessToBilling.html#IAMUserAccessToBilling%27"><span class="hs-identifier hs-var">IAMUserAccessToBilling'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIAMUserAccessToBilling"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; Text
 </span><a href="Network.AWS.Organizations.Types.IAMUserAccessToBilling.html#fromIAMUserAccessToBilling"><span class="hs-identifier hs-var hs-var">fromIAMUserAccessToBilling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238100"><span id="local-6989586621679238102"><span id="local-6989586621679238104"><span class="annot"><span class="annottext">Int -&gt; IAMUserAccessToBilling -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238223"><span id="local-6989586621679238225"><span id="local-6989586621679238227"><span class="annot"><span class="annottext">Int -&gt; IAMUserAccessToBilling -&gt; ShowS
 [IAMUserAccessToBilling] -&gt; ShowS
 IAMUserAccessToBilling -&gt; String
 (Int -&gt; IAMUserAccessToBilling -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: IAMUserAccessToBilling -&gt; String
 showsPrec :: Int -&gt; IAMUserAccessToBilling -&gt; ShowS
 $cshowsPrec :: Int -&gt; IAMUserAccessToBilling -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679238091"><span id="local-6989586621679238093"><span id="local-6989586621679238095"><span id="local-6989586621679238097"><span class="annot"><span class="annottext">ReadPrec [IAMUserAccessToBilling]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679238214"><span id="local-6989586621679238216"><span id="local-6989586621679238218"><span id="local-6989586621679238220"><span class="annot"><span class="annottext">ReadPrec [IAMUserAccessToBilling]
 ReadPrec IAMUserAccessToBilling
 Int -&gt; ReadS IAMUserAccessToBilling
 ReadS [IAMUserAccessToBilling]
@@ -72,7 +72,7 @@ $creadList :: ReadS [IAMUserAccessToBilling]
 readsPrec :: Int -&gt; ReadS IAMUserAccessToBilling
 $creadsPrec :: Int -&gt; ReadS IAMUserAccessToBilling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679238086"><span id="local-6989586621679238088"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679238209"><span id="local-6989586621679238211"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool
 (IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool)
 -&gt; (IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool)
 -&gt; Eq IAMUserAccessToBilling
@@ -82,7 +82,7 @@ $c/= :: IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool
 == :: IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool
 $c== :: IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679238070"><span id="local-6989586621679238072"><span id="local-6989586621679238074"><span id="local-6989586621679238076"><span id="local-6989586621679238078"><span id="local-6989586621679238080"><span id="local-6989586621679238082"><span class="annot"><span class="annottext">Eq IAMUserAccessToBilling
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679238193"><span id="local-6989586621679238195"><span id="local-6989586621679238197"><span id="local-6989586621679238199"><span id="local-6989586621679238201"><span id="local-6989586621679238203"><span id="local-6989586621679238205"><span class="annot"><span class="annottext">Eq IAMUserAccessToBilling
 Eq IAMUserAccessToBilling
 -&gt; (IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Ordering)
 -&gt; (IAMUserAccessToBilling -&gt; IAMUserAccessToBilling -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. IAMUserAccessToBilling -&gt; Rep IAMUserAccessToBilling x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238062"><span id="local-6989586621679238064"><span class="annot"><span class="annottext">Int -&gt; IAMUserAccessToBilling -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679238185"><span id="local-6989586621679238187"><span class="annot"><span class="annottext">Int -&gt; IAMUserAccessToBilling -&gt; Int
 IAMUserAccessToBilling -&gt; Int
 (Int -&gt; IAMUserAccessToBilling -&gt; Int)
 -&gt; (IAMUserAccessToBilling -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: IAMUserAccessToBilling -&gt; Int
 hashWithSalt :: Int -&gt; IAMUserAccessToBilling -&gt; Int
 $chashWithSalt :: Int -&gt; IAMUserAccessToBilling -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679238059"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679238182"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; ()
 (IAMUserAccessToBilling -&gt; ()) -&gt; NFData IAMUserAccessToBilling
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: IAMUserAccessToBilling -&gt; ()
 $crnf :: IAMUserAccessToBilling -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679238056"><span class="annot"><span class="annottext">Text -&gt; Either String IAMUserAccessToBilling
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679238179"><span class="annot"><span class="annottext">Text -&gt; Either String IAMUserAccessToBilling
 (Text -&gt; Either String IAMUserAccessToBilling)
 -&gt; FromText IAMUserAccessToBilling
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String IAMUserAccessToBilling
 $cfromText :: Text -&gt; Either String IAMUserAccessToBilling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679238053"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679238176"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; Text
 (IAMUserAccessToBilling -&gt; Text) -&gt; ToText IAMUserAccessToBilling
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: IAMUserAccessToBilling -&gt; Text
 $ctoText :: IAMUserAccessToBilling -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679238050"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679238173"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; ByteString
 (IAMUserAccessToBilling -&gt; ByteString)
 -&gt; ToByteString IAMUserAccessToBilling
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: IAMUserAccessToBilling -&gt; ByteString
 $ctoBS :: IAMUserAccessToBilling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679238047"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679238170"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; ByteStringBuilder
 (IAMUserAccessToBilling -&gt; ByteStringBuilder)
 -&gt; ToLog IAMUserAccessToBilling
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: IAMUserAccessToBilling -&gt; ByteStringBuilder
 $cbuild :: IAMUserAccessToBilling -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679238044"><span class="annot"><span class="annottext">HeaderName -&gt; IAMUserAccessToBilling -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679238167"><span class="annot"><span class="annottext">HeaderName -&gt; IAMUserAccessToBilling -&gt; [Header]
 (HeaderName -&gt; IAMUserAccessToBilling -&gt; [Header])
 -&gt; ToHeader IAMUserAccessToBilling
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; IAMUserAccessToBilling -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; IAMUserAccessToBilling -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679238041"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679238164"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; QueryString
 (IAMUserAccessToBilling -&gt; QueryString)
 -&gt; ToQuery IAMUserAccessToBilling
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: IAMUserAccessToBilling -&gt; QueryString
 $ctoQuery :: IAMUserAccessToBilling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679238036"><span id="local-6989586621679238038"><span class="annot"><span class="annottext">Value -&gt; Parser [IAMUserAccessToBilling]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679238159"><span id="local-6989586621679238161"><span class="annot"><span class="annottext">Value -&gt; Parser [IAMUserAccessToBilling]
 Value -&gt; Parser IAMUserAccessToBilling
 (Value -&gt; Parser IAMUserAccessToBilling)
 -&gt; (Value -&gt; Parser [IAMUserAccessToBilling])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [IAMUserAccessToBilling]
 parseJSON :: Value -&gt; Parser IAMUserAccessToBilling
 $cparseJSON :: Value -&gt; Parser IAMUserAccessToBilling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679238031"><span id="local-6989586621679238033"><span class="annot"><span class="annottext">FromJSONKeyFunction [IAMUserAccessToBilling]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679238154"><span id="local-6989586621679238156"><span class="annot"><span class="annottext">FromJSONKeyFunction [IAMUserAccessToBilling]
 FromJSONKeyFunction IAMUserAccessToBilling
 FromJSONKeyFunction IAMUserAccessToBilling
 -&gt; FromJSONKeyFunction [IAMUserAccessToBilling]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [IAMUserAccessToBilling]
 fromJSONKey :: FromJSONKeyFunction IAMUserAccessToBilling
 $cfromJSONKey :: FromJSONKeyFunction IAMUserAccessToBilling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679238022"><span id="local-6989586621679238024"><span id="local-6989586621679238026"><span id="local-6989586621679238028"><span class="annot"><span class="annottext">[IAMUserAccessToBilling] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679238145"><span id="local-6989586621679238147"><span id="local-6989586621679238149"><span id="local-6989586621679238151"><span class="annot"><span class="annottext">[IAMUserAccessToBilling] -&gt; Encoding
 [IAMUserAccessToBilling] -&gt; Value
 IAMUserAccessToBilling -&gt; Encoding
 IAMUserAccessToBilling -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: IAMUserAccessToBilling -&gt; Encoding
 toJSON :: IAMUserAccessToBilling -&gt; Value
 $ctoJSON :: IAMUserAccessToBilling -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679238017"><span id="local-6989586621679238019"><span class="annot"><span class="annottext">ToJSONKeyFunction [IAMUserAccessToBilling]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679238140"><span id="local-6989586621679238142"><span class="annot"><span class="annottext">ToJSONKeyFunction [IAMUserAccessToBilling]
 ToJSONKeyFunction IAMUserAccessToBilling
 ToJSONKeyFunction IAMUserAccessToBilling
 -&gt; ToJSONKeyFunction [IAMUserAccessToBilling]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [IAMUserAccessToBilling]
 toJSONKey :: ToJSONKeyFunction IAMUserAccessToBilling
 $ctoJSONKey :: ToJSONKeyFunction IAMUserAccessToBilling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679238014"><span class="annot"><span class="annottext">[Node] -&gt; Either String IAMUserAccessToBilling
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679238137"><span class="annot"><span class="annottext">[Node] -&gt; Either String IAMUserAccessToBilling
 ([Node] -&gt; Either String IAMUserAccessToBilling)
 -&gt; FromXML IAMUserAccessToBilling
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String IAMUserAccessToBilling
 $cparseXML :: [Node] -&gt; Either String IAMUserAccessToBilling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679238011"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679238134"><span class="annot"><span class="annottext">IAMUserAccessToBilling -&gt; XML
 (IAMUserAccessToBilling -&gt; XML) -&gt; ToXML IAMUserAccessToBilling
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: IAMUserAccessToBilling -&gt; XML

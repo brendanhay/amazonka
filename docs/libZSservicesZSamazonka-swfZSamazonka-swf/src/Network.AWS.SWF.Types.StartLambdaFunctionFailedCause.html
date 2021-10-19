@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679350461"><span id="local-6989586621679350462"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StartLambdaFunctionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause"><span class="hs-identifier hs-var">StartLambdaFunctionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLambdaFunctionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause%27"><span class="hs-identifier hs-var">StartLambdaFunctionFailedCause'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679350538"><span id="local-6989586621679350539"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StartLambdaFunctionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause"><span class="hs-identifier hs-var">StartLambdaFunctionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLambdaFunctionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause%27"><span class="hs-identifier hs-var">StartLambdaFunctionFailedCause'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStartLambdaFunctionFailedCause"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#fromStartLambdaFunctionFailedCause"><span class="hs-identifier hs-var hs-var">fromStartLambdaFunctionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350453"><span id="local-6989586621679350455"><span id="local-6989586621679350457"><span class="annot"><span class="annottext">Int -&gt; StartLambdaFunctionFailedCause -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350530"><span id="local-6989586621679350532"><span id="local-6989586621679350534"><span class="annot"><span class="annottext">Int -&gt; StartLambdaFunctionFailedCause -&gt; ShowS
 [StartLambdaFunctionFailedCause] -&gt; ShowS
 StartLambdaFunctionFailedCause -&gt; String
 (Int -&gt; StartLambdaFunctionFailedCause -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: StartLambdaFunctionFailedCause -&gt; String
 showsPrec :: Int -&gt; StartLambdaFunctionFailedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; StartLambdaFunctionFailedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679350444"><span id="local-6989586621679350446"><span id="local-6989586621679350448"><span id="local-6989586621679350450"><span class="annot"><span class="annottext">ReadPrec [StartLambdaFunctionFailedCause]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679350521"><span id="local-6989586621679350523"><span id="local-6989586621679350525"><span id="local-6989586621679350527"><span class="annot"><span class="annottext">ReadPrec [StartLambdaFunctionFailedCause]
 ReadPrec StartLambdaFunctionFailedCause
 Int -&gt; ReadS StartLambdaFunctionFailedCause
 ReadS [StartLambdaFunctionFailedCause]
@@ -71,7 +71,7 @@ $creadList :: ReadS [StartLambdaFunctionFailedCause]
 readsPrec :: Int -&gt; ReadS StartLambdaFunctionFailedCause
 $creadsPrec :: Int -&gt; ReadS StartLambdaFunctionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679350439"><span id="local-6989586621679350441"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679350516"><span id="local-6989586621679350518"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause
 -&gt; StartLambdaFunctionFailedCause -&gt; Bool
 (StartLambdaFunctionFailedCause
  -&gt; StartLambdaFunctionFailedCause -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: StartLambdaFunctionFailedCause
 $c== :: StartLambdaFunctionFailedCause
 -&gt; StartLambdaFunctionFailedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679350423"><span id="local-6989586621679350425"><span id="local-6989586621679350427"><span id="local-6989586621679350429"><span id="local-6989586621679350431"><span id="local-6989586621679350433"><span id="local-6989586621679350435"><span class="annot"><span class="annottext">Eq StartLambdaFunctionFailedCause
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679350500"><span id="local-6989586621679350502"><span id="local-6989586621679350504"><span id="local-6989586621679350506"><span id="local-6989586621679350508"><span id="local-6989586621679350510"><span id="local-6989586621679350512"><span class="annot"><span class="annottext">Eq StartLambdaFunctionFailedCause
 Eq StartLambdaFunctionFailedCause
 -&gt; (StartLambdaFunctionFailedCause
     -&gt; StartLambdaFunctionFailedCause -&gt; Ordering)
@@ -177,7 +177,7 @@ StartLambdaFunctionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350415"><span id="local-6989586621679350417"><span class="annot"><span class="annottext">Int -&gt; StartLambdaFunctionFailedCause -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350492"><span id="local-6989586621679350494"><span class="annot"><span class="annottext">Int -&gt; StartLambdaFunctionFailedCause -&gt; Int
 StartLambdaFunctionFailedCause -&gt; Int
 (Int -&gt; StartLambdaFunctionFailedCause -&gt; Int)
 -&gt; (StartLambdaFunctionFailedCause -&gt; Int)
@@ -188,56 +188,56 @@ $chash :: StartLambdaFunctionFailedCause -&gt; Int
 hashWithSalt :: Int -&gt; StartLambdaFunctionFailedCause -&gt; Int
 $chashWithSalt :: Int -&gt; StartLambdaFunctionFailedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679350412"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679350489"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; ()
 (StartLambdaFunctionFailedCause -&gt; ())
 -&gt; NFData StartLambdaFunctionFailedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StartLambdaFunctionFailedCause -&gt; ()
 $crnf :: StartLambdaFunctionFailedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679350409"><span class="annot"><span class="annottext">Text -&gt; Either String StartLambdaFunctionFailedCause
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679350486"><span class="annot"><span class="annottext">Text -&gt; Either String StartLambdaFunctionFailedCause
 (Text -&gt; Either String StartLambdaFunctionFailedCause)
 -&gt; FromText StartLambdaFunctionFailedCause
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StartLambdaFunctionFailedCause
 $cfromText :: Text -&gt; Either String StartLambdaFunctionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679350406"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679350483"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; Text
 (StartLambdaFunctionFailedCause -&gt; Text)
 -&gt; ToText StartLambdaFunctionFailedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StartLambdaFunctionFailedCause -&gt; Text
 $ctoText :: StartLambdaFunctionFailedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679350403"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679350480"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; ByteString
 (StartLambdaFunctionFailedCause -&gt; ByteString)
 -&gt; ToByteString StartLambdaFunctionFailedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StartLambdaFunctionFailedCause -&gt; ByteString
 $ctoBS :: StartLambdaFunctionFailedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679350400"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679350477"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; ByteStringBuilder
 (StartLambdaFunctionFailedCause -&gt; ByteStringBuilder)
 -&gt; ToLog StartLambdaFunctionFailedCause
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StartLambdaFunctionFailedCause -&gt; ByteStringBuilder
 $cbuild :: StartLambdaFunctionFailedCause -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679350397"><span class="annot"><span class="annottext">HeaderName -&gt; StartLambdaFunctionFailedCause -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679350474"><span class="annot"><span class="annottext">HeaderName -&gt; StartLambdaFunctionFailedCause -&gt; [Header]
 (HeaderName -&gt; StartLambdaFunctionFailedCause -&gt; [Header])
 -&gt; ToHeader StartLambdaFunctionFailedCause
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StartLambdaFunctionFailedCause -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StartLambdaFunctionFailedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679350394"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679350471"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; QueryString
 (StartLambdaFunctionFailedCause -&gt; QueryString)
 -&gt; ToQuery StartLambdaFunctionFailedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StartLambdaFunctionFailedCause -&gt; QueryString
 $ctoQuery :: StartLambdaFunctionFailedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679350389"><span id="local-6989586621679350391"><span class="annot"><span class="annottext">Value -&gt; Parser [StartLambdaFunctionFailedCause]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679350466"><span id="local-6989586621679350468"><span class="annot"><span class="annottext">Value -&gt; Parser [StartLambdaFunctionFailedCause]
 Value -&gt; Parser StartLambdaFunctionFailedCause
 (Value -&gt; Parser StartLambdaFunctionFailedCause)
 -&gt; (Value -&gt; Parser [StartLambdaFunctionFailedCause])
@@ -249,7 +249,7 @@ $cparseJSONList :: Value -&gt; Parser [StartLambdaFunctionFailedCause]
 parseJSON :: Value -&gt; Parser StartLambdaFunctionFailedCause
 $cparseJSON :: Value -&gt; Parser StartLambdaFunctionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679350384"><span id="local-6989586621679350386"><span class="annot"><span class="annottext">FromJSONKeyFunction [StartLambdaFunctionFailedCause]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679350461"><span id="local-6989586621679350463"><span class="annot"><span class="annottext">FromJSONKeyFunction [StartLambdaFunctionFailedCause]
 FromJSONKeyFunction StartLambdaFunctionFailedCause
 FromJSONKeyFunction StartLambdaFunctionFailedCause
 -&gt; FromJSONKeyFunction [StartLambdaFunctionFailedCause]
@@ -261,7 +261,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StartLambdaFunctionFailedCause]
 fromJSONKey :: FromJSONKeyFunction StartLambdaFunctionFailedCause
 $cfromJSONKey :: FromJSONKeyFunction StartLambdaFunctionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679350375"><span id="local-6989586621679350377"><span id="local-6989586621679350379"><span id="local-6989586621679350381"><span class="annot"><span class="annottext">[StartLambdaFunctionFailedCause] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679350452"><span id="local-6989586621679350454"><span id="local-6989586621679350456"><span id="local-6989586621679350458"><span class="annot"><span class="annottext">[StartLambdaFunctionFailedCause] -&gt; Encoding
 [StartLambdaFunctionFailedCause] -&gt; Value
 StartLambdaFunctionFailedCause -&gt; Encoding
 StartLambdaFunctionFailedCause -&gt; Value
@@ -285,7 +285,7 @@ $ctoEncoding :: StartLambdaFunctionFailedCause -&gt; Encoding
 toJSON :: StartLambdaFunctionFailedCause -&gt; Value
 $ctoJSON :: StartLambdaFunctionFailedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679350370"><span id="local-6989586621679350372"><span class="annot"><span class="annottext">ToJSONKeyFunction [StartLambdaFunctionFailedCause]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679350447"><span id="local-6989586621679350449"><span class="annot"><span class="annottext">ToJSONKeyFunction [StartLambdaFunctionFailedCause]
 ToJSONKeyFunction StartLambdaFunctionFailedCause
 ToJSONKeyFunction StartLambdaFunctionFailedCause
 -&gt; ToJSONKeyFunction [StartLambdaFunctionFailedCause]
@@ -297,14 +297,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StartLambdaFunctionFailedCause]
 toJSONKey :: ToJSONKeyFunction StartLambdaFunctionFailedCause
 $ctoJSONKey :: ToJSONKeyFunction StartLambdaFunctionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679350367"><span class="annot"><span class="annottext">[Node] -&gt; Either String StartLambdaFunctionFailedCause
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679350444"><span class="annot"><span class="annottext">[Node] -&gt; Either String StartLambdaFunctionFailedCause
 ([Node] -&gt; Either String StartLambdaFunctionFailedCause)
 -&gt; FromXML StartLambdaFunctionFailedCause
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StartLambdaFunctionFailedCause
 $cparseXML :: [Node] -&gt; Either String StartLambdaFunctionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679350364"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679350441"><span class="annot"><span class="annottext">StartLambdaFunctionFailedCause -&gt; XML
 (StartLambdaFunctionFailedCause -&gt; XML)
 -&gt; ToXML StartLambdaFunctionFailedCause
 forall a. (a -&gt; XML) -&gt; ToXML a

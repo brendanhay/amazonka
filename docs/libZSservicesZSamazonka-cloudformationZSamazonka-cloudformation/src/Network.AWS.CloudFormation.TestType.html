@@ -56,10 +56,10 @@
 </span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#newTestType"><span class="hs-identifier">newTestType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_typeName"><span class="hs-identifier">testType_typeName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_logDeliveryBucket"><span class="hs-identifier">testType_logDeliveryBucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_versionId"><span class="hs-identifier">testType_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_typeName"><span class="hs-identifier">testType_typeName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_arn"><span class="hs-identifier">testType_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_versionId"><span class="hs-identifier">testType_versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_logDeliveryBucket"><span class="hs-identifier">testType_logDeliveryBucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_type"><span class="hs-identifier">testType_type</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -80,53 +80,53 @@
 </span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newTestType' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679429767"><span id="local-6989586621679429768"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestType"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-var">TestType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestType%27"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-var">TestType'</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the extension to test.</span><span>
+</span><span id="line-83"></span><span id="local-6989586621679430182"><span id="local-6989586621679430183"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestType"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-var">TestType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestType%27"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-var">TestType'</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the extension to test.</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3AtypeName%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeName%3ATestType%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The S3 bucket to which CloudFormation delivers the contract test</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- execution logs.</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- CloudFormation delivers the logs by the time contract testing has</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- completed and the extension has been assigned a test type status of</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- @PASSED@ or @FAILED@.</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- The user calling @TestType@ must be able to access items in the</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- specified S3 bucket. Specifically, the user needs the following</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- permissions:</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   GetObject</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   PutObject</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3&gt;</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
-</span><span id="line-106"></span><span>    </span><span id="%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="hs-identifier hs-var hs-var">logDeliveryBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the extension.</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
-</span><span id="line-110"></span><span>    </span><span id="%24sel%3Aarn%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3Aarn%3ATestType%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | The version of the extension to test.</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- You can specify the version id with either @Arn@, or with @TypeName@ and</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- @Type@.</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- If you do not specify a version, CloudFormation uses the default version</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- of the extension in this account and region for testing.</span><span>
-</span><span id="line-118"></span><span>    </span><span id="%24sel%3AversionId%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- You can specify the version id with either @Arn@, or with @TypeName@ and</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- @Type@.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- If you do not specify a version, CloudFormation uses the default version</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- of the extension in this account and region for testing.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AversionId%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AversionId%3ATestType%27"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The name of the extension to test.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AtypeName%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeName%3ATestType%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the extension.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Aarn%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3Aarn%3ATestType%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The S3 bucket to which CloudFormation delivers the contract test</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- execution logs.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- CloudFormation delivers the logs by the time contract testing has</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- completed and the extension has been assigned a test type status of</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- @PASSED@ or @FAILED@.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- The user calling @TestType@ must be able to access items in the</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- specified S3 bucket. Specifically, the user needs the following</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- permissions:</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   GetObject</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   PutObject</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3&gt;</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="hs-identifier hs-var hs-var">logDeliveryBucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The type of the extension to test.</span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3Atype%27%3ATestType%27"><span class="annot"><span class="annottext">TestType -&gt; Maybe ThirdPartyType
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3Atype%27%3ATestType%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ThirdPartyType.html#ThirdPartyType"><span class="hs-identifier hs-type">ThirdPartyType</span></a></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429757"><span id="local-6989586621679429759"><span class="annot"><span class="annottext">TestType -&gt; TestType -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430172"><span id="local-6989586621679430174"><span class="annot"><span class="annottext">TestType -&gt; TestType -&gt; Bool
 (TestType -&gt; TestType -&gt; Bool)
 -&gt; (TestType -&gt; TestType -&gt; Bool) -&gt; Eq TestType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -134,7 +134,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestType -&gt; TestType -&gt; Bool
 == :: TestType -&gt; TestType -&gt; Bool
 $c== :: TestType -&gt; TestType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429748"><span id="local-6989586621679429750"><span id="local-6989586621679429752"><span id="local-6989586621679429754"><span class="annot"><span class="annottext">ReadPrec [TestType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430163"><span id="local-6989586621679430165"><span id="local-6989586621679430167"><span id="local-6989586621679430169"><span class="annot"><span class="annottext">ReadPrec [TestType]
 ReadPrec TestType
 Int -&gt; ReadS TestType
 ReadS [TestType]
@@ -154,7 +154,7 @@ readList :: ReadS [TestType]
 $creadList :: ReadS [TestType]
 readsPrec :: Int -&gt; ReadS TestType
 $creadsPrec :: Int -&gt; ReadS TestType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429741"><span id="local-6989586621679429743"><span id="local-6989586621679429745"><span class="annot"><span class="annottext">Int -&gt; TestType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430156"><span id="local-6989586621679430158"><span id="local-6989586621679430160"><span class="annot"><span class="annottext">Int -&gt; TestType -&gt; ShowS
 [TestType] -&gt; ShowS
 TestType -&gt; String
 (Int -&gt; TestType -&gt; ShowS)
@@ -185,40 +185,40 @@ $cfrom :: forall x. TestType -&gt; Rep TestType x
 </span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- 'typeName', 'testType_typeName' - The name of the extension to test.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'versionId', 'testType_versionId' - The version of the extension to test.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'logDeliveryBucket', 'testType_logDeliveryBucket' - The S3 bucket to which CloudFormation delivers the contract test</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- execution logs.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- CloudFormation delivers the logs by the time contract testing has</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- completed and the extension has been assigned a test type status of</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- @PASSED@ or @FAILED@.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- The user calling @TestType@ must be able to access items in the</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- specified S3 bucket. Specifically, the user needs the following</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- permissions:</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- -   GetObject</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   PutObject</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- You can specify the version id with either @Arn@, or with @TypeName@ and</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @Type@.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- If you do not specify a version, CloudFormation uses the default version</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- of the extension in this account and region for testing.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'typeName', 'testType_typeName' - The name of the extension to test.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'arn', 'testType_arn' - The Amazon Resource Number (ARN) of the extension.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'logDeliveryBucket', 'testType_logDeliveryBucket' - The S3 bucket to which CloudFormation delivers the contract test</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- execution logs.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3&gt;</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- CloudFormation delivers the logs by the time contract testing has</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- completed and the extension has been assigned a test type status of</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @PASSED@ or @FAILED@.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- 'arn', 'testType_arn' - The Amazon Resource Number (ARN) of the extension.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The user calling @TestType@ must be able to access items in the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- specified S3 bucket. Specifically, the user needs the following</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- permissions:</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- 'versionId', 'testType_versionId' - The version of the extension to test.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   GetObject</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- You can specify the version id with either @Arn@, or with @TypeName@ and</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- @Type@.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- If you do not specify a version, CloudFormation uses the default version</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- of the extension in this account and region for testing.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   PutObject</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3&gt;</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
 </span><span id="line-168"></span><span class="hs-comment">--</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- 'type'', 'testType_type' - The type of the extension to test.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
@@ -234,20 +234,20 @@ $cfrom :: forall x. TestType -&gt; Rep TestType x
 -&gt; Maybe ThirdPartyType
 -&gt; TestType
 </span><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeName:TestType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeName%3ATestType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionId:TestType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AversionId%3ATestType%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:logDeliveryBucket:TestType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:TestType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeName%3ATestType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:TestType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3Aarn%3ATestType%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionId:TestType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AversionId%3ATestType%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:logDeliveryBucket:TestType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':TestType' :: Maybe ThirdPartyType
@@ -256,104 +256,104 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | The name of the extension to test.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The version of the extension to test.</span><span>
 </span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
-</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_typeName"><span class="hs-identifier hs-type">testType_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span id="testType_typeName"><span class="annot"><span class="annottext">testType_typeName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
-</span><a href="Network.AWS.CloudFormation.TestType.html#testType_typeName"><span class="hs-identifier hs-var hs-var">testType_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestType -&gt; Maybe Text)
--&gt; (TestType -&gt; Maybe Text -&gt; TestType)
--&gt; Lens TestType TestType (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429734"><span class="annot"><span class="annottext">Maybe Text
-typeName :: Maybe Text
-$sel:typeName:TestType' :: TestType -&gt; Maybe Text
-</span><a href="#local-6989586621679429734"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429734"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429733"><span class="annot"><span class="annottext">s :: TestType
-</span><a href="#local-6989586621679429733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429732"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
-</span><a href="#local-6989586621679429733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:TestType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeName%3ATestType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- | The S3 bucket to which CloudFormation delivers the contract test</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- execution logs.</span><span>
-</span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- CloudFormation delivers the logs by the time contract testing has</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- completed and the extension has been assigned a test type status of</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- @PASSED@ or @FAILED@.</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- The user calling @TestType@ must be able to access items in the</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- specified S3 bucket. Specifically, the user needs the following</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- permissions:</span><span>
-</span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- -   GetObject</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- -   PutObject</span><span>
-</span><span id="line-203"></span><span class="hs-comment">--</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3&gt;</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
-</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_logDeliveryBucket"><span class="hs-identifier hs-type">testType_logDeliveryBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span id="testType_logDeliveryBucket"><span class="annot"><span class="annottext">testType_logDeliveryBucket :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
-</span><a href="Network.AWS.CloudFormation.TestType.html#testType_logDeliveryBucket"><span class="hs-identifier hs-var hs-var">testType_logDeliveryBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestType -&gt; Maybe Text)
--&gt; (TestType -&gt; Maybe Text -&gt; TestType)
--&gt; Lens TestType TestType (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429731"><span class="annot"><span class="annottext">Maybe Text
-logDeliveryBucket :: Maybe Text
-$sel:logDeliveryBucket:TestType' :: TestType -&gt; Maybe Text
-</span><a href="#local-6989586621679429731"><span class="hs-identifier hs-var hs-var">logDeliveryBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429731"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429730"><span class="annot"><span class="annottext">s :: TestType
-</span><a href="#local-6989586621679429730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429729"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
-</span><a href="#local-6989586621679429730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDeliveryBucket:TestType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the extension.</span><span>
-</span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
-</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_arn"><span class="hs-identifier hs-type">testType_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span id="testType_arn"><span class="annot"><span class="annottext">testType_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
-</span><a href="Network.AWS.CloudFormation.TestType.html#testType_arn"><span class="hs-identifier hs-var hs-var">testType_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestType -&gt; Maybe Text)
--&gt; (TestType -&gt; Maybe Text -&gt; TestType)
--&gt; Lens TestType TestType (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429728"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:TestType' :: TestType -&gt; Maybe Text
-</span><a href="#local-6989586621679429728"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429728"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429727"><span class="annot"><span class="annottext">s :: TestType
-</span><a href="#local-6989586621679429727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429726"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
-</span><a href="#local-6989586621679429727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TestType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3Aarn%3ATestType%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- | The version of the extension to test.</span><span>
-</span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- You can specify the version id with either @Arn@, or with @TypeName@ and</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- @Type@.</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- If you do not specify a version, CloudFormation uses the default version</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- of the extension in this account and region for testing.</span><span>
-</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_versionId"><span class="hs-identifier hs-type">testType_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span id="testType_versionId"><span class="annot"><span class="annottext">testType_versionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
+</span><span id="line-185"></span><span class="hs-comment">-- You can specify the version id with either @Arn@, or with @TypeName@ and</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- @Type@.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- If you do not specify a version, CloudFormation uses the default version</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- of the extension in this account and region for testing.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_versionId"><span class="hs-identifier hs-type">testType_versionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="testType_versionId"><span class="annot"><span class="annottext">testType_versionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
 </span><a href="Network.AWS.CloudFormation.TestType.html#testType_versionId"><span class="hs-identifier hs-var hs-var">testType_versionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestType -&gt; Maybe Text)
 -&gt; (TestType -&gt; Maybe Text -&gt; TestType)
 -&gt; Lens TestType TestType (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429725"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430149"><span class="annot"><span class="annottext">Maybe Text
 versionId :: Maybe Text
 $sel:versionId:TestType' :: TestType -&gt; Maybe Text
-</span><a href="#local-6989586621679429725"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429725"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429724"><span class="annot"><span class="annottext">s :: TestType
-</span><a href="#local-6989586621679429724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429723"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
-</span><a href="#local-6989586621679429724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:TestType' :: Maybe Text
+</span><a href="#local-6989586621679430149"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430149"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430148"><span class="annot"><span class="annottext">s :: TestType
+</span><a href="#local-6989586621679430148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
+</span><a href="#local-6989586621679430148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:TestType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AversionId%3ATestType%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The name of the extension to test.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_typeName"><span class="hs-identifier hs-type">testType_typeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="testType_typeName"><span class="annot"><span class="annottext">testType_typeName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
+</span><a href="Network.AWS.CloudFormation.TestType.html#testType_typeName"><span class="hs-identifier hs-var hs-var">testType_typeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestType -&gt; Maybe Text)
+-&gt; (TestType -&gt; Maybe Text -&gt; TestType)
+-&gt; Lens TestType TestType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430146"><span class="annot"><span class="annottext">Maybe Text
+typeName :: Maybe Text
+$sel:typeName:TestType' :: TestType -&gt; Maybe Text
+</span><a href="#local-6989586621679430146"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430146"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430145"><span class="annot"><span class="annottext">s :: TestType
+</span><a href="#local-6989586621679430145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
+</span><a href="#local-6989586621679430145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:TestType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeName%3ATestType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the extension.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_arn"><span class="hs-identifier hs-type">testType_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="testType_arn"><span class="annot"><span class="annottext">testType_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
+</span><a href="Network.AWS.CloudFormation.TestType.html#testType_arn"><span class="hs-identifier hs-var hs-var">testType_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestType -&gt; Maybe Text)
+-&gt; (TestType -&gt; Maybe Text -&gt; TestType)
+-&gt; Lens TestType TestType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430143"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:TestType' :: TestType -&gt; Maybe Text
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430143"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430142"><span class="annot"><span class="annottext">s :: TestType
+</span><a href="#local-6989586621679430142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430141"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
+</span><a href="#local-6989586621679430142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TestType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3Aarn%3ATestType%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The S3 bucket to which CloudFormation delivers the contract test</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- execution logs.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- CloudFormation delivers the logs by the time contract testing has</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- completed and the extension has been assigned a test type status of</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @PASSED@ or @FAILED@.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- The user calling @TestType@ must be able to access items in the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- specified S3 bucket. Specifically, the user needs the following</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- permissions:</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   GetObject</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   PutObject</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3&gt;</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- in the /Amazon Web Services Identity and Access Management User Guide/.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testType_logDeliveryBucket"><span class="hs-identifier hs-type">testType_logDeliveryBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="testType_logDeliveryBucket"><span class="annot"><span class="annottext">testType_logDeliveryBucket :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TestType -&gt; f TestType
+</span><a href="Network.AWS.CloudFormation.TestType.html#testType_logDeliveryBucket"><span class="hs-identifier hs-var hs-var">testType_logDeliveryBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TestType -&gt; Maybe Text)
+-&gt; (TestType -&gt; Maybe Text -&gt; TestType)
+-&gt; Lens TestType TestType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430140"><span class="annot"><span class="annottext">Maybe Text
+logDeliveryBucket :: Maybe Text
+$sel:logDeliveryBucket:TestType' :: TestType -&gt; Maybe Text
+</span><a href="#local-6989586621679430140"><span class="hs-identifier hs-var hs-var">logDeliveryBucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430140"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430139"><span class="annot"><span class="annottext">s :: TestType
+</span><a href="#local-6989586621679430139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
+</span><a href="#local-6989586621679430139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logDeliveryBucket:TestType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AlogDeliveryBucket%3ATestType%27"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The type of the extension to test.</span><span>
 </span><span id="line-227"></span><span class="hs-comment">--</span><span>
@@ -366,25 +366,25 @@ $sel:versionId:TestType' :: TestType -&gt; Maybe Text
 -&gt; Lens
      TestType TestType (Maybe ThirdPartyType) (Maybe ThirdPartyType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429722"><span class="annot"><span class="annottext">Maybe ThirdPartyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430137"><span class="annot"><span class="annottext">Maybe ThirdPartyType
 type' :: Maybe ThirdPartyType
 $sel:type':TestType' :: TestType -&gt; Maybe ThirdPartyType
-</span><a href="#local-6989586621679429722"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThirdPartyType
-</span><a href="#local-6989586621679429722"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429721"><span class="annot"><span class="annottext">s :: TestType
-</span><a href="#local-6989586621679429721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429720"><span class="annot"><span class="annottext">Maybe ThirdPartyType
-</span><a href="#local-6989586621679429720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
-</span><a href="#local-6989586621679429721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TestType' :: Maybe ThirdPartyType
+</span><a href="#local-6989586621679430137"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThirdPartyType
+</span><a href="#local-6989586621679430137"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430136"><span class="annot"><span class="annottext">s :: TestType
+</span><a href="#local-6989586621679430136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430135"><span class="annot"><span class="annottext">Maybe ThirdPartyType
+</span><a href="#local-6989586621679430135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestType
+</span><a href="#local-6989586621679430136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TestType' :: Maybe ThirdPartyType
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3Atype%27%3ATestType%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThirdPartyType
-</span><a href="#local-6989586621679429720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-233"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621679429716"><span class="annot"><span class="annottext">request :: TestType -&gt; Request TestType
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679430131"><span class="annot"><span class="annottext">request :: TestType -&gt; Request TestType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestType -&gt; Request TestType
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679429712"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679430127"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TestType
 -&gt; ClientResponse ClientBody
@@ -413,10 +413,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TestTypeResult&quot;</span></span><span>
-</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679429709"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679429709"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679429708"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679429708"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679429707"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679429707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430124"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430124"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679430123"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679430123"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679430122"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679430122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; TestTypeResponse
 </span><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-var">TestTypeResponse'</span></a></span><span>
 </span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; TestTypeResponse)
@@ -424,7 +424,7 @@ Text
 -&gt; Either String (Int -&gt; TestTypeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679429707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679430122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TypeVersionArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -436,15 +436,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679429709"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430124"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429699"><span id="local-6989586621679429701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span></span></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430114"><span id="local-6989586621679430116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span></span></span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span></span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679429692"><span class="annot"><span class="annottext">toHeaders :: TestType -&gt; ResponseHeaders
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679430107"><span class="annot"><span class="annottext">toHeaders :: TestType -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestType -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -452,27 +452,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679429687"><span class="annot"><span class="annottext">toPath :: TestType -&gt; ByteString
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679430102"><span class="annot"><span class="annottext">toPath :: TestType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TestType -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType"><span class="hs-identifier hs-type">TestType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679429683"><span class="annot"><span class="annottext">toQuery :: TestType -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429677"><span id="local-6989586621679429678"><span id="local-6989586621679429679"><span id="local-6989586621679429680"><span id="local-6989586621679429681"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679430098"><span class="annot"><span class="annottext">toQuery :: TestType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestType%27"><span class="hs-identifier hs-type">TestType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430092"><span id="local-6989586621679430093"><span id="local-6989586621679430094"><span id="local-6989586621679430095"><span id="local-6989586621679430096"><span class="annot"><span class="annottext">Maybe Text
 Maybe ThirdPartyType
 type' :: Maybe ThirdPartyType
-versionId :: Maybe Text
-arn :: Maybe Text
 logDeliveryBucket :: Maybe Text
+arn :: Maybe Text
 typeName :: Maybe Text
+versionId :: Maybe Text
 $sel:type':TestType' :: TestType -&gt; Maybe ThirdPartyType
-$sel:versionId:TestType' :: TestType -&gt; Maybe Text
-$sel:arn:TestType' :: TestType -&gt; Maybe Text
 $sel:logDeliveryBucket:TestType' :: TestType -&gt; Maybe Text
+$sel:arn:TestType' :: TestType -&gt; Maybe Text
 $sel:typeName:TestType' :: TestType -&gt; Maybe Text
-</span><a href="#local-6989586621679429677"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:versionId:TestType' :: TestType -&gt; Maybe Text
+</span><a href="#local-6989586621679430092"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -488,34 +488,34 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430096"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429681"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;LogDeliveryBucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429680"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430095"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429679"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430094"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;VersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;LogDeliveryBucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429678"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430093"><span class="hs-identifier hs-var">logDeliveryBucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ThirdPartyType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ThirdPartyType
-</span><a href="#local-6989586621679429677"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679430092"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-265"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | /See:/ 'newTestTypeResponse' smart constructor.</span><span>
-</span><span id="line-268"></span><span id="local-6989586621679429674"><span id="local-6989586621679429675"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestTypeResponse"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-var">TestTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestTypeResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-var">TestTypeResponse'</span></a></span></span><span>
+</span><span id="line-268"></span><span id="local-6989586621679430089"><span id="local-6989586621679430090"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestTypeResponse"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-var">TestTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestTypeResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-var">TestTypeResponse'</span></a></span></span><span>
 </span><span id="line-269"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the extension.</span><span>
 </span><span id="line-270"></span><span>    </span><span id="%24sel%3AtypeVersionArn%3ATestTypeResponse%27"><span class="annot"><span class="annottext">TestTypeResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeVersionArn%3ATestTypeResponse%27"><span class="hs-identifier hs-var hs-var">typeVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -523,7 +523,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-272"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestTypeResponse%27"><span class="annot"><span class="annottext">TestTypeResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AhttpStatus%3ATestTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-273"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-274"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429668"><span id="local-6989586621679429670"><span class="annot"><span class="annottext">TestTypeResponse -&gt; TestTypeResponse -&gt; Bool
+</span><span id="line-274"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430083"><span id="local-6989586621679430085"><span class="annot"><span class="annottext">TestTypeResponse -&gt; TestTypeResponse -&gt; Bool
 (TestTypeResponse -&gt; TestTypeResponse -&gt; Bool)
 -&gt; (TestTypeResponse -&gt; TestTypeResponse -&gt; Bool)
 -&gt; Eq TestTypeResponse
@@ -532,7 +532,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestTypeResponse -&gt; TestTypeResponse -&gt; Bool
 == :: TestTypeResponse -&gt; TestTypeResponse -&gt; Bool
 $c== :: TestTypeResponse -&gt; TestTypeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429660"><span id="local-6989586621679429662"><span id="local-6989586621679429664"><span id="local-6989586621679429666"><span class="annot"><span class="annottext">ReadPrec [TestTypeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430075"><span id="local-6989586621679430077"><span id="local-6989586621679430079"><span id="local-6989586621679430081"><span class="annot"><span class="annottext">ReadPrec [TestTypeResponse]
 ReadPrec TestTypeResponse
 Int -&gt; ReadS TestTypeResponse
 ReadS [TestTypeResponse]
@@ -552,7 +552,7 @@ readList :: ReadS [TestTypeResponse]
 $creadList :: ReadS [TestTypeResponse]
 readsPrec :: Int -&gt; ReadS TestTypeResponse
 $creadsPrec :: Int -&gt; ReadS TestTypeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429654"><span id="local-6989586621679429656"><span id="local-6989586621679429658"><span class="annot"><span class="annottext">Int -&gt; TestTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430069"><span id="local-6989586621679430071"><span id="local-6989586621679430073"><span class="annot"><span class="annottext">Int -&gt; TestTypeResponse -&gt; ShowS
 [TestTypeResponse] -&gt; ShowS
 TestTypeResponse -&gt; String
 (Int -&gt; TestTypeResponse -&gt; ShowS)
@@ -594,8 +594,8 @@ $cfrom :: forall x. TestTypeResponse -&gt; Rep TestTypeResponse x
 </span><span id="line-289"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-290"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span><span>
 </span><span id="line-291"></span><span id="newTestTypeResponse"><span class="annot"><span class="annottext">newTestTypeResponse :: Int -&gt; TestTypeResponse
-</span><a href="Network.AWS.CloudFormation.TestType.html#newTestTypeResponse"><span class="hs-identifier hs-var hs-var">newTestTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679429651"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679429651"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.TestType.html#newTestTypeResponse"><span class="hs-identifier hs-var hs-var">newTestTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679430066"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-292"></span><span>  </span><span class="annot"><span class="annottext">TestTypeResponse' :: Maybe Text -&gt; Int -&gt; TestTypeResponse
 </span><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span>
 </span><span id="line-293"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:typeVersionArn:TestTypeResponse' :: Maybe Text
@@ -604,7 +604,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestTypeResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AhttpStatus%3ATestTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679429651"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679430066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-295"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-296"></span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the extension.</span><span>
@@ -615,16 +615,16 @@ forall a. Maybe a
 -&gt; (TestTypeResponse -&gt; Maybe Text -&gt; TestTypeResponse)
 -&gt; Lens TestTypeResponse TestTypeResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429650"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430065"><span class="annot"><span class="annottext">Maybe Text
 typeVersionArn :: Maybe Text
 $sel:typeVersionArn:TestTypeResponse' :: TestTypeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679429650"><span class="hs-identifier hs-var hs-var">typeVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429650"><span class="hs-identifier hs-var">typeVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429649"><span class="annot"><span class="annottext">s :: TestTypeResponse
-</span><a href="#local-6989586621679429649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429648"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestTypeResponse
-</span><a href="#local-6989586621679429649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeVersionArn:TestTypeResponse' :: Maybe Text
+</span><a href="#local-6989586621679430065"><span class="hs-identifier hs-var hs-var">typeVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430065"><span class="hs-identifier hs-var">typeVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430064"><span class="annot"><span class="annottext">s :: TestTypeResponse
+</span><a href="#local-6989586621679430064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430063"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestTypeResponse
+</span><a href="#local-6989586621679430064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeVersionArn:TestTypeResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AtypeVersionArn%3ATestTypeResponse%27"><span class="hs-identifier hs-var">typeVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-302"></span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#testTypeResponse_httpStatus"><span class="hs-identifier hs-type">testTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -633,16 +633,16 @@ $sel:typeVersionArn:TestTypeResponse' :: TestTypeResponse -&gt; Maybe Text
 -&gt; (TestTypeResponse -&gt; Int -&gt; TestTypeResponse)
 -&gt; Lens TestTypeResponse TestTypeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429647"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430062"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TestTypeResponse' :: TestTypeResponse -&gt; Int
-</span><a href="#local-6989586621679429647"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679429647"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429646"><span class="annot"><span class="annottext">s :: TestTypeResponse
-</span><a href="#local-6989586621679429646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429645"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679429645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestTypeResponse
-</span><a href="#local-6989586621679429646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestTypeResponse' :: Int
+</span><a href="#local-6989586621679430062"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430062"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430061"><span class="annot"><span class="annottext">s :: TestTypeResponse
+</span><a href="#local-6989586621679430061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse%27"><span class="hs-identifier hs-type">TestTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestTypeResponse
+</span><a href="#local-6989586621679430061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestTypeResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.TestType.html#%24sel%3AhttpStatus%3ATestTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679429645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.TestType.html#TestTypeResponse"><span class="hs-identifier hs-type">TestTypeResponse</span></a></span></span><span>
 </span><span id="line-306"></span></pre></body></html>

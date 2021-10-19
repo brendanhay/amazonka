@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The warmup status of a dedicated IP.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679333079"><span id="local-6989586621679333080"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WarmupStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html#WarmupStatus"><span class="hs-identifier hs-var">WarmupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WarmupStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html#WarmupStatus%27"><span class="hs-identifier hs-var">WarmupStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679335600"><span id="local-6989586621679335601"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WarmupStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html#WarmupStatus"><span class="hs-identifier hs-var">WarmupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WarmupStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.WarmupStatus.html#WarmupStatus%27"><span class="hs-identifier hs-var">WarmupStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWarmupStatus"><span class="annot"><span class="annottext">WarmupStatus -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.WarmupStatus.html#fromWarmupStatus"><span class="hs-identifier hs-var hs-var">fromWarmupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333071"><span id="local-6989586621679333073"><span id="local-6989586621679333075"><span class="annot"><span class="annottext">Int -&gt; WarmupStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335592"><span id="local-6989586621679335594"><span id="local-6989586621679335596"><span class="annot"><span class="annottext">Int -&gt; WarmupStatus -&gt; ShowS
 [WarmupStatus] -&gt; ShowS
 WarmupStatus -&gt; String
 (Int -&gt; WarmupStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: WarmupStatus -&gt; String
 showsPrec :: Int -&gt; WarmupStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; WarmupStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679333062"><span id="local-6989586621679333064"><span id="local-6989586621679333066"><span id="local-6989586621679333068"><span class="annot"><span class="annottext">ReadPrec [WarmupStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679335583"><span id="local-6989586621679335585"><span id="local-6989586621679335587"><span id="local-6989586621679335589"><span class="annot"><span class="annottext">ReadPrec [WarmupStatus]
 ReadPrec WarmupStatus
 Int -&gt; ReadS WarmupStatus
 ReadS [WarmupStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [WarmupStatus]
 readsPrec :: Int -&gt; ReadS WarmupStatus
 $creadsPrec :: Int -&gt; ReadS WarmupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679333057"><span id="local-6989586621679333059"><span class="annot"><span class="annottext">WarmupStatus -&gt; WarmupStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679335578"><span id="local-6989586621679335580"><span class="annot"><span class="annottext">WarmupStatus -&gt; WarmupStatus -&gt; Bool
 (WarmupStatus -&gt; WarmupStatus -&gt; Bool)
 -&gt; (WarmupStatus -&gt; WarmupStatus -&gt; Bool) -&gt; Eq WarmupStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: WarmupStatus -&gt; WarmupStatus -&gt; Bool
 == :: WarmupStatus -&gt; WarmupStatus -&gt; Bool
 $c== :: WarmupStatus -&gt; WarmupStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679333041"><span id="local-6989586621679333043"><span id="local-6989586621679333045"><span id="local-6989586621679333047"><span id="local-6989586621679333049"><span id="local-6989586621679333051"><span id="local-6989586621679333053"><span class="annot"><span class="annottext">Eq WarmupStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679335562"><span id="local-6989586621679335564"><span id="local-6989586621679335566"><span id="local-6989586621679335568"><span id="local-6989586621679335570"><span id="local-6989586621679335572"><span id="local-6989586621679335574"><span class="annot"><span class="annottext">Eq WarmupStatus
 Eq WarmupStatus
 -&gt; (WarmupStatus -&gt; WarmupStatus -&gt; Ordering)
 -&gt; (WarmupStatus -&gt; WarmupStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. WarmupStatus -&gt; Rep WarmupStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679333033"><span id="local-6989586621679333035"><span class="annot"><span class="annottext">Int -&gt; WarmupStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335554"><span id="local-6989586621679335556"><span class="annot"><span class="annottext">Int -&gt; WarmupStatus -&gt; Int
 WarmupStatus -&gt; Int
 (Int -&gt; WarmupStatus -&gt; Int)
 -&gt; (WarmupStatus -&gt; Int) -&gt; Hashable WarmupStatus
@@ -143,49 +143,49 @@ $chash :: WarmupStatus -&gt; Int
 hashWithSalt :: Int -&gt; WarmupStatus -&gt; Int
 $chashWithSalt :: Int -&gt; WarmupStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679333030"><span class="annot"><span class="annottext">WarmupStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679335551"><span class="annot"><span class="annottext">WarmupStatus -&gt; ()
 (WarmupStatus -&gt; ()) -&gt; NFData WarmupStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WarmupStatus -&gt; ()
 $crnf :: WarmupStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679333027"><span class="annot"><span class="annottext">Text -&gt; Either String WarmupStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679335548"><span class="annot"><span class="annottext">Text -&gt; Either String WarmupStatus
 (Text -&gt; Either String WarmupStatus) -&gt; FromText WarmupStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WarmupStatus
 $cfromText :: Text -&gt; Either String WarmupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679333024"><span class="annot"><span class="annottext">WarmupStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679335545"><span class="annot"><span class="annottext">WarmupStatus -&gt; Text
 (WarmupStatus -&gt; Text) -&gt; ToText WarmupStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WarmupStatus -&gt; Text
 $ctoText :: WarmupStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679333021"><span class="annot"><span class="annottext">WarmupStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679335542"><span class="annot"><span class="annottext">WarmupStatus -&gt; ByteString
 (WarmupStatus -&gt; ByteString) -&gt; ToByteString WarmupStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WarmupStatus -&gt; ByteString
 $ctoBS :: WarmupStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679333018"><span class="annot"><span class="annottext">WarmupStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679335539"><span class="annot"><span class="annottext">WarmupStatus -&gt; ByteStringBuilder
 (WarmupStatus -&gt; ByteStringBuilder) -&gt; ToLog WarmupStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WarmupStatus -&gt; ByteStringBuilder
 $cbuild :: WarmupStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679333015"><span class="annot"><span class="annottext">HeaderName -&gt; WarmupStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679335536"><span class="annot"><span class="annottext">HeaderName -&gt; WarmupStatus -&gt; [Header]
 (HeaderName -&gt; WarmupStatus -&gt; [Header]) -&gt; ToHeader WarmupStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WarmupStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WarmupStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679333012"><span class="annot"><span class="annottext">WarmupStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679335533"><span class="annot"><span class="annottext">WarmupStatus -&gt; QueryString
 (WarmupStatus -&gt; QueryString) -&gt; ToQuery WarmupStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WarmupStatus -&gt; QueryString
 $ctoQuery :: WarmupStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679333007"><span id="local-6989586621679333009"><span class="annot"><span class="annottext">Value -&gt; Parser [WarmupStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679335528"><span id="local-6989586621679335530"><span class="annot"><span class="annottext">Value -&gt; Parser [WarmupStatus]
 Value -&gt; Parser WarmupStatus
 (Value -&gt; Parser WarmupStatus)
 -&gt; (Value -&gt; Parser [WarmupStatus]) -&gt; FromJSON WarmupStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [WarmupStatus]
 parseJSON :: Value -&gt; Parser WarmupStatus
 $cparseJSON :: Value -&gt; Parser WarmupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679333002"><span id="local-6989586621679333004"><span class="annot"><span class="annottext">FromJSONKeyFunction [WarmupStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679335523"><span id="local-6989586621679335525"><span class="annot"><span class="annottext">FromJSONKeyFunction [WarmupStatus]
 FromJSONKeyFunction WarmupStatus
 FromJSONKeyFunction WarmupStatus
 -&gt; FromJSONKeyFunction [WarmupStatus] -&gt; FromJSONKey WarmupStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WarmupStatus]
 fromJSONKey :: FromJSONKeyFunction WarmupStatus
 $cfromJSONKey :: FromJSONKeyFunction WarmupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332993"><span id="local-6989586621679332995"><span id="local-6989586621679332997"><span id="local-6989586621679332999"><span class="annot"><span class="annottext">[WarmupStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679335514"><span id="local-6989586621679335516"><span id="local-6989586621679335518"><span id="local-6989586621679335520"><span class="annot"><span class="annottext">[WarmupStatus] -&gt; Encoding
 [WarmupStatus] -&gt; Value
 WarmupStatus -&gt; Encoding
 WarmupStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: WarmupStatus -&gt; Encoding
 toJSON :: WarmupStatus -&gt; Value
 $ctoJSON :: WarmupStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332988"><span id="local-6989586621679332990"><span class="annot"><span class="annottext">ToJSONKeyFunction [WarmupStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679335509"><span id="local-6989586621679335511"><span class="annot"><span class="annottext">ToJSONKeyFunction [WarmupStatus]
 ToJSONKeyFunction WarmupStatus
 ToJSONKeyFunction WarmupStatus
 -&gt; ToJSONKeyFunction [WarmupStatus] -&gt; ToJSONKey WarmupStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WarmupStatus]
 toJSONKey :: ToJSONKeyFunction WarmupStatus
 $ctoJSONKey :: ToJSONKeyFunction WarmupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332985"><span class="annot"><span class="annottext">[Node] -&gt; Either String WarmupStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679335506"><span class="annot"><span class="annottext">[Node] -&gt; Either String WarmupStatus
 ([Node] -&gt; Either String WarmupStatus) -&gt; FromXML WarmupStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WarmupStatus
 $cparseXML :: [Node] -&gt; Either String WarmupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679332982"><span class="annot"><span class="annottext">WarmupStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679335503"><span class="annot"><span class="annottext">WarmupStatus -&gt; XML
 (WarmupStatus -&gt; XML) -&gt; ToXML WarmupStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WarmupStatus -&gt; XML

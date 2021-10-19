@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- Dedicated Host.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAvailableCapacity' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681080649"><span id="local-6989586621681080650"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailableCapacity"><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-var">AvailableCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailableCapacity%27"><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-var">AvailableCapacity'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681115000"><span id="local-6989586621681115001"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailableCapacity"><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-var">AvailableCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailableCapacity%27"><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-var">AvailableCapacity'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of instances that can be launched onto the Dedicated Host</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- depending on the host\'s available capacity. For Dedicated Hosts that</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- support multiple instance types, this parameter represents the number of</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AavailableVCpus%3AAvailableCapacity%27"><span class="annot"><span class="annottext">AvailableCapacity -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.AvailableCapacity.html#%24sel%3AavailableVCpus%3AAvailableCapacity%27"><span class="hs-identifier hs-var hs-var">availableVCpus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681080642"><span id="local-6989586621681080644"><span class="annot"><span class="annottext">AvailableCapacity -&gt; AvailableCapacity -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681114993"><span id="local-6989586621681114995"><span class="annot"><span class="annottext">AvailableCapacity -&gt; AvailableCapacity -&gt; Bool
 (AvailableCapacity -&gt; AvailableCapacity -&gt; Bool)
 -&gt; (AvailableCapacity -&gt; AvailableCapacity -&gt; Bool)
 -&gt; Eq AvailableCapacity
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvailableCapacity -&gt; AvailableCapacity -&gt; Bool
 == :: AvailableCapacity -&gt; AvailableCapacity -&gt; Bool
 $c== :: AvailableCapacity -&gt; AvailableCapacity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681080633"><span id="local-6989586621681080635"><span id="local-6989586621681080637"><span id="local-6989586621681080639"><span class="annot"><span class="annottext">ReadPrec [AvailableCapacity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681114984"><span id="local-6989586621681114986"><span id="local-6989586621681114988"><span id="local-6989586621681114990"><span class="annot"><span class="annottext">ReadPrec [AvailableCapacity]
 ReadPrec AvailableCapacity
 Int -&gt; ReadS AvailableCapacity
 ReadS [AvailableCapacity]
@@ -70,7 +70,7 @@ readList :: ReadS [AvailableCapacity]
 $creadList :: ReadS [AvailableCapacity]
 readsPrec :: Int -&gt; ReadS AvailableCapacity
 $creadsPrec :: Int -&gt; ReadS AvailableCapacity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681080626"><span id="local-6989586621681080628"><span id="local-6989586621681080630"><span class="annot"><span class="annottext">Int -&gt; AvailableCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681114977"><span id="local-6989586621681114979"><span id="local-6989586621681114981"><span class="annot"><span class="annottext">Int -&gt; AvailableCapacity -&gt; ShowS
 [AvailableCapacity] -&gt; ShowS
 AvailableCapacity -&gt; String
 (Int -&gt; AvailableCapacity -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe [InstanceCapacity])
      (Maybe [InstanceCapacity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681080617"><span class="annot"><span class="annottext">Maybe [InstanceCapacity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114968"><span class="annot"><span class="annottext">Maybe [InstanceCapacity]
 availableInstanceCapacity :: Maybe [InstanceCapacity]
 $sel:availableInstanceCapacity:AvailableCapacity' :: AvailableCapacity -&gt; Maybe [InstanceCapacity]
-</span><a href="#local-6989586621681080617"><span class="hs-identifier hs-var hs-var">availableInstanceCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceCapacity]
-</span><a href="#local-6989586621681080617"><span class="hs-identifier hs-var">availableInstanceCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681080616"><span class="annot"><span class="annottext">s :: AvailableCapacity
-</span><a href="#local-6989586621681080616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681080615"><span class="annot"><span class="annottext">Maybe [InstanceCapacity]
-</span><a href="#local-6989586621681080615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailableCapacity
-</span><a href="#local-6989586621681080616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availableInstanceCapacity:AvailableCapacity' :: Maybe [InstanceCapacity]
+</span><a href="#local-6989586621681114968"><span class="hs-identifier hs-var hs-var">availableInstanceCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceCapacity]
+</span><a href="#local-6989586621681114968"><span class="hs-identifier hs-var">availableInstanceCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114967"><span class="annot"><span class="annottext">s :: AvailableCapacity
+</span><a href="#local-6989586621681114967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114966"><span class="annot"><span class="annottext">Maybe [InstanceCapacity]
+</span><a href="#local-6989586621681114966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailableCapacity
+</span><a href="#local-6989586621681114967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availableInstanceCapacity:AvailableCapacity' :: Maybe [InstanceCapacity]
 </span><a href="Network.AWS.EC2.Types.AvailableCapacity.html#%24sel%3AavailableInstanceCapacity%3AAvailableCapacity%27"><span class="hs-identifier hs-var">availableInstanceCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceCapacity]
-</span><a href="#local-6989586621681080615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceCapacity] -&gt; f (Maybe [InstanceCapacity]))
+</span><a href="#local-6989586621681114966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceCapacity] -&gt; f (Maybe [InstanceCapacity]))
  -&gt; AvailableCapacity -&gt; f AvailableCapacity)
 -&gt; ((Maybe [InstanceCapacity] -&gt; f (Maybe [InstanceCapacity]))
     -&gt; Maybe [InstanceCapacity] -&gt; f (Maybe [InstanceCapacity]))
@@ -179,8 +179,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceCapacity]
   [InstanceCapacity]
   [InstanceCapacity]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The number of vCPUs available for launching instances onto the Dedicated</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- Host.</span><span>
@@ -191,21 +191,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AvailableCapacity -&gt; Maybe Int -&gt; AvailableCapacity)
 -&gt; Lens AvailableCapacity AvailableCapacity (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681080610"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681114961"><span class="annot"><span class="annottext">Maybe Int
 availableVCpus :: Maybe Int
 $sel:availableVCpus:AvailableCapacity' :: AvailableCapacity -&gt; Maybe Int
-</span><a href="#local-6989586621681080610"><span class="hs-identifier hs-var hs-var">availableVCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681080610"><span class="hs-identifier hs-var">availableVCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681080609"><span class="annot"><span class="annottext">s :: AvailableCapacity
-</span><a href="#local-6989586621681080609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681080608"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681080608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailableCapacity
-</span><a href="#local-6989586621681080609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availableVCpus:AvailableCapacity' :: Maybe Int
+</span><a href="#local-6989586621681114961"><span class="hs-identifier hs-var hs-var">availableVCpus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681114961"><span class="hs-identifier hs-var">availableVCpus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681114960"><span class="annot"><span class="annottext">s :: AvailableCapacity
+</span><a href="#local-6989586621681114960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-type">AvailableCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681114959"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681114959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailableCapacity
+</span><a href="#local-6989586621681114960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availableVCpus:AvailableCapacity' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.AvailableCapacity.html#%24sel%3AavailableVCpus%3AAvailableCapacity%27"><span class="hs-identifier hs-var">availableVCpus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681080608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681114959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621681080605"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailableCapacity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681080603"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681080603"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621681114956"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailableCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681114954"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681114954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">Maybe [InstanceCapacity] -&gt; Maybe Int -&gt; AvailableCapacity
 </span><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity%27"><span class="hs-identifier hs-var">AvailableCapacity'</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [InstanceCapacity] -&gt; Maybe Int -&gt; AvailableCapacity)
@@ -213,7 +213,7 @@ $sel:availableVCpus:AvailableCapacity' :: AvailableCapacity -&gt; Maybe Int
 -&gt; Either String (Maybe Int -&gt; AvailableCapacity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681080603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681114954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;availableInstanceCapacity&quot;</span></span><span>
@@ -240,12 +240,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Int) -&gt; Either String AvailableCapacity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681080603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681114954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;availableVCpus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681080594"><span id="local-6989586621681080596"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681114945"><span id="local-6989586621681114947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681080591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681114942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AvailableCapacity.html#AvailableCapacity"><span class="hs-identifier hs-type">AvailableCapacity</span></a></span></span><span>
 </span><span id="line-92"></span></pre></body></html>

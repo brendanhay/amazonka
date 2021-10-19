@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-comment">--     @^[^\&lt;&gt;{}\\\\\\\\\/?,=\\\\p{Cntrl}]{1,256}$@</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newResourceAttribute' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679170245"><span id="local-6989586621679170246"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceAttribute"><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-var">ResourceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceAttribute%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-var">ResourceAttribute'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679170280"><span id="local-6989586621679170281"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceAttribute"><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-var">ResourceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceAttribute%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-var">ResourceAttribute'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Type of resource.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Atype%27%3AResourceAttribute%27"><span class="annot"><span class="annottext">ResourceAttribute -&gt; ResourceAttributeType
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#%24sel%3Atype%27%3AResourceAttribute%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttributeType.html#ResourceAttributeType"><span class="hs-identifier hs-type">ResourceAttributeType</span></a></span><span class="hs-special">,</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Avalue%3AResourceAttribute%27"><span class="annot"><span class="annottext">ResourceAttribute -&gt; Text
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#%24sel%3Avalue%3AResourceAttribute%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170238"><span id="local-6989586621679170240"><span class="annot"><span class="annottext">ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170273"><span id="local-6989586621679170275"><span class="annot"><span class="annottext">ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
 (ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
 -&gt; (ResourceAttribute -&gt; ResourceAttribute -&gt; Bool)
 -&gt; Eq ResourceAttribute
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
 == :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
 $c== :: ResourceAttribute -&gt; ResourceAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170229"><span id="local-6989586621679170231"><span id="local-6989586621679170233"><span id="local-6989586621679170235"><span class="annot"><span class="annottext">ReadPrec [ResourceAttribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170264"><span id="local-6989586621679170266"><span id="local-6989586621679170268"><span id="local-6989586621679170270"><span class="annot"><span class="annottext">ReadPrec [ResourceAttribute]
 ReadPrec ResourceAttribute
 Int -&gt; ReadS ResourceAttribute
 ReadS [ResourceAttribute]
@@ -82,7 +82,7 @@ readList :: ReadS [ResourceAttribute]
 $creadList :: ReadS [ResourceAttribute]
 readsPrec :: Int -&gt; ReadS ResourceAttribute
 $creadsPrec :: Int -&gt; ReadS ResourceAttribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170222"><span id="local-6989586621679170224"><span id="local-6989586621679170226"><span class="annot"><span class="annottext">Int -&gt; ResourceAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170257"><span id="local-6989586621679170259"><span id="local-6989586621679170261"><span class="annot"><span class="annottext">Int -&gt; ResourceAttribute -&gt; ShowS
 [ResourceAttribute] -&gt; ShowS
 ResourceAttribute -&gt; String
 (Int -&gt; ResourceAttribute -&gt; ShowS)
@@ -126,15 +126,15 @@ $cfrom :: forall x. ResourceAttribute -&gt; Rep ResourceAttribute x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span>
 </span><span id="line-73"></span><span id="newResourceAttribute"><span class="annot"><span class="annottext">newResourceAttribute :: ResourceAttributeType -&gt; Text -&gt; ResourceAttribute
-</span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#newResourceAttribute"><span class="hs-identifier hs-var hs-var">newResourceAttribute</span></a></span></span><span> </span><span id="local-6989586621679170216"><span class="annot"><span class="annottext">ResourceAttributeType
-</span><a href="#local-6989586621679170216"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679170215"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170215"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#newResourceAttribute"><span class="hs-identifier hs-var hs-var">newResourceAttribute</span></a></span></span><span> </span><span id="local-6989586621679170251"><span class="annot"><span class="annottext">ResourceAttributeType
+</span><a href="#local-6989586621679170251"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679170250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170250"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ResourceAttribute' :: ResourceAttributeType -&gt; Text -&gt; ResourceAttribute
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceAttribute' :: ResourceAttributeType
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#%24sel%3Atype%27%3AResourceAttribute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceAttributeType
-</span><a href="#local-6989586621679170216"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:ResourceAttribute' :: Text
+</span><a href="#local-6989586621679170251"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:ResourceAttribute' :: Text
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#%24sel%3Avalue%3AResourceAttribute%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170215"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679170250"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Type of resource.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#resourceAttribute_type"><span class="hs-identifier hs-type">resourceAttribute_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttributeType.html#ResourceAttributeType"><span class="hs-identifier hs-type">ResourceAttributeType</span></a></span><span>
@@ -149,16 +149,16 @@ $cfrom :: forall x. ResourceAttribute -&gt; Rep ResourceAttribute x
      ResourceAttributeType
      ResourceAttributeType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170211"><span class="annot"><span class="annottext">ResourceAttributeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170246"><span class="annot"><span class="annottext">ResourceAttributeType
 type' :: ResourceAttributeType
 $sel:type':ResourceAttribute' :: ResourceAttribute -&gt; ResourceAttributeType
-</span><a href="#local-6989586621679170211"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceAttributeType
-</span><a href="#local-6989586621679170211"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170210"><span class="annot"><span class="annottext">s :: ResourceAttribute
-</span><a href="#local-6989586621679170210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170209"><span class="annot"><span class="annottext">ResourceAttributeType
-</span><a href="#local-6989586621679170209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceAttribute
-</span><a href="#local-6989586621679170210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceAttribute' :: ResourceAttributeType
+</span><a href="#local-6989586621679170246"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceAttributeType
+</span><a href="#local-6989586621679170246"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170245"><span class="annot"><span class="annottext">s :: ResourceAttribute
+</span><a href="#local-6989586621679170245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170244"><span class="annot"><span class="annottext">ResourceAttributeType
+</span><a href="#local-6989586621679170244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceAttribute
+</span><a href="#local-6989586621679170245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceAttribute' :: ResourceAttributeType
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#%24sel%3Atype%27%3AResourceAttribute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceAttributeType
-</span><a href="#local-6989586621679170209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Value of the resource type.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#resourceAttribute_value"><span class="hs-identifier hs-type">resourceAttribute_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -167,19 +167,19 @@ $sel:type':ResourceAttribute' :: ResourceAttribute -&gt; ResourceAttributeType
 -&gt; (ResourceAttribute -&gt; Text -&gt; ResourceAttribute)
 -&gt; Lens ResourceAttribute ResourceAttribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170207"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170242"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:ResourceAttribute' :: ResourceAttribute -&gt; Text
-</span><a href="#local-6989586621679170207"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170207"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170206"><span class="annot"><span class="annottext">s :: ResourceAttribute
-</span><a href="#local-6989586621679170206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170205"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceAttribute
-</span><a href="#local-6989586621679170206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceAttribute' :: Text
+</span><a href="#local-6989586621679170242"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170242"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170241"><span class="annot"><span class="annottext">s :: ResourceAttribute
+</span><a href="#local-6989586621679170241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceAttribute
+</span><a href="#local-6989586621679170241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceAttribute' :: Text
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#%24sel%3Avalue%3AResourceAttribute%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170202"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679170200"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceAttribute
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170237"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679170235"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceAttribute)
@@ -189,8 +189,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceAttribute&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170197"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170232"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170232"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">ResourceAttributeType -&gt; Text -&gt; ResourceAttribute
 </span><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-var">ResourceAttribute'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(ResourceAttributeType -&gt; Text -&gt; ResourceAttribute)
@@ -198,32 +198,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; ResourceAttribute)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceAttributeType
+</span><a href="#local-6989586621679170232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ResourceAttributeType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; ResourceAttribute)
 -&gt; Parser Text -&gt; Parser ResourceAttribute
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679170232"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170191"><span id="local-6989586621679170193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170226"><span id="local-6989586621679170228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170180"><span id="local-6989586621679170182"><span id="local-6989586621679170184"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679170178"><span class="annot"><span class="annottext">toJSON :: ResourceAttribute -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170175"><span id="local-6989586621679170176"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170215"><span id="local-6989586621679170217"><span id="local-6989586621679170219"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute"><span class="hs-identifier hs-type">ResourceAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679170213"><span class="annot"><span class="annottext">toJSON :: ResourceAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.ResourceAttribute.html#ResourceAttribute%27"><span class="hs-identifier hs-type">ResourceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170210"><span id="local-6989586621679170211"><span class="annot"><span class="annottext">Text
 ResourceAttributeType
 value :: Text
 type' :: ResourceAttributeType
 $sel:value:ResourceAttribute' :: ResourceAttribute -&gt; Text
 $sel:type':ResourceAttribute' :: ResourceAttribute -&gt; ResourceAttributeType
-</span><a href="#local-6989586621679170175"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679170210"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -235,14 +235,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceAttributeType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceAttributeType
-</span><a href="#local-6989586621679170176"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170211"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679170175"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170210"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

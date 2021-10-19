@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- namespace.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSOAChange' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679223654"><span id="local-6989586621679223655"></span></span><span class="hs-keyword">data</span><span> </span><span id="SOAChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-var">SOAChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SOAChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-var">SOAChange'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679223794"><span id="local-6989586621679223795"></span></span><span class="hs-keyword">data</span><span> </span><span id="SOAChange"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-var">SOAChange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SOAChange%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-var">SOAChange'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated time to live (TTL) for purposes of negative caching.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Attl%3ASOAChange%27"><span class="annot"><span class="annottext">SOAChange -&gt; Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#%24sel%3Attl%3ASOAChange%27"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223648"><span id="local-6989586621679223650"><span class="annot"><span class="annottext">SOAChange -&gt; SOAChange -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223788"><span id="local-6989586621679223790"><span class="annot"><span class="annottext">SOAChange -&gt; SOAChange -&gt; Bool
 (SOAChange -&gt; SOAChange -&gt; Bool)
 -&gt; (SOAChange -&gt; SOAChange -&gt; Bool) -&gt; Eq SOAChange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SOAChange -&gt; SOAChange -&gt; Bool
 == :: SOAChange -&gt; SOAChange -&gt; Bool
 $c== :: SOAChange -&gt; SOAChange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223639"><span id="local-6989586621679223641"><span id="local-6989586621679223643"><span id="local-6989586621679223645"><span class="annot"><span class="annottext">ReadPrec [SOAChange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223779"><span id="local-6989586621679223781"><span id="local-6989586621679223783"><span id="local-6989586621679223785"><span class="annot"><span class="annottext">ReadPrec [SOAChange]
 ReadPrec SOAChange
 Int -&gt; ReadS SOAChange
 ReadS [SOAChange]
@@ -60,7 +60,7 @@ readList :: ReadS [SOAChange]
 $creadList :: ReadS [SOAChange]
 readsPrec :: Int -&gt; ReadS SOAChange
 $creadsPrec :: Int -&gt; ReadS SOAChange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223632"><span id="local-6989586621679223634"><span id="local-6989586621679223636"><span class="annot"><span class="annottext">Int -&gt; SOAChange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223772"><span id="local-6989586621679223774"><span id="local-6989586621679223776"><span class="annot"><span class="annottext">Int -&gt; SOAChange -&gt; ShowS
 [SOAChange] -&gt; ShowS
 SOAChange -&gt; String
 (Int -&gt; SOAChange -&gt; ShowS)
@@ -99,11 +99,11 @@ $cfrom :: forall x. SOAChange -&gt; Rep SOAChange x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span><span>
 </span><span id="line-49"></span><span id="newSOAChange"><span class="annot"><span class="annottext">newSOAChange :: Natural -&gt; SOAChange
-</span><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#newSOAChange"><span class="hs-identifier hs-var hs-var">newSOAChange</span></a></span></span><span> </span><span id="local-6989586621679223626"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679223626"><span class="hs-identifier hs-var">pTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SOAChange' :: Natural -&gt; SOAChange
+</span><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#newSOAChange"><span class="hs-identifier hs-var hs-var">newSOAChange</span></a></span></span><span> </span><span id="local-6989586621679223766"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679223766"><span class="hs-identifier hs-var">pTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SOAChange' :: Natural -&gt; SOAChange
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-type">SOAChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:SOAChange' :: Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#%24sel%3Attl%3ASOAChange%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679223626"><span class="hs-identifier hs-var">pTTL_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679223766"><span class="hs-identifier hs-var">pTTL_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The updated time to live (TTL) for purposes of negative caching.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#sOAChange_ttl"><span class="hs-identifier hs-type">sOAChange_ttl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -112,27 +112,27 @@ $cfrom :: forall x. SOAChange -&gt; Rep SOAChange x
 -&gt; (SOAChange -&gt; Natural -&gt; SOAChange)
 -&gt; Lens SOAChange SOAChange Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-type">SOAChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223622"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-type">SOAChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223762"><span class="annot"><span class="annottext">Natural
 ttl :: Natural
 $sel:ttl:SOAChange' :: SOAChange -&gt; Natural
-</span><a href="#local-6989586621679223622"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679223622"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223621"><span class="annot"><span class="annottext">s :: SOAChange
-</span><a href="#local-6989586621679223621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-type">SOAChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223620"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679223620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SOAChange
-</span><a href="#local-6989586621679223621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:SOAChange' :: Natural
+</span><a href="#local-6989586621679223762"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679223762"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223761"><span class="annot"><span class="annottext">s :: SOAChange
+</span><a href="#local-6989586621679223761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-type">SOAChange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223760"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679223760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SOAChange
+</span><a href="#local-6989586621679223761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:SOAChange' :: Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#%24sel%3Attl%3ASOAChange%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679223620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223616"><span id="local-6989586621679223618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223756"><span id="local-6989586621679223758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223605"><span id="local-6989586621679223607"><span id="local-6989586621679223609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679223603"><span class="annot"><span class="annottext">toJSON :: SOAChange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-type">SOAChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223601"><span class="annot"><span class="annottext">Natural
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223745"><span id="local-6989586621679223747"><span id="local-6989586621679223749"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange"><span class="hs-identifier hs-type">SOAChange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679223743"><span class="annot"><span class="annottext">toJSON :: SOAChange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOAChange.html#SOAChange%27"><span class="hs-identifier hs-type">SOAChange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223741"><span class="annot"><span class="annottext">Natural
 ttl :: Natural
 $sel:ttl:SOAChange' :: SOAChange -&gt; Natural
-</span><a href="#local-6989586621679223601"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679223741"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -144,6 +144,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679223601"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679223741"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span></pre></body></html>

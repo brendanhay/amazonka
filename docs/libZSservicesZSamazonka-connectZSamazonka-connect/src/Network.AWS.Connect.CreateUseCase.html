@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateUseCase' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679424152"><span id="local-6989586621679424153"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUseCase"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-var">CreateUseCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUseCase%27"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-var">CreateUseCase'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679424479"><span id="local-6989586621679424480"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUseCase"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-var">CreateUseCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUseCase%27"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-var">CreateUseCase'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more tags.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3ACreateUseCase%27"><span class="annot"><span class="annottext">CreateUseCase -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3Atags%3ACreateUseCase%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AuseCaseType%3ACreateUseCase%27"><span class="annot"><span class="annottext">CreateUseCase -&gt; UseCaseType
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AuseCaseType%3ACreateUseCase%27"><span class="hs-identifier hs-var hs-var">useCaseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.UseCaseType.html#UseCaseType"><span class="hs-identifier hs-type">UseCaseType</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424143"><span id="local-6989586621679424145"><span class="annot"><span class="annottext">CreateUseCase -&gt; CreateUseCase -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424470"><span id="local-6989586621679424472"><span class="annot"><span class="annottext">CreateUseCase -&gt; CreateUseCase -&gt; Bool
 (CreateUseCase -&gt; CreateUseCase -&gt; Bool)
 -&gt; (CreateUseCase -&gt; CreateUseCase -&gt; Bool) -&gt; Eq CreateUseCase
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUseCase -&gt; CreateUseCase -&gt; Bool
 == :: CreateUseCase -&gt; CreateUseCase -&gt; Bool
 $c== :: CreateUseCase -&gt; CreateUseCase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424134"><span id="local-6989586621679424136"><span id="local-6989586621679424138"><span id="local-6989586621679424140"><span class="annot"><span class="annottext">ReadPrec [CreateUseCase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424461"><span id="local-6989586621679424463"><span id="local-6989586621679424465"><span id="local-6989586621679424467"><span class="annot"><span class="annottext">ReadPrec [CreateUseCase]
 ReadPrec CreateUseCase
 Int -&gt; ReadS CreateUseCase
 ReadS [CreateUseCase]
@@ -95,7 +95,7 @@ readList :: ReadS [CreateUseCase]
 $creadList :: ReadS [CreateUseCase]
 readsPrec :: Int -&gt; ReadS CreateUseCase
 $creadsPrec :: Int -&gt; ReadS CreateUseCase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424127"><span id="local-6989586621679424129"><span id="local-6989586621679424131"><span class="annot"><span class="annottext">Int -&gt; CreateUseCase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424454"><span id="local-6989586621679424456"><span id="local-6989586621679424458"><span class="annot"><span class="annottext">Int -&gt; CreateUseCase -&gt; ShowS
 [CreateUseCase] -&gt; ShowS
 CreateUseCase -&gt; String
 (Int -&gt; CreateUseCase -&gt; ShowS)
@@ -148,12 +148,12 @@ $cfrom :: forall x. CreateUseCase -&gt; Rep CreateUseCase x
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span>
 </span><span id="line-93"></span><span id="newCreateUseCase"><span class="annot"><span class="annottext">newCreateUseCase :: Text -&gt; Text -&gt; UseCaseType -&gt; CreateUseCase
 </span><a href="Network.AWS.Connect.CreateUseCase.html#newCreateUseCase"><span class="hs-identifier hs-var hs-var">newCreateUseCase</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679424122"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424122"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679424121"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424121"><span class="hs-identifier hs-var">pIntegrationAssociationId_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679424120"><span class="annot"><span class="annottext">UseCaseType
-</span><a href="#local-6989586621679424120"><span class="hs-identifier hs-var">pUseCaseType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679424449"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424449"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679424448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424448"><span class="hs-identifier hs-var">pIntegrationAssociationId_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679424447"><span class="annot"><span class="annottext">UseCaseType
+</span><a href="#local-6989586621679424447"><span class="hs-identifier hs-var">pUseCaseType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">CreateUseCase' :: Maybe (HashMap Text Text)
 -&gt; Text -&gt; Text -&gt; UseCaseType -&gt; CreateUseCase
 </span><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span>
@@ -163,14 +163,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:CreateUseCase' :: Text
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AinstanceId%3ACreateUseCase%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424122"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424449"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:integrationAssociationId:CreateUseCase' :: Text
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AintegrationAssociationId%3ACreateUseCase%27"><span class="hs-identifier hs-var">integrationAssociationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424121"><span class="hs-identifier hs-var">pIntegrationAssociationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424448"><span class="hs-identifier hs-var">pIntegrationAssociationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:useCaseType:CreateUseCase' :: UseCaseType
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AuseCaseType%3ACreateUseCase%27"><span class="hs-identifier hs-var">useCaseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UseCaseType
-</span><a href="#local-6989586621679424120"><span class="hs-identifier hs-var">pUseCaseType_</span></a></span><span>
+</span><a href="#local-6989586621679424447"><span class="hs-identifier hs-var">pUseCaseType_</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | One or more tags.</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424117"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424444"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:CreateUseCase' :: CreateUseCase -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424117"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424117"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424116"><span class="annot"><span class="annottext">s :: CreateUseCase
-</span><a href="#local-6989586621679424116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424115"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
-</span><a href="#local-6989586621679424116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUseCase' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679424444"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679424444"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424443"><span class="annot"><span class="annottext">s :: CreateUseCase
+</span><a href="#local-6989586621679424443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424442"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679424442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
+</span><a href="#local-6989586621679424443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUseCase' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3Atags%3ACreateUseCase%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679424442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CreateUseCase -&gt; f CreateUseCase)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -220,8 +220,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -231,16 +231,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateUseCase -&gt; Text -&gt; CreateUseCase)
 -&gt; Lens CreateUseCase CreateUseCase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424111"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424438"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:CreateUseCase' :: CreateUseCase -&gt; Text
-</span><a href="#local-6989586621679424111"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424111"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424110"><span class="annot"><span class="annottext">s :: CreateUseCase
-</span><a href="#local-6989586621679424110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
-</span><a href="#local-6989586621679424110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:CreateUseCase' :: Text
+</span><a href="#local-6989586621679424438"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424438"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424437"><span class="annot"><span class="annottext">s :: CreateUseCase
+</span><a href="#local-6989586621679424437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
+</span><a href="#local-6989586621679424437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:CreateUseCase' :: Text
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AinstanceId%3ACreateUseCase%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The identifier for the integration association.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#createUseCase_integrationAssociationId"><span class="hs-identifier hs-type">createUseCase_integrationAssociationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -249,16 +249,16 @@ $sel:instanceId:CreateUseCase' :: CreateUseCase -&gt; Text
 -&gt; (CreateUseCase -&gt; Text -&gt; CreateUseCase)
 -&gt; Lens CreateUseCase CreateUseCase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424108"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424435"><span class="annot"><span class="annottext">Text
 integrationAssociationId :: Text
 $sel:integrationAssociationId:CreateUseCase' :: CreateUseCase -&gt; Text
-</span><a href="#local-6989586621679424108"><span class="hs-identifier hs-var hs-var">integrationAssociationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424108"><span class="hs-identifier hs-var">integrationAssociationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424107"><span class="annot"><span class="annottext">s :: CreateUseCase
-</span><a href="#local-6989586621679424107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424106"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
-</span><a href="#local-6989586621679424107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationAssociationId:CreateUseCase' :: Text
+</span><a href="#local-6989586621679424435"><span class="hs-identifier hs-var hs-var">integrationAssociationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424435"><span class="hs-identifier hs-var">integrationAssociationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424434"><span class="annot"><span class="annottext">s :: CreateUseCase
+</span><a href="#local-6989586621679424434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
+</span><a href="#local-6989586621679424434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integrationAssociationId:CreateUseCase' :: Text
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AintegrationAssociationId%3ACreateUseCase%27"><span class="hs-identifier hs-var">integrationAssociationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The type of use case to associate to the integration association. Each</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- integration association can have only one of each use case type.</span><span>
@@ -268,27 +268,27 @@ $sel:integrationAssociationId:CreateUseCase' :: CreateUseCase -&gt; Text
 -&gt; (CreateUseCase -&gt; UseCaseType -&gt; CreateUseCase)
 -&gt; Lens CreateUseCase CreateUseCase UseCaseType UseCaseType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424105"><span class="annot"><span class="annottext">UseCaseType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424432"><span class="annot"><span class="annottext">UseCaseType
 useCaseType :: UseCaseType
 $sel:useCaseType:CreateUseCase' :: CreateUseCase -&gt; UseCaseType
-</span><a href="#local-6989586621679424105"><span class="hs-identifier hs-var hs-var">useCaseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UseCaseType
-</span><a href="#local-6989586621679424105"><span class="hs-identifier hs-var">useCaseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424104"><span class="annot"><span class="annottext">s :: CreateUseCase
-</span><a href="#local-6989586621679424104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424103"><span class="annot"><span class="annottext">UseCaseType
-</span><a href="#local-6989586621679424103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
-</span><a href="#local-6989586621679424104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseType:CreateUseCase' :: UseCaseType
+</span><a href="#local-6989586621679424432"><span class="hs-identifier hs-var hs-var">useCaseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UseCaseType
+</span><a href="#local-6989586621679424432"><span class="hs-identifier hs-var">useCaseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424431"><span class="annot"><span class="annottext">s :: CreateUseCase
+</span><a href="#local-6989586621679424431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424430"><span class="annot"><span class="annottext">UseCaseType
+</span><a href="#local-6989586621679424430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCase
+</span><a href="#local-6989586621679424431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseType:CreateUseCase' :: UseCaseType
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AuseCaseType%3ACreateUseCase%27"><span class="hs-identifier hs-var">useCaseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UseCaseType
-</span><a href="#local-6989586621679424103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679424099"><span class="annot"><span class="annottext">request :: CreateUseCase -&gt; Request CreateUseCase
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679424426"><span class="annot"><span class="annottext">request :: CreateUseCase -&gt; Request CreateUseCase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUseCase -&gt; Request CreateUseCase
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679424095"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679424422"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateUseCase
 -&gt; ClientResponse ClientBody
@@ -312,10 +312,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679424092"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424092"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679424091"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679424091"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679424090"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679424090"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679424419"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424419"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679424418"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679424418"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679424417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679424417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateUseCaseResponse
 </span><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-var">CreateUseCaseResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateUseCaseResponse)
@@ -323,7 +323,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateUseCaseResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679424090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679424417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UseCaseArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -332,7 +332,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateUseCaseResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679424090"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679424417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UseCaseId&quot;</span></span><span class="hs-special">)</span><span>
@@ -344,15 +344,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424092"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424419"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424082"><span id="local-6989586621679424084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424409"><span id="local-6989586621679424411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679424075"><span class="annot"><span class="annottext">toHeaders :: CreateUseCase -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679424402"><span class="annot"><span class="annottext">toHeaders :: CreateUseCase -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUseCase -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -371,9 +371,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424065"><span id="local-6989586621679424067"><span id="local-6989586621679424069"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679424063"><span class="annot"><span class="annottext">toJSON :: CreateUseCase -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424058"><span id="local-6989586621679424059"><span id="local-6989586621679424060"><span id="local-6989586621679424061"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424392"><span id="local-6989586621679424394"><span id="local-6989586621679424396"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679424390"><span class="annot"><span class="annottext">toJSON :: CreateUseCase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424385"><span id="local-6989586621679424386"><span id="local-6989586621679424387"><span id="local-6989586621679424388"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 UseCaseType
 useCaseType :: UseCaseType
@@ -384,7 +384,7 @@ $sel:useCaseType:CreateUseCase' :: CreateUseCase -&gt; UseCaseType
 $sel:integrationAssociationId:CreateUseCase' :: CreateUseCase -&gt; Text
 $sel:instanceId:CreateUseCase' :: CreateUseCase -&gt; Text
 $sel:tags:CreateUseCase' :: CreateUseCase -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424058"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679424385"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -397,20 +397,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424061"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424388"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UseCaseType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UseCaseType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UseCaseType
-</span><a href="#local-6989586621679424058"><span class="hs-identifier hs-var">useCaseType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424385"><span class="hs-identifier hs-var">useCaseType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679424052"><span class="annot"><span class="annottext">toPath :: CreateUseCase -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424047"><span id="local-6989586621679424048"><span id="local-6989586621679424049"><span id="local-6989586621679424050"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679424379"><span class="annot"><span class="annottext">toPath :: CreateUseCase -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase%27"><span class="hs-identifier hs-type">CreateUseCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424374"><span id="local-6989586621679424375"><span id="local-6989586621679424376"><span id="local-6989586621679424377"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 UseCaseType
 useCaseType :: UseCaseType
@@ -421,7 +421,7 @@ $sel:useCaseType:CreateUseCase' :: CreateUseCase -&gt; UseCaseType
 $sel:integrationAssociationId:CreateUseCase' :: CreateUseCase -&gt; Text
 $sel:instanceId:CreateUseCase' :: CreateUseCase -&gt; Text
 $sel:tags:CreateUseCase' :: CreateUseCase -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679424047"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679424374"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -430,19 +430,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424049"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424376"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/integration-associations/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424048"><span class="hs-identifier hs-var">integrationAssociationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424375"><span class="hs-identifier hs-var">integrationAssociationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/use-cases&quot;</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCase"><span class="hs-identifier hs-type">CreateUseCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679424043"><span class="annot"><span class="annottext">toQuery :: CreateUseCase -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679424370"><span class="annot"><span class="annottext">toQuery :: CreateUseCase -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUseCase -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -450,7 +450,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newCreateUseCaseResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679424040"><span id="local-6989586621679424041"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUseCaseResponse"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-var">CreateUseCaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUseCaseResponse%27"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-var">CreateUseCaseResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679424367"><span id="local-6989586621679424368"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUseCaseResponse"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-var">CreateUseCaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUseCaseResponse%27"><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-var">CreateUseCaseResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the use case.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AuseCaseArn%3ACreateUseCaseResponse%27"><span class="annot"><span class="annottext">CreateUseCaseResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AuseCaseArn%3ACreateUseCaseResponse%27"><span class="hs-identifier hs-var hs-var">useCaseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -461,7 +461,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateUseCaseResponse%27"><span class="annot"><span class="annottext">CreateUseCaseResponse -&gt; Int
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AhttpStatus%3ACreateUseCaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424033"><span id="local-6989586621679424035"><span class="annot"><span class="annottext">CreateUseCaseResponse -&gt; CreateUseCaseResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424360"><span id="local-6989586621679424362"><span class="annot"><span class="annottext">CreateUseCaseResponse -&gt; CreateUseCaseResponse -&gt; Bool
 (CreateUseCaseResponse -&gt; CreateUseCaseResponse -&gt; Bool)
 -&gt; (CreateUseCaseResponse -&gt; CreateUseCaseResponse -&gt; Bool)
 -&gt; Eq CreateUseCaseResponse
@@ -470,7 +470,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUseCaseResponse -&gt; CreateUseCaseResponse -&gt; Bool
 == :: CreateUseCaseResponse -&gt; CreateUseCaseResponse -&gt; Bool
 $c== :: CreateUseCaseResponse -&gt; CreateUseCaseResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424025"><span id="local-6989586621679424027"><span id="local-6989586621679424029"><span id="local-6989586621679424031"><span class="annot"><span class="annottext">ReadPrec [CreateUseCaseResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424352"><span id="local-6989586621679424354"><span id="local-6989586621679424356"><span id="local-6989586621679424358"><span class="annot"><span class="annottext">ReadPrec [CreateUseCaseResponse]
 ReadPrec CreateUseCaseResponse
 Int -&gt; ReadS CreateUseCaseResponse
 ReadS [CreateUseCaseResponse]
@@ -490,7 +490,7 @@ readList :: ReadS [CreateUseCaseResponse]
 $creadList :: ReadS [CreateUseCaseResponse]
 readsPrec :: Int -&gt; ReadS CreateUseCaseResponse
 $creadsPrec :: Int -&gt; ReadS CreateUseCaseResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424019"><span id="local-6989586621679424021"><span id="local-6989586621679424023"><span class="annot"><span class="annottext">Int -&gt; CreateUseCaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424346"><span id="local-6989586621679424348"><span id="local-6989586621679424350"><span class="annot"><span class="annottext">Int -&gt; CreateUseCaseResponse -&gt; ShowS
 [CreateUseCaseResponse] -&gt; ShowS
 CreateUseCaseResponse -&gt; String
 (Int -&gt; CreateUseCaseResponse -&gt; ShowS)
@@ -534,8 +534,8 @@ $cfrom :: forall x. CreateUseCaseResponse -&gt; Rep CreateUseCaseResponse x
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span>
 </span><span id="line-202"></span><span id="newCreateUseCaseResponse"><span class="annot"><span class="annottext">newCreateUseCaseResponse :: Int -&gt; CreateUseCaseResponse
-</span><a href="Network.AWS.Connect.CreateUseCase.html#newCreateUseCaseResponse"><span class="hs-identifier hs-var hs-var">newCreateUseCaseResponse</span></a></span></span><span> </span><span id="local-6989586621679424016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.CreateUseCase.html#newCreateUseCaseResponse"><span class="hs-identifier hs-var hs-var">newCreateUseCaseResponse</span></a></span></span><span> </span><span id="local-6989586621679424343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">CreateUseCaseResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateUseCaseResponse
 </span><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:useCaseArn:CreateUseCaseResponse' :: Maybe Text
@@ -549,7 +549,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUseCaseResponse' :: Int
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AhttpStatus%3ACreateUseCaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679424343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the use case.</span><span>
@@ -564,16 +564,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424015"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424342"><span class="annot"><span class="annottext">Maybe Text
 useCaseArn :: Maybe Text
 $sel:useCaseArn:CreateUseCaseResponse' :: CreateUseCaseResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679424015"><span class="hs-identifier hs-var hs-var">useCaseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424015"><span class="hs-identifier hs-var">useCaseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424014"><span class="annot"><span class="annottext">s :: CreateUseCaseResponse
-</span><a href="#local-6989586621679424014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424013"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCaseResponse
-</span><a href="#local-6989586621679424014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseArn:CreateUseCaseResponse' :: Maybe Text
+</span><a href="#local-6989586621679424342"><span class="hs-identifier hs-var hs-var">useCaseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424342"><span class="hs-identifier hs-var">useCaseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424341"><span class="annot"><span class="annottext">s :: CreateUseCaseResponse
+</span><a href="#local-6989586621679424341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCaseResponse
+</span><a href="#local-6989586621679424341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseArn:CreateUseCaseResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AuseCaseArn%3ACreateUseCaseResponse%27"><span class="hs-identifier hs-var">useCaseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The identifier of the use case.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#createUseCaseResponse_useCaseId"><span class="hs-identifier hs-type">createUseCaseResponse_useCaseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -587,16 +587,16 @@ $sel:useCaseArn:CreateUseCaseResponse' :: CreateUseCaseResponse -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424012"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424339"><span class="annot"><span class="annottext">Maybe Text
 useCaseId :: Maybe Text
 $sel:useCaseId:CreateUseCaseResponse' :: CreateUseCaseResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679424012"><span class="hs-identifier hs-var hs-var">useCaseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424012"><span class="hs-identifier hs-var">useCaseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424011"><span class="annot"><span class="annottext">s :: CreateUseCaseResponse
-</span><a href="#local-6989586621679424011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424010"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCaseResponse
-</span><a href="#local-6989586621679424011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseId:CreateUseCaseResponse' :: Maybe Text
+</span><a href="#local-6989586621679424339"><span class="hs-identifier hs-var hs-var">useCaseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424339"><span class="hs-identifier hs-var">useCaseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424338"><span class="annot"><span class="annottext">s :: CreateUseCaseResponse
+</span><a href="#local-6989586621679424338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCaseResponse
+</span><a href="#local-6989586621679424338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useCaseId:CreateUseCaseResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AuseCaseId%3ACreateUseCaseResponse%27"><span class="hs-identifier hs-var">useCaseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#createUseCaseResponse_httpStatus"><span class="hs-identifier hs-type">createUseCaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -605,16 +605,16 @@ $sel:useCaseId:CreateUseCaseResponse' :: CreateUseCaseResponse -&gt; Maybe Text
 -&gt; (CreateUseCaseResponse -&gt; Int -&gt; CreateUseCaseResponse)
 -&gt; Lens CreateUseCaseResponse CreateUseCaseResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424009"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424336"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateUseCaseResponse' :: CreateUseCaseResponse -&gt; Int
-</span><a href="#local-6989586621679424009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424008"><span class="annot"><span class="annottext">s :: CreateUseCaseResponse
-</span><a href="#local-6989586621679424008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCaseResponse
-</span><a href="#local-6989586621679424008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUseCaseResponse' :: Int
+</span><a href="#local-6989586621679424336"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424336"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424335"><span class="annot"><span class="annottext">s :: CreateUseCaseResponse
+</span><a href="#local-6989586621679424335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse%27"><span class="hs-identifier hs-type">CreateUseCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUseCaseResponse
+</span><a href="#local-6989586621679424335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUseCaseResponse' :: Int
 </span><a href="Network.AWS.Connect.CreateUseCase.html#%24sel%3AhttpStatus%3ACreateUseCaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.CreateUseCase.html#CreateUseCaseResponse"><span class="hs-identifier hs-type">CreateUseCaseResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

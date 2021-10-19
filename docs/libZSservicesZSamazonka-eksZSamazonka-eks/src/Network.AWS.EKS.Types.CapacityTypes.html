@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679263710"><span id="local-6989586621679263711"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityTypes"><span class="annot"><a href="Network.AWS.EKS.Types.CapacityTypes.html#CapacityTypes"><span class="hs-identifier hs-var">CapacityTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityTypes%27"><span class="annot"><a href="Network.AWS.EKS.Types.CapacityTypes.html#CapacityTypes%27"><span class="hs-identifier hs-var">CapacityTypes'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679263959"><span id="local-6989586621679263960"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CapacityTypes"><span class="annot"><a href="Network.AWS.EKS.Types.CapacityTypes.html#CapacityTypes"><span class="hs-identifier hs-var">CapacityTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityTypes%27"><span class="annot"><a href="Network.AWS.EKS.Types.CapacityTypes.html#CapacityTypes%27"><span class="hs-identifier hs-var">CapacityTypes'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCapacityTypes"><span class="annot"><span class="annottext">CapacityTypes -&gt; Text
 </span><a href="Network.AWS.EKS.Types.CapacityTypes.html#fromCapacityTypes"><span class="hs-identifier hs-var hs-var">fromCapacityTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263702"><span id="local-6989586621679263704"><span id="local-6989586621679263706"><span class="annot"><span class="annottext">Int -&gt; CapacityTypes -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263951"><span id="local-6989586621679263953"><span id="local-6989586621679263955"><span class="annot"><span class="annottext">Int -&gt; CapacityTypes -&gt; ShowS
 [CapacityTypes] -&gt; ShowS
 CapacityTypes -&gt; String
 (Int -&gt; CapacityTypes -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CapacityTypes -&gt; String
 showsPrec :: Int -&gt; CapacityTypes -&gt; ShowS
 $cshowsPrec :: Int -&gt; CapacityTypes -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679263693"><span id="local-6989586621679263695"><span id="local-6989586621679263697"><span id="local-6989586621679263699"><span class="annot"><span class="annottext">ReadPrec [CapacityTypes]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679263942"><span id="local-6989586621679263944"><span id="local-6989586621679263946"><span id="local-6989586621679263948"><span class="annot"><span class="annottext">ReadPrec [CapacityTypes]
 ReadPrec CapacityTypes
 Int -&gt; ReadS CapacityTypes
 ReadS [CapacityTypes]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CapacityTypes]
 readsPrec :: Int -&gt; ReadS CapacityTypes
 $creadsPrec :: Int -&gt; ReadS CapacityTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679263688"><span id="local-6989586621679263690"><span class="annot"><span class="annottext">CapacityTypes -&gt; CapacityTypes -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679263937"><span id="local-6989586621679263939"><span class="annot"><span class="annottext">CapacityTypes -&gt; CapacityTypes -&gt; Bool
 (CapacityTypes -&gt; CapacityTypes -&gt; Bool)
 -&gt; (CapacityTypes -&gt; CapacityTypes -&gt; Bool) -&gt; Eq CapacityTypes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: CapacityTypes -&gt; CapacityTypes -&gt; Bool
 == :: CapacityTypes -&gt; CapacityTypes -&gt; Bool
 $c== :: CapacityTypes -&gt; CapacityTypes -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679263672"><span id="local-6989586621679263674"><span id="local-6989586621679263676"><span id="local-6989586621679263678"><span id="local-6989586621679263680"><span id="local-6989586621679263682"><span id="local-6989586621679263684"><span class="annot"><span class="annottext">Eq CapacityTypes
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679263921"><span id="local-6989586621679263923"><span id="local-6989586621679263925"><span id="local-6989586621679263927"><span id="local-6989586621679263929"><span id="local-6989586621679263931"><span id="local-6989586621679263933"><span class="annot"><span class="annottext">Eq CapacityTypes
 Eq CapacityTypes
 -&gt; (CapacityTypes -&gt; CapacityTypes -&gt; Ordering)
 -&gt; (CapacityTypes -&gt; CapacityTypes -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. CapacityTypes -&gt; Rep CapacityTypes x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263664"><span id="local-6989586621679263666"><span class="annot"><span class="annottext">Int -&gt; CapacityTypes -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679263913"><span id="local-6989586621679263915"><span class="annot"><span class="annottext">Int -&gt; CapacityTypes -&gt; Int
 CapacityTypes -&gt; Int
 (Int -&gt; CapacityTypes -&gt; Int)
 -&gt; (CapacityTypes -&gt; Int) -&gt; Hashable CapacityTypes
@@ -142,49 +142,49 @@ $chash :: CapacityTypes -&gt; Int
 hashWithSalt :: Int -&gt; CapacityTypes -&gt; Int
 $chashWithSalt :: Int -&gt; CapacityTypes -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679263661"><span class="annot"><span class="annottext">CapacityTypes -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679263910"><span class="annot"><span class="annottext">CapacityTypes -&gt; ()
 (CapacityTypes -&gt; ()) -&gt; NFData CapacityTypes
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CapacityTypes -&gt; ()
 $crnf :: CapacityTypes -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679263658"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityTypes
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679263907"><span class="annot"><span class="annottext">Text -&gt; Either String CapacityTypes
 (Text -&gt; Either String CapacityTypes) -&gt; FromText CapacityTypes
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CapacityTypes
 $cfromText :: Text -&gt; Either String CapacityTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679263655"><span class="annot"><span class="annottext">CapacityTypes -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679263904"><span class="annot"><span class="annottext">CapacityTypes -&gt; Text
 (CapacityTypes -&gt; Text) -&gt; ToText CapacityTypes
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CapacityTypes -&gt; Text
 $ctoText :: CapacityTypes -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679263652"><span class="annot"><span class="annottext">CapacityTypes -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679263901"><span class="annot"><span class="annottext">CapacityTypes -&gt; ByteString
 (CapacityTypes -&gt; ByteString) -&gt; ToByteString CapacityTypes
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CapacityTypes -&gt; ByteString
 $ctoBS :: CapacityTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679263649"><span class="annot"><span class="annottext">CapacityTypes -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679263898"><span class="annot"><span class="annottext">CapacityTypes -&gt; ByteStringBuilder
 (CapacityTypes -&gt; ByteStringBuilder) -&gt; ToLog CapacityTypes
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CapacityTypes -&gt; ByteStringBuilder
 $cbuild :: CapacityTypes -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263646"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityTypes -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679263895"><span class="annot"><span class="annottext">HeaderName -&gt; CapacityTypes -&gt; [Header]
 (HeaderName -&gt; CapacityTypes -&gt; [Header]) -&gt; ToHeader CapacityTypes
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CapacityTypes -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CapacityTypes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263643"><span class="annot"><span class="annottext">CapacityTypes -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679263892"><span class="annot"><span class="annottext">CapacityTypes -&gt; QueryString
 (CapacityTypes -&gt; QueryString) -&gt; ToQuery CapacityTypes
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CapacityTypes -&gt; QueryString
 $ctoQuery :: CapacityTypes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263638"><span id="local-6989586621679263640"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityTypes]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679263887"><span id="local-6989586621679263889"><span class="annot"><span class="annottext">Value -&gt; Parser [CapacityTypes]
 Value -&gt; Parser CapacityTypes
 (Value -&gt; Parser CapacityTypes)
 -&gt; (Value -&gt; Parser [CapacityTypes]) -&gt; FromJSON CapacityTypes
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [CapacityTypes]
 parseJSON :: Value -&gt; Parser CapacityTypes
 $cparseJSON :: Value -&gt; Parser CapacityTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263633"><span id="local-6989586621679263635"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityTypes]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679263882"><span id="local-6989586621679263884"><span class="annot"><span class="annottext">FromJSONKeyFunction [CapacityTypes]
 FromJSONKeyFunction CapacityTypes
 FromJSONKeyFunction CapacityTypes
 -&gt; FromJSONKeyFunction [CapacityTypes] -&gt; FromJSONKey CapacityTypes
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CapacityTypes]
 fromJSONKey :: FromJSONKeyFunction CapacityTypes
 $cfromJSONKey :: FromJSONKeyFunction CapacityTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263624"><span id="local-6989586621679263626"><span id="local-6989586621679263628"><span id="local-6989586621679263630"><span class="annot"><span class="annottext">[CapacityTypes] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679263873"><span id="local-6989586621679263875"><span id="local-6989586621679263877"><span id="local-6989586621679263879"><span class="annot"><span class="annottext">[CapacityTypes] -&gt; Encoding
 [CapacityTypes] -&gt; Value
 CapacityTypes -&gt; Encoding
 CapacityTypes -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: CapacityTypes -&gt; Encoding
 toJSON :: CapacityTypes -&gt; Value
 $ctoJSON :: CapacityTypes -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263619"><span id="local-6989586621679263621"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityTypes]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679263868"><span id="local-6989586621679263870"><span class="annot"><span class="annottext">ToJSONKeyFunction [CapacityTypes]
 ToJSONKeyFunction CapacityTypes
 ToJSONKeyFunction CapacityTypes
 -&gt; ToJSONKeyFunction [CapacityTypes] -&gt; ToJSONKey CapacityTypes
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CapacityTypes]
 toJSONKey :: ToJSONKeyFunction CapacityTypes
 $ctoJSONKey :: ToJSONKeyFunction CapacityTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263616"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityTypes
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679263865"><span class="annot"><span class="annottext">[Node] -&gt; Either String CapacityTypes
 ([Node] -&gt; Either String CapacityTypes) -&gt; FromXML CapacityTypes
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CapacityTypes
 $cparseXML :: [Node] -&gt; Either String CapacityTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263613"><span class="annot"><span class="annottext">CapacityTypes -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679263862"><span class="annot"><span class="annottext">CapacityTypes -&gt; XML
 (CapacityTypes -&gt; XML) -&gt; ToXML CapacityTypes
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CapacityTypes -&gt; XML

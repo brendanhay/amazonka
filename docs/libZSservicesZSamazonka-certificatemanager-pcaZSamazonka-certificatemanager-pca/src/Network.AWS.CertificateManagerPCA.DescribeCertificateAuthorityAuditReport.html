@@ -43,9 +43,9 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#newDescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier">newDescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3Key"><span class="hs-identifier">describeCertificateAuthorityAuditReportResponse_s3Key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_createdAt"><span class="hs-identifier">describeCertificateAuthorityAuditReportResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3Key"><span class="hs-identifier">describeCertificateAuthorityAuditReportResponse_s3Key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3BucketName"><span class="hs-identifier">describeCertificateAuthorityAuditReportResponse_s3BucketName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_httpStatus"><span class="hs-identifier">describeCertificateAuthorityAuditReportResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDescribeCertificateAuthorityAuditReport' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679216694"><span id="local-6989586621679216695"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificateAuthorityAuditReport"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificateAuthorityAuditReport%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReport'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679216763"><span id="local-6989586621679216764"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificateAuthorityAuditReport"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificateAuthorityAuditReport%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReport'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the private CA. This must be of the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- form:</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AauditReportId%3ADescribeCertificateAuthorityAuditReport%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportId%3ADescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-var hs-var">auditReportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216687"><span id="local-6989586621679216689"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216756"><span id="local-6989586621679216758"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport
 -&gt; DescribeCertificateAuthorityAuditReport -&gt; Bool
 (DescribeCertificateAuthorityAuditReport
  -&gt; DescribeCertificateAuthorityAuditReport -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: DescribeCertificateAuthorityAuditReport
 -&gt; DescribeCertificateAuthorityAuditReport -&gt; Bool
 $c== :: DescribeCertificateAuthorityAuditReport
 -&gt; DescribeCertificateAuthorityAuditReport -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216678"><span id="local-6989586621679216680"><span id="local-6989586621679216682"><span id="local-6989586621679216684"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificateAuthorityAuditReport]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216747"><span id="local-6989586621679216749"><span id="local-6989586621679216751"><span id="local-6989586621679216753"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificateAuthorityAuditReport]
 ReadPrec DescribeCertificateAuthorityAuditReport
 Int -&gt; ReadS DescribeCertificateAuthorityAuditReport
 ReadS [DescribeCertificateAuthorityAuditReport]
@@ -108,7 +108,7 @@ readList :: ReadS [DescribeCertificateAuthorityAuditReport]
 $creadList :: ReadS [DescribeCertificateAuthorityAuditReport]
 readsPrec :: Int -&gt; ReadS DescribeCertificateAuthorityAuditReport
 $creadsPrec :: Int -&gt; ReadS DescribeCertificateAuthorityAuditReport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216671"><span id="local-6989586621679216673"><span id="local-6989586621679216675"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificateAuthorityAuditReport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216740"><span id="local-6989586621679216742"><span id="local-6989586621679216744"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificateAuthorityAuditReport -&gt; ShowS
 [DescribeCertificateAuthorityAuditReport] -&gt; ShowS
 DescribeCertificateAuthorityAuditReport -&gt; String
 (Int -&gt; DescribeCertificateAuthorityAuditReport -&gt; ShowS)
@@ -170,19 +170,19 @@ DescribeCertificateAuthorityAuditReport
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span>
 </span><span id="line-97"></span><span id="newDescribeCertificateAuthorityAuditReport"><span class="annot"><span class="annottext">newDescribeCertificateAuthorityAuditReport :: Text -&gt; Text -&gt; DescribeCertificateAuthorityAuditReport
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#newDescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-var hs-var">newDescribeCertificateAuthorityAuditReport</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679216666"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216666"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679216665"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216665"><span class="hs-identifier hs-var">pAuditReportId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679216735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216735"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679216734"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216734"><span class="hs-identifier hs-var">pAuditReportId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport' :: Text -&gt; Text -&gt; DescribeCertificateAuthorityAuditReport
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:DescribeCertificateAuthorityAuditReport' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AcertificateAuthorityArn%3ADescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216666"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216735"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:auditReportId:DescribeCertificateAuthorityAuditReport' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportId%3ADescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-var">auditReportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216665"><span class="hs-identifier hs-var">pAuditReportId_</span></a></span><span>
+</span><a href="#local-6989586621679216734"><span class="hs-identifier hs-var">pAuditReportId_</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the private CA. This must be of the</span><span>
@@ -202,16 +202,16 @@ DescribeCertificateAuthorityAuditReport
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216662"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216731"><span class="annot"><span class="annottext">Text
 certificateAuthorityArn :: Text
 $sel:certificateAuthorityArn:DescribeCertificateAuthorityAuditReport' :: DescribeCertificateAuthorityAuditReport -&gt; Text
-</span><a href="#local-6989586621679216662"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216662"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216661"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReport
-</span><a href="#local-6989586621679216661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216660"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport
-</span><a href="#local-6989586621679216661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:DescribeCertificateAuthorityAuditReport' :: Text
+</span><a href="#local-6989586621679216731"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216731"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216730"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReport
+</span><a href="#local-6989586621679216730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport
+</span><a href="#local-6989586621679216730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:DescribeCertificateAuthorityAuditReport' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AcertificateAuthorityArn%3ADescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The report ID returned by calling the</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport&gt;</span><span>
@@ -229,16 +229,16 @@ $sel:certificateAuthorityArn:DescribeCertificateAuthorityAuditReport' :: Describ
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216659"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216728"><span class="annot"><span class="annottext">Text
 auditReportId :: Text
 $sel:auditReportId:DescribeCertificateAuthorityAuditReport' :: DescribeCertificateAuthorityAuditReport -&gt; Text
-</span><a href="#local-6989586621679216659"><span class="hs-identifier hs-var hs-var">auditReportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216659"><span class="hs-identifier hs-var">auditReportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216658"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReport
-</span><a href="#local-6989586621679216658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216657"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport
-</span><a href="#local-6989586621679216658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditReportId:DescribeCertificateAuthorityAuditReport' :: Text
+</span><a href="#local-6989586621679216728"><span class="hs-identifier hs-var hs-var">auditReportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216728"><span class="hs-identifier hs-var">auditReportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216727"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReport
+</span><a href="#local-6989586621679216727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReport
+</span><a href="#local-6989586621679216727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditReportId:DescribeCertificateAuthorityAuditReport' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportId%3ADescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-var">auditReportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -248,7 +248,7 @@ $sel:auditReportId:DescribeCertificateAuthorityAuditReport' :: DescribeCertifica
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679216653"><span class="annot"><span class="annottext">request :: DescribeCertificateAuthorityAuditReport
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679216722"><span class="annot"><span class="annottext">request :: DescribeCertificateAuthorityAuditReport
 -&gt; Request DescribeCertificateAuthorityAuditReport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeCertificateAuthorityAuditReport
@@ -256,7 +256,7 @@ $sel:auditReportId:DescribeCertificateAuthorityAuditReport' :: DescribeCertifica
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679216649"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679216718"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeCertificateAuthorityAuditReport
 -&gt; ClientResponse ClientBody
@@ -287,74 +287,74 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216646"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216645"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679216645"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216644"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuditReportStatus
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216715"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216714"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679216714"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216713"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe AuditReportStatus
 -&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeCertificateAuthorityAuditReportResponse
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AuditReportStatus
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe Text
+ -&gt; Maybe AuditReportStatus
  -&gt; Maybe Text
  -&gt; Int
  -&gt; DescribeCertificateAuthorityAuditReportResponse)
--&gt; Either String (Maybe AuditReportStatus)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe POSIX
-      -&gt; Maybe Text
+      -&gt; Maybe AuditReportStatus
       -&gt; Maybe Text
       -&gt; Int
       -&gt; DescribeCertificateAuthorityAuditReportResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditReportStatus)
+</span><a href="#local-6989586621679216713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AuditReportStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;S3Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
   (Maybe POSIX
-   -&gt; Maybe Text
+   -&gt; Maybe AuditReportStatus
    -&gt; Maybe Text
    -&gt; Int
    -&gt; DescribeCertificateAuthorityAuditReportResponse)
 -&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe AuditReportStatus
       -&gt; Maybe Text
       -&gt; Int
       -&gt; DescribeCertificateAuthorityAuditReportResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679216713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe AuditReportStatus
    -&gt; Maybe Text
    -&gt; Int
    -&gt; DescribeCertificateAuthorityAuditReportResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe AuditReportStatus)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Int -&gt; DescribeCertificateAuthorityAuditReportResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679216713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditReportStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AuditReportStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -364,7 +364,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; DescribeCertificateAuthorityAuditReportResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679216713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
@@ -378,22 +378,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216646"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216715"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679216636"><span id="local-6989586621679216638"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679216705"><span id="local-6989586621679216707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679216633"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679216702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679216629"><span class="annot"><span class="annottext">toHeaders :: DescribeCertificateAuthorityAuditReport -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679216698"><span class="annot"><span class="annottext">toHeaders :: DescribeCertificateAuthorityAuditReport -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeCertificateAuthorityAuditReport -&gt; ResponseHeaders
@@ -422,16 +422,16 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679216619"><span id="local-6989586621679216621"><span id="local-6989586621679216623"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679216688"><span id="local-6989586621679216690"><span id="local-6989586621679216692"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span></span></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679216617"><span class="annot"><span class="annottext">toJSON :: DescribeCertificateAuthorityAuditReport -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216614"><span id="local-6989586621679216615"><span class="annot"><span class="annottext">Text
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679216686"><span class="annot"><span class="annottext">toJSON :: DescribeCertificateAuthorityAuditReport -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216683"><span id="local-6989586621679216684"><span class="annot"><span class="annottext">Text
 auditReportId :: Text
 certificateAuthorityArn :: Text
 $sel:auditReportId:DescribeCertificateAuthorityAuditReport' :: DescribeCertificateAuthorityAuditReport -&gt; Text
 $sel:certificateAuthorityArn:DescribeCertificateAuthorityAuditReport' :: DescribeCertificateAuthorityAuditReport -&gt; Text
-</span><a href="#local-6989586621679216614"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216683"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -445,7 +445,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-174"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216615"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
+</span><a href="#local-6989586621679216684"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
 </span><span id="line-175"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -454,7 +454,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AuditReportId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216614"><span class="hs-identifier hs-var">auditReportId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216683"><span class="hs-identifier hs-var">auditReportId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
@@ -462,7 +462,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679216608"><span class="annot"><span class="annottext">toPath :: DescribeCertificateAuthorityAuditReport -&gt; ByteString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679216677"><span class="annot"><span class="annottext">toPath :: DescribeCertificateAuthorityAuditReport -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCertificateAuthorityAuditReport -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -472,7 +472,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReport"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReport</span></a></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679216604"><span class="annot"><span class="annottext">toQuery :: DescribeCertificateAuthorityAuditReport -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679216673"><span class="annot"><span class="annottext">toQuery :: DescribeCertificateAuthorityAuditReport -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
 -&gt; DescribeCertificateAuthorityAuditReport -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -481,18 +481,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newDescribeCertificateAuthorityAuditReportResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679216601"><span id="local-6989586621679216602"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificateAuthorityAuditReportResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReportResponse'</span></a></span></span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether report creation is in progress, has succeeded, or has</span><span>
-</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- failed.</span><span>
-</span><span id="line-197"></span><span>    </span><span id="%24sel%3AauditReportStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
+</span><span id="line-194"></span><span id="local-6989586621679216670"><span id="local-6989586621679216671"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCertificateAuthorityAuditReportResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">DescribeCertificateAuthorityAuditReportResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | S3 __key__ that uniquely identifies the report file in your S3 bucket.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The date and time at which the report was created.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AcreatedAt%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AcreatedAt%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | Specifies whether report creation is in progress, has succeeded, or has</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AauditReportStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
 -&gt; Maybe AuditReportStatus
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var hs-var">auditReportStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportStatus.html#AuditReportStatus"><span class="hs-identifier hs-type">AuditReportStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The date and time at which the report was created.</span><span>
-</span><span id="line-199"></span><span>    </span><span id="%24sel%3AcreatedAt%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AcreatedAt%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | S3 __key__ that uniquely identifies the report file in your S3 bucket.</span><span>
-</span><span id="line-201"></span><span>    </span><span id="%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | Name of the S3 bucket that contains the report.</span><span>
 </span><span id="line-203"></span><span>    </span><span id="%24sel%3As3BucketName%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3BucketName%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -500,7 +500,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse -&gt; Int
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AhttpStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216592"><span id="local-6989586621679216594"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216661"><span id="local-6989586621679216663"><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
 -&gt; DescribeCertificateAuthorityAuditReportResponse -&gt; Bool
 (DescribeCertificateAuthorityAuditReportResponse
  -&gt; DescribeCertificateAuthorityAuditReportResponse -&gt; Bool)
@@ -516,7 +516,7 @@ $c/= :: DescribeCertificateAuthorityAuditReportResponse
 -&gt; DescribeCertificateAuthorityAuditReportResponse -&gt; Bool
 $c== :: DescribeCertificateAuthorityAuditReportResponse
 -&gt; DescribeCertificateAuthorityAuditReportResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216584"><span id="local-6989586621679216586"><span id="local-6989586621679216588"><span id="local-6989586621679216590"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificateAuthorityAuditReportResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216653"><span id="local-6989586621679216655"><span id="local-6989586621679216657"><span id="local-6989586621679216659"><span class="annot"><span class="annottext">ReadPrec [DescribeCertificateAuthorityAuditReportResponse]
 ReadPrec DescribeCertificateAuthorityAuditReportResponse
 Int -&gt; ReadS DescribeCertificateAuthorityAuditReportResponse
 ReadS [DescribeCertificateAuthorityAuditReportResponse]
@@ -536,7 +536,7 @@ readList :: ReadS [DescribeCertificateAuthorityAuditReportResponse]
 $creadList :: ReadS [DescribeCertificateAuthorityAuditReportResponse]
 readsPrec :: Int -&gt; ReadS DescribeCertificateAuthorityAuditReportResponse
 $creadsPrec :: Int -&gt; ReadS DescribeCertificateAuthorityAuditReportResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216578"><span id="local-6989586621679216580"><span id="local-6989586621679216582"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificateAuthorityAuditReportResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216647"><span id="local-6989586621679216649"><span id="local-6989586621679216651"><span class="annot"><span class="annottext">Int -&gt; DescribeCertificateAuthorityAuditReportResponse -&gt; ShowS
 [DescribeCertificateAuthorityAuditReportResponse] -&gt; ShowS
 DescribeCertificateAuthorityAuditReportResponse -&gt; String
 (Int -&gt; DescribeCertificateAuthorityAuditReportResponse -&gt; ShowS)
@@ -582,12 +582,12 @@ DescribeCertificateAuthorityAuditReportResponse
 </span><span id="line-214"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- 'auditReportStatus', 'describeCertificateAuthorityAuditReportResponse_auditReportStatus' - Specifies whether report creation is in progress, has succeeded, or has</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- failed.</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- 'createdAt', 'describeCertificateAuthorityAuditReportResponse_createdAt' - The date and time at which the report was created.</span><span>
-</span><span id="line-221"></span><span class="hs-comment">--</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- 's3Key', 'describeCertificateAuthorityAuditReportResponse_s3Key' - S3 __key__ that uniquely identifies the report file in your S3 bucket.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 's3Key', 'describeCertificateAuthorityAuditReportResponse_s3Key' - S3 __key__ that uniquely identifies the report file in your S3 bucket.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'createdAt', 'describeCertificateAuthorityAuditReportResponse_createdAt' - The date and time at which the report was created.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'auditReportStatus', 'describeCertificateAuthorityAuditReportResponse_auditReportStatus' - Specifies whether report creation is in progress, has succeeded, or has</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- failed.</span><span>
 </span><span id="line-223"></span><span class="hs-comment">--</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- 's3BucketName', 'describeCertificateAuthorityAuditReportResponse_s3BucketName' - Name of the S3 bucket that contains the report.</span><span>
 </span><span id="line-225"></span><span class="hs-comment">--</span><span>
@@ -598,18 +598,18 @@ DescribeCertificateAuthorityAuditReportResponse
 </span><span id="line-230"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span>
 </span><span id="line-231"></span><span id="newDescribeCertificateAuthorityAuditReportResponse"><span class="annot"><span class="annottext">newDescribeCertificateAuthorityAuditReportResponse :: Int -&gt; DescribeCertificateAuthorityAuditReportResponse
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#newDescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-var hs-var">newDescribeCertificateAuthorityAuditReportResponse</span></a></span></span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679216575"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse' :: Maybe AuditReportStatus
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679216644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe AuditReportStatus
 -&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeCertificateAuthorityAuditReportResponse
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span>
-</span><span id="line-234"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:auditReportStatus:DescribeCertificateAuthorityAuditReportResponse' :: Maybe AuditReportStatus
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">auditReportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuditReportStatus
+</span><span id="line-234"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Key:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:DescribeCertificateAuthorityAuditReportResponse' :: Maybe POSIX
@@ -617,48 +617,45 @@ forall a. Maybe a
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3Key:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:auditReportStatus:DescribeCertificateAuthorityAuditReportResponse' :: Maybe AuditReportStatus
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">auditReportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuditReportStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3BucketName:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3BucketName:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3BucketName%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCertificateAuthorityAuditReportResponse' :: Int
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCertificateAuthorityAuditReportResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AhttpStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-242"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- | Specifies whether report creation is in progress, has succeeded, or has</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- failed.</span><span>
-</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportStatus.html#AuditReportStatus"><span class="hs-identifier hs-type">AuditReportStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span id="describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_auditReportStatus :: (Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
+</span><a href="#local-6989586621679216644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | S3 __key__ that uniquely identifies the report file in your S3 bucket.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3Key"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="describeCertificateAuthorityAuditReportResponse_s3Key"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_s3Key :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeCertificateAuthorityAuditReportResponse
 -&gt; f DescribeCertificateAuthorityAuditReportResponse
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-var hs-var">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCertificateAuthorityAuditReportResponse
- -&gt; Maybe AuditReportStatus)
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3Key"><span class="hs-identifier hs-var hs-var">describeCertificateAuthorityAuditReportResponse_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text)
 -&gt; (DescribeCertificateAuthorityAuditReportResponse
-    -&gt; Maybe AuditReportStatus
-    -&gt; DescribeCertificateAuthorityAuditReportResponse)
+    -&gt; Maybe Text -&gt; DescribeCertificateAuthorityAuditReportResponse)
 -&gt; Lens
      DescribeCertificateAuthorityAuditReportResponse
      DescribeCertificateAuthorityAuditReportResponse
-     (Maybe AuditReportStatus)
-     (Maybe AuditReportStatus)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216574"><span class="annot"><span class="annottext">Maybe AuditReportStatus
-auditReportStatus :: Maybe AuditReportStatus
-$sel:auditReportStatus:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertificateAuthorityAuditReportResponse
--&gt; Maybe AuditReportStatus
-</span><a href="#local-6989586621679216574"><span class="hs-identifier hs-var hs-var">auditReportStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditReportStatus
-</span><a href="#local-6989586621679216574"><span class="hs-identifier hs-var">auditReportStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216573"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216572"><span class="annot"><span class="annottext">Maybe AuditReportStatus
-</span><a href="#local-6989586621679216572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditReportStatus:DescribeCertificateAuthorityAuditReportResponse' :: Maybe AuditReportStatus
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">auditReportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditReportStatus
-</span><a href="#local-6989586621679216572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216643"><span class="annot"><span class="annottext">Maybe Text
+s3Key :: Maybe Text
+$sel:s3Key:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679216643"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216643"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216642"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216641"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The date and time at which the report was created.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_createdAt"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -674,16 +671,16 @@ $sel:auditReportStatus:DescribeCertificateAuthorityAuditReportResponse' :: Descr
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216571"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216640"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679216571"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679216571"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216570"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216569"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679216569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:DescribeCertificateAuthorityAuditReportResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679216640"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679216640"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216639"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216638"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679216638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:DescribeCertificateAuthorityAuditReportResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AcreatedAt%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679216569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679216638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DescribeCertificateAuthorityAuditReportResponse
  -&gt; f DescribeCertificateAuthorityAuditReportResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -701,34 +698,38 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | S3 __key__ that uniquely identifies the report file in your S3 bucket.</span><span>
-</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3Key"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span id="describeCertificateAuthorityAuditReportResponse_s3Key"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_s3Key :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-253"></span><span class="hs-comment">-- | Specifies whether report creation is in progress, has succeeded, or has</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.AuditReportStatus.html#AuditReportStatus"><span class="hs-identifier hs-type">AuditReportStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_auditReportStatus :: (Maybe AuditReportStatus -&gt; f (Maybe AuditReportStatus))
 -&gt; DescribeCertificateAuthorityAuditReportResponse
 -&gt; f DescribeCertificateAuthorityAuditReportResponse
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3Key"><span class="hs-identifier hs-var hs-var">describeCertificateAuthorityAuditReportResponse_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_auditReportStatus"><span class="hs-identifier hs-var hs-var">describeCertificateAuthorityAuditReportResponse_auditReportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCertificateAuthorityAuditReportResponse
+ -&gt; Maybe AuditReportStatus)
 -&gt; (DescribeCertificateAuthorityAuditReportResponse
-    -&gt; Maybe Text -&gt; DescribeCertificateAuthorityAuditReportResponse)
+    -&gt; Maybe AuditReportStatus
+    -&gt; DescribeCertificateAuthorityAuditReportResponse)
 -&gt; Lens
      DescribeCertificateAuthorityAuditReportResponse
      DescribeCertificateAuthorityAuditReportResponse
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe AuditReportStatus)
+     (Maybe AuditReportStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216565"><span class="annot"><span class="annottext">Maybe Text
-s3Key :: Maybe Text
-$sel:s3Key:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679216565"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216565"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216564"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216563"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3Key%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | Name of the S3 bucket that contains the report.</span><span>
-</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3BucketName"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-259"></span><span id="describeCertificateAuthorityAuditReportResponse_s3BucketName"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216634"><span class="annot"><span class="annottext">Maybe AuditReportStatus
+auditReportStatus :: Maybe AuditReportStatus
+$sel:auditReportStatus:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertificateAuthorityAuditReportResponse
+-&gt; Maybe AuditReportStatus
+</span><a href="#local-6989586621679216634"><span class="hs-identifier hs-var hs-var">auditReportStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditReportStatus
+</span><a href="#local-6989586621679216634"><span class="hs-identifier hs-var">auditReportStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216633"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216632"><span class="annot"><span class="annottext">Maybe AuditReportStatus
+</span><a href="#local-6989586621679216632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditReportStatus:DescribeCertificateAuthorityAuditReportResponse' :: Maybe AuditReportStatus
+</span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AauditReportStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">auditReportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditReportStatus
+</span><a href="#local-6989586621679216632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | Name of the S3 bucket that contains the report.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3BucketName"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="describeCertificateAuthorityAuditReportResponse_s3BucketName"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeCertificateAuthorityAuditReportResponse
 -&gt; f DescribeCertificateAuthorityAuditReportResponse
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_s3BucketName"><span class="hs-identifier hs-var hs-var">describeCertificateAuthorityAuditReportResponse_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text)
@@ -740,20 +741,20 @@ $sel:s3Key:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertifica
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216562"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216631"><span class="annot"><span class="annottext">Maybe Text
 s3BucketName :: Maybe Text
 $sel:s3BucketName:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertificateAuthorityAuditReportResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679216562"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216562"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216561"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216560"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
+</span><a href="#local-6989586621679216631"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216631"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216630"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216629"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:DescribeCertificateAuthorityAuditReportResponse' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3As3BucketName%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_httpStatus"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-263"></span><span id="describeCertificateAuthorityAuditReportResponse_httpStatus"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679216629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_httpStatus"><span class="hs-identifier hs-type">describeCertificateAuthorityAuditReportResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-264"></span><span id="describeCertificateAuthorityAuditReportResponse_httpStatus"><span class="annot"><span class="annottext">describeCertificateAuthorityAuditReportResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; DescribeCertificateAuthorityAuditReportResponse
 -&gt; f DescribeCertificateAuthorityAuditReportResponse
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#describeCertificateAuthorityAuditReportResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeCertificateAuthorityAuditReportResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCertificateAuthorityAuditReportResponse -&gt; Int)
@@ -765,18 +766,18 @@ $sel:s3BucketName:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216559"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216628"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCertificateAuthorityAuditReportResponse' :: DescribeCertificateAuthorityAuditReportResponse -&gt; Int
-</span><a href="#local-6989586621679216559"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216559"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216558"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216557"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
-</span><a href="#local-6989586621679216558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCertificateAuthorityAuditReportResponse' :: Int
+</span><a href="#local-6989586621679216628"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216628"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216627"><span class="annot"><span class="annottext">s :: DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCertificateAuthorityAuditReportResponse
+</span><a href="#local-6989586621679216627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCertificateAuthorityAuditReportResponse' :: Int
 </span><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#%24sel%3AhttpStatus%3ADescribeCertificateAuthorityAuditReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679216555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span></span><span>
-</span><span id="line-268"></span></pre></body></html>
+</span><a href="#local-6989586621679216626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679216624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport.html#DescribeCertificateAuthorityAuditReportResponse"><span class="hs-identifier hs-type">DescribeCertificateAuthorityAuditReportResponse</span></a></span></span><span>
+</span><span id="line-269"></span></pre></body></html>

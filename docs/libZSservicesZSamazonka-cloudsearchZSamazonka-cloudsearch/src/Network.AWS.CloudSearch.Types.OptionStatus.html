@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The status of domain configuration option.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOptionStatus' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679208591"><span id="local-6989586621679208592"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionStatus"><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-var">OptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionStatus%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-var">OptionStatus'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique integer that indicates when this option was last updated.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AupdateVersion%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AupdateVersion%3AOptionStatus%27"><span class="hs-identifier hs-var hs-var">updateVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Indicates that the option will be deleted once processing is complete.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; Maybe Bool
+</span><span id="line-30"></span><span id="local-6989586621679208644"><span id="local-6989586621679208645"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionStatus"><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-var">OptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionStatus%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-var">OptionStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates that the option will be deleted once processing is complete.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="hs-identifier hs-var hs-var">pendingDeletion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A unique integer that indicates when this option was last updated.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AupdateVersion%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AupdateVersion%3AOptionStatus%27"><span class="hs-identifier hs-var hs-var">updateVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A timestamp for when this option was created.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationDate%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; ISO8601
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AcreationDate%3AOptionStatus%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Astate%3AOptionStatus%27"><span class="annot"><span class="annottext">OptionStatus -&gt; OptionState
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3Astate%3AOptionStatus%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionState.html#OptionState"><span class="hs-identifier hs-type">OptionState</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208581"><span id="local-6989586621679208583"><span class="annot"><span class="annottext">OptionStatus -&gt; OptionStatus -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208634"><span id="local-6989586621679208636"><span class="annot"><span class="annottext">OptionStatus -&gt; OptionStatus -&gt; Bool
 (OptionStatus -&gt; OptionStatus -&gt; Bool)
 -&gt; (OptionStatus -&gt; OptionStatus -&gt; Bool) -&gt; Eq OptionStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OptionStatus -&gt; OptionStatus -&gt; Bool
 == :: OptionStatus -&gt; OptionStatus -&gt; Bool
 $c== :: OptionStatus -&gt; OptionStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208572"><span id="local-6989586621679208574"><span id="local-6989586621679208576"><span id="local-6989586621679208578"><span class="annot"><span class="annottext">ReadPrec [OptionStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208625"><span id="local-6989586621679208627"><span id="local-6989586621679208629"><span id="local-6989586621679208631"><span class="annot"><span class="annottext">ReadPrec [OptionStatus]
 ReadPrec OptionStatus
 Int -&gt; ReadS OptionStatus
 ReadS [OptionStatus]
@@ -83,7 +83,7 @@ readList :: ReadS [OptionStatus]
 $creadList :: ReadS [OptionStatus]
 readsPrec :: Int -&gt; ReadS OptionStatus
 $creadsPrec :: Int -&gt; ReadS OptionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208565"><span id="local-6989586621679208567"><span id="local-6989586621679208569"><span class="annot"><span class="annottext">Int -&gt; OptionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208618"><span id="local-6989586621679208620"><span id="local-6989586621679208622"><span class="annot"><span class="annottext">Int -&gt; OptionStatus -&gt; ShowS
 [OptionStatus] -&gt; ShowS
 OptionStatus -&gt; String
 (Int -&gt; OptionStatus -&gt; ShowS)
@@ -117,9 +117,9 @@ $cfrom :: forall x. OptionStatus -&gt; Rep OptionStatus x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'updateVersion', 'optionStatus_updateVersion' - A unique integer that indicates when this option was last updated.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'pendingDeletion', 'optionStatus_pendingDeletion' - Indicates that the option will be deleted once processing is complete.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'pendingDeletion', 'optionStatus_pendingDeletion' - Indicates that the option will be deleted once processing is complete.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'updateVersion', 'optionStatus_updateVersion' - A unique integer that indicates when this option was last updated.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'creationDate', 'optionStatus_creationDate' - A timestamp for when this option was created.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
@@ -146,19 +146,23 @@ $cfrom :: forall x. OptionStatus -&gt; Rep OptionStatus x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionState.html#OptionState"><span class="hs-identifier hs-type">OptionState</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
 </span><span id="line-91"></span><span id="newOptionStatus"><span class="annot"><span class="annottext">newOptionStatus :: UTCTime -&gt; UTCTime -&gt; OptionState -&gt; OptionStatus
-</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#newOptionStatus"><span class="hs-identifier hs-var hs-var">newOptionStatus</span></a></span></span><span> </span><span id="local-6989586621679208559"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679208559"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span id="local-6989586621679208558"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679208558"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span></span><span> </span><span id="local-6989586621679208557"><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679208557"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">OptionStatus' :: Maybe Natural
--&gt; Maybe Bool -&gt; ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus
+</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#newOptionStatus"><span class="hs-identifier hs-var hs-var">newOptionStatus</span></a></span></span><span> </span><span id="local-6989586621679208612"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679208612"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span id="local-6989586621679208611"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679208611"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span></span><span> </span><span id="local-6989586621679208610"><span class="annot"><span class="annottext">OptionState
+</span><a href="#local-6989586621679208610"><span class="hs-identifier hs-var">pState_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">OptionStatus' :: Maybe Bool
+-&gt; Maybe Natural
+-&gt; ISO8601
+-&gt; ISO8601
+-&gt; OptionState
+-&gt; OptionStatus
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:updateVersion:OptionStatus' :: Maybe Natural
-</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AupdateVersion%3AOptionStatus%27"><span class="hs-identifier hs-var">updateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pendingDeletion:OptionStatus' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:pendingDeletion:OptionStatus' :: Maybe Bool
-</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateVersion:OptionStatus' :: Maybe Natural
+</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AupdateVersion%3AOptionStatus%27"><span class="hs-identifier hs-var">updateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:OptionStatus' :: ISO8601
@@ -170,7 +174,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679208559"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208612"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateDate:OptionStatus' :: ISO8601
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AupdateDate%3AOptionStatus%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -180,48 +184,48 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679208558"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208611"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:OptionStatus' :: OptionState
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3Astate%3AOptionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679208557"><span class="hs-identifier hs-var">pState_</span></a></span><span>
+</span><a href="#local-6989586621679208610"><span class="hs-identifier hs-var">pState_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | A unique integer that indicates when this option was last updated.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_updateVersion"><span class="hs-identifier hs-type">optionStatus_updateVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="optionStatus_updateVersion"><span class="annot"><span class="annottext">optionStatus_updateVersion :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-100"></span><span class="hs-comment">-- | Indicates that the option will be deleted once processing is complete.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_pendingDeletion"><span class="hs-identifier hs-type">optionStatus_pendingDeletion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="optionStatus_pendingDeletion"><span class="annot"><span class="annottext">optionStatus_pendingDeletion :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; OptionStatus -&gt; f OptionStatus
+</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_pendingDeletion"><span class="hs-identifier hs-var hs-var">optionStatus_pendingDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionStatus -&gt; Maybe Bool)
+-&gt; (OptionStatus -&gt; Maybe Bool -&gt; OptionStatus)
+-&gt; Lens OptionStatus OptionStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208604"><span class="annot"><span class="annottext">Maybe Bool
+pendingDeletion :: Maybe Bool
+$sel:pendingDeletion:OptionStatus' :: OptionStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621679208604"><span class="hs-identifier hs-var hs-var">pendingDeletion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208604"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208603"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679208603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208602"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingDeletion:OptionStatus' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | A unique integer that indicates when this option was last updated.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_updateVersion"><span class="hs-identifier hs-type">optionStatus_updateVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="optionStatus_updateVersion"><span class="annot"><span class="annottext">optionStatus_updateVersion :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; OptionStatus -&gt; f OptionStatus
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_updateVersion"><span class="hs-identifier hs-var hs-var">optionStatus_updateVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionStatus -&gt; Maybe Natural)
 -&gt; (OptionStatus -&gt; Maybe Natural -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208551"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208600"><span class="annot"><span class="annottext">Maybe Natural
 updateVersion :: Maybe Natural
 $sel:updateVersion:OptionStatus' :: OptionStatus -&gt; Maybe Natural
-</span><a href="#local-6989586621679208551"><span class="hs-identifier hs-var hs-var">updateVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679208551"><span class="hs-identifier hs-var">updateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208550"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679208550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208549"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679208549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateVersion:OptionStatus' :: Maybe Natural
+</span><a href="#local-6989586621679208600"><span class="hs-identifier hs-var hs-var">updateVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679208600"><span class="hs-identifier hs-var">updateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208599"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679208599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208598"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679208598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateVersion:OptionStatus' :: Maybe Natural
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AupdateVersion%3AOptionStatus%27"><span class="hs-identifier hs-var">updateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679208549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Indicates that the option will be deleted once processing is complete.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_pendingDeletion"><span class="hs-identifier hs-type">optionStatus_pendingDeletion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="optionStatus_pendingDeletion"><span class="annot"><span class="annottext">optionStatus_pendingDeletion :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; OptionStatus -&gt; f OptionStatus
-</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_pendingDeletion"><span class="hs-identifier hs-var hs-var">optionStatus_pendingDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionStatus -&gt; Maybe Bool)
--&gt; (OptionStatus -&gt; Maybe Bool -&gt; OptionStatus)
--&gt; Lens OptionStatus OptionStatus (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208547"><span class="annot"><span class="annottext">Maybe Bool
-pendingDeletion :: Maybe Bool
-$sel:pendingDeletion:OptionStatus' :: OptionStatus -&gt; Maybe Bool
-</span><a href="#local-6989586621679208547"><span class="hs-identifier hs-var hs-var">pendingDeletion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208547"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208546"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679208546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208545"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingDeletion:OptionStatus' :: Maybe Bool
-</span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3ApendingDeletion%3AOptionStatus%27"><span class="hs-identifier hs-var">pendingDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | A timestamp for when this option was created.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#optionStatus_creationDate"><span class="hs-identifier hs-type">optionStatus_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -230,16 +234,16 @@ $sel:pendingDeletion:OptionStatus' :: OptionStatus -&gt; Maybe Bool
 -&gt; (OptionStatus -&gt; ISO8601 -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208543"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208596"><span class="annot"><span class="annottext">ISO8601
 creationDate :: ISO8601
 $sel:creationDate:OptionStatus' :: OptionStatus -&gt; ISO8601
-</span><a href="#local-6989586621679208543"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679208543"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208542"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679208542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208541"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679208541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OptionStatus' :: ISO8601
+</span><a href="#local-6989586621679208596"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679208596"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208595"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679208595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208594"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679208594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:OptionStatus' :: ISO8601
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AcreationDate%3AOptionStatus%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679208541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; OptionStatus -&gt; f OptionStatus)
+</span><a href="#local-6989586621679208594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; OptionStatus -&gt; f OptionStatus)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; OptionStatus
@@ -256,16 +260,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (OptionStatus -&gt; ISO8601 -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208538"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208591"><span class="annot"><span class="annottext">ISO8601
 updateDate :: ISO8601
 $sel:updateDate:OptionStatus' :: OptionStatus -&gt; ISO8601
-</span><a href="#local-6989586621679208538"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679208538"><span class="hs-identifier hs-var">updateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208537"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679208537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208536"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679208536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateDate:OptionStatus' :: ISO8601
+</span><a href="#local-6989586621679208591"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679208591"><span class="hs-identifier hs-var">updateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208590"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679208590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208589"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679208589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateDate:OptionStatus' :: ISO8601
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3AupdateDate%3AOptionStatus%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679208536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; OptionStatus -&gt; f OptionStatus)
+</span><a href="#local-6989586621679208589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; OptionStatus -&gt; f OptionStatus)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; OptionStatus
@@ -293,54 +297,64 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (OptionStatus -&gt; OptionState -&gt; OptionStatus)
 -&gt; Lens OptionStatus OptionStatus OptionState OptionState
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208534"><span class="annot"><span class="annottext">OptionState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208587"><span class="annot"><span class="annottext">OptionState
 state :: OptionState
 $sel:state:OptionStatus' :: OptionStatus -&gt; OptionState
-</span><a href="#local-6989586621679208534"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679208534"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208533"><span class="annot"><span class="annottext">s :: OptionStatus
-</span><a href="#local-6989586621679208533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208532"><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679208532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:OptionStatus' :: OptionState
+</span><a href="#local-6989586621679208587"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionState
+</span><a href="#local-6989586621679208587"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208586"><span class="annot"><span class="annottext">s :: OptionStatus
+</span><a href="#local-6989586621679208586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-type">OptionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208585"><span class="annot"><span class="annottext">OptionState
+</span><a href="#local-6989586621679208585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:OptionStatus' :: OptionState
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#%24sel%3Astate%3AOptionStatus%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionState
-</span><a href="#local-6989586621679208532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679208529"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OptionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208527"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe Bool -&gt; ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679208582"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OptionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208580"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679208580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Natural
+-&gt; ISO8601
+-&gt; ISO8601
+-&gt; OptionState
+-&gt; OptionStatus
 </span><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus%27"><span class="hs-identifier hs-var">OptionStatus'</span></a></span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe Bool -&gt; ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus)
--&gt; Either String (Maybe Natural)
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Natural
+ -&gt; ISO8601
+ -&gt; ISO8601
+ -&gt; OptionState
+ -&gt; OptionStatus)
+-&gt; Either String (Maybe Bool)
 -&gt; Either
      String
-     (Maybe Bool -&gt; ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus)
+     (Maybe Natural
+      -&gt; ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679208580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UpdateVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PendingDeletion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Bool -&gt; ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus)
--&gt; Either String (Maybe Bool)
+  (Maybe Natural
+   -&gt; ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus)
+-&gt; Either String (Maybe Natural)
 -&gt; Either
      String (ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679208580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PendingDeletion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;UpdateVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; ISO8601 -&gt; OptionState -&gt; OptionStatus)
 -&gt; Either String ISO8601
 -&gt; Either String (ISO8601 -&gt; OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679208580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,7 +363,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (OptionState -&gt; OptionStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679208580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -357,12 +371,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String OptionState -&gt; Either String OptionStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OptionState
+</span><a href="#local-6989586621679208580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OptionState
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208520"><span id="local-6989586621679208522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208573"><span id="local-6989586621679208575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

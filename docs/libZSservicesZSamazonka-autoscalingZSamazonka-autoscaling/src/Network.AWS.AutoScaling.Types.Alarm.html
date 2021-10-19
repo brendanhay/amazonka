@@ -26,22 +26,22 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an alarm.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAlarm' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679324826"><span id="local-6989586621679324827"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alarm"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-var">Alarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alarm%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the alarm.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AalarmARN%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the alarm.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AalarmName%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679325475"><span id="local-6989586621679325476"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alarm"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-var">Alarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alarm%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the alarm.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AalarmName%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the alarm.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AalarmARN%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324819"><span id="local-6989586621679324821"><span class="annot"><span class="annottext">Alarm -&gt; Alarm -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325468"><span id="local-6989586621679325470"><span class="annot"><span class="annottext">Alarm -&gt; Alarm -&gt; Bool
 (Alarm -&gt; Alarm -&gt; Bool) -&gt; (Alarm -&gt; Alarm -&gt; Bool) -&gt; Eq Alarm
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Alarm -&gt; Alarm -&gt; Bool
 $c/= :: Alarm -&gt; Alarm -&gt; Bool
 == :: Alarm -&gt; Alarm -&gt; Bool
 $c== :: Alarm -&gt; Alarm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324810"><span id="local-6989586621679324812"><span id="local-6989586621679324814"><span id="local-6989586621679324816"><span class="annot"><span class="annottext">ReadPrec [Alarm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325459"><span id="local-6989586621679325461"><span id="local-6989586621679325463"><span id="local-6989586621679325465"><span class="annot"><span class="annottext">ReadPrec [Alarm]
 ReadPrec Alarm
 Int -&gt; ReadS Alarm
 ReadS [Alarm]
@@ -61,7 +61,7 @@ readList :: ReadS [Alarm]
 $creadList :: ReadS [Alarm]
 readsPrec :: Int -&gt; ReadS Alarm
 $creadsPrec :: Int -&gt; ReadS Alarm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324803"><span id="local-6989586621679324805"><span id="local-6989586621679324807"><span class="annot"><span class="annottext">Int -&gt; Alarm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325452"><span id="local-6989586621679325454"><span id="local-6989586621679325456"><span class="annot"><span class="annottext">Int -&gt; Alarm -&gt; ShowS
 [Alarm] -&gt; ShowS
 Alarm -&gt; String
 (Int -&gt; Alarm -&gt; ShowS)
@@ -92,65 +92,65 @@ $cfrom :: forall x. Alarm -&gt; Rep Alarm x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'alarmARN', 'alarm_alarmARN' - The Amazon Resource Name (ARN) of the alarm.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'alarmName', 'alarm_alarmName' - The name of the alarm.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'alarmName', 'alarm_alarmName' - The name of the alarm.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'alarmARN', 'alarm_alarmARN' - The Amazon Resource Name (ARN) of the alarm.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#newAlarm"><span class="hs-identifier hs-type">newAlarm</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span>
 </span><span id="line-50"></span><span id="newAlarm"><span class="annot"><span class="annottext">newAlarm :: Alarm
 </span><a href="Network.AWS.AutoScaling.Types.Alarm.html#newAlarm"><span class="hs-identifier hs-var hs-var">newAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">Alarm' :: Maybe Text -&gt; Maybe Text -&gt; Alarm
 </span><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alarmARN:Alarm' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var">alarmARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmARN:Alarm' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var">alarmARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the alarm.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#alarm_alarmARN"><span class="hs-identifier hs-type">alarm_alarmARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="alarm_alarmARN"><span class="annot"><span class="annottext">alarm_alarmARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Alarm -&gt; f Alarm
-</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#alarm_alarmARN"><span class="hs-identifier hs-var hs-var">alarm_alarmARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe Text)
--&gt; (Alarm -&gt; Maybe Text -&gt; Alarm)
--&gt; Lens Alarm Alarm (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324794"><span class="annot"><span class="annottext">Maybe Text
-alarmARN :: Maybe Text
-$sel:alarmARN:Alarm' :: Alarm -&gt; Maybe Text
-</span><a href="#local-6989586621679324794"><span class="hs-identifier hs-var hs-var">alarmARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324794"><span class="hs-identifier hs-var">alarmARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324793"><span class="annot"><span class="annottext">s :: Alarm
-</span><a href="#local-6989586621679324793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324792"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
-</span><a href="#local-6989586621679324793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmARN:Alarm' :: Maybe Text
-</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var">alarmARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The name of the alarm.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#alarm_alarmName"><span class="hs-identifier hs-type">alarm_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="alarm_alarmName"><span class="annot"><span class="annottext">alarm_alarmName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Alarm -&gt; f Alarm
+</span><span id="line-56"></span><span class="hs-comment">-- | The name of the alarm.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#alarm_alarmName"><span class="hs-identifier hs-type">alarm_alarmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="alarm_alarmName"><span class="annot"><span class="annottext">alarm_alarmName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Alarm -&gt; f Alarm
 </span><a href="Network.AWS.AutoScaling.Types.Alarm.html#alarm_alarmName"><span class="hs-identifier hs-var hs-var">alarm_alarmName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe Text)
 -&gt; (Alarm -&gt; Maybe Text -&gt; Alarm)
 -&gt; Lens Alarm Alarm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324790"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325443"><span class="annot"><span class="annottext">Maybe Text
 alarmName :: Maybe Text
 $sel:alarmName:Alarm' :: Alarm -&gt; Maybe Text
-</span><a href="#local-6989586621679324790"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324790"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324789"><span class="annot"><span class="annottext">s :: Alarm
-</span><a href="#local-6989586621679324789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324788"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
-</span><a href="#local-6989586621679324789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Maybe Text
+</span><a href="#local-6989586621679325443"><span class="hs-identifier hs-var hs-var">alarmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325443"><span class="hs-identifier hs-var">alarmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325442"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679325442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679325442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmName:Alarm' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmName%3AAlarm%27"><span class="hs-identifier hs-var">alarmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the alarm.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#alarm_alarmARN"><span class="hs-identifier hs-type">alarm_alarmARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="alarm_alarmARN"><span class="annot"><span class="annottext">alarm_alarmARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#alarm_alarmARN"><span class="hs-identifier hs-var hs-var">alarm_alarmARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe Text)
+-&gt; (Alarm -&gt; Maybe Text -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325439"><span class="annot"><span class="annottext">Maybe Text
+alarmARN :: Maybe Text
+$sel:alarmARN:Alarm' :: Alarm -&gt; Maybe Text
+</span><a href="#local-6989586621679325439"><span class="hs-identifier hs-var hs-var">alarmARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325439"><span class="hs-identifier hs-var">alarmARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325438"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679325438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679325438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmARN:Alarm' :: Maybe Text
+</span><a href="Network.AWS.AutoScaling.Types.Alarm.html#%24sel%3AalarmARN%3AAlarm%27"><span class="hs-identifier hs-var">alarmARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679324785"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Alarm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679324783"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324783"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679325434"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Alarm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679325432"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679325432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Alarm
 </span><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Alarm)
@@ -158,20 +158,20 @@ $sel:alarmName:Alarm' :: Alarm -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Alarm)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679325432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AlarmARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AlarmName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Alarm)
 -&gt; Either String (Maybe Text) -&gt; Either String Alarm
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324783"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679325432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AlarmName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AlarmARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324777"><span id="local-6989586621679324779"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325426"><span id="local-6989586621679325428"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span>
 </span><span id="line-73"></span></pre></body></html>

@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteImage' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679299531"><span id="local-6989586621679299532"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImage"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-var">DeleteImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImage%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-var">DeleteImage'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679299809"><span id="local-6989586621679299810"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImage"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-var">DeleteImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImage%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-var">DeleteImage'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the image.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3ADeleteImage%27"><span class="annot"><span class="annottext">DeleteImage -&gt; Text
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3Aname%3ADeleteImage%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299525"><span id="local-6989586621679299527"><span class="annot"><span class="annottext">DeleteImage -&gt; DeleteImage -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299803"><span id="local-6989586621679299805"><span class="annot"><span class="annottext">DeleteImage -&gt; DeleteImage -&gt; Bool
 (DeleteImage -&gt; DeleteImage -&gt; Bool)
 -&gt; (DeleteImage -&gt; DeleteImage -&gt; Bool) -&gt; Eq DeleteImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteImage -&gt; DeleteImage -&gt; Bool
 == :: DeleteImage -&gt; DeleteImage -&gt; Bool
 $c== :: DeleteImage -&gt; DeleteImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299516"><span id="local-6989586621679299518"><span id="local-6989586621679299520"><span id="local-6989586621679299522"><span class="annot"><span class="annottext">ReadPrec [DeleteImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299794"><span id="local-6989586621679299796"><span id="local-6989586621679299798"><span id="local-6989586621679299800"><span class="annot"><span class="annottext">ReadPrec [DeleteImage]
 ReadPrec DeleteImage
 Int -&gt; ReadS DeleteImage
 ReadS [DeleteImage]
@@ -82,7 +82,7 @@ readList :: ReadS [DeleteImage]
 $creadList :: ReadS [DeleteImage]
 readsPrec :: Int -&gt; ReadS DeleteImage
 $creadsPrec :: Int -&gt; ReadS DeleteImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299509"><span id="local-6989586621679299511"><span id="local-6989586621679299513"><span class="annot"><span class="annottext">Int -&gt; DeleteImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299787"><span id="local-6989586621679299789"><span id="local-6989586621679299791"><span class="annot"><span class="annottext">Int -&gt; DeleteImage -&gt; ShowS
 [DeleteImage] -&gt; ShowS
 DeleteImage -&gt; String
 (Int -&gt; DeleteImage -&gt; ShowS)
@@ -122,11 +122,11 @@ $cfrom :: forall x. DeleteImage -&gt; Rep DeleteImage x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteImage"><span class="annot"><span class="annottext">newDeleteImage :: Text -&gt; DeleteImage
-</span><a href="Network.AWS.AppStream.DeleteImage.html#newDeleteImage"><span class="hs-identifier hs-var hs-var">newDeleteImage</span></a></span></span><span> </span><span id="local-6989586621679299504"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299504"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteImage' :: Text -&gt; DeleteImage
+</span><a href="Network.AWS.AppStream.DeleteImage.html#newDeleteImage"><span class="hs-identifier hs-var hs-var">newDeleteImage</span></a></span></span><span> </span><span id="local-6989586621679299782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299782"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteImage' :: Text -&gt; DeleteImage
 </span><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteImage' :: Text
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3Aname%3ADeleteImage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299504"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679299782"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the image.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#deleteImage_name"><span class="hs-identifier hs-type">deleteImage_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,25 +135,25 @@ $cfrom :: forall x. DeleteImage -&gt; Rep DeleteImage x
 -&gt; (DeleteImage -&gt; Text -&gt; DeleteImage)
 -&gt; Lens DeleteImage DeleteImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299501"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299779"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteImage' :: DeleteImage -&gt; Text
-</span><a href="#local-6989586621679299501"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299501"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299500"><span class="annot"><span class="annottext">s :: DeleteImage
-</span><a href="#local-6989586621679299500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299499"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImage
-</span><a href="#local-6989586621679299500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteImage' :: Text
+</span><a href="#local-6989586621679299779"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299779"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299778"><span class="annot"><span class="annottext">s :: DeleteImage
+</span><a href="#local-6989586621679299778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImage
+</span><a href="#local-6989586621679299778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteImage' :: Text
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3Aname%3ADeleteImage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679299495"><span class="annot"><span class="annottext">request :: DeleteImage -&gt; Request DeleteImage
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679299773"><span class="annot"><span class="annottext">request :: DeleteImage -&gt; Request DeleteImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteImage -&gt; Request DeleteImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679299491"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679299769"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteImage
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299488"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299488"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299487"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679299487"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299486"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299766"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679299765"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679299765"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679299764"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299764"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Image -&gt; Int -&gt; DeleteImageResponse
 </span><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-var">DeleteImageResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Image -&gt; Int -&gt; DeleteImageResponse)
@@ -188,7 +188,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Image)
+</span><a href="#local-6989586621679299764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Image)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Image&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299488"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299766"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299478"><span id="local-6989586621679299480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299756"><span id="local-6989586621679299758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679299471"><span class="annot"><span class="annottext">toHeaders :: DeleteImage -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679299749"><span class="annot"><span class="annottext">toHeaders :: DeleteImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -235,12 +235,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299461"><span id="local-6989586621679299463"><span id="local-6989586621679299465"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679299459"><span class="annot"><span class="annottext">toJSON :: DeleteImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299457"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299739"><span id="local-6989586621679299741"><span id="local-6989586621679299743"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679299737"><span class="annot"><span class="annottext">toJSON :: DeleteImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299735"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteImage' :: DeleteImage -&gt; Text
-</span><a href="#local-6989586621679299457"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299735"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,18 +252,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299457"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679299735"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679299451"><span class="annot"><span class="annottext">toPath :: DeleteImage -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679299729"><span class="annot"><span class="annottext">toPath :: DeleteImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679299447"><span class="annot"><span class="annottext">toQuery :: DeleteImage -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679299725"><span class="annot"><span class="annottext">toQuery :: DeleteImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -271,7 +271,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newDeleteImageResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679299444"><span id="local-6989586621679299445"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImageResponse"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-var">DeleteImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImageResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-var">DeleteImageResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679299722"><span id="local-6989586621679299723"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImageResponse"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-var">DeleteImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImageResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-var">DeleteImageResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the image.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3Aimage%3ADeleteImageResponse%27"><span class="annot"><span class="annottext">DeleteImageResponse -&gt; Maybe Image
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3Aimage%3ADeleteImageResponse%27"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">,</span><span>
@@ -279,7 +279,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="annot"><span class="annottext">DeleteImageResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299438"><span id="local-6989586621679299440"><span class="annot"><span class="annottext">DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299716"><span id="local-6989586621679299718"><span class="annot"><span class="annottext">DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
 (DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool)
 -&gt; (DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool)
 -&gt; Eq DeleteImageResponse
@@ -288,7 +288,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
 == :: DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
 $c== :: DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299430"><span id="local-6989586621679299432"><span id="local-6989586621679299434"><span id="local-6989586621679299436"><span class="annot"><span class="annottext">ReadPrec [DeleteImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299708"><span id="local-6989586621679299710"><span id="local-6989586621679299712"><span id="local-6989586621679299714"><span class="annot"><span class="annottext">ReadPrec [DeleteImageResponse]
 ReadPrec DeleteImageResponse
 Int -&gt; ReadS DeleteImageResponse
 ReadS [DeleteImageResponse]
@@ -308,7 +308,7 @@ readList :: ReadS [DeleteImageResponse]
 $creadList :: ReadS [DeleteImageResponse]
 readsPrec :: Int -&gt; ReadS DeleteImageResponse
 $creadsPrec :: Int -&gt; ReadS DeleteImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299424"><span id="local-6989586621679299426"><span id="local-6989586621679299428"><span class="annot"><span class="annottext">Int -&gt; DeleteImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299702"><span id="local-6989586621679299704"><span id="local-6989586621679299706"><span class="annot"><span class="annottext">Int -&gt; DeleteImageResponse -&gt; ShowS
 [DeleteImageResponse] -&gt; ShowS
 DeleteImageResponse -&gt; String
 (Int -&gt; DeleteImageResponse -&gt; ShowS)
@@ -350,8 +350,8 @@ $cfrom :: forall x. DeleteImageResponse -&gt; Rep DeleteImageResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newDeleteImageResponse"><span class="annot"><span class="annottext">newDeleteImageResponse :: Int -&gt; DeleteImageResponse
-</span><a href="Network.AWS.AppStream.DeleteImage.html#newDeleteImageResponse"><span class="hs-identifier hs-var hs-var">newDeleteImageResponse</span></a></span></span><span> </span><span id="local-6989586621679299421"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DeleteImage.html#newDeleteImageResponse"><span class="hs-identifier hs-var hs-var">newDeleteImageResponse</span></a></span></span><span> </span><span id="local-6989586621679299699"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteImageResponse' :: Maybe Image -&gt; Int -&gt; DeleteImageResponse
 </span><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:image:DeleteImageResponse' :: Maybe Image
@@ -360,7 +360,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImageResponse' :: Int
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299421"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679299699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Information about the image.</span><span>
@@ -372,16 +372,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteImageResponse DeleteImageResponse (Maybe Image) (Maybe Image)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299420"><span class="annot"><span class="annottext">Maybe Image
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299698"><span class="annot"><span class="annottext">Maybe Image
 image :: Maybe Image
 $sel:image:DeleteImageResponse' :: DeleteImageResponse -&gt; Maybe Image
-</span><a href="#local-6989586621679299420"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Image
-</span><a href="#local-6989586621679299420"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299419"><span class="annot"><span class="annottext">s :: DeleteImageResponse
-</span><a href="#local-6989586621679299419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299418"><span class="annot"><span class="annottext">Maybe Image
-</span><a href="#local-6989586621679299418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImageResponse
-</span><a href="#local-6989586621679299419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:DeleteImageResponse' :: Maybe Image
+</span><a href="#local-6989586621679299698"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Image
+</span><a href="#local-6989586621679299698"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299697"><span class="annot"><span class="annottext">s :: DeleteImageResponse
+</span><a href="#local-6989586621679299697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299696"><span class="annot"><span class="annottext">Maybe Image
+</span><a href="#local-6989586621679299696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImageResponse
+</span><a href="#local-6989586621679299697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:DeleteImageResponse' :: Maybe Image
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3Aimage%3ADeleteImageResponse%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Image
-</span><a href="#local-6989586621679299418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#deleteImageResponse_httpStatus"><span class="hs-identifier hs-type">deleteImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -390,16 +390,16 @@ $sel:image:DeleteImageResponse' :: DeleteImageResponse -&gt; Maybe Image
 -&gt; (DeleteImageResponse -&gt; Int -&gt; DeleteImageResponse)
 -&gt; Lens DeleteImageResponse DeleteImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299417"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299695"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteImageResponse' :: DeleteImageResponse -&gt; Int
-</span><a href="#local-6989586621679299417"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299417"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299416"><span class="annot"><span class="annottext">s :: DeleteImageResponse
-</span><a href="#local-6989586621679299416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299415"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImageResponse
-</span><a href="#local-6989586621679299416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImageResponse' :: Int
+</span><a href="#local-6989586621679299695"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299695"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299694"><span class="annot"><span class="annottext">s :: DeleteImageResponse
+</span><a href="#local-6989586621679299694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679299693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImageResponse
+</span><a href="#local-6989586621679299694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImageResponse' :: Int
 </span><a href="Network.AWS.AppStream.DeleteImage.html#%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679299415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

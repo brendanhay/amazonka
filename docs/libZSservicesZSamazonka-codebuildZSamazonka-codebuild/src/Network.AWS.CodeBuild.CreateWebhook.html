@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newCreateWebhook' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679389453"><span id="local-6989586621679389454"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWebhook"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-var">CreateWebhook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWebhook%27"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-var">CreateWebhook'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679391381"><span id="local-6989586621679391382"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWebhook"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-var">CreateWebhook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWebhook%27"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-var">CreateWebhook'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A regular expression used to determine which repository branches are</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- built when a webhook is triggered. If the name of a branch matches the</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- regular expression, then it is built. If @branchFilter@ is empty, then</span><span>
@@ -87,7 +87,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AprojectName%3ACreateWebhook%27"><span class="annot"><span class="annottext">CreateWebhook -&gt; Text
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AprojectName%3ACreateWebhook%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389444"><span id="local-6989586621679389446"><span class="annot"><span class="annottext">CreateWebhook -&gt; CreateWebhook -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391372"><span id="local-6989586621679391374"><span class="annot"><span class="annottext">CreateWebhook -&gt; CreateWebhook -&gt; Bool
 (CreateWebhook -&gt; CreateWebhook -&gt; Bool)
 -&gt; (CreateWebhook -&gt; CreateWebhook -&gt; Bool) -&gt; Eq CreateWebhook
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateWebhook -&gt; CreateWebhook -&gt; Bool
 == :: CreateWebhook -&gt; CreateWebhook -&gt; Bool
 $c== :: CreateWebhook -&gt; CreateWebhook -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389435"><span id="local-6989586621679389437"><span id="local-6989586621679389439"><span id="local-6989586621679389441"><span class="annot"><span class="annottext">ReadPrec [CreateWebhook]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391363"><span id="local-6989586621679391365"><span id="local-6989586621679391367"><span id="local-6989586621679391369"><span class="annot"><span class="annottext">ReadPrec [CreateWebhook]
 ReadPrec CreateWebhook
 Int -&gt; ReadS CreateWebhook
 ReadS [CreateWebhook]
@@ -115,7 +115,7 @@ readList :: ReadS [CreateWebhook]
 $creadList :: ReadS [CreateWebhook]
 readsPrec :: Int -&gt; ReadS CreateWebhook
 $creadsPrec :: Int -&gt; ReadS CreateWebhook
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389428"><span id="local-6989586621679389430"><span id="local-6989586621679389432"><span class="annot"><span class="annottext">Int -&gt; CreateWebhook -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391356"><span id="local-6989586621679391358"><span id="local-6989586621679391360"><span class="annot"><span class="annottext">Int -&gt; CreateWebhook -&gt; ShowS
 [CreateWebhook] -&gt; ShowS
 CreateWebhook -&gt; String
 (Int -&gt; CreateWebhook -&gt; ShowS)
@@ -172,8 +172,8 @@ $cfrom :: forall x. CreateWebhook -&gt; Rep CreateWebhook x
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span>
 </span><span id="line-118"></span><span id="newCreateWebhook"><span class="annot"><span class="annottext">newCreateWebhook :: Text -&gt; CreateWebhook
-</span><a href="Network.AWS.CodeBuild.CreateWebhook.html#newCreateWebhook"><span class="hs-identifier hs-var hs-var">newCreateWebhook</span></a></span></span><span> </span><span id="local-6989586621679389423"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389423"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.CreateWebhook.html#newCreateWebhook"><span class="hs-identifier hs-var hs-var">newCreateWebhook</span></a></span></span><span> </span><span id="local-6989586621679391351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391351"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="annottext">CreateWebhook' :: Maybe Text
 -&gt; Maybe [[WebhookFilter]]
 -&gt; Maybe WebhookBuildType
@@ -194,7 +194,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectName:CreateWebhook' :: Text
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AprojectName%3ACreateWebhook%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389423"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span>
+</span><a href="#local-6989586621679391351"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | A regular expression used to determine which repository branches are</span><span>
@@ -209,16 +209,16 @@ forall a. Maybe a
 -&gt; (CreateWebhook -&gt; Maybe Text -&gt; CreateWebhook)
 -&gt; Lens CreateWebhook CreateWebhook (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389420"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391348"><span class="annot"><span class="annottext">Maybe Text
 branchFilter :: Maybe Text
 $sel:branchFilter:CreateWebhook' :: CreateWebhook -&gt; Maybe Text
-</span><a href="#local-6989586621679389420"><span class="hs-identifier hs-var hs-var">branchFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389420"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389419"><span class="annot"><span class="annottext">s :: CreateWebhook
-</span><a href="#local-6989586621679389419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389418"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
-</span><a href="#local-6989586621679389419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchFilter:CreateWebhook' :: Maybe Text
+</span><a href="#local-6989586621679391348"><span class="hs-identifier hs-var hs-var">branchFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391348"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391347"><span class="annot"><span class="annottext">s :: CreateWebhook
+</span><a href="#local-6989586621679391347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391346"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
+</span><a href="#local-6989586621679391347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchFilter:CreateWebhook' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AbranchFilter%3ACreateWebhook%27"><span class="hs-identifier hs-var">branchFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | An array of arrays of @WebhookFilter@ objects used to determine which</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- webhooks are triggered. At least one @WebhookFilter@ in the array must</span><span>
@@ -238,16 +238,16 @@ $sel:branchFilter:CreateWebhook' :: CreateWebhook -&gt; Maybe Text
      (Maybe [[WebhookFilter]])
      (Maybe [[WebhookFilter]])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389417"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391345"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
 filterGroups :: Maybe [[WebhookFilter]]
 $sel:filterGroups:CreateWebhook' :: CreateWebhook -&gt; Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679389417"><span class="hs-identifier hs-var hs-var">filterGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679389417"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389416"><span class="annot"><span class="annottext">s :: CreateWebhook
-</span><a href="#local-6989586621679389416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389415"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679389415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
-</span><a href="#local-6989586621679389416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterGroups:CreateWebhook' :: Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679391345"><span class="hs-identifier hs-var hs-var">filterGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679391345"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391344"><span class="annot"><span class="annottext">s :: CreateWebhook
+</span><a href="#local-6989586621679391344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391343"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679391343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
+</span><a href="#local-6989586621679391344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterGroups:CreateWebhook' :: Maybe [[WebhookFilter]]
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AfilterGroups%3ACreateWebhook%27"><span class="hs-identifier hs-var">filterGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679389415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
+</span><a href="#local-6989586621679391343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
  -&gt; CreateWebhook -&gt; f CreateWebhook)
 -&gt; ((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
     -&gt; Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
@@ -273,8 +273,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [[WebhookFilter]]
   [[WebhookFilter]]
   [[WebhookFilter]]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | Specifies the type of build this webhook will trigger.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#createWebhook_buildType"><span class="hs-identifier hs-type">createWebhook_buildType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookBuildType.html#WebhookBuildType"><span class="hs-identifier hs-type">WebhookBuildType</span></a></span><span class="hs-special">)</span><span>
@@ -288,16 +288,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe WebhookBuildType)
      (Maybe WebhookBuildType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389411"><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391339"><span class="annot"><span class="annottext">Maybe WebhookBuildType
 buildType :: Maybe WebhookBuildType
 $sel:buildType:CreateWebhook' :: CreateWebhook -&gt; Maybe WebhookBuildType
-</span><a href="#local-6989586621679389411"><span class="hs-identifier hs-var hs-var">buildType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679389411"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389410"><span class="annot"><span class="annottext">s :: CreateWebhook
-</span><a href="#local-6989586621679389410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389409"><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679389409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
-</span><a href="#local-6989586621679389410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildType:CreateWebhook' :: Maybe WebhookBuildType
+</span><a href="#local-6989586621679391339"><span class="hs-identifier hs-var hs-var">buildType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><a href="#local-6989586621679391339"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391338"><span class="annot"><span class="annottext">s :: CreateWebhook
+</span><a href="#local-6989586621679391338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391337"><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><a href="#local-6989586621679391337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
+</span><a href="#local-6989586621679391338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildType:CreateWebhook' :: Maybe WebhookBuildType
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AbuildType%3ACreateWebhook%27"><span class="hs-identifier hs-var">buildType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679389409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The name of the CodeBuild project.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#createWebhook_projectName"><span class="hs-identifier hs-type">createWebhook_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -306,27 +306,27 @@ $sel:buildType:CreateWebhook' :: CreateWebhook -&gt; Maybe WebhookBuildType
 -&gt; (CreateWebhook -&gt; Text -&gt; CreateWebhook)
 -&gt; Lens CreateWebhook CreateWebhook Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389408"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391336"><span class="annot"><span class="annottext">Text
 projectName :: Text
 $sel:projectName:CreateWebhook' :: CreateWebhook -&gt; Text
-</span><a href="#local-6989586621679389408"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389408"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389407"><span class="annot"><span class="annottext">s :: CreateWebhook
-</span><a href="#local-6989586621679389407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389406"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
-</span><a href="#local-6989586621679389407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:CreateWebhook' :: Text
+</span><a href="#local-6989586621679391336"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391336"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391335"><span class="annot"><span class="annottext">s :: CreateWebhook
+</span><a href="#local-6989586621679391335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhook
+</span><a href="#local-6989586621679391335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:CreateWebhook' :: Text
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AprojectName%3ACreateWebhook%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-155"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679389402"><span class="annot"><span class="annottext">request :: CreateWebhook -&gt; Request CreateWebhook
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679391330"><span class="annot"><span class="annottext">request :: CreateWebhook -&gt; Request CreateWebhook
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWebhook -&gt; Request CreateWebhook
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679389398"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679391326"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateWebhook
 -&gt; ClientResponse ClientBody
@@ -350,10 +350,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389395"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389395"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389394"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389394"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389393"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389393"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391323"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391323"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391322"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391322"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391321"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">Maybe Webhook -&gt; Int -&gt; CreateWebhookResponse
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-var">CreateWebhookResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Webhook -&gt; Int -&gt; CreateWebhookResponse)
@@ -361,7 +361,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateWebhookResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389393"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Webhook)
+</span><a href="#local-6989586621679391321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Webhook)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;webhook&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,15 +373,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389395"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391323"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389385"><span id="local-6989586621679389387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391313"><span id="local-6989586621679391315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679389378"><span class="annot"><span class="annottext">toHeaders :: CreateWebhook -&gt; ResponseHeaders
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679391306"><span class="annot"><span class="annottext">toHeaders :: CreateWebhook -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWebhook -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -408,9 +408,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389368"><span id="local-6989586621679389370"><span id="local-6989586621679389372"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679389366"><span class="annot"><span class="annottext">toJSON :: CreateWebhook -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389361"><span id="local-6989586621679389362"><span id="local-6989586621679389363"><span id="local-6989586621679389364"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391296"><span id="local-6989586621679391298"><span id="local-6989586621679391300"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679391294"><span class="annot"><span class="annottext">toJSON :: CreateWebhook -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook%27"><span class="hs-identifier hs-type">CreateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391289"><span id="local-6989586621679391290"><span id="local-6989586621679391291"><span id="local-6989586621679391292"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
 Maybe Text
 Maybe WebhookBuildType
 Text
@@ -422,7 +422,7 @@ $sel:projectName:CreateWebhook' :: CreateWebhook -&gt; Text
 $sel:buildType:CreateWebhook' :: CreateWebhook -&gt; Maybe WebhookBuildType
 $sel:filterGroups:CreateWebhook' :: CreateWebhook -&gt; Maybe [[WebhookFilter]]
 $sel:branchFilter:CreateWebhook' :: CreateWebhook -&gt; Maybe Text
-</span><a href="#local-6989586621679389361"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -434,7 +434,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389364"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391292"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [[WebhookFilter]] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -442,33 +442,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [[WebhookFilter]] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679389363"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391291"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WebhookBuildType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WebhookBuildType -&gt; Pair) -&gt; Maybe WebhookBuildType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679389362"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391290"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389361"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391289"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679389355"><span class="annot"><span class="annottext">toPath :: CreateWebhook -&gt; ByteString
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679391283"><span class="annot"><span class="annottext">toPath :: CreateWebhook -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWebhook -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhook"><span class="hs-identifier hs-type">CreateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679389351"><span class="annot"><span class="annottext">toQuery :: CreateWebhook -&gt; QueryString
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679391279"><span class="annot"><span class="annottext">toQuery :: CreateWebhook -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWebhook -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -476,7 +476,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | /See:/ 'newCreateWebhookResponse' smart constructor.</span><span>
-</span><span id="line-203"></span><span id="local-6989586621679389348"><span id="local-6989586621679389349"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWebhookResponse"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-var">CreateWebhookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWebhookResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-var">CreateWebhookResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span id="local-6989586621679391276"><span id="local-6989586621679391277"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWebhookResponse"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-var">CreateWebhookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWebhookResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-var">CreateWebhookResponse'</span></a></span></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a webhook that connects repository events to a build</span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-comment">-- project in CodeBuild.</span><span>
 </span><span id="line-206"></span><span>    </span><span id="%24sel%3Awebhook%3ACreateWebhookResponse%27"><span class="annot"><span class="annottext">CreateWebhookResponse -&gt; Maybe Webhook
@@ -485,7 +485,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWebhookResponse%27"><span class="annot"><span class="annottext">CreateWebhookResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AhttpStatus%3ACreateWebhookResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389342"><span id="local-6989586621679389344"><span class="annot"><span class="annottext">CreateWebhookResponse -&gt; CreateWebhookResponse -&gt; Bool
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391270"><span id="local-6989586621679391272"><span class="annot"><span class="annottext">CreateWebhookResponse -&gt; CreateWebhookResponse -&gt; Bool
 (CreateWebhookResponse -&gt; CreateWebhookResponse -&gt; Bool)
 -&gt; (CreateWebhookResponse -&gt; CreateWebhookResponse -&gt; Bool)
 -&gt; Eq CreateWebhookResponse
@@ -494,7 +494,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateWebhookResponse -&gt; CreateWebhookResponse -&gt; Bool
 == :: CreateWebhookResponse -&gt; CreateWebhookResponse -&gt; Bool
 $c== :: CreateWebhookResponse -&gt; CreateWebhookResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389334"><span id="local-6989586621679389336"><span id="local-6989586621679389338"><span id="local-6989586621679389340"><span class="annot"><span class="annottext">ReadPrec [CreateWebhookResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391262"><span id="local-6989586621679391264"><span id="local-6989586621679391266"><span id="local-6989586621679391268"><span class="annot"><span class="annottext">ReadPrec [CreateWebhookResponse]
 ReadPrec CreateWebhookResponse
 Int -&gt; ReadS CreateWebhookResponse
 ReadS [CreateWebhookResponse]
@@ -514,7 +514,7 @@ readList :: ReadS [CreateWebhookResponse]
 $creadList :: ReadS [CreateWebhookResponse]
 readsPrec :: Int -&gt; ReadS CreateWebhookResponse
 $creadsPrec :: Int -&gt; ReadS CreateWebhookResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389328"><span id="local-6989586621679389330"><span id="local-6989586621679389332"><span class="annot"><span class="annottext">Int -&gt; CreateWebhookResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391256"><span id="local-6989586621679391258"><span id="local-6989586621679391260"><span class="annot"><span class="annottext">Int -&gt; CreateWebhookResponse -&gt; ShowS
 [CreateWebhookResponse] -&gt; ShowS
 CreateWebhookResponse -&gt; String
 (Int -&gt; CreateWebhookResponse -&gt; ShowS)
@@ -557,8 +557,8 @@ $cfrom :: forall x. CreateWebhookResponse -&gt; Rep CreateWebhookResponse x
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span><span>
 </span><span id="line-228"></span><span id="newCreateWebhookResponse"><span class="annot"><span class="annottext">newCreateWebhookResponse :: Int -&gt; CreateWebhookResponse
-</span><a href="Network.AWS.CodeBuild.CreateWebhook.html#newCreateWebhookResponse"><span class="hs-identifier hs-var hs-var">newCreateWebhookResponse</span></a></span></span><span> </span><span id="local-6989586621679389325"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.CreateWebhook.html#newCreateWebhookResponse"><span class="hs-identifier hs-var hs-var">newCreateWebhookResponse</span></a></span></span><span> </span><span id="local-6989586621679391253"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391253"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">CreateWebhookResponse' :: Maybe Webhook -&gt; Int -&gt; CreateWebhookResponse
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span>
 </span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:webhook:CreateWebhookResponse' :: Maybe Webhook
@@ -567,7 +567,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWebhookResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AhttpStatus%3ACreateWebhookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679391253"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | Information about a webhook that connects repository events to a build</span><span>
@@ -584,16 +584,16 @@ forall a. Maybe a
      (Maybe Webhook)
      (Maybe Webhook)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389324"><span class="annot"><span class="annottext">Maybe Webhook
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391252"><span class="annot"><span class="annottext">Maybe Webhook
 webhook :: Maybe Webhook
 $sel:webhook:CreateWebhookResponse' :: CreateWebhookResponse -&gt; Maybe Webhook
-</span><a href="#local-6989586621679389324"><span class="hs-identifier hs-var hs-var">webhook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Webhook
-</span><a href="#local-6989586621679389324"><span class="hs-identifier hs-var">webhook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389323"><span class="annot"><span class="annottext">s :: CreateWebhookResponse
-</span><a href="#local-6989586621679389323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389322"><span class="annot"><span class="annottext">Maybe Webhook
-</span><a href="#local-6989586621679389322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhookResponse
-</span><a href="#local-6989586621679389323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webhook:CreateWebhookResponse' :: Maybe Webhook
+</span><a href="#local-6989586621679391252"><span class="hs-identifier hs-var hs-var">webhook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Webhook
+</span><a href="#local-6989586621679391252"><span class="hs-identifier hs-var">webhook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391251"><span class="annot"><span class="annottext">s :: CreateWebhookResponse
+</span><a href="#local-6989586621679391251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391250"><span class="annot"><span class="annottext">Maybe Webhook
+</span><a href="#local-6989586621679391250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhookResponse
+</span><a href="#local-6989586621679391251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webhook:CreateWebhookResponse' :: Maybe Webhook
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3Awebhook%3ACreateWebhookResponse%27"><span class="hs-identifier hs-var">webhook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Webhook
-</span><a href="#local-6989586621679389322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-240"></span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#createWebhookResponse_httpStatus"><span class="hs-identifier hs-type">createWebhookResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -602,16 +602,16 @@ $sel:webhook:CreateWebhookResponse' :: CreateWebhookResponse -&gt; Maybe Webhook
 -&gt; (CreateWebhookResponse -&gt; Int -&gt; CreateWebhookResponse)
 -&gt; Lens CreateWebhookResponse CreateWebhookResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389321"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391249"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateWebhookResponse' :: CreateWebhookResponse -&gt; Int
-</span><a href="#local-6989586621679389321"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389321"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389320"><span class="annot"><span class="annottext">s :: CreateWebhookResponse
-</span><a href="#local-6989586621679389320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389319"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhookResponse
-</span><a href="#local-6989586621679389320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWebhookResponse' :: Int
+</span><a href="#local-6989586621679391249"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391249"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391248"><span class="annot"><span class="annottext">s :: CreateWebhookResponse
+</span><a href="#local-6989586621679391248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse%27"><span class="hs-identifier hs-type">CreateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391247"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWebhookResponse
+</span><a href="#local-6989586621679391248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWebhookResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.CreateWebhook.html#%24sel%3AhttpStatus%3ACreateWebhookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.CreateWebhook.html#CreateWebhookResponse"><span class="hs-identifier hs-type">CreateWebhookResponse</span></a></span></span><span>
 </span><span id="line-244"></span></pre></body></html>

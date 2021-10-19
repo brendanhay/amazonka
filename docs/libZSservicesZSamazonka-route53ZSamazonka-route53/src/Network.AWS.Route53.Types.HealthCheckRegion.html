@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679294272"><span id="local-6989586621679294273"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthCheckRegion"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion"><span class="hs-identifier hs-var">HealthCheckRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckRegion%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion%27"><span class="hs-identifier hs-var">HealthCheckRegion'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679294419"><span id="local-6989586621679294420"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthCheckRegion"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion"><span class="hs-identifier hs-var">HealthCheckRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckRegion%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#HealthCheckRegion%27"><span class="hs-identifier hs-var">HealthCheckRegion'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHealthCheckRegion"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; Text
 </span><a href="Network.AWS.Route53.Types.HealthCheckRegion.html#fromHealthCheckRegion"><span class="hs-identifier hs-var hs-var">fromHealthCheckRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294264"><span id="local-6989586621679294266"><span id="local-6989586621679294268"><span class="annot"><span class="annottext">Int -&gt; HealthCheckRegion -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294411"><span id="local-6989586621679294413"><span id="local-6989586621679294415"><span class="annot"><span class="annottext">Int -&gt; HealthCheckRegion -&gt; ShowS
 [HealthCheckRegion] -&gt; ShowS
 HealthCheckRegion -&gt; String
 (Int -&gt; HealthCheckRegion -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: HealthCheckRegion -&gt; String
 showsPrec :: Int -&gt; HealthCheckRegion -&gt; ShowS
 $cshowsPrec :: Int -&gt; HealthCheckRegion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294255"><span id="local-6989586621679294257"><span id="local-6989586621679294259"><span id="local-6989586621679294261"><span class="annot"><span class="annottext">ReadPrec [HealthCheckRegion]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294402"><span id="local-6989586621679294404"><span id="local-6989586621679294406"><span id="local-6989586621679294408"><span class="annot"><span class="annottext">ReadPrec [HealthCheckRegion]
 ReadPrec HealthCheckRegion
 Int -&gt; ReadS HealthCheckRegion
 ReadS [HealthCheckRegion]
@@ -79,7 +79,7 @@ $creadList :: ReadS [HealthCheckRegion]
 readsPrec :: Int -&gt; ReadS HealthCheckRegion
 $creadsPrec :: Int -&gt; ReadS HealthCheckRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294250"><span id="local-6989586621679294252"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294397"><span id="local-6989586621679294399"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool
 (HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool)
 -&gt; (HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool)
 -&gt; Eq HealthCheckRegion
@@ -89,7 +89,7 @@ $c/= :: HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool
 == :: HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool
 $c== :: HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294234"><span id="local-6989586621679294236"><span id="local-6989586621679294238"><span id="local-6989586621679294240"><span id="local-6989586621679294242"><span id="local-6989586621679294244"><span id="local-6989586621679294246"><span class="annot"><span class="annottext">Eq HealthCheckRegion
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294381"><span id="local-6989586621679294383"><span id="local-6989586621679294385"><span id="local-6989586621679294387"><span id="local-6989586621679294389"><span id="local-6989586621679294391"><span id="local-6989586621679294393"><span class="annot"><span class="annottext">Eq HealthCheckRegion
 Eq HealthCheckRegion
 -&gt; (HealthCheckRegion -&gt; HealthCheckRegion -&gt; Ordering)
 -&gt; (HealthCheckRegion -&gt; HealthCheckRegion -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. HealthCheckRegion -&gt; Rep HealthCheckRegion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294226"><span id="local-6989586621679294228"><span class="annot"><span class="annottext">Int -&gt; HealthCheckRegion -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294373"><span id="local-6989586621679294375"><span class="annot"><span class="annottext">Int -&gt; HealthCheckRegion -&gt; Int
 HealthCheckRegion -&gt; Int
 (Int -&gt; HealthCheckRegion -&gt; Int)
 -&gt; (HealthCheckRegion -&gt; Int) -&gt; Hashable HealthCheckRegion
@@ -150,51 +150,51 @@ $chash :: HealthCheckRegion -&gt; Int
 hashWithSalt :: Int -&gt; HealthCheckRegion -&gt; Int
 $chashWithSalt :: Int -&gt; HealthCheckRegion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294223"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294370"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; ()
 (HealthCheckRegion -&gt; ()) -&gt; NFData HealthCheckRegion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HealthCheckRegion -&gt; ()
 $crnf :: HealthCheckRegion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294220"><span class="annot"><span class="annottext">Text -&gt; Either String HealthCheckRegion
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294367"><span class="annot"><span class="annottext">Text -&gt; Either String HealthCheckRegion
 (Text -&gt; Either String HealthCheckRegion)
 -&gt; FromText HealthCheckRegion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HealthCheckRegion
 $cfromText :: Text -&gt; Either String HealthCheckRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294217"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294364"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; Text
 (HealthCheckRegion -&gt; Text) -&gt; ToText HealthCheckRegion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HealthCheckRegion -&gt; Text
 $ctoText :: HealthCheckRegion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294214"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294361"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; ByteString
 (HealthCheckRegion -&gt; ByteString) -&gt; ToByteString HealthCheckRegion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HealthCheckRegion -&gt; ByteString
 $ctoBS :: HealthCheckRegion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294211"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294358"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; ByteStringBuilder
 (HealthCheckRegion -&gt; ByteStringBuilder) -&gt; ToLog HealthCheckRegion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HealthCheckRegion -&gt; ByteStringBuilder
 $cbuild :: HealthCheckRegion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294208"><span class="annot"><span class="annottext">HeaderName -&gt; HealthCheckRegion -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294355"><span class="annot"><span class="annottext">HeaderName -&gt; HealthCheckRegion -&gt; [Header]
 (HeaderName -&gt; HealthCheckRegion -&gt; [Header])
 -&gt; ToHeader HealthCheckRegion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HealthCheckRegion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HealthCheckRegion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294205"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294352"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; QueryString
 (HealthCheckRegion -&gt; QueryString) -&gt; ToQuery HealthCheckRegion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HealthCheckRegion -&gt; QueryString
 $ctoQuery :: HealthCheckRegion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294200"><span id="local-6989586621679294202"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthCheckRegion]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294347"><span id="local-6989586621679294349"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthCheckRegion]
 Value -&gt; Parser HealthCheckRegion
 (Value -&gt; Parser HealthCheckRegion)
 -&gt; (Value -&gt; Parser [HealthCheckRegion])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [HealthCheckRegion]
 parseJSON :: Value -&gt; Parser HealthCheckRegion
 $cparseJSON :: Value -&gt; Parser HealthCheckRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679294195"><span id="local-6989586621679294197"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthCheckRegion]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679294342"><span id="local-6989586621679294344"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthCheckRegion]
 FromJSONKeyFunction HealthCheckRegion
 FromJSONKeyFunction HealthCheckRegion
 -&gt; FromJSONKeyFunction [HealthCheckRegion]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HealthCheckRegion]
 fromJSONKey :: FromJSONKeyFunction HealthCheckRegion
 $cfromJSONKey :: FromJSONKeyFunction HealthCheckRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679294186"><span id="local-6989586621679294188"><span id="local-6989586621679294190"><span id="local-6989586621679294192"><span class="annot"><span class="annottext">[HealthCheckRegion] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679294333"><span id="local-6989586621679294335"><span id="local-6989586621679294337"><span id="local-6989586621679294339"><span class="annot"><span class="annottext">[HealthCheckRegion] -&gt; Encoding
 [HealthCheckRegion] -&gt; Value
 HealthCheckRegion -&gt; Encoding
 HealthCheckRegion -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: HealthCheckRegion -&gt; Encoding
 toJSON :: HealthCheckRegion -&gt; Value
 $ctoJSON :: HealthCheckRegion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679294181"><span id="local-6989586621679294183"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthCheckRegion]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679294328"><span id="local-6989586621679294330"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthCheckRegion]
 ToJSONKeyFunction HealthCheckRegion
 ToJSONKeyFunction HealthCheckRegion
 -&gt; ToJSONKeyFunction [HealthCheckRegion]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HealthCheckRegion]
 toJSONKey :: ToJSONKeyFunction HealthCheckRegion
 $ctoJSONKey :: ToJSONKeyFunction HealthCheckRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679294178"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthCheckRegion
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679294325"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthCheckRegion
 ([Node] -&gt; Either String HealthCheckRegion)
 -&gt; FromXML HealthCheckRegion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HealthCheckRegion
 $cparseXML :: [Node] -&gt; Either String HealthCheckRegion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679294175"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679294322"><span class="annot"><span class="annottext">HealthCheckRegion -&gt; XML
 (HealthCheckRegion -&gt; XML) -&gt; ToXML HealthCheckRegion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HealthCheckRegion -&gt; XML

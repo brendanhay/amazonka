@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Represents the request to stop the remote access session.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newStopRemoteAccessSession' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679373480"><span id="local-6989586621679373481"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRemoteAccessSession"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-var">StopRemoteAccessSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRemoteAccessSession%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-var">StopRemoteAccessSession'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679373734"><span id="local-6989586621679373735"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRemoteAccessSession"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-var">StopRemoteAccessSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRemoteAccessSession%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-var">StopRemoteAccessSession'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the remote access session to stop.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3AStopRemoteAccessSession%27"><span class="annot"><span class="annottext">StopRemoteAccessSession -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#%24sel%3Aarn%3AStopRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373474"><span id="local-6989586621679373476"><span class="annot"><span class="annottext">StopRemoteAccessSession -&gt; StopRemoteAccessSession -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373728"><span id="local-6989586621679373730"><span class="annot"><span class="annottext">StopRemoteAccessSession -&gt; StopRemoteAccessSession -&gt; Bool
 (StopRemoteAccessSession -&gt; StopRemoteAccessSession -&gt; Bool)
 -&gt; (StopRemoteAccessSession -&gt; StopRemoteAccessSession -&gt; Bool)
 -&gt; Eq StopRemoteAccessSession
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopRemoteAccessSession -&gt; StopRemoteAccessSession -&gt; Bool
 == :: StopRemoteAccessSession -&gt; StopRemoteAccessSession -&gt; Bool
 $c== :: StopRemoteAccessSession -&gt; StopRemoteAccessSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373465"><span id="local-6989586621679373467"><span id="local-6989586621679373469"><span id="local-6989586621679373471"><span class="annot"><span class="annottext">ReadPrec [StopRemoteAccessSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373719"><span id="local-6989586621679373721"><span id="local-6989586621679373723"><span id="local-6989586621679373725"><span class="annot"><span class="annottext">ReadPrec [StopRemoteAccessSession]
 ReadPrec StopRemoteAccessSession
 Int -&gt; ReadS StopRemoteAccessSession
 ReadS [StopRemoteAccessSession]
@@ -83,7 +83,7 @@ readList :: ReadS [StopRemoteAccessSession]
 $creadList :: ReadS [StopRemoteAccessSession]
 readsPrec :: Int -&gt; ReadS StopRemoteAccessSession
 $creadsPrec :: Int -&gt; ReadS StopRemoteAccessSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373458"><span id="local-6989586621679373460"><span id="local-6989586621679373462"><span class="annot"><span class="annottext">Int -&gt; StopRemoteAccessSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373712"><span id="local-6989586621679373714"><span id="local-6989586621679373716"><span class="annot"><span class="annottext">Int -&gt; StopRemoteAccessSession -&gt; ShowS
 [StopRemoteAccessSession] -&gt; ShowS
 StopRemoteAccessSession -&gt; String
 (Int -&gt; StopRemoteAccessSession -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. StopRemoteAccessSession -&gt; Rep StopRemoteAccessSession x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span>
 </span><span id="line-71"></span><span id="newStopRemoteAccessSession"><span class="annot"><span class="annottext">newStopRemoteAccessSession :: Text -&gt; StopRemoteAccessSession
-</span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#newStopRemoteAccessSession"><span class="hs-identifier hs-var hs-var">newStopRemoteAccessSession</span></a></span></span><span> </span><span id="local-6989586621679373453"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373453"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#newStopRemoteAccessSession"><span class="hs-identifier hs-var hs-var">newStopRemoteAccessSession</span></a></span></span><span> </span><span id="local-6989586621679373707"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373707"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">StopRemoteAccessSession' :: Text -&gt; StopRemoteAccessSession
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-type">StopRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRemoteAccessSession' :: Text
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#%24sel%3Aarn%3AStopRemoteAccessSession%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373453"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679373707"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the remote access session to stop.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#stopRemoteAccessSession_arn"><span class="hs-identifier hs-type">stopRemoteAccessSession_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,28 +140,28 @@ $cfrom :: forall x. StopRemoteAccessSession -&gt; Rep StopRemoteAccessSession x
 -&gt; (StopRemoteAccessSession -&gt; Text -&gt; StopRemoteAccessSession)
 -&gt; Lens StopRemoteAccessSession StopRemoteAccessSession Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-type">StopRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373450"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-type">StopRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373704"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:StopRemoteAccessSession' :: StopRemoteAccessSession -&gt; Text
-</span><a href="#local-6989586621679373450"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373450"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373449"><span class="annot"><span class="annottext">s :: StopRemoteAccessSession
-</span><a href="#local-6989586621679373449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-type">StopRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373448"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRemoteAccessSession
-</span><a href="#local-6989586621679373449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRemoteAccessSession' :: Text
+</span><a href="#local-6989586621679373704"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373704"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373703"><span class="annot"><span class="annottext">s :: StopRemoteAccessSession
+</span><a href="#local-6989586621679373703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-type">StopRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRemoteAccessSession
+</span><a href="#local-6989586621679373703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:StopRemoteAccessSession' :: Text
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#%24sel%3Aarn%3AStopRemoteAccessSession%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679373444"><span class="annot"><span class="annottext">request :: StopRemoteAccessSession -&gt; Request StopRemoteAccessSession
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679373698"><span class="annot"><span class="annottext">request :: StopRemoteAccessSession -&gt; Request StopRemoteAccessSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StopRemoteAccessSession -&gt; Request StopRemoteAccessSession
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679373440"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679373694"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopRemoteAccessSession
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373437"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373437"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373436"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679373436"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373435"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373691"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679373690"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679373690"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679373689"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession -&gt; Int -&gt; StopRemoteAccessSessionResponse
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">StopRemoteAccessSessionResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RemoteAccessSession
@@ -199,7 +199,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StopRemoteAccessSessionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679373435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RemoteAccessSession)
+</span><a href="#local-6989586621679373689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RemoteAccessSession)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;remoteAccessSession&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,15 +212,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373437"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373691"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373427"><span id="local-6989586621679373429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373681"><span id="local-6989586621679373683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679373420"><span class="annot"><span class="annottext">toHeaders :: StopRemoteAccessSession -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679373674"><span class="annot"><span class="annottext">toHeaders :: StopRemoteAccessSession -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopRemoteAccessSession -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -247,12 +247,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373410"><span id="local-6989586621679373412"><span id="local-6989586621679373414"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679373408"><span class="annot"><span class="annottext">toJSON :: StopRemoteAccessSession -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-type">StopRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373406"><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373664"><span id="local-6989586621679373666"><span id="local-6989586621679373668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679373662"><span class="annot"><span class="annottext">toJSON :: StopRemoteAccessSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession%27"><span class="hs-identifier hs-type">StopRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373660"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:StopRemoteAccessSession' :: StopRemoteAccessSession -&gt; Text
-</span><a href="#local-6989586621679373406"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373660"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,18 +264,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373406"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679373660"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679373400"><span class="annot"><span class="annottext">toPath :: StopRemoteAccessSession -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679373654"><span class="annot"><span class="annottext">toPath :: StopRemoteAccessSession -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopRemoteAccessSession -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSession"><span class="hs-identifier hs-type">StopRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679373396"><span class="annot"><span class="annottext">toQuery :: StopRemoteAccessSession -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679373650"><span class="annot"><span class="annottext">toQuery :: StopRemoteAccessSession -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopRemoteAccessSession -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-124"></span><span class="hs-comment">-- session when AWS Device Farm stops the session.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- /See:/ 'newStopRemoteAccessSessionResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679373393"><span id="local-6989586621679373394"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRemoteAccessSessionResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-var">StopRemoteAccessSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRemoteAccessSessionResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">StopRemoteAccessSessionResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679373647"><span id="local-6989586621679373648"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopRemoteAccessSessionResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-var">StopRemoteAccessSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopRemoteAccessSessionResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">StopRemoteAccessSessionResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A container that represents the metadata from the service about the</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- remote access session you are stopping.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AremoteAccessSession%3AStopRemoteAccessSessionResponse%27"><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse -&gt; Maybe RemoteAccessSession
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopRemoteAccessSessionResponse%27"><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#%24sel%3AhttpStatus%3AStopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373387"><span id="local-6989586621679373389"><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373641"><span id="local-6989586621679373643"><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse
 -&gt; StopRemoteAccessSessionResponse -&gt; Bool
 (StopRemoteAccessSessionResponse
  -&gt; StopRemoteAccessSessionResponse -&gt; Bool)
@@ -311,7 +311,7 @@ $c/= :: StopRemoteAccessSessionResponse
 -&gt; StopRemoteAccessSessionResponse -&gt; Bool
 $c== :: StopRemoteAccessSessionResponse
 -&gt; StopRemoteAccessSessionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373379"><span id="local-6989586621679373381"><span id="local-6989586621679373383"><span id="local-6989586621679373385"><span class="annot"><span class="annottext">ReadPrec [StopRemoteAccessSessionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373633"><span id="local-6989586621679373635"><span id="local-6989586621679373637"><span id="local-6989586621679373639"><span class="annot"><span class="annottext">ReadPrec [StopRemoteAccessSessionResponse]
 ReadPrec StopRemoteAccessSessionResponse
 Int -&gt; ReadS StopRemoteAccessSessionResponse
 ReadS [StopRemoteAccessSessionResponse]
@@ -331,7 +331,7 @@ readList :: ReadS [StopRemoteAccessSessionResponse]
 $creadList :: ReadS [StopRemoteAccessSessionResponse]
 readsPrec :: Int -&gt; ReadS StopRemoteAccessSessionResponse
 $creadsPrec :: Int -&gt; ReadS StopRemoteAccessSessionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373373"><span id="local-6989586621679373375"><span id="local-6989586621679373377"><span class="annot"><span class="annottext">Int -&gt; StopRemoteAccessSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373627"><span id="local-6989586621679373629"><span id="local-6989586621679373631"><span class="annot"><span class="annottext">Int -&gt; StopRemoteAccessSessionResponse -&gt; ShowS
 [StopRemoteAccessSessionResponse] -&gt; ShowS
 StopRemoteAccessSessionResponse -&gt; String
 (Int -&gt; StopRemoteAccessSessionResponse -&gt; ShowS)
@@ -386,8 +386,8 @@ StopRemoteAccessSessionResponse
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newStopRemoteAccessSessionResponse"><span class="annot"><span class="annottext">newStopRemoteAccessSessionResponse :: Int -&gt; StopRemoteAccessSessionResponse
-</span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#newStopRemoteAccessSessionResponse"><span class="hs-identifier hs-var hs-var">newStopRemoteAccessSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679373370"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#newStopRemoteAccessSessionResponse"><span class="hs-identifier hs-var hs-var">newStopRemoteAccessSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679373624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse' :: Maybe RemoteAccessSession -&gt; Int -&gt; StopRemoteAccessSessionResponse
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:remoteAccessSession:StopRemoteAccessSessionResponse' :: Maybe RemoteAccessSession
@@ -397,7 +397,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopRemoteAccessSessionResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#%24sel%3AhttpStatus%3AStopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679373624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | A container that represents the metadata from the service about the</span><span>
@@ -415,16 +415,16 @@ forall a. Maybe a
      (Maybe RemoteAccessSession)
      (Maybe RemoteAccessSession)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373369"><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373623"><span class="annot"><span class="annottext">Maybe RemoteAccessSession
 remoteAccessSession :: Maybe RemoteAccessSession
 $sel:remoteAccessSession:StopRemoteAccessSessionResponse' :: StopRemoteAccessSessionResponse -&gt; Maybe RemoteAccessSession
-</span><a href="#local-6989586621679373369"><span class="hs-identifier hs-var hs-var">remoteAccessSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession
-</span><a href="#local-6989586621679373369"><span class="hs-identifier hs-var">remoteAccessSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373368"><span class="annot"><span class="annottext">s :: StopRemoteAccessSessionResponse
-</span><a href="#local-6989586621679373368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373367"><span class="annot"><span class="annottext">Maybe RemoteAccessSession
-</span><a href="#local-6989586621679373367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse
-</span><a href="#local-6989586621679373368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessSession:StopRemoteAccessSessionResponse' :: Maybe RemoteAccessSession
+</span><a href="#local-6989586621679373623"><span class="hs-identifier hs-var hs-var">remoteAccessSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+</span><a href="#local-6989586621679373623"><span class="hs-identifier hs-var">remoteAccessSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373622"><span class="annot"><span class="annottext">s :: StopRemoteAccessSessionResponse
+</span><a href="#local-6989586621679373622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373621"><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+</span><a href="#local-6989586621679373621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse
+</span><a href="#local-6989586621679373622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessSession:StopRemoteAccessSessionResponse' :: Maybe RemoteAccessSession
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#%24sel%3AremoteAccessSession%3AStopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">remoteAccessSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession
-</span><a href="#local-6989586621679373367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#stopRemoteAccessSessionResponse_httpStatus"><span class="hs-identifier hs-type">stopRemoteAccessSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -440,18 +440,18 @@ $sel:remoteAccessSession:StopRemoteAccessSessionResponse' :: StopRemoteAccessSes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373366"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373620"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopRemoteAccessSessionResponse' :: StopRemoteAccessSessionResponse -&gt; Int
-</span><a href="#local-6989586621679373366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373365"><span class="annot"><span class="annottext">s :: StopRemoteAccessSessionResponse
-</span><a href="#local-6989586621679373365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373364"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse
-</span><a href="#local-6989586621679373365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopRemoteAccessSessionResponse' :: Int
+</span><a href="#local-6989586621679373620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373619"><span class="annot"><span class="annottext">s :: StopRemoteAccessSessionResponse
+</span><a href="#local-6989586621679373619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679373618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopRemoteAccessSessionResponse
+</span><a href="#local-6989586621679373619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopRemoteAccessSessionResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#%24sel%3AhttpStatus%3AStopRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679373364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679373362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679373616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.StopRemoteAccessSession.html#StopRemoteAccessSessionResponse"><span class="hs-identifier hs-type">StopRemoteAccessSessionResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

@@ -31,12 +31,12 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#newUpdateProvisioningTemplate"><span class="hs-identifier">newUpdateProvisioningTemplate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_removePreProvisioningHook"><span class="hs-identifier">updateProvisioningTemplate_removePreProvisioningHook</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_preProvisioningHook"><span class="hs-identifier">updateProvisioningTemplate_preProvisioningHook</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_enabled"><span class="hs-identifier">updateProvisioningTemplate_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_preProvisioningHook"><span class="hs-identifier">updateProvisioningTemplate_preProvisioningHook</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_enabled"><span class="hs-identifier">updateProvisioningTemplate_enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_provisioningRoleArn"><span class="hs-identifier">updateProvisioningTemplate_provisioningRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_defaultVersionId"><span class="hs-identifier">updateProvisioningTemplate_defaultVersionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_description"><span class="hs-identifier">updateProvisioningTemplate_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_provisioningRoleArn"><span class="hs-identifier">updateProvisioningTemplate_provisioningRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_removePreProvisioningHook"><span class="hs-identifier">updateProvisioningTemplate_removePreProvisioningHook</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_description"><span class="hs-identifier">updateProvisioningTemplate_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_templateName"><span class="hs-identifier">updateProvisioningTemplate_templateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -56,31 +56,31 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newUpdateProvisioningTemplate' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679860386"><span id="local-6989586621679860387"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProvisioningTemplate"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-var">UpdateProvisioningTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProvisioningTemplate%27"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">UpdateProvisioningTemplate'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Removes pre-provisioning hook template.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Bool
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">removePreProvisioningHook</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Updates the pre-provisioning hook template.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3ApreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe ProvisioningHook
+</span><span id="line-59"></span><span id="local-6989586621679861403"><span id="local-6989586621679861404"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProvisioningTemplate"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-var">UpdateProvisioningTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProvisioningTemplate%27"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">UpdateProvisioningTemplate'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updates the pre-provisioning hook template.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3ApreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe ProvisioningHook
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3ApreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">preProvisioningHook</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ProvisioningHook.html#ProvisioningHook"><span class="hs-identifier hs-type">ProvisioningHook</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | True to enable the fleet provisioning template, otherwise false.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aenabled%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Bool
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | True to enable the fleet provisioning template, otherwise false.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aenabled%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Aenabled%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The ID of the default provisioning template version.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdefaultVersionId%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Int
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AdefaultVersionId%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">defaultVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The description of the fleet provisioning template.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The ARN of the role associated with the provisioning template. This IoT</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- role grants permission to provision a device.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AprovisioningRoleArn%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ARN of the role associated with the provisioning template. This IoT</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- role grants permission to provision a device.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AprovisioningRoleArn%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AprovisioningRoleArn%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">provisioningRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the default provisioning template version.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdefaultVersionId%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Int
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AdefaultVersionId%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">defaultVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Removes pre-provisioning hook template.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">removePreProvisioningHook</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The description of the fleet provisioning template.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the fleet provisioning template.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AtemplateName%3AUpdateProvisioningTemplate%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; Text
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AtemplateName%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860374"><span id="local-6989586621679860376"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; UpdateProvisioningTemplate -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679861391"><span id="local-6989586621679861393"><span class="annot"><span class="annottext">UpdateProvisioningTemplate -&gt; UpdateProvisioningTemplate -&gt; Bool
 (UpdateProvisioningTemplate -&gt; UpdateProvisioningTemplate -&gt; Bool)
 -&gt; (UpdateProvisioningTemplate
     -&gt; UpdateProvisioningTemplate -&gt; Bool)
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateProvisioningTemplate -&gt; UpdateProvisioningTemplate -&gt; Bool
 == :: UpdateProvisioningTemplate -&gt; UpdateProvisioningTemplate -&gt; Bool
 $c== :: UpdateProvisioningTemplate -&gt; UpdateProvisioningTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860365"><span id="local-6989586621679860367"><span id="local-6989586621679860369"><span id="local-6989586621679860371"><span class="annot"><span class="annottext">ReadPrec [UpdateProvisioningTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861382"><span id="local-6989586621679861384"><span id="local-6989586621679861386"><span id="local-6989586621679861388"><span class="annot"><span class="annottext">ReadPrec [UpdateProvisioningTemplate]
 ReadPrec UpdateProvisioningTemplate
 Int -&gt; ReadS UpdateProvisioningTemplate
 ReadS [UpdateProvisioningTemplate]
@@ -110,7 +110,7 @@ readList :: ReadS [UpdateProvisioningTemplate]
 $creadList :: ReadS [UpdateProvisioningTemplate]
 readsPrec :: Int -&gt; ReadS UpdateProvisioningTemplate
 $creadsPrec :: Int -&gt; ReadS UpdateProvisioningTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860358"><span id="local-6989586621679860360"><span id="local-6989586621679860362"><span class="annot"><span class="annottext">Int -&gt; UpdateProvisioningTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861375"><span id="local-6989586621679861377"><span id="local-6989586621679861379"><span class="annot"><span class="annottext">Int -&gt; UpdateProvisioningTemplate -&gt; ShowS
 [UpdateProvisioningTemplate] -&gt; ShowS
 UpdateProvisioningTemplate -&gt; String
 (Int -&gt; UpdateProvisioningTemplate -&gt; ShowS)
@@ -150,18 +150,18 @@ UpdateProvisioningTemplate -&gt; Rep UpdateProvisioningTemplate x
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'removePreProvisioningHook', 'updateProvisioningTemplate_removePreProvisioningHook' - Removes pre-provisioning hook template.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'preProvisioningHook', 'updateProvisioningTemplate_preProvisioningHook' - Updates the pre-provisioning hook template.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'preProvisioningHook', 'updateProvisioningTemplate_preProvisioningHook' - Updates the pre-provisioning hook template.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'enabled', 'updateProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'enabled', 'updateProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'defaultVersionId', 'updateProvisioningTemplate_defaultVersionId' - The ID of the default provisioning template version.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'description', 'updateProvisioningTemplate_description' - The description of the fleet provisioning template.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'provisioningRoleArn', 'updateProvisioningTemplate_provisioningRoleArn' - The ARN of the role associated with the provisioning template. This IoT</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- role grants permission to provision a device.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'provisioningRoleArn', 'updateProvisioningTemplate_provisioningRoleArn' - The ARN of the role associated with the provisioning template. This IoT</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- role grants permission to provision a device.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'defaultVersionId', 'updateProvisioningTemplate_defaultVersionId' - The ID of the default provisioning template version.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'removePreProvisioningHook', 'updateProvisioningTemplate_removePreProvisioningHook' - Removes pre-provisioning hook template.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'description', 'updateProvisioningTemplate_description' - The description of the fleet provisioning template.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- 'templateName', 'updateProvisioningTemplate_templateName' - The name of the fleet provisioning template.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#newUpdateProvisioningTemplate"><span class="hs-identifier hs-type">newUpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -169,74 +169,50 @@ UpdateProvisioningTemplate -&gt; Rep UpdateProvisioningTemplate x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span>
 </span><span id="line-104"></span><span id="newUpdateProvisioningTemplate"><span class="annot"><span class="annottext">newUpdateProvisioningTemplate :: Text -&gt; UpdateProvisioningTemplate
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#newUpdateProvisioningTemplate"><span class="hs-identifier hs-var hs-var">newUpdateProvisioningTemplate</span></a></span></span><span> </span><span id="local-6989586621679860353"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860353"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate' :: Maybe Bool
--&gt; Maybe ProvisioningHook
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#newUpdateProvisioningTemplate"><span class="hs-identifier hs-var hs-var">newUpdateProvisioningTemplate</span></a></span></span><span> </span><span id="local-6989586621679861370"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679861370"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate' :: Maybe ProvisioningHook
 -&gt; Maybe Bool
--&gt; Maybe Int
 -&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Text
 -&gt; UpdateProvisioningTemplate
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: Maybe Bool
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:preProvisioningHook:UpdateProvisioningTemplate' :: Maybe ProvisioningHook
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3ApreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">preProvisioningHook</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProvisioningHook
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:preProvisioningHook:UpdateProvisioningTemplate' :: Maybe ProvisioningHook
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3ApreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">preProvisioningHook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningHook
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:UpdateProvisioningTemplate' :: Maybe Bool
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:UpdateProvisioningTemplate' :: Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Aenabled%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: Maybe Text
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AprovisioningRoleArn%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">provisioningRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultVersionId:UpdateProvisioningTemplate' :: Maybe Int
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AdefaultVersionId%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">defaultVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateProvisioningTemplate' :: Maybe Text
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: Maybe Bool
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: Maybe Text
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AprovisioningRoleArn%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">provisioningRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateProvisioningTemplate' :: Maybe Text
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateName:UpdateProvisioningTemplate' :: Text
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AtemplateName%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860353"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
+</span><a href="#local-6989586621679861370"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | Removes pre-provisioning hook template.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_removePreProvisioningHook"><span class="hs-identifier hs-type">updateProvisioningTemplate_removePreProvisioningHook</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="updateProvisioningTemplate_removePreProvisioningHook"><span class="annot"><span class="annottext">updateProvisioningTemplate_removePreProvisioningHook :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_removePreProvisioningHook"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_removePreProvisioningHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Bool)
--&gt; (UpdateProvisioningTemplate
-    -&gt; Maybe Bool -&gt; UpdateProvisioningTemplate)
--&gt; Lens
-     UpdateProvisioningTemplate
-     UpdateProvisioningTemplate
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860350"><span class="annot"><span class="annottext">Maybe Bool
-removePreProvisioningHook :: Maybe Bool
-$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
-</span><a href="#local-6989586621679860350"><span class="hs-identifier hs-var hs-var">removePreProvisioningHook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860350"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860349"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860348"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: Maybe Bool
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | Updates the pre-provisioning hook template.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_preProvisioningHook"><span class="hs-identifier hs-type">updateProvisioningTemplate_preProvisioningHook</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ProvisioningHook.html#ProvisioningHook"><span class="hs-identifier hs-type">ProvisioningHook</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="updateProvisioningTemplate_preProvisioningHook"><span class="annot"><span class="annottext">updateProvisioningTemplate_preProvisioningHook :: (Maybe ProvisioningHook -&gt; f (Maybe ProvisioningHook))
+</span><span id="line-116"></span><span class="hs-comment">-- | Updates the pre-provisioning hook template.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_preProvisioningHook"><span class="hs-identifier hs-type">updateProvisioningTemplate_preProvisioningHook</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ProvisioningHook.html#ProvisioningHook"><span class="hs-identifier hs-type">ProvisioningHook</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="updateProvisioningTemplate_preProvisioningHook"><span class="annot"><span class="annottext">updateProvisioningTemplate_preProvisioningHook :: (Maybe ProvisioningHook -&gt; f (Maybe ProvisioningHook))
 -&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_preProvisioningHook"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_preProvisioningHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe ProvisioningHook)
 -&gt; (UpdateProvisioningTemplate
@@ -247,20 +223,20 @@ $sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioning
      (Maybe ProvisioningHook)
      (Maybe ProvisioningHook)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860347"><span class="annot"><span class="annottext">Maybe ProvisioningHook
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861367"><span class="annot"><span class="annottext">Maybe ProvisioningHook
 preProvisioningHook :: Maybe ProvisioningHook
 $sel:preProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe ProvisioningHook
-</span><a href="#local-6989586621679860347"><span class="hs-identifier hs-var hs-var">preProvisioningHook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningHook
-</span><a href="#local-6989586621679860347"><span class="hs-identifier hs-var">preProvisioningHook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860346"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860345"><span class="annot"><span class="annottext">Maybe ProvisioningHook
-</span><a href="#local-6989586621679860345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preProvisioningHook:UpdateProvisioningTemplate' :: Maybe ProvisioningHook
+</span><a href="#local-6989586621679861367"><span class="hs-identifier hs-var hs-var">preProvisioningHook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningHook
+</span><a href="#local-6989586621679861367"><span class="hs-identifier hs-var">preProvisioningHook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861366"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861365"><span class="annot"><span class="annottext">Maybe ProvisioningHook
+</span><a href="#local-6989586621679861365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preProvisioningHook:UpdateProvisioningTemplate' :: Maybe ProvisioningHook
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3ApreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">preProvisioningHook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningHook
-</span><a href="#local-6989586621679860345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | True to enable the fleet provisioning template, otherwise false.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_enabled"><span class="hs-identifier hs-type">updateProvisioningTemplate_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="updateProvisioningTemplate_enabled"><span class="annot"><span class="annottext">updateProvisioningTemplate_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679861365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | True to enable the fleet provisioning template, otherwise false.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_enabled"><span class="hs-identifier hs-type">updateProvisioningTemplate_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="updateProvisioningTemplate_enabled"><span class="annot"><span class="annottext">updateProvisioningTemplate_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_enabled"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Bool)
 -&gt; (UpdateProvisioningTemplate
@@ -271,69 +247,21 @@ $sel:preProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTempla
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860344"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861364"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
-</span><a href="#local-6989586621679860344"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860344"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860343"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860342"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:UpdateProvisioningTemplate' :: Maybe Bool
+</span><a href="#local-6989586621679861364"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679861364"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861363"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861362"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679861362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:UpdateProvisioningTemplate' :: Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Aenabled%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The ID of the default provisioning template version.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_defaultVersionId"><span class="hs-identifier hs-type">updateProvisioningTemplate_defaultVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="updateProvisioningTemplate_defaultVersionId"><span class="annot"><span class="annottext">updateProvisioningTemplate_defaultVersionId :: (Maybe Int -&gt; f (Maybe Int))
--&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_defaultVersionId"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_defaultVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Int)
--&gt; (UpdateProvisioningTemplate
-    -&gt; Maybe Int -&gt; UpdateProvisioningTemplate)
--&gt; Lens
-     UpdateProvisioningTemplate
-     UpdateProvisioningTemplate
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860341"><span class="annot"><span class="annottext">Maybe Int
-defaultVersionId :: Maybe Int
-$sel:defaultVersionId:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Int
-</span><a href="#local-6989586621679860341"><span class="hs-identifier hs-var hs-var">defaultVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679860341"><span class="hs-identifier hs-var">defaultVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860340"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860339"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679860339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultVersionId:UpdateProvisioningTemplate' :: Maybe Int
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AdefaultVersionId%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">defaultVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679860339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The description of the fleet provisioning template.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_description"><span class="hs-identifier hs-type">updateProvisioningTemplate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="updateProvisioningTemplate_description"><span class="annot"><span class="annottext">updateProvisioningTemplate_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_description"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Text)
--&gt; (UpdateProvisioningTemplate
-    -&gt; Maybe Text -&gt; UpdateProvisioningTemplate)
--&gt; Lens
-     UpdateProvisioningTemplate
-     UpdateProvisioningTemplate
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860338"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679860338"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860338"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860337"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860336"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateProvisioningTemplate' :: Maybe Text
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The ARN of the role associated with the provisioning template. This IoT</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- role grants permission to provision a device.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_provisioningRoleArn"><span class="hs-identifier hs-type">updateProvisioningTemplate_provisioningRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="updateProvisioningTemplate_provisioningRoleArn"><span class="annot"><span class="annottext">updateProvisioningTemplate_provisioningRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679861362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The ARN of the role associated with the provisioning template. This IoT</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- role grants permission to provision a device.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_provisioningRoleArn"><span class="hs-identifier hs-type">updateProvisioningTemplate_provisioningRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="updateProvisioningTemplate_provisioningRoleArn"><span class="annot"><span class="annottext">updateProvisioningTemplate_provisioningRoleArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_provisioningRoleArn"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_provisioningRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Text)
 -&gt; (UpdateProvisioningTemplate
@@ -344,16 +272,88 @@ $sel:description:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860335"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861361"><span class="annot"><span class="annottext">Maybe Text
 provisioningRoleArn :: Maybe Text
 $sel:provisioningRoleArn:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679860335"><span class="hs-identifier hs-var hs-var">provisioningRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860335"><span class="hs-identifier hs-var">provisioningRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860334"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860333"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: Maybe Text
+</span><a href="#local-6989586621679861361"><span class="hs-identifier hs-var hs-var">provisioningRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861361"><span class="hs-identifier hs-var">provisioningRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861360"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861359"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AprovisioningRoleArn%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">provisioningRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679861359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ID of the default provisioning template version.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_defaultVersionId"><span class="hs-identifier hs-type">updateProvisioningTemplate_defaultVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="updateProvisioningTemplate_defaultVersionId"><span class="annot"><span class="annottext">updateProvisioningTemplate_defaultVersionId :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_defaultVersionId"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_defaultVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Int)
+-&gt; (UpdateProvisioningTemplate
+    -&gt; Maybe Int -&gt; UpdateProvisioningTemplate)
+-&gt; Lens
+     UpdateProvisioningTemplate
+     UpdateProvisioningTemplate
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861358"><span class="annot"><span class="annottext">Maybe Int
+defaultVersionId :: Maybe Int
+$sel:defaultVersionId:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Int
+</span><a href="#local-6989586621679861358"><span class="hs-identifier hs-var hs-var">defaultVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679861358"><span class="hs-identifier hs-var">defaultVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861357"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861356"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679861356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultVersionId:UpdateProvisioningTemplate' :: Maybe Int
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AdefaultVersionId%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">defaultVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679861356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Removes pre-provisioning hook template.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_removePreProvisioningHook"><span class="hs-identifier hs-type">updateProvisioningTemplate_removePreProvisioningHook</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="updateProvisioningTemplate_removePreProvisioningHook"><span class="annot"><span class="annottext">updateProvisioningTemplate_removePreProvisioningHook :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_removePreProvisioningHook"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_removePreProvisioningHook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Bool)
+-&gt; (UpdateProvisioningTemplate
+    -&gt; Maybe Bool -&gt; UpdateProvisioningTemplate)
+-&gt; Lens
+     UpdateProvisioningTemplate
+     UpdateProvisioningTemplate
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861355"><span class="annot"><span class="annottext">Maybe Bool
+removePreProvisioningHook :: Maybe Bool
+$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
+</span><a href="#local-6989586621679861355"><span class="hs-identifier hs-var hs-var">removePreProvisioningHook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679861355"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861354"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861353"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679861353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: Maybe Bool
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AremovePreProvisioningHook%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679861353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The description of the fleet provisioning template.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_description"><span class="hs-identifier hs-type">updateProvisioningTemplate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="updateProvisioningTemplate_description"><span class="annot"><span class="annottext">updateProvisioningTemplate_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateProvisioningTemplate -&gt; f UpdateProvisioningTemplate
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_description"><span class="hs-identifier hs-var hs-var">updateProvisioningTemplate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateProvisioningTemplate -&gt; Maybe Text)
+-&gt; (UpdateProvisioningTemplate
+    -&gt; Maybe Text -&gt; UpdateProvisioningTemplate)
+-&gt; Lens
+     UpdateProvisioningTemplate
+     UpdateProvisioningTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861352"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679861352"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861352"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861351"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateProvisioningTemplate' :: Maybe Text
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3Adescription%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The name of the fleet provisioning template.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#updateProvisioningTemplate_templateName"><span class="hs-identifier hs-type">updateProvisioningTemplate_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -365,28 +365,28 @@ $sel:provisioningRoleArn:UpdateProvisioningTemplate' :: UpdateProvisioningTempla
 -&gt; Lens
      UpdateProvisioningTemplate UpdateProvisioningTemplate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860332"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861349"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Text
-</span><a href="#local-6989586621679860332"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860332"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860331"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860330"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
-</span><a href="#local-6989586621679860331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:UpdateProvisioningTemplate' :: Text
+</span><a href="#local-6989586621679861349"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679861349"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861348"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679861347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplate
+</span><a href="#local-6989586621679861348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:UpdateProvisioningTemplate' :: Text
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AtemplateName%3AUpdateProvisioningTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679861347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679860326"><span class="annot"><span class="annottext">request :: UpdateProvisioningTemplate -&gt; Request UpdateProvisioningTemplate
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679861343"><span class="annot"><span class="annottext">request :: UpdateProvisioningTemplate -&gt; Request UpdateProvisioningTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateProvisioningTemplate -&gt; Request UpdateProvisioningTemplate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679860322"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679861339"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateProvisioningTemplate
 -&gt; ClientResponse ClientBody
@@ -412,10 +412,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679860319"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860319"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679860318"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679860318"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679860317"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679860317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679861336"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861336"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679861335"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679861335"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679861334"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679861334"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateProvisioningTemplateResponse
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-var">UpdateProvisioningTemplateResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateProvisioningTemplateResponse)
@@ -427,71 +427,71 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860319"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679861336"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860310"><span id="local-6989586621679860312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861327"><span id="local-6989586621679861329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679860303"><span class="annot"><span class="annottext">toHeaders :: UpdateProvisioningTemplate -&gt; ResponseHeaders
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679861320"><span class="annot"><span class="annottext">toHeaders :: UpdateProvisioningTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateProvisioningTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860294"><span id="local-6989586621679860296"><span id="local-6989586621679860298"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679860292"><span class="annot"><span class="annottext">toJSON :: UpdateProvisioningTemplate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860284"><span id="local-6989586621679860285"><span id="local-6989586621679860286"><span id="local-6989586621679860287"><span id="local-6989586621679860288"><span id="local-6989586621679860289"><span id="local-6989586621679860290"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679861311"><span id="local-6989586621679861313"><span id="local-6989586621679861315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679861309"><span class="annot"><span class="annottext">toJSON :: UpdateProvisioningTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861301"><span id="local-6989586621679861302"><span id="local-6989586621679861303"><span id="local-6989586621679861304"><span id="local-6989586621679861305"><span id="local-6989586621679861306"><span id="local-6989586621679861307"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Maybe ProvisioningHook
 Text
 templateName :: Text
-provisioningRoleArn :: Maybe Text
 description :: Maybe Text
+removePreProvisioningHook :: Maybe Bool
 defaultVersionId :: Maybe Int
+provisioningRoleArn :: Maybe Text
 enabled :: Maybe Bool
 preProvisioningHook :: Maybe ProvisioningHook
-removePreProvisioningHook :: Maybe Bool
 $sel:templateName:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Text
-$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
 $sel:description:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
+$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
 $sel:defaultVersionId:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Int
+$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
 $sel:enabled:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
 $sel:preProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe ProvisioningHook
-$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
-</span><a href="#local-6989586621679860284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679861301"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;removePreProvisioningHook&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860290"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;preProvisioningHook&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisioningHook -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(ProvisioningHook -&gt; Pair) -&gt; Maybe ProvisioningHook -&gt; Maybe Pair
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(ProvisioningHook -&gt; Pair) -&gt; Maybe ProvisioningHook -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisioningHook
-</span><a href="#local-6989586621679860289"><span class="hs-identifier hs-var">preProvisioningHook</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679861307"><span class="hs-identifier hs-var">preProvisioningHook</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679860288"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679861306"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;provisioningRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679861305"><span class="hs-identifier hs-var">provisioningRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultVersionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -499,47 +499,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679860287"><span class="hs-identifier hs-var">defaultVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679861304"><span class="hs-identifier hs-var">defaultVersionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;removePreProvisioningHook&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679861303"><span class="hs-identifier hs-var">removePreProvisioningHook</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860286"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;provisioningRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860285"><span class="hs-identifier hs-var">provisioningRoleArn</span></a></span><span>
+</span><a href="#local-6989586621679861302"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679860278"><span class="annot"><span class="annottext">toPath :: UpdateProvisioningTemplate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860270"><span id="local-6989586621679860271"><span id="local-6989586621679860272"><span id="local-6989586621679860273"><span id="local-6989586621679860274"><span id="local-6989586621679860275"><span id="local-6989586621679860276"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679861295"><span class="annot"><span class="annottext">toPath :: UpdateProvisioningTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861287"><span id="local-6989586621679861288"><span id="local-6989586621679861289"><span id="local-6989586621679861290"><span id="local-6989586621679861291"><span id="local-6989586621679861292"><span id="local-6989586621679861293"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Maybe ProvisioningHook
 Text
 templateName :: Text
-provisioningRoleArn :: Maybe Text
 description :: Maybe Text
+removePreProvisioningHook :: Maybe Bool
 defaultVersionId :: Maybe Int
+provisioningRoleArn :: Maybe Text
 enabled :: Maybe Bool
 preProvisioningHook :: Maybe ProvisioningHook
-removePreProvisioningHook :: Maybe Bool
 $sel:templateName:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Text
-$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
 $sel:description:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
+$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
 $sel:defaultVersionId:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Int
+$sel:provisioningRoleArn:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Text
 $sel:enabled:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
 $sel:preProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe ProvisioningHook
-$sel:removePreProvisioningHook:UpdateProvisioningTemplate' :: UpdateProvisioningTemplate -&gt; Maybe Bool
-</span><a href="#local-6989586621679860270"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679861287"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -547,10 +547,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/provisioning-templates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860270"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679861287"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplate"><span class="hs-identifier hs-type">UpdateProvisioningTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679860266"><span class="annot"><span class="annottext">toQuery :: UpdateProvisioningTemplate -&gt; QueryString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679861283"><span class="annot"><span class="annottext">toQuery :: UpdateProvisioningTemplate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateProvisioningTemplate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -558,12 +558,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newUpdateProvisioningTemplateResponse' smart constructor.</span><span>
-</span><span id="line-190"></span><span id="local-6989586621679860263"><span id="local-6989586621679860264"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProvisioningTemplateResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse"><span class="hs-identifier hs-var">UpdateProvisioningTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProvisioningTemplateResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-var">UpdateProvisioningTemplateResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span id="local-6989586621679861280"><span id="local-6989586621679861281"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateProvisioningTemplateResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse"><span class="hs-identifier hs-var">UpdateProvisioningTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateProvisioningTemplateResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-var">UpdateProvisioningTemplateResponse'</span></a></span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateProvisioningTemplateResponse%27"><span class="annot"><span class="annottext">UpdateProvisioningTemplateResponse -&gt; Int
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AhttpStatus%3AUpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860258"><span id="local-6989586621679860260"><span class="annot"><span class="annottext">UpdateProvisioningTemplateResponse
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679861275"><span id="local-6989586621679861277"><span class="annot"><span class="annottext">UpdateProvisioningTemplateResponse
 -&gt; UpdateProvisioningTemplateResponse -&gt; Bool
 (UpdateProvisioningTemplateResponse
  -&gt; UpdateProvisioningTemplateResponse -&gt; Bool)
@@ -579,7 +579,7 @@ $c/= :: UpdateProvisioningTemplateResponse
 -&gt; UpdateProvisioningTemplateResponse -&gt; Bool
 $c== :: UpdateProvisioningTemplateResponse
 -&gt; UpdateProvisioningTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860250"><span id="local-6989586621679860252"><span id="local-6989586621679860254"><span id="local-6989586621679860256"><span class="annot"><span class="annottext">ReadPrec [UpdateProvisioningTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861267"><span id="local-6989586621679861269"><span id="local-6989586621679861271"><span id="local-6989586621679861273"><span class="annot"><span class="annottext">ReadPrec [UpdateProvisioningTemplateResponse]
 ReadPrec UpdateProvisioningTemplateResponse
 Int -&gt; ReadS UpdateProvisioningTemplateResponse
 ReadS [UpdateProvisioningTemplateResponse]
@@ -599,7 +599,7 @@ readList :: ReadS [UpdateProvisioningTemplateResponse]
 $creadList :: ReadS [UpdateProvisioningTemplateResponse]
 readsPrec :: Int -&gt; ReadS UpdateProvisioningTemplateResponse
 $creadsPrec :: Int -&gt; ReadS UpdateProvisioningTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860244"><span id="local-6989586621679860246"><span id="local-6989586621679860248"><span class="annot"><span class="annottext">Int -&gt; UpdateProvisioningTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679861261"><span id="local-6989586621679861263"><span id="local-6989586621679861265"><span class="annot"><span class="annottext">Int -&gt; UpdateProvisioningTemplateResponse -&gt; ShowS
 [UpdateProvisioningTemplateResponse] -&gt; ShowS
 UpdateProvisioningTemplateResponse -&gt; String
 (Int -&gt; UpdateProvisioningTemplateResponse -&gt; ShowS)
@@ -651,14 +651,14 @@ UpdateProvisioningTemplateResponse
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newUpdateProvisioningTemplateResponse"><span class="annot"><span class="annottext">newUpdateProvisioningTemplateResponse :: Int -&gt; UpdateProvisioningTemplateResponse
-</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#newUpdateProvisioningTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateProvisioningTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679860241"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#newUpdateProvisioningTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateProvisioningTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679861258"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">UpdateProvisioningTemplateResponse' :: Int -&gt; UpdateProvisioningTemplateResponse
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProvisioningTemplateResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AhttpStatus%3AUpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679861258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -675,18 +675,18 @@ UpdateProvisioningTemplateResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860240"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679861257"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateProvisioningTemplateResponse' :: UpdateProvisioningTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679860240"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860240"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860239"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplateResponse
-</span><a href="#local-6989586621679860239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860238"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplateResponse
-</span><a href="#local-6989586621679860239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProvisioningTemplateResponse' :: Int
+</span><a href="#local-6989586621679861257"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861257"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679861256"><span class="annot"><span class="annottext">s :: UpdateProvisioningTemplateResponse
+</span><a href="#local-6989586621679861256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679861255"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679861255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateProvisioningTemplateResponse
+</span><a href="#local-6989586621679861256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateProvisioningTemplateResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#%24sel%3AhttpStatus%3AUpdateProvisioningTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679860238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679861255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679860236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679861253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateProvisioningTemplate.html#UpdateProvisioningTemplateResponse"><span class="hs-identifier hs-type">UpdateProvisioningTemplateResponse</span></a></span></span><span>
 </span><span id="line-222"></span></pre></body></html>

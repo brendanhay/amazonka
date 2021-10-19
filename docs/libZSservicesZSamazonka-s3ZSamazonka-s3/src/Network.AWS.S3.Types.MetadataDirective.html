@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679543760"><span id="local-6989586621679543761"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetadataDirective"><span class="annot"><a href="Network.AWS.S3.Types.MetadataDirective.html#MetadataDirective"><span class="hs-identifier hs-var">MetadataDirective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetadataDirective%27"><span class="annot"><a href="Network.AWS.S3.Types.MetadataDirective.html#MetadataDirective%27"><span class="hs-identifier hs-var">MetadataDirective'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679544389"><span id="local-6989586621679544390"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MetadataDirective"><span class="annot"><a href="Network.AWS.S3.Types.MetadataDirective.html#MetadataDirective"><span class="hs-identifier hs-var">MetadataDirective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetadataDirective%27"><span class="annot"><a href="Network.AWS.S3.Types.MetadataDirective.html#MetadataDirective%27"><span class="hs-identifier hs-var">MetadataDirective'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMetadataDirective"><span class="annot"><span class="annottext">MetadataDirective -&gt; Text
 </span><a href="Network.AWS.S3.Types.MetadataDirective.html#fromMetadataDirective"><span class="hs-identifier hs-var hs-var">fromMetadataDirective</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543752"><span id="local-6989586621679543754"><span id="local-6989586621679543756"><span class="annot"><span class="annottext">Int -&gt; MetadataDirective -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544381"><span id="local-6989586621679544383"><span id="local-6989586621679544385"><span class="annot"><span class="annottext">Int -&gt; MetadataDirective -&gt; ShowS
 [MetadataDirective] -&gt; ShowS
 MetadataDirective -&gt; String
 (Int -&gt; MetadataDirective -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MetadataDirective -&gt; String
 showsPrec :: Int -&gt; MetadataDirective -&gt; ShowS
 $cshowsPrec :: Int -&gt; MetadataDirective -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679543743"><span id="local-6989586621679543745"><span id="local-6989586621679543747"><span id="local-6989586621679543749"><span class="annot"><span class="annottext">ReadPrec [MetadataDirective]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679544372"><span id="local-6989586621679544374"><span id="local-6989586621679544376"><span id="local-6989586621679544378"><span class="annot"><span class="annottext">ReadPrec [MetadataDirective]
 ReadPrec MetadataDirective
 Int -&gt; ReadS MetadataDirective
 ReadS [MetadataDirective]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MetadataDirective]
 readsPrec :: Int -&gt; ReadS MetadataDirective
 $creadsPrec :: Int -&gt; ReadS MetadataDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679543738"><span id="local-6989586621679543740"><span class="annot"><span class="annottext">MetadataDirective -&gt; MetadataDirective -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679544367"><span id="local-6989586621679544369"><span class="annot"><span class="annottext">MetadataDirective -&gt; MetadataDirective -&gt; Bool
 (MetadataDirective -&gt; MetadataDirective -&gt; Bool)
 -&gt; (MetadataDirective -&gt; MetadataDirective -&gt; Bool)
 -&gt; Eq MetadataDirective
@@ -83,7 +83,7 @@ $c/= :: MetadataDirective -&gt; MetadataDirective -&gt; Bool
 == :: MetadataDirective -&gt; MetadataDirective -&gt; Bool
 $c== :: MetadataDirective -&gt; MetadataDirective -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679543722"><span id="local-6989586621679543724"><span id="local-6989586621679543726"><span id="local-6989586621679543728"><span id="local-6989586621679543730"><span id="local-6989586621679543732"><span id="local-6989586621679543734"><span class="annot"><span class="annottext">Eq MetadataDirective
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679544351"><span id="local-6989586621679544353"><span id="local-6989586621679544355"><span id="local-6989586621679544357"><span id="local-6989586621679544359"><span id="local-6989586621679544361"><span id="local-6989586621679544363"><span class="annot"><span class="annottext">Eq MetadataDirective
 Eq MetadataDirective
 -&gt; (MetadataDirective -&gt; MetadataDirective -&gt; Ordering)
 -&gt; (MetadataDirective -&gt; MetadataDirective -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. MetadataDirective -&gt; Rep MetadataDirective x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679543714"><span id="local-6989586621679543716"><span class="annot"><span class="annottext">Int -&gt; MetadataDirective -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544343"><span id="local-6989586621679544345"><span class="annot"><span class="annottext">Int -&gt; MetadataDirective -&gt; Int
 MetadataDirective -&gt; Int
 (Int -&gt; MetadataDirective -&gt; Int)
 -&gt; (MetadataDirective -&gt; Int) -&gt; Hashable MetadataDirective
@@ -144,51 +144,51 @@ $chash :: MetadataDirective -&gt; Int
 hashWithSalt :: Int -&gt; MetadataDirective -&gt; Int
 $chashWithSalt :: Int -&gt; MetadataDirective -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679543711"><span class="annot"><span class="annottext">MetadataDirective -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679544340"><span class="annot"><span class="annottext">MetadataDirective -&gt; ()
 (MetadataDirective -&gt; ()) -&gt; NFData MetadataDirective
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MetadataDirective -&gt; ()
 $crnf :: MetadataDirective -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679543708"><span class="annot"><span class="annottext">Text -&gt; Either String MetadataDirective
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679544337"><span class="annot"><span class="annottext">Text -&gt; Either String MetadataDirective
 (Text -&gt; Either String MetadataDirective)
 -&gt; FromText MetadataDirective
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MetadataDirective
 $cfromText :: Text -&gt; Either String MetadataDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679543705"><span class="annot"><span class="annottext">MetadataDirective -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679544334"><span class="annot"><span class="annottext">MetadataDirective -&gt; Text
 (MetadataDirective -&gt; Text) -&gt; ToText MetadataDirective
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MetadataDirective -&gt; Text
 $ctoText :: MetadataDirective -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679543702"><span class="annot"><span class="annottext">MetadataDirective -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679544331"><span class="annot"><span class="annottext">MetadataDirective -&gt; ByteString
 (MetadataDirective -&gt; ByteString) -&gt; ToByteString MetadataDirective
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MetadataDirective -&gt; ByteString
 $ctoBS :: MetadataDirective -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679543699"><span class="annot"><span class="annottext">MetadataDirective -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679544328"><span class="annot"><span class="annottext">MetadataDirective -&gt; ByteStringBuilder
 (MetadataDirective -&gt; ByteStringBuilder) -&gt; ToLog MetadataDirective
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MetadataDirective -&gt; ByteStringBuilder
 $cbuild :: MetadataDirective -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679543696"><span class="annot"><span class="annottext">HeaderName -&gt; MetadataDirective -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679544325"><span class="annot"><span class="annottext">HeaderName -&gt; MetadataDirective -&gt; [Header]
 (HeaderName -&gt; MetadataDirective -&gt; [Header])
 -&gt; ToHeader MetadataDirective
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MetadataDirective -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MetadataDirective -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679543693"><span class="annot"><span class="annottext">MetadataDirective -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679544322"><span class="annot"><span class="annottext">MetadataDirective -&gt; QueryString
 (MetadataDirective -&gt; QueryString) -&gt; ToQuery MetadataDirective
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MetadataDirective -&gt; QueryString
 $ctoQuery :: MetadataDirective -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679543688"><span id="local-6989586621679543690"><span class="annot"><span class="annottext">Value -&gt; Parser [MetadataDirective]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679544317"><span id="local-6989586621679544319"><span class="annot"><span class="annottext">Value -&gt; Parser [MetadataDirective]
 Value -&gt; Parser MetadataDirective
 (Value -&gt; Parser MetadataDirective)
 -&gt; (Value -&gt; Parser [MetadataDirective])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [MetadataDirective]
 parseJSON :: Value -&gt; Parser MetadataDirective
 $cparseJSON :: Value -&gt; Parser MetadataDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679543683"><span id="local-6989586621679543685"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetadataDirective]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679544312"><span id="local-6989586621679544314"><span class="annot"><span class="annottext">FromJSONKeyFunction [MetadataDirective]
 FromJSONKeyFunction MetadataDirective
 FromJSONKeyFunction MetadataDirective
 -&gt; FromJSONKeyFunction [MetadataDirective]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MetadataDirective]
 fromJSONKey :: FromJSONKeyFunction MetadataDirective
 $cfromJSONKey :: FromJSONKeyFunction MetadataDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679543674"><span id="local-6989586621679543676"><span id="local-6989586621679543678"><span id="local-6989586621679543680"><span class="annot"><span class="annottext">[MetadataDirective] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679544303"><span id="local-6989586621679544305"><span id="local-6989586621679544307"><span id="local-6989586621679544309"><span class="annot"><span class="annottext">[MetadataDirective] -&gt; Encoding
 [MetadataDirective] -&gt; Value
 MetadataDirective -&gt; Encoding
 MetadataDirective -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: MetadataDirective -&gt; Encoding
 toJSON :: MetadataDirective -&gt; Value
 $ctoJSON :: MetadataDirective -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679543669"><span id="local-6989586621679543671"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetadataDirective]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679544298"><span id="local-6989586621679544300"><span class="annot"><span class="annottext">ToJSONKeyFunction [MetadataDirective]
 ToJSONKeyFunction MetadataDirective
 ToJSONKeyFunction MetadataDirective
 -&gt; ToJSONKeyFunction [MetadataDirective]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MetadataDirective]
 toJSONKey :: ToJSONKeyFunction MetadataDirective
 $ctoJSONKey :: ToJSONKeyFunction MetadataDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679543666"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetadataDirective
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679544295"><span class="annot"><span class="annottext">[Node] -&gt; Either String MetadataDirective
 ([Node] -&gt; Either String MetadataDirective)
 -&gt; FromXML MetadataDirective
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MetadataDirective
 $cparseXML :: [Node] -&gt; Either String MetadataDirective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679543663"><span class="annot"><span class="annottext">MetadataDirective -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679544292"><span class="annot"><span class="annottext">MetadataDirective -&gt; XML
 (MetadataDirective -&gt; XML) -&gt; ToXML MetadataDirective
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MetadataDirective -&gt; XML

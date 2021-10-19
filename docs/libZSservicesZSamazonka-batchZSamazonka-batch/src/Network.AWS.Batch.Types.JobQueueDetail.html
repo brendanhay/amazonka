@@ -29,19 +29,19 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | An object representing the details of an Batch job queue.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newJobQueueDetail' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679261017"><span id="local-6989586621679261018"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobQueueDetail"><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-var">JobQueueDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobQueueDetail%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-var">JobQueueDetail'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679261298"><span id="local-6989586621679261299"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobQueueDetail"><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-var">JobQueueDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobQueueDetail%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-var">JobQueueDetail'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the job queue (for example, @CREATING@ or @VALID@).</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AJobQueueDetail%27"><span class="annot"><span class="annottext">JobQueueDetail -&gt; Maybe JQStatus
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Astatus%3AJobQueueDetail%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JQStatus.html#JQStatus"><span class="hs-identifier hs-type">JQStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The tags applied to the job queue. For more information, see</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources&gt;</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in /Batch User Guide/.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atags%3AJobQueueDetail%27"><span class="annot"><span class="annottext">JobQueueDetail -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Atags%3AJobQueueDetail%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- current status of the job queue.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstatusReason%3AJobQueueDetail%27"><span class="annot"><span class="annottext">JobQueueDetail -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- current status of the job queue.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstatusReason%3AJobQueueDetail%27"><span class="annot"><span class="annottext">JobQueueDetail -&gt; Maybe Text
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AstatusReason%3AJobQueueDetail%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The tags applied to the job queue. For more information, see</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources&gt;</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- in /Batch User Guide/.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atags%3AJobQueueDetail%27"><span class="annot"><span class="annottext">JobQueueDetail -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Atags%3AJobQueueDetail%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the job queue.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AjobQueueName%3AJobQueueDetail%27"><span class="annot"><span class="annottext">JobQueueDetail -&gt; Text
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AjobQueueName%3AJobQueueDetail%27"><span class="hs-identifier hs-var hs-var">jobQueueName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AcomputeEnvironmentOrder%3AJobQueueDetail%27"><span class="annot"><span class="annottext">JobQueueDetail -&gt; [ComputeEnvironmentOrder]
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AcomputeEnvironmentOrder%3AJobQueueDetail%27"><span class="hs-identifier hs-var hs-var">computeEnvironmentOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Batch.Types.ComputeEnvironmentOrder.html#ComputeEnvironmentOrder"><span class="hs-identifier hs-type">ComputeEnvironmentOrder</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261004"><span id="local-6989586621679261006"><span class="annot"><span class="annottext">JobQueueDetail -&gt; JobQueueDetail -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261285"><span id="local-6989586621679261287"><span class="annot"><span class="annottext">JobQueueDetail -&gt; JobQueueDetail -&gt; Bool
 (JobQueueDetail -&gt; JobQueueDetail -&gt; Bool)
 -&gt; (JobQueueDetail -&gt; JobQueueDetail -&gt; Bool) -&gt; Eq JobQueueDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobQueueDetail -&gt; JobQueueDetail -&gt; Bool
 == :: JobQueueDetail -&gt; JobQueueDetail -&gt; Bool
 $c== :: JobQueueDetail -&gt; JobQueueDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260995"><span id="local-6989586621679260997"><span id="local-6989586621679260999"><span id="local-6989586621679261001"><span class="annot"><span class="annottext">ReadPrec [JobQueueDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261276"><span id="local-6989586621679261278"><span id="local-6989586621679261280"><span id="local-6989586621679261282"><span class="annot"><span class="annottext">ReadPrec [JobQueueDetail]
 ReadPrec JobQueueDetail
 Int -&gt; ReadS JobQueueDetail
 ReadS [JobQueueDetail]
@@ -98,7 +98,7 @@ readList :: ReadS [JobQueueDetail]
 $creadList :: ReadS [JobQueueDetail]
 readsPrec :: Int -&gt; ReadS JobQueueDetail
 $creadsPrec :: Int -&gt; ReadS JobQueueDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260988"><span id="local-6989586621679260990"><span id="local-6989586621679260992"><span class="annot"><span class="annottext">Int -&gt; JobQueueDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261269"><span id="local-6989586621679261271"><span id="local-6989586621679261273"><span class="annot"><span class="annottext">Int -&gt; JobQueueDetail -&gt; ShowS
 [JobQueueDetail] -&gt; ShowS
 JobQueueDetail -&gt; String
 (Int -&gt; JobQueueDetail -&gt; ShowS)
@@ -134,12 +134,12 @@ $cfrom :: forall x. JobQueueDetail -&gt; Rep JobQueueDetail x
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'tags', 'jobQueueDetail_tags' - The tags applied to the job queue. For more information, see</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources&gt;</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- in /Batch User Guide/.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details about the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- current status of the job queue.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'statusReason', 'jobQueueDetail_statusReason' - A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- current status of the job queue.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'tags', 'jobQueueDetail_tags' - The tags applied to the job queue. For more information, see</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources&gt;</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- in /Batch User Guide/.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'jobQueueName', 'jobQueueDetail_jobQueueName' - The name of the job queue.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
@@ -174,17 +174,17 @@ $cfrom :: forall x. JobQueueDetail -&gt; Rep JobQueueDetail x
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span>
 </span><span id="line-115"></span><span id="newJobQueueDetail"><span class="annot"><span class="annottext">newJobQueueDetail :: Text -&gt; Text -&gt; JQState -&gt; Int -&gt; JobQueueDetail
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#newJobQueueDetail"><span class="hs-identifier hs-var hs-var">newJobQueueDetail</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679260982"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260982"><span class="hs-identifier hs-var">pJobQueueName_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679260981"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260981"><span class="hs-identifier hs-var">pJobQueueArn_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679260980"><span class="annot"><span class="annottext">JQState
-</span><a href="#local-6989586621679260980"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679260979"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260979"><span class="hs-identifier hs-var">pPriority_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679261263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261263"><span class="hs-identifier hs-var">pJobQueueName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679261262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261262"><span class="hs-identifier hs-var">pJobQueueArn_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679261261"><span class="annot"><span class="annottext">JQState
+</span><a href="#local-6989586621679261261"><span class="hs-identifier hs-var">pState_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679261260"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261260"><span class="hs-identifier hs-var">pPriority_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">JobQueueDetail' :: Maybe JQStatus
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
 -&gt; Text
 -&gt; Text
 -&gt; JQState
@@ -196,26 +196,26 @@ $cfrom :: forall x. JobQueueDetail -&gt; Rep JobQueueDetail x
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Astatus%3AJobQueueDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JQStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:JobQueueDetail' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Atags%3AJobQueueDetail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusReason:JobQueueDetail' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AstatusReason%3AJobQueueDetail%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusReason:JobQueueDetail' :: Maybe Text
-</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AstatusReason%3AJobQueueDetail%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:JobQueueDetail' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Atags%3AJobQueueDetail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobQueueName:JobQueueDetail' :: Text
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AjobQueueName%3AJobQueueDetail%27"><span class="hs-identifier hs-var">jobQueueName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260982"><span class="hs-identifier hs-var">pJobQueueName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261263"><span class="hs-identifier hs-var">pJobQueueName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobQueueArn:JobQueueDetail' :: Text
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AjobQueueArn%3AJobQueueDetail%27"><span class="hs-identifier hs-var">jobQueueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260981"><span class="hs-identifier hs-var">pJobQueueArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261262"><span class="hs-identifier hs-var">pJobQueueArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:state:JobQueueDetail' :: JQState
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Astate%3AJobQueueDetail%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JQState
-</span><a href="#local-6989586621679260980"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261261"><span class="hs-identifier hs-var">pState_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:priority:JobQueueDetail' :: Int
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Apriority%3AJobQueueDetail%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260979"><span class="hs-identifier hs-var">pPriority_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261260"><span class="hs-identifier hs-var">pPriority_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:computeEnvironmentOrder:JobQueueDetail' :: [ComputeEnvironmentOrder]
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AcomputeEnvironmentOrder%3AJobQueueDetail%27"><span class="hs-identifier hs-var">computeEnvironmentOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
 forall a. Monoid a =&gt; a
@@ -231,22 +231,42 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      JobQueueDetail JobQueueDetail (Maybe JQStatus) (Maybe JQStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260975"><span class="annot"><span class="annottext">Maybe JQStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261256"><span class="annot"><span class="annottext">Maybe JQStatus
 status :: Maybe JQStatus
 $sel:status:JobQueueDetail' :: JobQueueDetail -&gt; Maybe JQStatus
-</span><a href="#local-6989586621679260975"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JQStatus
-</span><a href="#local-6989586621679260975"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260974"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260973"><span class="annot"><span class="annottext">Maybe JQStatus
-</span><a href="#local-6989586621679260973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JobQueueDetail' :: Maybe JQStatus
+</span><a href="#local-6989586621679261256"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JQStatus
+</span><a href="#local-6989586621679261256"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261255"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261254"><span class="annot"><span class="annottext">Maybe JQStatus
+</span><a href="#local-6989586621679261254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:JobQueueDetail' :: Maybe JQStatus
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Astatus%3AJobQueueDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JQStatus
-</span><a href="#local-6989586621679260973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The tags applied to the job queue. For more information, see</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources&gt;</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- in /Batch User Guide/.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_tags"><span class="hs-identifier hs-type">jobQueueDetail_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="jobQueueDetail_tags"><span class="annot"><span class="annottext">jobQueueDetail_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-135"></span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- current status of the job queue.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_statusReason"><span class="hs-identifier hs-type">jobQueueDetail_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="jobQueueDetail_statusReason"><span class="annot"><span class="annottext">jobQueueDetail_statusReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; JobQueueDetail -&gt; f JobQueueDetail
+</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_statusReason"><span class="hs-identifier hs-var hs-var">jobQueueDetail_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobQueueDetail -&gt; Maybe Text)
+-&gt; (JobQueueDetail -&gt; Maybe Text -&gt; JobQueueDetail)
+-&gt; Lens JobQueueDetail JobQueueDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261252"><span class="annot"><span class="annottext">Maybe Text
+statusReason :: Maybe Text
+$sel:statusReason:JobQueueDetail' :: JobQueueDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679261252"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261252"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261251"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:JobQueueDetail' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AstatusReason%3AJobQueueDetail%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The tags applied to the job queue. For more information, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging your Batch resources&gt;</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- in /Batch User Guide/.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_tags"><span class="hs-identifier hs-type">jobQueueDetail_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="jobQueueDetail_tags"><span class="annot"><span class="annottext">jobQueueDetail_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; JobQueueDetail -&gt; f JobQueueDetail
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_tags"><span class="hs-identifier hs-var hs-var">jobQueueDetail_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobQueueDetail -&gt; Maybe (HashMap Text Text))
 -&gt; (JobQueueDetail -&gt; Maybe (HashMap Text Text) -&gt; JobQueueDetail)
@@ -256,16 +276,16 @@ $sel:status:JobQueueDetail' :: JobQueueDetail -&gt; Maybe JQStatus
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260971"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261248"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:JobQueueDetail' :: JobQueueDetail -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679260971"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679260971"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260970"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260969"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679260969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:JobQueueDetail' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679261248"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679261248"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261247"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261246"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679261246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:JobQueueDetail' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Atags%3AJobQueueDetail%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679260969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679261246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; JobQueueDetail -&gt; f JobQueueDetail)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -291,28 +311,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- current status of the job queue.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_statusReason"><span class="hs-identifier hs-type">jobQueueDetail_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="jobQueueDetail_statusReason"><span class="annot"><span class="annottext">jobQueueDetail_statusReason :: (Maybe Text -&gt; f (Maybe Text))
--&gt; JobQueueDetail -&gt; f JobQueueDetail
-</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_statusReason"><span class="hs-identifier hs-var hs-var">jobQueueDetail_statusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JobQueueDetail -&gt; Maybe Text)
--&gt; (JobQueueDetail -&gt; Maybe Text -&gt; JobQueueDetail)
--&gt; Lens JobQueueDetail JobQueueDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260964"><span class="annot"><span class="annottext">Maybe Text
-statusReason :: Maybe Text
-$sel:statusReason:JobQueueDetail' :: JobQueueDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679260964"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260964"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260963"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:JobQueueDetail' :: Maybe Text
-</span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AstatusReason%3AJobQueueDetail%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The name of the job queue.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_jobQueueName"><span class="hs-identifier hs-type">jobQueueDetail_jobQueueName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -321,16 +321,16 @@ $sel:statusReason:JobQueueDetail' :: JobQueueDetail -&gt; Maybe Text
 -&gt; (JobQueueDetail -&gt; Text -&gt; JobQueueDetail)
 -&gt; Lens JobQueueDetail JobQueueDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260960"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261241"><span class="annot"><span class="annottext">Text
 jobQueueName :: Text
 $sel:jobQueueName:JobQueueDetail' :: JobQueueDetail -&gt; Text
-</span><a href="#local-6989586621679260960"><span class="hs-identifier hs-var hs-var">jobQueueName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260960"><span class="hs-identifier hs-var">jobQueueName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260959"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260958"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobQueueName:JobQueueDetail' :: Text
+</span><a href="#local-6989586621679261241"><span class="hs-identifier hs-var hs-var">jobQueueName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261241"><span class="hs-identifier hs-var">jobQueueName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261240"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobQueueName:JobQueueDetail' :: Text
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AjobQueueName%3AJobQueueDetail%27"><span class="hs-identifier hs-var">jobQueueName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the job queue.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#jobQueueDetail_jobQueueArn"><span class="hs-identifier hs-type">jobQueueDetail_jobQueueArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -339,16 +339,16 @@ $sel:jobQueueName:JobQueueDetail' :: JobQueueDetail -&gt; Text
 -&gt; (JobQueueDetail -&gt; Text -&gt; JobQueueDetail)
 -&gt; Lens JobQueueDetail JobQueueDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260956"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261237"><span class="annot"><span class="annottext">Text
 jobQueueArn :: Text
 $sel:jobQueueArn:JobQueueDetail' :: JobQueueDetail -&gt; Text
-</span><a href="#local-6989586621679260956"><span class="hs-identifier hs-var hs-var">jobQueueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260956"><span class="hs-identifier hs-var">jobQueueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260955"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260954"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobQueueArn:JobQueueDetail' :: Text
+</span><a href="#local-6989586621679261237"><span class="hs-identifier hs-var hs-var">jobQueueArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261237"><span class="hs-identifier hs-var">jobQueueArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261236"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobQueueArn:JobQueueDetail' :: Text
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AjobQueueArn%3AJobQueueDetail%27"><span class="hs-identifier hs-var">jobQueueArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | Describes the ability of the queue to accept new jobs. If the job queue</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- state is @ENABLED@, it\'s able to accept jobs. If the job queue state is</span><span>
@@ -360,16 +360,16 @@ $sel:jobQueueArn:JobQueueDetail' :: JobQueueDetail -&gt; Text
 -&gt; (JobQueueDetail -&gt; JQState -&gt; JobQueueDetail)
 -&gt; Lens JobQueueDetail JobQueueDetail JQState JQState
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260952"><span class="annot"><span class="annottext">JQState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261233"><span class="annot"><span class="annottext">JQState
 state :: JQState
 $sel:state:JobQueueDetail' :: JobQueueDetail -&gt; JQState
-</span><a href="#local-6989586621679260952"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JQState
-</span><a href="#local-6989586621679260952"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260951"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260950"><span class="annot"><span class="annottext">JQState
-</span><a href="#local-6989586621679260950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:JobQueueDetail' :: JQState
+</span><a href="#local-6989586621679261233"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JQState
+</span><a href="#local-6989586621679261233"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261232"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261231"><span class="annot"><span class="annottext">JQState
+</span><a href="#local-6989586621679261231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:JobQueueDetail' :: JQState
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Astate%3AJobQueueDetail%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JQState
-</span><a href="#local-6989586621679260950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The priority of the job queue. Job queues with a higher priority (or a</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- higher integer value for the @priority@ parameter) are evaluated first</span><span>
@@ -385,16 +385,16 @@ $sel:state:JobQueueDetail' :: JobQueueDetail -&gt; JQState
 -&gt; (JobQueueDetail -&gt; Int -&gt; JobQueueDetail)
 -&gt; Lens JobQueueDetail JobQueueDetail Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260948"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261229"><span class="annot"><span class="annottext">Int
 priority :: Int
 $sel:priority:JobQueueDetail' :: JobQueueDetail -&gt; Int
-</span><a href="#local-6989586621679260948"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260948"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260947"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260946"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:JobQueueDetail' :: Int
+</span><a href="#local-6989586621679261229"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261229"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261228"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:JobQueueDetail' :: Int
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3Apriority%3AJobQueueDetail%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The compute environments that are attached to the job queue and the</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- order that job placement is preferred. Compute environments are selected</span><span>
@@ -410,16 +410,16 @@ $sel:priority:JobQueueDetail' :: JobQueueDetail -&gt; Int
      [ComputeEnvironmentOrder]
      [ComputeEnvironmentOrder]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260944"><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261225"><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
 computeEnvironmentOrder :: [ComputeEnvironmentOrder]
 $sel:computeEnvironmentOrder:JobQueueDetail' :: JobQueueDetail -&gt; [ComputeEnvironmentOrder]
-</span><a href="#local-6989586621679260944"><span class="hs-identifier hs-var hs-var">computeEnvironmentOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
-</span><a href="#local-6989586621679260944"><span class="hs-identifier hs-var">computeEnvironmentOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260943"><span class="annot"><span class="annottext">s :: JobQueueDetail
-</span><a href="#local-6989586621679260943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260942"><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
-</span><a href="#local-6989586621679260942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
-</span><a href="#local-6989586621679260943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironmentOrder:JobQueueDetail' :: [ComputeEnvironmentOrder]
+</span><a href="#local-6989586621679261225"><span class="hs-identifier hs-var hs-var">computeEnvironmentOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
+</span><a href="#local-6989586621679261225"><span class="hs-identifier hs-var">computeEnvironmentOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261224"><span class="annot"><span class="annottext">s :: JobQueueDetail
+</span><a href="#local-6989586621679261224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-type">JobQueueDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261223"><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
+</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobQueueDetail
+</span><a href="#local-6989586621679261224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeEnvironmentOrder:JobQueueDetail' :: [ComputeEnvironmentOrder]
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#%24sel%3AcomputeEnvironmentOrder%3AJobQueueDetail%27"><span class="hs-identifier hs-var">computeEnvironmentOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ComputeEnvironmentOrder]
-</span><a href="#local-6989586621679260942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ComputeEnvironmentOrder] -&gt; f [ComputeEnvironmentOrder])
+</span><a href="#local-6989586621679261223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ComputeEnvironmentOrder] -&gt; f [ComputeEnvironmentOrder])
  -&gt; JobQueueDetail -&gt; f JobQueueDetail)
 -&gt; (([ComputeEnvironmentOrder] -&gt; f [ComputeEnvironmentOrder])
     -&gt; [ComputeEnvironmentOrder] -&gt; f [ComputeEnvironmentOrder])
@@ -429,11 +429,11 @@ $sel:computeEnvironmentOrder:JobQueueDetail' :: JobQueueDetail -&gt; [ComputeEnv
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ComputeEnvironmentOrder] -&gt; f [ComputeEnvironmentOrder])
 -&gt; [ComputeEnvironmentOrder] -&gt; f [ComputeEnvironmentOrder]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260939"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679260937"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobQueueDetail
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261220"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679261218"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobQueueDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobQueueDetail)
@@ -443,11 +443,11 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobQueueDetail&quot;</span></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260934"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261215"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe JQStatus
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
 -&gt; Text
 -&gt; Text
 -&gt; JQState
@@ -456,8 +456,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; JobQueueDetail
 </span><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail%27"><span class="hs-identifier hs-var">JobQueueDetail'</span></a></span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JQStatus
- -&gt; Maybe (HashMap Text Text)
  -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
  -&gt; Text
  -&gt; Text
  -&gt; JQState
@@ -466,8 +466,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; JobQueueDetail)
 -&gt; Parser (Maybe JQStatus)
 -&gt; Parser
-     (Maybe (HashMap Text Text)
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Text
       -&gt; Text
       -&gt; JQState
@@ -476,22 +476,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; JobQueueDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JQStatus)
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JQStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text Text)
-   -&gt; Maybe Text
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Text
    -&gt; Text
    -&gt; JQState
    -&gt; Int
    -&gt; [ComputeEnvironmentOrder]
    -&gt; JobQueueDetail)
--&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe (HashMap Text Text)
       -&gt; Text
       -&gt; Text
       -&gt; JQState
@@ -500,24 +500,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JobQueueDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
--&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe (HashMap Text Text)
    -&gt; Text
    -&gt; Text
    -&gt; JQState
    -&gt; Int
    -&gt; [ComputeEnvironmentOrder]
    -&gt; JobQueueDetail)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text))
 -&gt; Parser
      (Text
       -&gt; Text
@@ -527,10 +522,15 @@ forall a. Monoid a =&gt; a
       -&gt; JobQueueDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text
    -&gt; Text
@@ -544,7 +544,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; JQState -&gt; Int -&gt; [ComputeEnvironmentOrder] -&gt; JobQueueDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobQueueName&quot;</span></span><span class="hs-special">)</span><span>
@@ -556,7 +556,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (JQState -&gt; Int -&gt; [ComputeEnvironmentOrder] -&gt; JobQueueDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobQueueArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -566,7 +566,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Int -&gt; [ComputeEnvironmentOrder] -&gt; JobQueueDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser JQState
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser JQState
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
@@ -575,7 +575,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ([ComputeEnvironmentOrder] -&gt; JobQueueDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;priority&quot;</span></span><span class="hs-special">)</span><span>
@@ -583,7 +583,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [ComputeEnvironmentOrder] -&gt; Parser JobQueueDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679260934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ComputeEnvironmentOrder])
+</span><a href="#local-6989586621679261215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ComputeEnvironmentOrder])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;computeEnvironmentOrder&quot;</span></span><span>
@@ -596,7 +596,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260926"><span id="local-6989586621679260928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261207"><span id="local-6989586621679261209"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span></span></span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobQueueDetail.html#JobQueueDetail"><span class="hs-identifier hs-type">JobQueueDetail</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

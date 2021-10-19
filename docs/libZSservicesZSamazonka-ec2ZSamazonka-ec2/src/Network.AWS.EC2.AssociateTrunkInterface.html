@@ -36,10 +36,10 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#newAssociateTrunkInterface"><span class="hs-identifier">newAssociateTrunkInterface</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_dryRun"><span class="hs-identifier">associateTrunkInterface_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_clientToken"><span class="hs-identifier">associateTrunkInterface_clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_greKey"><span class="hs-identifier">associateTrunkInterface_greKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_vlanId"><span class="hs-identifier">associateTrunkInterface_vlanId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_clientToken"><span class="hs-identifier">associateTrunkInterface_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_dryRun"><span class="hs-identifier">associateTrunkInterface_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_branchInterfaceId"><span class="hs-identifier">associateTrunkInterface_branchInterfaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_trunkInterfaceId"><span class="hs-identifier">associateTrunkInterface_trunkInterfaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
@@ -48,8 +48,8 @@
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#newAssociateTrunkInterfaceResponse"><span class="hs-identifier">newAssociateTrunkInterfaceResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_interfaceAssociation"><span class="hs-identifier">associateTrunkInterfaceResponse_interfaceAssociation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_clientToken"><span class="hs-identifier">associateTrunkInterfaceResponse_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_clientToken"><span class="hs-identifier">associateTrunkInterfaceResponse_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_interfaceAssociation"><span class="hs-identifier">associateTrunkInterfaceResponse_interfaceAssociation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_httpStatus"><span class="hs-identifier">associateTrunkInterfaceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span class="hs-keyword">where</span><span>
@@ -62,24 +62,24 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newAssociateTrunkInterface' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621681268814"><span id="local-6989586621681268815"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateTrunkInterface"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-var">AssociateTrunkInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateTrunkInterface%27"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-var">AssociateTrunkInterface'</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The application key. This applies to the GRE protocol.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AgreKey%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AgreKey%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">greKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The ID of the VLAN. This applies to the VLAN protocol.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AvlanId%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AvlanId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">vlanId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3AclientToken%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Text
+</span><span id="line-65"></span><span id="local-6989586621681305543"><span id="local-6989586621681305544"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateTrunkInterface"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-var">AssociateTrunkInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateTrunkInterface%27"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-var">AssociateTrunkInterface'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AclientToken%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The application key. This applies to the GRE protocol.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AgreKey%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AgreKey%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">greKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The ID of the VLAN. This applies to the VLAN protocol.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AvlanId%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AvlanId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">vlanId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The ID of the branch network interface.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AbranchInterfaceId%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AbranchInterfaceId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">branchInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -87,7 +87,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AtrunkInterfaceId%3AAssociateTrunkInterface%27"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AtrunkInterfaceId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var hs-var">trunkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681268803"><span id="local-6989586621681268805"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; AssociateTrunkInterface -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681305532"><span id="local-6989586621681305534"><span class="annot"><span class="annottext">AssociateTrunkInterface -&gt; AssociateTrunkInterface -&gt; Bool
 (AssociateTrunkInterface -&gt; AssociateTrunkInterface -&gt; Bool)
 -&gt; (AssociateTrunkInterface -&gt; AssociateTrunkInterface -&gt; Bool)
 -&gt; Eq AssociateTrunkInterface
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateTrunkInterface -&gt; AssociateTrunkInterface -&gt; Bool
 == :: AssociateTrunkInterface -&gt; AssociateTrunkInterface -&gt; Bool
 $c== :: AssociateTrunkInterface -&gt; AssociateTrunkInterface -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681268794"><span id="local-6989586621681268796"><span id="local-6989586621681268798"><span id="local-6989586621681268800"><span class="annot"><span class="annottext">ReadPrec [AssociateTrunkInterface]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681305523"><span id="local-6989586621681305525"><span id="local-6989586621681305527"><span id="local-6989586621681305529"><span class="annot"><span class="annottext">ReadPrec [AssociateTrunkInterface]
 ReadPrec AssociateTrunkInterface
 Int -&gt; ReadS AssociateTrunkInterface
 ReadS [AssociateTrunkInterface]
@@ -116,7 +116,7 @@ readList :: ReadS [AssociateTrunkInterface]
 $creadList :: ReadS [AssociateTrunkInterface]
 readsPrec :: Int -&gt; ReadS AssociateTrunkInterface
 $creadsPrec :: Int -&gt; ReadS AssociateTrunkInterface
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681268787"><span id="local-6989586621681268789"><span id="local-6989586621681268791"><span class="annot"><span class="annottext">Int -&gt; AssociateTrunkInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681305516"><span id="local-6989586621681305518"><span id="local-6989586621681305520"><span class="annot"><span class="annottext">Int -&gt; AssociateTrunkInterface -&gt; ShowS
 [AssociateTrunkInterface] -&gt; ShowS
 AssociateTrunkInterface -&gt; String
 (Int -&gt; AssociateTrunkInterface -&gt; ShowS)
@@ -152,18 +152,18 @@ $cfrom :: forall x. AssociateTrunkInterface -&gt; Rep AssociateTrunkInterface x
 </span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'dryRun', 'associateTrunkInterface_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'greKey', 'associateTrunkInterface_greKey' - The application key. This applies to the GRE protocol.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'vlanId', 'associateTrunkInterface_vlanId' - The ID of the VLAN. This applies to the VLAN protocol.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'clientToken', 'associateTrunkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'clientToken', 'associateTrunkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'greKey', 'associateTrunkInterface_greKey' - The application key. This applies to the GRE protocol.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'vlanId', 'associateTrunkInterface_vlanId' - The ID of the VLAN. This applies to the VLAN protocol.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'dryRun', 'associateTrunkInterface_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- 'branchInterfaceId', 'associateTrunkInterface_branchInterfaceId' - The ID of the branch network interface.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
@@ -176,68 +176,68 @@ $cfrom :: forall x. AssociateTrunkInterface -&gt; Rep AssociateTrunkInterface x
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span>
 </span><span id="line-116"></span><span id="newAssociateTrunkInterface"><span class="annot"><span class="annottext">newAssociateTrunkInterface :: Text -&gt; Text -&gt; AssociateTrunkInterface
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#newAssociateTrunkInterface"><span class="hs-identifier hs-var hs-var">newAssociateTrunkInterface</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621681268782"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268782"><span class="hs-identifier hs-var">pBranchInterfaceId_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681268781"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268781"><span class="hs-identifier hs-var">pTrunkInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">AssociateTrunkInterface' :: Maybe Bool
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681305511"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681305511"><span class="hs-identifier hs-var">pBranchInterfaceId_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681305510"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681305510"><span class="hs-identifier hs-var">pTrunkInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">AssociateTrunkInterface' :: Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Int
--&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; Text
 -&gt; AssociateTrunkInterface
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:AssociateTrunkInterface' :: Maybe Bool
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterface' :: Maybe Text
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:greKey:AssociateTrunkInterface' :: Maybe Int
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:greKey:AssociateTrunkInterface' :: Maybe Int
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AgreKey%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">greKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:vlanId:AssociateTrunkInterface' :: Maybe Int
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:vlanId:AssociateTrunkInterface' :: Maybe Int
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AvlanId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">vlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterface' :: Maybe Text
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:AssociateTrunkInterface' :: Maybe Bool
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:branchInterfaceId:AssociateTrunkInterface' :: Text
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:branchInterfaceId:AssociateTrunkInterface' :: Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AbranchInterfaceId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">branchInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268782"><span class="hs-identifier hs-var">pBranchInterfaceId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:trunkInterfaceId:AssociateTrunkInterface' :: Text
+</span><a href="#local-6989586621681305511"><span class="hs-identifier hs-var">pBranchInterfaceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:trunkInterfaceId:AssociateTrunkInterface' :: Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AtrunkInterfaceId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">trunkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268781"><span class="hs-identifier hs-var">pTrunkInterfaceId_</span></a></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_dryRun"><span class="hs-identifier hs-type">associateTrunkInterface_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="associateTrunkInterface_dryRun"><span class="annot"><span class="annottext">associateTrunkInterface_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621681305510"><span class="hs-identifier hs-var">pTrunkInterfaceId_</span></a></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_clientToken"><span class="hs-identifier hs-type">associateTrunkInterface_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="associateTrunkInterface_clientToken"><span class="annot"><span class="annottext">associateTrunkInterface_clientToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssociateTrunkInterface -&gt; f AssociateTrunkInterface
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_dryRun"><span class="hs-identifier hs-var hs-var">associateTrunkInterface_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterface -&gt; Maybe Bool)
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_clientToken"><span class="hs-identifier hs-var hs-var">associateTrunkInterface_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterface -&gt; Maybe Text)
 -&gt; (AssociateTrunkInterface
-    -&gt; Maybe Bool -&gt; AssociateTrunkInterface)
+    -&gt; Maybe Text -&gt; AssociateTrunkInterface)
 -&gt; Lens
      AssociateTrunkInterface
      AssociateTrunkInterface
-     (Maybe Bool)
-     (Maybe Bool)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268778"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Bool
-</span><a href="#local-6989586621681268778"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681268778"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268777"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
-</span><a href="#local-6989586621681268777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268776"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681268776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
-</span><a href="#local-6989586621681268777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AssociateTrunkInterface' :: Maybe Bool
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681268776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305507"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621681305507"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681305507"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305506"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
+</span><a href="#local-6989586621681305506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305505"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681305505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
+</span><a href="#local-6989586621681305506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterface' :: Maybe Text
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681305505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The application key. This applies to the GRE protocol.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_greKey"><span class="hs-identifier hs-type">associateTrunkInterface_greKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -252,16 +252,16 @@ $sel:dryRun:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Bool
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268775"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305504"><span class="annot"><span class="annottext">Maybe Int
 greKey :: Maybe Int
 $sel:greKey:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Int
-</span><a href="#local-6989586621681268775"><span class="hs-identifier hs-var hs-var">greKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268775"><span class="hs-identifier hs-var">greKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268774"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
-</span><a href="#local-6989586621681268774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268773"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
-</span><a href="#local-6989586621681268774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greKey:AssociateTrunkInterface' :: Maybe Int
+</span><a href="#local-6989586621681305504"><span class="hs-identifier hs-var hs-var">greKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681305504"><span class="hs-identifier hs-var">greKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305503"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
+</span><a href="#local-6989586621681305503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305502"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681305502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
+</span><a href="#local-6989586621681305503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greKey:AssociateTrunkInterface' :: Maybe Int
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AgreKey%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">greKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681305502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The ID of the VLAN. This applies to the VLAN protocol.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_vlanId"><span class="hs-identifier hs-type">associateTrunkInterface_vlanId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -276,99 +276,100 @@ $sel:greKey:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Int
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268772"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305501"><span class="annot"><span class="annottext">Maybe Int
 vlanId :: Maybe Int
 $sel:vlanId:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Int
-</span><a href="#local-6989586621681268772"><span class="hs-identifier hs-var hs-var">vlanId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268772"><span class="hs-identifier hs-var">vlanId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268771"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
-</span><a href="#local-6989586621681268771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268770"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
-</span><a href="#local-6989586621681268771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vlanId:AssociateTrunkInterface' :: Maybe Int
+</span><a href="#local-6989586621681305501"><span class="hs-identifier hs-var hs-var">vlanId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681305501"><span class="hs-identifier hs-var">vlanId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305500"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
+</span><a href="#local-6989586621681305500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305499"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681305499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
+</span><a href="#local-6989586621681305500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vlanId:AssociateTrunkInterface' :: Maybe Int
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AvlanId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">vlanId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681305499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_clientToken"><span class="hs-identifier hs-type">associateTrunkInterface_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="associateTrunkInterface_clientToken"><span class="annot"><span class="annottext">associateTrunkInterface_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-143"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_dryRun"><span class="hs-identifier hs-type">associateTrunkInterface_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="associateTrunkInterface_dryRun"><span class="annot"><span class="annottext">associateTrunkInterface_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; AssociateTrunkInterface -&gt; f AssociateTrunkInterface
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_clientToken"><span class="hs-identifier hs-var hs-var">associateTrunkInterface_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterface -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_dryRun"><span class="hs-identifier hs-var hs-var">associateTrunkInterface_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterface -&gt; Maybe Bool)
 -&gt; (AssociateTrunkInterface
-    -&gt; Maybe Text -&gt; AssociateTrunkInterface)
+    -&gt; Maybe Bool -&gt; AssociateTrunkInterface)
 -&gt; Lens
      AssociateTrunkInterface
      AssociateTrunkInterface
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe Bool)
+     (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268769"><span class="annot"><span class="annottext">Maybe Text
-clientToken :: Maybe Text
-$sel:clientToken:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Text
-</span><a href="#local-6989586621681268769"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681268769"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268768"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
-</span><a href="#local-6989586621681268768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268767"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681268767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
-</span><a href="#local-6989586621681268768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterface' :: Maybe Text
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681268767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | The ID of the branch network interface.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_branchInterfaceId"><span class="hs-identifier hs-type">associateTrunkInterface_branchInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-151"></span><span id="associateTrunkInterface_branchInterfaceId"><span class="annot"><span class="annottext">associateTrunkInterface_branchInterfaceId :: (Text -&gt; f Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305498"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Bool
+</span><a href="#local-6989586621681305498"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681305498"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305497"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
+</span><a href="#local-6989586621681305497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305496"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681305496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
+</span><a href="#local-6989586621681305497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AssociateTrunkInterface' :: Maybe Bool
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AdryRun%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681305496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The ID of the branch network interface.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_branchInterfaceId"><span class="hs-identifier hs-type">associateTrunkInterface_branchInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="associateTrunkInterface_branchInterfaceId"><span class="annot"><span class="annottext">associateTrunkInterface_branchInterfaceId :: (Text -&gt; f Text)
 -&gt; AssociateTrunkInterface -&gt; f AssociateTrunkInterface
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_branchInterfaceId"><span class="hs-identifier hs-var hs-var">associateTrunkInterface_branchInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterface -&gt; Text)
 -&gt; (AssociateTrunkInterface -&gt; Text -&gt; AssociateTrunkInterface)
 -&gt; Lens AssociateTrunkInterface AssociateTrunkInterface Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268766"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305495"><span class="annot"><span class="annottext">Text
 branchInterfaceId :: Text
 $sel:branchInterfaceId:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Text
-</span><a href="#local-6989586621681268766"><span class="hs-identifier hs-var hs-var">branchInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268766"><span class="hs-identifier hs-var">branchInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268765"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
-</span><a href="#local-6989586621681268765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268764"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
-</span><a href="#local-6989586621681268765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchInterfaceId:AssociateTrunkInterface' :: Text
+</span><a href="#local-6989586621681305495"><span class="hs-identifier hs-var hs-var">branchInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681305495"><span class="hs-identifier hs-var">branchInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305494"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
+</span><a href="#local-6989586621681305494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305493"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681305493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
+</span><a href="#local-6989586621681305494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchInterfaceId:AssociateTrunkInterface' :: Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AbranchInterfaceId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">branchInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The ID of the trunk network interface.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_trunkInterfaceId"><span class="hs-identifier hs-type">associateTrunkInterface_trunkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-155"></span><span id="associateTrunkInterface_trunkInterfaceId"><span class="annot"><span class="annottext">associateTrunkInterface_trunkInterfaceId :: (Text -&gt; f Text)
+</span><a href="#local-6989586621681305493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The ID of the trunk network interface.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_trunkInterfaceId"><span class="hs-identifier hs-type">associateTrunkInterface_trunkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-156"></span><span id="associateTrunkInterface_trunkInterfaceId"><span class="annot"><span class="annottext">associateTrunkInterface_trunkInterfaceId :: (Text -&gt; f Text)
 -&gt; AssociateTrunkInterface -&gt; f AssociateTrunkInterface
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterface_trunkInterfaceId"><span class="hs-identifier hs-var hs-var">associateTrunkInterface_trunkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterface -&gt; Text)
 -&gt; (AssociateTrunkInterface -&gt; Text -&gt; AssociateTrunkInterface)
 -&gt; Lens AssociateTrunkInterface AssociateTrunkInterface Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268763"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305492"><span class="annot"><span class="annottext">Text
 trunkInterfaceId :: Text
 $sel:trunkInterfaceId:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Text
-</span><a href="#local-6989586621681268763"><span class="hs-identifier hs-var hs-var">trunkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268763"><span class="hs-identifier hs-var">trunkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268762"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
-</span><a href="#local-6989586621681268762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268761"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
-</span><a href="#local-6989586621681268762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trunkInterfaceId:AssociateTrunkInterface' :: Text
+</span><a href="#local-6989586621681305492"><span class="hs-identifier hs-var hs-var">trunkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681305492"><span class="hs-identifier hs-var">trunkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305491"><span class="annot"><span class="annottext">s :: AssociateTrunkInterface
+</span><a href="#local-6989586621681305491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305490"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681305490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterface
+</span><a href="#local-6989586621681305491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trunkInterfaceId:AssociateTrunkInterface' :: Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AtrunkInterfaceId%3AAssociateTrunkInterface%27"><span class="hs-identifier hs-var">trunkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-159"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621681268757"><span class="annot"><span class="annottext">request :: AssociateTrunkInterface -&gt; Request AssociateTrunkInterface
+</span><a href="#local-6989586621681305490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-160"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621681305486"><span class="annot"><span class="annottext">request :: AssociateTrunkInterface -&gt; Request AssociateTrunkInterface
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateTrunkInterface -&gt; Request AssociateTrunkInterface
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621681268753"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681305482"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateTrunkInterface
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse AssociateTrunkInterface)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; [Node]
  -&gt; Either String (AWSResponse AssociateTrunkInterface))
@@ -387,35 +388,43 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681268750"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681268750"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681268749"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681268749"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681268748"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681268748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
--&gt; Maybe Text -&gt; Int -&gt; AssociateTrunkInterfaceResponse
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681305479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681305479"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681305478"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681305478"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681305477"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681305477"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe TrunkInterfaceAssociation
+-&gt; Int
+-&gt; AssociateTrunkInterfaceResponse
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">AssociateTrunkInterfaceResponse'</span></a></span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TrunkInterfaceAssociation
- -&gt; Maybe Text -&gt; Int -&gt; AssociateTrunkInterfaceResponse)
--&gt; Either String (Maybe TrunkInterfaceAssociation)
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe TrunkInterfaceAssociation
+ -&gt; Int
+ -&gt; AssociateTrunkInterfaceResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; AssociateTrunkInterfaceResponse)
+     String
+     (Maybe TrunkInterfaceAssociation
+      -&gt; Int -&gt; AssociateTrunkInterfaceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681268748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrunkInterfaceAssociation)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;interfaceAssociation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; AssociateTrunkInterfaceResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; AssociateTrunkInterfaceResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681268748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681305477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clientToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AssociateTrunkInterfaceResponse)
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe TrunkInterfaceAssociation
+   -&gt; Int -&gt; AssociateTrunkInterfaceResponse)
+-&gt; Either String (Maybe TrunkInterfaceAssociation)
+-&gt; Either String (Int -&gt; AssociateTrunkInterfaceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681305477"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrunkInterfaceAssociation)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;interfaceAssociation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AssociateTrunkInterfaceResponse)
 -&gt; Either String Int
 -&gt; Either String AssociateTrunkInterfaceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -424,110 +433,110 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681268750"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681268740"><span id="local-6989586621681268742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span></span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681268737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621681268733"><span class="annot"><span class="annottext">toHeaders :: AssociateTrunkInterface -&gt; ResponseHeaders
+</span><a href="#local-6989586621681305479"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681305469"><span id="local-6989586621681305471"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681305466"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621681305462"><span class="annot"><span class="annottext">toHeaders :: AssociateTrunkInterface -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateTrunkInterface -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621681268728"><span class="annot"><span class="annottext">toPath :: AssociateTrunkInterface -&gt; ByteString
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621681305457"><span class="annot"><span class="annottext">toPath :: AssociateTrunkInterface -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateTrunkInterface -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621681268724"><span class="annot"><span class="annottext">toQuery :: AssociateTrunkInterface -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268717"><span id="local-6989586621681268718"><span id="local-6989586621681268719"><span id="local-6989586621681268720"><span id="local-6989586621681268721"><span id="local-6989586621681268722"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface"><span class="hs-identifier hs-type">AssociateTrunkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621681305453"><span class="annot"><span class="annottext">toQuery :: AssociateTrunkInterface -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterface%27"><span class="hs-identifier hs-type">AssociateTrunkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305446"><span id="local-6989586621681305447"><span id="local-6989586621681305448"><span id="local-6989586621681305449"><span id="local-6989586621681305450"><span id="local-6989586621681305451"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Text
 trunkInterfaceId :: Text
 branchInterfaceId :: Text
-clientToken :: Maybe Text
+dryRun :: Maybe Bool
 vlanId :: Maybe Int
 greKey :: Maybe Int
-dryRun :: Maybe Bool
+clientToken :: Maybe Text
 $sel:trunkInterfaceId:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Text
 $sel:branchInterfaceId:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Text
-$sel:clientToken:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Text
+$sel:dryRun:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Bool
 $sel:vlanId:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Int
 $sel:greKey:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Int
-$sel:dryRun:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Bool
-</span><a href="#local-6989586621681268717"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+$sel:clientToken:AssociateTrunkInterface' :: AssociateTrunkInterface -&gt; Maybe Text
+</span><a href="#local-6989586621681305446"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-185"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AssociateTrunkInterface&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Version&quot;</span></span><span>
-</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681268722"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;GreKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268721"><span class="hs-identifier hs-var">greKey</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;VlanId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681268720"><span class="hs-identifier hs-var">vlanId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681268719"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681305451"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GreKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681305450"><span class="hs-identifier hs-var">greKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VlanId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681305449"><span class="hs-identifier hs-var">vlanId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681305448"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BranchInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268718"><span class="hs-identifier hs-var">branchInterfaceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681305447"><span class="hs-identifier hs-var">branchInterfaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TrunkInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681268717"><span class="hs-identifier hs-var">trunkInterfaceId</span></a></span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newAssociateTrunkInterfaceResponse' smart constructor.</span><span>
-</span><span id="line-197"></span><span id="local-6989586621681268714"><span id="local-6989586621681268715"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateTrunkInterfaceResponse"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-var">AssociateTrunkInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateTrunkInterfaceResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">AssociateTrunkInterfaceResponse'</span></a></span></span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the association between the trunk network interface</span><span>
-</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- and branch network interface.</span><span>
-</span><span id="line-200"></span><span>    </span><span id="%24sel%3AinterfaceAssociation%3AAssociateTrunkInterfaceResponse%27"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse -&gt; Maybe TrunkInterfaceAssociation
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AinterfaceAssociation%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">interfaceAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrunkInterfaceAssociation.html#TrunkInterfaceAssociation"><span class="hs-identifier hs-type">TrunkInterfaceAssociation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
-</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
-</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
-</span><span id="line-204"></span><span>    </span><span id="%24sel%3AclientToken%3AAssociateTrunkInterfaceResponse%27"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681305446"><span class="hs-identifier hs-var">trunkInterfaceId</span></a></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newAssociateTrunkInterfaceResponse' smart constructor.</span><span>
+</span><span id="line-198"></span><span id="local-6989586621681305443"><span id="local-6989586621681305444"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateTrunkInterfaceResponse"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-var">AssociateTrunkInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateTrunkInterfaceResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">AssociateTrunkInterfaceResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AclientToken%3AAssociateTrunkInterfaceResponse%27"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateTrunkInterfaceResponse%27"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse -&gt; Int
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | Information about the association between the trunk network interface</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- and branch network interface.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AinterfaceAssociation%3AAssociateTrunkInterfaceResponse%27"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse -&gt; Maybe TrunkInterfaceAssociation
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AinterfaceAssociation%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">interfaceAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrunkInterfaceAssociation.html#TrunkInterfaceAssociation"><span class="hs-identifier hs-type">TrunkInterfaceAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateTrunkInterfaceResponse%27"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse -&gt; Int
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AhttpStatus%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681268707"><span id="local-6989586621681268709"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
+</span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681305436"><span id="local-6989586621681305438"><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
 -&gt; AssociateTrunkInterfaceResponse -&gt; Bool
 (AssociateTrunkInterfaceResponse
  -&gt; AssociateTrunkInterfaceResponse -&gt; Bool)
@@ -543,7 +552,7 @@ $c/= :: AssociateTrunkInterfaceResponse
 -&gt; AssociateTrunkInterfaceResponse -&gt; Bool
 $c== :: AssociateTrunkInterfaceResponse
 -&gt; AssociateTrunkInterfaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681268699"><span id="local-6989586621681268701"><span id="local-6989586621681268703"><span id="local-6989586621681268705"><span class="annot"><span class="annottext">ReadPrec [AssociateTrunkInterfaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681305428"><span id="local-6989586621681305430"><span id="local-6989586621681305432"><span id="local-6989586621681305434"><span class="annot"><span class="annottext">ReadPrec [AssociateTrunkInterfaceResponse]
 ReadPrec AssociateTrunkInterfaceResponse
 Int -&gt; ReadS AssociateTrunkInterfaceResponse
 ReadS [AssociateTrunkInterfaceResponse]
@@ -563,7 +572,7 @@ readList :: ReadS [AssociateTrunkInterfaceResponse]
 $creadList :: ReadS [AssociateTrunkInterfaceResponse]
 readsPrec :: Int -&gt; ReadS AssociateTrunkInterfaceResponse
 $creadsPrec :: Int -&gt; ReadS AssociateTrunkInterfaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681268693"><span id="local-6989586621681268695"><span id="local-6989586621681268697"><span class="annot"><span class="annottext">Int -&gt; AssociateTrunkInterfaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681305422"><span id="local-6989586621681305424"><span id="local-6989586621681305426"><span class="annot"><span class="annottext">Int -&gt; AssociateTrunkInterfaceResponse -&gt; ShowS
 [AssociateTrunkInterfaceResponse] -&gt; ShowS
 AssociateTrunkInterfaceResponse -&gt; String
 (Int -&gt; AssociateTrunkInterfaceResponse -&gt; ShowS)
@@ -600,51 +609,80 @@ $cfrom :: forall x.
 AssociateTrunkInterfaceResponse
 -&gt; Rep AssociateTrunkInterfaceResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'AssociateTrunkInterfaceResponse' with all optional fields omitted.</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- 'interfaceAssociation', 'associateTrunkInterfaceResponse_interfaceAssociation' - Information about the association between the trunk network interface</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- and branch network interface.</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- 'clientToken', 'associateTrunkInterfaceResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- 'httpStatus', 'associateTrunkInterfaceResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#newAssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">newAssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-227"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span>
-</span><span id="line-230"></span><span id="newAssociateTrunkInterfaceResponse"><span class="annot"><span class="annottext">newAssociateTrunkInterfaceResponse :: Int -&gt; AssociateTrunkInterfaceResponse
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#newAssociateTrunkInterfaceResponse"><span class="hs-identifier hs-var hs-var">newAssociateTrunkInterfaceResponse</span></a></span></span><span> </span><span id="local-6989586621681268690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681268690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse' :: Maybe TrunkInterfaceAssociation
--&gt; Maybe Text -&gt; Int -&gt; AssociateTrunkInterfaceResponse
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- Create a value of 'AssociateTrunkInterfaceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'clientToken', 'associateTrunkInterfaceResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'interfaceAssociation', 'associateTrunkInterfaceResponse_interfaceAssociation' - Information about the association between the trunk network interface</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- and branch network interface.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'httpStatus', 'associateTrunkInterfaceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#newAssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">newAssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span>
+</span><span id="line-231"></span><span id="newAssociateTrunkInterfaceResponse"><span class="annot"><span class="annottext">newAssociateTrunkInterfaceResponse :: Int -&gt; AssociateTrunkInterfaceResponse
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#newAssociateTrunkInterfaceResponse"><span class="hs-identifier hs-var hs-var">newAssociateTrunkInterfaceResponse</span></a></span></span><span> </span><span id="local-6989586621681305419"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681305419"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse' :: Maybe Text
+-&gt; Maybe TrunkInterfaceAssociation
+-&gt; Int
+-&gt; AssociateTrunkInterfaceResponse
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span>
-</span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:interfaceAssociation:AssociateTrunkInterfaceResponse' :: Maybe TrunkInterfaceAssociation
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AinterfaceAssociation%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">interfaceAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
+</span><span id="line-233"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterfaceResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterfaceResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:interfaceAssociation:AssociateTrunkInterfaceResponse' :: Maybe TrunkInterfaceAssociation
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AinterfaceAssociation%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">interfaceAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateTrunkInterfaceResponse' :: Int
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateTrunkInterfaceResponse' :: Int
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AhttpStatus%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681268690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-236"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- | Information about the association between the trunk network interface</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- and branch network interface.</span><span>
-</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_interfaceAssociation"><span class="hs-identifier hs-type">associateTrunkInterfaceResponse_interfaceAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrunkInterfaceAssociation.html#TrunkInterfaceAssociation"><span class="hs-identifier hs-type">TrunkInterfaceAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span id="associateTrunkInterfaceResponse_interfaceAssociation"><span class="annot"><span class="annottext">associateTrunkInterfaceResponse_interfaceAssociation :: (Maybe TrunkInterfaceAssociation
+</span><a href="#local-6989586621681305419"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_clientToken"><span class="hs-identifier hs-type">associateTrunkInterfaceResponse_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="associateTrunkInterfaceResponse_clientToken"><span class="annot"><span class="annottext">associateTrunkInterfaceResponse_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociateTrunkInterfaceResponse
+-&gt; f AssociateTrunkInterfaceResponse
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_clientToken"><span class="hs-identifier hs-var hs-var">associateTrunkInterfaceResponse_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterfaceResponse -&gt; Maybe Text)
+-&gt; (AssociateTrunkInterfaceResponse
+    -&gt; Maybe Text -&gt; AssociateTrunkInterfaceResponse)
+-&gt; Lens
+     AssociateTrunkInterfaceResponse
+     AssociateTrunkInterfaceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305418"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:AssociateTrunkInterfaceResponse' :: AssociateTrunkInterfaceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681305418"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681305418"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305417"><span class="annot"><span class="annottext">s :: AssociateTrunkInterfaceResponse
+</span><a href="#local-6989586621681305417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305416"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681305416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
+</span><a href="#local-6989586621681305417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterfaceResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681305416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | Information about the association between the trunk network interface</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- and branch network interface.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_interfaceAssociation"><span class="hs-identifier hs-type">associateTrunkInterfaceResponse_interfaceAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TrunkInterfaceAssociation.html#TrunkInterfaceAssociation"><span class="hs-identifier hs-type">TrunkInterfaceAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="associateTrunkInterfaceResponse_interfaceAssociation"><span class="annot"><span class="annottext">associateTrunkInterfaceResponse_interfaceAssociation :: (Maybe TrunkInterfaceAssociation
  -&gt; f (Maybe TrunkInterfaceAssociation))
 -&gt; AssociateTrunkInterfaceResponse
 -&gt; f AssociateTrunkInterfaceResponse
@@ -659,47 +697,20 @@ forall a. Maybe a
      (Maybe TrunkInterfaceAssociation)
      (Maybe TrunkInterfaceAssociation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268689"><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305415"><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
 interfaceAssociation :: Maybe TrunkInterfaceAssociation
 $sel:interfaceAssociation:AssociateTrunkInterfaceResponse' :: AssociateTrunkInterfaceResponse -&gt; Maybe TrunkInterfaceAssociation
-</span><a href="#local-6989586621681268689"><span class="hs-identifier hs-var hs-var">interfaceAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
-</span><a href="#local-6989586621681268689"><span class="hs-identifier hs-var">interfaceAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268688"><span class="annot"><span class="annottext">s :: AssociateTrunkInterfaceResponse
-</span><a href="#local-6989586621681268688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268687"><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
-</span><a href="#local-6989586621681268687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
-</span><a href="#local-6989586621681268688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interfaceAssociation:AssociateTrunkInterfaceResponse' :: Maybe TrunkInterfaceAssociation
+</span><a href="#local-6989586621681305415"><span class="hs-identifier hs-var hs-var">interfaceAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
+</span><a href="#local-6989586621681305415"><span class="hs-identifier hs-var">interfaceAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305414"><span class="annot"><span class="annottext">s :: AssociateTrunkInterfaceResponse
+</span><a href="#local-6989586621681305414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305413"><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
+</span><a href="#local-6989586621681305413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
+</span><a href="#local-6989586621681305414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interfaceAssociation:AssociateTrunkInterfaceResponse' :: Maybe TrunkInterfaceAssociation
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AinterfaceAssociation%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">interfaceAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrunkInterfaceAssociation
-</span><a href="#local-6989586621681268687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency&gt;.</span><span>
-</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_clientToken"><span class="hs-identifier hs-type">associateTrunkInterfaceResponse_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span id="associateTrunkInterfaceResponse_clientToken"><span class="annot"><span class="annottext">associateTrunkInterfaceResponse_clientToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociateTrunkInterfaceResponse
--&gt; f AssociateTrunkInterfaceResponse
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_clientToken"><span class="hs-identifier hs-var hs-var">associateTrunkInterfaceResponse_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterfaceResponse -&gt; Maybe Text)
--&gt; (AssociateTrunkInterfaceResponse
-    -&gt; Maybe Text -&gt; AssociateTrunkInterfaceResponse)
--&gt; Lens
-     AssociateTrunkInterfaceResponse
-     AssociateTrunkInterfaceResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268686"><span class="annot"><span class="annottext">Maybe Text
-clientToken :: Maybe Text
-$sel:clientToken:AssociateTrunkInterfaceResponse' :: AssociateTrunkInterfaceResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681268686"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681268686"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268685"><span class="annot"><span class="annottext">s :: AssociateTrunkInterfaceResponse
-</span><a href="#local-6989586621681268685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268684"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681268684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
-</span><a href="#local-6989586621681268685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:AssociateTrunkInterfaceResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AclientToken%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681268684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_httpStatus"><span class="hs-identifier hs-type">associateTrunkInterfaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-251"></span><span id="associateTrunkInterfaceResponse_httpStatus"><span class="annot"><span class="annottext">associateTrunkInterfaceResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621681305413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_httpStatus"><span class="hs-identifier hs-type">associateTrunkInterfaceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="associateTrunkInterfaceResponse_httpStatus"><span class="annot"><span class="annottext">associateTrunkInterfaceResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; AssociateTrunkInterfaceResponse
 -&gt; f AssociateTrunkInterfaceResponse
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#associateTrunkInterfaceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateTrunkInterfaceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateTrunkInterfaceResponse -&gt; Int)
@@ -711,18 +722,18 @@ $sel:clientToken:AssociateTrunkInterfaceResponse' :: AssociateTrunkInterfaceResp
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681268683"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681305412"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateTrunkInterfaceResponse' :: AssociateTrunkInterfaceResponse -&gt; Int
-</span><a href="#local-6989586621681268683"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681268683"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681268682"><span class="annot"><span class="annottext">s :: AssociateTrunkInterfaceResponse
-</span><a href="#local-6989586621681268682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681268681"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681268681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
-</span><a href="#local-6989586621681268682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateTrunkInterfaceResponse' :: Int
+</span><a href="#local-6989586621681305412"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681305412"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681305411"><span class="annot"><span class="annottext">s :: AssociateTrunkInterfaceResponse
+</span><a href="#local-6989586621681305411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681305410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681305410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateTrunkInterfaceResponse
+</span><a href="#local-6989586621681305411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateTrunkInterfaceResponse' :: Int
 </span><a href="Network.AWS.EC2.AssociateTrunkInterface.html#%24sel%3AhttpStatus%3AAssociateTrunkInterfaceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681268681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621681268679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span></span><span>
-</span><span id="line-256"></span></pre></body></html>
+</span><a href="#local-6989586621681305410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621681305408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateTrunkInterface.html#AssociateTrunkInterfaceResponse"><span class="hs-identifier hs-type">AssociateTrunkInterfaceResponse</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

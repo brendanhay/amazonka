@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- MediaConvert adds both the I-frame only child manifest and the regular</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- child manifest to the parent manifest. When you don\'t need the I-frame</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- only child manifest, keep the default value Exclude (EXCLUDE).</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679972099"><span id="local-6989586621679972100"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsIFrameOnlyManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest.html#HlsIFrameOnlyManifest"><span class="hs-identifier hs-var">HlsIFrameOnlyManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIFrameOnlyManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest.html#HlsIFrameOnlyManifest%27"><span class="hs-identifier hs-var">HlsIFrameOnlyManifest'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679976724"><span id="local-6989586621679976725"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsIFrameOnlyManifest"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest.html#HlsIFrameOnlyManifest"><span class="hs-identifier hs-var">HlsIFrameOnlyManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsIFrameOnlyManifest%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest.html#HlsIFrameOnlyManifest%27"><span class="hs-identifier hs-var">HlsIFrameOnlyManifest'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsIFrameOnlyManifest"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest.html#fromHlsIFrameOnlyManifest"><span class="hs-identifier hs-var hs-var">fromHlsIFrameOnlyManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972091"><span id="local-6989586621679972093"><span id="local-6989586621679972095"><span class="annot"><span class="annottext">Int -&gt; HlsIFrameOnlyManifest -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976716"><span id="local-6989586621679976718"><span id="local-6989586621679976720"><span class="annot"><span class="annottext">Int -&gt; HlsIFrameOnlyManifest -&gt; ShowS
 [HlsIFrameOnlyManifest] -&gt; ShowS
 HlsIFrameOnlyManifest -&gt; String
 (Int -&gt; HlsIFrameOnlyManifest -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: HlsIFrameOnlyManifest -&gt; String
 showsPrec :: Int -&gt; HlsIFrameOnlyManifest -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsIFrameOnlyManifest -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679972082"><span id="local-6989586621679972084"><span id="local-6989586621679972086"><span id="local-6989586621679972088"><span class="annot"><span class="annottext">ReadPrec [HlsIFrameOnlyManifest]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679976707"><span id="local-6989586621679976709"><span id="local-6989586621679976711"><span id="local-6989586621679976713"><span class="annot"><span class="annottext">ReadPrec [HlsIFrameOnlyManifest]
 ReadPrec HlsIFrameOnlyManifest
 Int -&gt; ReadS HlsIFrameOnlyManifest
 ReadS [HlsIFrameOnlyManifest]
@@ -79,7 +79,7 @@ $creadList :: ReadS [HlsIFrameOnlyManifest]
 readsPrec :: Int -&gt; ReadS HlsIFrameOnlyManifest
 $creadsPrec :: Int -&gt; ReadS HlsIFrameOnlyManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679972077"><span id="local-6989586621679972079"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679976702"><span id="local-6989586621679976704"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool
 (HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool)
 -&gt; (HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool)
 -&gt; Eq HlsIFrameOnlyManifest
@@ -89,7 +89,7 @@ $c/= :: HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool
 == :: HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool
 $c== :: HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679972061"><span id="local-6989586621679972063"><span id="local-6989586621679972065"><span id="local-6989586621679972067"><span id="local-6989586621679972069"><span id="local-6989586621679972071"><span id="local-6989586621679972073"><span class="annot"><span class="annottext">Eq HlsIFrameOnlyManifest
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679976686"><span id="local-6989586621679976688"><span id="local-6989586621679976690"><span id="local-6989586621679976692"><span id="local-6989586621679976694"><span id="local-6989586621679976696"><span id="local-6989586621679976698"><span class="annot"><span class="annottext">Eq HlsIFrameOnlyManifest
 Eq HlsIFrameOnlyManifest
 -&gt; (HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Ordering)
 -&gt; (HlsIFrameOnlyManifest -&gt; HlsIFrameOnlyManifest -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. HlsIFrameOnlyManifest -&gt; Rep HlsIFrameOnlyManifest x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972053"><span id="local-6989586621679972055"><span class="annot"><span class="annottext">Int -&gt; HlsIFrameOnlyManifest -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976678"><span id="local-6989586621679976680"><span class="annot"><span class="annottext">Int -&gt; HlsIFrameOnlyManifest -&gt; Int
 HlsIFrameOnlyManifest -&gt; Int
 (Int -&gt; HlsIFrameOnlyManifest -&gt; Int)
 -&gt; (HlsIFrameOnlyManifest -&gt; Int) -&gt; Hashable HlsIFrameOnlyManifest
@@ -157,54 +157,54 @@ $chash :: HlsIFrameOnlyManifest -&gt; Int
 hashWithSalt :: Int -&gt; HlsIFrameOnlyManifest -&gt; Int
 $chashWithSalt :: Int -&gt; HlsIFrameOnlyManifest -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679972050"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679976675"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; ()
 (HlsIFrameOnlyManifest -&gt; ()) -&gt; NFData HlsIFrameOnlyManifest
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsIFrameOnlyManifest -&gt; ()
 $crnf :: HlsIFrameOnlyManifest -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679972047"><span class="annot"><span class="annottext">Text -&gt; Either String HlsIFrameOnlyManifest
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679976672"><span class="annot"><span class="annottext">Text -&gt; Either String HlsIFrameOnlyManifest
 (Text -&gt; Either String HlsIFrameOnlyManifest)
 -&gt; FromText HlsIFrameOnlyManifest
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsIFrameOnlyManifest
 $cfromText :: Text -&gt; Either String HlsIFrameOnlyManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679972044"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679976669"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; Text
 (HlsIFrameOnlyManifest -&gt; Text) -&gt; ToText HlsIFrameOnlyManifest
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsIFrameOnlyManifest -&gt; Text
 $ctoText :: HlsIFrameOnlyManifest -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679972041"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679976666"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; ByteString
 (HlsIFrameOnlyManifest -&gt; ByteString)
 -&gt; ToByteString HlsIFrameOnlyManifest
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsIFrameOnlyManifest -&gt; ByteString
 $ctoBS :: HlsIFrameOnlyManifest -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679972038"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679976663"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; ByteStringBuilder
 (HlsIFrameOnlyManifest -&gt; ByteStringBuilder)
 -&gt; ToLog HlsIFrameOnlyManifest
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsIFrameOnlyManifest -&gt; ByteStringBuilder
 $cbuild :: HlsIFrameOnlyManifest -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679972035"><span class="annot"><span class="annottext">HeaderName -&gt; HlsIFrameOnlyManifest -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679976660"><span class="annot"><span class="annottext">HeaderName -&gt; HlsIFrameOnlyManifest -&gt; [Header]
 (HeaderName -&gt; HlsIFrameOnlyManifest -&gt; [Header])
 -&gt; ToHeader HlsIFrameOnlyManifest
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsIFrameOnlyManifest -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsIFrameOnlyManifest -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972032"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679976657"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; QueryString
 (HlsIFrameOnlyManifest -&gt; QueryString)
 -&gt; ToQuery HlsIFrameOnlyManifest
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsIFrameOnlyManifest -&gt; QueryString
 $ctoQuery :: HlsIFrameOnlyManifest -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972027"><span id="local-6989586621679972029"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsIFrameOnlyManifest]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679976652"><span id="local-6989586621679976654"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsIFrameOnlyManifest]
 Value -&gt; Parser HlsIFrameOnlyManifest
 (Value -&gt; Parser HlsIFrameOnlyManifest)
 -&gt; (Value -&gt; Parser [HlsIFrameOnlyManifest])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsIFrameOnlyManifest]
 parseJSON :: Value -&gt; Parser HlsIFrameOnlyManifest
 $cparseJSON :: Value -&gt; Parser HlsIFrameOnlyManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679972022"><span id="local-6989586621679972024"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsIFrameOnlyManifest]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679976647"><span id="local-6989586621679976649"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsIFrameOnlyManifest]
 FromJSONKeyFunction HlsIFrameOnlyManifest
 FromJSONKeyFunction HlsIFrameOnlyManifest
 -&gt; FromJSONKeyFunction [HlsIFrameOnlyManifest]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsIFrameOnlyManifest]
 fromJSONKey :: FromJSONKeyFunction HlsIFrameOnlyManifest
 $cfromJSONKey :: FromJSONKeyFunction HlsIFrameOnlyManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679972013"><span id="local-6989586621679972015"><span id="local-6989586621679972017"><span id="local-6989586621679972019"><span class="annot"><span class="annottext">[HlsIFrameOnlyManifest] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679976638"><span id="local-6989586621679976640"><span id="local-6989586621679976642"><span id="local-6989586621679976644"><span class="annot"><span class="annottext">[HlsIFrameOnlyManifest] -&gt; Encoding
 [HlsIFrameOnlyManifest] -&gt; Value
 HlsIFrameOnlyManifest -&gt; Encoding
 HlsIFrameOnlyManifest -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: HlsIFrameOnlyManifest -&gt; Encoding
 toJSON :: HlsIFrameOnlyManifest -&gt; Value
 $ctoJSON :: HlsIFrameOnlyManifest -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679972008"><span id="local-6989586621679972010"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsIFrameOnlyManifest]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679976633"><span id="local-6989586621679976635"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsIFrameOnlyManifest]
 ToJSONKeyFunction HlsIFrameOnlyManifest
 ToJSONKeyFunction HlsIFrameOnlyManifest
 -&gt; ToJSONKeyFunction [HlsIFrameOnlyManifest]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsIFrameOnlyManifest]
 toJSONKey :: ToJSONKeyFunction HlsIFrameOnlyManifest
 $ctoJSONKey :: ToJSONKeyFunction HlsIFrameOnlyManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679972005"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsIFrameOnlyManifest
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679976630"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsIFrameOnlyManifest
 ([Node] -&gt; Either String HlsIFrameOnlyManifest)
 -&gt; FromXML HlsIFrameOnlyManifest
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsIFrameOnlyManifest
 $cparseXML :: [Node] -&gt; Either String HlsIFrameOnlyManifest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679972002"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679976627"><span class="annot"><span class="annottext">HlsIFrameOnlyManifest -&gt; XML
 (HlsIFrameOnlyManifest -&gt; XML) -&gt; ToXML HlsIFrameOnlyManifest
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsIFrameOnlyManifest -&gt; XML

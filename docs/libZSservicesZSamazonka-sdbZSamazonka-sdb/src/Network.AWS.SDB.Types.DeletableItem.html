@@ -25,13 +25,13 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html"><span class="hs-identifier">Network.AWS.SDB.Types.Attribute</span></a></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newDeletableItem' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679149218"><span id="local-6989586621679149219"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletableItem"><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-var">DeletableItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletableItem%27"><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-var">DeletableItem'</span></a></span></span><span>
+</span><span id="line-28"></span><span id="local-6989586621679149261"><span id="local-6989586621679149262"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletableItem"><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-var">DeletableItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletableItem%27"><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-var">DeletableItem'</span></a></span></span><span>
 </span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aattributes%3ADeletableItem%27"><span class="annot"><span class="annottext">DeletableItem -&gt; Maybe [Attribute]
 </span><a href="Network.AWS.SDB.Types.DeletableItem.html#%24sel%3Aattributes%3ADeletableItem%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>    </span><span id="%24sel%3Aname%3ADeletableItem%27"><span class="annot"><span class="annottext">DeletableItem -&gt; Text
 </span><a href="Network.AWS.SDB.Types.DeletableItem.html#%24sel%3Aname%3ADeletableItem%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149211"><span id="local-6989586621679149213"><span class="annot"><span class="annottext">DeletableItem -&gt; DeletableItem -&gt; Bool
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149254"><span id="local-6989586621679149256"><span class="annot"><span class="annottext">DeletableItem -&gt; DeletableItem -&gt; Bool
 (DeletableItem -&gt; DeletableItem -&gt; Bool)
 -&gt; (DeletableItem -&gt; DeletableItem -&gt; Bool) -&gt; Eq DeletableItem
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletableItem -&gt; DeletableItem -&gt; Bool
 == :: DeletableItem -&gt; DeletableItem -&gt; Bool
 $c== :: DeletableItem -&gt; DeletableItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149202"><span id="local-6989586621679149204"><span id="local-6989586621679149206"><span id="local-6989586621679149208"><span class="annot"><span class="annottext">ReadPrec [DeletableItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149245"><span id="local-6989586621679149247"><span id="local-6989586621679149249"><span id="local-6989586621679149251"><span class="annot"><span class="annottext">ReadPrec [DeletableItem]
 ReadPrec DeletableItem
 Int -&gt; ReadS DeletableItem
 ReadS [DeletableItem]
@@ -59,7 +59,7 @@ readList :: ReadS [DeletableItem]
 $creadList :: ReadS [DeletableItem]
 readsPrec :: Int -&gt; ReadS DeletableItem
 $creadsPrec :: Int -&gt; ReadS DeletableItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149195"><span id="local-6989586621679149197"><span id="local-6989586621679149199"><span class="annot"><span class="annottext">Int -&gt; DeletableItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149238"><span id="local-6989586621679149240"><span id="local-6989586621679149242"><span class="annot"><span class="annottext">Int -&gt; DeletableItem -&gt; ShowS
 [DeletableItem] -&gt; ShowS
 DeletableItem -&gt; String
 (Int -&gt; DeletableItem -&gt; ShowS)
@@ -101,8 +101,8 @@ $cfrom :: forall x. DeletableItem -&gt; Rep DeletableItem x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span>
 </span><span id="line-49"></span><span id="newDeletableItem"><span class="annot"><span class="annottext">newDeletableItem :: Text -&gt; DeletableItem
-</span><a href="Network.AWS.SDB.Types.DeletableItem.html#newDeletableItem"><span class="hs-identifier hs-var hs-var">newDeletableItem</span></a></span></span><span> </span><span id="local-6989586621679149189"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149189"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.Types.DeletableItem.html#newDeletableItem"><span class="hs-identifier hs-var hs-var">newDeletableItem</span></a></span></span><span> </span><span id="local-6989586621679149232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149232"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">DeletableItem' :: Maybe [Attribute] -&gt; Text -&gt; DeletableItem
 </span><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:DeletableItem' :: Maybe [Attribute]
@@ -111,7 +111,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeletableItem' :: Text
 </span><a href="Network.AWS.SDB.Types.DeletableItem.html#%24sel%3Aname%3ADeletableItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149189"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679149232"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; Lens
      DeletableItem DeletableItem (Maybe [Attribute]) (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149185"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149228"><span class="annot"><span class="annottext">Maybe [Attribute]
 attributes :: Maybe [Attribute]
 $sel:attributes:DeletableItem' :: DeletableItem -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679149185"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679149185"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149184"><span class="annot"><span class="annottext">s :: DeletableItem
-</span><a href="#local-6989586621679149184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149183"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679149183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletableItem
-</span><a href="#local-6989586621679149184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DeletableItem' :: Maybe [Attribute]
+</span><a href="#local-6989586621679149228"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679149228"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149227"><span class="annot"><span class="annottext">s :: DeletableItem
+</span><a href="#local-6989586621679149227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149226"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679149226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletableItem
+</span><a href="#local-6989586621679149227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DeletableItem' :: Maybe [Attribute]
 </span><a href="Network.AWS.SDB.Types.DeletableItem.html#%24sel%3Aattributes%3ADeletableItem%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679149183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679149226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; DeletableItem -&gt; f DeletableItem)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -150,8 +150,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#deletableItem_name"><span class="hs-identifier hs-type">deletableItem_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -160,30 +160,30 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DeletableItem -&gt; Text -&gt; DeletableItem)
 -&gt; Lens DeletableItem DeletableItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149178"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149221"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeletableItem' :: DeletableItem -&gt; Text
-</span><a href="#local-6989586621679149178"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149178"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149177"><span class="annot"><span class="annottext">s :: DeletableItem
-</span><a href="#local-6989586621679149177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149176"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletableItem
-</span><a href="#local-6989586621679149177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeletableItem' :: Text
+</span><a href="#local-6989586621679149221"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149221"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149220"><span class="annot"><span class="annottext">s :: DeletableItem
+</span><a href="#local-6989586621679149220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletableItem
+</span><a href="#local-6989586621679149220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeletableItem' :: Text
 </span><a href="Network.AWS.SDB.Types.DeletableItem.html#%24sel%3Aname%3ADeletableItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679149219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149172"><span id="local-6989586621679149174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149215"><span id="local-6989586621679149217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem"><span class="hs-identifier hs-type">DeletableItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679149165"><span class="annot"><span class="annottext">toQuery :: DeletableItem -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149162"><span id="local-6989586621679149163"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679149208"><span class="annot"><span class="annottext">toQuery :: DeletableItem -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.DeletableItem.html#DeletableItem%27"><span class="hs-identifier hs-type">DeletableItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149205"><span id="local-6989586621679149206"><span class="annot"><span class="annottext">Maybe [Attribute]
 Text
 name :: Text
 attributes :: Maybe [Attribute]
 $sel:name:DeletableItem' :: DeletableItem -&gt; Text
 $sel:attributes:DeletableItem' :: DeletableItem -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679149162"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679149205"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -200,12 +200,12 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [Attribute] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679149163"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679149206"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-73"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ItemName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679149162"><span class="hs-identifier hs-var">name</span></a></span><span>
+</span><a href="#local-6989586621679149205"><span class="hs-identifier hs-var">name</span></a></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span></pre></body></html>

@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679414129"><span id="local-6989586621679414130"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CallAs"><span class="annot"><a href="Network.AWS.CloudFormation.Types.CallAs.html#CallAs"><span class="hs-identifier hs-var">CallAs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CallAs%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.CallAs.html#CallAs%27"><span class="hs-identifier hs-var">CallAs'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromCallAs"><span class="annot"><span class="annottext">CallAs -&gt; Text
+</span><span id="line-32"></span><span id="local-6989586621679414528"><span id="local-6989586621679414529"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CallAs"><span class="annot"><a href="Network.AWS.CloudFormation.Types.CallAs.html#CallAs"><span class="hs-identifier hs-var">CallAs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CallAs%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.CallAs.html#CallAs%27"><span class="hs-identifier hs-var">CallAs'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromCallAs"><span class="annot"><span class="annottext">CallAs -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.CallAs.html#fromCallAs"><span class="hs-identifier hs-var hs-var">fromCallAs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414121"><span id="local-6989586621679414123"><span id="local-6989586621679414125"><span class="annot"><span class="annottext">Int -&gt; CallAs -&gt; ShowS
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414520"><span id="local-6989586621679414522"><span id="local-6989586621679414524"><span class="annot"><span class="annottext">Int -&gt; CallAs -&gt; ShowS
 [CallAs] -&gt; ShowS
 CallAs -&gt; String
 (Int -&gt; CallAs -&gt; ShowS)
@@ -46,7 +46,7 @@ $cshow :: CallAs -&gt; String
 showsPrec :: Int -&gt; CallAs -&gt; ShowS
 $cshowsPrec :: Int -&gt; CallAs -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>      </span><span id="local-6989586621679414112"><span id="local-6989586621679414114"><span id="local-6989586621679414116"><span id="local-6989586621679414118"><span class="annot"><span class="annottext">ReadPrec [CallAs]
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679414511"><span id="local-6989586621679414513"><span id="local-6989586621679414515"><span id="local-6989586621679414517"><span class="annot"><span class="annottext">ReadPrec [CallAs]
 ReadPrec CallAs
 Int -&gt; ReadS CallAs
 ReadS [CallAs]
@@ -67,7 +67,7 @@ $creadList :: ReadS [CallAs]
 readsPrec :: Int -&gt; ReadS CallAs
 $creadsPrec :: Int -&gt; ReadS CallAs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679414107"><span id="local-6989586621679414109"><span class="annot"><span class="annottext">CallAs -&gt; CallAs -&gt; Bool
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679414506"><span id="local-6989586621679414508"><span class="annot"><span class="annottext">CallAs -&gt; CallAs -&gt; Bool
 (CallAs -&gt; CallAs -&gt; Bool)
 -&gt; (CallAs -&gt; CallAs -&gt; Bool) -&gt; Eq CallAs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ $c/= :: CallAs -&gt; CallAs -&gt; Bool
 == :: CallAs -&gt; CallAs -&gt; Bool
 $c== :: CallAs -&gt; CallAs -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679414091"><span id="local-6989586621679414093"><span id="local-6989586621679414095"><span id="local-6989586621679414097"><span id="local-6989586621679414099"><span id="local-6989586621679414101"><span id="local-6989586621679414103"><span class="annot"><span class="annottext">Eq CallAs
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679414490"><span id="local-6989586621679414492"><span id="local-6989586621679414494"><span id="local-6989586621679414496"><span id="local-6989586621679414498"><span id="local-6989586621679414500"><span id="local-6989586621679414502"><span class="annot"><span class="annottext">Eq CallAs
 Eq CallAs
 -&gt; (CallAs -&gt; CallAs -&gt; Ordering)
 -&gt; (CallAs -&gt; CallAs -&gt; Bool)
@@ -126,7 +126,7 @@ $cfrom :: forall x. CallAs -&gt; Rep CallAs x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414083"><span id="local-6989586621679414085"><span class="annot"><span class="annottext">Int -&gt; CallAs -&gt; Int
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679414482"><span id="local-6989586621679414484"><span class="annot"><span class="annottext">Int -&gt; CallAs -&gt; Int
 CallAs -&gt; Int
 (Int -&gt; CallAs -&gt; Int) -&gt; (CallAs -&gt; Int) -&gt; Hashable CallAs
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -135,49 +135,49 @@ $chash :: CallAs -&gt; Int
 hashWithSalt :: Int -&gt; CallAs -&gt; Int
 $chashWithSalt :: Int -&gt; CallAs -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679414080"><span class="annot"><span class="annottext">CallAs -&gt; ()
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679414479"><span class="annot"><span class="annottext">CallAs -&gt; ()
 (CallAs -&gt; ()) -&gt; NFData CallAs
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CallAs -&gt; ()
 $crnf :: CallAs -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679414077"><span class="annot"><span class="annottext">Text -&gt; Either String CallAs
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679414476"><span class="annot"><span class="annottext">Text -&gt; Either String CallAs
 (Text -&gt; Either String CallAs) -&gt; FromText CallAs
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CallAs
 $cfromText :: Text -&gt; Either String CallAs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679414074"><span class="annot"><span class="annottext">CallAs -&gt; Text
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679414473"><span class="annot"><span class="annottext">CallAs -&gt; Text
 (CallAs -&gt; Text) -&gt; ToText CallAs
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CallAs -&gt; Text
 $ctoText :: CallAs -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679414071"><span class="annot"><span class="annottext">CallAs -&gt; ByteString
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679414470"><span class="annot"><span class="annottext">CallAs -&gt; ByteString
 (CallAs -&gt; ByteString) -&gt; ToByteString CallAs
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CallAs -&gt; ByteString
 $ctoBS :: CallAs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679414068"><span class="annot"><span class="annottext">CallAs -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679414467"><span class="annot"><span class="annottext">CallAs -&gt; ByteStringBuilder
 (CallAs -&gt; ByteStringBuilder) -&gt; ToLog CallAs
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CallAs -&gt; ByteStringBuilder
 $cbuild :: CallAs -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679414065"><span class="annot"><span class="annottext">HeaderName -&gt; CallAs -&gt; [Header]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679414464"><span class="annot"><span class="annottext">HeaderName -&gt; CallAs -&gt; [Header]
 (HeaderName -&gt; CallAs -&gt; [Header]) -&gt; ToHeader CallAs
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CallAs -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CallAs -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679414062"><span class="annot"><span class="annottext">CallAs -&gt; QueryString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679414461"><span class="annot"><span class="annottext">CallAs -&gt; QueryString
 (CallAs -&gt; QueryString) -&gt; ToQuery CallAs
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CallAs -&gt; QueryString
 $ctoQuery :: CallAs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679414057"><span id="local-6989586621679414059"><span class="annot"><span class="annottext">Value -&gt; Parser [CallAs]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679414456"><span id="local-6989586621679414458"><span class="annot"><span class="annottext">Value -&gt; Parser [CallAs]
 Value -&gt; Parser CallAs
 (Value -&gt; Parser CallAs)
 -&gt; (Value -&gt; Parser [CallAs]) -&gt; FromJSON CallAs
@@ -188,7 +188,7 @@ $cparseJSONList :: Value -&gt; Parser [CallAs]
 parseJSON :: Value -&gt; Parser CallAs
 $cparseJSON :: Value -&gt; Parser CallAs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679414052"><span id="local-6989586621679414054"><span class="annot"><span class="annottext">FromJSONKeyFunction [CallAs]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679414451"><span id="local-6989586621679414453"><span class="annot"><span class="annottext">FromJSONKeyFunction [CallAs]
 FromJSONKeyFunction CallAs
 FromJSONKeyFunction CallAs
 -&gt; FromJSONKeyFunction [CallAs] -&gt; FromJSONKey CallAs
@@ -199,7 +199,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CallAs]
 fromJSONKey :: FromJSONKeyFunction CallAs
 $cfromJSONKey :: FromJSONKeyFunction CallAs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679414043"><span id="local-6989586621679414045"><span id="local-6989586621679414047"><span id="local-6989586621679414049"><span class="annot"><span class="annottext">[CallAs] -&gt; Encoding
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679414442"><span id="local-6989586621679414444"><span id="local-6989586621679414446"><span id="local-6989586621679414448"><span class="annot"><span class="annottext">[CallAs] -&gt; Encoding
 [CallAs] -&gt; Value
 CallAs -&gt; Encoding
 CallAs -&gt; Value
@@ -223,7 +223,7 @@ $ctoEncoding :: CallAs -&gt; Encoding
 toJSON :: CallAs -&gt; Value
 $ctoJSON :: CallAs -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679414038"><span id="local-6989586621679414040"><span class="annot"><span class="annottext">ToJSONKeyFunction [CallAs]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679414437"><span id="local-6989586621679414439"><span class="annot"><span class="annottext">ToJSONKeyFunction [CallAs]
 ToJSONKeyFunction CallAs
 ToJSONKeyFunction CallAs
 -&gt; ToJSONKeyFunction [CallAs] -&gt; ToJSONKey CallAs
@@ -234,13 +234,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CallAs]
 toJSONKey :: ToJSONKeyFunction CallAs
 $ctoJSONKey :: ToJSONKeyFunction CallAs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679414035"><span class="annot"><span class="annottext">[Node] -&gt; Either String CallAs
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679414434"><span class="annot"><span class="annottext">[Node] -&gt; Either String CallAs
 ([Node] -&gt; Either String CallAs) -&gt; FromXML CallAs
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CallAs
 $cparseXML :: [Node] -&gt; Either String CallAs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679414032"><span class="annot"><span class="annottext">CallAs -&gt; XML
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679414431"><span class="annot"><span class="annottext">CallAs -&gt; XML
 (CallAs -&gt; XML) -&gt; ToXML CallAs
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CallAs -&gt; XML

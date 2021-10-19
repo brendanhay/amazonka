@@ -27,21 +27,21 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A group of reservations that share a set of attributes.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReservationUtilizationGroup' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679334210"><span id="local-6989586621679334211"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationUtilizationGroup"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-var">ReservationUtilizationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationUtilizationGroup%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-var">ReservationUtilizationGroup'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key for a specific reservation attribute.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3AReservationUtilizationGroup%27"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679334545"><span id="local-6989586621679334546"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservationUtilizationGroup"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-var">ReservationUtilizationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationUtilizationGroup%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-var">ReservationUtilizationGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of a specific reservation attribute.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The key for a specific reservation attribute.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Akey%3AReservationUtilizationGroup%27"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Akey%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | How much you used this group of reservations.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; Maybe ReservationAggregates
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationAggregates.html#ReservationAggregates"><span class="hs-identifier hs-type">ReservationAggregates</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The attributes for this group of reservations.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aattributes%3AReservationUtilizationGroup%27"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Aattributes%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The value of a specific reservation attribute.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | How much you used this group of reservations.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; Maybe ReservationAggregates
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationAggregates.html#ReservationAggregates"><span class="hs-identifier hs-type">ReservationAggregates</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334201"><span id="local-6989586621679334203"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; ReservationUtilizationGroup -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334536"><span id="local-6989586621679334538"><span class="annot"><span class="annottext">ReservationUtilizationGroup -&gt; ReservationUtilizationGroup -&gt; Bool
 (ReservationUtilizationGroup
  -&gt; ReservationUtilizationGroup -&gt; Bool)
 -&gt; (ReservationUtilizationGroup
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReservationUtilizationGroup -&gt; ReservationUtilizationGroup -&gt; Bool
 == :: ReservationUtilizationGroup -&gt; ReservationUtilizationGroup -&gt; Bool
 $c== :: ReservationUtilizationGroup -&gt; ReservationUtilizationGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334192"><span id="local-6989586621679334194"><span id="local-6989586621679334196"><span id="local-6989586621679334198"><span class="annot"><span class="annottext">ReadPrec [ReservationUtilizationGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334527"><span id="local-6989586621679334529"><span id="local-6989586621679334531"><span id="local-6989586621679334533"><span class="annot"><span class="annottext">ReadPrec [ReservationUtilizationGroup]
 ReadPrec ReservationUtilizationGroup
 Int -&gt; ReadS ReservationUtilizationGroup
 ReadS [ReservationUtilizationGroup]
@@ -72,7 +72,7 @@ readList :: ReadS [ReservationUtilizationGroup]
 $creadList :: ReadS [ReservationUtilizationGroup]
 readsPrec :: Int -&gt; ReadS ReservationUtilizationGroup
 $creadsPrec :: Int -&gt; ReadS ReservationUtilizationGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334185"><span id="local-6989586621679334187"><span id="local-6989586621679334189"><span class="annot"><span class="annottext">Int -&gt; ReservationUtilizationGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334520"><span id="local-6989586621679334522"><span id="local-6989586621679334524"><span class="annot"><span class="annottext">Int -&gt; ReservationUtilizationGroup -&gt; ShowS
 [ReservationUtilizationGroup] -&gt; ShowS
 ReservationUtilizationGroup -&gt; String
 (Int -&gt; ReservationUtilizationGroup -&gt; ShowS)
@@ -112,44 +112,69 @@ ReservationUtilizationGroup -&gt; Rep ReservationUtilizationGroup x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'key', 'reservationUtilizationGroup_key' - The key for a specific reservation attribute.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'value', 'reservationUtilizationGroup_value' - The value of a specific reservation attribute.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'utilization', 'reservationUtilizationGroup_utilization' - How much you used this group of reservations.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'key', 'reservationUtilizationGroup_key' - The key for a specific reservation attribute.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'attributes', 'reservationUtilizationGroup_attributes' - The attributes for this group of reservations.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'value', 'reservationUtilizationGroup_value' - The value of a specific reservation attribute.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'utilization', 'reservationUtilizationGroup_utilization' - How much you used this group of reservations.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#newReservationUtilizationGroup"><span class="hs-identifier hs-type">newReservationUtilizationGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span>
 </span><span id="line-59"></span><span id="newReservationUtilizationGroup"><span class="annot"><span class="annottext">newReservationUtilizationGroup :: ReservationUtilizationGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#newReservationUtilizationGroup"><span class="hs-identifier hs-var hs-var">newReservationUtilizationGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ReservationUtilizationGroup' :: Maybe Text
--&gt; Maybe ReservationAggregates
--&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ReservationAggregates
 -&gt; ReservationUtilizationGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:ReservationUtilizationGroup' :: Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:ReservationUtilizationGroup' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:ReservationUtilizationGroup' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Akey%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilization:ReservationUtilizationGroup' :: Maybe ReservationAggregates
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationAggregates
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:ReservationUtilizationGroup' :: Maybe (HashMap Text Text)
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:ReservationUtilizationGroup' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Aattributes%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ReservationUtilizationGroup' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilization:ReservationUtilizationGroup' :: Maybe ReservationAggregates
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationAggregates
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The key for a specific reservation attribute.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_key"><span class="hs-identifier hs-type">reservationUtilizationGroup_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="reservationUtilizationGroup_key"><span class="annot"><span class="annottext">reservationUtilizationGroup_key :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The value of a specific reservation attribute.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_value"><span class="hs-identifier hs-type">reservationUtilizationGroup_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="reservationUtilizationGroup_value"><span class="annot"><span class="annottext">reservationUtilizationGroup_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservationUtilizationGroup -&gt; f ReservationUtilizationGroup
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_value"><span class="hs-identifier hs-var hs-var">reservationUtilizationGroup_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationUtilizationGroup -&gt; Maybe Text)
+-&gt; (ReservationUtilizationGroup
+    -&gt; Maybe Text -&gt; ReservationUtilizationGroup)
+-&gt; Lens
+     ReservationUtilizationGroup
+     ReservationUtilizationGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334511"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:ReservationUtilizationGroup' :: ReservationUtilizationGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679334511"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334511"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334510"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
+</span><a href="#local-6989586621679334510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
+</span><a href="#local-6989586621679334510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ReservationUtilizationGroup' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The key for a specific reservation attribute.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_key"><span class="hs-identifier hs-type">reservationUtilizationGroup_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="reservationUtilizationGroup_key"><span class="annot"><span class="annottext">reservationUtilizationGroup_key :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReservationUtilizationGroup -&gt; f ReservationUtilizationGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_key"><span class="hs-identifier hs-var hs-var">reservationUtilizationGroup_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationUtilizationGroup -&gt; Maybe Text)
 -&gt; (ReservationUtilizationGroup
@@ -160,44 +185,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334176"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334507"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:ReservationUtilizationGroup' :: ReservationUtilizationGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679334176"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679334176"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334175"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
-</span><a href="#local-6989586621679334175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334174"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679334174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
-</span><a href="#local-6989586621679334175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ReservationUtilizationGroup' :: Maybe Text
+</span><a href="#local-6989586621679334507"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334507"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334506"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
+</span><a href="#local-6989586621679334506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334505"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679334505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
+</span><a href="#local-6989586621679334506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ReservationUtilizationGroup' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Akey%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679334174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | How much you used this group of reservations.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_utilization"><span class="hs-identifier hs-type">reservationUtilizationGroup_utilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationAggregates.html#ReservationAggregates"><span class="hs-identifier hs-type">ReservationAggregates</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="reservationUtilizationGroup_utilization"><span class="annot"><span class="annottext">reservationUtilizationGroup_utilization :: (Maybe ReservationAggregates -&gt; f (Maybe ReservationAggregates))
--&gt; ReservationUtilizationGroup -&gt; f ReservationUtilizationGroup
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_utilization"><span class="hs-identifier hs-var hs-var">reservationUtilizationGroup_utilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationUtilizationGroup -&gt; Maybe ReservationAggregates)
--&gt; (ReservationUtilizationGroup
-    -&gt; Maybe ReservationAggregates -&gt; ReservationUtilizationGroup)
--&gt; Lens
-     ReservationUtilizationGroup
-     ReservationUtilizationGroup
-     (Maybe ReservationAggregates)
-     (Maybe ReservationAggregates)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334172"><span class="annot"><span class="annottext">Maybe ReservationAggregates
-utilization :: Maybe ReservationAggregates
-$sel:utilization:ReservationUtilizationGroup' :: ReservationUtilizationGroup -&gt; Maybe ReservationAggregates
-</span><a href="#local-6989586621679334172"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationAggregates
-</span><a href="#local-6989586621679334172"><span class="hs-identifier hs-var">utilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334171"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
-</span><a href="#local-6989586621679334171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334170"><span class="annot"><span class="annottext">Maybe ReservationAggregates
-</span><a href="#local-6989586621679334170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
-</span><a href="#local-6989586621679334171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilization:ReservationUtilizationGroup' :: Maybe ReservationAggregates
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationAggregates
-</span><a href="#local-6989586621679334170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The attributes for this group of reservations.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_attributes"><span class="hs-identifier hs-type">reservationUtilizationGroup_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="reservationUtilizationGroup_attributes"><span class="annot"><span class="annottext">reservationUtilizationGroup_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679334505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The attributes for this group of reservations.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_attributes"><span class="hs-identifier hs-type">reservationUtilizationGroup_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="reservationUtilizationGroup_attributes"><span class="annot"><span class="annottext">reservationUtilizationGroup_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; ReservationUtilizationGroup -&gt; f ReservationUtilizationGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_attributes"><span class="hs-identifier hs-var hs-var">reservationUtilizationGroup_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationUtilizationGroup -&gt; Maybe (HashMap Text Text))
 -&gt; (ReservationUtilizationGroup
@@ -208,16 +209,16 @@ $sel:utilization:ReservationUtilizationGroup' :: ReservationUtilizationGroup -&g
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334168"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334503"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:ReservationUtilizationGroup' :: ReservationUtilizationGroup -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679334168"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679334168"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334167"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
-</span><a href="#local-6989586621679334167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334166"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679334166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
-</span><a href="#local-6989586621679334167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ReservationUtilizationGroup' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679334503"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679334503"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334502"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
+</span><a href="#local-6989586621679334502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334501"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679334501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
+</span><a href="#local-6989586621679334502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ReservationUtilizationGroup' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Aattributes%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679334166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679334501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ReservationUtilizationGroup -&gt; f ReservationUtilizationGroup)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -243,92 +244,93 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The value of a specific reservation attribute.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_value"><span class="hs-identifier hs-type">reservationUtilizationGroup_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="reservationUtilizationGroup_value"><span class="annot"><span class="annottext">reservationUtilizationGroup_value :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | How much you used this group of reservations.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_utilization"><span class="hs-identifier hs-type">reservationUtilizationGroup_utilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationAggregates.html#ReservationAggregates"><span class="hs-identifier hs-type">ReservationAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="reservationUtilizationGroup_utilization"><span class="annot"><span class="annottext">reservationUtilizationGroup_utilization :: (Maybe ReservationAggregates -&gt; f (Maybe ReservationAggregates))
 -&gt; ReservationUtilizationGroup -&gt; f ReservationUtilizationGroup
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_value"><span class="hs-identifier hs-var hs-var">reservationUtilizationGroup_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationUtilizationGroup -&gt; Maybe Text)
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#reservationUtilizationGroup_utilization"><span class="hs-identifier hs-var hs-var">reservationUtilizationGroup_utilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservationUtilizationGroup -&gt; Maybe ReservationAggregates)
 -&gt; (ReservationUtilizationGroup
-    -&gt; Maybe Text -&gt; ReservationUtilizationGroup)
+    -&gt; Maybe ReservationAggregates -&gt; ReservationUtilizationGroup)
 -&gt; Lens
      ReservationUtilizationGroup
      ReservationUtilizationGroup
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ReservationAggregates)
+     (Maybe ReservationAggregates)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334161"><span class="annot"><span class="annottext">Maybe Text
-value :: Maybe Text
-$sel:value:ReservationUtilizationGroup' :: ReservationUtilizationGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679334161"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679334161"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334160"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
-</span><a href="#local-6989586621679334160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334159"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679334159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
-</span><a href="#local-6989586621679334160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ReservationUtilizationGroup' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Avalue%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679334159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334156"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679334154"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservationUtilizationGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334496"><span class="annot"><span class="annottext">Maybe ReservationAggregates
+utilization :: Maybe ReservationAggregates
+$sel:utilization:ReservationUtilizationGroup' :: ReservationUtilizationGroup -&gt; Maybe ReservationAggregates
+</span><a href="#local-6989586621679334496"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationAggregates
+</span><a href="#local-6989586621679334496"><span class="hs-identifier hs-var">utilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334495"><span class="annot"><span class="annottext">s :: ReservationUtilizationGroup
+</span><a href="#local-6989586621679334495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-type">ReservationUtilizationGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334494"><span class="annot"><span class="annottext">Maybe ReservationAggregates
+</span><a href="#local-6989586621679334494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservationUtilizationGroup
+</span><a href="#local-6989586621679334495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilization:ReservationUtilizationGroup' :: Maybe ReservationAggregates
+</span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#%24sel%3Autilization%3AReservationUtilizationGroup%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationAggregates
+</span><a href="#local-6989586621679334494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334491"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679334489"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservationUtilizationGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReservationUtilizationGroup)
 -&gt; Value
 -&gt; Parser ReservationUtilizationGroup
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReservationUtilizationGroup&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334151"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334151"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ReservationAggregates
--&gt; Maybe (HashMap Text Text)
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334486"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe ReservationAggregates
 -&gt; ReservationUtilizationGroup
 </span><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup%27"><span class="hs-identifier hs-var">ReservationUtilizationGroup'</span></a></span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ReservationAggregates
- -&gt; Maybe (HashMap Text Text)
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe ReservationAggregates
  -&gt; ReservationUtilizationGroup)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe ReservationAggregates
+     (Maybe Text
       -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe Text
+      -&gt; Maybe ReservationAggregates
       -&gt; ReservationUtilizationGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679334486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe ReservationAggregates
+   -&gt; ReservationUtilizationGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe ReservationAggregates -&gt; ReservationUtilizationGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ReservationAggregates
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe Text
-   -&gt; ReservationUtilizationGroup)
--&gt; Parser (Maybe ReservationAggregates)
--&gt; Parser
-     (Maybe (HashMap Text Text)
-      -&gt; Maybe Text -&gt; ReservationUtilizationGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationAggregates)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Utilization&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text Text)
-   -&gt; Maybe Text -&gt; ReservationUtilizationGroup)
+   -&gt; Maybe ReservationAggregates -&gt; ReservationUtilizationGroup)
 -&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser (Maybe Text -&gt; ReservationUtilizationGroup)
+-&gt; Parser
+     (Maybe ReservationAggregates -&gt; ReservationUtilizationGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679334486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -337,17 +339,18 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReservationUtilizationGroup)
--&gt; Parser (Maybe Text) -&gt; Parser ReservationUtilizationGroup
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ReservationAggregates -&gt; ReservationUtilizationGroup)
+-&gt; Parser (Maybe ReservationAggregates)
+-&gt; Parser ReservationUtilizationGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334151"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679334486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReservationAggregates)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334144"><span id="local-6989586621679334146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span></span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span></span><span>
-</span><span id="line-98"></span></pre></body></html>
+</span><span class="hs-string">&quot;Utilization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334479"><span id="local-6989586621679334481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.ReservationUtilizationGroup.html#ReservationUtilizationGroup"><span class="hs-identifier hs-type">ReservationUtilizationGroup</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

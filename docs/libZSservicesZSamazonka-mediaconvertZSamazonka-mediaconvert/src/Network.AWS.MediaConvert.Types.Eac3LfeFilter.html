@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Applies a 120Hz lowpass filter to the LFE channel prior to encoding.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- Only valid with 3_2_LFE coding mode.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679956872"><span id="local-6989586621679956873"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3LfeFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3LfeFilter.html#Eac3LfeFilter"><span class="hs-identifier hs-var">Eac3LfeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3LfeFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3LfeFilter.html#Eac3LfeFilter%27"><span class="hs-identifier hs-var">Eac3LfeFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679961496"><span id="local-6989586621679961497"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3LfeFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3LfeFilter.html#Eac3LfeFilter"><span class="hs-identifier hs-var">Eac3LfeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3LfeFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3LfeFilter.html#Eac3LfeFilter%27"><span class="hs-identifier hs-var">Eac3LfeFilter'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3LfeFilter"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Eac3LfeFilter.html#fromEac3LfeFilter"><span class="hs-identifier hs-var hs-var">fromEac3LfeFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956864"><span id="local-6989586621679956866"><span id="local-6989586621679956868"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeFilter -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961488"><span id="local-6989586621679961490"><span id="local-6989586621679961492"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeFilter -&gt; ShowS
 [Eac3LfeFilter] -&gt; ShowS
 Eac3LfeFilter -&gt; String
 (Int -&gt; Eac3LfeFilter -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: Eac3LfeFilter -&gt; String
 showsPrec :: Int -&gt; Eac3LfeFilter -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3LfeFilter -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679956855"><span id="local-6989586621679956857"><span id="local-6989586621679956859"><span id="local-6989586621679956861"><span class="annot"><span class="annottext">ReadPrec [Eac3LfeFilter]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679961479"><span id="local-6989586621679961481"><span id="local-6989586621679961483"><span id="local-6989586621679961485"><span class="annot"><span class="annottext">ReadPrec [Eac3LfeFilter]
 ReadPrec Eac3LfeFilter
 Int -&gt; ReadS Eac3LfeFilter
 ReadS [Eac3LfeFilter]
@@ -74,7 +74,7 @@ $creadList :: ReadS [Eac3LfeFilter]
 readsPrec :: Int -&gt; ReadS Eac3LfeFilter
 $creadsPrec :: Int -&gt; ReadS Eac3LfeFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679956850"><span id="local-6989586621679956852"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679961474"><span id="local-6989586621679961476"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool
 (Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool)
 -&gt; (Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool) -&gt; Eq Eac3LfeFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool
 == :: Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool
 $c== :: Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679956834"><span id="local-6989586621679956836"><span id="local-6989586621679956838"><span id="local-6989586621679956840"><span id="local-6989586621679956842"><span id="local-6989586621679956844"><span id="local-6989586621679956846"><span class="annot"><span class="annottext">Eq Eac3LfeFilter
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679961458"><span id="local-6989586621679961460"><span id="local-6989586621679961462"><span id="local-6989586621679961464"><span id="local-6989586621679961466"><span id="local-6989586621679961468"><span id="local-6989586621679961470"><span class="annot"><span class="annottext">Eq Eac3LfeFilter
 Eq Eac3LfeFilter
 -&gt; (Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Ordering)
 -&gt; (Eac3LfeFilter -&gt; Eac3LfeFilter -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Eac3LfeFilter -&gt; Rep Eac3LfeFilter x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679956826"><span id="local-6989586621679956828"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeFilter -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961450"><span id="local-6989586621679961452"><span class="annot"><span class="annottext">Int -&gt; Eac3LfeFilter -&gt; Int
 Eac3LfeFilter -&gt; Int
 (Int -&gt; Eac3LfeFilter -&gt; Int)
 -&gt; (Eac3LfeFilter -&gt; Int) -&gt; Hashable Eac3LfeFilter
@@ -144,49 +144,49 @@ $chash :: Eac3LfeFilter -&gt; Int
 hashWithSalt :: Int -&gt; Eac3LfeFilter -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3LfeFilter -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679956823"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679961447"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; ()
 (Eac3LfeFilter -&gt; ()) -&gt; NFData Eac3LfeFilter
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3LfeFilter -&gt; ()
 $crnf :: Eac3LfeFilter -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679956820"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3LfeFilter
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679961444"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3LfeFilter
 (Text -&gt; Either String Eac3LfeFilter) -&gt; FromText Eac3LfeFilter
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3LfeFilter
 $cfromText :: Text -&gt; Either String Eac3LfeFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679956817"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679961441"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; Text
 (Eac3LfeFilter -&gt; Text) -&gt; ToText Eac3LfeFilter
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3LfeFilter -&gt; Text
 $ctoText :: Eac3LfeFilter -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679956814"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679961438"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; ByteString
 (Eac3LfeFilter -&gt; ByteString) -&gt; ToByteString Eac3LfeFilter
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3LfeFilter -&gt; ByteString
 $ctoBS :: Eac3LfeFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679956811"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679961435"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; ByteStringBuilder
 (Eac3LfeFilter -&gt; ByteStringBuilder) -&gt; ToLog Eac3LfeFilter
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3LfeFilter -&gt; ByteStringBuilder
 $cbuild :: Eac3LfeFilter -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679956808"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3LfeFilter -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679961432"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3LfeFilter -&gt; [Header]
 (HeaderName -&gt; Eac3LfeFilter -&gt; [Header]) -&gt; ToHeader Eac3LfeFilter
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3LfeFilter -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3LfeFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679956805"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679961429"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; QueryString
 (Eac3LfeFilter -&gt; QueryString) -&gt; ToQuery Eac3LfeFilter
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3LfeFilter -&gt; QueryString
 $ctoQuery :: Eac3LfeFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679956800"><span id="local-6989586621679956802"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3LfeFilter]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679961424"><span id="local-6989586621679961426"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3LfeFilter]
 Value -&gt; Parser Eac3LfeFilter
 (Value -&gt; Parser Eac3LfeFilter)
 -&gt; (Value -&gt; Parser [Eac3LfeFilter]) -&gt; FromJSON Eac3LfeFilter
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3LfeFilter]
 parseJSON :: Value -&gt; Parser Eac3LfeFilter
 $cparseJSON :: Value -&gt; Parser Eac3LfeFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679956795"><span id="local-6989586621679956797"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3LfeFilter]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679961419"><span id="local-6989586621679961421"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3LfeFilter]
 FromJSONKeyFunction Eac3LfeFilter
 FromJSONKeyFunction Eac3LfeFilter
 -&gt; FromJSONKeyFunction [Eac3LfeFilter] -&gt; FromJSONKey Eac3LfeFilter
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3LfeFilter]
 fromJSONKey :: FromJSONKeyFunction Eac3LfeFilter
 $cfromJSONKey :: FromJSONKeyFunction Eac3LfeFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679956786"><span id="local-6989586621679956788"><span id="local-6989586621679956790"><span id="local-6989586621679956792"><span class="annot"><span class="annottext">[Eac3LfeFilter] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679961410"><span id="local-6989586621679961412"><span id="local-6989586621679961414"><span id="local-6989586621679961416"><span class="annot"><span class="annottext">[Eac3LfeFilter] -&gt; Encoding
 [Eac3LfeFilter] -&gt; Value
 Eac3LfeFilter -&gt; Encoding
 Eac3LfeFilter -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: Eac3LfeFilter -&gt; Encoding
 toJSON :: Eac3LfeFilter -&gt; Value
 $ctoJSON :: Eac3LfeFilter -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679956781"><span id="local-6989586621679956783"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3LfeFilter]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679961405"><span id="local-6989586621679961407"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3LfeFilter]
 ToJSONKeyFunction Eac3LfeFilter
 ToJSONKeyFunction Eac3LfeFilter
 -&gt; ToJSONKeyFunction [Eac3LfeFilter] -&gt; ToJSONKey Eac3LfeFilter
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3LfeFilter]
 toJSONKey :: ToJSONKeyFunction Eac3LfeFilter
 $ctoJSONKey :: ToJSONKeyFunction Eac3LfeFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679956778"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3LfeFilter
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679961402"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3LfeFilter
 ([Node] -&gt; Either String Eac3LfeFilter) -&gt; FromXML Eac3LfeFilter
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3LfeFilter
 $cparseXML :: [Node] -&gt; Either String Eac3LfeFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679956775"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679961399"><span class="annot"><span class="annottext">Eac3LfeFilter -&gt; XML
 (Eac3LfeFilter -&gt; XML) -&gt; ToXML Eac3LfeFilter
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3LfeFilter -&gt; XML

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Configuration information for the Debugger output tensor collections.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCollectionConfiguration' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680296814"><span id="local-6989586621680296815"></span></span><span class="hs-keyword">data</span><span> </span><span id="CollectionConfiguration"><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-var">CollectionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CollectionConfiguration%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-var">CollectionConfiguration'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680298181"><span id="local-6989586621680298182"></span></span><span class="hs-keyword">data</span><span> </span><span id="CollectionConfiguration"><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-var">CollectionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CollectionConfiguration%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-var">CollectionConfiguration'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Parameter values for the tensor collection. The allowed parameters are</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- @\&quot;name\&quot;@, @\&quot;include_regex\&quot;@, @\&quot;reduction_config\&quot;@,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @\&quot;save_config\&quot;@, @\&quot;tensor_names\&quot;@, and @\&quot;save_histogram\&quot;@.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcollectionName%3ACollectionConfiguration%27"><span class="annot"><span class="annottext">CollectionConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#%24sel%3AcollectionName%3ACollectionConfiguration%27"><span class="hs-identifier hs-var hs-var">collectionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680296807"><span id="local-6989586621680296809"><span class="annot"><span class="annottext">CollectionConfiguration -&gt; CollectionConfiguration -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680298174"><span id="local-6989586621680298176"><span class="annot"><span class="annottext">CollectionConfiguration -&gt; CollectionConfiguration -&gt; Bool
 (CollectionConfiguration -&gt; CollectionConfiguration -&gt; Bool)
 -&gt; (CollectionConfiguration -&gt; CollectionConfiguration -&gt; Bool)
 -&gt; Eq CollectionConfiguration
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CollectionConfiguration -&gt; CollectionConfiguration -&gt; Bool
 == :: CollectionConfiguration -&gt; CollectionConfiguration -&gt; Bool
 $c== :: CollectionConfiguration -&gt; CollectionConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680296798"><span id="local-6989586621680296800"><span id="local-6989586621680296802"><span id="local-6989586621680296804"><span class="annot"><span class="annottext">ReadPrec [CollectionConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680298165"><span id="local-6989586621680298167"><span id="local-6989586621680298169"><span id="local-6989586621680298171"><span class="annot"><span class="annottext">ReadPrec [CollectionConfiguration]
 ReadPrec CollectionConfiguration
 Int -&gt; ReadS CollectionConfiguration
 ReadS [CollectionConfiguration]
@@ -66,7 +66,7 @@ readList :: ReadS [CollectionConfiguration]
 $creadList :: ReadS [CollectionConfiguration]
 readsPrec :: Int -&gt; ReadS CollectionConfiguration
 $creadsPrec :: Int -&gt; ReadS CollectionConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680296791"><span id="local-6989586621680296793"><span id="local-6989586621680296795"><span class="annot"><span class="annottext">Int -&gt; CollectionConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680298158"><span id="local-6989586621680298160"><span id="local-6989586621680298162"><span class="annot"><span class="annottext">Int -&gt; CollectionConfiguration -&gt; ShowS
 [CollectionConfiguration] -&gt; ShowS
 CollectionConfiguration -&gt; String
 (Int -&gt; CollectionConfiguration -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680296782"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298149"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 collectionParameters :: Maybe (HashMap Text Text)
 $sel:collectionParameters:CollectionConfiguration' :: CollectionConfiguration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680296782"><span class="hs-identifier hs-var hs-var">collectionParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680296782"><span class="hs-identifier hs-var">collectionParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680296781"><span class="annot"><span class="annottext">s :: CollectionConfiguration
-</span><a href="#local-6989586621680296781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680296780"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680296780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CollectionConfiguration
-</span><a href="#local-6989586621680296781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionParameters:CollectionConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680298149"><span class="hs-identifier hs-var hs-var">collectionParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680298149"><span class="hs-identifier hs-var">collectionParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680298148"><span class="annot"><span class="annottext">s :: CollectionConfiguration
+</span><a href="#local-6989586621680298148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680298147"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680298147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CollectionConfiguration
+</span><a href="#local-6989586621680298148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionParameters:CollectionConfiguration' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#%24sel%3AcollectionParameters%3ACollectionConfiguration%27"><span class="hs-identifier hs-var">collectionParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680296780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680298147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; CollectionConfiguration -&gt; f CollectionConfiguration)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -175,8 +175,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of the tensor collection. The name must be unique relative to</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- other rule configuration names.</span><span>
@@ -192,19 +192,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680296775"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298142"><span class="annot"><span class="annottext">Maybe Text
 collectionName :: Maybe Text
 $sel:collectionName:CollectionConfiguration' :: CollectionConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621680296775"><span class="hs-identifier hs-var hs-var">collectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680296775"><span class="hs-identifier hs-var">collectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680296774"><span class="annot"><span class="annottext">s :: CollectionConfiguration
-</span><a href="#local-6989586621680296774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680296773"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680296773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CollectionConfiguration
-</span><a href="#local-6989586621680296774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionName:CollectionConfiguration' :: Maybe Text
+</span><a href="#local-6989586621680298142"><span class="hs-identifier hs-var hs-var">collectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680298142"><span class="hs-identifier hs-var">collectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680298141"><span class="annot"><span class="annottext">s :: CollectionConfiguration
+</span><a href="#local-6989586621680298141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680298140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680298140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CollectionConfiguration
+</span><a href="#local-6989586621680298141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionName:CollectionConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#%24sel%3AcollectionName%3ACollectionConfiguration%27"><span class="hs-identifier hs-var">collectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680296773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680298140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680296770"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680296768"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CollectionConfiguration
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298137"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680298135"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CollectionConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CollectionConfiguration)
@@ -214,8 +214,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CollectionConfiguration&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680296765"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680296765"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680298132"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680298132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; CollectionConfiguration
 </span><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-var">CollectionConfiguration'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; CollectionConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680296765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680298132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CollectionParameters&quot;</span></span><span>
@@ -239,25 +239,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser CollectionConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680296765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680298132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CollectionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680296758"><span id="local-6989586621680296760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298125"><span id="local-6989586621680298127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680296755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680296747"><span id="local-6989586621680296749"><span id="local-6989586621680296751"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680296745"><span class="annot"><span class="annottext">toJSON :: CollectionConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680296742"><span id="local-6989586621680296743"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680298114"><span id="local-6989586621680298116"><span id="local-6989586621680298118"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration"><span class="hs-identifier hs-type">CollectionConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680298112"><span class="annot"><span class="annottext">toJSON :: CollectionConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.CollectionConfiguration.html#CollectionConfiguration%27"><span class="hs-identifier hs-type">CollectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680298109"><span id="local-6989586621680298110"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 collectionName :: Maybe Text
 collectionParameters :: Maybe (HashMap Text Text)
 $sel:collectionName:CollectionConfiguration' :: CollectionConfiguration -&gt; Maybe Text
 $sel:collectionParameters:CollectionConfiguration' :: CollectionConfiguration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680296742"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680298109"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,7 +271,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680296743"><span class="hs-identifier hs-var">collectionParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680298110"><span class="hs-identifier hs-var">collectionParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CollectionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -279,7 +279,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680296742"><span class="hs-identifier hs-var">collectionName</span></a></span><span>
+</span><a href="#local-6989586621680298109"><span class="hs-identifier hs-var">collectionName</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

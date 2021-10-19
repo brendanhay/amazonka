@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Statistics information about the channel.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newChannelStatistics' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679255243"><span id="local-6989586621679255244"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelStatistics"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-var">ChannelStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelStatistics%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-var">ChannelStatistics'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679255445"><span id="local-6989586621679255446"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelStatistics"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-var">ChannelStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelStatistics%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-var">ChannelStatistics'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The estimated size of the channel.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Asize%3AChannelStatistics%27"><span class="annot"><span class="annottext">ChannelStatistics -&gt; Maybe EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#%24sel%3Asize%3AChannelStatistics%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier hs-type">EstimatedResourceSize</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255237"><span id="local-6989586621679255239"><span class="annot"><span class="annottext">ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255439"><span id="local-6989586621679255441"><span class="annot"><span class="annottext">ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
 (ChannelStatistics -&gt; ChannelStatistics -&gt; Bool)
 -&gt; (ChannelStatistics -&gt; ChannelStatistics -&gt; Bool)
 -&gt; Eq ChannelStatistics
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
 == :: ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
 $c== :: ChannelStatistics -&gt; ChannelStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255228"><span id="local-6989586621679255230"><span id="local-6989586621679255232"><span id="local-6989586621679255234"><span class="annot"><span class="annottext">ReadPrec [ChannelStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255430"><span id="local-6989586621679255432"><span id="local-6989586621679255434"><span id="local-6989586621679255436"><span class="annot"><span class="annottext">ReadPrec [ChannelStatistics]
 ReadPrec ChannelStatistics
 Int -&gt; ReadS ChannelStatistics
 ReadS [ChannelStatistics]
@@ -61,7 +61,7 @@ readList :: ReadS [ChannelStatistics]
 $creadList :: ReadS [ChannelStatistics]
 readsPrec :: Int -&gt; ReadS ChannelStatistics
 $creadsPrec :: Int -&gt; ReadS ChannelStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255221"><span id="local-6989586621679255223"><span id="local-6989586621679255225"><span class="annot"><span class="annottext">Int -&gt; ChannelStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255423"><span id="local-6989586621679255425"><span id="local-6989586621679255427"><span class="annot"><span class="annottext">Int -&gt; ChannelStatistics -&gt; ShowS
 [ChannelStatistics] -&gt; ShowS
 ChannelStatistics -&gt; String
 (Int -&gt; ChannelStatistics -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
      (Maybe EstimatedResourceSize)
      (Maybe EstimatedResourceSize)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-type">ChannelStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255212"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-type">ChannelStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255414"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
 size :: Maybe EstimatedResourceSize
 $sel:size:ChannelStatistics' :: ChannelStatistics -&gt; Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255212"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255212"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255211"><span class="annot"><span class="annottext">s :: ChannelStatistics
-</span><a href="#local-6989586621679255211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-type">ChannelStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255210"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelStatistics
-</span><a href="#local-6989586621679255211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ChannelStatistics' :: Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255414"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255414"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255413"><span class="annot"><span class="annottext">s :: ChannelStatistics
+</span><a href="#local-6989586621679255413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-type">ChannelStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255412"><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
+</span><a href="#local-6989586621679255412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelStatistics
+</span><a href="#local-6989586621679255413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:ChannelStatistics' :: Maybe EstimatedResourceSize
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#%24sel%3Asize%3AChannelStatistics%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize
-</span><a href="#local-6989586621679255210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255207"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255205"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelStatistics
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255409"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255407"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ChannelStatistics)
@@ -141,20 +141,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChannelStatistics&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255202"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255404"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe EstimatedResourceSize -&gt; ChannelStatistics
 </span><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics%27"><span class="hs-identifier hs-var">ChannelStatistics'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe EstimatedResourceSize -&gt; ChannelStatistics)
 -&gt; Parser (Maybe EstimatedResourceSize) -&gt; Parser ChannelStatistics
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EstimatedResourceSize)
+</span><a href="#local-6989586621679255404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EstimatedResourceSize)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;size&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255196"><span id="local-6989586621679255198"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255398"><span id="local-6989586621679255400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatistics.html#ChannelStatistics"><span class="hs-identifier hs-type">ChannelStatistics</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

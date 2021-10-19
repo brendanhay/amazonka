@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- confidence level in the determination.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEyeOpen' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679323219"><span id="local-6989586621679323220"></span></span><span class="hs-keyword">data</span><span> </span><span id="EyeOpen"><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-var">EyeOpen</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EyeOpen%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-var">EyeOpen'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aconfidence%3AEyeOpen%27"><span class="annot"><span class="annottext">EyeOpen -&gt; Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Aconfidence%3AEyeOpen%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Boolean value that indicates whether the eyes on the face are open.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AEyeOpen%27"><span class="annot"><span class="annottext">EyeOpen -&gt; Maybe Bool
-</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Avalue%3AEyeOpen%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679323496"><span id="local-6989586621679323497"></span></span><span class="hs-keyword">data</span><span> </span><span id="EyeOpen"><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-var">EyeOpen</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EyeOpen%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-var">EyeOpen'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Boolean value that indicates whether the eyes on the face are open.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AEyeOpen%27"><span class="annot"><span class="annottext">EyeOpen -&gt; Maybe Bool
+</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Avalue%3AEyeOpen%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aconfidence%3AEyeOpen%27"><span class="annot"><span class="annottext">EyeOpen -&gt; Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Aconfidence%3AEyeOpen%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323212"><span id="local-6989586621679323214"><span class="annot"><span class="annottext">EyeOpen -&gt; EyeOpen -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323489"><span id="local-6989586621679323491"><span class="annot"><span class="annottext">EyeOpen -&gt; EyeOpen -&gt; Bool
 (EyeOpen -&gt; EyeOpen -&gt; Bool)
 -&gt; (EyeOpen -&gt; EyeOpen -&gt; Bool) -&gt; Eq EyeOpen
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EyeOpen -&gt; EyeOpen -&gt; Bool
 == :: EyeOpen -&gt; EyeOpen -&gt; Bool
 $c== :: EyeOpen -&gt; EyeOpen -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323203"><span id="local-6989586621679323205"><span id="local-6989586621679323207"><span id="local-6989586621679323209"><span class="annot"><span class="annottext">ReadPrec [EyeOpen]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323480"><span id="local-6989586621679323482"><span id="local-6989586621679323484"><span id="local-6989586621679323486"><span class="annot"><span class="annottext">ReadPrec [EyeOpen]
 ReadPrec EyeOpen
 Int -&gt; ReadS EyeOpen
 ReadS [EyeOpen]
@@ -63,7 +63,7 @@ readList :: ReadS [EyeOpen]
 $creadList :: ReadS [EyeOpen]
 readsPrec :: Int -&gt; ReadS EyeOpen
 $creadsPrec :: Int -&gt; ReadS EyeOpen
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323196"><span id="local-6989586621679323198"><span id="local-6989586621679323200"><span class="annot"><span class="annottext">Int -&gt; EyeOpen -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323473"><span id="local-6989586621679323475"><span id="local-6989586621679323477"><span class="annot"><span class="annottext">Int -&gt; EyeOpen -&gt; ShowS
 [EyeOpen] -&gt; ShowS
 EyeOpen -&gt; String
 (Int -&gt; EyeOpen -&gt; ShowS)
@@ -94,92 +94,92 @@ $cfrom :: forall x. EyeOpen -&gt; Rep EyeOpen x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'confidence', 'eyeOpen_confidence' - Level of confidence in the determination.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'value', 'eyeOpen_value' - Boolean value that indicates whether the eyes on the face are open.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'eyeOpen_value' - Boolean value that indicates whether the eyes on the face are open.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'confidence', 'eyeOpen_confidence' - Level of confidence in the determination.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#newEyeOpen"><span class="hs-identifier hs-type">newEyeOpen</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span>
 </span><span id="line-51"></span><span id="newEyeOpen"><span class="annot"><span class="annottext">newEyeOpen :: EyeOpen
 </span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#newEyeOpen"><span class="hs-identifier hs-var hs-var">newEyeOpen</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">EyeOpen' :: Maybe Double -&gt; Maybe Bool -&gt; EyeOpen
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">EyeOpen' :: Maybe Bool -&gt; Maybe Double -&gt; EyeOpen
 </span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:confidence:EyeOpen' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Aconfidence%3AEyeOpen%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:EyeOpen' :: Maybe Bool
+</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Avalue%3AEyeOpen%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:EyeOpen' :: Maybe Bool
-</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Avalue%3AEyeOpen%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:confidence:EyeOpen' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Aconfidence%3AEyeOpen%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#eyeOpen_confidence"><span class="hs-identifier hs-type">eyeOpen_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="eyeOpen_confidence"><span class="annot"><span class="annottext">eyeOpen_confidence :: (Maybe Double -&gt; f (Maybe Double)) -&gt; EyeOpen -&gt; f EyeOpen
-</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#eyeOpen_confidence"><span class="hs-identifier hs-var hs-var">eyeOpen_confidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EyeOpen -&gt; Maybe Double)
--&gt; (EyeOpen -&gt; Maybe Double -&gt; EyeOpen)
--&gt; Lens EyeOpen EyeOpen (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323187"><span class="annot"><span class="annottext">Maybe Double
-confidence :: Maybe Double
-$sel:confidence:EyeOpen' :: EyeOpen -&gt; Maybe Double
-</span><a href="#local-6989586621679323187"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323187"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323186"><span class="annot"><span class="annottext">s :: EyeOpen
-</span><a href="#local-6989586621679323186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323185"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EyeOpen
-</span><a href="#local-6989586621679323186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:EyeOpen' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Aconfidence%3AEyeOpen%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | Boolean value that indicates whether the eyes on the face are open.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#eyeOpen_value"><span class="hs-identifier hs-type">eyeOpen_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="eyeOpen_value"><span class="annot"><span class="annottext">eyeOpen_value :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; EyeOpen -&gt; f EyeOpen
+</span><span id="line-57"></span><span class="hs-comment">-- | Boolean value that indicates whether the eyes on the face are open.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#eyeOpen_value"><span class="hs-identifier hs-type">eyeOpen_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="eyeOpen_value"><span class="annot"><span class="annottext">eyeOpen_value :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; EyeOpen -&gt; f EyeOpen
 </span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#eyeOpen_value"><span class="hs-identifier hs-var hs-var">eyeOpen_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EyeOpen -&gt; Maybe Bool)
 -&gt; (EyeOpen -&gt; Maybe Bool -&gt; EyeOpen)
 -&gt; Lens EyeOpen EyeOpen (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323183"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323464"><span class="annot"><span class="annottext">Maybe Bool
 value :: Maybe Bool
 $sel:value:EyeOpen' :: EyeOpen -&gt; Maybe Bool
-</span><a href="#local-6989586621679323183"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679323183"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323182"><span class="annot"><span class="annottext">s :: EyeOpen
-</span><a href="#local-6989586621679323182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323181"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679323181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EyeOpen
-</span><a href="#local-6989586621679323182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EyeOpen' :: Maybe Bool
+</span><a href="#local-6989586621679323464"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679323464"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323463"><span class="annot"><span class="annottext">s :: EyeOpen
+</span><a href="#local-6989586621679323463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323462"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679323462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EyeOpen
+</span><a href="#local-6989586621679323463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EyeOpen' :: Maybe Bool
 </span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Avalue%3AEyeOpen%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679323181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#eyeOpen_confidence"><span class="hs-identifier hs-type">eyeOpen_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="eyeOpen_confidence"><span class="annot"><span class="annottext">eyeOpen_confidence :: (Maybe Double -&gt; f (Maybe Double)) -&gt; EyeOpen -&gt; f EyeOpen
+</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#eyeOpen_confidence"><span class="hs-identifier hs-var hs-var">eyeOpen_confidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EyeOpen -&gt; Maybe Double)
+-&gt; (EyeOpen -&gt; Maybe Double -&gt; EyeOpen)
+-&gt; Lens EyeOpen EyeOpen (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323460"><span class="annot"><span class="annottext">Maybe Double
+confidence :: Maybe Double
+$sel:confidence:EyeOpen' :: EyeOpen -&gt; Maybe Double
+</span><a href="#local-6989586621679323460"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323460"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323459"><span class="annot"><span class="annottext">s :: EyeOpen
+</span><a href="#local-6989586621679323459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-type">EyeOpen'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323458"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EyeOpen
+</span><a href="#local-6989586621679323459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:EyeOpen' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#%24sel%3Aconfidence%3AEyeOpen%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323178"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679323176"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EyeOpen
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679323453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EyeOpen
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser EyeOpen) -&gt; Value -&gt; Parser EyeOpen
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EyeOpen&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323173"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323173"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Bool -&gt; EyeOpen
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323450"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Double -&gt; EyeOpen
 </span><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen%27"><span class="hs-identifier hs-var">EyeOpen'</span></a></span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Bool -&gt; EyeOpen)
--&gt; Parser (Maybe Double) -&gt; Parser (Maybe Bool -&gt; EyeOpen)
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Double -&gt; EyeOpen)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Double -&gt; EyeOpen)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; EyeOpen)
--&gt; Parser (Maybe Bool) -&gt; Parser EyeOpen
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323173"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679323450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; EyeOpen)
+-&gt; Parser (Maybe Double) -&gt; Parser EyeOpen
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323167"><span id="local-6989586621679323169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323444"><span id="local-6989586621679323446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.EyeOpen.html#EyeOpen"><span class="hs-identifier hs-type">EyeOpen</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

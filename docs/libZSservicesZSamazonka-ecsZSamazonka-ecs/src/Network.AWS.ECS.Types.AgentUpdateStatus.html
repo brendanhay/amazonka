@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679447069"><span id="local-6989586621679447070"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentUpdateStatus"><span class="annot"><a href="Network.AWS.ECS.Types.AgentUpdateStatus.html#AgentUpdateStatus"><span class="hs-identifier hs-var">AgentUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentUpdateStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.AgentUpdateStatus.html#AgentUpdateStatus%27"><span class="hs-identifier hs-var">AgentUpdateStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679447779"><span id="local-6989586621679447780"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentUpdateStatus"><span class="annot"><a href="Network.AWS.ECS.Types.AgentUpdateStatus.html#AgentUpdateStatus"><span class="hs-identifier hs-var">AgentUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentUpdateStatus%27"><span class="annot"><a href="Network.AWS.ECS.Types.AgentUpdateStatus.html#AgentUpdateStatus%27"><span class="hs-identifier hs-var">AgentUpdateStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAgentUpdateStatus"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; Text
 </span><a href="Network.AWS.ECS.Types.AgentUpdateStatus.html#fromAgentUpdateStatus"><span class="hs-identifier hs-var hs-var">fromAgentUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679447061"><span id="local-6989586621679447063"><span id="local-6989586621679447065"><span class="annot"><span class="annottext">Int -&gt; AgentUpdateStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679447771"><span id="local-6989586621679447773"><span id="local-6989586621679447775"><span class="annot"><span class="annottext">Int -&gt; AgentUpdateStatus -&gt; ShowS
 [AgentUpdateStatus] -&gt; ShowS
 AgentUpdateStatus -&gt; String
 (Int -&gt; AgentUpdateStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AgentUpdateStatus -&gt; String
 showsPrec :: Int -&gt; AgentUpdateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AgentUpdateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679447052"><span id="local-6989586621679447054"><span id="local-6989586621679447056"><span id="local-6989586621679447058"><span class="annot"><span class="annottext">ReadPrec [AgentUpdateStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679447762"><span id="local-6989586621679447764"><span id="local-6989586621679447766"><span id="local-6989586621679447768"><span class="annot"><span class="annottext">ReadPrec [AgentUpdateStatus]
 ReadPrec AgentUpdateStatus
 Int -&gt; ReadS AgentUpdateStatus
 ReadS [AgentUpdateStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AgentUpdateStatus]
 readsPrec :: Int -&gt; ReadS AgentUpdateStatus
 $creadsPrec :: Int -&gt; ReadS AgentUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679447047"><span id="local-6989586621679447049"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679447757"><span id="local-6989586621679447759"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool
 (AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool)
 -&gt; (AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool)
 -&gt; Eq AgentUpdateStatus
@@ -86,7 +86,7 @@ $c/= :: AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool
 == :: AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool
 $c== :: AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679447031"><span id="local-6989586621679447033"><span id="local-6989586621679447035"><span id="local-6989586621679447037"><span id="local-6989586621679447039"><span id="local-6989586621679447041"><span id="local-6989586621679447043"><span class="annot"><span class="annottext">Eq AgentUpdateStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679447741"><span id="local-6989586621679447743"><span id="local-6989586621679447745"><span id="local-6989586621679447747"><span id="local-6989586621679447749"><span id="local-6989586621679447751"><span id="local-6989586621679447753"><span class="annot"><span class="annottext">Eq AgentUpdateStatus
 Eq AgentUpdateStatus
 -&gt; (AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Ordering)
 -&gt; (AgentUpdateStatus -&gt; AgentUpdateStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AgentUpdateStatus -&gt; Rep AgentUpdateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679447023"><span id="local-6989586621679447025"><span class="annot"><span class="annottext">Int -&gt; AgentUpdateStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679447733"><span id="local-6989586621679447735"><span class="annot"><span class="annottext">Int -&gt; AgentUpdateStatus -&gt; Int
 AgentUpdateStatus -&gt; Int
 (Int -&gt; AgentUpdateStatus -&gt; Int)
 -&gt; (AgentUpdateStatus -&gt; Int) -&gt; Hashable AgentUpdateStatus
@@ -147,51 +147,51 @@ $chash :: AgentUpdateStatus -&gt; Int
 hashWithSalt :: Int -&gt; AgentUpdateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AgentUpdateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679447020"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679447730"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; ()
 (AgentUpdateStatus -&gt; ()) -&gt; NFData AgentUpdateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AgentUpdateStatus -&gt; ()
 $crnf :: AgentUpdateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679447017"><span class="annot"><span class="annottext">Text -&gt; Either String AgentUpdateStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679447727"><span class="annot"><span class="annottext">Text -&gt; Either String AgentUpdateStatus
 (Text -&gt; Either String AgentUpdateStatus)
 -&gt; FromText AgentUpdateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AgentUpdateStatus
 $cfromText :: Text -&gt; Either String AgentUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679447014"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679447724"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; Text
 (AgentUpdateStatus -&gt; Text) -&gt; ToText AgentUpdateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AgentUpdateStatus -&gt; Text
 $ctoText :: AgentUpdateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679447011"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679447721"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; ByteString
 (AgentUpdateStatus -&gt; ByteString) -&gt; ToByteString AgentUpdateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AgentUpdateStatus -&gt; ByteString
 $ctoBS :: AgentUpdateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679447008"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679447718"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; ByteStringBuilder
 (AgentUpdateStatus -&gt; ByteStringBuilder) -&gt; ToLog AgentUpdateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AgentUpdateStatus -&gt; ByteStringBuilder
 $cbuild :: AgentUpdateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679447005"><span class="annot"><span class="annottext">HeaderName -&gt; AgentUpdateStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679447715"><span class="annot"><span class="annottext">HeaderName -&gt; AgentUpdateStatus -&gt; [Header]
 (HeaderName -&gt; AgentUpdateStatus -&gt; [Header])
 -&gt; ToHeader AgentUpdateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AgentUpdateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AgentUpdateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679447002"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679447712"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; QueryString
 (AgentUpdateStatus -&gt; QueryString) -&gt; ToQuery AgentUpdateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AgentUpdateStatus -&gt; QueryString
 $ctoQuery :: AgentUpdateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679446997"><span id="local-6989586621679446999"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentUpdateStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679447707"><span id="local-6989586621679447709"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentUpdateStatus]
 Value -&gt; Parser AgentUpdateStatus
 (Value -&gt; Parser AgentUpdateStatus)
 -&gt; (Value -&gt; Parser [AgentUpdateStatus])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [AgentUpdateStatus]
 parseJSON :: Value -&gt; Parser AgentUpdateStatus
 $cparseJSON :: Value -&gt; Parser AgentUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679446992"><span id="local-6989586621679446994"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentUpdateStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679447702"><span id="local-6989586621679447704"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentUpdateStatus]
 FromJSONKeyFunction AgentUpdateStatus
 FromJSONKeyFunction AgentUpdateStatus
 -&gt; FromJSONKeyFunction [AgentUpdateStatus]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AgentUpdateStatus]
 fromJSONKey :: FromJSONKeyFunction AgentUpdateStatus
 $cfromJSONKey :: FromJSONKeyFunction AgentUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679446983"><span id="local-6989586621679446985"><span id="local-6989586621679446987"><span id="local-6989586621679446989"><span class="annot"><span class="annottext">[AgentUpdateStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679447693"><span id="local-6989586621679447695"><span id="local-6989586621679447697"><span id="local-6989586621679447699"><span class="annot"><span class="annottext">[AgentUpdateStatus] -&gt; Encoding
 [AgentUpdateStatus] -&gt; Value
 AgentUpdateStatus -&gt; Encoding
 AgentUpdateStatus -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: AgentUpdateStatus -&gt; Encoding
 toJSON :: AgentUpdateStatus -&gt; Value
 $ctoJSON :: AgentUpdateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679446978"><span id="local-6989586621679446980"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentUpdateStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679447688"><span id="local-6989586621679447690"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentUpdateStatus]
 ToJSONKeyFunction AgentUpdateStatus
 ToJSONKeyFunction AgentUpdateStatus
 -&gt; ToJSONKeyFunction [AgentUpdateStatus]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AgentUpdateStatus]
 toJSONKey :: ToJSONKeyFunction AgentUpdateStatus
 $ctoJSONKey :: ToJSONKeyFunction AgentUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679446975"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentUpdateStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679447685"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentUpdateStatus
 ([Node] -&gt; Either String AgentUpdateStatus)
 -&gt; FromXML AgentUpdateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AgentUpdateStatus
 $cparseXML :: [Node] -&gt; Either String AgentUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679446972"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679447682"><span class="annot"><span class="annottext">AgentUpdateStatus -&gt; XML
 (AgentUpdateStatus -&gt; XML) -&gt; ToXML AgentUpdateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AgentUpdateStatus -&gt; XML

@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newStopBuildBatch' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679381162"><span id="local-6989586621679381163"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopBuildBatch"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-var">StopBuildBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopBuildBatch%27"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-var">StopBuildBatch'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679383072"><span id="local-6989586621679383073"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopBuildBatch"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-var">StopBuildBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopBuildBatch%27"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-var">StopBuildBatch'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the batch build to stop.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AStopBuildBatch%27"><span class="annot"><span class="annottext">StopBuildBatch -&gt; Text
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3Aid%3AStopBuildBatch%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381156"><span id="local-6989586621679381158"><span class="annot"><span class="annottext">StopBuildBatch -&gt; StopBuildBatch -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383066"><span id="local-6989586621679383068"><span class="annot"><span class="annottext">StopBuildBatch -&gt; StopBuildBatch -&gt; Bool
 (StopBuildBatch -&gt; StopBuildBatch -&gt; Bool)
 -&gt; (StopBuildBatch -&gt; StopBuildBatch -&gt; Bool) -&gt; Eq StopBuildBatch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopBuildBatch -&gt; StopBuildBatch -&gt; Bool
 == :: StopBuildBatch -&gt; StopBuildBatch -&gt; Bool
 $c== :: StopBuildBatch -&gt; StopBuildBatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381147"><span id="local-6989586621679381149"><span id="local-6989586621679381151"><span id="local-6989586621679381153"><span class="annot"><span class="annottext">ReadPrec [StopBuildBatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383057"><span id="local-6989586621679383059"><span id="local-6989586621679383061"><span id="local-6989586621679383063"><span class="annot"><span class="annottext">ReadPrec [StopBuildBatch]
 ReadPrec StopBuildBatch
 Int -&gt; ReadS StopBuildBatch
 ReadS [StopBuildBatch]
@@ -80,7 +80,7 @@ readList :: ReadS [StopBuildBatch]
 $creadList :: ReadS [StopBuildBatch]
 readsPrec :: Int -&gt; ReadS StopBuildBatch
 $creadsPrec :: Int -&gt; ReadS StopBuildBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381140"><span id="local-6989586621679381142"><span id="local-6989586621679381144"><span class="annot"><span class="annottext">Int -&gt; StopBuildBatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383050"><span id="local-6989586621679383052"><span id="local-6989586621679383054"><span class="annot"><span class="annottext">Int -&gt; StopBuildBatch -&gt; ShowS
 [StopBuildBatch] -&gt; ShowS
 StopBuildBatch -&gt; String
 (Int -&gt; StopBuildBatch -&gt; ShowS)
@@ -120,11 +120,11 @@ $cfrom :: forall x. StopBuildBatch -&gt; Rep StopBuildBatch x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span>
 </span><span id="line-69"></span><span id="newStopBuildBatch"><span class="annot"><span class="annottext">newStopBuildBatch :: Text -&gt; StopBuildBatch
-</span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#newStopBuildBatch"><span class="hs-identifier hs-var hs-var">newStopBuildBatch</span></a></span></span><span> </span><span id="local-6989586621679381135"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381135"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopBuildBatch' :: Text -&gt; StopBuildBatch
+</span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#newStopBuildBatch"><span class="hs-identifier hs-var hs-var">newStopBuildBatch</span></a></span></span><span> </span><span id="local-6989586621679383045"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383045"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopBuildBatch' :: Text -&gt; StopBuildBatch
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-type">StopBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:StopBuildBatch' :: Text
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3Aid%3AStopBuildBatch%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381135"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679383045"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The identifier of the batch build to stop.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#stopBuildBatch_id"><span class="hs-identifier hs-type">stopBuildBatch_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. StopBuildBatch -&gt; Rep StopBuildBatch x
 -&gt; (StopBuildBatch -&gt; Text -&gt; StopBuildBatch)
 -&gt; Lens StopBuildBatch StopBuildBatch Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-type">StopBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381132"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-type">StopBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383042"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:StopBuildBatch' :: StopBuildBatch -&gt; Text
-</span><a href="#local-6989586621679381132"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381132"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381131"><span class="annot"><span class="annottext">s :: StopBuildBatch
-</span><a href="#local-6989586621679381131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-type">StopBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381130"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopBuildBatch
-</span><a href="#local-6989586621679381131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:StopBuildBatch' :: Text
+</span><a href="#local-6989586621679383042"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383042"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383041"><span class="annot"><span class="annottext">s :: StopBuildBatch
+</span><a href="#local-6989586621679383041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-type">StopBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383040"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopBuildBatch
+</span><a href="#local-6989586621679383041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:StopBuildBatch' :: Text
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3Aid%3AStopBuildBatch%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679381126"><span class="annot"><span class="annottext">request :: StopBuildBatch -&gt; Request StopBuildBatch
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679383036"><span class="annot"><span class="annottext">request :: StopBuildBatch -&gt; Request StopBuildBatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopBuildBatch -&gt; Request StopBuildBatch
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679381122"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383032"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopBuildBatch
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381119"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381119"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381118"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679381118"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381117"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383029"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383029"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383028"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679383028"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383027"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383027"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe BuildBatch -&gt; Int -&gt; StopBuildBatchResponse
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-var">StopBuildBatchResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BuildBatch -&gt; Int -&gt; StopBuildBatchResponse)
@@ -188,7 +188,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StopBuildBatchResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BuildBatch)
+</span><a href="#local-6989586621679383027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BuildBatch)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildBatch&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381119"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383029"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381109"><span id="local-6989586621679381111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383019"><span id="local-6989586621679383021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679381102"><span class="annot"><span class="annottext">toHeaders :: StopBuildBatch -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679383012"><span class="annot"><span class="annottext">toHeaders :: StopBuildBatch -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopBuildBatch -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -235,12 +235,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381092"><span id="local-6989586621679381094"><span id="local-6989586621679381096"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679381090"><span class="annot"><span class="annottext">toJSON :: StopBuildBatch -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-type">StopBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381088"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383002"><span id="local-6989586621679383004"><span id="local-6989586621679383006"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679383000"><span class="annot"><span class="annottext">toJSON :: StopBuildBatch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch%27"><span class="hs-identifier hs-type">StopBuildBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382998"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:StopBuildBatch' :: StopBuildBatch -&gt; Text
-</span><a href="#local-6989586621679381088"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382998"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,17 +251,17 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381088"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382998"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679381082"><span class="annot"><span class="annottext">toPath :: StopBuildBatch -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382992"><span class="annot"><span class="annottext">toPath :: StopBuildBatch -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopBuildBatch -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatch"><span class="hs-identifier hs-type">StopBuildBatch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679381078"><span class="annot"><span class="annottext">toQuery :: StopBuildBatch -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679382988"><span class="annot"><span class="annottext">toQuery :: StopBuildBatch -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopBuildBatch -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -269,14 +269,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newStopBuildBatchResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679381075"><span id="local-6989586621679381076"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopBuildBatchResponse"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-var">StopBuildBatchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopBuildBatchResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-var">StopBuildBatchResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679382985"><span id="local-6989586621679382986"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopBuildBatchResponse"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-var">StopBuildBatchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopBuildBatchResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-var">StopBuildBatchResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AbuildBatch%3AStopBuildBatchResponse%27"><span class="annot"><span class="annottext">StopBuildBatchResponse -&gt; Maybe BuildBatch
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3AbuildBatch%3AStopBuildBatchResponse%27"><span class="hs-identifier hs-var hs-var">buildBatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildBatch.html#BuildBatch"><span class="hs-identifier hs-type">BuildBatch</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopBuildBatchResponse%27"><span class="annot"><span class="annottext">StopBuildBatchResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3AhttpStatus%3AStopBuildBatchResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381069"><span id="local-6989586621679381071"><span class="annot"><span class="annottext">StopBuildBatchResponse -&gt; StopBuildBatchResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382979"><span id="local-6989586621679382981"><span class="annot"><span class="annottext">StopBuildBatchResponse -&gt; StopBuildBatchResponse -&gt; Bool
 (StopBuildBatchResponse -&gt; StopBuildBatchResponse -&gt; Bool)
 -&gt; (StopBuildBatchResponse -&gt; StopBuildBatchResponse -&gt; Bool)
 -&gt; Eq StopBuildBatchResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopBuildBatchResponse -&gt; StopBuildBatchResponse -&gt; Bool
 == :: StopBuildBatchResponse -&gt; StopBuildBatchResponse -&gt; Bool
 $c== :: StopBuildBatchResponse -&gt; StopBuildBatchResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381061"><span id="local-6989586621679381063"><span id="local-6989586621679381065"><span id="local-6989586621679381067"><span class="annot"><span class="annottext">ReadPrec [StopBuildBatchResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382971"><span id="local-6989586621679382973"><span id="local-6989586621679382975"><span id="local-6989586621679382977"><span class="annot"><span class="annottext">ReadPrec [StopBuildBatchResponse]
 ReadPrec StopBuildBatchResponse
 Int -&gt; ReadS StopBuildBatchResponse
 ReadS [StopBuildBatchResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [StopBuildBatchResponse]
 $creadList :: ReadS [StopBuildBatchResponse]
 readsPrec :: Int -&gt; ReadS StopBuildBatchResponse
 $creadsPrec :: Int -&gt; ReadS StopBuildBatchResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381055"><span id="local-6989586621679381057"><span id="local-6989586621679381059"><span class="annot"><span class="annottext">Int -&gt; StopBuildBatchResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382965"><span id="local-6989586621679382967"><span id="local-6989586621679382969"><span class="annot"><span class="annottext">Int -&gt; StopBuildBatchResponse -&gt; ShowS
 [StopBuildBatchResponse] -&gt; ShowS
 StopBuildBatchResponse -&gt; String
 (Int -&gt; StopBuildBatchResponse -&gt; ShowS)
@@ -348,8 +348,8 @@ $cfrom :: forall x. StopBuildBatchResponse -&gt; Rep StopBuildBatchResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span><span>
 </span><span id="line-141"></span><span id="newStopBuildBatchResponse"><span class="annot"><span class="annottext">newStopBuildBatchResponse :: Int -&gt; StopBuildBatchResponse
-</span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#newStopBuildBatchResponse"><span class="hs-identifier hs-var hs-var">newStopBuildBatchResponse</span></a></span></span><span> </span><span id="local-6989586621679381052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#newStopBuildBatchResponse"><span class="hs-identifier hs-var hs-var">newStopBuildBatchResponse</span></a></span></span><span> </span><span id="local-6989586621679382962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">StopBuildBatchResponse' :: Maybe BuildBatch -&gt; Int -&gt; StopBuildBatchResponse
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:buildBatch:StopBuildBatchResponse' :: Maybe BuildBatch
@@ -359,7 +359,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopBuildBatchResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3AhttpStatus%3AStopBuildBatchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679382962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -375,16 +375,16 @@ forall a. Maybe a
      (Maybe BuildBatch)
      (Maybe BuildBatch)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381051"><span class="annot"><span class="annottext">Maybe BuildBatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382961"><span class="annot"><span class="annottext">Maybe BuildBatch
 buildBatch :: Maybe BuildBatch
 $sel:buildBatch:StopBuildBatchResponse' :: StopBuildBatchResponse -&gt; Maybe BuildBatch
-</span><a href="#local-6989586621679381051"><span class="hs-identifier hs-var hs-var">buildBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildBatch
-</span><a href="#local-6989586621679381051"><span class="hs-identifier hs-var">buildBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381050"><span class="annot"><span class="annottext">s :: StopBuildBatchResponse
-</span><a href="#local-6989586621679381050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381049"><span class="annot"><span class="annottext">Maybe BuildBatch
-</span><a href="#local-6989586621679381049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopBuildBatchResponse
-</span><a href="#local-6989586621679381050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildBatch:StopBuildBatchResponse' :: Maybe BuildBatch
+</span><a href="#local-6989586621679382961"><span class="hs-identifier hs-var hs-var">buildBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildBatch
+</span><a href="#local-6989586621679382961"><span class="hs-identifier hs-var">buildBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382960"><span class="annot"><span class="annottext">s :: StopBuildBatchResponse
+</span><a href="#local-6989586621679382960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382959"><span class="annot"><span class="annottext">Maybe BuildBatch
+</span><a href="#local-6989586621679382959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopBuildBatchResponse
+</span><a href="#local-6989586621679382960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildBatch:StopBuildBatchResponse' :: Maybe BuildBatch
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3AbuildBatch%3AStopBuildBatchResponse%27"><span class="hs-identifier hs-var">buildBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildBatch
-</span><a href="#local-6989586621679381049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#stopBuildBatchResponse_httpStatus"><span class="hs-identifier hs-type">stopBuildBatchResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -394,16 +394,16 @@ $sel:buildBatch:StopBuildBatchResponse' :: StopBuildBatchResponse -&gt; Maybe Bu
 -&gt; (StopBuildBatchResponse -&gt; Int -&gt; StopBuildBatchResponse)
 -&gt; Lens StopBuildBatchResponse StopBuildBatchResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381048"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382958"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopBuildBatchResponse' :: StopBuildBatchResponse -&gt; Int
-</span><a href="#local-6989586621679381048"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381048"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381047"><span class="annot"><span class="annottext">s :: StopBuildBatchResponse
-</span><a href="#local-6989586621679381047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopBuildBatchResponse
-</span><a href="#local-6989586621679381047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopBuildBatchResponse' :: Int
+</span><a href="#local-6989586621679382958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382957"><span class="annot"><span class="annottext">s :: StopBuildBatchResponse
+</span><a href="#local-6989586621679382957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse%27"><span class="hs-identifier hs-type">StopBuildBatchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopBuildBatchResponse
+</span><a href="#local-6989586621679382957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopBuildBatchResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.StopBuildBatch.html#%24sel%3AhttpStatus%3AStopBuildBatchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.StopBuildBatch.html#StopBuildBatchResponse"><span class="hs-identifier hs-type">StopBuildBatchResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

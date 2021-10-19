@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- email events to Amazon CloudWatch.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCloudWatchDimensionConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679324348"><span id="local-6989586621679324349"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchDimensionConfiguration"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-var">CloudWatchDimensionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchDimensionConfiguration%27"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">CloudWatchDimensionConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679326648"><span id="local-6989586621679326649"></span></span><span class="hs-keyword">data</span><span> </span><span id="CloudWatchDimensionConfiguration"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-var">CloudWatchDimensionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchDimensionConfiguration%27"><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">CloudWatchDimensionConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of an Amazon CloudWatch dimension associated with an email</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- sending metric. The name has to meet the following criteria:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -39,11 +39,11 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AdimensionName%3ACloudWatchDimensionConfiguration%27"><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdimensionName%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The location where the Amazon SES API v2 finds the value of a dimension</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to publish to Amazon CloudWatch. If you want to use the message tags</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- to use your own email headers, choose @emailHeader@. If you want to use</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- link tags, choose @linkTags@.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- to publish to Amazon CloudWatch. To use the message tags that you</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- email headers, choose @emailHeader@. To use link tags, choose</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @linkTags@.</span><span>
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AdimensionValueSource%3ACloudWatchDimensionConfiguration%27"><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration -&gt; DimensionValueSource
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdimensionValueSource%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var hs-var">dimensionValueSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-type">DimensionValueSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The default value of the dimension that is published to Amazon</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdefaultDimensionValue%3ACloudWatchDimensionConfiguration%27"><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdefaultDimensionValue%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var hs-var">defaultDimensionValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324340"><span id="local-6989586621679324342"><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326640"><span id="local-6989586621679326642"><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
 -&gt; CloudWatchDimensionConfiguration -&gt; Bool
 (CloudWatchDimensionConfiguration
  -&gt; CloudWatchDimensionConfiguration -&gt; Bool)
@@ -73,7 +73,7 @@ $c/= :: CloudWatchDimensionConfiguration
 -&gt; CloudWatchDimensionConfiguration -&gt; Bool
 $c== :: CloudWatchDimensionConfiguration
 -&gt; CloudWatchDimensionConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324331"><span id="local-6989586621679324333"><span id="local-6989586621679324335"><span id="local-6989586621679324337"><span class="annot"><span class="annottext">ReadPrec [CloudWatchDimensionConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326631"><span id="local-6989586621679326633"><span id="local-6989586621679326635"><span id="local-6989586621679326637"><span class="annot"><span class="annottext">ReadPrec [CloudWatchDimensionConfiguration]
 ReadPrec CloudWatchDimensionConfiguration
 Int -&gt; ReadS CloudWatchDimensionConfiguration
 ReadS [CloudWatchDimensionConfiguration]
@@ -93,7 +93,7 @@ readList :: ReadS [CloudWatchDimensionConfiguration]
 $creadList :: ReadS [CloudWatchDimensionConfiguration]
 readsPrec :: Int -&gt; ReadS CloudWatchDimensionConfiguration
 $creadsPrec :: Int -&gt; ReadS CloudWatchDimensionConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324324"><span id="local-6989586621679324326"><span id="local-6989586621679324328"><span class="annot"><span class="annottext">Int -&gt; CloudWatchDimensionConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326624"><span id="local-6989586621679326626"><span id="local-6989586621679326628"><span class="annot"><span class="annottext">Int -&gt; CloudWatchDimensionConfiguration -&gt; ShowS
 [CloudWatchDimensionConfiguration] -&gt; ShowS
 CloudWatchDimensionConfiguration -&gt; String
 (Int -&gt; CloudWatchDimensionConfiguration -&gt; ShowS)
@@ -148,11 +148,11 @@ CloudWatchDimensionConfiguration
 </span><span id="line-73"></span><span class="hs-comment">-- -   It can contain no more than 256 characters.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- 'dimensionValueSource', 'cloudWatchDimensionConfiguration_dimensionValueSource' - The location where the Amazon SES API v2 finds the value of a dimension</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- to publish to Amazon CloudWatch. If you want to use the message tags</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- to use your own email headers, choose @emailHeader@. If you want to use</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- link tags, choose @linkTags@.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- to publish to Amazon CloudWatch. To use the message tags that you</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- email headers, choose @emailHeader@. To use link tags, choose</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @linkTags@.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'defaultDimensionValue', 'cloudWatchDimensionConfiguration_defaultDimensionValue' - The default value of the dimension that is published to Amazon</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- CloudWatch if you don\'t provide the value of the dimension when you</span><span>
@@ -173,27 +173,27 @@ CloudWatchDimensionConfiguration
 </span><span id="line-98"></span><span id="newCloudWatchDimensionConfiguration"><span class="annot"><span class="annottext">newCloudWatchDimensionConfiguration :: Text
 -&gt; DimensionValueSource -&gt; Text -&gt; CloudWatchDimensionConfiguration
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#newCloudWatchDimensionConfiguration"><span class="hs-identifier hs-var hs-var">newCloudWatchDimensionConfiguration</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679324318"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324318"><span class="hs-identifier hs-var">pDimensionName_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679324317"><span class="annot"><span class="annottext">DimensionValueSource
-</span><a href="#local-6989586621679324317"><span class="hs-identifier hs-var">pDimensionValueSource_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679324316"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324316"><span class="hs-identifier hs-var">pDefaultDimensionValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679326618"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326618"><span class="hs-identifier hs-var">pDimensionName_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679326617"><span class="annot"><span class="annottext">DimensionValueSource
+</span><a href="#local-6989586621679326617"><span class="hs-identifier hs-var">pDimensionValueSource_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679326616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326616"><span class="hs-identifier hs-var">pDefaultDimensionValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration' :: Text
 -&gt; DimensionValueSource -&gt; Text -&gt; CloudWatchDimensionConfiguration
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dimensionName:CloudWatchDimensionConfiguration' :: Text
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdimensionName%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">dimensionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324318"><span class="hs-identifier hs-var">pDimensionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326618"><span class="hs-identifier hs-var">pDimensionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:dimensionValueSource:CloudWatchDimensionConfiguration' :: DimensionValueSource
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdimensionValueSource%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">dimensionValueSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">DimensionValueSource
-</span><a href="#local-6989586621679324317"><span class="hs-identifier hs-var">pDimensionValueSource_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326617"><span class="hs-identifier hs-var">pDimensionValueSource_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultDimensionValue:CloudWatchDimensionConfiguration' :: Text
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdefaultDimensionValue%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">defaultDimensionValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324316"><span class="hs-identifier hs-var">pDefaultDimensionValue_</span></a></span><span>
+</span><a href="#local-6989586621679326616"><span class="hs-identifier hs-var">pDefaultDimensionValue_</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The name of an Amazon CloudWatch dimension associated with an email</span><span>
@@ -216,23 +216,23 @@ CloudWatchDimensionConfiguration
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324312"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326612"><span class="annot"><span class="annottext">Text
 dimensionName :: Text
 $sel:dimensionName:CloudWatchDimensionConfiguration' :: CloudWatchDimensionConfiguration -&gt; Text
-</span><a href="#local-6989586621679324312"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324312"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324311"><span class="annot"><span class="annottext">s :: CloudWatchDimensionConfiguration
-</span><a href="#local-6989586621679324311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324310"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
-</span><a href="#local-6989586621679324311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionName:CloudWatchDimensionConfiguration' :: Text
+</span><a href="#local-6989586621679326612"><span class="hs-identifier hs-var hs-var">dimensionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326612"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326611"><span class="annot"><span class="annottext">s :: CloudWatchDimensionConfiguration
+</span><a href="#local-6989586621679326611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326610"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
+</span><a href="#local-6989586621679326611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionName:CloudWatchDimensionConfiguration' :: Text
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdimensionName%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">dimensionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The location where the Amazon SES API v2 finds the value of a dimension</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- to publish to Amazon CloudWatch. If you want to use the message tags</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- to use your own email headers, choose @emailHeader@. If you want to use</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- link tags, choose @linkTags@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- to publish to Amazon CloudWatch. To use the message tags that you</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- email headers, choose @emailHeader@. To use link tags, choose</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @linkTags@.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#cloudWatchDimensionConfiguration_dimensionValueSource"><span class="hs-identifier hs-type">cloudWatchDimensionConfiguration_dimensionValueSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DimensionValueSource.html#DimensionValueSource"><span class="hs-identifier hs-type">DimensionValueSource</span></a></span><span>
 </span><span id="line-128"></span><span id="cloudWatchDimensionConfiguration_dimensionValueSource"><span class="annot"><span class="annottext">cloudWatchDimensionConfiguration_dimensionValueSource :: (DimensionValueSource -&gt; f DimensionValueSource)
 -&gt; CloudWatchDimensionConfiguration
@@ -246,16 +246,16 @@ $sel:dimensionName:CloudWatchDimensionConfiguration' :: CloudWatchDimensionConfi
      DimensionValueSource
      DimensionValueSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324308"><span class="annot"><span class="annottext">DimensionValueSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326608"><span class="annot"><span class="annottext">DimensionValueSource
 dimensionValueSource :: DimensionValueSource
 $sel:dimensionValueSource:CloudWatchDimensionConfiguration' :: CloudWatchDimensionConfiguration -&gt; DimensionValueSource
-</span><a href="#local-6989586621679324308"><span class="hs-identifier hs-var hs-var">dimensionValueSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DimensionValueSource
-</span><a href="#local-6989586621679324308"><span class="hs-identifier hs-var">dimensionValueSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324307"><span class="annot"><span class="annottext">s :: CloudWatchDimensionConfiguration
-</span><a href="#local-6989586621679324307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324306"><span class="annot"><span class="annottext">DimensionValueSource
-</span><a href="#local-6989586621679324306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
-</span><a href="#local-6989586621679324307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionValueSource:CloudWatchDimensionConfiguration' :: DimensionValueSource
+</span><a href="#local-6989586621679326608"><span class="hs-identifier hs-var hs-var">dimensionValueSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DimensionValueSource
+</span><a href="#local-6989586621679326608"><span class="hs-identifier hs-var">dimensionValueSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326607"><span class="annot"><span class="annottext">s :: CloudWatchDimensionConfiguration
+</span><a href="#local-6989586621679326607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326606"><span class="annot"><span class="annottext">DimensionValueSource
+</span><a href="#local-6989586621679326606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
+</span><a href="#local-6989586621679326607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionValueSource:CloudWatchDimensionConfiguration' :: DimensionValueSource
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdimensionValueSource%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">dimensionValueSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DimensionValueSource
-</span><a href="#local-6989586621679324306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The default value of the dimension that is published to Amazon</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- CloudWatch if you don\'t provide the value of the dimension when you</span><span>
@@ -278,22 +278,22 @@ $sel:dimensionValueSource:CloudWatchDimensionConfiguration' :: CloudWatchDimensi
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324304"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326604"><span class="annot"><span class="annottext">Text
 defaultDimensionValue :: Text
 $sel:defaultDimensionValue:CloudWatchDimensionConfiguration' :: CloudWatchDimensionConfiguration -&gt; Text
-</span><a href="#local-6989586621679324304"><span class="hs-identifier hs-var hs-var">defaultDimensionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324304"><span class="hs-identifier hs-var">defaultDimensionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324303"><span class="annot"><span class="annottext">s :: CloudWatchDimensionConfiguration
-</span><a href="#local-6989586621679324303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
-</span><a href="#local-6989586621679324303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultDimensionValue:CloudWatchDimensionConfiguration' :: Text
+</span><a href="#local-6989586621679326604"><span class="hs-identifier hs-var hs-var">defaultDimensionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326604"><span class="hs-identifier hs-var">defaultDimensionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326603"><span class="annot"><span class="annottext">s :: CloudWatchDimensionConfiguration
+</span><a href="#local-6989586621679326603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326602"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudWatchDimensionConfiguration
+</span><a href="#local-6989586621679326603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultDimensionValue:CloudWatchDimensionConfiguration' :: Text
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#%24sel%3AdefaultDimensionValue%3ACloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">defaultDimensionValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679324299"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679326599"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679324297"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchDimensionConfiguration
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679326597"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CloudWatchDimensionConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CloudWatchDimensionConfiguration)
@@ -303,8 +303,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CloudWatchDimensionConfiguration&quot;</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324294"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324294"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326594"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326594"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; DimensionValueSource -&gt; Text -&gt; CloudWatchDimensionConfiguration
 </span><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-var">CloudWatchDimensionConfiguration'</span></a></span><span>
@@ -317,7 +317,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (DimensionValueSource -&gt; Text -&gt; CloudWatchDimensionConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679326594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DimensionName&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,7 +327,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; CloudWatchDimensionConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DimensionValueSource
+</span><a href="#local-6989586621679326594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DimensionValueSource
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DimensionValueSource&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,23 +335,23 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser CloudWatchDimensionConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324294"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679326594"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultDimensionValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679324288"><span id="local-6989586621679324290"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679326588"><span id="local-6989586621679326590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679324285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679326585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324277"><span id="local-6989586621679324279"><span id="local-6989586621679324281"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679324275"><span class="annot"><span class="annottext">toJSON :: CloudWatchDimensionConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324271"><span id="local-6989586621679324272"><span id="local-6989586621679324273"><span class="annot"><span class="annottext">Text
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326577"><span id="local-6989586621679326579"><span id="local-6989586621679326581"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679326575"><span class="annot"><span class="annottext">toJSON :: CloudWatchDimensionConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.CloudWatchDimensionConfiguration.html#CloudWatchDimensionConfiguration%27"><span class="hs-identifier hs-type">CloudWatchDimensionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326571"><span id="local-6989586621679326572"><span id="local-6989586621679326573"><span class="annot"><span class="annottext">Text
 DimensionValueSource
 defaultDimensionValue :: Text
 dimensionValueSource :: DimensionValueSource
@@ -359,7 +359,7 @@ dimensionName :: Text
 $sel:defaultDimensionValue:CloudWatchDimensionConfiguration' :: CloudWatchDimensionConfiguration -&gt; Text
 $sel:dimensionValueSource:CloudWatchDimensionConfiguration' :: CloudWatchDimensionConfiguration -&gt; DimensionValueSource
 $sel:dimensionName:CloudWatchDimensionConfiguration' :: CloudWatchDimensionConfiguration -&gt; Text
-</span><a href="#local-6989586621679324271"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326571"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -372,7 +372,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DimensionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324273"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326573"><span class="hs-identifier hs-var">dimensionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -381,7 +381,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-171"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; DimensionValueSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DimensionValueSource
-</span><a href="#local-6989586621679324272"><span class="hs-identifier hs-var">dimensionValueSource</span></a></span><span>
+</span><a href="#local-6989586621679326572"><span class="hs-identifier hs-var">dimensionValueSource</span></a></span><span>
 </span><span id="line-172"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -391,7 +391,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-175"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324271"><span class="hs-identifier hs-var">defaultDimensionValue</span></a></span><span>
+</span><a href="#local-6989586621679326571"><span class="hs-identifier hs-var">defaultDimensionValue</span></a></span><span>
 </span><span id="line-176"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>

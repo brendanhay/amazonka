@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span id="local-6989586621679244237"><span id="local-6989586621679244238"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssessmentRunState"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState"><span class="hs-identifier hs-var">AssessmentRunState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRunState%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState%27"><span class="hs-identifier hs-var">AssessmentRunState'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679244588"><span id="local-6989586621679244589"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssessmentRunState"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState"><span class="hs-identifier hs-var">AssessmentRunState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRunState%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState%27"><span class="hs-identifier hs-var">AssessmentRunState'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssessmentRunState"><span class="annot"><span class="annottext">AssessmentRunState -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#fromAssessmentRunState"><span class="hs-identifier hs-var hs-var">fromAssessmentRunState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244229"><span id="local-6989586621679244231"><span id="local-6989586621679244233"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunState -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244580"><span id="local-6989586621679244582"><span id="local-6989586621679244584"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunState -&gt; ShowS
 [AssessmentRunState] -&gt; ShowS
 AssessmentRunState -&gt; String
 (Int -&gt; AssessmentRunState -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: AssessmentRunState -&gt; String
 showsPrec :: Int -&gt; AssessmentRunState -&gt; ShowS
 $cshowsPrec :: Int -&gt; AssessmentRunState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244220"><span id="local-6989586621679244222"><span id="local-6989586621679244224"><span id="local-6989586621679244226"><span class="annot"><span class="annottext">ReadPrec [AssessmentRunState]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244571"><span id="local-6989586621679244573"><span id="local-6989586621679244575"><span id="local-6989586621679244577"><span class="annot"><span class="annottext">ReadPrec [AssessmentRunState]
 ReadPrec AssessmentRunState
 Int -&gt; ReadS AssessmentRunState
 ReadS [AssessmentRunState]
@@ -83,7 +83,7 @@ $creadList :: ReadS [AssessmentRunState]
 readsPrec :: Int -&gt; ReadS AssessmentRunState
 $creadsPrec :: Int -&gt; ReadS AssessmentRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244215"><span id="local-6989586621679244217"><span class="annot"><span class="annottext">AssessmentRunState -&gt; AssessmentRunState -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244566"><span id="local-6989586621679244568"><span class="annot"><span class="annottext">AssessmentRunState -&gt; AssessmentRunState -&gt; Bool
 (AssessmentRunState -&gt; AssessmentRunState -&gt; Bool)
 -&gt; (AssessmentRunState -&gt; AssessmentRunState -&gt; Bool)
 -&gt; Eq AssessmentRunState
@@ -93,7 +93,7 @@ $c/= :: AssessmentRunState -&gt; AssessmentRunState -&gt; Bool
 == :: AssessmentRunState -&gt; AssessmentRunState -&gt; Bool
 $c== :: AssessmentRunState -&gt; AssessmentRunState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244199"><span id="local-6989586621679244201"><span id="local-6989586621679244203"><span id="local-6989586621679244205"><span id="local-6989586621679244207"><span id="local-6989586621679244209"><span id="local-6989586621679244211"><span class="annot"><span class="annottext">Eq AssessmentRunState
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244550"><span id="local-6989586621679244552"><span id="local-6989586621679244554"><span id="local-6989586621679244556"><span id="local-6989586621679244558"><span id="local-6989586621679244560"><span id="local-6989586621679244562"><span class="annot"><span class="annottext">Eq AssessmentRunState
 Eq AssessmentRunState
 -&gt; (AssessmentRunState -&gt; AssessmentRunState -&gt; Ordering)
 -&gt; (AssessmentRunState -&gt; AssessmentRunState -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. AssessmentRunState -&gt; Rep AssessmentRunState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244191"><span id="local-6989586621679244193"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunState -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244542"><span id="local-6989586621679244544"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunState -&gt; Int
 AssessmentRunState -&gt; Int
 (Int -&gt; AssessmentRunState -&gt; Int)
 -&gt; (AssessmentRunState -&gt; Int) -&gt; Hashable AssessmentRunState
@@ -154,53 +154,53 @@ $chash :: AssessmentRunState -&gt; Int
 hashWithSalt :: Int -&gt; AssessmentRunState -&gt; Int
 $chashWithSalt :: Int -&gt; AssessmentRunState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244188"><span class="annot"><span class="annottext">AssessmentRunState -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244539"><span class="annot"><span class="annottext">AssessmentRunState -&gt; ()
 (AssessmentRunState -&gt; ()) -&gt; NFData AssessmentRunState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AssessmentRunState -&gt; ()
 $crnf :: AssessmentRunState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244185"><span class="annot"><span class="annottext">Text -&gt; Either String AssessmentRunState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244536"><span class="annot"><span class="annottext">Text -&gt; Either String AssessmentRunState
 (Text -&gt; Either String AssessmentRunState)
 -&gt; FromText AssessmentRunState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AssessmentRunState
 $cfromText :: Text -&gt; Either String AssessmentRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244182"><span class="annot"><span class="annottext">AssessmentRunState -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244533"><span class="annot"><span class="annottext">AssessmentRunState -&gt; Text
 (AssessmentRunState -&gt; Text) -&gt; ToText AssessmentRunState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AssessmentRunState -&gt; Text
 $ctoText :: AssessmentRunState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244179"><span class="annot"><span class="annottext">AssessmentRunState -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244530"><span class="annot"><span class="annottext">AssessmentRunState -&gt; ByteString
 (AssessmentRunState -&gt; ByteString)
 -&gt; ToByteString AssessmentRunState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AssessmentRunState -&gt; ByteString
 $ctoBS :: AssessmentRunState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244176"><span class="annot"><span class="annottext">AssessmentRunState -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244527"><span class="annot"><span class="annottext">AssessmentRunState -&gt; ByteStringBuilder
 (AssessmentRunState -&gt; ByteStringBuilder)
 -&gt; ToLog AssessmentRunState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AssessmentRunState -&gt; ByteStringBuilder
 $cbuild :: AssessmentRunState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679244173"><span class="annot"><span class="annottext">HeaderName -&gt; AssessmentRunState -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679244524"><span class="annot"><span class="annottext">HeaderName -&gt; AssessmentRunState -&gt; [Header]
 (HeaderName -&gt; AssessmentRunState -&gt; [Header])
 -&gt; ToHeader AssessmentRunState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AssessmentRunState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AssessmentRunState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679244170"><span class="annot"><span class="annottext">AssessmentRunState -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679244521"><span class="annot"><span class="annottext">AssessmentRunState -&gt; QueryString
 (AssessmentRunState -&gt; QueryString) -&gt; ToQuery AssessmentRunState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AssessmentRunState -&gt; QueryString
 $ctoQuery :: AssessmentRunState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679244165"><span id="local-6989586621679244167"><span class="annot"><span class="annottext">Value -&gt; Parser [AssessmentRunState]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679244516"><span id="local-6989586621679244518"><span class="annot"><span class="annottext">Value -&gt; Parser [AssessmentRunState]
 Value -&gt; Parser AssessmentRunState
 (Value -&gt; Parser AssessmentRunState)
 -&gt; (Value -&gt; Parser [AssessmentRunState])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [AssessmentRunState]
 parseJSON :: Value -&gt; Parser AssessmentRunState
 $cparseJSON :: Value -&gt; Parser AssessmentRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679244160"><span id="local-6989586621679244162"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssessmentRunState]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679244511"><span id="local-6989586621679244513"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssessmentRunState]
 FromJSONKeyFunction AssessmentRunState
 FromJSONKeyFunction AssessmentRunState
 -&gt; FromJSONKeyFunction [AssessmentRunState]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AssessmentRunState]
 fromJSONKey :: FromJSONKeyFunction AssessmentRunState
 $cfromJSONKey :: FromJSONKeyFunction AssessmentRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679244151"><span id="local-6989586621679244153"><span id="local-6989586621679244155"><span id="local-6989586621679244157"><span class="annot"><span class="annottext">[AssessmentRunState] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679244502"><span id="local-6989586621679244504"><span id="local-6989586621679244506"><span id="local-6989586621679244508"><span class="annot"><span class="annottext">[AssessmentRunState] -&gt; Encoding
 [AssessmentRunState] -&gt; Value
 AssessmentRunState -&gt; Encoding
 AssessmentRunState -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: AssessmentRunState -&gt; Encoding
 toJSON :: AssessmentRunState -&gt; Value
 $ctoJSON :: AssessmentRunState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679244146"><span id="local-6989586621679244148"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssessmentRunState]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679244497"><span id="local-6989586621679244499"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssessmentRunState]
 ToJSONKeyFunction AssessmentRunState
 ToJSONKeyFunction AssessmentRunState
 -&gt; ToJSONKeyFunction [AssessmentRunState]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AssessmentRunState]
 toJSONKey :: ToJSONKeyFunction AssessmentRunState
 $ctoJSONKey :: ToJSONKeyFunction AssessmentRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679244143"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssessmentRunState
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679244494"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssessmentRunState
 ([Node] -&gt; Either String AssessmentRunState)
 -&gt; FromXML AssessmentRunState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AssessmentRunState
 $cparseXML :: [Node] -&gt; Either String AssessmentRunState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679244140"><span class="annot"><span class="annottext">AssessmentRunState -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679244491"><span class="annot"><span class="annottext">AssessmentRunState -&gt; XML
 (AssessmentRunState -&gt; XML) -&gt; ToXML AssessmentRunState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AssessmentRunState -&gt; XML

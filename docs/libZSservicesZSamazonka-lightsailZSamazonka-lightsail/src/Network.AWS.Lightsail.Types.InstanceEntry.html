@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInstanceEntry' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679617806"><span id="local-6989586621679617807"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceEntry"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-var">InstanceEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-var">InstanceEntry'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679618708"><span id="local-6989586621679618709"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceEntry"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-var">InstanceEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceEntry%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-var">InstanceEntry'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A launch script you can create that configures a server with additional</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- user data. For example, you might want to run @apt-get -y update@.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AInstanceEntry%27"><span class="annot"><span class="annottext">InstanceEntry -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AavailabilityZone%3AInstanceEntry%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679617796"><span id="local-6989586621679617798"><span class="annot"><span class="annottext">InstanceEntry -&gt; InstanceEntry -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679618698"><span id="local-6989586621679618700"><span class="annot"><span class="annottext">InstanceEntry -&gt; InstanceEntry -&gt; Bool
 (InstanceEntry -&gt; InstanceEntry -&gt; Bool)
 -&gt; (InstanceEntry -&gt; InstanceEntry -&gt; Bool) -&gt; Eq InstanceEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceEntry -&gt; InstanceEntry -&gt; Bool
 == :: InstanceEntry -&gt; InstanceEntry -&gt; Bool
 $c== :: InstanceEntry -&gt; InstanceEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617787"><span id="local-6989586621679617789"><span id="local-6989586621679617791"><span id="local-6989586621679617793"><span class="annot"><span class="annottext">ReadPrec [InstanceEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618689"><span id="local-6989586621679618691"><span id="local-6989586621679618693"><span id="local-6989586621679618695"><span class="annot"><span class="annottext">ReadPrec [InstanceEntry]
 ReadPrec InstanceEntry
 Int -&gt; ReadS InstanceEntry
 ReadS [InstanceEntry]
@@ -114,7 +114,7 @@ readList :: ReadS [InstanceEntry]
 $creadList :: ReadS [InstanceEntry]
 readsPrec :: Int -&gt; ReadS InstanceEntry
 $creadsPrec :: Int -&gt; ReadS InstanceEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617780"><span id="local-6989586621679617782"><span id="local-6989586621679617784"><span class="annot"><span class="annottext">Int -&gt; InstanceEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618682"><span id="local-6989586621679618684"><span id="local-6989586621679618686"><span class="annot"><span class="annottext">Int -&gt; InstanceEntry -&gt; ShowS
 [InstanceEntry] -&gt; ShowS
 InstanceEntry -&gt; String
 (Int -&gt; InstanceEntry -&gt; ShowS)
@@ -209,14 +209,14 @@ $cfrom :: forall x. InstanceEntry -&gt; Rep InstanceEntry x
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span>
 </span><span id="line-153"></span><span id="newInstanceEntry"><span class="annot"><span class="annottext">newInstanceEntry :: Text -&gt; Text -&gt; PortInfoSourceType -&gt; Text -&gt; InstanceEntry
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#newInstanceEntry"><span class="hs-identifier hs-var hs-var">newInstanceEntry</span></a></span></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679617774"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617774"><span class="hs-identifier hs-var">pSourceName_</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679617773"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617773"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679617772"><span class="annot"><span class="annottext">PortInfoSourceType
-</span><a href="#local-6989586621679617772"><span class="hs-identifier hs-var">pPortInfoSource_</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679617771"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617771"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679618676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618676"><span class="hs-identifier hs-var">pSourceName_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679618675"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618675"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679618674"><span class="annot"><span class="annottext">PortInfoSourceType
+</span><a href="#local-6989586621679618674"><span class="hs-identifier hs-var">pPortInfoSource_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679618673"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618673"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">InstanceEntry' :: Maybe Text
 -&gt; Text -&gt; Text -&gt; PortInfoSourceType -&gt; Text -&gt; InstanceEntry
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span>
@@ -226,16 +226,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceName:InstanceEntry' :: Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AsourceName%3AInstanceEntry%27"><span class="hs-identifier hs-var">sourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617774"><span class="hs-identifier hs-var">pSourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618676"><span class="hs-identifier hs-var">pSourceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceType:InstanceEntry' :: Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AinstanceType%3AInstanceEntry%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617773"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618675"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:portInfoSource:InstanceEntry' :: PortInfoSourceType
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AportInfoSource%3AInstanceEntry%27"><span class="hs-identifier hs-var">portInfoSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortInfoSourceType
-</span><a href="#local-6989586621679617772"><span class="hs-identifier hs-var">pPortInfoSource_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618674"><span class="hs-identifier hs-var">pPortInfoSource_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:availabilityZone:InstanceEntry' :: Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AavailabilityZone%3AInstanceEntry%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617771"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span><span>
+</span><a href="#local-6989586621679618673"><span class="hs-identifier hs-var">pAvailabilityZone_</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | A launch script you can create that configures a server with additional</span><span>
@@ -250,16 +250,16 @@ forall a. Maybe a
 -&gt; (InstanceEntry -&gt; Maybe Text -&gt; InstanceEntry)
 -&gt; Lens InstanceEntry InstanceEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617767"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618669"><span class="annot"><span class="annottext">Maybe Text
 userData :: Maybe Text
 $sel:userData:InstanceEntry' :: InstanceEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679617767"><span class="hs-identifier hs-var hs-var">userData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679617767"><span class="hs-identifier hs-var">userData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617766"><span class="annot"><span class="annottext">s :: InstanceEntry
-</span><a href="#local-6989586621679617766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617765"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679617765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
-</span><a href="#local-6989586621679617766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userData:InstanceEntry' :: Maybe Text
+</span><a href="#local-6989586621679618669"><span class="hs-identifier hs-var hs-var">userData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618669"><span class="hs-identifier hs-var">userData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618668"><span class="annot"><span class="annottext">s :: InstanceEntry
+</span><a href="#local-6989586621679618668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618667"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679618667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
+</span><a href="#local-6989586621679618668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userData:InstanceEntry' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AuserData%3AInstanceEntry%27"><span class="hs-identifier hs-var">userData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679617765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The name of the export snapshot record, which contains the exported</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- Lightsail instance snapshot that will be used as the source of the new</span><span>
@@ -273,16 +273,16 @@ $sel:userData:InstanceEntry' :: InstanceEntry -&gt; Maybe Text
 -&gt; (InstanceEntry -&gt; Text -&gt; InstanceEntry)
 -&gt; Lens InstanceEntry InstanceEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617763"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618665"><span class="annot"><span class="annottext">Text
 sourceName :: Text
 $sel:sourceName:InstanceEntry' :: InstanceEntry -&gt; Text
-</span><a href="#local-6989586621679617763"><span class="hs-identifier hs-var hs-var">sourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617763"><span class="hs-identifier hs-var">sourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617762"><span class="annot"><span class="annottext">s :: InstanceEntry
-</span><a href="#local-6989586621679617762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617761"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
-</span><a href="#local-6989586621679617762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceName:InstanceEntry' :: Text
+</span><a href="#local-6989586621679618665"><span class="hs-identifier hs-var hs-var">sourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618665"><span class="hs-identifier hs-var">sourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618664"><span class="annot"><span class="annottext">s :: InstanceEntry
+</span><a href="#local-6989586621679618664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
+</span><a href="#local-6989586621679618664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceName:InstanceEntry' :: Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AsourceName%3AInstanceEntry%27"><span class="hs-identifier hs-var">sourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The instance type (e.g., @t2.micro@) to use for the new Amazon EC2</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- instance.</span><span>
@@ -292,16 +292,16 @@ $sel:sourceName:InstanceEntry' :: InstanceEntry -&gt; Text
 -&gt; (InstanceEntry -&gt; Text -&gt; InstanceEntry)
 -&gt; Lens InstanceEntry InstanceEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617759"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618661"><span class="annot"><span class="annottext">Text
 instanceType :: Text
 $sel:instanceType:InstanceEntry' :: InstanceEntry -&gt; Text
-</span><a href="#local-6989586621679617759"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617759"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617758"><span class="annot"><span class="annottext">s :: InstanceEntry
-</span><a href="#local-6989586621679617758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617757"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
-</span><a href="#local-6989586621679617758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:InstanceEntry' :: Text
+</span><a href="#local-6989586621679618661"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618661"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618660"><span class="annot"><span class="annottext">s :: InstanceEntry
+</span><a href="#local-6989586621679618660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
+</span><a href="#local-6989586621679618660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:InstanceEntry' :: Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AinstanceType%3AInstanceEntry%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The port configuration to use for the new Amazon EC2 instance.</span><span>
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
@@ -341,16 +341,16 @@ $sel:instanceType:InstanceEntry' :: InstanceEntry -&gt; Text
 -&gt; Lens
      InstanceEntry InstanceEntry PortInfoSourceType PortInfoSourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617755"><span class="annot"><span class="annottext">PortInfoSourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618657"><span class="annot"><span class="annottext">PortInfoSourceType
 portInfoSource :: PortInfoSourceType
 $sel:portInfoSource:InstanceEntry' :: InstanceEntry -&gt; PortInfoSourceType
-</span><a href="#local-6989586621679617755"><span class="hs-identifier hs-var hs-var">portInfoSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortInfoSourceType
-</span><a href="#local-6989586621679617755"><span class="hs-identifier hs-var">portInfoSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617754"><span class="annot"><span class="annottext">s :: InstanceEntry
-</span><a href="#local-6989586621679617754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617753"><span class="annot"><span class="annottext">PortInfoSourceType
-</span><a href="#local-6989586621679617753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
-</span><a href="#local-6989586621679617754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portInfoSource:InstanceEntry' :: PortInfoSourceType
+</span><a href="#local-6989586621679618657"><span class="hs-identifier hs-var hs-var">portInfoSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PortInfoSourceType
+</span><a href="#local-6989586621679618657"><span class="hs-identifier hs-var">portInfoSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618656"><span class="annot"><span class="annottext">s :: InstanceEntry
+</span><a href="#local-6989586621679618656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618655"><span class="annot"><span class="annottext">PortInfoSourceType
+</span><a href="#local-6989586621679618655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
+</span><a href="#local-6989586621679618656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portInfoSource:InstanceEntry' :: PortInfoSourceType
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AportInfoSource%3AInstanceEntry%27"><span class="hs-identifier hs-var">portInfoSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PortInfoSourceType
-</span><a href="#local-6989586621679617753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The Availability Zone for the new Amazon EC2 instance.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#instanceEntry_availabilityZone"><span class="hs-identifier hs-type">instanceEntry_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -359,24 +359,24 @@ $sel:portInfoSource:InstanceEntry' :: InstanceEntry -&gt; PortInfoSourceType
 -&gt; (InstanceEntry -&gt; Text -&gt; InstanceEntry)
 -&gt; Lens InstanceEntry InstanceEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617751"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618653"><span class="annot"><span class="annottext">Text
 availabilityZone :: Text
 $sel:availabilityZone:InstanceEntry' :: InstanceEntry -&gt; Text
-</span><a href="#local-6989586621679617751"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617751"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617750"><span class="annot"><span class="annottext">s :: InstanceEntry
-</span><a href="#local-6989586621679617750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617749"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
-</span><a href="#local-6989586621679617750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:InstanceEntry' :: Text
+</span><a href="#local-6989586621679618653"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618653"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618652"><span class="annot"><span class="annottext">s :: InstanceEntry
+</span><a href="#local-6989586621679618652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618651"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679618651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceEntry
+</span><a href="#local-6989586621679618652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:InstanceEntry' :: Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#%24sel%3AavailabilityZone%3AInstanceEntry%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617745"><span id="local-6989586621679617747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618647"><span id="local-6989586621679618649"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span></span></span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span></span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617734"><span id="local-6989586621679617736"><span id="local-6989586621679617738"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679617732"><span class="annot"><span class="annottext">toJSON :: InstanceEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617726"><span id="local-6989586621679617727"><span id="local-6989586621679617728"><span id="local-6989586621679617729"><span id="local-6989586621679617730"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618636"><span id="local-6989586621679618638"><span id="local-6989586621679618640"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry"><span class="hs-identifier hs-type">InstanceEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679618634"><span class="annot"><span class="annottext">toJSON :: InstanceEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceEntry.html#InstanceEntry%27"><span class="hs-identifier hs-type">InstanceEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618628"><span id="local-6989586621679618629"><span id="local-6989586621679618630"><span id="local-6989586621679618631"><span id="local-6989586621679618632"><span class="annot"><span class="annottext">Maybe Text
 Text
 PortInfoSourceType
 availabilityZone :: Text
@@ -389,7 +389,7 @@ $sel:portInfoSource:InstanceEntry' :: InstanceEntry -&gt; PortInfoSourceType
 $sel:instanceType:InstanceEntry' :: InstanceEntry -&gt; Text
 $sel:sourceName:InstanceEntry' :: InstanceEntry -&gt; Text
 $sel:userData:InstanceEntry' :: InstanceEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679617726"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679618628"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -401,21 +401,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679617730"><span class="hs-identifier hs-var">userData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618632"><span class="hs-identifier hs-var">userData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617729"><span class="hs-identifier hs-var">sourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618631"><span class="hs-identifier hs-var">sourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617728"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618630"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -423,7 +423,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;portInfoSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PortInfoSourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PortInfoSourceType
-</span><a href="#local-6989586621679617727"><span class="hs-identifier hs-var">portInfoSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679618629"><span class="hs-identifier hs-var">portInfoSource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -431,7 +431,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679617726"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618628"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span></pre></body></html>

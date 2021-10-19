@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetAssignment' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679251993"><span id="local-6989586621679251994"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssignment"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-var">GetAssignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssignment%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-var">GetAssignment'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679252126"><span id="local-6989586621679252127"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssignment"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-var">GetAssignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssignment%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-var">GetAssignment'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Assignment to be retrieved.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AassignmentId%3AGetAssignment%27"><span class="annot"><span class="annottext">GetAssignment -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3AassignmentId%3AGetAssignment%27"><span class="hs-identifier hs-var hs-var">assignmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251987"><span id="local-6989586621679251989"><span class="annot"><span class="annottext">GetAssignment -&gt; GetAssignment -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252120"><span id="local-6989586621679252122"><span class="annot"><span class="annottext">GetAssignment -&gt; GetAssignment -&gt; Bool
 (GetAssignment -&gt; GetAssignment -&gt; Bool)
 -&gt; (GetAssignment -&gt; GetAssignment -&gt; Bool) -&gt; Eq GetAssignment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAssignment -&gt; GetAssignment -&gt; Bool
 == :: GetAssignment -&gt; GetAssignment -&gt; Bool
 $c== :: GetAssignment -&gt; GetAssignment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251978"><span id="local-6989586621679251980"><span id="local-6989586621679251982"><span id="local-6989586621679251984"><span class="annot"><span class="annottext">ReadPrec [GetAssignment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252111"><span id="local-6989586621679252113"><span id="local-6989586621679252115"><span id="local-6989586621679252117"><span class="annot"><span class="annottext">ReadPrec [GetAssignment]
 ReadPrec GetAssignment
 Int -&gt; ReadS GetAssignment
 ReadS [GetAssignment]
@@ -82,7 +82,7 @@ readList :: ReadS [GetAssignment]
 $creadList :: ReadS [GetAssignment]
 readsPrec :: Int -&gt; ReadS GetAssignment
 $creadsPrec :: Int -&gt; ReadS GetAssignment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251971"><span id="local-6989586621679251973"><span id="local-6989586621679251975"><span class="annot"><span class="annottext">Int -&gt; GetAssignment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252104"><span id="local-6989586621679252106"><span id="local-6989586621679252108"><span class="annot"><span class="annottext">Int -&gt; GetAssignment -&gt; ShowS
 [GetAssignment] -&gt; ShowS
 GetAssignment -&gt; String
 (Int -&gt; GetAssignment -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. GetAssignment -&gt; Rep GetAssignment x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetAssignment"><span class="annot"><span class="annottext">newGetAssignment :: Text -&gt; GetAssignment
-</span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#newGetAssignment"><span class="hs-identifier hs-var hs-var">newGetAssignment</span></a></span></span><span> </span><span id="local-6989586621679251966"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251966"><span class="hs-identifier hs-var">pAssignmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#newGetAssignment"><span class="hs-identifier hs-var hs-var">newGetAssignment</span></a></span></span><span> </span><span id="local-6989586621679252099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252099"><span class="hs-identifier hs-var">pAssignmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetAssignment' :: Text -&gt; GetAssignment
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-type">GetAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentId:GetAssignment' :: Text
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3AassignmentId%3AGetAssignment%27"><span class="hs-identifier hs-var">assignmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251966"><span class="hs-identifier hs-var">pAssignmentId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679252099"><span class="hs-identifier hs-var">pAssignmentId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ID of the Assignment to be retrieved.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#getAssignment_assignmentId"><span class="hs-identifier hs-type">getAssignment_assignmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. GetAssignment -&gt; Rep GetAssignment x
 -&gt; (GetAssignment -&gt; Text -&gt; GetAssignment)
 -&gt; Lens GetAssignment GetAssignment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-type">GetAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251963"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-type">GetAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252096"><span class="annot"><span class="annottext">Text
 assignmentId :: Text
 $sel:assignmentId:GetAssignment' :: GetAssignment -&gt; Text
-</span><a href="#local-6989586621679251963"><span class="hs-identifier hs-var hs-var">assignmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251963"><span class="hs-identifier hs-var">assignmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251962"><span class="annot"><span class="annottext">s :: GetAssignment
-</span><a href="#local-6989586621679251962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-type">GetAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251961"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignment
-</span><a href="#local-6989586621679251962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentId:GetAssignment' :: Text
+</span><a href="#local-6989586621679252096"><span class="hs-identifier hs-var hs-var">assignmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252096"><span class="hs-identifier hs-var">assignmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252095"><span class="annot"><span class="annottext">s :: GetAssignment
+</span><a href="#local-6989586621679252095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-type">GetAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679252094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignment
+</span><a href="#local-6989586621679252095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentId:GetAssignment' :: Text
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3AassignmentId%3AGetAssignment%27"><span class="hs-identifier hs-var">assignmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679251957"><span class="annot"><span class="annottext">request :: GetAssignment -&gt; Request GetAssignment
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679252090"><span class="annot"><span class="annottext">request :: GetAssignment -&gt; Request GetAssignment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAssignment -&gt; Request GetAssignment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679251953"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679252086"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAssignment
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251950"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251950"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251949"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679251949"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251948"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251948"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252083"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252082"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679252082"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252081"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe HIT -&gt; Maybe Assignment -&gt; Int -&gt; GetAssignmentResponse
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-var">GetAssignmentResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HIT -&gt; Maybe Assignment -&gt; Int -&gt; GetAssignmentResponse)
@@ -191,7 +191,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Assignment -&gt; Int -&gt; GetAssignmentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HIT)
+</span><a href="#local-6989586621679252081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HIT)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HIT&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,7 +200,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetAssignmentResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251948"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Assignment)
+</span><a href="#local-6989586621679252081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Assignment)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Assignment&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,15 +212,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251950"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252083"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251940"><span id="local-6989586621679251942"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252073"><span id="local-6989586621679252075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679251933"><span class="annot"><span class="annottext">toHeaders :: GetAssignment -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679252066"><span class="annot"><span class="annottext">toHeaders :: GetAssignment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAssignment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -247,12 +247,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251923"><span id="local-6989586621679251925"><span id="local-6989586621679251927"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679251921"><span class="annot"><span class="annottext">toJSON :: GetAssignment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-type">GetAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251919"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252056"><span id="local-6989586621679252058"><span id="local-6989586621679252060"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679252054"><span class="annot"><span class="annottext">toJSON :: GetAssignment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment%27"><span class="hs-identifier hs-type">GetAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252052"><span class="annot"><span class="annottext">Text
 assignmentId :: Text
 $sel:assignmentId:GetAssignment' :: GetAssignment -&gt; Text
-</span><a href="#local-6989586621679251919"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679252052"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,18 +264,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AssignmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251919"><span class="hs-identifier hs-var">assignmentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679252052"><span class="hs-identifier hs-var">assignmentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679251913"><span class="annot"><span class="annottext">toPath :: GetAssignment -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679252046"><span class="annot"><span class="annottext">toPath :: GetAssignment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAssignment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignment"><span class="hs-identifier hs-type">GetAssignment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679251909"><span class="annot"><span class="annottext">toQuery :: GetAssignment -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679252042"><span class="annot"><span class="annottext">toQuery :: GetAssignment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAssignment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newGetAssignmentResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679251906"><span id="local-6989586621679251907"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssignmentResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-var">GetAssignmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssignmentResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-var">GetAssignmentResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679252039"><span id="local-6989586621679252040"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssignmentResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-var">GetAssignmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssignmentResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-var">GetAssignmentResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HIT associated with this assignment. The response includes one HIT</span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-comment">-- element.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3Ahit%3AGetAssignmentResponse%27"><span class="annot"><span class="annottext">GetAssignmentResponse -&gt; Maybe HIT
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAssignmentResponse%27"><span class="annot"><span class="annottext">GetAssignmentResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3AhttpStatus%3AGetAssignmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251899"><span id="local-6989586621679251901"><span class="annot"><span class="annottext">GetAssignmentResponse -&gt; GetAssignmentResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252032"><span id="local-6989586621679252034"><span class="annot"><span class="annottext">GetAssignmentResponse -&gt; GetAssignmentResponse -&gt; Bool
 (GetAssignmentResponse -&gt; GetAssignmentResponse -&gt; Bool)
 -&gt; (GetAssignmentResponse -&gt; GetAssignmentResponse -&gt; Bool)
 -&gt; Eq GetAssignmentResponse
@@ -304,7 +304,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAssignmentResponse -&gt; GetAssignmentResponse -&gt; Bool
 == :: GetAssignmentResponse -&gt; GetAssignmentResponse -&gt; Bool
 $c== :: GetAssignmentResponse -&gt; GetAssignmentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251891"><span id="local-6989586621679251893"><span id="local-6989586621679251895"><span id="local-6989586621679251897"><span class="annot"><span class="annottext">ReadPrec [GetAssignmentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252024"><span id="local-6989586621679252026"><span id="local-6989586621679252028"><span id="local-6989586621679252030"><span class="annot"><span class="annottext">ReadPrec [GetAssignmentResponse]
 ReadPrec GetAssignmentResponse
 Int -&gt; ReadS GetAssignmentResponse
 ReadS [GetAssignmentResponse]
@@ -324,7 +324,7 @@ readList :: ReadS [GetAssignmentResponse]
 $creadList :: ReadS [GetAssignmentResponse]
 readsPrec :: Int -&gt; ReadS GetAssignmentResponse
 $creadsPrec :: Int -&gt; ReadS GetAssignmentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251885"><span id="local-6989586621679251887"><span id="local-6989586621679251889"><span class="annot"><span class="annottext">Int -&gt; GetAssignmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252018"><span id="local-6989586621679252020"><span id="local-6989586621679252022"><span class="annot"><span class="annottext">Int -&gt; GetAssignmentResponse -&gt; ShowS
 [GetAssignmentResponse] -&gt; ShowS
 GetAssignmentResponse -&gt; String
 (Int -&gt; GetAssignmentResponse -&gt; ShowS)
@@ -369,8 +369,8 @@ $cfrom :: forall x. GetAssignmentResponse -&gt; Rep GetAssignmentResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newGetAssignmentResponse"><span class="annot"><span class="annottext">newGetAssignmentResponse :: Int -&gt; GetAssignmentResponse
-</span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#newGetAssignmentResponse"><span class="hs-identifier hs-var hs-var">newGetAssignmentResponse</span></a></span></span><span> </span><span id="local-6989586621679251882"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251882"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#newGetAssignmentResponse"><span class="hs-identifier hs-var hs-var">newGetAssignmentResponse</span></a></span></span><span> </span><span id="local-6989586621679252015"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetAssignmentResponse' :: Maybe HIT -&gt; Maybe Assignment -&gt; Int -&gt; GetAssignmentResponse
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hit:GetAssignmentResponse' :: Maybe HIT
@@ -383,7 +383,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssignmentResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3AhttpStatus%3AGetAssignmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251882"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679252015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The HIT associated with this assignment. The response includes one HIT</span><span>
@@ -396,16 +396,16 @@ forall a. Maybe a
 -&gt; Lens
      GetAssignmentResponse GetAssignmentResponse (Maybe HIT) (Maybe HIT)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251881"><span class="annot"><span class="annottext">Maybe HIT
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252014"><span class="annot"><span class="annottext">Maybe HIT
 hit :: Maybe HIT
 $sel:hit:GetAssignmentResponse' :: GetAssignmentResponse -&gt; Maybe HIT
-</span><a href="#local-6989586621679251881"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HIT
-</span><a href="#local-6989586621679251881"><span class="hs-identifier hs-var">hit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251880"><span class="annot"><span class="annottext">s :: GetAssignmentResponse
-</span><a href="#local-6989586621679251880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251879"><span class="annot"><span class="annottext">Maybe HIT
-</span><a href="#local-6989586621679251879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignmentResponse
-</span><a href="#local-6989586621679251880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hit:GetAssignmentResponse' :: Maybe HIT
+</span><a href="#local-6989586621679252014"><span class="hs-identifier hs-var hs-var">hit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HIT
+</span><a href="#local-6989586621679252014"><span class="hs-identifier hs-var">hit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252013"><span class="annot"><span class="annottext">s :: GetAssignmentResponse
+</span><a href="#local-6989586621679252013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252012"><span class="annot"><span class="annottext">Maybe HIT
+</span><a href="#local-6989586621679252012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignmentResponse
+</span><a href="#local-6989586621679252013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hit:GetAssignmentResponse' :: Maybe HIT
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3Ahit%3AGetAssignmentResponse%27"><span class="hs-identifier hs-var">hit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HIT
-</span><a href="#local-6989586621679251879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The assignment. The response includes one Assignment element.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#getAssignmentResponse_assignment"><span class="hs-identifier hs-type">getAssignmentResponse_assignment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Assignment.html#Assignment"><span class="hs-identifier hs-type">Assignment</span></a></span><span class="hs-special">)</span><span>
@@ -420,16 +420,16 @@ $sel:hit:GetAssignmentResponse' :: GetAssignmentResponse -&gt; Maybe HIT
      (Maybe Assignment)
      (Maybe Assignment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251878"><span class="annot"><span class="annottext">Maybe Assignment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252011"><span class="annot"><span class="annottext">Maybe Assignment
 assignment :: Maybe Assignment
 $sel:assignment:GetAssignmentResponse' :: GetAssignmentResponse -&gt; Maybe Assignment
-</span><a href="#local-6989586621679251878"><span class="hs-identifier hs-var hs-var">assignment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Assignment
-</span><a href="#local-6989586621679251878"><span class="hs-identifier hs-var">assignment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251877"><span class="annot"><span class="annottext">s :: GetAssignmentResponse
-</span><a href="#local-6989586621679251877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251876"><span class="annot"><span class="annottext">Maybe Assignment
-</span><a href="#local-6989586621679251876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignmentResponse
-</span><a href="#local-6989586621679251877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignment:GetAssignmentResponse' :: Maybe Assignment
+</span><a href="#local-6989586621679252011"><span class="hs-identifier hs-var hs-var">assignment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Assignment
+</span><a href="#local-6989586621679252011"><span class="hs-identifier hs-var">assignment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252010"><span class="annot"><span class="annottext">s :: GetAssignmentResponse
+</span><a href="#local-6989586621679252010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252009"><span class="annot"><span class="annottext">Maybe Assignment
+</span><a href="#local-6989586621679252009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignmentResponse
+</span><a href="#local-6989586621679252010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignment:GetAssignmentResponse' :: Maybe Assignment
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3Aassignment%3AGetAssignmentResponse%27"><span class="hs-identifier hs-var">assignment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Assignment
-</span><a href="#local-6989586621679251876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#getAssignmentResponse_httpStatus"><span class="hs-identifier hs-type">getAssignmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -438,16 +438,16 @@ $sel:assignment:GetAssignmentResponse' :: GetAssignmentResponse -&gt; Maybe Assi
 -&gt; (GetAssignmentResponse -&gt; Int -&gt; GetAssignmentResponse)
 -&gt; Lens GetAssignmentResponse GetAssignmentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251875"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252008"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAssignmentResponse' :: GetAssignmentResponse -&gt; Int
-</span><a href="#local-6989586621679251875"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251875"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251874"><span class="annot"><span class="annottext">s :: GetAssignmentResponse
-</span><a href="#local-6989586621679251874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignmentResponse
-</span><a href="#local-6989586621679251874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssignmentResponse' :: Int
+</span><a href="#local-6989586621679252008"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252008"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252007"><span class="annot"><span class="annottext">s :: GetAssignmentResponse
+</span><a href="#local-6989586621679252007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse%27"><span class="hs-identifier hs-type">GetAssignmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252006"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssignmentResponse
+</span><a href="#local-6989586621679252007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssignmentResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.GetAssignment.html#%24sel%3AhttpStatus%3AGetAssignmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.GetAssignment.html#GetAssignmentResponse"><span class="hs-identifier hs-type">GetAssignmentResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

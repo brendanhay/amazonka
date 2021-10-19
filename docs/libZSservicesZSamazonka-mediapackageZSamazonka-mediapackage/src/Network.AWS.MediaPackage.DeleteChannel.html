@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteChannel' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679243127"><span id="local-6989586621679243128"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannel"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-var">DeleteChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannel%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-var">DeleteChannel'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679243270"><span id="local-6989586621679243271"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannel"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-var">DeleteChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannel%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-var">DeleteChannel'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Channel to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Aid%3ADeleteChannel%27"><span class="annot"><span class="annottext">DeleteChannel -&gt; Text
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#%24sel%3Aid%3ADeleteChannel%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243121"><span id="local-6989586621679243123"><span class="annot"><span class="annottext">DeleteChannel -&gt; DeleteChannel -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243264"><span id="local-6989586621679243266"><span class="annot"><span class="annottext">DeleteChannel -&gt; DeleteChannel -&gt; Bool
 (DeleteChannel -&gt; DeleteChannel -&gt; Bool)
 -&gt; (DeleteChannel -&gt; DeleteChannel -&gt; Bool) -&gt; Eq DeleteChannel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteChannel -&gt; DeleteChannel -&gt; Bool
 == :: DeleteChannel -&gt; DeleteChannel -&gt; Bool
 $c== :: DeleteChannel -&gt; DeleteChannel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243112"><span id="local-6989586621679243114"><span id="local-6989586621679243116"><span id="local-6989586621679243118"><span class="annot"><span class="annottext">ReadPrec [DeleteChannel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243255"><span id="local-6989586621679243257"><span id="local-6989586621679243259"><span id="local-6989586621679243261"><span class="annot"><span class="annottext">ReadPrec [DeleteChannel]
 ReadPrec DeleteChannel
 Int -&gt; ReadS DeleteChannel
 ReadS [DeleteChannel]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteChannel]
 $creadList :: ReadS [DeleteChannel]
 readsPrec :: Int -&gt; ReadS DeleteChannel
 $creadsPrec :: Int -&gt; ReadS DeleteChannel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243105"><span id="local-6989586621679243107"><span id="local-6989586621679243109"><span class="annot"><span class="annottext">Int -&gt; DeleteChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243248"><span id="local-6989586621679243250"><span id="local-6989586621679243252"><span class="annot"><span class="annottext">Int -&gt; DeleteChannel -&gt; ShowS
 [DeleteChannel] -&gt; ShowS
 DeleteChannel -&gt; String
 (Int -&gt; DeleteChannel -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. DeleteChannel -&gt; Rep DeleteChannel x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteChannel"><span class="annot"><span class="annottext">newDeleteChannel :: Text -&gt; DeleteChannel
-</span><a href="Network.AWS.MediaPackage.DeleteChannel.html#newDeleteChannel"><span class="hs-identifier hs-var hs-var">newDeleteChannel</span></a></span></span><span> </span><span id="local-6989586621679243100"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243100"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteChannel' :: Text -&gt; DeleteChannel
+</span><a href="Network.AWS.MediaPackage.DeleteChannel.html#newDeleteChannel"><span class="hs-identifier hs-var hs-var">newDeleteChannel</span></a></span></span><span> </span><span id="local-6989586621679243243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243243"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteChannel' :: Text -&gt; DeleteChannel
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteChannel' :: Text
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#%24sel%3Aid%3ADeleteChannel%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243100"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679243243"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The ID of the Channel to delete.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#deleteChannel_id"><span class="hs-identifier hs-type">deleteChannel_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -132,27 +132,27 @@ $cfrom :: forall x. DeleteChannel -&gt; Rep DeleteChannel x
 -&gt; (DeleteChannel -&gt; Text -&gt; DeleteChannel)
 -&gt; Lens DeleteChannel DeleteChannel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243097"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243240"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteChannel' :: DeleteChannel -&gt; Text
-</span><a href="#local-6989586621679243097"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243097"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243096"><span class="annot"><span class="annottext">s :: DeleteChannel
-</span><a href="#local-6989586621679243096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243095"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteChannel
-</span><a href="#local-6989586621679243096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteChannel' :: Text
+</span><a href="#local-6989586621679243240"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243240"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243239"><span class="annot"><span class="annottext">s :: DeleteChannel
+</span><a href="#local-6989586621679243239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243238"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteChannel
+</span><a href="#local-6989586621679243239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteChannel' :: Text
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#%24sel%3Aid%3ADeleteChannel%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-76"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679243091"><span class="annot"><span class="annottext">request :: DeleteChannel -&gt; Request DeleteChannel
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679243234"><span class="annot"><span class="annottext">request :: DeleteChannel -&gt; Request DeleteChannel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteChannel -&gt; Request DeleteChannel
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaPackage.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679243087"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679243230"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteChannel
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243084"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243084"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243083"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679243083"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243082"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679243082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243227"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243227"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243226"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679243226"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243225"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679243225"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteChannelResponse
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-var">DeleteChannelResponse'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteChannelResponse)
@@ -190,15 +190,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243084"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243227"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243075"><span id="local-6989586621679243077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243218"><span id="local-6989586621679243220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679243068"><span class="annot"><span class="annottext">toHeaders :: DeleteChannel -&gt; ResponseHeaders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679243211"><span class="annot"><span class="annottext">toHeaders :: DeleteChannel -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteChannel -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -218,21 +218,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679243062"><span class="annot"><span class="annottext">toPath :: DeleteChannel -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243060"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679243205"><span class="annot"><span class="annottext">toPath :: DeleteChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243203"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteChannel' :: DeleteChannel -&gt; Text
-</span><a href="#local-6989586621679243060"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679243203"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243060"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679243203"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679243056"><span class="annot"><span class="annottext">toQuery :: DeleteChannel -&gt; QueryString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679243199"><span class="annot"><span class="annottext">toQuery :: DeleteChannel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteChannel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -240,12 +240,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newDeleteChannelResponse' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621679243053"><span id="local-6989586621679243054"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannelResponse"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-var">DeleteChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannelResponse%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-var">DeleteChannelResponse'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621679243196"><span id="local-6989586621679243197"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannelResponse"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-var">DeleteChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannelResponse%27"><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-var">DeleteChannelResponse'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteChannelResponse%27"><span class="annot"><span class="annottext">DeleteChannelResponse -&gt; Int
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#%24sel%3AhttpStatus%3ADeleteChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243048"><span id="local-6989586621679243050"><span class="annot"><span class="annottext">DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243191"><span id="local-6989586621679243193"><span class="annot"><span class="annottext">DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
 (DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool)
 -&gt; (DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool)
 -&gt; Eq DeleteChannelResponse
@@ -254,7 +254,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
 == :: DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
 $c== :: DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243040"><span id="local-6989586621679243042"><span id="local-6989586621679243044"><span id="local-6989586621679243046"><span class="annot"><span class="annottext">ReadPrec [DeleteChannelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243183"><span id="local-6989586621679243185"><span id="local-6989586621679243187"><span id="local-6989586621679243189"><span class="annot"><span class="annottext">ReadPrec [DeleteChannelResponse]
 ReadPrec DeleteChannelResponse
 Int -&gt; ReadS DeleteChannelResponse
 ReadS [DeleteChannelResponse]
@@ -274,7 +274,7 @@ readList :: ReadS [DeleteChannelResponse]
 $creadList :: ReadS [DeleteChannelResponse]
 readsPrec :: Int -&gt; ReadS DeleteChannelResponse
 $creadsPrec :: Int -&gt; ReadS DeleteChannelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243034"><span id="local-6989586621679243036"><span id="local-6989586621679243038"><span class="annot"><span class="annottext">Int -&gt; DeleteChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243177"><span id="local-6989586621679243179"><span id="local-6989586621679243181"><span class="annot"><span class="annottext">Int -&gt; DeleteChannelResponse -&gt; ShowS
 [DeleteChannelResponse] -&gt; ShowS
 DeleteChannelResponse -&gt; String
 (Int -&gt; DeleteChannelResponse -&gt; ShowS)
@@ -314,12 +314,12 @@ $cfrom :: forall x. DeleteChannelResponse -&gt; Rep DeleteChannelResponse x
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span><span>
 </span><span id="line-128"></span><span id="newDeleteChannelResponse"><span class="annot"><span class="annottext">newDeleteChannelResponse :: Int -&gt; DeleteChannelResponse
-</span><a href="Network.AWS.MediaPackage.DeleteChannel.html#newDeleteChannelResponse"><span class="hs-identifier hs-var hs-var">newDeleteChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679243031"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243031"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaPackage.DeleteChannel.html#newDeleteChannelResponse"><span class="hs-identifier hs-var hs-var">newDeleteChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679243174"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243174"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">DeleteChannelResponse' :: Int -&gt; DeleteChannelResponse
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-type">DeleteChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteChannelResponse' :: Int
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#%24sel%3AhttpStatus%3ADeleteChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243031"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679243174"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#deleteChannelResponse_httpStatus"><span class="hs-identifier hs-type">deleteChannelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -328,16 +328,16 @@ $cfrom :: forall x. DeleteChannelResponse -&gt; Rep DeleteChannelResponse x
 -&gt; (DeleteChannelResponse -&gt; Int -&gt; DeleteChannelResponse)
 -&gt; Lens DeleteChannelResponse DeleteChannelResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-type">DeleteChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243030"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-type">DeleteChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243173"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteChannelResponse' :: DeleteChannelResponse -&gt; Int
-</span><a href="#local-6989586621679243030"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243030"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243029"><span class="annot"><span class="annottext">s :: DeleteChannelResponse
-</span><a href="#local-6989586621679243029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-type">DeleteChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243028"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteChannelResponse
-</span><a href="#local-6989586621679243029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteChannelResponse' :: Int
+</span><a href="#local-6989586621679243173"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243173"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243172"><span class="annot"><span class="annottext">s :: DeleteChannelResponse
+</span><a href="#local-6989586621679243172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-type">DeleteChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243171"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteChannelResponse
+</span><a href="#local-6989586621679243172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteChannelResponse' :: Int
 </span><a href="Network.AWS.MediaPackage.DeleteChannel.html#%24sel%3AhttpStatus%3ADeleteChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackage.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

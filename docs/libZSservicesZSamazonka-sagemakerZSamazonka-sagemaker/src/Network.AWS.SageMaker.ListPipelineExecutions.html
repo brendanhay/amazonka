@@ -29,11 +29,11 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#newListPipelineExecutions"><span class="hs-identifier">newListPipelineExecutions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_nextToken"><span class="hs-identifier">listPipelineExecutions_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortOrder"><span class="hs-identifier">listPipelineExecutions_sortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdAfter"><span class="hs-identifier">listPipelineExecutions_createdAfter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdBefore"><span class="hs-identifier">listPipelineExecutions_createdBefore</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_maxResults"><span class="hs-identifier">listPipelineExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdAfter"><span class="hs-identifier">listPipelineExecutions_createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_nextToken"><span class="hs-identifier">listPipelineExecutions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortOrder"><span class="hs-identifier">listPipelineExecutions_sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_maxResults"><span class="hs-identifier">listPipelineExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdBefore"><span class="hs-identifier">listPipelineExecutions_createdBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortBy"><span class="hs-identifier">listPipelineExecutions_sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_pipelineName"><span class="hs-identifier">listPipelineExecutions_pipelineName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
@@ -56,26 +56,26 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListPipelineExecutions' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621680374689"><span id="local-6989586621680374690"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPipelineExecutions"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-var">ListPipelineExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPipelineExecutions%27"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-var">ListPipelineExecutions'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutions@ request was</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- of pipeline executions, use the token in the next request.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The sort order for results.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AsortOrder%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe SortOrder
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AsortOrder%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created after a</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AcreatedAfter%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe POSIX
+</span><span id="line-59"></span><span id="local-6989586621680376194"><span id="local-6989586621680376195"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPipelineExecutions"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-var">ListPipelineExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPipelineExecutions%27"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-var">ListPipelineExecutions'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created after a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AcreatedAfter%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedAfter%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created before a</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of pipeline executions to return in the response.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe Natural
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutions@ request was</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- of pipeline executions, use the token in the next request.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The sort order for results.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AsortOrder%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AsortOrder%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of pipeline executions to return in the response.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AmaxResults%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created before a</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The field by which to sort results. The default is @CreatedTime@.</span><span>
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AsortBy%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Maybe SortPipelineExecutionsBy
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AsortBy%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortPipelineExecutionsBy.html#SortPipelineExecutionsBy"><span class="hs-identifier hs-type">SortPipelineExecutionsBy</span></a></span><span class="hs-special">,</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3ApipelineName%3AListPipelineExecutions%27"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; Text
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3ApipelineName%3AListPipelineExecutions%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680374677"><span id="local-6989586621680374679"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; ListPipelineExecutions -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680376182"><span id="local-6989586621680376184"><span class="annot"><span class="annottext">ListPipelineExecutions -&gt; ListPipelineExecutions -&gt; Bool
 (ListPipelineExecutions -&gt; ListPipelineExecutions -&gt; Bool)
 -&gt; (ListPipelineExecutions -&gt; ListPipelineExecutions -&gt; Bool)
 -&gt; Eq ListPipelineExecutions
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPipelineExecutions -&gt; ListPipelineExecutions -&gt; Bool
 == :: ListPipelineExecutions -&gt; ListPipelineExecutions -&gt; Bool
 $c== :: ListPipelineExecutions -&gt; ListPipelineExecutions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374668"><span id="local-6989586621680374670"><span id="local-6989586621680374672"><span id="local-6989586621680374674"><span class="annot"><span class="annottext">ReadPrec [ListPipelineExecutions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680376173"><span id="local-6989586621680376175"><span id="local-6989586621680376177"><span id="local-6989586621680376179"><span class="annot"><span class="annottext">ReadPrec [ListPipelineExecutions]
 ReadPrec ListPipelineExecutions
 Int -&gt; ReadS ListPipelineExecutions
 ReadS [ListPipelineExecutions]
@@ -112,7 +112,7 @@ readList :: ReadS [ListPipelineExecutions]
 $creadList :: ReadS [ListPipelineExecutions]
 readsPrec :: Int -&gt; ReadS ListPipelineExecutions
 $creadsPrec :: Int -&gt; ReadS ListPipelineExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374661"><span id="local-6989586621680374663"><span id="local-6989586621680374665"><span class="annot"><span class="annottext">Int -&gt; ListPipelineExecutions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680376166"><span id="local-6989586621680376168"><span id="local-6989586621680376170"><span class="annot"><span class="annottext">Int -&gt; ListPipelineExecutions -&gt; ShowS
 [ListPipelineExecutions] -&gt; ShowS
 ListPipelineExecutions -&gt; String
 (Int -&gt; ListPipelineExecutions -&gt; ShowS)
@@ -147,19 +147,19 @@ $cfrom :: forall x. ListPipelineExecutions -&gt; Rep ListPipelineExecutions x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'nextToken', 'listPipelineExecutions_nextToken' - If the result of the previous @ListPipelineExecutions@ request was</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- of pipeline executions, use the token in the next request.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'sortOrder', 'listPipelineExecutions_sortOrder' - The sort order for results.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'createdAfter', 'listPipelineExecutions_createdAfter' - A filter that returns the pipeline executions that were created after a</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'createdAfter', 'listPipelineExecutions_createdAfter' - A filter that returns the pipeline executions that were created after a</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'listPipelineExecutions_nextToken' - If the result of the previous @ListPipelineExecutions@ request was</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- of pipeline executions, use the token in the next request.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'sortOrder', 'listPipelineExecutions_sortOrder' - The sort order for results.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'createdBefore', 'listPipelineExecutions_createdBefore' - A filter that returns the pipeline executions that were created before a</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- specified time.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'maxResults', 'listPipelineExecutions_maxResults' - The maximum number of pipeline executions to return in the response.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'listPipelineExecutions_maxResults' - The maximum number of pipeline executions to return in the response.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'createdBefore', 'listPipelineExecutions_createdBefore' - A filter that returns the pipeline executions that were created before a</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- specified time.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- 'sortBy', 'listPipelineExecutions_sortBy' - The field by which to sort results. The default is @CreatedTime@.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
@@ -169,36 +169,36 @@ $cfrom :: forall x. ListPipelineExecutions -&gt; Rep ListPipelineExecutions x
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span>
 </span><span id="line-110"></span><span id="newListPipelineExecutions"><span class="annot"><span class="annottext">newListPipelineExecutions :: Text -&gt; ListPipelineExecutions
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#newListPipelineExecutions"><span class="hs-identifier hs-var hs-var">newListPipelineExecutions</span></a></span></span><span> </span><span id="local-6989586621680374656"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680374656"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">ListPipelineExecutions' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#newListPipelineExecutions"><span class="hs-identifier hs-var hs-var">newListPipelineExecutions</span></a></span></span><span> </span><span id="local-6989586621680376161"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680376161"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">ListPipelineExecutions' :: Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe SortOrder
--&gt; Maybe POSIX
--&gt; Maybe POSIX
 -&gt; Maybe Natural
+-&gt; Maybe POSIX
 -&gt; Maybe SortPipelineExecutionsBy
 -&gt; Text
 -&gt; ListPipelineExecutions
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutions' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAfter:ListPipelineExecutions' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedAfter%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListPipelineExecutions' :: Maybe SortOrder
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutions' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListPipelineExecutions' :: Maybe SortOrder
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AsortOrder%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAfter:ListPipelineExecutions' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedAfter%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBefore:ListPipelineExecutions' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPipelineExecutions' :: Maybe Natural
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPipelineExecutions' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AmaxResults%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdBefore:ListPipelineExecutions' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:ListPipelineExecutions' :: Maybe SortPipelineExecutionsBy
@@ -207,62 +207,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineName:ListPipelineExecutions' :: Text
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3ApipelineName%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680374656"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span>
+</span><a href="#local-6989586621680376161"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutions@ request was</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- of pipeline executions, use the token in the next request.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_nextToken"><span class="hs-identifier hs-type">listPipelineExecutions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="listPipelineExecutions_nextToken"><span class="annot"><span class="annottext">listPipelineExecutions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_nextToken"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe Text)
--&gt; (ListPipelineExecutions -&gt; Maybe Text -&gt; ListPipelineExecutions)
--&gt; Lens
-     ListPipelineExecutions
-     ListPipelineExecutions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374654"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621680374654"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680374654"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374653"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
-</span><a href="#local-6989586621680374653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374652"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680374652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutions' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680374652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The sort order for results.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortOrder"><span class="hs-identifier hs-type">listPipelineExecutions_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="listPipelineExecutions_sortOrder"><span class="annot"><span class="annottext">listPipelineExecutions_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
--&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortOrder"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe SortOrder)
--&gt; (ListPipelineExecutions
-    -&gt; Maybe SortOrder -&gt; ListPipelineExecutions)
--&gt; Lens
-     ListPipelineExecutions
-     ListPipelineExecutions
-     (Maybe SortOrder)
-     (Maybe SortOrder)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374651"><span class="annot"><span class="annottext">Maybe SortOrder
-sortOrder :: Maybe SortOrder
-$sel:sortOrder:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe SortOrder
-</span><a href="#local-6989586621680374651"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680374651"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374650"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
-</span><a href="#local-6989586621680374650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374649"><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680374649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListPipelineExecutions' :: Maybe SortOrder
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AsortOrder%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680374649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created after a</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- specified time.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdAfter"><span class="hs-identifier hs-type">listPipelineExecutions_createdAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="listPipelineExecutions_createdAfter"><span class="annot"><span class="annottext">listPipelineExecutions_createdAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-122"></span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created after a</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdAfter"><span class="hs-identifier hs-type">listPipelineExecutions_createdAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listPipelineExecutions_createdAfter"><span class="annot"><span class="annottext">listPipelineExecutions_createdAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdAfter"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_createdAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe POSIX)
 -&gt; (ListPipelineExecutions
@@ -273,16 +224,16 @@ $sel:sortOrder:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Sor
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374648"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376159"><span class="annot"><span class="annottext">Maybe POSIX
 createdAfter :: Maybe POSIX
 $sel:createdAfter:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe POSIX
-</span><a href="#local-6989586621680374648"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374648"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374647"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
-</span><a href="#local-6989586621680374647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374646"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListPipelineExecutions' :: Maybe POSIX
+</span><a href="#local-6989586621680376159"><span class="hs-identifier hs-var hs-var">createdAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680376159"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376158"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
+</span><a href="#local-6989586621680376158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376157"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680376157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAfter:ListPipelineExecutions' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedAfter%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">createdAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680376157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -298,50 +249,59 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created before a</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- specified time.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdBefore"><span class="hs-identifier hs-type">listPipelineExecutions_createdBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="listPipelineExecutions_createdBefore"><span class="annot"><span class="annottext">listPipelineExecutions_createdBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutions@ request was</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- of pipeline executions, use the token in the next request.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_nextToken"><span class="hs-identifier hs-type">listPipelineExecutions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="listPipelineExecutions_nextToken"><span class="annot"><span class="annottext">listPipelineExecutions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdBefore"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_createdBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe POSIX)
--&gt; (ListPipelineExecutions
-    -&gt; Maybe POSIX -&gt; ListPipelineExecutions)
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_nextToken"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe Text)
+-&gt; (ListPipelineExecutions -&gt; Maybe Text -&gt; ListPipelineExecutions)
 -&gt; Lens
      ListPipelineExecutions
      ListPipelineExecutions
-     (Maybe POSIX)
-     (Maybe POSIX)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374642"><span class="annot"><span class="annottext">Maybe POSIX
-createdBefore :: Maybe POSIX
-$sel:createdBefore:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe POSIX
-</span><a href="#local-6989586621680374642"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374642"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374641"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
-</span><a href="#local-6989586621680374641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374640"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListPipelineExecutions' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListPipelineExecutions
--&gt; f ListPipelineExecutions
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The maximum number of pipeline executions to return in the response.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_maxResults"><span class="hs-identifier hs-type">listPipelineExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="listPipelineExecutions_maxResults"><span class="annot"><span class="annottext">listPipelineExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376153"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Text
+</span><a href="#local-6989586621680376153"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680376153"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376152"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
+</span><a href="#local-6989586621680376152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680376151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutions' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AnextToken%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680376151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The sort order for results.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortOrder"><span class="hs-identifier hs-type">listPipelineExecutions_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="listPipelineExecutions_sortOrder"><span class="annot"><span class="annottext">listPipelineExecutions_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+-&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortOrder"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe SortOrder)
+-&gt; (ListPipelineExecutions
+    -&gt; Maybe SortOrder -&gt; ListPipelineExecutions)
+-&gt; Lens
+     ListPipelineExecutions
+     ListPipelineExecutions
+     (Maybe SortOrder)
+     (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376150"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe SortOrder
+</span><a href="#local-6989586621680376150"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680376150"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376149"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
+</span><a href="#local-6989586621680376149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376148"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680376148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListPipelineExecutions' :: Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AsortOrder%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680376148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The maximum number of pipeline executions to return in the response.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_maxResults"><span class="hs-identifier hs-type">listPipelineExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="listPipelineExecutions_maxResults"><span class="annot"><span class="annottext">listPipelineExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_maxResults"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe Natural)
 -&gt; (ListPipelineExecutions
@@ -352,16 +312,56 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374639"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376147"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Natural
-</span><a href="#local-6989586621680374639"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680374639"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374638"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
-</span><a href="#local-6989586621680374638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374637"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680374637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPipelineExecutions' :: Maybe Natural
+</span><a href="#local-6989586621680376147"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680376147"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376146"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
+</span><a href="#local-6989586621680376146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376145"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680376145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPipelineExecutions' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AmaxResults%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680374637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680376145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A filter that returns the pipeline executions that were created before a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- specified time.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdBefore"><span class="hs-identifier hs-type">listPipelineExecutions_createdBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="listPipelineExecutions_createdBefore"><span class="annot"><span class="annottext">listPipelineExecutions_createdBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_createdBefore"><span class="hs-identifier hs-var hs-var">listPipelineExecutions_createdBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPipelineExecutions -&gt; Maybe POSIX)
+-&gt; (ListPipelineExecutions
+    -&gt; Maybe POSIX -&gt; ListPipelineExecutions)
+-&gt; Lens
+     ListPipelineExecutions
+     ListPipelineExecutions
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376144"><span class="annot"><span class="annottext">Maybe POSIX
+createdBefore :: Maybe POSIX
+$sel:createdBefore:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe POSIX
+</span><a href="#local-6989586621680376144"><span class="hs-identifier hs-var hs-var">createdBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680376144"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376143"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
+</span><a href="#local-6989586621680376143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376142"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680376142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdBefore:ListPipelineExecutions' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AcreatedBefore%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">createdBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680376142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListPipelineExecutions -&gt; f ListPipelineExecutions)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListPipelineExecutions
+-&gt; f ListPipelineExecutions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The field by which to sort results. The default is @CreatedTime@.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_sortBy"><span class="hs-identifier hs-type">listPipelineExecutions_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortPipelineExecutionsBy.html#SortPipelineExecutionsBy"><span class="hs-identifier hs-type">SortPipelineExecutionsBy</span></a></span><span class="hs-special">)</span><span>
@@ -377,16 +377,16 @@ $sel:maxResults:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Na
      (Maybe SortPipelineExecutionsBy)
      (Maybe SortPipelineExecutionsBy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374636"><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376141"><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
 sortBy :: Maybe SortPipelineExecutionsBy
 $sel:sortBy:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe SortPipelineExecutionsBy
-</span><a href="#local-6989586621680374636"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
-</span><a href="#local-6989586621680374636"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374635"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
-</span><a href="#local-6989586621680374635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374634"><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
-</span><a href="#local-6989586621680374634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListPipelineExecutions' :: Maybe SortPipelineExecutionsBy
+</span><a href="#local-6989586621680376141"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
+</span><a href="#local-6989586621680376141"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376140"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
+</span><a href="#local-6989586621680376140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376139"><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
+</span><a href="#local-6989586621680376139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListPipelineExecutions' :: Maybe SortPipelineExecutionsBy
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AsortBy%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
-</span><a href="#local-6989586621680374634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680376139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The name of the pipeline.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutions_pipelineName"><span class="hs-identifier hs-type">listPipelineExecutions_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -396,30 +396,30 @@ $sel:sortBy:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe SortPi
 -&gt; (ListPipelineExecutions -&gt; Text -&gt; ListPipelineExecutions)
 -&gt; Lens ListPipelineExecutions ListPipelineExecutions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374633"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376138"><span class="annot"><span class="annottext">Text
 pipelineName :: Text
 $sel:pipelineName:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Text
-</span><a href="#local-6989586621680374633"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680374633"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374632"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
-</span><a href="#local-6989586621680374632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374631"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680374631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:ListPipelineExecutions' :: Text
+</span><a href="#local-6989586621680376138"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680376138"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376137"><span class="annot"><span class="annottext">s :: ListPipelineExecutions
+</span><a href="#local-6989586621680376137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680376136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:ListPipelineExecutions' :: Text
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3ApipelineName%3AListPipelineExecutions%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680374631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680376136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621680374627"><span class="annot"><span class="annottext">page :: ListPipelineExecutions
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621680376132"><span class="annot"><span class="annottext">page :: ListPipelineExecutions
 -&gt; AWSResponse ListPipelineExecutions
 -&gt; Maybe ListPipelineExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680374625"><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374625"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680374624"><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutions
-</span><a href="#local-6989586621680374624"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680376130"><span class="annot"><span class="annottext">ListPipelineExecutions
+</span><a href="#local-6989586621680376130"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680376129"><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutions
+</span><a href="#local-6989586621680376129"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-157"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutions
 ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680376129"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
 -&gt; Getting (First Text) ListPipelineExecutionsResponse Text
 -&gt; Maybe Text
@@ -449,7 +449,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-163"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutions
 ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680376129"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
 -&gt; Getting
      (First [PipelineExecutionSummary])
@@ -508,7 +508,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ListPipelineExecutions
-</span><a href="#local-6989586621680374625"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680376130"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">ListPipelineExecutions
 -&gt; (ListPipelineExecutions -&gt; ListPipelineExecutions)
 -&gt; ListPipelineExecutions
@@ -527,7 +527,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPipelineExecutions
 ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680376129"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
 -&gt; Getting (First Text) ListPipelineExecutionsResponse Text
 -&gt; Maybe Text
@@ -553,12 +553,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621680374615"><span class="annot"><span class="annottext">request :: ListPipelineExecutions -&gt; Request ListPipelineExecutions
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621680376120"><span class="annot"><span class="annottext">request :: ListPipelineExecutions -&gt; Request ListPipelineExecutions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPipelineExecutions -&gt; Request ListPipelineExecutions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621680374611"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680376116"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListPipelineExecutions
 -&gt; ClientResponse ClientBody
@@ -584,10 +584,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680374608"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680374608"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680374607"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680374607"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680374606"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680374606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680376113"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680376113"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680376112"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680376112"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680376111"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680376111"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [PipelineExecutionSummary]
 -&gt; Int
@@ -604,7 +604,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListPipelineExecutionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680374606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680376111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -616,7 +616,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListPipelineExecutionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680374606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680376111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [PipelineExecutionSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -638,15 +638,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680374608"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680376113"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680374597"><span id="local-6989586621680374599"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680376102"><span id="local-6989586621680376104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680374594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680376099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621680374590"><span class="annot"><span class="annottext">toHeaders :: ListPipelineExecutions -&gt; ResponseHeaders
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621680376095"><span class="annot"><span class="annottext">toHeaders :: ListPipelineExecutions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPipelineExecutions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -673,9 +673,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680374580"><span id="local-6989586621680374582"><span id="local-6989586621680374584"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621680374578"><span class="annot"><span class="annottext">toJSON :: ListPipelineExecutions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374570"><span id="local-6989586621680374571"><span id="local-6989586621680374572"><span id="local-6989586621680374573"><span id="local-6989586621680374574"><span id="local-6989586621680374575"><span id="local-6989586621680374576"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680376085"><span id="local-6989586621680376087"><span id="local-6989586621680376089"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621680376083"><span class="annot"><span class="annottext">toJSON :: ListPipelineExecutions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions%27"><span class="hs-identifier hs-type">ListPipelineExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376075"><span id="local-6989586621680376076"><span id="local-6989586621680376077"><span id="local-6989586621680376078"><span id="local-6989586621680376079"><span id="local-6989586621680376080"><span id="local-6989586621680376081"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe SortOrder
@@ -683,59 +683,59 @@ Maybe SortPipelineExecutionsBy
 Text
 pipelineName :: Text
 sortBy :: Maybe SortPipelineExecutionsBy
-maxResults :: Maybe Natural
 createdBefore :: Maybe POSIX
-createdAfter :: Maybe POSIX
+maxResults :: Maybe Natural
 sortOrder :: Maybe SortOrder
 nextToken :: Maybe Text
+createdAfter :: Maybe POSIX
 $sel:pipelineName:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Text
 $sel:sortBy:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe SortPipelineExecutionsBy
-$sel:maxResults:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Natural
 $sel:createdBefore:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe POSIX
-$sel:createdAfter:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe POSIX
+$sel:maxResults:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Natural
 $sel:sortOrder:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe SortOrder
 $sel:nextToken:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621680374570"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:createdAfter:ListPipelineExecutions' :: ListPipelineExecutions -&gt; Maybe POSIX
+</span><a href="#local-6989586621680376075"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-215"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680374576"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680374575"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374574"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+</span><a href="#local-6989586621680376081"><span class="hs-identifier hs-var">createdAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680374573"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680376080"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680376079"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680374572"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680376078"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680376077"><span class="hs-identifier hs-var">createdBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortPipelineExecutionsBy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -743,26 +743,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SortPipelineExecutionsBy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortPipelineExecutionsBy
-</span><a href="#local-6989586621680374571"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680376076"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PipelineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680374570"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680376075"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621680374564"><span class="annot"><span class="annottext">toPath :: ListPipelineExecutions -&gt; ByteString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621680376069"><span class="annot"><span class="annottext">toPath :: ListPipelineExecutions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPipelineExecutions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutions"><span class="hs-identifier hs-type">ListPipelineExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621680374560"><span class="annot"><span class="annottext">toQuery :: ListPipelineExecutions -&gt; QueryString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621680376065"><span class="annot"><span class="annottext">toQuery :: ListPipelineExecutions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPipelineExecutions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -770,7 +770,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | /See:/ 'newListPipelineExecutionsResponse' smart constructor.</span><span>
-</span><span id="line-232"></span><span id="local-6989586621680374557"><span id="local-6989586621680374558"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPipelineExecutionsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-var">ListPipelineExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPipelineExecutionsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-var">ListPipelineExecutionsResponse'</span></a></span></span><span>
+</span><span id="line-232"></span><span id="local-6989586621680376062"><span id="local-6989586621680376063"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPipelineExecutionsResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-var">ListPipelineExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPipelineExecutionsResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-var">ListPipelineExecutionsResponse'</span></a></span></span><span>
 </span><span id="line-233"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutions@ request was</span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-comment">-- truncated, the response includes a @NextToken@. To retrieve the next set</span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-comment">-- of pipeline executions, use the token in the next request.</span><span>
@@ -786,7 +786,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-243"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPipelineExecutionsResponse%27"><span class="annot"><span class="annottext">ListPipelineExecutionsResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AhttpStatus%3AListPipelineExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680374550"><span id="local-6989586621680374552"><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680376055"><span id="local-6989586621680376057"><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
 -&gt; ListPipelineExecutionsResponse -&gt; Bool
 (ListPipelineExecutionsResponse
  -&gt; ListPipelineExecutionsResponse -&gt; Bool)
@@ -802,7 +802,7 @@ $c/= :: ListPipelineExecutionsResponse
 -&gt; ListPipelineExecutionsResponse -&gt; Bool
 $c== :: ListPipelineExecutionsResponse
 -&gt; ListPipelineExecutionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374542"><span id="local-6989586621680374544"><span id="local-6989586621680374546"><span id="local-6989586621680374548"><span class="annot"><span class="annottext">ReadPrec [ListPipelineExecutionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680376047"><span id="local-6989586621680376049"><span id="local-6989586621680376051"><span id="local-6989586621680376053"><span class="annot"><span class="annottext">ReadPrec [ListPipelineExecutionsResponse]
 ReadPrec ListPipelineExecutionsResponse
 Int -&gt; ReadS ListPipelineExecutionsResponse
 ReadS [ListPipelineExecutionsResponse]
@@ -822,7 +822,7 @@ readList :: ReadS [ListPipelineExecutionsResponse]
 $creadList :: ReadS [ListPipelineExecutionsResponse]
 readsPrec :: Int -&gt; ReadS ListPipelineExecutionsResponse
 $creadsPrec :: Int -&gt; ReadS ListPipelineExecutionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680374536"><span id="local-6989586621680374538"><span id="local-6989586621680374540"><span class="annot"><span class="annottext">Int -&gt; ListPipelineExecutionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680376041"><span id="local-6989586621680376043"><span id="local-6989586621680376045"><span class="annot"><span class="annottext">Int -&gt; ListPipelineExecutionsResponse -&gt; ShowS
 [ListPipelineExecutionsResponse] -&gt; ShowS
 ListPipelineExecutionsResponse -&gt; String
 (Int -&gt; ListPipelineExecutionsResponse -&gt; ShowS)
@@ -883,8 +883,8 @@ ListPipelineExecutionsResponse
 </span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-268"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span>
 </span><span id="line-269"></span><span id="newListPipelineExecutionsResponse"><span class="annot"><span class="annottext">newListPipelineExecutionsResponse :: Int -&gt; ListPipelineExecutionsResponse
-</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#newListPipelineExecutionsResponse"><span class="hs-identifier hs-var hs-var">newListPipelineExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621680374533"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680374533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#newListPipelineExecutionsResponse"><span class="hs-identifier hs-var hs-var">newListPipelineExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621680376038"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680376038"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse' :: Maybe Text
 -&gt; Maybe [PipelineExecutionSummary]
 -&gt; Int
@@ -902,7 +902,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPipelineExecutionsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AhttpStatus%3AListPipelineExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680374533"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680376038"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | If the result of the previous @ListPipelineExecutions@ request was</span><span>
@@ -917,16 +917,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListPipelineExecutionsResponse)
 -&gt; Lens' ListPipelineExecutionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374532"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376037"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListPipelineExecutionsResponse' :: ListPipelineExecutionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680374532"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680374532"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374531"><span class="annot"><span class="annottext">s :: ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680374530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutionsResponse' :: Maybe Text
+</span><a href="#local-6989586621680376037"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680376037"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376036"><span class="annot"><span class="annottext">s :: ListPipelineExecutionsResponse
+</span><a href="#local-6989586621680376036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376035"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680376035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
+</span><a href="#local-6989586621680376036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPipelineExecutionsResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AnextToken%3AListPipelineExecutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680374530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680376035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | Contains a sorted list of pipeline execution summary objects matching</span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- the specified filters. Each run summary includes the Amazon Resource</span><span>
@@ -945,16 +945,16 @@ $sel:nextToken:ListPipelineExecutionsResponse' :: ListPipelineExecutionsResponse
 -&gt; Lens'
      ListPipelineExecutionsResponse (Maybe [PipelineExecutionSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374529"><span class="annot"><span class="annottext">Maybe [PipelineExecutionSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376034"><span class="annot"><span class="annottext">Maybe [PipelineExecutionSummary]
 pipelineExecutionSummaries :: Maybe [PipelineExecutionSummary]
 $sel:pipelineExecutionSummaries:ListPipelineExecutionsResponse' :: ListPipelineExecutionsResponse -&gt; Maybe [PipelineExecutionSummary]
-</span><a href="#local-6989586621680374529"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionSummary]
-</span><a href="#local-6989586621680374529"><span class="hs-identifier hs-var">pipelineExecutionSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374528"><span class="annot"><span class="annottext">s :: ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374527"><span class="annot"><span class="annottext">Maybe [PipelineExecutionSummary]
-</span><a href="#local-6989586621680374527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionSummaries:ListPipelineExecutionsResponse' :: Maybe [PipelineExecutionSummary]
+</span><a href="#local-6989586621680376034"><span class="hs-identifier hs-var hs-var">pipelineExecutionSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionSummary]
+</span><a href="#local-6989586621680376034"><span class="hs-identifier hs-var">pipelineExecutionSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376033"><span class="annot"><span class="annottext">s :: ListPipelineExecutionsResponse
+</span><a href="#local-6989586621680376033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376032"><span class="annot"><span class="annottext">Maybe [PipelineExecutionSummary]
+</span><a href="#local-6989586621680376032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
+</span><a href="#local-6989586621680376033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineExecutionSummaries:ListPipelineExecutionsResponse' :: Maybe [PipelineExecutionSummary]
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3ApipelineExecutionSummaries%3AListPipelineExecutionsResponse%27"><span class="hs-identifier hs-var">pipelineExecutionSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelineExecutionSummary]
-</span><a href="#local-6989586621680374527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelineExecutionSummary]
+</span><a href="#local-6989586621680376032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelineExecutionSummary]
   -&gt; f (Maybe [PipelineExecutionSummary]))
  -&gt; ListPipelineExecutionsResponse
  -&gt; f ListPipelineExecutionsResponse)
@@ -985,8 +985,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PipelineExecutionSummary]
   [PipelineExecutionSummary]
   [PipelineExecutionSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-292"></span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#listPipelineExecutionsResponse_httpStatus"><span class="hs-identifier hs-type">listPipelineExecutionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1002,18 +1002,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680374525"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680376030"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListPipelineExecutionsResponse' :: ListPipelineExecutionsResponse -&gt; Int
-</span><a href="#local-6989586621680374525"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680374525"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680374524"><span class="annot"><span class="annottext">s :: ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680374523"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680374523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
-</span><a href="#local-6989586621680374524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPipelineExecutionsResponse' :: Int
+</span><a href="#local-6989586621680376030"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680376030"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680376029"><span class="annot"><span class="annottext">s :: ListPipelineExecutionsResponse
+</span><a href="#local-6989586621680376029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse%27"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680376028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680376028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPipelineExecutionsResponse
+</span><a href="#local-6989586621680376029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPipelineExecutionsResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#%24sel%3AhttpStatus%3AListPipelineExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680374523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680376028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-296"></span><span>  </span><span id="local-6989586621680374521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621680376026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-297"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListPipelineExecutions.html#ListPipelineExecutionsResponse"><span class="hs-identifier hs-type">ListPipelineExecutionsResponse</span></a></span></span><span>
 </span><span id="line-298"></span></pre></body></html>

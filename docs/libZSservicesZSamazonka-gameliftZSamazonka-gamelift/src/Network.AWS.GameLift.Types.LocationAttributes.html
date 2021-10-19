@@ -33,21 +33,21 @@
 </span><span id="line-33"></span><span class="hs-comment">-- DescribeFleetLocationAttributes</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newLocationAttributes' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679434937"><span id="local-6989586621679434938"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocationAttributes"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-var">LocationAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationAttributes%27"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-var">LocationAttributes'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of fleet activity updates to the location. The status</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- has been requested but the update has not yet been completed for the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- location.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="annot"><span class="annottext">LocationAttributes -&gt; Maybe LocationUpdateStatus
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-type">LocationUpdateStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A fleet location and its current life-cycle state.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlocationState%3ALocationAttributes%27"><span class="annot"><span class="annottext">LocationAttributes -&gt; Maybe LocationState
+</span><span id="line-36"></span><span id="local-6989586621679435384"><span id="local-6989586621679435385"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocationAttributes"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-var">LocationAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationAttributes%27"><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-var">LocationAttributes'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of fleet actions that have been suspended in the fleet location.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstoppedActions%3ALocationAttributes%27"><span class="annot"><span class="annottext">LocationAttributes -&gt; Maybe (NonEmpty FleetAction)
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AstoppedActions%3ALocationAttributes%27"><span class="hs-identifier hs-var hs-var">stoppedActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A fleet location and its current life-cycle state.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlocationState%3ALocationAttributes%27"><span class="annot"><span class="annottext">LocationAttributes -&gt; Maybe LocationState
 </span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AlocationState%3ALocationAttributes%27"><span class="hs-identifier hs-var hs-var">locationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationState.html#LocationState"><span class="hs-identifier hs-type">LocationState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A list of fleet actions that have been suspended in the fleet location.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AstoppedActions%3ALocationAttributes%27"><span class="annot"><span class="annottext">LocationAttributes -&gt; Maybe (NonEmpty FleetAction)
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AstoppedActions%3ALocationAttributes%27"><span class="hs-identifier hs-var hs-var">stoppedActions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The status of fleet activity updates to the location. The status</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- has been requested but the update has not yet been completed for the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- location.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="annot"><span class="annottext">LocationAttributes -&gt; Maybe LocationUpdateStatus
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-type">LocationUpdateStatus</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434929"><span id="local-6989586621679434931"><span class="annot"><span class="annottext">LocationAttributes -&gt; LocationAttributes -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435376"><span id="local-6989586621679435378"><span class="annot"><span class="annottext">LocationAttributes -&gt; LocationAttributes -&gt; Bool
 (LocationAttributes -&gt; LocationAttributes -&gt; Bool)
 -&gt; (LocationAttributes -&gt; LocationAttributes -&gt; Bool)
 -&gt; Eq LocationAttributes
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LocationAttributes -&gt; LocationAttributes -&gt; Bool
 == :: LocationAttributes -&gt; LocationAttributes -&gt; Bool
 $c== :: LocationAttributes -&gt; LocationAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434920"><span id="local-6989586621679434922"><span id="local-6989586621679434924"><span id="local-6989586621679434926"><span class="annot"><span class="annottext">ReadPrec [LocationAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435367"><span id="local-6989586621679435369"><span id="local-6989586621679435371"><span id="local-6989586621679435373"><span class="annot"><span class="annottext">ReadPrec [LocationAttributes]
 ReadPrec LocationAttributes
 Int -&gt; ReadS LocationAttributes
 ReadS [LocationAttributes]
@@ -76,7 +76,7 @@ readList :: ReadS [LocationAttributes]
 $creadList :: ReadS [LocationAttributes]
 readsPrec :: Int -&gt; ReadS LocationAttributes
 $creadsPrec :: Int -&gt; ReadS LocationAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434913"><span id="local-6989586621679434915"><span id="local-6989586621679434917"><span class="annot"><span class="annottext">Int -&gt; LocationAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435360"><span id="local-6989586621679435362"><span id="local-6989586621679435364"><span class="annot"><span class="annottext">Int -&gt; LocationAttributes -&gt; ShowS
 [LocationAttributes] -&gt; ShowS
 LocationAttributes -&gt; String
 (Int -&gt; LocationAttributes -&gt; ShowS)
@@ -110,91 +110,41 @@ $cfrom :: forall x. LocationAttributes -&gt; Rep LocationAttributes x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'updateStatus', 'locationAttributes_updateStatus' - The status of fleet activity updates to the location. The status</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- has been requested but the update has not yet been completed for the</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- location.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'locationState', 'locationAttributes_locationState' - A fleet location and its current life-cycle state.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'stoppedActions', 'locationAttributes_stoppedActions' - A list of fleet actions that have been suspended in the fleet location.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'stoppedActions', 'locationAttributes_stoppedActions' - A list of fleet actions that have been suspended in the fleet location.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'locationState', 'locationAttributes_locationState' - A fleet location and its current life-cycle state.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'updateStatus', 'locationAttributes_updateStatus' - The status of fleet activity updates to the location. The status</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- has been requested but the update has not yet been completed for the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- location.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#newLocationAttributes"><span class="hs-identifier hs-type">newLocationAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span>
 </span><span id="line-67"></span><span id="newLocationAttributes"><span class="annot"><span class="annottext">newLocationAttributes :: LocationAttributes
 </span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#newLocationAttributes"><span class="hs-identifier hs-var hs-var">newLocationAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">LocationAttributes' :: Maybe LocationUpdateStatus
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">LocationAttributes' :: Maybe (NonEmpty FleetAction)
 -&gt; Maybe LocationState
--&gt; Maybe (NonEmpty FleetAction)
+-&gt; Maybe LocationUpdateStatus
 -&gt; LocationAttributes
 </span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:updateStatus:LocationAttributes' :: Maybe LocationUpdateStatus
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stoppedActions:LocationAttributes' :: Maybe (NonEmpty FleetAction)
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AstoppedActions%3ALocationAttributes%27"><span class="hs-identifier hs-var">stoppedActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:locationState:LocationAttributes' :: Maybe LocationState
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:locationState:LocationAttributes' :: Maybe LocationState
 </span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AlocationState%3ALocationAttributes%27"><span class="hs-identifier hs-var">locationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:stoppedActions:LocationAttributes' :: Maybe (NonEmpty FleetAction)
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AstoppedActions%3ALocationAttributes%27"><span class="hs-identifier hs-var">stoppedActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateStatus:LocationAttributes' :: Maybe LocationUpdateStatus
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The status of fleet activity updates to the location. The status</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- has been requested but the update has not yet been completed for the</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- location.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_updateStatus"><span class="hs-identifier hs-type">locationAttributes_updateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-type">LocationUpdateStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="locationAttributes_updateStatus"><span class="annot"><span class="annottext">locationAttributes_updateStatus :: (Maybe LocationUpdateStatus -&gt; f (Maybe LocationUpdateStatus))
--&gt; LocationAttributes -&gt; f LocationAttributes
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_updateStatus"><span class="hs-identifier hs-var hs-var">locationAttributes_updateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationAttributes -&gt; Maybe LocationUpdateStatus)
--&gt; (LocationAttributes
-    -&gt; Maybe LocationUpdateStatus -&gt; LocationAttributes)
--&gt; Lens
-     LocationAttributes
-     LocationAttributes
-     (Maybe LocationUpdateStatus)
-     (Maybe LocationUpdateStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434904"><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
-updateStatus :: Maybe LocationUpdateStatus
-$sel:updateStatus:LocationAttributes' :: LocationAttributes -&gt; Maybe LocationUpdateStatus
-</span><a href="#local-6989586621679434904"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
-</span><a href="#local-6989586621679434904"><span class="hs-identifier hs-var">updateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434903"><span class="annot"><span class="annottext">s :: LocationAttributes
-</span><a href="#local-6989586621679434903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434902"><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
-</span><a href="#local-6989586621679434902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationAttributes
-</span><a href="#local-6989586621679434903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateStatus:LocationAttributes' :: Maybe LocationUpdateStatus
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
-</span><a href="#local-6989586621679434902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | A fleet location and its current life-cycle state.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_locationState"><span class="hs-identifier hs-type">locationAttributes_locationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationState.html#LocationState"><span class="hs-identifier hs-type">LocationState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="locationAttributes_locationState"><span class="annot"><span class="annottext">locationAttributes_locationState :: (Maybe LocationState -&gt; f (Maybe LocationState))
--&gt; LocationAttributes -&gt; f LocationAttributes
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_locationState"><span class="hs-identifier hs-var hs-var">locationAttributes_locationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationAttributes -&gt; Maybe LocationState)
--&gt; (LocationAttributes
-    -&gt; Maybe LocationState -&gt; LocationAttributes)
--&gt; Lens
-     LocationAttributes
-     LocationAttributes
-     (Maybe LocationState)
-     (Maybe LocationState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434900"><span class="annot"><span class="annottext">Maybe LocationState
-locationState :: Maybe LocationState
-$sel:locationState:LocationAttributes' :: LocationAttributes -&gt; Maybe LocationState
-</span><a href="#local-6989586621679434900"><span class="hs-identifier hs-var hs-var">locationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocationState
-</span><a href="#local-6989586621679434900"><span class="hs-identifier hs-var">locationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434899"><span class="annot"><span class="annottext">s :: LocationAttributes
-</span><a href="#local-6989586621679434899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434898"><span class="annot"><span class="annottext">Maybe LocationState
-</span><a href="#local-6989586621679434898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationAttributes
-</span><a href="#local-6989586621679434899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationState:LocationAttributes' :: Maybe LocationState
-</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AlocationState%3ALocationAttributes%27"><span class="hs-identifier hs-var">locationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationState
-</span><a href="#local-6989586621679434898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | A list of fleet actions that have been suspended in the fleet location.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_stoppedActions"><span class="hs-identifier hs-type">locationAttributes_stoppedActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="locationAttributes_stoppedActions"><span class="annot"><span class="annottext">locationAttributes_stoppedActions :: (Maybe (NonEmpty FleetAction) -&gt; f (Maybe (NonEmpty FleetAction)))
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A list of fleet actions that have been suspended in the fleet location.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_stoppedActions"><span class="hs-identifier hs-type">locationAttributes_stoppedActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FleetAction.html#FleetAction"><span class="hs-identifier hs-type">FleetAction</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="locationAttributes_stoppedActions"><span class="annot"><span class="annottext">locationAttributes_stoppedActions :: (Maybe (NonEmpty FleetAction) -&gt; f (Maybe (NonEmpty FleetAction)))
 -&gt; LocationAttributes -&gt; f LocationAttributes
 </span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_stoppedActions"><span class="hs-identifier hs-var hs-var">locationAttributes_stoppedActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationAttributes -&gt; Maybe (NonEmpty FleetAction))
 -&gt; (LocationAttributes
@@ -205,16 +155,16 @@ $sel:locationState:LocationAttributes' :: LocationAttributes -&gt; Maybe Locatio
      (Maybe (NonEmpty FleetAction))
      (Maybe (NonEmpty FleetAction))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434896"><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435351"><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
 stoppedActions :: Maybe (NonEmpty FleetAction)
 $sel:stoppedActions:LocationAttributes' :: LocationAttributes -&gt; Maybe (NonEmpty FleetAction)
-</span><a href="#local-6989586621679434896"><span class="hs-identifier hs-var hs-var">stoppedActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
-</span><a href="#local-6989586621679434896"><span class="hs-identifier hs-var">stoppedActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434895"><span class="annot"><span class="annottext">s :: LocationAttributes
-</span><a href="#local-6989586621679434895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434894"><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
-</span><a href="#local-6989586621679434894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationAttributes
-</span><a href="#local-6989586621679434895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppedActions:LocationAttributes' :: Maybe (NonEmpty FleetAction)
+</span><a href="#local-6989586621679435351"><span class="hs-identifier hs-var hs-var">stoppedActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
+</span><a href="#local-6989586621679435351"><span class="hs-identifier hs-var">stoppedActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435350"><span class="annot"><span class="annottext">s :: LocationAttributes
+</span><a href="#local-6989586621679435350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435349"><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
+</span><a href="#local-6989586621679435349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationAttributes
+</span><a href="#local-6989586621679435350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppedActions:LocationAttributes' :: Maybe (NonEmpty FleetAction)
 </span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AstoppedActions%3ALocationAttributes%27"><span class="hs-identifier hs-var">stoppedActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
-</span><a href="#local-6989586621679434894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty FleetAction) -&gt; f (Maybe (NonEmpty FleetAction)))
+</span><a href="#local-6989586621679435349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty FleetAction) -&gt; f (Maybe (NonEmpty FleetAction)))
  -&gt; LocationAttributes -&gt; f LocationAttributes)
 -&gt; ((Maybe (NonEmpty FleetAction)
      -&gt; f (Maybe (NonEmpty FleetAction)))
@@ -243,64 +193,114 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty FleetAction)
   (NonEmpty FleetAction)
   (NonEmpty FleetAction)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434888"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679434886"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LocationAttributes
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A fleet location and its current life-cycle state.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_locationState"><span class="hs-identifier hs-type">locationAttributes_locationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationState.html#LocationState"><span class="hs-identifier hs-type">LocationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="locationAttributes_locationState"><span class="annot"><span class="annottext">locationAttributes_locationState :: (Maybe LocationState -&gt; f (Maybe LocationState))
+-&gt; LocationAttributes -&gt; f LocationAttributes
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_locationState"><span class="hs-identifier hs-var hs-var">locationAttributes_locationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationAttributes -&gt; Maybe LocationState)
+-&gt; (LocationAttributes
+    -&gt; Maybe LocationState -&gt; LocationAttributes)
+-&gt; Lens
+     LocationAttributes
+     LocationAttributes
+     (Maybe LocationState)
+     (Maybe LocationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435344"><span class="annot"><span class="annottext">Maybe LocationState
+locationState :: Maybe LocationState
+$sel:locationState:LocationAttributes' :: LocationAttributes -&gt; Maybe LocationState
+</span><a href="#local-6989586621679435344"><span class="hs-identifier hs-var hs-var">locationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocationState
+</span><a href="#local-6989586621679435344"><span class="hs-identifier hs-var">locationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435343"><span class="annot"><span class="annottext">s :: LocationAttributes
+</span><a href="#local-6989586621679435343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435342"><span class="annot"><span class="annottext">Maybe LocationState
+</span><a href="#local-6989586621679435342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationAttributes
+</span><a href="#local-6989586621679435343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationState:LocationAttributes' :: Maybe LocationState
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AlocationState%3ALocationAttributes%27"><span class="hs-identifier hs-var">locationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationState
+</span><a href="#local-6989586621679435342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The status of fleet activity updates to the location. The status</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @PENDING_UPDATE@ indicates that StopFleetActions or StartFleetActions</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- has been requested but the update has not yet been completed for the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- location.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_updateStatus"><span class="hs-identifier hs-type">locationAttributes_updateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationUpdateStatus.html#LocationUpdateStatus"><span class="hs-identifier hs-type">LocationUpdateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="locationAttributes_updateStatus"><span class="annot"><span class="annottext">locationAttributes_updateStatus :: (Maybe LocationUpdateStatus -&gt; f (Maybe LocationUpdateStatus))
+-&gt; LocationAttributes -&gt; f LocationAttributes
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#locationAttributes_updateStatus"><span class="hs-identifier hs-var hs-var">locationAttributes_updateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationAttributes -&gt; Maybe LocationUpdateStatus)
+-&gt; (LocationAttributes
+    -&gt; Maybe LocationUpdateStatus -&gt; LocationAttributes)
+-&gt; Lens
+     LocationAttributes
+     LocationAttributes
+     (Maybe LocationUpdateStatus)
+     (Maybe LocationUpdateStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435340"><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+updateStatus :: Maybe LocationUpdateStatus
+$sel:updateStatus:LocationAttributes' :: LocationAttributes -&gt; Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679435340"><span class="hs-identifier hs-var hs-var">updateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679435340"><span class="hs-identifier hs-var">updateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435339"><span class="annot"><span class="annottext">s :: LocationAttributes
+</span><a href="#local-6989586621679435339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-type">LocationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435338"><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679435338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationAttributes
+</span><a href="#local-6989586621679435339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateStatus:LocationAttributes' :: Maybe LocationUpdateStatus
+</span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#%24sel%3AupdateStatus%3ALocationAttributes%27"><span class="hs-identifier hs-var">updateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><a href="#local-6989586621679435338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435335"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679435333"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LocationAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LocationAttributes)
 -&gt; Value
 -&gt; Parser LocationAttributes
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LocationAttributes&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434883"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe LocationUpdateStatus
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty FleetAction)
 -&gt; Maybe LocationState
--&gt; Maybe (NonEmpty FleetAction)
+-&gt; Maybe LocationUpdateStatus
 -&gt; LocationAttributes
 </span><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes%27"><span class="hs-identifier hs-var">LocationAttributes'</span></a></span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LocationUpdateStatus
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty FleetAction)
  -&gt; Maybe LocationState
- -&gt; Maybe (NonEmpty FleetAction)
+ -&gt; Maybe LocationUpdateStatus
  -&gt; LocationAttributes)
--&gt; Parser (Maybe LocationUpdateStatus)
+-&gt; Parser (Maybe (NonEmpty FleetAction))
 -&gt; Parser
      (Maybe LocationState
-      -&gt; Maybe (NonEmpty FleetAction) -&gt; LocationAttributes)
+      -&gt; Maybe LocationUpdateStatus -&gt; LocationAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LocationUpdateStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe LocationState
-   -&gt; Maybe (NonEmpty FleetAction) -&gt; LocationAttributes)
--&gt; Parser (Maybe LocationState)
--&gt; Parser (Maybe (NonEmpty FleetAction) -&gt; LocationAttributes)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LocationState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LocationState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (NonEmpty FleetAction) -&gt; LocationAttributes)
--&gt; Parser (Maybe (NonEmpty FleetAction))
--&gt; Parser LocationAttributes
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty FleetAction))
+</span><a href="#local-6989586621679435330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty FleetAction))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StoppedActions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434877"><span id="local-6989586621679434879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span></span></span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span></span><span>
-</span><span id="line-103"></span></pre></body></html>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LocationState
+   -&gt; Maybe LocationUpdateStatus -&gt; LocationAttributes)
+-&gt; Parser (Maybe LocationState)
+-&gt; Parser (Maybe LocationUpdateStatus -&gt; LocationAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LocationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe LocationUpdateStatus -&gt; LocationAttributes)
+-&gt; Parser (Maybe LocationUpdateStatus) -&gt; Parser LocationAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LocationUpdateStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435324"><span id="local-6989586621679435326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.LocationAttributes.html#LocationAttributes"><span class="hs-identifier hs-type">LocationAttributes</span></a></span></span><span>
+</span><span id="line-104"></span></pre></body></html>

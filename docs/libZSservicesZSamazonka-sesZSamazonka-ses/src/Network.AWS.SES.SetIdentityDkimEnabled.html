@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newSetIdentityDkimEnabled' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679278859"><span id="local-6989586621679278860"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityDkimEnabled"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-var">SetIdentityDkimEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityDkimEnabled%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-var">SetIdentityDkimEnabled'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679279060"><span id="local-6989586621679279061"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityDkimEnabled"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-var">SetIdentityDkimEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityDkimEnabled%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-var">SetIdentityDkimEnabled'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identity for which DKIM signing should be enabled or disabled.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Aidentity%3ASetIdentityDkimEnabled%27"><span class="annot"><span class="annottext">SetIdentityDkimEnabled -&gt; Text
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3Aidentity%3ASetIdentityDkimEnabled%27"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AdkimEnabled%3ASetIdentityDkimEnabled%27"><span class="annot"><span class="annottext">SetIdentityDkimEnabled -&gt; Bool
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3AdkimEnabled%3ASetIdentityDkimEnabled%27"><span class="hs-identifier hs-var hs-var">dkimEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278852"><span id="local-6989586621679278854"><span class="annot"><span class="annottext">SetIdentityDkimEnabled -&gt; SetIdentityDkimEnabled -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279053"><span id="local-6989586621679279055"><span class="annot"><span class="annottext">SetIdentityDkimEnabled -&gt; SetIdentityDkimEnabled -&gt; Bool
 (SetIdentityDkimEnabled -&gt; SetIdentityDkimEnabled -&gt; Bool)
 -&gt; (SetIdentityDkimEnabled -&gt; SetIdentityDkimEnabled -&gt; Bool)
 -&gt; Eq SetIdentityDkimEnabled
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetIdentityDkimEnabled -&gt; SetIdentityDkimEnabled -&gt; Bool
 == :: SetIdentityDkimEnabled -&gt; SetIdentityDkimEnabled -&gt; Bool
 $c== :: SetIdentityDkimEnabled -&gt; SetIdentityDkimEnabled -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278843"><span id="local-6989586621679278845"><span id="local-6989586621679278847"><span id="local-6989586621679278849"><span class="annot"><span class="annottext">ReadPrec [SetIdentityDkimEnabled]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279044"><span id="local-6989586621679279046"><span id="local-6989586621679279048"><span id="local-6989586621679279050"><span class="annot"><span class="annottext">ReadPrec [SetIdentityDkimEnabled]
 ReadPrec SetIdentityDkimEnabled
 Int -&gt; ReadS SetIdentityDkimEnabled
 ReadS [SetIdentityDkimEnabled]
@@ -107,7 +107,7 @@ readList :: ReadS [SetIdentityDkimEnabled]
 $creadList :: ReadS [SetIdentityDkimEnabled]
 readsPrec :: Int -&gt; ReadS SetIdentityDkimEnabled
 $creadsPrec :: Int -&gt; ReadS SetIdentityDkimEnabled
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278836"><span id="local-6989586621679278838"><span id="local-6989586621679278840"><span class="annot"><span class="annottext">Int -&gt; SetIdentityDkimEnabled -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279037"><span id="local-6989586621679279039"><span id="local-6989586621679279041"><span class="annot"><span class="annottext">Int -&gt; SetIdentityDkimEnabled -&gt; ShowS
 [SetIdentityDkimEnabled] -&gt; ShowS
 SetIdentityDkimEnabled -&gt; String
 (Int -&gt; SetIdentityDkimEnabled -&gt; ShowS)
@@ -153,17 +153,17 @@ $cfrom :: forall x. SetIdentityDkimEnabled -&gt; Rep SetIdentityDkimEnabled x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span>
 </span><span id="line-99"></span><span id="newSetIdentityDkimEnabled"><span class="annot"><span class="annottext">newSetIdentityDkimEnabled :: Text -&gt; Bool -&gt; SetIdentityDkimEnabled
-</span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#newSetIdentityDkimEnabled"><span class="hs-identifier hs-var hs-var">newSetIdentityDkimEnabled</span></a></span></span><span> </span><span id="local-6989586621679278831"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278831"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span id="local-6989586621679278830"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679278830"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#newSetIdentityDkimEnabled"><span class="hs-identifier hs-var hs-var">newSetIdentityDkimEnabled</span></a></span></span><span> </span><span id="local-6989586621679279032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279032"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span id="local-6989586621679279031"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679279031"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityDkimEnabled' :: Text -&gt; Bool -&gt; SetIdentityDkimEnabled
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identity:SetIdentityDkimEnabled' :: Text
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3Aidentity%3ASetIdentityDkimEnabled%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278831"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679279032"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:dkimEnabled:SetIdentityDkimEnabled' :: Bool
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3AdkimEnabled%3ASetIdentityDkimEnabled%27"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679278830"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span><span>
+</span><a href="#local-6989586621679279031"><span class="hs-identifier hs-var">pDkimEnabled_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The identity for which DKIM signing should be enabled or disabled.</span><span>
@@ -174,16 +174,16 @@ $cfrom :: forall x. SetIdentityDkimEnabled -&gt; Rep SetIdentityDkimEnabled x
 -&gt; (SetIdentityDkimEnabled -&gt; Text -&gt; SetIdentityDkimEnabled)
 -&gt; Lens SetIdentityDkimEnabled SetIdentityDkimEnabled Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278827"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279028"><span class="annot"><span class="annottext">Text
 identity :: Text
 $sel:identity:SetIdentityDkimEnabled' :: SetIdentityDkimEnabled -&gt; Text
-</span><a href="#local-6989586621679278827"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278827"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278826"><span class="annot"><span class="annottext">s :: SetIdentityDkimEnabled
-</span><a href="#local-6989586621679278826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278825"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityDkimEnabled
-</span><a href="#local-6989586621679278826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:SetIdentityDkimEnabled' :: Text
+</span><a href="#local-6989586621679279028"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279028"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279027"><span class="annot"><span class="annottext">s :: SetIdentityDkimEnabled
+</span><a href="#local-6989586621679279027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279026"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityDkimEnabled
+</span><a href="#local-6989586621679279027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:SetIdentityDkimEnabled' :: Text
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3Aidentity%3ASetIdentityDkimEnabled%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- enable DKIM signing for this identity; @false@ to disable it.</span><span>
@@ -194,27 +194,27 @@ $sel:identity:SetIdentityDkimEnabled' :: SetIdentityDkimEnabled -&gt; Text
 -&gt; (SetIdentityDkimEnabled -&gt; Bool -&gt; SetIdentityDkimEnabled)
 -&gt; Lens SetIdentityDkimEnabled SetIdentityDkimEnabled Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278824"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279025"><span class="annot"><span class="annottext">Bool
 dkimEnabled :: Bool
 $sel:dkimEnabled:SetIdentityDkimEnabled' :: SetIdentityDkimEnabled -&gt; Bool
-</span><a href="#local-6989586621679278824"><span class="hs-identifier hs-var hs-var">dkimEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679278824"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278823"><span class="annot"><span class="annottext">s :: SetIdentityDkimEnabled
-</span><a href="#local-6989586621679278823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278822"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679278822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityDkimEnabled
-</span><a href="#local-6989586621679278823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimEnabled:SetIdentityDkimEnabled' :: Bool
+</span><a href="#local-6989586621679279025"><span class="hs-identifier hs-var hs-var">dkimEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679279025"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279024"><span class="annot"><span class="annottext">s :: SetIdentityDkimEnabled
+</span><a href="#local-6989586621679279024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279023"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679279023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityDkimEnabled
+</span><a href="#local-6989586621679279024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dkimEnabled:SetIdentityDkimEnabled' :: Bool
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3AdkimEnabled%3ASetIdentityDkimEnabled%27"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679278822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679278818"><span class="annot"><span class="annottext">request :: SetIdentityDkimEnabled -&gt; Request SetIdentityDkimEnabled
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679279019"><span class="annot"><span class="annottext">request :: SetIdentityDkimEnabled -&gt; Request SetIdentityDkimEnabled
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetIdentityDkimEnabled -&gt; Request SetIdentityDkimEnabled
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679278814"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679279015"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetIdentityDkimEnabled
 -&gt; ClientResponse ClientBody
@@ -245,10 +245,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SetIdentityDkimEnabledResult&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278811"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278811"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278810"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679278810"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278809"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679278809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279012"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279012"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279011"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279011"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279010"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679279010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetIdentityDkimEnabledResponse
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-var">SetIdentityDkimEnabledResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetIdentityDkimEnabledResponse)
@@ -260,15 +260,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278811"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679279012"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278802"><span id="local-6989586621679278804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279003"><span id="local-6989586621679279005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679278795"><span class="annot"><span class="annottext">toHeaders :: SetIdentityDkimEnabled -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679278996"><span class="annot"><span class="annottext">toHeaders :: SetIdentityDkimEnabled -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetIdentityDkimEnabled -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -276,21 +276,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679278790"><span class="annot"><span class="annottext">toPath :: SetIdentityDkimEnabled -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679278991"><span class="annot"><span class="annottext">toPath :: SetIdentityDkimEnabled -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetIdentityDkimEnabled -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled"><span class="hs-identifier hs-type">SetIdentityDkimEnabled</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679278786"><span class="annot"><span class="annottext">toQuery :: SetIdentityDkimEnabled -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278783"><span id="local-6989586621679278784"><span class="annot"><span class="annottext">Bool
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679278987"><span class="annot"><span class="annottext">toQuery :: SetIdentityDkimEnabled -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabled%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabled'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278984"><span id="local-6989586621679278985"><span class="annot"><span class="annottext">Bool
 Text
 dkimEnabled :: Bool
 identity :: Text
 $sel:dkimEnabled:SetIdentityDkimEnabled' :: SetIdentityDkimEnabled -&gt; Bool
 $sel:identity:SetIdentityDkimEnabled' :: SetIdentityDkimEnabled -&gt; Text
-</span><a href="#local-6989586621679278783"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278984"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -310,23 +310,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Identity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278784"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278985"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DkimEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679278783"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span>
+</span><a href="#local-6989586621679278984"><span class="hs-identifier hs-var">dkimEnabled</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- /See:/ 'newSetIdentityDkimEnabledResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679278780"><span id="local-6989586621679278781"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityDkimEnabledResponse"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse"><span class="hs-identifier hs-var">SetIdentityDkimEnabledResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityDkimEnabledResponse%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-var">SetIdentityDkimEnabledResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679278981"><span id="local-6989586621679278982"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityDkimEnabledResponse"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse"><span class="hs-identifier hs-var">SetIdentityDkimEnabledResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityDkimEnabledResponse%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-var">SetIdentityDkimEnabledResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetIdentityDkimEnabledResponse%27"><span class="annot"><span class="annottext">SetIdentityDkimEnabledResponse -&gt; Int
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3AhttpStatus%3ASetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278775"><span id="local-6989586621679278777"><span class="annot"><span class="annottext">SetIdentityDkimEnabledResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278976"><span id="local-6989586621679278978"><span class="annot"><span class="annottext">SetIdentityDkimEnabledResponse
 -&gt; SetIdentityDkimEnabledResponse -&gt; Bool
 (SetIdentityDkimEnabledResponse
  -&gt; SetIdentityDkimEnabledResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: SetIdentityDkimEnabledResponse
 -&gt; SetIdentityDkimEnabledResponse -&gt; Bool
 $c== :: SetIdentityDkimEnabledResponse
 -&gt; SetIdentityDkimEnabledResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278767"><span id="local-6989586621679278769"><span id="local-6989586621679278771"><span id="local-6989586621679278773"><span class="annot"><span class="annottext">ReadPrec [SetIdentityDkimEnabledResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278968"><span id="local-6989586621679278970"><span id="local-6989586621679278972"><span id="local-6989586621679278974"><span class="annot"><span class="annottext">ReadPrec [SetIdentityDkimEnabledResponse]
 ReadPrec SetIdentityDkimEnabledResponse
 Int -&gt; ReadS SetIdentityDkimEnabledResponse
 ReadS [SetIdentityDkimEnabledResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [SetIdentityDkimEnabledResponse]
 $creadList :: ReadS [SetIdentityDkimEnabledResponse]
 readsPrec :: Int -&gt; ReadS SetIdentityDkimEnabledResponse
 $creadsPrec :: Int -&gt; ReadS SetIdentityDkimEnabledResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278761"><span id="local-6989586621679278763"><span id="local-6989586621679278765"><span class="annot"><span class="annottext">Int -&gt; SetIdentityDkimEnabledResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278962"><span id="local-6989586621679278964"><span id="local-6989586621679278966"><span class="annot"><span class="annottext">Int -&gt; SetIdentityDkimEnabledResponse -&gt; ShowS
 [SetIdentityDkimEnabledResponse] -&gt; ShowS
 SetIdentityDkimEnabledResponse -&gt; String
 (Int -&gt; SetIdentityDkimEnabledResponse -&gt; ShowS)
@@ -414,14 +414,14 @@ SetIdentityDkimEnabledResponse
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newSetIdentityDkimEnabledResponse"><span class="annot"><span class="annottext">newSetIdentityDkimEnabledResponse :: Int -&gt; SetIdentityDkimEnabledResponse
-</span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#newSetIdentityDkimEnabledResponse"><span class="hs-identifier hs-var hs-var">newSetIdentityDkimEnabledResponse</span></a></span></span><span> </span><span id="local-6989586621679278758"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#newSetIdentityDkimEnabledResponse"><span class="hs-identifier hs-var hs-var">newSetIdentityDkimEnabledResponse</span></a></span></span><span> </span><span id="local-6989586621679278959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityDkimEnabledResponse' :: Int -&gt; SetIdentityDkimEnabledResponse
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityDkimEnabledResponse' :: Int
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3AhttpStatus%3ASetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679278959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -438,18 +438,18 @@ SetIdentityDkimEnabledResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278757"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278958"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetIdentityDkimEnabledResponse' :: SetIdentityDkimEnabledResponse -&gt; Int
-</span><a href="#local-6989586621679278757"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278757"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278756"><span class="annot"><span class="annottext">s :: SetIdentityDkimEnabledResponse
-</span><a href="#local-6989586621679278756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278755"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityDkimEnabledResponse
-</span><a href="#local-6989586621679278756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityDkimEnabledResponse' :: Int
+</span><a href="#local-6989586621679278958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278957"><span class="annot"><span class="annottext">s :: SetIdentityDkimEnabledResponse
+</span><a href="#local-6989586621679278957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityDkimEnabledResponse
+</span><a href="#local-6989586621679278957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityDkimEnabledResponse' :: Int
 </span><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#%24sel%3AhttpStatus%3ASetIdentityDkimEnabledResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679278753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679278954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.SetIdentityDkimEnabled.html#SetIdentityDkimEnabledResponse"><span class="hs-identifier hs-type">SetIdentityDkimEnabledResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

@@ -43,9 +43,9 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#newListExecutions"><span class="hs-identifier">newListExecutions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_nextToken"><span class="hs-identifier">listExecutions_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_maxResults"><span class="hs-identifier">listExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_statusFilter"><span class="hs-identifier">listExecutions_statusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_statusFilter"><span class="hs-identifier">listExecutions_statusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_nextToken"><span class="hs-identifier">listExecutions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_maxResults"><span class="hs-identifier">listExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_stateMachineArn"><span class="hs-identifier">listExecutions_stateMachineArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -67,33 +67,33 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.html"><span class="hs-identifier">Network.AWS.StepFunctions.Types</span></a></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newListExecutions' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679231499"><span id="local-6989586621679231500"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExecutions"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-var">ListExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExecutions%27"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-var">ListExecutions'</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @nextToken@ is returned, there are more results available. The value</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- of @nextToken@ is a unique pagination token for each page. Make the call</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- again using the returned token to retrieve the next page. Keep all other</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- arguments unchanged. Each pagination token expires after 24 hours. Using</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- an expired pagination token will return an /HTTP 400 InvalidToken/</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- error.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AnextToken%3AListExecutions%27"><span class="annot"><span class="annottext">ListExecutions -&gt; Maybe Text
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AnextToken%3AListExecutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The maximum number of results that are returned per call. You can use</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @nextToken@ to obtain further pages of results. The default is 100 and</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the maximum allowed page size is 1000. A value of 0 uses the default.</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- This is only an upper limit. The actual number of results returned per</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- call might be fewer than the specified maximum.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AmaxResults%3AListExecutions%27"><span class="annot"><span class="annottext">ListExecutions -&gt; Maybe Natural
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AmaxResults%3AListExecutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | If specified, only list the executions whose current execution status</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- matches the given filter.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3AstatusFilter%3AListExecutions%27"><span class="annot"><span class="annottext">ListExecutions -&gt; Maybe ExecutionStatus
+</span><span id="line-70"></span><span id="local-6989586621679231549"><span id="local-6989586621679231550"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExecutions"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-var">ListExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExecutions%27"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-var">ListExecutions'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If specified, only list the executions whose current execution status</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- matches the given filter.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AstatusFilter%3AListExecutions%27"><span class="annot"><span class="annottext">ListExecutions -&gt; Maybe ExecutionStatus
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AstatusFilter%3AListExecutions%27"><span class="hs-identifier hs-var hs-var">statusFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | If @nextToken@ is returned, there are more results available. The value</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- of @nextToken@ is a unique pagination token for each page. Make the call</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- again using the returned token to retrieve the next page. Keep all other</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- arguments unchanged. Each pagination token expires after 24 hours. Using</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- an expired pagination token will return an /HTTP 400 InvalidToken/</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AnextToken%3AListExecutions%27"><span class="annot"><span class="annottext">ListExecutions -&gt; Maybe Text
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AnextToken%3AListExecutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The maximum number of results that are returned per call. You can use</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- @nextToken@ to obtain further pages of results. The default is 100 and</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the maximum allowed page size is 1000. A value of 0 uses the default.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- This is only an upper limit. The actual number of results returned per</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- call might be fewer than the specified maximum.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmaxResults%3AListExecutions%27"><span class="annot"><span class="annottext">ListExecutions -&gt; Maybe Natural
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AmaxResults%3AListExecutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine whose executions is</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- listed.</span><span>
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AstateMachineArn%3AListExecutions%27"><span class="annot"><span class="annottext">ListExecutions -&gt; Text
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AstateMachineArn%3AListExecutions%27"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231490"><span id="local-6989586621679231492"><span class="annot"><span class="annottext">ListExecutions -&gt; ListExecutions -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231540"><span id="local-6989586621679231542"><span class="annot"><span class="annottext">ListExecutions -&gt; ListExecutions -&gt; Bool
 (ListExecutions -&gt; ListExecutions -&gt; Bool)
 -&gt; (ListExecutions -&gt; ListExecutions -&gt; Bool) -&gt; Eq ListExecutions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListExecutions -&gt; ListExecutions -&gt; Bool
 == :: ListExecutions -&gt; ListExecutions -&gt; Bool
 $c== :: ListExecutions -&gt; ListExecutions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231481"><span id="local-6989586621679231483"><span id="local-6989586621679231485"><span id="local-6989586621679231487"><span class="annot"><span class="annottext">ReadPrec [ListExecutions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231531"><span id="local-6989586621679231533"><span id="local-6989586621679231535"><span id="local-6989586621679231537"><span class="annot"><span class="annottext">ReadPrec [ListExecutions]
 ReadPrec ListExecutions
 Int -&gt; ReadS ListExecutions
 ReadS [ListExecutions]
@@ -121,7 +121,7 @@ readList :: ReadS [ListExecutions]
 $creadList :: ReadS [ListExecutions]
 readsPrec :: Int -&gt; ReadS ListExecutions
 $creadsPrec :: Int -&gt; ReadS ListExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231474"><span id="local-6989586621679231476"><span id="local-6989586621679231478"><span class="annot"><span class="annottext">Int -&gt; ListExecutions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231524"><span id="local-6989586621679231526"><span id="local-6989586621679231528"><span class="annot"><span class="annottext">Int -&gt; ListExecutions -&gt; ShowS
 [ListExecutions] -&gt; ShowS
 ListExecutions -&gt; String
 (Int -&gt; ListExecutions -&gt; ShowS)
@@ -155,22 +155,22 @@ $cfrom :: forall x. ListExecutions -&gt; Rep ListExecutions x
 </span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'nextToken', 'listExecutions_nextToken' - If @nextToken@ is returned, there are more results available. The value</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- of @nextToken@ is a unique pagination token for each page. Make the call</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- again using the returned token to retrieve the next page. Keep all other</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- arguments unchanged. Each pagination token expires after 24 hours. Using</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- an expired pagination token will return an /HTTP 400 InvalidToken/</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- error.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'maxResults', 'listExecutions_maxResults' - The maximum number of results that are returned per call. You can use</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- @nextToken@ to obtain further pages of results. The default is 100 and</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- the maximum allowed page size is 1000. A value of 0 uses the default.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- This is only an upper limit. The actual number of results returned per</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- call might be fewer than the specified maximum.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'statusFilter', 'listExecutions_statusFilter' - If specified, only list the executions whose current execution status</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- matches the given filter.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'nextToken', 'listExecutions_nextToken' - If @nextToken@ is returned, there are more results available. The value</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- of @nextToken@ is a unique pagination token for each page. Make the call</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- again using the returned token to retrieve the next page. Keep all other</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- arguments unchanged. Each pagination token expires after 24 hours. Using</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- an expired pagination token will return an /HTTP 400 InvalidToken/</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'maxResults', 'listExecutions_maxResults' - The maximum number of results that are returned per call. You can use</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @nextToken@ to obtain further pages of results. The default is 100 and</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the maximum allowed page size is 1000. A value of 0 uses the default.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 'statusFilter', 'listExecutions_statusFilter' - If specified, only list the executions whose current execution status</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- matches the given filter.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- This is only an upper limit. The actual number of results returned per</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- call might be fewer than the specified maximum.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- 'stateMachineArn', 'listExecutions_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine whose executions is</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- listed.</span><span>
@@ -179,81 +179,32 @@ $cfrom :: forall x. ListExecutions -&gt; Rep ListExecutions x
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span>
 </span><span id="line-125"></span><span id="newListExecutions"><span class="annot"><span class="annottext">newListExecutions :: Text -&gt; ListExecutions
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#newListExecutions"><span class="hs-identifier hs-var hs-var">newListExecutions</span></a></span></span><span> </span><span id="local-6989586621679231469"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231469"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">ListExecutions' :: Maybe Text
--&gt; Maybe Natural -&gt; Maybe ExecutionStatus -&gt; Text -&gt; ListExecutions
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#newListExecutions"><span class="hs-identifier hs-var hs-var">newListExecutions</span></a></span></span><span> </span><span id="local-6989586621679231519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231519"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">ListExecutions' :: Maybe ExecutionStatus
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListExecutions
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListExecutions' :: Maybe Text
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusFilter:ListExecutions' :: Maybe ExecutionStatus
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AstatusFilter%3AListExecutions%27"><span class="hs-identifier hs-var">statusFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListExecutions' :: Maybe Text
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AnextToken%3AListExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListExecutions' :: Maybe Natural
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListExecutions' :: Maybe Natural
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AmaxResults%3AListExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusFilter:ListExecutions' :: Maybe ExecutionStatus
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AstatusFilter%3AListExecutions%27"><span class="hs-identifier hs-var">statusFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateMachineArn:ListExecutions' :: Text
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AstateMachineArn%3AListExecutions%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231469"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span>
+</span><a href="#local-6989586621679231519"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | If @nextToken@ is returned, there are more results available. The value</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- of @nextToken@ is a unique pagination token for each page. Make the call</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- again using the returned token to retrieve the next page. Keep all other</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- arguments unchanged. Each pagination token expires after 24 hours. Using</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- an expired pagination token will return an /HTTP 400 InvalidToken/</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- error.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_nextToken"><span class="hs-identifier hs-type">listExecutions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="listExecutions_nextToken"><span class="annot"><span class="annottext">listExecutions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListExecutions -&gt; f ListExecutions
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_nextToken"><span class="hs-identifier hs-var hs-var">listExecutions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListExecutions -&gt; Maybe Text)
--&gt; (ListExecutions -&gt; Maybe Text -&gt; ListExecutions)
--&gt; Lens ListExecutions ListExecutions (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231467"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListExecutions' :: ListExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621679231467"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231467"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231466"><span class="annot"><span class="annottext">s :: ListExecutions
-</span><a href="#local-6989586621679231466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231465"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
-</span><a href="#local-6989586621679231466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExecutions' :: Maybe Text
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AnextToken%3AListExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The maximum number of results that are returned per call. You can use</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- @nextToken@ to obtain further pages of results. The default is 100 and</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- the maximum allowed page size is 1000. A value of 0 uses the default.</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- This is only an upper limit. The actual number of results returned per</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- call might be fewer than the specified maximum.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_maxResults"><span class="hs-identifier hs-type">listExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="listExecutions_maxResults"><span class="annot"><span class="annottext">listExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListExecutions -&gt; f ListExecutions
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_maxResults"><span class="hs-identifier hs-var hs-var">listExecutions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListExecutions -&gt; Maybe Natural)
--&gt; (ListExecutions -&gt; Maybe Natural -&gt; ListExecutions)
--&gt; Lens
-     ListExecutions ListExecutions (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231464"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:ListExecutions' :: ListExecutions -&gt; Maybe Natural
-</span><a href="#local-6989586621679231464"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679231464"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231463"><span class="annot"><span class="annottext">s :: ListExecutions
-</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231462"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679231462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
-</span><a href="#local-6989586621679231463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListExecutions' :: Maybe Natural
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AmaxResults%3AListExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679231462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | If specified, only list the executions whose current execution status</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- matches the given filter.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_statusFilter"><span class="hs-identifier hs-type">listExecutions_statusFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="listExecutions_statusFilter"><span class="annot"><span class="annottext">listExecutions_statusFilter :: (Maybe ExecutionStatus -&gt; f (Maybe ExecutionStatus))
+</span><span id="line-133"></span><span class="hs-comment">-- | If specified, only list the executions whose current execution status</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- matches the given filter.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_statusFilter"><span class="hs-identifier hs-type">listExecutions_statusFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listExecutions_statusFilter"><span class="annot"><span class="annottext">listExecutions_statusFilter :: (Maybe ExecutionStatus -&gt; f (Maybe ExecutionStatus))
 -&gt; ListExecutions -&gt; f ListExecutions
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_statusFilter"><span class="hs-identifier hs-var hs-var">listExecutions_statusFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListExecutions -&gt; Maybe ExecutionStatus)
 -&gt; (ListExecutions -&gt; Maybe ExecutionStatus -&gt; ListExecutions)
@@ -263,16 +214,65 @@ $sel:maxResults:ListExecutions' :: ListExecutions -&gt; Maybe Natural
      (Maybe ExecutionStatus)
      (Maybe ExecutionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231461"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231517"><span class="annot"><span class="annottext">Maybe ExecutionStatus
 statusFilter :: Maybe ExecutionStatus
 $sel:statusFilter:ListExecutions' :: ListExecutions -&gt; Maybe ExecutionStatus
-</span><a href="#local-6989586621679231461"><span class="hs-identifier hs-var hs-var">statusFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
-</span><a href="#local-6989586621679231461"><span class="hs-identifier hs-var">statusFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231460"><span class="annot"><span class="annottext">s :: ListExecutions
-</span><a href="#local-6989586621679231460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231459"><span class="annot"><span class="annottext">Maybe ExecutionStatus
-</span><a href="#local-6989586621679231459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
-</span><a href="#local-6989586621679231460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusFilter:ListExecutions' :: Maybe ExecutionStatus
+</span><a href="#local-6989586621679231517"><span class="hs-identifier hs-var hs-var">statusFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679231517"><span class="hs-identifier hs-var">statusFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231516"><span class="annot"><span class="annottext">s :: ListExecutions
+</span><a href="#local-6989586621679231516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231515"><span class="annot"><span class="annottext">Maybe ExecutionStatus
+</span><a href="#local-6989586621679231515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
+</span><a href="#local-6989586621679231516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusFilter:ListExecutions' :: Maybe ExecutionStatus
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AstatusFilter%3AListExecutions%27"><span class="hs-identifier hs-var">statusFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
-</span><a href="#local-6989586621679231459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | If @nextToken@ is returned, there are more results available. The value</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- of @nextToken@ is a unique pagination token for each page. Make the call</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- again using the returned token to retrieve the next page. Keep all other</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- arguments unchanged. Each pagination token expires after 24 hours. Using</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- an expired pagination token will return an /HTTP 400 InvalidToken/</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_nextToken"><span class="hs-identifier hs-type">listExecutions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="listExecutions_nextToken"><span class="annot"><span class="annottext">listExecutions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListExecutions -&gt; f ListExecutions
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_nextToken"><span class="hs-identifier hs-var hs-var">listExecutions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListExecutions -&gt; Maybe Text)
+-&gt; (ListExecutions -&gt; Maybe Text -&gt; ListExecutions)
+-&gt; Lens ListExecutions ListExecutions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231514"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListExecutions' :: ListExecutions -&gt; Maybe Text
+</span><a href="#local-6989586621679231514"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231514"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231513"><span class="annot"><span class="annottext">s :: ListExecutions
+</span><a href="#local-6989586621679231513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
+</span><a href="#local-6989586621679231513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExecutions' :: Maybe Text
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AnextToken%3AListExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The maximum number of results that are returned per call. You can use</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- @nextToken@ to obtain further pages of results. The default is 100 and</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- the maximum allowed page size is 1000. A value of 0 uses the default.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- This is only an upper limit. The actual number of results returned per</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- call might be fewer than the specified maximum.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_maxResults"><span class="hs-identifier hs-type">listExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="listExecutions_maxResults"><span class="annot"><span class="annottext">listExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListExecutions -&gt; f ListExecutions
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutions_maxResults"><span class="hs-identifier hs-var hs-var">listExecutions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListExecutions -&gt; Maybe Natural)
+-&gt; (ListExecutions -&gt; Maybe Natural -&gt; ListExecutions)
+-&gt; Lens
+     ListExecutions ListExecutions (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231511"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListExecutions' :: ListExecutions -&gt; Maybe Natural
+</span><a href="#local-6989586621679231511"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679231511"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231510"><span class="annot"><span class="annottext">s :: ListExecutions
+</span><a href="#local-6989586621679231510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231509"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679231509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
+</span><a href="#local-6989586621679231510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListExecutions' :: Maybe Natural
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AmaxResults%3AListExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679231509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine whose executions is</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- listed.</span><span>
@@ -282,29 +282,29 @@ $sel:statusFilter:ListExecutions' :: ListExecutions -&gt; Maybe ExecutionStatus
 -&gt; (ListExecutions -&gt; Text -&gt; ListExecutions)
 -&gt; Lens ListExecutions ListExecutions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231458"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231508"><span class="annot"><span class="annottext">Text
 stateMachineArn :: Text
 $sel:stateMachineArn:ListExecutions' :: ListExecutions -&gt; Text
-</span><a href="#local-6989586621679231458"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231458"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231457"><span class="annot"><span class="annottext">s :: ListExecutions
-</span><a href="#local-6989586621679231457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231456"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
-</span><a href="#local-6989586621679231457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:ListExecutions' :: Text
+</span><a href="#local-6989586621679231508"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231508"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231507"><span class="annot"><span class="annottext">s :: ListExecutions
+</span><a href="#local-6989586621679231507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutions
+</span><a href="#local-6989586621679231507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:ListExecutions' :: Text
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AstateMachineArn%3AListExecutions%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679231452"><span class="annot"><span class="annottext">page :: ListExecutions
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679231502"><span class="annot"><span class="annottext">page :: ListExecutions
 -&gt; AWSResponse ListExecutions -&gt; Maybe ListExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679231450"><span class="annot"><span class="annottext">ListExecutions
-</span><a href="#local-6989586621679231450"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679231449"><span class="annot"><span class="annottext">AWSResponse ListExecutions
-</span><a href="#local-6989586621679231449"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679231500"><span class="annot"><span class="annottext">ListExecutions
+</span><a href="#local-6989586621679231500"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679231499"><span class="annot"><span class="annottext">AWSResponse ListExecutions
+</span><a href="#local-6989586621679231499"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-164"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListExecutions
 ListExecutionsResponse
-</span><a href="#local-6989586621679231449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679231499"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">ListExecutionsResponse
 -&gt; Getting (First Text) ListExecutionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -333,7 +333,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-170"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListExecutions
 ListExecutionsResponse
-</span><a href="#local-6989586621679231449"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
+</span><a href="#local-6989586621679231499"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
 -&gt; Getting
      [ExecutionListItem] ListExecutionsResponse [ExecutionListItem]
 -&gt; [ExecutionListItem]
@@ -354,7 +354,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ListExecutions
-</span><a href="#local-6989586621679231450"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679231500"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">ListExecutions
 -&gt; (ListExecutions -&gt; ListExecutions) -&gt; ListExecutions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -368,7 +368,7 @@ Lens ListExecutions ListExecutions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListExecutions
 ListExecutionsResponse
-</span><a href="#local-6989586621679231449"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679231499"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ListExecutionsResponse
 -&gt; Getting (First Text) ListExecutionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -392,12 +392,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-181"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679231438"><span class="annot"><span class="annottext">request :: ListExecutions -&gt; Request ListExecutions
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679231488"><span class="annot"><span class="annottext">request :: ListExecutions -&gt; Request ListExecutions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListExecutions -&gt; Request ListExecutions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679231434"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679231484"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListExecutions
 -&gt; ClientResponse ClientBody
@@ -421,10 +421,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231431"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231431"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231430"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679231430"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231429"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231481"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231481"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231480"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231480"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231479"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [ExecutionListItem] -&gt; ListExecutionsResponse
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-var">ListExecutionsResponse'</span></a></span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -434,7 +434,7 @@ MonadResource m =&gt;
      String (Int -&gt; [ExecutionListItem] -&gt; ListExecutionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679231479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -448,13 +448,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231431"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231481"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Either String ([ExecutionListItem] -&gt; ListExecutionsResponse)
 -&gt; Either String [ExecutionListItem]
 -&gt; Either String ListExecutionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ExecutionListItem])
+</span><a href="#local-6989586621679231479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ExecutionListItem])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [ExecutionListItem])
@@ -465,12 +465,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231420"><span id="local-6989586621679231422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231470"><span id="local-6989586621679231472"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679231413"><span class="annot"><span class="annottext">toHeaders :: ListExecutions -&gt; ResponseHeaders
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679231463"><span class="annot"><span class="annottext">toHeaders :: ListExecutions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListExecutions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -497,47 +497,47 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231403"><span id="local-6989586621679231405"><span id="local-6989586621679231407"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679231401"><span class="annot"><span class="annottext">toJSON :: ListExecutions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231396"><span id="local-6989586621679231397"><span id="local-6989586621679231398"><span id="local-6989586621679231399"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231453"><span id="local-6989586621679231455"><span id="local-6989586621679231457"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679231451"><span class="annot"><span class="annottext">toJSON :: ListExecutions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions%27"><span class="hs-identifier hs-type">ListExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231446"><span id="local-6989586621679231447"><span id="local-6989586621679231448"><span id="local-6989586621679231449"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ExecutionStatus
 Text
 stateMachineArn :: Text
-statusFilter :: Maybe ExecutionStatus
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
+statusFilter :: Maybe ExecutionStatus
 $sel:stateMachineArn:ListExecutions' :: ListExecutions -&gt; Text
-$sel:statusFilter:ListExecutions' :: ListExecutions -&gt; Maybe ExecutionStatus
 $sel:maxResults:ListExecutions' :: ListExecutions -&gt; Maybe Natural
 $sel:nextToken:ListExecutions' :: ListExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621679231396"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:statusFilter:ListExecutions' :: ListExecutions -&gt; Maybe ExecutionStatus
+</span><a href="#local-6989586621679231446"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231399"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679231398"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ExecutionStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ExecutionStatus -&gt; Pair) -&gt; Maybe ExecutionStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecutionStatus
-</span><a href="#local-6989586621679231397"><span class="hs-identifier hs-var">statusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679231449"><span class="hs-identifier hs-var">statusFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231448"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679231447"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -545,19 +545,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;stateMachineArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231396"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231446"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679231390"><span class="annot"><span class="annottext">toPath :: ListExecutions -&gt; ByteString
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679231440"><span class="annot"><span class="annottext">toPath :: ListExecutions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListExecutions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutions"><span class="hs-identifier hs-type">ListExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679231386"><span class="annot"><span class="annottext">toQuery :: ListExecutions -&gt; QueryString
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679231436"><span class="annot"><span class="annottext">toQuery :: ListExecutions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListExecutions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -565,7 +565,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | /See:/ 'newListExecutionsResponse' smart constructor.</span><span>
-</span><span id="line-231"></span><span id="local-6989586621679231383"><span id="local-6989586621679231384"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExecutionsResponse"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-var">ListExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExecutionsResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-var">ListExecutionsResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span id="local-6989586621679231433"><span id="local-6989586621679231434"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListExecutionsResponse"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-var">ListExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListExecutionsResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-var">ListExecutionsResponse'</span></a></span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @nextToken@ is returned, there are more results available. The value</span><span>
 </span><span id="line-233"></span><span>    </span><span class="hs-comment">-- of @nextToken@ is a unique pagination token for each page. Make the call</span><span>
 </span><span id="line-234"></span><span>    </span><span class="hs-comment">-- again using the returned token to retrieve the next page. Keep all other</span><span>
@@ -581,7 +581,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-242"></span><span>    </span><span id="%24sel%3Aexecutions%3AListExecutionsResponse%27"><span class="annot"><span class="annottext">ListExecutionsResponse -&gt; [ExecutionListItem]
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3Aexecutions%3AListExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">executions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-243"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231376"><span id="local-6989586621679231378"><span class="annot"><span class="annottext">ListExecutionsResponse -&gt; ListExecutionsResponse -&gt; Bool
+</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231426"><span id="local-6989586621679231428"><span class="annot"><span class="annottext">ListExecutionsResponse -&gt; ListExecutionsResponse -&gt; Bool
 (ListExecutionsResponse -&gt; ListExecutionsResponse -&gt; Bool)
 -&gt; (ListExecutionsResponse -&gt; ListExecutionsResponse -&gt; Bool)
 -&gt; Eq ListExecutionsResponse
@@ -590,7 +590,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListExecutionsResponse -&gt; ListExecutionsResponse -&gt; Bool
 == :: ListExecutionsResponse -&gt; ListExecutionsResponse -&gt; Bool
 $c== :: ListExecutionsResponse -&gt; ListExecutionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231368"><span id="local-6989586621679231370"><span id="local-6989586621679231372"><span id="local-6989586621679231374"><span class="annot"><span class="annottext">ReadPrec [ListExecutionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231418"><span id="local-6989586621679231420"><span id="local-6989586621679231422"><span id="local-6989586621679231424"><span class="annot"><span class="annottext">ReadPrec [ListExecutionsResponse]
 ReadPrec ListExecutionsResponse
 Int -&gt; ReadS ListExecutionsResponse
 ReadS [ListExecutionsResponse]
@@ -610,7 +610,7 @@ readList :: ReadS [ListExecutionsResponse]
 $creadList :: ReadS [ListExecutionsResponse]
 readsPrec :: Int -&gt; ReadS ListExecutionsResponse
 $creadsPrec :: Int -&gt; ReadS ListExecutionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231362"><span id="local-6989586621679231364"><span id="local-6989586621679231366"><span class="annot"><span class="annottext">Int -&gt; ListExecutionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231412"><span id="local-6989586621679231414"><span id="local-6989586621679231416"><span class="annot"><span class="annottext">Int -&gt; ListExecutionsResponse -&gt; ShowS
 [ListExecutionsResponse] -&gt; ShowS
 ListExecutionsResponse -&gt; String
 (Int -&gt; ListExecutionsResponse -&gt; ShowS)
@@ -660,8 +660,8 @@ $cfrom :: forall x. ListExecutionsResponse -&gt; Rep ListExecutionsResponse x
 </span><span id="line-266"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span>
 </span><span id="line-268"></span><span id="newListExecutionsResponse"><span class="annot"><span class="annottext">newListExecutionsResponse :: Int -&gt; ListExecutionsResponse
-</span><a href="Network.AWS.StepFunctions.ListExecutions.html#newListExecutionsResponse"><span class="hs-identifier hs-var hs-var">newListExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679231359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.ListExecutions.html#newListExecutionsResponse"><span class="hs-identifier hs-var hs-var">newListExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679231409"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231409"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-269"></span><span>  </span><span class="annot"><span class="annottext">ListExecutionsResponse' :: Maybe Text -&gt; Int -&gt; [ExecutionListItem] -&gt; ListExecutionsResponse
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListExecutionsResponse' :: Maybe Text
@@ -671,7 +671,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListExecutionsResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AhttpStatus%3AListExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679231409"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:executions:ListExecutionsResponse' :: [ExecutionListItem]
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3Aexecutions%3AListExecutionsResponse%27"><span class="hs-identifier hs-var">executions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ExecutionListItem]
 forall a. Monoid a =&gt; a
@@ -691,16 +691,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ListExecutionsResponse -&gt; Maybe Text -&gt; ListExecutionsResponse)
 -&gt; Lens' ListExecutionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231358"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231408"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListExecutionsResponse' :: ListExecutionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679231358"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231358"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231357"><span class="annot"><span class="annottext">s :: ListExecutionsResponse
-</span><a href="#local-6989586621679231357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231356"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
-</span><a href="#local-6989586621679231357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExecutionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679231408"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231408"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231407"><span class="annot"><span class="annottext">s :: ListExecutionsResponse
+</span><a href="#local-6989586621679231407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231406"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
+</span><a href="#local-6989586621679231407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListExecutionsResponse' :: Maybe Text
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AnextToken%3AListExecutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-286"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutionsResponse_httpStatus"><span class="hs-identifier hs-type">listExecutionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -710,16 +710,16 @@ $sel:nextToken:ListExecutionsResponse' :: ListExecutionsResponse -&gt; Maybe Tex
 -&gt; (ListExecutionsResponse -&gt; Int -&gt; ListExecutionsResponse)
 -&gt; Lens ListExecutionsResponse ListExecutionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231355"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231405"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListExecutionsResponse' :: ListExecutionsResponse -&gt; Int
-</span><a href="#local-6989586621679231355"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231355"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231354"><span class="annot"><span class="annottext">s :: ListExecutionsResponse
-</span><a href="#local-6989586621679231354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231353"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
-</span><a href="#local-6989586621679231354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListExecutionsResponse' :: Int
+</span><a href="#local-6989586621679231405"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231405"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231404"><span class="annot"><span class="annottext">s :: ListExecutionsResponse
+</span><a href="#local-6989586621679231404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231403"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
+</span><a href="#local-6989586621679231404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListExecutionsResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3AhttpStatus%3AListExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The list of matching executions.</span><span>
 </span><span id="line-290"></span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#listExecutionsResponse_executions"><span class="hs-identifier hs-type">listExecutionsResponse_executions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">]</span><span>
@@ -730,16 +730,16 @@ $sel:httpStatus:ListExecutionsResponse' :: ListExecutionsResponse -&gt; Int
     -&gt; [ExecutionListItem] -&gt; ListExecutionsResponse)
 -&gt; Lens' ListExecutionsResponse [ExecutionListItem]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231352"><span class="annot"><span class="annottext">[ExecutionListItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231402"><span class="annot"><span class="annottext">[ExecutionListItem]
 executions :: [ExecutionListItem]
 $sel:executions:ListExecutionsResponse' :: ListExecutionsResponse -&gt; [ExecutionListItem]
-</span><a href="#local-6989586621679231352"><span class="hs-identifier hs-var hs-var">executions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ExecutionListItem]
-</span><a href="#local-6989586621679231352"><span class="hs-identifier hs-var">executions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231351"><span class="annot"><span class="annottext">s :: ListExecutionsResponse
-</span><a href="#local-6989586621679231351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231350"><span class="annot"><span class="annottext">[ExecutionListItem]
-</span><a href="#local-6989586621679231350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
-</span><a href="#local-6989586621679231351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executions:ListExecutionsResponse' :: [ExecutionListItem]
+</span><a href="#local-6989586621679231402"><span class="hs-identifier hs-var hs-var">executions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ExecutionListItem]
+</span><a href="#local-6989586621679231402"><span class="hs-identifier hs-var">executions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231401"><span class="annot"><span class="annottext">s :: ListExecutionsResponse
+</span><a href="#local-6989586621679231401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse%27"><span class="hs-identifier hs-type">ListExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231400"><span class="annot"><span class="annottext">[ExecutionListItem]
+</span><a href="#local-6989586621679231400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListExecutionsResponse
+</span><a href="#local-6989586621679231401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executions:ListExecutionsResponse' :: [ExecutionListItem]
 </span><a href="Network.AWS.StepFunctions.ListExecutions.html#%24sel%3Aexecutions%3AListExecutionsResponse%27"><span class="hs-identifier hs-var">executions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ExecutionListItem]
-</span><a href="#local-6989586621679231350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ExecutionListItem] -&gt; f [ExecutionListItem])
+</span><a href="#local-6989586621679231400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ExecutionListItem] -&gt; f [ExecutionListItem])
  -&gt; ListExecutionsResponse -&gt; f ListExecutionsResponse)
 -&gt; (([ExecutionListItem] -&gt; f [ExecutionListItem])
     -&gt; [ExecutionListItem] -&gt; f [ExecutionListItem])
@@ -749,8 +749,8 @@ $sel:executions:ListExecutionsResponse' :: ListExecutionsResponse -&gt; [Executi
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ExecutionListItem] -&gt; f [ExecutionListItem])
 -&gt; [ExecutionListItem] -&gt; f [ExecutionListItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.ListExecutions.html#ListExecutionsResponse"><span class="hs-identifier hs-type">ListExecutionsResponse</span></a></span></span><span>
 </span><span id="line-294"></span></pre></body></html>

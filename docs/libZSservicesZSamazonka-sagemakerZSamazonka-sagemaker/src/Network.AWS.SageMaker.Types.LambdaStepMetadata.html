@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Metadata for a Lambda step.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLambdaStepMetadata' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680325838"><span id="local-6989586621680325839"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-var">LambdaStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-var">LambdaStepMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680327233"><span id="local-6989586621680327234"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-var">LambdaStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-var">LambdaStepMetadata'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lambda function that was run by</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- this step execution.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aarn%3ALambdaStepMetadata%27"><span class="annot"><span class="annottext">LambdaStepMetadata -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AoutputParameters%3ALambdaStepMetadata%27"><span class="annot"><span class="annottext">LambdaStepMetadata -&gt; Maybe [OutputParameter]
 </span><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#%24sel%3AoutputParameters%3ALambdaStepMetadata%27"><span class="hs-identifier hs-var hs-var">outputParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680325831"><span id="local-6989586621680325833"><span class="annot"><span class="annottext">LambdaStepMetadata -&gt; LambdaStepMetadata -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680327226"><span id="local-6989586621680327228"><span class="annot"><span class="annottext">LambdaStepMetadata -&gt; LambdaStepMetadata -&gt; Bool
 (LambdaStepMetadata -&gt; LambdaStepMetadata -&gt; Bool)
 -&gt; (LambdaStepMetadata -&gt; LambdaStepMetadata -&gt; Bool)
 -&gt; Eq LambdaStepMetadata
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaStepMetadata -&gt; LambdaStepMetadata -&gt; Bool
 == :: LambdaStepMetadata -&gt; LambdaStepMetadata -&gt; Bool
 $c== :: LambdaStepMetadata -&gt; LambdaStepMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325822"><span id="local-6989586621680325824"><span id="local-6989586621680325826"><span id="local-6989586621680325828"><span class="annot"><span class="annottext">ReadPrec [LambdaStepMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327217"><span id="local-6989586621680327219"><span id="local-6989586621680327221"><span id="local-6989586621680327223"><span class="annot"><span class="annottext">ReadPrec [LambdaStepMetadata]
 ReadPrec LambdaStepMetadata
 Int -&gt; ReadS LambdaStepMetadata
 ReadS [LambdaStepMetadata]
@@ -65,7 +65,7 @@ readList :: ReadS [LambdaStepMetadata]
 $creadList :: ReadS [LambdaStepMetadata]
 readsPrec :: Int -&gt; ReadS LambdaStepMetadata
 $creadsPrec :: Int -&gt; ReadS LambdaStepMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325815"><span id="local-6989586621680325817"><span id="local-6989586621680325819"><span class="annot"><span class="annottext">Int -&gt; LambdaStepMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327210"><span id="local-6989586621680327212"><span id="local-6989586621680327214"><span class="annot"><span class="annottext">Int -&gt; LambdaStepMetadata -&gt; ShowS
 [LambdaStepMetadata] -&gt; ShowS
 LambdaStepMetadata -&gt; String
 (Int -&gt; LambdaStepMetadata -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Maybe a
 -&gt; Lens
      LambdaStepMetadata LambdaStepMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325806"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327201"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:LambdaStepMetadata' :: LambdaStepMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621680325806"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680325806"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325805"><span class="annot"><span class="annottext">s :: LambdaStepMetadata
-</span><a href="#local-6989586621680325805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325804"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680325804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaStepMetadata
-</span><a href="#local-6989586621680325805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:LambdaStepMetadata' :: Maybe Text
+</span><a href="#local-6989586621680327201"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680327201"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327200"><span class="annot"><span class="annottext">s :: LambdaStepMetadata
+</span><a href="#local-6989586621680327200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680327199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaStepMetadata
+</span><a href="#local-6989586621680327200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:LambdaStepMetadata' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#%24sel%3Aarn%3ALambdaStepMetadata%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680325804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680327199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | A list of the output parameters of the Lambda step.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#lambdaStepMetadata_outputParameters"><span class="hs-identifier hs-type">lambdaStepMetadata_outputParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -153,16 +153,16 @@ $sel:arn:LambdaStepMetadata' :: LambdaStepMetadata -&gt; Maybe Text
      (Maybe [OutputParameter])
      (Maybe [OutputParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325802"><span class="annot"><span class="annottext">Maybe [OutputParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327197"><span class="annot"><span class="annottext">Maybe [OutputParameter]
 outputParameters :: Maybe [OutputParameter]
 $sel:outputParameters:LambdaStepMetadata' :: LambdaStepMetadata -&gt; Maybe [OutputParameter]
-</span><a href="#local-6989586621680325802"><span class="hs-identifier hs-var hs-var">outputParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputParameter]
-</span><a href="#local-6989586621680325802"><span class="hs-identifier hs-var">outputParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325801"><span class="annot"><span class="annottext">s :: LambdaStepMetadata
-</span><a href="#local-6989586621680325801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325800"><span class="annot"><span class="annottext">Maybe [OutputParameter]
-</span><a href="#local-6989586621680325800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaStepMetadata
-</span><a href="#local-6989586621680325801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputParameters:LambdaStepMetadata' :: Maybe [OutputParameter]
+</span><a href="#local-6989586621680327197"><span class="hs-identifier hs-var hs-var">outputParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputParameter]
+</span><a href="#local-6989586621680327197"><span class="hs-identifier hs-var">outputParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327196"><span class="annot"><span class="annottext">s :: LambdaStepMetadata
+</span><a href="#local-6989586621680327196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-type">LambdaStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327195"><span class="annot"><span class="annottext">Maybe [OutputParameter]
+</span><a href="#local-6989586621680327195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaStepMetadata
+</span><a href="#local-6989586621680327196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputParameters:LambdaStepMetadata' :: Maybe [OutputParameter]
 </span><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#%24sel%3AoutputParameters%3ALambdaStepMetadata%27"><span class="hs-identifier hs-var">outputParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputParameter]
-</span><a href="#local-6989586621680325800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputParameter] -&gt; f (Maybe [OutputParameter]))
+</span><a href="#local-6989586621680327195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputParameter] -&gt; f (Maybe [OutputParameter]))
  -&gt; LambdaStepMetadata -&gt; f LambdaStepMetadata)
 -&gt; ((Maybe [OutputParameter] -&gt; f (Maybe [OutputParameter]))
     -&gt; Maybe [OutputParameter] -&gt; f (Maybe [OutputParameter]))
@@ -188,11 +188,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [OutputParameter]
   [OutputParameter]
   [OutputParameter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325794"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621680325792"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaStepMetadata
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621680327187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaStepMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LambdaStepMetadata)
@@ -202,8 +202,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LambdaStepMetadata&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680325789"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680325789"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680327184"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680327184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [OutputParameter] -&gt; LambdaStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata%27"><span class="hs-identifier hs-var">LambdaStepMetadata'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [OutputParameter] -&gt; LambdaStepMetadata)
@@ -211,7 +211,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [OutputParameter] -&gt; LambdaStepMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680325789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680327184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,7 +219,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [OutputParameter]) -&gt; Parser LambdaStepMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680325789"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputParameter]))
+</span><a href="#local-6989586621680327184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputParameter]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputParameters&quot;</span></span><span>
@@ -232,7 +232,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-77"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325782"><span id="local-6989586621680325784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327177"><span id="local-6989586621680327179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LambdaStepMetadata.html#LambdaStepMetadata"><span class="hs-identifier hs-type">LambdaStepMetadata</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

@@ -35,9 +35,9 @@
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_nextToken"><span class="hs-identifier">getMLTaskRuns_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_maxResults"><span class="hs-identifier">getMLTaskRuns_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_sort"><span class="hs-identifier">getMLTaskRuns_sort</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_filter"><span class="hs-identifier">getMLTaskRuns_filter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_sort"><span class="hs-identifier">getMLTaskRuns_sort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_maxResults"><span class="hs-identifier">getMLTaskRuns_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_transformId"><span class="hs-identifier">getMLTaskRuns_transformId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -59,26 +59,26 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newGetMLTaskRuns' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679724855"><span id="local-6989586621679724856"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMLTaskRuns"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-var">GetMLTaskRuns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMLTaskRuns%27"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-var">GetMLTaskRuns'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679726628"><span id="local-6989586621679726629"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMLTaskRuns"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-var">GetMLTaskRuns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMLTaskRuns%27"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-var">GetMLTaskRuns'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token for pagination of the results. The default is empty.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AnextToken%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Maybe Natural
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- task run.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3Afilter%27%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Afilter%27%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunFilterCriteria.html#TaskRunFilterCriteria"><span class="hs-identifier hs-type">TaskRunFilterCriteria</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- task run.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Asort%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- task run.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Asort%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Asort%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var hs-var">sort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- task run.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Afilter%27%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Afilter%27%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunFilterCriteria.html#TaskRunFilterCriteria"><span class="hs-identifier hs-type">TaskRunFilterCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Maybe Natural
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AtransformId%3AGetMLTaskRuns%27"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; Text
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AtransformId%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679724845"><span id="local-6989586621679724847"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; GetMLTaskRuns -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679726618"><span id="local-6989586621679726620"><span class="annot"><span class="annottext">GetMLTaskRuns -&gt; GetMLTaskRuns -&gt; Bool
 (GetMLTaskRuns -&gt; GetMLTaskRuns -&gt; Bool)
 -&gt; (GetMLTaskRuns -&gt; GetMLTaskRuns -&gt; Bool) -&gt; Eq GetMLTaskRuns
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMLTaskRuns -&gt; GetMLTaskRuns -&gt; Bool
 == :: GetMLTaskRuns -&gt; GetMLTaskRuns -&gt; Bool
 $c== :: GetMLTaskRuns -&gt; GetMLTaskRuns -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724836"><span id="local-6989586621679724838"><span id="local-6989586621679724840"><span id="local-6989586621679724842"><span class="annot"><span class="annottext">ReadPrec [GetMLTaskRuns]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679726609"><span id="local-6989586621679726611"><span id="local-6989586621679726613"><span id="local-6989586621679726615"><span class="annot"><span class="annottext">ReadPrec [GetMLTaskRuns]
 ReadPrec GetMLTaskRuns
 Int -&gt; ReadS GetMLTaskRuns
 ReadS [GetMLTaskRuns]
@@ -106,7 +106,7 @@ readList :: ReadS [GetMLTaskRuns]
 $creadList :: ReadS [GetMLTaskRuns]
 readsPrec :: Int -&gt; ReadS GetMLTaskRuns
 $creadsPrec :: Int -&gt; ReadS GetMLTaskRuns
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724829"><span id="local-6989586621679724831"><span id="local-6989586621679724833"><span class="annot"><span class="annottext">Int -&gt; GetMLTaskRuns -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679726602"><span id="local-6989586621679726604"><span id="local-6989586621679726606"><span class="annot"><span class="annottext">Int -&gt; GetMLTaskRuns -&gt; ShowS
 [GetMLTaskRuns] -&gt; ShowS
 GetMLTaskRuns -&gt; String
 (Int -&gt; GetMLTaskRuns -&gt; ShowS)
@@ -142,13 +142,13 @@ $cfrom :: forall x. GetMLTaskRuns -&gt; Rep GetMLTaskRuns x
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- 'nextToken', 'getMLTaskRuns_nextToken' - A token for pagination of the results. The default is empty.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'maxResults', 'getMLTaskRuns_maxResults' - The maximum number of results to return.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'filter'', 'getMLTaskRuns_filter' - The filter criteria, in the @TaskRunFilterCriteria@ structure, for the</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- task run.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'sort', 'getMLTaskRuns_sort' - The sorting criteria, in the @TaskRunSortCriteria@ structure, for the</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- task run.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'sort', 'getMLTaskRuns_sort' - The sorting criteria, in the @TaskRunSortCriteria@ structure, for the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- task run.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'filter'', 'getMLTaskRuns_filter' - The filter criteria, in the @TaskRunFilterCriteria@ structure, for the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- task run.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'getMLTaskRuns_maxResults' - The maximum number of results to return.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- 'transformId', 'getMLTaskRuns_transformId' - The unique identifier of the machine learning transform.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#newGetMLTaskRuns"><span class="hs-identifier hs-type">newGetMLTaskRuns</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -156,12 +156,12 @@ $cfrom :: forall x. GetMLTaskRuns -&gt; Rep GetMLTaskRuns x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span>
 </span><span id="line-101"></span><span id="newGetMLTaskRuns"><span class="annot"><span class="annottext">newGetMLTaskRuns :: Text -&gt; GetMLTaskRuns
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#newGetMLTaskRuns"><span class="hs-identifier hs-var hs-var">newGetMLTaskRuns</span></a></span></span><span> </span><span id="local-6989586621679724824"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724824"><span class="hs-identifier hs-var">pTransformId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#newGetMLTaskRuns"><span class="hs-identifier hs-var hs-var">newGetMLTaskRuns</span></a></span></span><span> </span><span id="local-6989586621679726597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679726597"><span class="hs-identifier hs-var">pTransformId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">GetMLTaskRuns' :: Maybe Text
--&gt; Maybe Natural
--&gt; Maybe TaskRunFilterCriteria
 -&gt; Maybe TaskRunSortCriteria
+-&gt; Maybe TaskRunFilterCriteria
+-&gt; Maybe Natural
 -&gt; Text
 -&gt; GetMLTaskRuns
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span>
@@ -169,21 +169,21 @@ $cfrom :: forall x. GetMLTaskRuns -&gt; Rep GetMLTaskRuns x
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AnextToken%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetMLTaskRuns' :: Maybe Natural
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:sort:GetMLTaskRuns' :: Maybe TaskRunSortCriteria
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Asort%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">sort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:filter':GetMLTaskRuns' :: Maybe TaskRunFilterCriteria
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Afilter%27%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:sort:GetMLTaskRuns' :: Maybe TaskRunSortCriteria
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Asort%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">sort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetMLTaskRuns' :: Maybe Natural
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformId:GetMLTaskRuns' :: Text
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AtransformId%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724824"><span class="hs-identifier hs-var">pTransformId_</span></a></span><span>
+</span><a href="#local-6989586621679726597"><span class="hs-identifier hs-var">pTransformId_</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | A token for pagination of the results. The default is empty.</span><span>
@@ -193,64 +193,21 @@ forall a. Maybe a
 -&gt; (GetMLTaskRuns -&gt; Maybe Text -&gt; GetMLTaskRuns)
 -&gt; Lens GetMLTaskRuns GetMLTaskRuns (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724821"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726594"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe Text
-</span><a href="#local-6989586621679724821"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724821"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724820"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
-</span><a href="#local-6989586621679724820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724819"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
-</span><a href="#local-6989586621679724820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMLTaskRuns' :: Maybe Text
+</span><a href="#local-6989586621679726594"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679726594"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726593"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
+</span><a href="#local-6989586621679726593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679726592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
+</span><a href="#local-6989586621679726593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMLTaskRuns' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AnextToken%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679726592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_maxResults"><span class="hs-identifier hs-type">getMLTaskRuns_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="getMLTaskRuns_maxResults"><span class="annot"><span class="annottext">getMLTaskRuns_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; GetMLTaskRuns -&gt; f GetMLTaskRuns
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_maxResults"><span class="hs-identifier hs-var hs-var">getMLTaskRuns_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMLTaskRuns -&gt; Maybe Natural)
--&gt; (GetMLTaskRuns -&gt; Maybe Natural -&gt; GetMLTaskRuns)
--&gt; Lens GetMLTaskRuns GetMLTaskRuns (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724818"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe Natural
-</span><a href="#local-6989586621679724818"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724818"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724817"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
-</span><a href="#local-6989586621679724817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724816"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
-</span><a href="#local-6989586621679724817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetMLTaskRuns' :: Maybe Natural
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- task run.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_filter"><span class="hs-identifier hs-type">getMLTaskRuns_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunFilterCriteria.html#TaskRunFilterCriteria"><span class="hs-identifier hs-type">TaskRunFilterCriteria</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="getMLTaskRuns_filter"><span class="annot"><span class="annottext">getMLTaskRuns_filter :: (Maybe TaskRunFilterCriteria -&gt; f (Maybe TaskRunFilterCriteria))
--&gt; GetMLTaskRuns -&gt; f GetMLTaskRuns
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_filter"><span class="hs-identifier hs-var hs-var">getMLTaskRuns_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria)
--&gt; (GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria -&gt; GetMLTaskRuns)
--&gt; Lens
-     GetMLTaskRuns
-     GetMLTaskRuns
-     (Maybe TaskRunFilterCriteria)
-     (Maybe TaskRunFilterCriteria)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724815"><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
-filter' :: Maybe TaskRunFilterCriteria
-$sel:filter':GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria
-</span><a href="#local-6989586621679724815"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
-</span><a href="#local-6989586621679724815"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724814"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
-</span><a href="#local-6989586621679724814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724813"><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
-</span><a href="#local-6989586621679724813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
-</span><a href="#local-6989586621679724814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':GetMLTaskRuns' :: Maybe TaskRunFilterCriteria
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Afilter%27%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
-</span><a href="#local-6989586621679724813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- task run.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_sort"><span class="hs-identifier hs-type">getMLTaskRuns_sort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="getMLTaskRuns_sort"><span class="annot"><span class="annottext">getMLTaskRuns_sort :: (Maybe TaskRunSortCriteria -&gt; f (Maybe TaskRunSortCriteria))
+</span><span id="line-114"></span><span class="hs-comment">-- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- task run.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_sort"><span class="hs-identifier hs-type">getMLTaskRuns_sort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunSortCriteria.html#TaskRunSortCriteria"><span class="hs-identifier hs-type">TaskRunSortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="getMLTaskRuns_sort"><span class="annot"><span class="annottext">getMLTaskRuns_sort :: (Maybe TaskRunSortCriteria -&gt; f (Maybe TaskRunSortCriteria))
 -&gt; GetMLTaskRuns -&gt; f GetMLTaskRuns
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_sort"><span class="hs-identifier hs-var hs-var">getMLTaskRuns_sort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria)
 -&gt; (GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria -&gt; GetMLTaskRuns)
@@ -260,16 +217,59 @@ $sel:filter':GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria
      (Maybe TaskRunSortCriteria)
      (Maybe TaskRunSortCriteria)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724812"><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726591"><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
 sort :: Maybe TaskRunSortCriteria
 $sel:sort:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria
-</span><a href="#local-6989586621679724812"><span class="hs-identifier hs-var hs-var">sort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
-</span><a href="#local-6989586621679724812"><span class="hs-identifier hs-var">sort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724811"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
-</span><a href="#local-6989586621679724811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724810"><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
-</span><a href="#local-6989586621679724810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
-</span><a href="#local-6989586621679724811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sort:GetMLTaskRuns' :: Maybe TaskRunSortCriteria
+</span><a href="#local-6989586621679726591"><span class="hs-identifier hs-var hs-var">sort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
+</span><a href="#local-6989586621679726591"><span class="hs-identifier hs-var">sort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726590"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
+</span><a href="#local-6989586621679726590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726589"><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
+</span><a href="#local-6989586621679726589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
+</span><a href="#local-6989586621679726590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sort:GetMLTaskRuns' :: Maybe TaskRunSortCriteria
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Asort%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">sort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
-</span><a href="#local-6989586621679724810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679726589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- task run.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_filter"><span class="hs-identifier hs-type">getMLTaskRuns_filter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRunFilterCriteria.html#TaskRunFilterCriteria"><span class="hs-identifier hs-type">TaskRunFilterCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="getMLTaskRuns_filter"><span class="annot"><span class="annottext">getMLTaskRuns_filter :: (Maybe TaskRunFilterCriteria -&gt; f (Maybe TaskRunFilterCriteria))
+-&gt; GetMLTaskRuns -&gt; f GetMLTaskRuns
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_filter"><span class="hs-identifier hs-var hs-var">getMLTaskRuns_filter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria)
+-&gt; (GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria -&gt; GetMLTaskRuns)
+-&gt; Lens
+     GetMLTaskRuns
+     GetMLTaskRuns
+     (Maybe TaskRunFilterCriteria)
+     (Maybe TaskRunFilterCriteria)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726588"><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
+filter' :: Maybe TaskRunFilterCriteria
+$sel:filter':GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria
+</span><a href="#local-6989586621679726588"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
+</span><a href="#local-6989586621679726588"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726587"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
+</span><a href="#local-6989586621679726587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726586"><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
+</span><a href="#local-6989586621679726586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
+</span><a href="#local-6989586621679726587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':GetMLTaskRuns' :: Maybe TaskRunFilterCriteria
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3Afilter%27%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
+</span><a href="#local-6989586621679726586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_maxResults"><span class="hs-identifier hs-type">getMLTaskRuns_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="getMLTaskRuns_maxResults"><span class="annot"><span class="annottext">getMLTaskRuns_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetMLTaskRuns -&gt; f GetMLTaskRuns
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_maxResults"><span class="hs-identifier hs-var hs-var">getMLTaskRuns_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMLTaskRuns -&gt; Maybe Natural)
+-&gt; (GetMLTaskRuns -&gt; Maybe Natural -&gt; GetMLTaskRuns)
+-&gt; Lens GetMLTaskRuns GetMLTaskRuns (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726585"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe Natural
+</span><a href="#local-6989586621679726585"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679726585"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726584"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
+</span><a href="#local-6989586621679726584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726583"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679726583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
+</span><a href="#local-6989586621679726584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetMLTaskRuns' :: Maybe Natural
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AmaxResults%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679726583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRuns_transformId"><span class="hs-identifier hs-type">getMLTaskRuns_transformId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -278,27 +278,27 @@ $sel:sort:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria
 -&gt; (GetMLTaskRuns -&gt; Text -&gt; GetMLTaskRuns)
 -&gt; Lens GetMLTaskRuns GetMLTaskRuns Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724809"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726582"><span class="annot"><span class="annottext">Text
 transformId :: Text
 $sel:transformId:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Text
-</span><a href="#local-6989586621679724809"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724809"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724808"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
-</span><a href="#local-6989586621679724808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724807"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
-</span><a href="#local-6989586621679724808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:GetMLTaskRuns' :: Text
+</span><a href="#local-6989586621679726582"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679726582"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726581"><span class="annot"><span class="annottext">s :: GetMLTaskRuns
+</span><a href="#local-6989586621679726581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726580"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679726580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRuns
+</span><a href="#local-6989586621679726581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:GetMLTaskRuns' :: Text
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AtransformId%3AGetMLTaskRuns%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679726580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679724803"><span class="annot"><span class="annottext">request :: GetMLTaskRuns -&gt; Request GetMLTaskRuns
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679726576"><span class="annot"><span class="annottext">request :: GetMLTaskRuns -&gt; Request GetMLTaskRuns
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMLTaskRuns -&gt; Request GetMLTaskRuns
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679724799"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679726572"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMLTaskRuns
 -&gt; ClientResponse ClientBody
@@ -322,10 +322,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679724796"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724796"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679724795"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679724795"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679724794"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679724794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679726569"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679726569"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679726568"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679726568"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679726567"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679726567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [TaskRun] -&gt; Int -&gt; GetMLTaskRunsResponse
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-var">GetMLTaskRunsResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [TaskRun] -&gt; Int -&gt; GetMLTaskRunsResponse)
@@ -333,7 +333,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [TaskRun] -&gt; Int -&gt; GetMLTaskRunsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679724794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679726567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -342,7 +342,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetMLTaskRunsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679724794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TaskRun]))
+</span><a href="#local-6989586621679726567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [TaskRun]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskRuns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [TaskRun]))
@@ -359,15 +359,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724796"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679726569"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724785"><span id="local-6989586621679724787"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679726558"><span id="local-6989586621679726560"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679726555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679724778"><span class="annot"><span class="annottext">toHeaders :: GetMLTaskRuns -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679726551"><span class="annot"><span class="annottext">toHeaders :: GetMLTaskRuns -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMLTaskRuns -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -392,24 +392,24 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724768"><span id="local-6989586621679724770"><span id="local-6989586621679724772"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679724766"><span class="annot"><span class="annottext">toJSON :: GetMLTaskRuns -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724760"><span id="local-6989586621679724761"><span id="local-6989586621679724762"><span id="local-6989586621679724763"><span id="local-6989586621679724764"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679726541"><span id="local-6989586621679726543"><span id="local-6989586621679726545"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679726539"><span class="annot"><span class="annottext">toJSON :: GetMLTaskRuns -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns%27"><span class="hs-identifier hs-type">GetMLTaskRuns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726533"><span id="local-6989586621679726534"><span id="local-6989586621679726535"><span id="local-6989586621679726536"><span id="local-6989586621679726537"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe TaskRunSortCriteria
 Maybe TaskRunFilterCriteria
 Text
 transformId :: Text
-sort :: Maybe TaskRunSortCriteria
-filter' :: Maybe TaskRunFilterCriteria
 maxResults :: Maybe Natural
+filter' :: Maybe TaskRunFilterCriteria
+sort :: Maybe TaskRunSortCriteria
 nextToken :: Maybe Text
 $sel:transformId:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Text
-$sel:sort:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria
-$sel:filter':GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria
 $sel:maxResults:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe Natural
+$sel:filter':GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunFilterCriteria
+$sel:sort:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe TaskRunSortCriteria
 $sel:nextToken:GetMLTaskRuns' :: GetMLTaskRuns -&gt; Maybe Text
-</span><a href="#local-6989586621679724760"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679726533"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -421,14 +421,15 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724764"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679726537"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;Sort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskRunSortCriteria -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaskRunSortCriteria -&gt; Pair)
+-&gt; Maybe TaskRunSortCriteria -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679724763"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
+</span><a href="#local-6989586621679726536"><span class="hs-identifier hs-var">sort</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskRunFilterCriteria -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -436,34 +437,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TaskRunFilterCriteria -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunFilterCriteria
-</span><a href="#local-6989586621679724762"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679726535"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Sort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskRunSortCriteria -&gt; Pair
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaskRunSortCriteria -&gt; Pair)
--&gt; Maybe TaskRunSortCriteria -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskRunSortCriteria
-</span><a href="#local-6989586621679724761"><span class="hs-identifier hs-var">sort</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679726534"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransformId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679724760"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679726533"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679724754"><span class="annot"><span class="annottext">toPath :: GetMLTaskRuns -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679726527"><span class="annot"><span class="annottext">toPath :: GetMLTaskRuns -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMLTaskRuns -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRuns"><span class="hs-identifier hs-type">GetMLTaskRuns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679724750"><span class="annot"><span class="annottext">toQuery :: GetMLTaskRuns -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679726523"><span class="annot"><span class="annottext">toQuery :: GetMLTaskRuns -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMLTaskRuns -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -471,7 +471,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newGetMLTaskRunsResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679724747"><span id="local-6989586621679724748"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMLTaskRunsResponse"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-var">GetMLTaskRunsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMLTaskRunsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-var">GetMLTaskRunsResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679726520"><span id="local-6989586621679726521"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMLTaskRunsResponse"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-var">GetMLTaskRunsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMLTaskRunsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-var">GetMLTaskRunsResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token, if more results are available.</span><span>
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AnextToken%3AGetMLTaskRunsResponse%27"><span class="annot"><span class="annottext">GetMLTaskRunsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AnextToken%3AGetMLTaskRunsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -482,7 +482,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMLTaskRunsResponse%27"><span class="annot"><span class="annottext">GetMLTaskRunsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AhttpStatus%3AGetMLTaskRunsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679724740"><span id="local-6989586621679724742"><span class="annot"><span class="annottext">GetMLTaskRunsResponse -&gt; GetMLTaskRunsResponse -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679726513"><span id="local-6989586621679726515"><span class="annot"><span class="annottext">GetMLTaskRunsResponse -&gt; GetMLTaskRunsResponse -&gt; Bool
 (GetMLTaskRunsResponse -&gt; GetMLTaskRunsResponse -&gt; Bool)
 -&gt; (GetMLTaskRunsResponse -&gt; GetMLTaskRunsResponse -&gt; Bool)
 -&gt; Eq GetMLTaskRunsResponse
@@ -491,7 +491,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMLTaskRunsResponse -&gt; GetMLTaskRunsResponse -&gt; Bool
 == :: GetMLTaskRunsResponse -&gt; GetMLTaskRunsResponse -&gt; Bool
 $c== :: GetMLTaskRunsResponse -&gt; GetMLTaskRunsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724732"><span id="local-6989586621679724734"><span id="local-6989586621679724736"><span id="local-6989586621679724738"><span class="annot"><span class="annottext">ReadPrec [GetMLTaskRunsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679726505"><span id="local-6989586621679726507"><span id="local-6989586621679726509"><span id="local-6989586621679726511"><span class="annot"><span class="annottext">ReadPrec [GetMLTaskRunsResponse]
 ReadPrec GetMLTaskRunsResponse
 Int -&gt; ReadS GetMLTaskRunsResponse
 ReadS [GetMLTaskRunsResponse]
@@ -511,7 +511,7 @@ readList :: ReadS [GetMLTaskRunsResponse]
 $creadList :: ReadS [GetMLTaskRunsResponse]
 readsPrec :: Int -&gt; ReadS GetMLTaskRunsResponse
 $creadsPrec :: Int -&gt; ReadS GetMLTaskRunsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679724726"><span id="local-6989586621679724728"><span id="local-6989586621679724730"><span class="annot"><span class="annottext">Int -&gt; GetMLTaskRunsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679726499"><span id="local-6989586621679726501"><span id="local-6989586621679726503"><span class="annot"><span class="annottext">Int -&gt; GetMLTaskRunsResponse -&gt; ShowS
 [GetMLTaskRunsResponse] -&gt; ShowS
 GetMLTaskRunsResponse -&gt; String
 (Int -&gt; GetMLTaskRunsResponse -&gt; ShowS)
@@ -555,8 +555,8 @@ $cfrom :: forall x. GetMLTaskRunsResponse -&gt; Rep GetMLTaskRunsResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newGetMLTaskRunsResponse"><span class="annot"><span class="annottext">newGetMLTaskRunsResponse :: Int -&gt; GetMLTaskRunsResponse
-</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#newGetMLTaskRunsResponse"><span class="hs-identifier hs-var hs-var">newGetMLTaskRunsResponse</span></a></span></span><span> </span><span id="local-6989586621679724723"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724723"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetMLTaskRuns.html#newGetMLTaskRunsResponse"><span class="hs-identifier hs-var hs-var">newGetMLTaskRunsResponse</span></a></span></span><span> </span><span id="local-6989586621679726496"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679726496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">GetMLTaskRunsResponse' :: Maybe Text -&gt; Maybe [TaskRun] -&gt; Int -&gt; GetMLTaskRunsResponse
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetMLTaskRunsResponse' :: Maybe Text
@@ -569,7 +569,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMLTaskRunsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AhttpStatus%3AGetMLTaskRunsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724723"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679726496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | A pagination token, if more results are available.</span><span>
@@ -584,16 +584,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724722"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726495"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetMLTaskRunsResponse' :: GetMLTaskRunsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679724722"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724722"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724721"><span class="annot"><span class="annottext">s :: GetMLTaskRunsResponse
-</span><a href="#local-6989586621679724721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724720"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRunsResponse
-</span><a href="#local-6989586621679724721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMLTaskRunsResponse' :: Maybe Text
+</span><a href="#local-6989586621679726495"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679726495"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726494"><span class="annot"><span class="annottext">s :: GetMLTaskRunsResponse
+</span><a href="#local-6989586621679726494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726493"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679726493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRunsResponse
+</span><a href="#local-6989586621679726494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetMLTaskRunsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AnextToken%3AGetMLTaskRunsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679724720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679726493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | A list of task runs that are associated with the transform.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRunsResponse_taskRuns"><span class="hs-identifier hs-type">getMLTaskRunsResponse_taskRuns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.TaskRun.html#TaskRun"><span class="hs-identifier hs-type">TaskRun</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -608,16 +608,16 @@ $sel:nextToken:GetMLTaskRunsResponse' :: GetMLTaskRunsResponse -&gt; Maybe Text
      (Maybe [TaskRun])
      (Maybe [TaskRun])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724719"><span class="annot"><span class="annottext">Maybe [TaskRun]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726492"><span class="annot"><span class="annottext">Maybe [TaskRun]
 taskRuns :: Maybe [TaskRun]
 $sel:taskRuns:GetMLTaskRunsResponse' :: GetMLTaskRunsResponse -&gt; Maybe [TaskRun]
-</span><a href="#local-6989586621679724719"><span class="hs-identifier hs-var hs-var">taskRuns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TaskRun]
-</span><a href="#local-6989586621679724719"><span class="hs-identifier hs-var">taskRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724718"><span class="annot"><span class="annottext">s :: GetMLTaskRunsResponse
-</span><a href="#local-6989586621679724718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724717"><span class="annot"><span class="annottext">Maybe [TaskRun]
-</span><a href="#local-6989586621679724717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRunsResponse
-</span><a href="#local-6989586621679724718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRuns:GetMLTaskRunsResponse' :: Maybe [TaskRun]
+</span><a href="#local-6989586621679726492"><span class="hs-identifier hs-var hs-var">taskRuns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TaskRun]
+</span><a href="#local-6989586621679726492"><span class="hs-identifier hs-var">taskRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726491"><span class="annot"><span class="annottext">s :: GetMLTaskRunsResponse
+</span><a href="#local-6989586621679726491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726490"><span class="annot"><span class="annottext">Maybe [TaskRun]
+</span><a href="#local-6989586621679726490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRunsResponse
+</span><a href="#local-6989586621679726491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRuns:GetMLTaskRunsResponse' :: Maybe [TaskRun]
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AtaskRuns%3AGetMLTaskRunsResponse%27"><span class="hs-identifier hs-var">taskRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TaskRun]
-</span><a href="#local-6989586621679724717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TaskRun] -&gt; f (Maybe [TaskRun]))
+</span><a href="#local-6989586621679726490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TaskRun] -&gt; f (Maybe [TaskRun]))
  -&gt; GetMLTaskRunsResponse -&gt; f GetMLTaskRunsResponse)
 -&gt; ((Maybe [TaskRun] -&gt; f (Maybe [TaskRun]))
     -&gt; Maybe [TaskRun] -&gt; f (Maybe [TaskRun]))
@@ -635,8 +635,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TaskRun] [TaskRun] [TaskRun] [TaskRun]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#getMLTaskRunsResponse_httpStatus"><span class="hs-identifier hs-type">getMLTaskRunsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -645,16 +645,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetMLTaskRunsResponse -&gt; Int -&gt; GetMLTaskRunsResponse)
 -&gt; Lens GetMLTaskRunsResponse GetMLTaskRunsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679724713"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679726486"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMLTaskRunsResponse' :: GetMLTaskRunsResponse -&gt; Int
-</span><a href="#local-6989586621679724713"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724713"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679724712"><span class="annot"><span class="annottext">s :: GetMLTaskRunsResponse
-</span><a href="#local-6989586621679724712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679724711"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRunsResponse
-</span><a href="#local-6989586621679724712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMLTaskRunsResponse' :: Int
+</span><a href="#local-6989586621679726486"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679726486"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679726485"><span class="annot"><span class="annottext">s :: GetMLTaskRunsResponse
+</span><a href="#local-6989586621679726485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse%27"><span class="hs-identifier hs-type">GetMLTaskRunsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679726484"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679726484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMLTaskRunsResponse
+</span><a href="#local-6989586621679726485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMLTaskRunsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetMLTaskRuns.html#%24sel%3AhttpStatus%3AGetMLTaskRunsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679724711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679726484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679724709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679726482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetMLTaskRuns.html#GetMLTaskRunsResponse"><span class="hs-identifier hs-type">GetMLTaskRunsResponse</span></a></span></span><span>
 </span><span id="line-229"></span></pre></body></html>

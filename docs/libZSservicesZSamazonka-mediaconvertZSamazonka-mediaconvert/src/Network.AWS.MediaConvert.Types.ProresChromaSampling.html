@@ -44,13 +44,13 @@
 </span><span id="line-44"></span><span class="hs-comment">-- When you set Chroma sampling to Preserve 4:4:4 sampling and use</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- framerate conversion, you must set Frame rate conversion algorithm</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- (FramerateConversionAlgorithm) to Drop duplicate (DUPLICATE_DROP).</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679994418"><span id="local-6989586621679994419"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresChromaSampling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling"><span class="hs-identifier hs-var">ProresChromaSampling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresChromaSampling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling%27"><span class="hs-identifier hs-var">ProresChromaSampling'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679999340"><span id="local-6989586621679999341"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProresChromaSampling"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling"><span class="hs-identifier hs-var">ProresChromaSampling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProresChromaSampling%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ProresChromaSampling.html#ProresChromaSampling%27"><span class="hs-identifier hs-var">ProresChromaSampling'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProresChromaSampling"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ProresChromaSampling.html#fromProresChromaSampling"><span class="hs-identifier hs-var hs-var">fromProresChromaSampling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994410"><span id="local-6989586621679994412"><span id="local-6989586621679994414"><span class="annot"><span class="annottext">Int -&gt; ProresChromaSampling -&gt; ShowS
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999332"><span id="local-6989586621679999334"><span id="local-6989586621679999336"><span class="annot"><span class="annottext">Int -&gt; ProresChromaSampling -&gt; ShowS
 [ProresChromaSampling] -&gt; ShowS
 ProresChromaSampling -&gt; String
 (Int -&gt; ProresChromaSampling -&gt; ShowS)
@@ -66,7 +66,7 @@ $cshow :: ProresChromaSampling -&gt; String
 showsPrec :: Int -&gt; ProresChromaSampling -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProresChromaSampling -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679994401"><span id="local-6989586621679994403"><span id="local-6989586621679994405"><span id="local-6989586621679994407"><span class="annot"><span class="annottext">ReadPrec [ProresChromaSampling]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679999323"><span id="local-6989586621679999325"><span id="local-6989586621679999327"><span id="local-6989586621679999329"><span class="annot"><span class="annottext">ReadPrec [ProresChromaSampling]
 ReadPrec ProresChromaSampling
 Int -&gt; ReadS ProresChromaSampling
 ReadS [ProresChromaSampling]
@@ -87,7 +87,7 @@ $creadList :: ReadS [ProresChromaSampling]
 readsPrec :: Int -&gt; ReadS ProresChromaSampling
 $creadsPrec :: Int -&gt; ReadS ProresChromaSampling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679994396"><span id="local-6989586621679994398"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679999318"><span id="local-6989586621679999320"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
 (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
 -&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
 -&gt; Eq ProresChromaSampling
@@ -97,7 +97,7 @@ $c/= :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
 == :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
 $c== :: ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679994380"><span id="local-6989586621679994382"><span id="local-6989586621679994384"><span id="local-6989586621679994386"><span id="local-6989586621679994388"><span id="local-6989586621679994390"><span id="local-6989586621679994392"><span class="annot"><span class="annottext">Eq ProresChromaSampling
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679999302"><span id="local-6989586621679999304"><span id="local-6989586621679999306"><span id="local-6989586621679999308"><span id="local-6989586621679999310"><span id="local-6989586621679999312"><span id="local-6989586621679999314"><span class="annot"><span class="annottext">Eq ProresChromaSampling
 Eq ProresChromaSampling
 -&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Ordering)
 -&gt; (ProresChromaSampling -&gt; ProresChromaSampling -&gt; Bool)
@@ -155,7 +155,7 @@ $cfrom :: forall x. ProresChromaSampling -&gt; Rep ProresChromaSampling x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994372"><span id="local-6989586621679994374"><span class="annot"><span class="annottext">Int -&gt; ProresChromaSampling -&gt; Int
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999294"><span id="local-6989586621679999296"><span class="annot"><span class="annottext">Int -&gt; ProresChromaSampling -&gt; Int
 ProresChromaSampling -&gt; Int
 (Int -&gt; ProresChromaSampling -&gt; Int)
 -&gt; (ProresChromaSampling -&gt; Int) -&gt; Hashable ProresChromaSampling
@@ -165,54 +165,54 @@ $chash :: ProresChromaSampling -&gt; Int
 hashWithSalt :: Int -&gt; ProresChromaSampling -&gt; Int
 $chashWithSalt :: Int -&gt; ProresChromaSampling -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679994369"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ()
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679999291"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ()
 (ProresChromaSampling -&gt; ()) -&gt; NFData ProresChromaSampling
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProresChromaSampling -&gt; ()
 $crnf :: ProresChromaSampling -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679994366"><span class="annot"><span class="annottext">Text -&gt; Either String ProresChromaSampling
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679999288"><span class="annot"><span class="annottext">Text -&gt; Either String ProresChromaSampling
 (Text -&gt; Either String ProresChromaSampling)
 -&gt; FromText ProresChromaSampling
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProresChromaSampling
 $cfromText :: Text -&gt; Either String ProresChromaSampling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679994363"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; Text
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679999285"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; Text
 (ProresChromaSampling -&gt; Text) -&gt; ToText ProresChromaSampling
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProresChromaSampling -&gt; Text
 $ctoText :: ProresChromaSampling -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679994360"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ByteString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679999282"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ByteString
 (ProresChromaSampling -&gt; ByteString)
 -&gt; ToByteString ProresChromaSampling
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProresChromaSampling -&gt; ByteString
 $ctoBS :: ProresChromaSampling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679994357"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679999279"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; ByteStringBuilder
 (ProresChromaSampling -&gt; ByteStringBuilder)
 -&gt; ToLog ProresChromaSampling
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProresChromaSampling -&gt; ByteStringBuilder
 $cbuild :: ProresChromaSampling -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679994354"><span class="annot"><span class="annottext">HeaderName -&gt; ProresChromaSampling -&gt; [Header]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679999276"><span class="annot"><span class="annottext">HeaderName -&gt; ProresChromaSampling -&gt; [Header]
 (HeaderName -&gt; ProresChromaSampling -&gt; [Header])
 -&gt; ToHeader ProresChromaSampling
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProresChromaSampling -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProresChromaSampling -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679994351"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; QueryString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679999273"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; QueryString
 (ProresChromaSampling -&gt; QueryString)
 -&gt; ToQuery ProresChromaSampling
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProresChromaSampling -&gt; QueryString
 $ctoQuery :: ProresChromaSampling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679994346"><span id="local-6989586621679994348"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresChromaSampling]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679999268"><span id="local-6989586621679999270"><span class="annot"><span class="annottext">Value -&gt; Parser [ProresChromaSampling]
 Value -&gt; Parser ProresChromaSampling
 (Value -&gt; Parser ProresChromaSampling)
 -&gt; (Value -&gt; Parser [ProresChromaSampling])
@@ -224,7 +224,7 @@ $cparseJSONList :: Value -&gt; Parser [ProresChromaSampling]
 parseJSON :: Value -&gt; Parser ProresChromaSampling
 $cparseJSON :: Value -&gt; Parser ProresChromaSampling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679994341"><span id="local-6989586621679994343"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresChromaSampling]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679999263"><span id="local-6989586621679999265"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProresChromaSampling]
 FromJSONKeyFunction ProresChromaSampling
 FromJSONKeyFunction ProresChromaSampling
 -&gt; FromJSONKeyFunction [ProresChromaSampling]
@@ -236,7 +236,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProresChromaSampling]
 fromJSONKey :: FromJSONKeyFunction ProresChromaSampling
 $cfromJSONKey :: FromJSONKeyFunction ProresChromaSampling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679994332"><span id="local-6989586621679994334"><span id="local-6989586621679994336"><span id="local-6989586621679994338"><span class="annot"><span class="annottext">[ProresChromaSampling] -&gt; Encoding
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679999254"><span id="local-6989586621679999256"><span id="local-6989586621679999258"><span id="local-6989586621679999260"><span class="annot"><span class="annottext">[ProresChromaSampling] -&gt; Encoding
 [ProresChromaSampling] -&gt; Value
 ProresChromaSampling -&gt; Encoding
 ProresChromaSampling -&gt; Value
@@ -260,7 +260,7 @@ $ctoEncoding :: ProresChromaSampling -&gt; Encoding
 toJSON :: ProresChromaSampling -&gt; Value
 $ctoJSON :: ProresChromaSampling -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679994327"><span id="local-6989586621679994329"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresChromaSampling]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679999249"><span id="local-6989586621679999251"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProresChromaSampling]
 ToJSONKeyFunction ProresChromaSampling
 ToJSONKeyFunction ProresChromaSampling
 -&gt; ToJSONKeyFunction [ProresChromaSampling]
@@ -272,14 +272,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProresChromaSampling]
 toJSONKey :: ToJSONKeyFunction ProresChromaSampling
 $ctoJSONKey :: ToJSONKeyFunction ProresChromaSampling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679994324"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresChromaSampling
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679999246"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProresChromaSampling
 ([Node] -&gt; Either String ProresChromaSampling)
 -&gt; FromXML ProresChromaSampling
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProresChromaSampling
 $cparseXML :: [Node] -&gt; Either String ProresChromaSampling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679994321"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; XML
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679999243"><span class="annot"><span class="annottext">ProresChromaSampling -&gt; XML
 (ProresChromaSampling -&gt; XML) -&gt; ToXML ProresChromaSampling
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProresChromaSampling -&gt; XML

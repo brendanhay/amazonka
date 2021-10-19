@@ -26,53 +26,53 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the maintenance window.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMaintenanceWindowIdentity' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679797655"><span id="local-6989586621679797656"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowIdentity"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-var">MaintenanceWindowIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowIdentity%27"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">MaintenanceWindowIdentity'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- window is scheduled to become active.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The duration of the maintenance window in hours.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The number of days to wait to run a maintenance window after the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- scheduled cron expression date and time.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">scheduleOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Indicates whether the maintenance window is enabled.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aenabled%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Bool
+</span><span id="line-29"></span><span id="local-6989586621679799304"><span id="local-6989586621679799305"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowIdentity"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-var">MaintenanceWindowIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowIdentity%27"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">MaintenanceWindowIdentity'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether the maintenance window is enabled.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aenabled%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Bool
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aenabled%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of hours before the end of the maintenance window that Amazon</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Web Services Systems Manager stops scheduling new tasks for execution.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">cutoff</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the maintenance window.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the maintenance window.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The time zone that the scheduled maintenance window executions are based</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- on, in Internet Assigned Numbers Authority (IANA) format.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AscheduleTimezone%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleTimezone%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">scheduleTimezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A description of the maintenance window.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Adescription%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Adescription%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- window is scheduled to become inactive.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The next time the maintenance window will actually run, taking into</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- account any specified times for the maintenance window to become active</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- or inactive.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextExecutionTime%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The schedule of the maintenance window in the form of a cron or rate</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- expression.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The next time the maintenance window will actually run, taking into</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- account any specified times for the maintenance window to become active</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- or inactive.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnextExecutionTime%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AnextExecutionTime%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">nextExecutionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The schedule of the maintenance window in the form of a cron or rate</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- expression.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The number of days to wait to run a maintenance window after the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- scheduled cron expression date and time.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">scheduleOffset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- window is scheduled to become inactive.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The time zone that the scheduled maintenance window executions are based</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- on, in Internet Assigned Numbers Authority (IANA) format.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AscheduleTimezone%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleTimezone%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">scheduleTimezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- window is scheduled to become active.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The name of the maintenance window.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The number of hours before the end of the maintenance window that Amazon</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Web Services Systems Manager stops scheduling new tasks for execution.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">cutoff</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A description of the maintenance window.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Adescription%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Adescription%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The duration of the maintenance window in hours.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ID of the maintenance window.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797638"><span id="local-6989586621679797640"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; MaintenanceWindowIdentity -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799287"><span id="local-6989586621679799289"><span class="annot"><span class="annottext">MaintenanceWindowIdentity -&gt; MaintenanceWindowIdentity -&gt; Bool
 (MaintenanceWindowIdentity -&gt; MaintenanceWindowIdentity -&gt; Bool)
 -&gt; (MaintenanceWindowIdentity -&gt; MaintenanceWindowIdentity -&gt; Bool)
 -&gt; Eq MaintenanceWindowIdentity
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MaintenanceWindowIdentity -&gt; MaintenanceWindowIdentity -&gt; Bool
 == :: MaintenanceWindowIdentity -&gt; MaintenanceWindowIdentity -&gt; Bool
 $c== :: MaintenanceWindowIdentity -&gt; MaintenanceWindowIdentity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797631"><span id="local-6989586621679797633"><span id="local-6989586621679797635"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowIdentity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799280"><span id="local-6989586621679799282"><span id="local-6989586621679799284"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowIdentity -&gt; ShowS
 [MaintenanceWindowIdentity] -&gt; ShowS
 MaintenanceWindowIdentity -&gt; String
 (Int -&gt; MaintenanceWindowIdentity -&gt; ShowS)
@@ -121,183 +121,109 @@ MaintenanceWindowIdentity -&gt; Rep MaintenanceWindowIdentity x
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'startDate', 'maintenanceWindowIdentity_startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- window is scheduled to become active.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'duration', 'maintenanceWindowIdentity_duration' - The duration of the maintenance window in hours.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'enabled', 'maintenanceWindowIdentity_enabled' - Indicates whether the maintenance window is enabled.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'schedule', 'maintenanceWindowIdentity_schedule' - The schedule of the maintenance window in the form of a cron or rate</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- expression.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'scheduleOffset', 'maintenanceWindowIdentity_scheduleOffset' - The number of days to wait to run a maintenance window after the</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- scheduled cron expression date and time.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'enabled', 'maintenanceWindowIdentity_enabled' - Indicates whether the maintenance window is enabled.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'cutoff', 'maintenanceWindowIdentity_cutoff' - The number of hours before the end of the maintenance window that Amazon</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- Web Services Systems Manager stops scheduling new tasks for execution.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'name', 'maintenanceWindowIdentity_name' - The name of the maintenance window.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextExecutionTime', 'maintenanceWindowIdentity_nextExecutionTime' - The next time the maintenance window will actually run, taking into</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- account any specified times for the maintenance window to become active</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- or inactive.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'scheduleOffset', 'maintenanceWindowIdentity_scheduleOffset' - The number of days to wait to run a maintenance window after the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- scheduled cron expression date and time.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'endDate', 'maintenanceWindowIdentity_endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- window is scheduled to become inactive.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'windowId', 'maintenanceWindowIdentity_windowId' - The ID of the maintenance window.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'scheduleTimezone', 'maintenanceWindowIdentity_scheduleTimezone' - The time zone that the scheduled maintenance window executions are based</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- on, in Internet Assigned Numbers Authority (IANA) format.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'description', 'maintenanceWindowIdentity_description' - A description of the maintenance window.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'endDate', 'maintenanceWindowIdentity_endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- window is scheduled to become inactive.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'nextExecutionTime', 'maintenanceWindowIdentity_nextExecutionTime' - The next time the maintenance window will actually run, taking into</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- account any specified times for the maintenance window to become active</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- or inactive.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'schedule', 'maintenanceWindowIdentity_schedule' - The schedule of the maintenance window in the form of a cron or rate</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- expression.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'scheduleTimezone', 'maintenanceWindowIdentity_scheduleTimezone' - The time zone that the scheduled maintenance window executions are based</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- on, in Internet Assigned Numbers Authority (IANA) format.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'startDate', 'maintenanceWindowIdentity_startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- window is scheduled to become active.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'name', 'maintenanceWindowIdentity_name' - The name of the maintenance window.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'cutoff', 'maintenanceWindowIdentity_cutoff' - The number of hours before the end of the maintenance window that Amazon</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Web Services Systems Manager stops scheduling new tasks for execution.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'description', 'maintenanceWindowIdentity_description' - A description of the maintenance window.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'duration', 'maintenanceWindowIdentity_duration' - The duration of the maintenance window in hours.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'windowId', 'maintenanceWindowIdentity_windowId' - The ID of the maintenance window.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#newMaintenanceWindowIdentity"><span class="hs-identifier hs-type">newMaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span>
 </span><span id="line-106"></span><span id="newMaintenanceWindowIdentity"><span class="annot"><span class="annottext">newMaintenanceWindowIdentity :: MaintenanceWindowIdentity
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#newMaintenanceWindowIdentity"><span class="hs-identifier hs-var hs-var">newMaintenanceWindowIdentity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity' :: Maybe Text
--&gt; Maybe Natural
--&gt; Maybe Natural
--&gt; Maybe Bool
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity' :: Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe (Sensitive Text)
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; MaintenanceWindowIdentity
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startDate:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enabled:MaintenanceWindowIdentity' :: Maybe Bool
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aenabled%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:MaintenanceWindowIdentity' :: Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleOffset:MaintenanceWindowIdentity' :: Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">scheduleOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:MaintenanceWindowIdentity' :: Maybe Bool
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aenabled%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:cutoff:MaintenanceWindowIdentity' :: Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">cutoff</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleTimezone:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleTimezone%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">scheduleTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowIdentity' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Adescription%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextExecutionTime:MaintenanceWindowIdentity' :: Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextExecutionTime:MaintenanceWindowIdentity' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AnextExecutionTime%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">nextExecutionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleOffset:MaintenanceWindowIdentity' :: Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">scheduleOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleTimezone:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleTimezone%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">scheduleTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:cutoff:MaintenanceWindowIdentity' :: Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">cutoff</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowIdentity' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Adescription%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:MaintenanceWindowIdentity' :: Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- window is scheduled to become active.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_startDate"><span class="hs-identifier hs-type">maintenanceWindowIdentity_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="maintenanceWindowIdentity_startDate"><span class="annot"><span class="annottext">maintenanceWindowIdentity_startDate :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_startDate"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
--&gt; (MaintenanceWindowIdentity
-    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
--&gt; Lens
-     MaintenanceWindowIdentity
-     MaintenanceWindowIdentity
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797622"><span class="annot"><span class="annottext">Maybe Text
-startDate :: Maybe Text
-$sel:startDate:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679797622"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797622"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797621"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797620"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The duration of the maintenance window in hours.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_duration"><span class="hs-identifier hs-type">maintenanceWindowIdentity_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="maintenanceWindowIdentity_duration"><span class="annot"><span class="annottext">maintenanceWindowIdentity_duration :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_duration"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Natural)
--&gt; (MaintenanceWindowIdentity
-    -&gt; Maybe Natural -&gt; MaintenanceWindowIdentity)
--&gt; Lens
-     MaintenanceWindowIdentity
-     MaintenanceWindowIdentity
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797618"><span class="annot"><span class="annottext">Maybe Natural
-duration :: Maybe Natural
-$sel:duration:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Natural
-</span><a href="#local-6989586621679797618"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797618"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797617"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797616"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:MaintenanceWindowIdentity' :: Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | The number of days to wait to run a maintenance window after the</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- scheduled cron expression date and time.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_scheduleOffset"><span class="hs-identifier hs-type">maintenanceWindowIdentity_scheduleOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="maintenanceWindowIdentity_scheduleOffset"><span class="annot"><span class="annottext">maintenanceWindowIdentity_scheduleOffset :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_scheduleOffset"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_scheduleOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Natural)
--&gt; (MaintenanceWindowIdentity
-    -&gt; Maybe Natural -&gt; MaintenanceWindowIdentity)
--&gt; Lens
-     MaintenanceWindowIdentity
-     MaintenanceWindowIdentity
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797614"><span class="annot"><span class="annottext">Maybe Natural
-scheduleOffset :: Maybe Natural
-$sel:scheduleOffset:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Natural
-</span><a href="#local-6989586621679797614"><span class="hs-identifier hs-var hs-var">scheduleOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797614"><span class="hs-identifier hs-var">scheduleOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797613"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797612"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleOffset:MaintenanceWindowIdentity' :: Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">scheduleOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Indicates whether the maintenance window is enabled.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_enabled"><span class="hs-identifier hs-type">maintenanceWindowIdentity_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="maintenanceWindowIdentity_enabled"><span class="annot"><span class="annottext">maintenanceWindowIdentity_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-123"></span><span class="hs-comment">-- | Indicates whether the maintenance window is enabled.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_enabled"><span class="hs-identifier hs-type">maintenanceWindowIdentity_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="maintenanceWindowIdentity_enabled"><span class="annot"><span class="annottext">maintenanceWindowIdentity_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_enabled"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Bool)
 -&gt; (MaintenanceWindowIdentity
@@ -308,23 +234,74 @@ $sel:scheduleOffset:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797610"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799271"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Bool
-</span><a href="#local-6989586621679797610"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679797610"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797609"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797608"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679797608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:MaintenanceWindowIdentity' :: Maybe Bool
+</span><a href="#local-6989586621679799271"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799271"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799270"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799269"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:MaintenanceWindowIdentity' :: Maybe Bool
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aenabled%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679797608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The number of hours before the end of the maintenance window that Amazon</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- Web Services Systems Manager stops scheduling new tasks for execution.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_cutoff"><span class="hs-identifier hs-type">maintenanceWindowIdentity_cutoff</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="maintenanceWindowIdentity_cutoff"><span class="annot"><span class="annottext">maintenanceWindowIdentity_cutoff :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679799269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The schedule of the maintenance window in the form of a cron or rate</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- expression.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_schedule"><span class="hs-identifier hs-type">maintenanceWindowIdentity_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="maintenanceWindowIdentity_schedule"><span class="annot"><span class="annottext">maintenanceWindowIdentity_schedule :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_cutoff"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_cutoff</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Natural)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_schedule"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
+-&gt; (MaintenanceWindowIdentity
+    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+-&gt; Lens
+     MaintenanceWindowIdentity
+     MaintenanceWindowIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799267"><span class="annot"><span class="annottext">Maybe Text
+schedule :: Maybe Text
+$sel:schedule:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679799267"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799267"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799266"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799265"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The next time the maintenance window will actually run, taking into</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- account any specified times for the maintenance window to become active</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- or inactive.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_nextExecutionTime"><span class="hs-identifier hs-type">maintenanceWindowIdentity_nextExecutionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="maintenanceWindowIdentity_nextExecutionTime"><span class="annot"><span class="annottext">maintenanceWindowIdentity_nextExecutionTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_nextExecutionTime"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_nextExecutionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
+-&gt; (MaintenanceWindowIdentity
+    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+-&gt; Lens
+     MaintenanceWindowIdentity
+     MaintenanceWindowIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799263"><span class="annot"><span class="annottext">Maybe Text
+nextExecutionTime :: Maybe Text
+$sel:nextExecutionTime:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679799263"><span class="hs-identifier hs-var hs-var">nextExecutionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799263"><span class="hs-identifier hs-var">nextExecutionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799262"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799261"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextExecutionTime:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AnextExecutionTime%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">nextExecutionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The number of days to wait to run a maintenance window after the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- scheduled cron expression date and time.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_scheduleOffset"><span class="hs-identifier hs-type">maintenanceWindowIdentity_scheduleOffset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="maintenanceWindowIdentity_scheduleOffset"><span class="annot"><span class="annottext">maintenanceWindowIdentity_scheduleOffset :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_scheduleOffset"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_scheduleOffset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Natural)
 -&gt; (MaintenanceWindowIdentity
     -&gt; Maybe Natural -&gt; MaintenanceWindowIdentity)
 -&gt; Lens
@@ -333,22 +310,23 @@ $sel:enabled:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797606"><span class="annot"><span class="annottext">Maybe Natural
-cutoff :: Maybe Natural
-$sel:cutoff:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Natural
-</span><a href="#local-6989586621679797606"><span class="hs-identifier hs-var hs-var">cutoff</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797606"><span class="hs-identifier hs-var">cutoff</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797605"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797604"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cutoff:MaintenanceWindowIdentity' :: Maybe Natural
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">cutoff</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679797604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The name of the maintenance window.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_name"><span class="hs-identifier hs-type">maintenanceWindowIdentity_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="maintenanceWindowIdentity_name"><span class="annot"><span class="annottext">maintenanceWindowIdentity_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799259"><span class="annot"><span class="annottext">Maybe Natural
+scheduleOffset :: Maybe Natural
+$sel:scheduleOffset:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Natural
+</span><a href="#local-6989586621679799259"><span class="hs-identifier hs-var hs-var">scheduleOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799259"><span class="hs-identifier hs-var">scheduleOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799258"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799257"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleOffset:MaintenanceWindowIdentity' :: Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleOffset%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">scheduleOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- window is scheduled to become inactive.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_endDate"><span class="hs-identifier hs-type">maintenanceWindowIdentity_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="maintenanceWindowIdentity_endDate"><span class="annot"><span class="annottext">maintenanceWindowIdentity_endDate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_name"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_endDate"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
 -&gt; (MaintenanceWindowIdentity
     -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
 -&gt; Lens
@@ -357,45 +335,21 @@ $sel:cutoff:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797602"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679797602"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797602"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797601"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797600"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The ID of the maintenance window.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_windowId"><span class="hs-identifier hs-type">maintenanceWindowIdentity_windowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="maintenanceWindowIdentity_windowId"><span class="annot"><span class="annottext">maintenanceWindowIdentity_windowId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_windowId"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_windowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
--&gt; (MaintenanceWindowIdentity
-    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
--&gt; Lens
-     MaintenanceWindowIdentity
-     MaintenanceWindowIdentity
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797598"><span class="annot"><span class="annottext">Maybe Text
-windowId :: Maybe Text
-$sel:windowId:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679797598"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797598"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797597"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797596"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The time zone that the scheduled maintenance window executions are based</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- on, in Internet Assigned Numbers Authority (IANA) format.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_scheduleTimezone"><span class="hs-identifier hs-type">maintenanceWindowIdentity_scheduleTimezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="maintenanceWindowIdentity_scheduleTimezone"><span class="annot"><span class="annottext">maintenanceWindowIdentity_scheduleTimezone :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799255"><span class="annot"><span class="annottext">Maybe Text
+endDate :: Maybe Text
+$sel:endDate:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679799255"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799255"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799254"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799253"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The time zone that the scheduled maintenance window executions are based</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- on, in Internet Assigned Numbers Authority (IANA) format.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_scheduleTimezone"><span class="hs-identifier hs-type">maintenanceWindowIdentity_scheduleTimezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="maintenanceWindowIdentity_scheduleTimezone"><span class="annot"><span class="annottext">maintenanceWindowIdentity_scheduleTimezone :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_scheduleTimezone"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_scheduleTimezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
 -&gt; (MaintenanceWindowIdentity
@@ -406,20 +360,94 @@ $sel:windowId:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797594"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799251"><span class="annot"><span class="annottext">Maybe Text
 scheduleTimezone :: Maybe Text
 $sel:scheduleTimezone:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679797594"><span class="hs-identifier hs-var hs-var">scheduleTimezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797594"><span class="hs-identifier hs-var">scheduleTimezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797593"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797592"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleTimezone:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="#local-6989586621679799251"><span class="hs-identifier hs-var hs-var">scheduleTimezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799251"><span class="hs-identifier hs-var">scheduleTimezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799250"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleTimezone:MaintenanceWindowIdentity' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AscheduleTimezone%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">scheduleTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | A description of the maintenance window.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_description"><span class="hs-identifier hs-type">maintenanceWindowIdentity_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="maintenanceWindowIdentity_description"><span class="annot"><span class="annottext">maintenanceWindowIdentity_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679799249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- window is scheduled to become active.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_startDate"><span class="hs-identifier hs-type">maintenanceWindowIdentity_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="maintenanceWindowIdentity_startDate"><span class="annot"><span class="annottext">maintenanceWindowIdentity_startDate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_startDate"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
+-&gt; (MaintenanceWindowIdentity
+    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+-&gt; Lens
+     MaintenanceWindowIdentity
+     MaintenanceWindowIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799247"><span class="annot"><span class="annottext">Maybe Text
+startDate :: Maybe Text
+$sel:startDate:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679799247"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799247"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799246"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AstartDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The name of the maintenance window.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_name"><span class="hs-identifier hs-type">maintenanceWindowIdentity_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="maintenanceWindowIdentity_name"><span class="annot"><span class="annottext">maintenanceWindowIdentity_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_name"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
+-&gt; (MaintenanceWindowIdentity
+    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+-&gt; Lens
+     MaintenanceWindowIdentity
+     MaintenanceWindowIdentity
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799243"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679799243"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799243"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799242"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799241"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aname%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The number of hours before the end of the maintenance window that Amazon</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Web Services Systems Manager stops scheduling new tasks for execution.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_cutoff"><span class="hs-identifier hs-type">maintenanceWindowIdentity_cutoff</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="maintenanceWindowIdentity_cutoff"><span class="annot"><span class="annottext">maintenanceWindowIdentity_cutoff :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_cutoff"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_cutoff</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Natural)
+-&gt; (MaintenanceWindowIdentity
+    -&gt; Maybe Natural -&gt; MaintenanceWindowIdentity)
+-&gt; Lens
+     MaintenanceWindowIdentity
+     MaintenanceWindowIdentity
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799239"><span class="annot"><span class="annottext">Maybe Natural
+cutoff :: Maybe Natural
+$sel:cutoff:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Natural
+</span><a href="#local-6989586621679799239"><span class="hs-identifier hs-var hs-var">cutoff</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799239"><span class="hs-identifier hs-var">cutoff</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799238"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799237"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cutoff:MaintenanceWindowIdentity' :: Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Acutoff%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">cutoff</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | A description of the maintenance window.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_description"><span class="hs-identifier hs-type">maintenanceWindowIdentity_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="maintenanceWindowIdentity_description"><span class="annot"><span class="annottext">maintenanceWindowIdentity_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_description"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe (Sensitive Text))
 -&gt; (MaintenanceWindowIdentity
@@ -430,16 +458,16 @@ $sel:scheduleTimezone:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797590"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799235"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 description :: Maybe (Sensitive Text)
 $sel:description:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679797590"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679797590"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797589"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797588"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679797588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowIdentity' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679799235"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679799235"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799234"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799233"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679799233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowIdentity' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Adescription%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679797588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679799233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -459,13 +487,36 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, for when the maintenance</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- window is scheduled to become inactive.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_endDate"><span class="hs-identifier hs-type">maintenanceWindowIdentity_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="maintenanceWindowIdentity_endDate"><span class="annot"><span class="annottext">maintenanceWindowIdentity_endDate :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The duration of the maintenance window in hours.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_duration"><span class="hs-identifier hs-type">maintenanceWindowIdentity_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="maintenanceWindowIdentity_duration"><span class="annot"><span class="annottext">maintenanceWindowIdentity_duration :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_endDate"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_duration"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Natural)
+-&gt; (MaintenanceWindowIdentity
+    -&gt; Maybe Natural -&gt; MaintenanceWindowIdentity)
+-&gt; Lens
+     MaintenanceWindowIdentity
+     MaintenanceWindowIdentity
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799228"><span class="annot"><span class="annottext">Maybe Natural
+duration :: Maybe Natural
+$sel:duration:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Natural
+</span><a href="#local-6989586621679799228"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799228"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799227"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799226"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:MaintenanceWindowIdentity' :: Maybe Natural
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aduration%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679799226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The ID of the maintenance window.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_windowId"><span class="hs-identifier hs-type">maintenanceWindowIdentity_windowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="maintenanceWindowIdentity_windowId"><span class="annot"><span class="annottext">maintenanceWindowIdentity_windowId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_windowId"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_windowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
 -&gt; (MaintenanceWindowIdentity
     -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
 -&gt; Lens
@@ -474,70 +525,19 @@ forall a. Iso' (Sensitive a) a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797583"><span class="annot"><span class="annottext">Maybe Text
-endDate :: Maybe Text
-$sel:endDate:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679797583"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797583"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797582"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AendDate%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The next time the maintenance window will actually run, taking into</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- account any specified times for the maintenance window to become active</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- or inactive.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_nextExecutionTime"><span class="hs-identifier hs-type">maintenanceWindowIdentity_nextExecutionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="maintenanceWindowIdentity_nextExecutionTime"><span class="annot"><span class="annottext">maintenanceWindowIdentity_nextExecutionTime :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_nextExecutionTime"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_nextExecutionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
--&gt; (MaintenanceWindowIdentity
-    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
--&gt; Lens
-     MaintenanceWindowIdentity
-     MaintenanceWindowIdentity
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797579"><span class="annot"><span class="annottext">Maybe Text
-nextExecutionTime :: Maybe Text
-$sel:nextExecutionTime:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679797579"><span class="hs-identifier hs-var hs-var">nextExecutionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797579"><span class="hs-identifier hs-var">nextExecutionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797578"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797577"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextExecutionTime:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AnextExecutionTime%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">nextExecutionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The schedule of the maintenance window in the form of a cron or rate</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- expression.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_schedule"><span class="hs-identifier hs-type">maintenanceWindowIdentity_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="maintenanceWindowIdentity_schedule"><span class="annot"><span class="annottext">maintenanceWindowIdentity_schedule :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowIdentity -&gt; f MaintenanceWindowIdentity
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#maintenanceWindowIdentity_schedule"><span class="hs-identifier hs-var hs-var">maintenanceWindowIdentity_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowIdentity -&gt; Maybe Text)
--&gt; (MaintenanceWindowIdentity
-    -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
--&gt; Lens
-     MaintenanceWindowIdentity
-     MaintenanceWindowIdentity
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797575"><span class="annot"><span class="annottext">Maybe Text
-schedule :: Maybe Text
-$sel:schedule:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
-</span><a href="#local-6989586621679797575"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797575"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797574"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797573"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
-</span><a href="#local-6989586621679797574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:MaintenanceWindowIdentity' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3Aschedule%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679797573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799224"><span class="annot"><span class="annottext">Maybe Text
+windowId :: Maybe Text
+$sel:windowId:MaintenanceWindowIdentity' :: MaintenanceWindowIdentity -&gt; Maybe Text
+</span><a href="#local-6989586621679799224"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799224"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799223"><span class="annot"><span class="annottext">s :: MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-type">MaintenanceWindowIdentity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowIdentity
+</span><a href="#local-6989586621679799223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowIdentity' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#%24sel%3AwindowId%3AMaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797570"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679797568"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowIdentity
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799219"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679799217"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowIdentity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MaintenanceWindowIdentity)
@@ -547,153 +547,126 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MaintenanceWindowIdentity&quot;</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797565"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Natural
--&gt; Maybe Natural
--&gt; Maybe Bool
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799214"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe (Sensitive Text)
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; MaintenanceWindowIdentity
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity%27"><span class="hs-identifier hs-var">MaintenanceWindowIdentity'</span></a></span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Natural
- -&gt; Maybe Natural
- -&gt; Maybe Bool
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Natural
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
  -&gt; Maybe (Sensitive Text)
- -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe Natural
  -&gt; Maybe Text
  -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe Natural
+     (Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Natural
-      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; Maybe Text
       -&gt; MaintenanceWindowIdentity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Natural
-   -&gt; Maybe Bool
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Bool
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; MaintenanceWindowIdentity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Bool
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; MaintenanceWindowIdentity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ScheduleOffset&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; MaintenanceWindowIdentity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowIdentity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowIdentity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextExecutionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
    -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe Natural
    -&gt; Maybe Text
    -&gt; MaintenanceWindowIdentity)
 -&gt; Parser (Maybe Natural)
@@ -701,130 +674,158 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; Maybe Text
       -&gt; MaintenanceWindowIdentity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Cutoff&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ScheduleOffset&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowIdentity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Natural
    -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe Natural
    -&gt; Maybe Text
    -&gt; MaintenanceWindowIdentity)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; MaintenanceWindowIdentity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; Maybe Text
       -&gt; MaintenanceWindowIdentity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WindowId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe (Sensitive Text)
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; MaintenanceWindowIdentity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduleTimezone&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text)
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Natural
    -&gt; Maybe Text
    -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+      -&gt; Maybe Natural
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowIdentity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowIdentity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowIdentity)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Natural -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cutoff&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Natural -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
--&gt; Parser (Maybe Text)
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; MaintenanceWindowIdentity)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe Text -&gt; MaintenanceWindowIdentity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextExecutionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MaintenanceWindowIdentity)
 -&gt; Parser (Maybe Text) -&gt; Parser MaintenanceWindowIdentity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679799214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;WindowId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797559"><span id="local-6989586621679797561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799208"><span id="local-6989586621679799210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span></span></span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

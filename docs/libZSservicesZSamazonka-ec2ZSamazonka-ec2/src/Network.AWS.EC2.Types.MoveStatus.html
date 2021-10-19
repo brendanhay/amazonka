@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681093249"><span id="local-6989586621681093250"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MoveStatus"><span class="annot"><a href="Network.AWS.EC2.Types.MoveStatus.html#MoveStatus"><span class="hs-identifier hs-var">MoveStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MoveStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.MoveStatus.html#MoveStatus%27"><span class="hs-identifier hs-var">MoveStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681127941"><span id="local-6989586621681127942"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MoveStatus"><span class="annot"><a href="Network.AWS.EC2.Types.MoveStatus.html#MoveStatus"><span class="hs-identifier hs-var">MoveStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MoveStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.MoveStatus.html#MoveStatus%27"><span class="hs-identifier hs-var">MoveStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMoveStatus"><span class="annot"><span class="annottext">MoveStatus -&gt; Text
 </span><a href="Network.AWS.EC2.Types.MoveStatus.html#fromMoveStatus"><span class="hs-identifier hs-var hs-var">fromMoveStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681093241"><span id="local-6989586621681093243"><span id="local-6989586621681093245"><span class="annot"><span class="annottext">Int -&gt; MoveStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681127933"><span id="local-6989586621681127935"><span id="local-6989586621681127937"><span class="annot"><span class="annottext">Int -&gt; MoveStatus -&gt; ShowS
 [MoveStatus] -&gt; ShowS
 MoveStatus -&gt; String
 (Int -&gt; MoveStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MoveStatus -&gt; String
 showsPrec :: Int -&gt; MoveStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; MoveStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681093232"><span id="local-6989586621681093234"><span id="local-6989586621681093236"><span id="local-6989586621681093238"><span class="annot"><span class="annottext">ReadPrec [MoveStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681127924"><span id="local-6989586621681127926"><span id="local-6989586621681127928"><span id="local-6989586621681127930"><span class="annot"><span class="annottext">ReadPrec [MoveStatus]
 ReadPrec MoveStatus
 Int -&gt; ReadS MoveStatus
 ReadS [MoveStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MoveStatus]
 readsPrec :: Int -&gt; ReadS MoveStatus
 $creadsPrec :: Int -&gt; ReadS MoveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681093227"><span id="local-6989586621681093229"><span class="annot"><span class="annottext">MoveStatus -&gt; MoveStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681127919"><span id="local-6989586621681127921"><span class="annot"><span class="annottext">MoveStatus -&gt; MoveStatus -&gt; Bool
 (MoveStatus -&gt; MoveStatus -&gt; Bool)
 -&gt; (MoveStatus -&gt; MoveStatus -&gt; Bool) -&gt; Eq MoveStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: MoveStatus -&gt; MoveStatus -&gt; Bool
 == :: MoveStatus -&gt; MoveStatus -&gt; Bool
 $c== :: MoveStatus -&gt; MoveStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681093211"><span id="local-6989586621681093213"><span id="local-6989586621681093215"><span id="local-6989586621681093217"><span id="local-6989586621681093219"><span id="local-6989586621681093221"><span id="local-6989586621681093223"><span class="annot"><span class="annottext">Eq MoveStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681127903"><span id="local-6989586621681127905"><span id="local-6989586621681127907"><span id="local-6989586621681127909"><span id="local-6989586621681127911"><span id="local-6989586621681127913"><span id="local-6989586621681127915"><span class="annot"><span class="annottext">Eq MoveStatus
 Eq MoveStatus
 -&gt; (MoveStatus -&gt; MoveStatus -&gt; Ordering)
 -&gt; (MoveStatus -&gt; MoveStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. MoveStatus -&gt; Rep MoveStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681093203"><span id="local-6989586621681093205"><span class="annot"><span class="annottext">Int -&gt; MoveStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681127895"><span id="local-6989586621681127897"><span class="annot"><span class="annottext">Int -&gt; MoveStatus -&gt; Int
 MoveStatus -&gt; Int
 (Int -&gt; MoveStatus -&gt; Int)
 -&gt; (MoveStatus -&gt; Int) -&gt; Hashable MoveStatus
@@ -142,49 +142,49 @@ $chash :: MoveStatus -&gt; Int
 hashWithSalt :: Int -&gt; MoveStatus -&gt; Int
 $chashWithSalt :: Int -&gt; MoveStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681093200"><span class="annot"><span class="annottext">MoveStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681127892"><span class="annot"><span class="annottext">MoveStatus -&gt; ()
 (MoveStatus -&gt; ()) -&gt; NFData MoveStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MoveStatus -&gt; ()
 $crnf :: MoveStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681093197"><span class="annot"><span class="annottext">Text -&gt; Either String MoveStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681127889"><span class="annot"><span class="annottext">Text -&gt; Either String MoveStatus
 (Text -&gt; Either String MoveStatus) -&gt; FromText MoveStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MoveStatus
 $cfromText :: Text -&gt; Either String MoveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681093194"><span class="annot"><span class="annottext">MoveStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681127886"><span class="annot"><span class="annottext">MoveStatus -&gt; Text
 (MoveStatus -&gt; Text) -&gt; ToText MoveStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MoveStatus -&gt; Text
 $ctoText :: MoveStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681093191"><span class="annot"><span class="annottext">MoveStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681127883"><span class="annot"><span class="annottext">MoveStatus -&gt; ByteString
 (MoveStatus -&gt; ByteString) -&gt; ToByteString MoveStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MoveStatus -&gt; ByteString
 $ctoBS :: MoveStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681093188"><span class="annot"><span class="annottext">MoveStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681127880"><span class="annot"><span class="annottext">MoveStatus -&gt; ByteStringBuilder
 (MoveStatus -&gt; ByteStringBuilder) -&gt; ToLog MoveStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MoveStatus -&gt; ByteStringBuilder
 $cbuild :: MoveStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681093185"><span class="annot"><span class="annottext">HeaderName -&gt; MoveStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681127877"><span class="annot"><span class="annottext">HeaderName -&gt; MoveStatus -&gt; [Header]
 (HeaderName -&gt; MoveStatus -&gt; [Header]) -&gt; ToHeader MoveStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MoveStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MoveStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681093182"><span class="annot"><span class="annottext">MoveStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681127874"><span class="annot"><span class="annottext">MoveStatus -&gt; QueryString
 (MoveStatus -&gt; QueryString) -&gt; ToQuery MoveStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MoveStatus -&gt; QueryString
 $ctoQuery :: MoveStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681093177"><span id="local-6989586621681093179"><span class="annot"><span class="annottext">Value -&gt; Parser [MoveStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681127869"><span id="local-6989586621681127871"><span class="annot"><span class="annottext">Value -&gt; Parser [MoveStatus]
 Value -&gt; Parser MoveStatus
 (Value -&gt; Parser MoveStatus)
 -&gt; (Value -&gt; Parser [MoveStatus]) -&gt; FromJSON MoveStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [MoveStatus]
 parseJSON :: Value -&gt; Parser MoveStatus
 $cparseJSON :: Value -&gt; Parser MoveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681093172"><span id="local-6989586621681093174"><span class="annot"><span class="annottext">FromJSONKeyFunction [MoveStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681127864"><span id="local-6989586621681127866"><span class="annot"><span class="annottext">FromJSONKeyFunction [MoveStatus]
 FromJSONKeyFunction MoveStatus
 FromJSONKeyFunction MoveStatus
 -&gt; FromJSONKeyFunction [MoveStatus] -&gt; FromJSONKey MoveStatus
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MoveStatus]
 fromJSONKey :: FromJSONKeyFunction MoveStatus
 $cfromJSONKey :: FromJSONKeyFunction MoveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681093163"><span id="local-6989586621681093165"><span id="local-6989586621681093167"><span id="local-6989586621681093169"><span class="annot"><span class="annottext">[MoveStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681127855"><span id="local-6989586621681127857"><span id="local-6989586621681127859"><span id="local-6989586621681127861"><span class="annot"><span class="annottext">[MoveStatus] -&gt; Encoding
 [MoveStatus] -&gt; Value
 MoveStatus -&gt; Encoding
 MoveStatus -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: MoveStatus -&gt; Encoding
 toJSON :: MoveStatus -&gt; Value
 $ctoJSON :: MoveStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681093158"><span id="local-6989586621681093160"><span class="annot"><span class="annottext">ToJSONKeyFunction [MoveStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681127850"><span id="local-6989586621681127852"><span class="annot"><span class="annottext">ToJSONKeyFunction [MoveStatus]
 ToJSONKeyFunction MoveStatus
 ToJSONKeyFunction MoveStatus
 -&gt; ToJSONKeyFunction [MoveStatus] -&gt; ToJSONKey MoveStatus
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MoveStatus]
 toJSONKey :: ToJSONKeyFunction MoveStatus
 $ctoJSONKey :: ToJSONKeyFunction MoveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681093155"><span class="annot"><span class="annottext">[Node] -&gt; Either String MoveStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681127847"><span class="annot"><span class="annottext">[Node] -&gt; Either String MoveStatus
 ([Node] -&gt; Either String MoveStatus) -&gt; FromXML MoveStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MoveStatus
 $cparseXML :: [Node] -&gt; Either String MoveStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681093152"><span class="annot"><span class="annottext">MoveStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681127844"><span class="annot"><span class="annottext">MoveStatus -&gt; XML
 (MoveStatus -&gt; XML) -&gt; ToXML MoveStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MoveStatus -&gt; XML

@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#newDescribeImageBuilders"><span class="hs-identifier">newDescribeImageBuilders</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_names"><span class="hs-identifier">describeImageBuilders_names</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_nextToken"><span class="hs-identifier">describeImageBuilders_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_nextToken"><span class="hs-identifier">describeImageBuilders_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_names"><span class="hs-identifier">describeImageBuilders_names</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_maxResults"><span class="hs-identifier">describeImageBuilders_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -40,8 +40,8 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#newDescribeImageBuildersResponse"><span class="hs-identifier">newDescribeImageBuildersResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_nextToken"><span class="hs-identifier">describeImageBuildersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_imageBuilders"><span class="hs-identifier">describeImageBuildersResponse_imageBuilders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_imageBuilders"><span class="hs-identifier">describeImageBuildersResponse_imageBuilders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_nextToken"><span class="hs-identifier">describeImageBuildersResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_httpStatus"><span class="hs-identifier">describeImageBuildersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -54,19 +54,19 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeImageBuilders' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679297733"><span id="local-6989586621679297734"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageBuilders"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-var">DescribeImageBuilders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageBuilders%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-var">DescribeImageBuilders'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The names of the image builders to describe.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Anames%3ADescribeImageBuilders%27"><span class="annot"><span class="annottext">DescribeImageBuilders -&gt; Maybe [Text]
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3Anames%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeImageBuilders%27"><span class="annot"><span class="annottext">DescribeImageBuilders -&gt; Maybe Text
+</span><span id="line-57"></span><span id="local-6989586621679298008"><span id="local-6989586621679298009"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageBuilders"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-var">DescribeImageBuilders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageBuilders%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-var">DescribeImageBuilders'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeImageBuilders%27"><span class="annot"><span class="annottext">DescribeImageBuilders -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The names of the image builders to describe.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Anames%3ADescribeImageBuilders%27"><span class="annot"><span class="annottext">DescribeImageBuilders -&gt; Maybe [Text]
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3Anames%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum size of each page of results.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeImageBuilders%27"><span class="annot"><span class="annottext">DescribeImageBuilders -&gt; Maybe Int
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AmaxResults%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297725"><span id="local-6989586621679297727"><span class="annot"><span class="annottext">DescribeImageBuilders -&gt; DescribeImageBuilders -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298000"><span id="local-6989586621679298002"><span class="annot"><span class="annottext">DescribeImageBuilders -&gt; DescribeImageBuilders -&gt; Bool
 (DescribeImageBuilders -&gt; DescribeImageBuilders -&gt; Bool)
 -&gt; (DescribeImageBuilders -&gt; DescribeImageBuilders -&gt; Bool)
 -&gt; Eq DescribeImageBuilders
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeImageBuilders -&gt; DescribeImageBuilders -&gt; Bool
 == :: DescribeImageBuilders -&gt; DescribeImageBuilders -&gt; Bool
 $c== :: DescribeImageBuilders -&gt; DescribeImageBuilders -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297716"><span id="local-6989586621679297718"><span id="local-6989586621679297720"><span id="local-6989586621679297722"><span class="annot"><span class="annottext">ReadPrec [DescribeImageBuilders]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297991"><span id="local-6989586621679297993"><span id="local-6989586621679297995"><span id="local-6989586621679297997"><span class="annot"><span class="annottext">ReadPrec [DescribeImageBuilders]
 ReadPrec DescribeImageBuilders
 Int -&gt; ReadS DescribeImageBuilders
 ReadS [DescribeImageBuilders]
@@ -95,7 +95,7 @@ readList :: ReadS [DescribeImageBuilders]
 $creadList :: ReadS [DescribeImageBuilders]
 readsPrec :: Int -&gt; ReadS DescribeImageBuilders
 $creadsPrec :: Int -&gt; ReadS DescribeImageBuilders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297709"><span id="local-6989586621679297711"><span id="local-6989586621679297713"><span class="annot"><span class="annottext">Int -&gt; DescribeImageBuilders -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297984"><span id="local-6989586621679297986"><span id="local-6989586621679297988"><span class="annot"><span class="annottext">Int -&gt; DescribeImageBuilders -&gt; ShowS
 [DescribeImageBuilders] -&gt; ShowS
 DescribeImageBuilders -&gt; String
 (Int -&gt; DescribeImageBuilders -&gt; ShowS)
@@ -129,24 +129,24 @@ $cfrom :: forall x. DescribeImageBuilders -&gt; Rep DescribeImageBuilders x
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'names', 'describeImageBuilders_names' - The names of the image builders to describe.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'describeImageBuilders_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'describeImageBuilders_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'names', 'describeImageBuilders_names' - The names of the image builders to describe.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'describeImageBuilders_maxResults' - The maximum size of each page of results.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#newDescribeImageBuilders"><span class="hs-identifier hs-type">newDescribeImageBuilders</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span>
 </span><span id="line-84"></span><span id="newDescribeImageBuilders"><span class="annot"><span class="annottext">newDescribeImageBuilders :: DescribeImageBuilders
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#newDescribeImageBuilders"><span class="hs-identifier hs-var hs-var">newDescribeImageBuilders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeImageBuilders' :: Maybe [Text] -&gt; Maybe Text -&gt; Maybe Int -&gt; DescribeImageBuilders
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeImageBuilders' :: Maybe Text -&gt; Maybe [Text] -&gt; Maybe Int -&gt; DescribeImageBuilders
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:names:DescribeImageBuilders' :: Maybe [Text]
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3Anames%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuilders' :: Maybe Text
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuilders' :: Maybe Text
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:DescribeImageBuilders' :: Maybe [Text]
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3Anames%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeImageBuilders' :: Maybe Int
@@ -155,9 +155,33 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The names of the image builders to describe.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_names"><span class="hs-identifier hs-type">describeImageBuilders_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="describeImageBuilders_names"><span class="annot"><span class="annottext">describeImageBuilders_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-91"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_nextToken"><span class="hs-identifier hs-type">describeImageBuilders_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="describeImageBuilders_nextToken"><span class="annot"><span class="annottext">describeImageBuilders_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageBuilders -&gt; f DescribeImageBuilders
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_nextToken"><span class="hs-identifier hs-var hs-var">describeImageBuilders_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageBuilders -&gt; Maybe Text)
+-&gt; (DescribeImageBuilders -&gt; Maybe Text -&gt; DescribeImageBuilders)
+-&gt; Lens
+     DescribeImageBuilders
+     DescribeImageBuilders
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297978"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe Text
+</span><a href="#local-6989586621679297978"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297978"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297977"><span class="annot"><span class="annottext">s :: DescribeImageBuilders
+</span><a href="#local-6989586621679297977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297976"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuilders
+</span><a href="#local-6989586621679297977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuilders' :: Maybe Text
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The names of the image builders to describe.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_names"><span class="hs-identifier hs-type">describeImageBuilders_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="describeImageBuilders_names"><span class="annot"><span class="annottext">describeImageBuilders_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeImageBuilders -&gt; f DescribeImageBuilders
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_names"><span class="hs-identifier hs-var hs-var">describeImageBuilders_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageBuilders -&gt; Maybe [Text])
 -&gt; (DescribeImageBuilders -&gt; Maybe [Text] -&gt; DescribeImageBuilders)
@@ -167,16 +191,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297703"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297975"><span class="annot"><span class="annottext">Maybe [Text]
 names :: Maybe [Text]
 $sel:names:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe [Text]
-</span><a href="#local-6989586621679297703"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679297703"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297702"><span class="annot"><span class="annottext">s :: DescribeImageBuilders
-</span><a href="#local-6989586621679297702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297701"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679297701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuilders
-</span><a href="#local-6989586621679297702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:DescribeImageBuilders' :: Maybe [Text]
+</span><a href="#local-6989586621679297975"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679297975"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297974"><span class="annot"><span class="annottext">s :: DescribeImageBuilders
+</span><a href="#local-6989586621679297974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297973"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679297973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuilders
+</span><a href="#local-6989586621679297974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:DescribeImageBuilders' :: Maybe [Text]
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3Anames%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679297701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679297973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeImageBuilders -&gt; f DescribeImageBuilders)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -190,32 +214,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_nextToken"><span class="hs-identifier hs-type">describeImageBuilders_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="describeImageBuilders_nextToken"><span class="annot"><span class="annottext">describeImageBuilders_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeImageBuilders -&gt; f DescribeImageBuilders
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_nextToken"><span class="hs-identifier hs-var hs-var">describeImageBuilders_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageBuilders -&gt; Maybe Text)
--&gt; (DescribeImageBuilders -&gt; Maybe Text -&gt; DescribeImageBuilders)
--&gt; Lens
-     DescribeImageBuilders
-     DescribeImageBuilders
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297697"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe Text
-</span><a href="#local-6989586621679297697"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297697"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297696"><span class="annot"><span class="annottext">s :: DescribeImageBuilders
-</span><a href="#local-6989586621679297696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297695"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuilders
-</span><a href="#local-6989586621679297696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuilders' :: Maybe Text
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The maximum size of each page of results.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuilders_maxResults"><span class="hs-identifier hs-type">describeImageBuilders_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -226,29 +226,29 @@ $sel:nextToken:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe Text
 -&gt; Lens
      DescribeImageBuilders DescribeImageBuilders (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297694"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297969"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe Int
-</span><a href="#local-6989586621679297694"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297694"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297693"><span class="annot"><span class="annottext">s :: DescribeImageBuilders
-</span><a href="#local-6989586621679297693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297692"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuilders
-</span><a href="#local-6989586621679297693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeImageBuilders' :: Maybe Int
+</span><a href="#local-6989586621679297969"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679297969"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297968"><span class="annot"><span class="annottext">s :: DescribeImageBuilders
+</span><a href="#local-6989586621679297968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297967"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679297967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuilders
+</span><a href="#local-6989586621679297968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeImageBuilders' :: Maybe Int
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AmaxResults%3ADescribeImageBuilders%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679297688"><span class="annot"><span class="annottext">page :: DescribeImageBuilders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679297963"><span class="annot"><span class="annottext">page :: DescribeImageBuilders
 -&gt; AWSResponse DescribeImageBuilders -&gt; Maybe DescribeImageBuilders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679297686"><span class="annot"><span class="annottext">DescribeImageBuilders
-</span><a href="#local-6989586621679297686"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679297685"><span class="annot"><span class="annottext">AWSResponse DescribeImageBuilders
-</span><a href="#local-6989586621679297685"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679297961"><span class="annot"><span class="annottext">DescribeImageBuilders
+</span><a href="#local-6989586621679297961"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679297960"><span class="annot"><span class="annottext">AWSResponse DescribeImageBuilders
+</span><a href="#local-6989586621679297960"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeImageBuilders
 DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297685"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679297960"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
 -&gt; Getting (First Text) DescribeImageBuildersResponse Text
 -&gt; Maybe Text
@@ -278,7 +278,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeImageBuilders
 DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297685"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679297960"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
 -&gt; Getting
      (First [ImageBuilder]) DescribeImageBuildersResponse [ImageBuilder]
@@ -318,7 +318,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">DescribeImageBuilders
-</span><a href="#local-6989586621679297686"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679297961"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">DescribeImageBuilders
 -&gt; (DescribeImageBuilders -&gt; DescribeImageBuilders)
 -&gt; DescribeImageBuilders
@@ -337,7 +337,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeImageBuilders
 DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297685"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679297960"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
 -&gt; Getting (First Text) DescribeImageBuildersResponse Text
 -&gt; Maybe Text
@@ -363,12 +363,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679297676"><span class="annot"><span class="annottext">request :: DescribeImageBuilders -&gt; Request DescribeImageBuilders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679297951"><span class="annot"><span class="annottext">request :: DescribeImageBuilders -&gt; Request DescribeImageBuilders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeImageBuilders -&gt; Request DescribeImageBuilders
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679297672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679297947"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeImageBuilders
 -&gt; ClientResponse ClientBody
@@ -394,33 +394,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679297668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297667"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [ImageBuilder] -&gt; Int -&gt; DescribeImageBuildersResponse
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297944"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297944"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297943"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679297943"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297942"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ImageBuilder]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeImageBuildersResponse
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">DescribeImageBuildersResponse'</span></a></span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ImageBuilder] -&gt; Int -&gt; DescribeImageBuildersResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ImageBuilder]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeImageBuildersResponse)
+-&gt; Either String (Maybe [ImageBuilder])
 -&gt; Either
-     String
-     (Maybe [ImageBuilder] -&gt; Int -&gt; DescribeImageBuildersResponse)
+     String (Maybe Text -&gt; Int -&gt; DescribeImageBuildersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [ImageBuilder] -&gt; Int -&gt; DescribeImageBuildersResponse)
--&gt; Either String (Maybe [ImageBuilder])
--&gt; Either String (Int -&gt; DescribeImageBuildersResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageBuilder]))
+</span><a href="#local-6989586621679297942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageBuilder]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageBuilders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ImageBuilder]))
@@ -429,6 +417,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ImageBuilder]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeImageBuildersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeImageBuildersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeImageBuildersResponse)
 -&gt; Either String Int -&gt; Either String DescribeImageBuildersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -437,15 +434,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297944"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297658"><span id="local-6989586621679297660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297933"><span id="local-6989586621679297935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679297651"><span class="annot"><span class="annottext">toHeaders :: DescribeImageBuilders -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679297926"><span class="annot"><span class="annottext">toHeaders :: DescribeImageBuilders -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeImageBuilders -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -472,56 +469,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297641"><span id="local-6989586621679297643"><span id="local-6989586621679297645"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679297639"><span class="annot"><span class="annottext">toJSON :: DescribeImageBuilders -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297635"><span id="local-6989586621679297636"><span id="local-6989586621679297637"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297916"><span id="local-6989586621679297918"><span id="local-6989586621679297920"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679297914"><span class="annot"><span class="annottext">toJSON :: DescribeImageBuilders -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders%27"><span class="hs-identifier hs-type">DescribeImageBuilders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297910"><span id="local-6989586621679297911"><span id="local-6989586621679297912"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 maxResults :: Maybe Int
-nextToken :: Maybe Text
 names :: Maybe [Text]
+nextToken :: Maybe Text
 $sel:maxResults:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe Int
-$sel:nextToken:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe Text
 $sel:names:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe [Text]
-</span><a href="#local-6989586621679297635"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:nextToken:DescribeImageBuilders' :: DescribeImageBuilders -&gt; Maybe Text
+</span><a href="#local-6989586621679297910"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679297637"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297636"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297912"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679297911"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297635"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679297910"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679297629"><span class="annot"><span class="annottext">toPath :: DescribeImageBuilders -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679297904"><span class="annot"><span class="annottext">toPath :: DescribeImageBuilders -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeImageBuilders -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuilders"><span class="hs-identifier hs-type">DescribeImageBuilders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679297625"><span class="annot"><span class="annottext">toQuery :: DescribeImageBuilders -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679297900"><span class="annot"><span class="annottext">toQuery :: DescribeImageBuilders -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeImageBuilders -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -529,19 +526,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newDescribeImageBuildersResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679297622"><span id="local-6989586621679297623"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageBuildersResponse"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-var">DescribeImageBuildersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageBuildersResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">DescribeImageBuildersResponse'</span></a></span></span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
-</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="annot"><span class="annottext">DescribeImageBuildersResponse -&gt; Maybe Text
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | Information about the image builders.</span><span>
-</span><span id="line-181"></span><span>    </span><span id="%24sel%3AimageBuilders%3ADescribeImageBuildersResponse%27"><span class="annot"><span class="annottext">DescribeImageBuildersResponse -&gt; Maybe [ImageBuilder]
+</span><span id="line-176"></span><span id="local-6989586621679297897"><span id="local-6989586621679297898"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageBuildersResponse"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-var">DescribeImageBuildersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageBuildersResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">DescribeImageBuildersResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the image builders.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AimageBuilders%3ADescribeImageBuildersResponse%27"><span class="annot"><span class="annottext">DescribeImageBuildersResponse -&gt; Maybe [ImageBuilder]
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AimageBuilders%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var hs-var">imageBuilders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="annot"><span class="annottext">DescribeImageBuildersResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeImageBuildersResponse%27"><span class="annot"><span class="annottext">DescribeImageBuildersResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AhttpStatus%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297615"><span id="local-6989586621679297617"><span class="annot"><span class="annottext">DescribeImageBuildersResponse
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297890"><span id="local-6989586621679297892"><span class="annot"><span class="annottext">DescribeImageBuildersResponse
 -&gt; DescribeImageBuildersResponse -&gt; Bool
 (DescribeImageBuildersResponse
  -&gt; DescribeImageBuildersResponse -&gt; Bool)
@@ -557,7 +554,7 @@ $c/= :: DescribeImageBuildersResponse
 -&gt; DescribeImageBuildersResponse -&gt; Bool
 $c== :: DescribeImageBuildersResponse
 -&gt; DescribeImageBuildersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297607"><span id="local-6989586621679297609"><span id="local-6989586621679297611"><span id="local-6989586621679297613"><span class="annot"><span class="annottext">ReadPrec [DescribeImageBuildersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297882"><span id="local-6989586621679297884"><span id="local-6989586621679297886"><span id="local-6989586621679297888"><span class="annot"><span class="annottext">ReadPrec [DescribeImageBuildersResponse]
 ReadPrec DescribeImageBuildersResponse
 Int -&gt; ReadS DescribeImageBuildersResponse
 ReadS [DescribeImageBuildersResponse]
@@ -577,7 +574,7 @@ readList :: ReadS [DescribeImageBuildersResponse]
 $creadList :: ReadS [DescribeImageBuildersResponse]
 readsPrec :: Int -&gt; ReadS DescribeImageBuildersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeImageBuildersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297601"><span id="local-6989586621679297603"><span id="local-6989586621679297605"><span class="annot"><span class="annottext">Int -&gt; DescribeImageBuildersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297876"><span id="local-6989586621679297878"><span id="local-6989586621679297880"><span class="annot"><span class="annottext">Int -&gt; DescribeImageBuildersResponse -&gt; ShowS
 [DescribeImageBuildersResponse] -&gt; ShowS
 DescribeImageBuildersResponse -&gt; String
 (Int -&gt; DescribeImageBuildersResponse -&gt; ShowS)
@@ -623,10 +620,10 @@ DescribeImageBuildersResponse
 </span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- 'nextToken', 'describeImageBuildersResponse_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
-</span><span id="line-197"></span><span class="hs-comment">--</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- 'imageBuilders', 'describeImageBuildersResponse_imageBuilders' - Information about the image builders.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'imageBuilders', 'describeImageBuildersResponse_imageBuilders' - Information about the image builders.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextToken', 'describeImageBuildersResponse_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'describeImageBuildersResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#newDescribeImageBuildersResponse"><span class="hs-identifier hs-type">newDescribeImageBuildersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -634,65 +631,44 @@ DescribeImageBuildersResponse
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newDescribeImageBuildersResponse"><span class="annot"><span class="annottext">newDescribeImageBuildersResponse :: Int -&gt; DescribeImageBuildersResponse
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#newDescribeImageBuildersResponse"><span class="hs-identifier hs-var hs-var">newDescribeImageBuildersResponse</span></a></span></span><span> </span><span id="local-6989586621679297598"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse' :: Maybe Text
--&gt; Maybe [ImageBuilder] -&gt; Int -&gt; DescribeImageBuildersResponse
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#newDescribeImageBuildersResponse"><span class="hs-identifier hs-var hs-var">newDescribeImageBuildersResponse</span></a></span></span><span> </span><span id="local-6989586621679297873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse' :: Maybe [ImageBuilder]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeImageBuildersResponse
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span>
-</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuildersResponse' :: Maybe Text
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageBuilders:DescribeImageBuildersResponse' :: Maybe [ImageBuilder]
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AimageBuilders%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">imageBuilders</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ImageBuilder]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageBuilders:DescribeImageBuildersResponse' :: Maybe [ImageBuilder]
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AimageBuilders%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">imageBuilders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageBuilder]
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuildersResponse' :: Maybe Text
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageBuildersResponse' :: Int
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AhttpStatus%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679297873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
-</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_nextToken"><span class="hs-identifier hs-type">describeImageBuildersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span id="describeImageBuildersResponse_nextToken"><span class="annot"><span class="annottext">describeImageBuildersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeImageBuildersResponse -&gt; f DescribeImageBuildersResponse
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeImageBuildersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageBuildersResponse -&gt; Maybe Text)
--&gt; (DescribeImageBuildersResponse
-    -&gt; Maybe Text -&gt; DescribeImageBuildersResponse)
--&gt; Lens' DescribeImageBuildersResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297597"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeImageBuildersResponse' :: DescribeImageBuildersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679297597"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297597"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297596"><span class="annot"><span class="annottext">s :: DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuildersResponse' :: Maybe Text
-</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- | Information about the image builders.</span><span>
-</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_imageBuilders"><span class="hs-identifier hs-type">describeImageBuildersResponse_imageBuilders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span id="describeImageBuildersResponse_imageBuilders"><span class="annot"><span class="annottext">describeImageBuildersResponse_imageBuilders :: (Maybe [ImageBuilder] -&gt; f (Maybe [ImageBuilder]))
+</span><span id="line-213"></span><span class="hs-comment">-- | Information about the image builders.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_imageBuilders"><span class="hs-identifier hs-type">describeImageBuildersResponse_imageBuilders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeImageBuildersResponse_imageBuilders"><span class="annot"><span class="annottext">describeImageBuildersResponse_imageBuilders :: (Maybe [ImageBuilder] -&gt; f (Maybe [ImageBuilder]))
 -&gt; DescribeImageBuildersResponse -&gt; f DescribeImageBuildersResponse
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_imageBuilders"><span class="hs-identifier hs-var hs-var">describeImageBuildersResponse_imageBuilders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageBuildersResponse -&gt; Maybe [ImageBuilder])
 -&gt; (DescribeImageBuildersResponse
     -&gt; Maybe [ImageBuilder] -&gt; DescribeImageBuildersResponse)
 -&gt; Lens' DescribeImageBuildersResponse (Maybe [ImageBuilder])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297594"><span class="annot"><span class="annottext">Maybe [ImageBuilder]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297872"><span class="annot"><span class="annottext">Maybe [ImageBuilder]
 imageBuilders :: Maybe [ImageBuilder]
 $sel:imageBuilders:DescribeImageBuildersResponse' :: DescribeImageBuildersResponse -&gt; Maybe [ImageBuilder]
-</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var hs-var">imageBuilders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageBuilder]
-</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var">imageBuilders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297593"><span class="annot"><span class="annottext">s :: DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297592"><span class="annot"><span class="annottext">Maybe [ImageBuilder]
-</span><a href="#local-6989586621679297592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageBuilders:DescribeImageBuildersResponse' :: Maybe [ImageBuilder]
+</span><a href="#local-6989586621679297872"><span class="hs-identifier hs-var hs-var">imageBuilders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageBuilder]
+</span><a href="#local-6989586621679297872"><span class="hs-identifier hs-var">imageBuilders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297871"><span class="annot"><span class="annottext">s :: DescribeImageBuildersResponse
+</span><a href="#local-6989586621679297871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297870"><span class="annot"><span class="annottext">Maybe [ImageBuilder]
+</span><a href="#local-6989586621679297870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
+</span><a href="#local-6989586621679297871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageBuilders:DescribeImageBuildersResponse' :: Maybe [ImageBuilder]
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AimageBuilders%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">imageBuilders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageBuilder]
-</span><a href="#local-6989586621679297592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageBuilder] -&gt; f (Maybe [ImageBuilder]))
+</span><a href="#local-6989586621679297870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageBuilder] -&gt; f (Maybe [ImageBuilder]))
  -&gt; DescribeImageBuildersResponse
  -&gt; f DescribeImageBuildersResponse)
 -&gt; ((Maybe [ImageBuilder] -&gt; f (Maybe [ImageBuilder]))
@@ -711,8 +687,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ImageBuilder] [ImageBuilder] [ImageBuilder] [ImageBuilder]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_nextToken"><span class="hs-identifier hs-type">describeImageBuildersResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="describeImageBuildersResponse_nextToken"><span class="annot"><span class="annottext">describeImageBuildersResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageBuildersResponse -&gt; f DescribeImageBuildersResponse
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeImageBuildersResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageBuildersResponse -&gt; Maybe Text)
+-&gt; (DescribeImageBuildersResponse
+    -&gt; Maybe Text -&gt; DescribeImageBuildersResponse)
+-&gt; Lens' DescribeImageBuildersResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297869"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeImageBuildersResponse' :: DescribeImageBuildersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679297869"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297869"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297868"><span class="annot"><span class="annottext">s :: DescribeImageBuildersResponse
+</span><a href="#local-6989586621679297868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
+</span><a href="#local-6989586621679297868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeImageBuildersResponse' :: Maybe Text
+</span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AnextToken%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#describeImageBuildersResponse_httpStatus"><span class="hs-identifier hs-type">describeImageBuildersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -724,16 +721,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DescribeImageBuildersResponse DescribeImageBuildersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297591"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297866"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeImageBuildersResponse' :: DescribeImageBuildersResponse -&gt; Int
-</span><a href="#local-6989586621679297591"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297591"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297590"><span class="annot"><span class="annottext">s :: DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297589"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
-</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageBuildersResponse' :: Int
+</span><a href="#local-6989586621679297866"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297866"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297865"><span class="annot"><span class="annottext">s :: DescribeImageBuildersResponse
+</span><a href="#local-6989586621679297865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse%27"><span class="hs-identifier hs-type">DescribeImageBuildersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297864"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageBuildersResponse
+</span><a href="#local-6989586621679297865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageBuildersResponse' :: Int
 </span><a href="Network.AWS.AppStream.DescribeImageBuilders.html#%24sel%3AhttpStatus%3ADescribeImageBuildersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeImageBuilders.html#DescribeImageBuildersResponse"><span class="hs-identifier hs-type">DescribeImageBuildersResponse</span></a></span></span><span>
 </span><span id="line-227"></span></pre></body></html>

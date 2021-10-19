@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679329573"><span id="local-6989586621679329574"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredefinedMetricPairType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier hs-var">PredefinedMetricPairType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedMetricPairType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-identifier hs-var">PredefinedMetricPairType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679330229"><span id="local-6989586621679330230"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PredefinedMetricPairType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType"><span class="hs-identifier hs-var">PredefinedMetricPairType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedMetricPairType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricPairType.html#PredefinedMetricPairType%27"><span class="hs-identifier hs-var">PredefinedMetricPairType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPredefinedMetricPairType"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; Text
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricPairType.html#fromPredefinedMetricPairType"><span class="hs-identifier hs-var hs-var">fromPredefinedMetricPairType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329565"><span id="local-6989586621679329567"><span id="local-6989586621679329569"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricPairType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330221"><span id="local-6989586621679330223"><span id="local-6989586621679330225"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricPairType -&gt; ShowS
 [PredefinedMetricPairType] -&gt; ShowS
 PredefinedMetricPairType -&gt; String
 (Int -&gt; PredefinedMetricPairType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: PredefinedMetricPairType -&gt; String
 showsPrec :: Int -&gt; PredefinedMetricPairType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PredefinedMetricPairType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329556"><span id="local-6989586621679329558"><span id="local-6989586621679329560"><span id="local-6989586621679329562"><span class="annot"><span class="annottext">ReadPrec [PredefinedMetricPairType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330212"><span id="local-6989586621679330214"><span id="local-6989586621679330216"><span id="local-6989586621679330218"><span class="annot"><span class="annottext">ReadPrec [PredefinedMetricPairType]
 ReadPrec PredefinedMetricPairType
 Int -&gt; ReadS PredefinedMetricPairType
 ReadS [PredefinedMetricPairType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [PredefinedMetricPairType]
 readsPrec :: Int -&gt; ReadS PredefinedMetricPairType
 $creadsPrec :: Int -&gt; ReadS PredefinedMetricPairType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329551"><span id="local-6989586621679329553"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679330207"><span id="local-6989586621679330209"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
 (PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
 -&gt; (PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool)
 -&gt; Eq PredefinedMetricPairType
@@ -84,7 +84,7 @@ $c/= :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
 == :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
 $c== :: PredefinedMetricPairType -&gt; PredefinedMetricPairType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679329535"><span id="local-6989586621679329537"><span id="local-6989586621679329539"><span id="local-6989586621679329541"><span id="local-6989586621679329543"><span id="local-6989586621679329545"><span id="local-6989586621679329547"><span class="annot"><span class="annottext">Eq PredefinedMetricPairType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679330191"><span id="local-6989586621679330193"><span id="local-6989586621679330195"><span id="local-6989586621679330197"><span id="local-6989586621679330199"><span id="local-6989586621679330201"><span id="local-6989586621679330203"><span class="annot"><span class="annottext">Eq PredefinedMetricPairType
 Eq PredefinedMetricPairType
 -&gt; (PredefinedMetricPairType
     -&gt; PredefinedMetricPairType -&gt; Ordering)
@@ -149,7 +149,7 @@ PredefinedMetricPairType -&gt; Rep PredefinedMetricPairType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329527"><span id="local-6989586621679329529"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricPairType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330183"><span id="local-6989586621679330185"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricPairType -&gt; Int
 PredefinedMetricPairType -&gt; Int
 (Int -&gt; PredefinedMetricPairType -&gt; Int)
 -&gt; (PredefinedMetricPairType -&gt; Int)
@@ -160,55 +160,55 @@ $chash :: PredefinedMetricPairType -&gt; Int
 hashWithSalt :: Int -&gt; PredefinedMetricPairType -&gt; Int
 $chashWithSalt :: Int -&gt; PredefinedMetricPairType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329524"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679330180"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ()
 (PredefinedMetricPairType -&gt; ()) -&gt; NFData PredefinedMetricPairType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PredefinedMetricPairType -&gt; ()
 $crnf :: PredefinedMetricPairType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329521"><span class="annot"><span class="annottext">Text -&gt; Either String PredefinedMetricPairType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330177"><span class="annot"><span class="annottext">Text -&gt; Either String PredefinedMetricPairType
 (Text -&gt; Either String PredefinedMetricPairType)
 -&gt; FromText PredefinedMetricPairType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PredefinedMetricPairType
 $cfromText :: Text -&gt; Either String PredefinedMetricPairType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329518"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330174"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; Text
 (PredefinedMetricPairType -&gt; Text)
 -&gt; ToText PredefinedMetricPairType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PredefinedMetricPairType -&gt; Text
 $ctoText :: PredefinedMetricPairType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329515"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330171"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ByteString
 (PredefinedMetricPairType -&gt; ByteString)
 -&gt; ToByteString PredefinedMetricPairType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PredefinedMetricPairType -&gt; ByteString
 $ctoBS :: PredefinedMetricPairType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329512"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330168"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; ByteStringBuilder
 (PredefinedMetricPairType -&gt; ByteStringBuilder)
 -&gt; ToLog PredefinedMetricPairType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PredefinedMetricPairType -&gt; ByteStringBuilder
 $cbuild :: PredefinedMetricPairType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329509"><span class="annot"><span class="annottext">HeaderName -&gt; PredefinedMetricPairType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330165"><span class="annot"><span class="annottext">HeaderName -&gt; PredefinedMetricPairType -&gt; [Header]
 (HeaderName -&gt; PredefinedMetricPairType -&gt; [Header])
 -&gt; ToHeader PredefinedMetricPairType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PredefinedMetricPairType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PredefinedMetricPairType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329506"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330162"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; QueryString
 (PredefinedMetricPairType -&gt; QueryString)
 -&gt; ToQuery PredefinedMetricPairType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PredefinedMetricPairType -&gt; QueryString
 $ctoQuery :: PredefinedMetricPairType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329501"><span id="local-6989586621679329503"><span class="annot"><span class="annottext">Value -&gt; Parser [PredefinedMetricPairType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330157"><span id="local-6989586621679330159"><span class="annot"><span class="annottext">Value -&gt; Parser [PredefinedMetricPairType]
 Value -&gt; Parser PredefinedMetricPairType
 (Value -&gt; Parser PredefinedMetricPairType)
 -&gt; (Value -&gt; Parser [PredefinedMetricPairType])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [PredefinedMetricPairType]
 parseJSON :: Value -&gt; Parser PredefinedMetricPairType
 $cparseJSON :: Value -&gt; Parser PredefinedMetricPairType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329496"><span id="local-6989586621679329498"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredefinedMetricPairType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330152"><span id="local-6989586621679330154"><span class="annot"><span class="annottext">FromJSONKeyFunction [PredefinedMetricPairType]
 FromJSONKeyFunction PredefinedMetricPairType
 FromJSONKeyFunction PredefinedMetricPairType
 -&gt; FromJSONKeyFunction [PredefinedMetricPairType]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PredefinedMetricPairType]
 fromJSONKey :: FromJSONKeyFunction PredefinedMetricPairType
 $cfromJSONKey :: FromJSONKeyFunction PredefinedMetricPairType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329487"><span id="local-6989586621679329489"><span id="local-6989586621679329491"><span id="local-6989586621679329493"><span class="annot"><span class="annottext">[PredefinedMetricPairType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330143"><span id="local-6989586621679330145"><span id="local-6989586621679330147"><span id="local-6989586621679330149"><span class="annot"><span class="annottext">[PredefinedMetricPairType] -&gt; Encoding
 [PredefinedMetricPairType] -&gt; Value
 PredefinedMetricPairType -&gt; Encoding
 PredefinedMetricPairType -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: PredefinedMetricPairType -&gt; Encoding
 toJSON :: PredefinedMetricPairType -&gt; Value
 $ctoJSON :: PredefinedMetricPairType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329482"><span id="local-6989586621679329484"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredefinedMetricPairType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330138"><span id="local-6989586621679330140"><span class="annot"><span class="annottext">ToJSONKeyFunction [PredefinedMetricPairType]
 ToJSONKeyFunction PredefinedMetricPairType
 ToJSONKeyFunction PredefinedMetricPairType
 -&gt; ToJSONKeyFunction [PredefinedMetricPairType]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PredefinedMetricPairType]
 toJSONKey :: ToJSONKeyFunction PredefinedMetricPairType
 $ctoJSONKey :: ToJSONKeyFunction PredefinedMetricPairType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329479"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredefinedMetricPairType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679330135"><span class="annot"><span class="annottext">[Node] -&gt; Either String PredefinedMetricPairType
 ([Node] -&gt; Either String PredefinedMetricPairType)
 -&gt; FromXML PredefinedMetricPairType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PredefinedMetricPairType
 $cparseXML :: [Node] -&gt; Either String PredefinedMetricPairType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329476"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679330132"><span class="annot"><span class="annottext">PredefinedMetricPairType -&gt; XML
 (PredefinedMetricPairType -&gt; XML) -&gt; ToXML PredefinedMetricPairType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PredefinedMetricPairType -&gt; XML

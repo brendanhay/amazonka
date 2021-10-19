@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#newGetCelebrityInfoResponse"><span class="hs-identifier">newGetCelebrityInfoResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_knownGender"><span class="hs-identifier">getCelebrityInfoResponse_knownGender</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_urls"><span class="hs-identifier">getCelebrityInfoResponse_urls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_urls"><span class="hs-identifier">getCelebrityInfoResponse_urls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_knownGender"><span class="hs-identifier">getCelebrityInfoResponse_knownGender</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_name"><span class="hs-identifier">getCelebrityInfoResponse_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_httpStatus"><span class="hs-identifier">getCelebrityInfoResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
@@ -58,14 +58,14 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newGetCelebrityInfo' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679343655"><span id="local-6989586621679343656"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCelebrityInfo"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-var">GetCelebrityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCelebrityInfo%27"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-var">GetCelebrityInfo'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679343972"><span id="local-6989586621679343973"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCelebrityInfo"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-var">GetCelebrityInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCelebrityInfo%27"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-var">GetCelebrityInfo'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID for the celebrity. You get the celebrity ID from a call to the</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- RecognizeCelebrities operation, which recognizes celebrities in an</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- image.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Aid%3AGetCelebrityInfo%27"><span class="annot"><span class="annottext">GetCelebrityInfo -&gt; Text
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aid%3AGetCelebrityInfo%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343649"><span id="local-6989586621679343651"><span class="annot"><span class="annottext">GetCelebrityInfo -&gt; GetCelebrityInfo -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343966"><span id="local-6989586621679343968"><span class="annot"><span class="annottext">GetCelebrityInfo -&gt; GetCelebrityInfo -&gt; Bool
 (GetCelebrityInfo -&gt; GetCelebrityInfo -&gt; Bool)
 -&gt; (GetCelebrityInfo -&gt; GetCelebrityInfo -&gt; Bool)
 -&gt; Eq GetCelebrityInfo
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCelebrityInfo -&gt; GetCelebrityInfo -&gt; Bool
 == :: GetCelebrityInfo -&gt; GetCelebrityInfo -&gt; Bool
 $c== :: GetCelebrityInfo -&gt; GetCelebrityInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343640"><span id="local-6989586621679343642"><span id="local-6989586621679343644"><span id="local-6989586621679343646"><span class="annot"><span class="annottext">ReadPrec [GetCelebrityInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343957"><span id="local-6989586621679343959"><span id="local-6989586621679343961"><span id="local-6989586621679343963"><span class="annot"><span class="annottext">ReadPrec [GetCelebrityInfo]
 ReadPrec GetCelebrityInfo
 Int -&gt; ReadS GetCelebrityInfo
 ReadS [GetCelebrityInfo]
@@ -94,7 +94,7 @@ readList :: ReadS [GetCelebrityInfo]
 $creadList :: ReadS [GetCelebrityInfo]
 readsPrec :: Int -&gt; ReadS GetCelebrityInfo
 $creadsPrec :: Int -&gt; ReadS GetCelebrityInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343633"><span id="local-6989586621679343635"><span id="local-6989586621679343637"><span class="annot"><span class="annottext">Int -&gt; GetCelebrityInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343950"><span id="local-6989586621679343952"><span id="local-6989586621679343954"><span class="annot"><span class="annottext">Int -&gt; GetCelebrityInfo -&gt; ShowS
 [GetCelebrityInfo] -&gt; ShowS
 GetCelebrityInfo -&gt; String
 (Int -&gt; GetCelebrityInfo -&gt; ShowS)
@@ -136,12 +136,12 @@ $cfrom :: forall x. GetCelebrityInfo -&gt; Rep GetCelebrityInfo x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span>
 </span><span id="line-84"></span><span id="newGetCelebrityInfo"><span class="annot"><span class="annottext">newGetCelebrityInfo :: Text -&gt; GetCelebrityInfo
-</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#newGetCelebrityInfo"><span class="hs-identifier hs-var hs-var">newGetCelebrityInfo</span></a></span></span><span> </span><span id="local-6989586621679343628"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679343628"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#newGetCelebrityInfo"><span class="hs-identifier hs-var hs-var">newGetCelebrityInfo</span></a></span></span><span> </span><span id="local-6989586621679343945"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343945"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetCelebrityInfo' :: Text -&gt; GetCelebrityInfo
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-type">GetCelebrityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCelebrityInfo' :: Text
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aid%3AGetCelebrityInfo%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679343628"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679343945"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The ID for the celebrity. You get the celebrity ID from a call to the</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- RecognizeCelebrities operation, which recognizes celebrities in an</span><span>
@@ -152,27 +152,27 @@ $cfrom :: forall x. GetCelebrityInfo -&gt; Rep GetCelebrityInfo x
 -&gt; (GetCelebrityInfo -&gt; Text -&gt; GetCelebrityInfo)
 -&gt; Lens GetCelebrityInfo GetCelebrityInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-type">GetCelebrityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343625"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-type">GetCelebrityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343942"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetCelebrityInfo' :: GetCelebrityInfo -&gt; Text
-</span><a href="#local-6989586621679343625"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679343625"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343624"><span class="annot"><span class="annottext">s :: GetCelebrityInfo
-</span><a href="#local-6989586621679343624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-type">GetCelebrityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343623"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679343623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfo
-</span><a href="#local-6989586621679343624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCelebrityInfo' :: Text
+</span><a href="#local-6989586621679343942"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343942"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343941"><span class="annot"><span class="annottext">s :: GetCelebrityInfo
+</span><a href="#local-6989586621679343941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-type">GetCelebrityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343940"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfo
+</span><a href="#local-6989586621679343941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCelebrityInfo' :: Text
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aid%3AGetCelebrityInfo%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679343623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679343619"><span class="annot"><span class="annottext">request :: GetCelebrityInfo -&gt; Request GetCelebrityInfo
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679343936"><span class="annot"><span class="annottext">request :: GetCelebrityInfo -&gt; Request GetCelebrityInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCelebrityInfo -&gt; Request GetCelebrityInfo
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679343615"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679343932"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCelebrityInfo
 -&gt; ClientResponse ClientBody
@@ -196,33 +196,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343612"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343612"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343611"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679343611"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343610"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe KnownGender
--&gt; Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343929"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343928"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343928"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343927"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe KnownGender
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetCelebrityInfoResponse
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">GetCelebrityInfoResponse'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KnownGender
- -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
--&gt; Either String (Maybe KnownGender)
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe KnownGender
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetCelebrityInfoResponse)
+-&gt; Either String (Maybe [Text])
 -&gt; Either
      String
-     (Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
+     (Maybe KnownGender
+      -&gt; Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KnownGender)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KnownGender&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
--&gt; Either String (Maybe [Text])
--&gt; Either String (Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679343927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Urls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -231,12 +227,24 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe KnownGender
+   -&gt; Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
+-&gt; Either String (Maybe KnownGender)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KnownGender)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KnownGender&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; GetCelebrityInfoResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679343610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679343927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,15 +256,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343612"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343929"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343601"><span id="local-6989586621679343603"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343918"><span id="local-6989586621679343920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679343594"><span class="annot"><span class="annottext">toHeaders :: GetCelebrityInfo -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679343911"><span class="annot"><span class="annottext">toHeaders :: GetCelebrityInfo -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCelebrityInfo -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -283,12 +291,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343584"><span id="local-6989586621679343586"><span id="local-6989586621679343588"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679343582"><span class="annot"><span class="annottext">toJSON :: GetCelebrityInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-type">GetCelebrityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343580"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343901"><span id="local-6989586621679343903"><span id="local-6989586621679343905"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679343899"><span class="annot"><span class="annottext">toJSON :: GetCelebrityInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo%27"><span class="hs-identifier hs-type">GetCelebrityInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343897"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetCelebrityInfo' :: GetCelebrityInfo -&gt; Text
-</span><a href="#local-6989586621679343580"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679343897"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,17 +307,17 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679343580"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343897"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679343574"><span class="annot"><span class="annottext">toPath :: GetCelebrityInfo -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679343891"><span class="annot"><span class="annottext">toPath :: GetCelebrityInfo -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCelebrityInfo -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfo"><span class="hs-identifier hs-type">GetCelebrityInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679343570"><span class="annot"><span class="annottext">toQuery :: GetCelebrityInfo -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679343887"><span class="annot"><span class="annottext">toQuery :: GetCelebrityInfo -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCelebrityInfo -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,13 +325,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newGetCelebrityInfoResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679343567"><span id="local-6989586621679343568"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCelebrityInfoResponse"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-var">GetCelebrityInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCelebrityInfoResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">GetCelebrityInfoResponse'</span></a></span></span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Retrieves the known gender for the celebrity.</span><span>
-</span><span id="line-141"></span><span>    </span><span id="%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; Maybe KnownGender
-</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var hs-var">knownGender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | An array of URLs pointing to additional celebrity information.</span><span>
-</span><span id="line-143"></span><span>    </span><span id="%24sel%3Aurls%3AGetCelebrityInfoResponse%27"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; Maybe [Text]
+</span><span id="line-139"></span><span id="local-6989586621679343884"><span id="local-6989586621679343885"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCelebrityInfoResponse"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-var">GetCelebrityInfoResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCelebrityInfoResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">GetCelebrityInfoResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of URLs pointing to additional celebrity information.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3Aurls%3AGetCelebrityInfoResponse%27"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aurls%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var hs-var">urls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | Retrieves the known gender for the celebrity.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; Maybe KnownGender
+</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var hs-var">knownGender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The name of the celebrity.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3Aname%3AGetCelebrityInfoResponse%27"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aname%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -331,7 +339,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCelebrityInfoResponse%27"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AhttpStatus%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343559"><span id="local-6989586621679343561"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; GetCelebrityInfoResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343876"><span id="local-6989586621679343878"><span class="annot"><span class="annottext">GetCelebrityInfoResponse -&gt; GetCelebrityInfoResponse -&gt; Bool
 (GetCelebrityInfoResponse -&gt; GetCelebrityInfoResponse -&gt; Bool)
 -&gt; (GetCelebrityInfoResponse -&gt; GetCelebrityInfoResponse -&gt; Bool)
 -&gt; Eq GetCelebrityInfoResponse
@@ -340,7 +348,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCelebrityInfoResponse -&gt; GetCelebrityInfoResponse -&gt; Bool
 == :: GetCelebrityInfoResponse -&gt; GetCelebrityInfoResponse -&gt; Bool
 $c== :: GetCelebrityInfoResponse -&gt; GetCelebrityInfoResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343551"><span id="local-6989586621679343553"><span id="local-6989586621679343555"><span id="local-6989586621679343557"><span class="annot"><span class="annottext">ReadPrec [GetCelebrityInfoResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343868"><span id="local-6989586621679343870"><span id="local-6989586621679343872"><span id="local-6989586621679343874"><span class="annot"><span class="annottext">ReadPrec [GetCelebrityInfoResponse]
 ReadPrec GetCelebrityInfoResponse
 Int -&gt; ReadS GetCelebrityInfoResponse
 ReadS [GetCelebrityInfoResponse]
@@ -360,7 +368,7 @@ readList :: ReadS [GetCelebrityInfoResponse]
 $creadList :: ReadS [GetCelebrityInfoResponse]
 readsPrec :: Int -&gt; ReadS GetCelebrityInfoResponse
 $creadsPrec :: Int -&gt; ReadS GetCelebrityInfoResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343545"><span id="local-6989586621679343547"><span id="local-6989586621679343549"><span class="annot"><span class="annottext">Int -&gt; GetCelebrityInfoResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343862"><span id="local-6989586621679343864"><span id="local-6989586621679343866"><span class="annot"><span class="annottext">Int -&gt; GetCelebrityInfoResponse -&gt; ShowS
 [GetCelebrityInfoResponse] -&gt; ShowS
 GetCelebrityInfoResponse -&gt; String
 (Int -&gt; GetCelebrityInfoResponse -&gt; ShowS)
@@ -400,9 +408,9 @@ GetCelebrityInfoResponse -&gt; Rep GetCelebrityInfoResponse x
 </span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- 'knownGender', 'getCelebrityInfoResponse_knownGender' - Retrieves the known gender for the celebrity.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'urls', 'getCelebrityInfoResponse_urls' - An array of URLs pointing to additional celebrity information.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- 'urls', 'getCelebrityInfoResponse_urls' - An array of URLs pointing to additional celebrity information.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'knownGender', 'getCelebrityInfoResponse_knownGender' - Retrieves the known gender for the celebrity.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- 'name', 'getCelebrityInfoResponse_name' - The name of the celebrity.</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
@@ -412,56 +420,34 @@ GetCelebrityInfoResponse -&gt; Rep GetCelebrityInfoResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newGetCelebrityInfoResponse"><span class="annot"><span class="annottext">newGetCelebrityInfoResponse :: Int -&gt; GetCelebrityInfoResponse
-</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#newGetCelebrityInfoResponse"><span class="hs-identifier hs-var hs-var">newGetCelebrityInfoResponse</span></a></span></span><span> </span><span id="local-6989586621679343542"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse' :: Maybe KnownGender
--&gt; Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; GetCelebrityInfoResponse
+</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#newGetCelebrityInfoResponse"><span class="hs-identifier hs-var hs-var">newGetCelebrityInfoResponse</span></a></span></span><span> </span><span id="local-6989586621679343859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343859"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse' :: Maybe [Text]
+-&gt; Maybe KnownGender
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetCelebrityInfoResponse
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:knownGender:GetCelebrityInfoResponse' :: Maybe KnownGender
-</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">knownGender</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe KnownGender
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:urls:GetCelebrityInfoResponse' :: Maybe [Text]
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:urls:GetCelebrityInfoResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aurls%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">urls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetCelebrityInfoResponse' :: Maybe Text
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:knownGender:GetCelebrityInfoResponse' :: Maybe KnownGender
+</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">knownGender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGender
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetCelebrityInfoResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aname%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCelebrityInfoResponse' :: Int
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCelebrityInfoResponse' :: Int
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AhttpStatus%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- | Retrieves the known gender for the celebrity.</span><span>
-</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_knownGender"><span class="hs-identifier hs-type">getCelebrityInfoResponse_knownGender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span id="getCelebrityInfoResponse_knownGender"><span class="annot"><span class="annottext">getCelebrityInfoResponse_knownGender :: (Maybe KnownGender -&gt; f (Maybe KnownGender))
--&gt; GetCelebrityInfoResponse -&gt; f GetCelebrityInfoResponse
-</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_knownGender"><span class="hs-identifier hs-var hs-var">getCelebrityInfoResponse_knownGender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCelebrityInfoResponse -&gt; Maybe KnownGender)
--&gt; (GetCelebrityInfoResponse
-    -&gt; Maybe KnownGender -&gt; GetCelebrityInfoResponse)
--&gt; Lens
-     GetCelebrityInfoResponse
-     GetCelebrityInfoResponse
-     (Maybe KnownGender)
-     (Maybe KnownGender)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343541"><span class="annot"><span class="annottext">Maybe KnownGender
-knownGender :: Maybe KnownGender
-$sel:knownGender:GetCelebrityInfoResponse' :: GetCelebrityInfoResponse -&gt; Maybe KnownGender
-</span><a href="#local-6989586621679343541"><span class="hs-identifier hs-var hs-var">knownGender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGender
-</span><a href="#local-6989586621679343541"><span class="hs-identifier hs-var">knownGender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343540"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343539"><span class="annot"><span class="annottext">Maybe KnownGender
-</span><a href="#local-6989586621679343539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knownGender:GetCelebrityInfoResponse' :: Maybe KnownGender
-</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">knownGender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGender
-</span><a href="#local-6989586621679343539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | An array of URLs pointing to additional celebrity information.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_urls"><span class="hs-identifier hs-type">getCelebrityInfoResponse_urls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="getCelebrityInfoResponse_urls"><span class="annot"><span class="annottext">getCelebrityInfoResponse_urls :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679343859"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | An array of URLs pointing to additional celebrity information.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_urls"><span class="hs-identifier hs-type">getCelebrityInfoResponse_urls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="getCelebrityInfoResponse_urls"><span class="annot"><span class="annottext">getCelebrityInfoResponse_urls :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; GetCelebrityInfoResponse -&gt; f GetCelebrityInfoResponse
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_urls"><span class="hs-identifier hs-var hs-var">getCelebrityInfoResponse_urls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCelebrityInfoResponse -&gt; Maybe [Text])
 -&gt; (GetCelebrityInfoResponse
@@ -472,16 +458,16 @@ $sel:knownGender:GetCelebrityInfoResponse' :: GetCelebrityInfoResponse -&gt; May
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343538"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343858"><span class="annot"><span class="annottext">Maybe [Text]
 urls :: Maybe [Text]
 $sel:urls:GetCelebrityInfoResponse' :: GetCelebrityInfoResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679343538"><span class="hs-identifier hs-var hs-var">urls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679343538"><span class="hs-identifier hs-var">urls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343537"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343536"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679343536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:urls:GetCelebrityInfoResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679343858"><span class="hs-identifier hs-var hs-var">urls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679343858"><span class="hs-identifier hs-var">urls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343857"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343856"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679343856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:urls:GetCelebrityInfoResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aurls%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">urls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679343536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679343856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GetCelebrityInfoResponse -&gt; f GetCelebrityInfoResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -495,12 +481,36 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | The name of the celebrity.</span><span>
-</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_name"><span class="hs-identifier hs-type">getCelebrityInfoResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span id="getCelebrityInfoResponse_name"><span class="annot"><span class="annottext">getCelebrityInfoResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Retrieves the known gender for the celebrity.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_knownGender"><span class="hs-identifier hs-type">getCelebrityInfoResponse_knownGender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.KnownGender.html#KnownGender"><span class="hs-identifier hs-type">KnownGender</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="getCelebrityInfoResponse_knownGender"><span class="annot"><span class="annottext">getCelebrityInfoResponse_knownGender :: (Maybe KnownGender -&gt; f (Maybe KnownGender))
+-&gt; GetCelebrityInfoResponse -&gt; f GetCelebrityInfoResponse
+</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_knownGender"><span class="hs-identifier hs-var hs-var">getCelebrityInfoResponse_knownGender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCelebrityInfoResponse -&gt; Maybe KnownGender)
+-&gt; (GetCelebrityInfoResponse
+    -&gt; Maybe KnownGender -&gt; GetCelebrityInfoResponse)
+-&gt; Lens
+     GetCelebrityInfoResponse
+     GetCelebrityInfoResponse
+     (Maybe KnownGender)
+     (Maybe KnownGender)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343852"><span class="annot"><span class="annottext">Maybe KnownGender
+knownGender :: Maybe KnownGender
+$sel:knownGender:GetCelebrityInfoResponse' :: GetCelebrityInfoResponse -&gt; Maybe KnownGender
+</span><a href="#local-6989586621679343852"><span class="hs-identifier hs-var hs-var">knownGender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGender
+</span><a href="#local-6989586621679343852"><span class="hs-identifier hs-var">knownGender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343851"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343850"><span class="annot"><span class="annottext">Maybe KnownGender
+</span><a href="#local-6989586621679343850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:knownGender:GetCelebrityInfoResponse' :: Maybe KnownGender
+</span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AknownGender%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">knownGender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KnownGender
+</span><a href="#local-6989586621679343850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The name of the celebrity.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_name"><span class="hs-identifier hs-type">getCelebrityInfoResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="getCelebrityInfoResponse_name"><span class="annot"><span class="annottext">getCelebrityInfoResponse_name :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetCelebrityInfoResponse -&gt; f GetCelebrityInfoResponse
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_name"><span class="hs-identifier hs-var hs-var">getCelebrityInfoResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCelebrityInfoResponse -&gt; Maybe Text)
 -&gt; (GetCelebrityInfoResponse
@@ -511,35 +521,35 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343532"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343849"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:GetCelebrityInfoResponse' :: GetCelebrityInfoResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679343532"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679343532"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343531"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679343530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetCelebrityInfoResponse' :: Maybe Text
+</span><a href="#local-6989586621679343849"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343849"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343848"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343847"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetCelebrityInfoResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3Aname%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679343530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_httpStatus"><span class="hs-identifier hs-type">getCelebrityInfoResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-193"></span><span id="getCelebrityInfoResponse_httpStatus"><span class="annot"><span class="annottext">getCelebrityInfoResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679343847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_httpStatus"><span class="hs-identifier hs-type">getCelebrityInfoResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-192"></span><span id="getCelebrityInfoResponse_httpStatus"><span class="annot"><span class="annottext">getCelebrityInfoResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; GetCelebrityInfoResponse -&gt; f GetCelebrityInfoResponse
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#getCelebrityInfoResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCelebrityInfoResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCelebrityInfoResponse -&gt; Int)
 -&gt; (GetCelebrityInfoResponse -&gt; Int -&gt; GetCelebrityInfoResponse)
 -&gt; Lens GetCelebrityInfoResponse GetCelebrityInfoResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343529"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343846"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCelebrityInfoResponse' :: GetCelebrityInfoResponse -&gt; Int
-</span><a href="#local-6989586621679343529"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343529"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343528"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343527"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
-</span><a href="#local-6989586621679343528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCelebrityInfoResponse' :: Int
+</span><a href="#local-6989586621679343846"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343846"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343845"><span class="annot"><span class="annottext">s :: GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse%27"><span class="hs-identifier hs-type">GetCelebrityInfoResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343844"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCelebrityInfoResponse
+</span><a href="#local-6989586621679343845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCelebrityInfoResponse' :: Int
 </span><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#%24sel%3AhttpStatus%3AGetCelebrityInfoResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679343527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span></span><span>
-</span><span id="line-196"></span></pre></body></html>
+</span><a href="#local-6989586621679343844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetCelebrityInfo.html#GetCelebrityInfoResponse"><span class="hs-identifier hs-type">GetCelebrityInfoResponse</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

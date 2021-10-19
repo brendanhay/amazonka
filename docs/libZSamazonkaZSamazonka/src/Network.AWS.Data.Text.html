@@ -33,18 +33,18 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HTTP</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Numeric</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span class="hs-keyword">class</span><span> </span><span id="FromText"><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-var">FromText</span></a></span></span><span> </span><span id="local-6989586621679195092"><span class="annot"><a href="#local-6989586621679195092"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-37"></span><span>  </span><span id="fromText"><span class="annot"><a href="Network.AWS.Data.Text.html#fromText"><span class="hs-identifier hs-type">fromText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><a href="#local-6989586621679195092"><span class="hs-identifier hs-type">a</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">class</span><span> </span><span id="FromText"><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-var">FromText</span></a></span></span><span> </span><span id="local-6989586621679195019"><span class="annot"><a href="#local-6989586621679195019"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>  </span><span id="fromText"><span class="annot"><a href="Network.AWS.Data.Text.html#fromText"><span class="hs-identifier hs-type">fromText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Either</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="annot"><a href="#local-6989586621679195019"><span class="hs-identifier hs-type">a</span></a></span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-40"></span><span>  </span><span id="local-6989586621679195038"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Text
-</span><a href="#local-6989586621679195038"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Either String Text
+</span><span id="line-40"></span><span>  </span><span id="local-6989586621679194965"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Text
+</span><a href="#local-6989586621679194965"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Either String Text
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-43"></span><span>  </span><span id="local-6989586621679195036"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String String
-</span><a href="#local-6989586621679195036"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Either String String
+</span><span id="line-43"></span><span>  </span><span id="local-6989586621679194963"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String String
+</span><a href="#local-6989586621679194963"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Either String String
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">(String -&gt; Either String String)
 -&gt; (Text -&gt; String) -&gt; Text -&gt; Either String String
@@ -53,8 +53,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">Text.unpack</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-46"></span><span>  </span><span id="local-6989586621679195032"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String ByteString
-</span><a href="#local-6989586621679195032"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Either String ByteString
+</span><span id="line-46"></span><span>  </span><span id="local-6989586621679194959"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String ByteString
+</span><a href="#local-6989586621679194959"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Either String ByteString
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Either String ByteString)
 -&gt; (Text -&gt; ByteString) -&gt; Text -&gt; Either String ByteString
@@ -62,9 +62,9 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 </span><span class="hs-identifier hs-var">Text.encodeUtf8</span></span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span id="local-6989586621679195030"><span class="hs-keyword">instance</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI.FoldCase</span></span><span> </span><span class="annot"><a href="#local-6989586621679195030"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679195030"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><a href="#local-6989586621679195030"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-49"></span><span>  </span><span id="local-6989586621679195028"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String (CI a)
-</span><a href="#local-6989586621679195028"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; CI a) -&gt; Either String a -&gt; Either String (CI a)
+</span><span id="line-48"></span><span id="local-6989586621679194957"><span class="hs-keyword">instance</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI.FoldCase</span></span><span> </span><span class="annot"><a href="#local-6989586621679194957"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679194957"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><a href="#local-6989586621679194957"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>  </span><span id="local-6989586621679194955"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String (CI a)
+</span><a href="#local-6989586621679194955"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(a -&gt; CI a) -&gt; Either String a -&gt; Either String (CI a)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-identifier hs-var">fmap</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; CI a
 forall s. FoldCase s =&gt; s -&gt; CI s
@@ -76,8 +76,8 @@ forall a. FromText a =&gt; Text -&gt; Either String a
 </span><a href="Network.AWS.Data.Text.html#fromText"><span class="hs-identifier hs-var">fromText</span></a></span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Char</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-52"></span><span>  </span><span id="local-6989586621679195025"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Char
-</span><a href="#local-6989586621679195025"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Char -&gt; Text -&gt; Either String Char
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621679194952"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Char
+</span><a href="#local-6989586621679194952"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Char -&gt; Text -&gt; Either String Char
 forall a. Parser a -&gt; Text -&gt; Either String a
 </span><span class="hs-identifier hs-var">A.parseOnly</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Parser Char
 </span><span class="hs-identifier hs-var">A.anyChar</span></span><span> </span><span class="annot"><span class="annottext">Parser Char -&gt; Parser Text () -&gt; Parser Char
@@ -87,8 +87,8 @@ forall t. Chunk t =&gt; Parser t ()
 </span><span class="hs-identifier hs-var">A.endOfInput</span></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679195019"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Int
-</span><a href="#local-6989586621679195019"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Int -&gt; Text -&gt; Either String Int
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679194946"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Int
+</span><a href="#local-6989586621679194946"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Int -&gt; Text -&gt; Either String Int
 forall a. Parser a -&gt; Text -&gt; Either String a
 </span><span class="hs-identifier hs-var">A.parseOnly</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Parser Int -&gt; Parser Int
 forall a. Num a =&gt; Parser a -&gt; Parser a
@@ -101,8 +101,8 @@ forall t. Chunk t =&gt; Parser t ()
 </span><span class="hs-identifier hs-var">A.endOfInput</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int64</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679195015"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Int64
-</span><a href="#local-6989586621679195015"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Int64 -&gt; Text -&gt; Either String Int64
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679194942"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Int64
+</span><a href="#local-6989586621679194942"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Int64 -&gt; Text -&gt; Either String Int64
 forall a. Parser a -&gt; Text -&gt; Either String a
 </span><span class="hs-identifier hs-var">A.parseOnly</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Parser Int64 -&gt; Parser Int64
 forall a. Num a =&gt; Parser a -&gt; Parser a
@@ -115,8 +115,8 @@ forall t. Chunk t =&gt; Parser t ()
 </span><span class="hs-identifier hs-var">A.endOfInput</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679195013"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Integer
-</span><a href="#local-6989586621679195013"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Integer -&gt; Text -&gt; Either String Integer
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679194940"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Integer
+</span><a href="#local-6989586621679194940"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Integer -&gt; Text -&gt; Either String Integer
 forall a. Parser a -&gt; Text -&gt; Either String a
 </span><span class="hs-identifier hs-var">A.parseOnly</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Parser Integer -&gt; Parser Integer
 forall a. Num a =&gt; Parser a -&gt; Parser a
@@ -129,8 +129,8 @@ forall t. Chunk t =&gt; Parser t ()
 </span><span class="hs-identifier hs-var">A.endOfInput</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Scientific</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679195011"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Scientific
-</span><a href="#local-6989586621679195011"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Scientific -&gt; Text -&gt; Either String Scientific
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679194938"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Scientific
+</span><a href="#local-6989586621679194938"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Scientific -&gt; Text -&gt; Either String Scientific
 forall a. Parser a -&gt; Text -&gt; Either String a
 </span><span class="hs-identifier hs-var">A.parseOnly</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Parser Scientific -&gt; Parser Scientific
 forall a. Num a =&gt; Parser a -&gt; Parser a
@@ -142,8 +142,8 @@ forall t. Chunk t =&gt; Parser t ()
 </span><span class="hs-identifier hs-var">A.endOfInput</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Natural</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679195008"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Natural
-</span><a href="#local-6989586621679195008"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Natural -&gt; Text -&gt; Either String Natural
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679194935"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Natural
+</span><a href="#local-6989586621679194935"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Natural -&gt; Text -&gt; Either String Natural
 forall a. Parser a -&gt; Text -&gt; Either String a
 </span><span class="hs-identifier hs-var">A.parseOnly</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Parser Natural
 forall a. Integral a =&gt; Parser a
@@ -154,8 +154,8 @@ forall t. Chunk t =&gt; Parser t ()
 </span><span class="hs-identifier hs-var">A.endOfInput</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679195006"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Double
-</span><a href="#local-6989586621679195006"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Double -&gt; Text -&gt; Either String Double
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679194933"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Double
+</span><a href="#local-6989586621679194933"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Parser Double -&gt; Text -&gt; Either String Double
 forall a. Parser a -&gt; Text -&gt; Either String a
 </span><span class="hs-identifier hs-var">A.parseOnly</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Parser Double -&gt; Parser Double
 forall a. Num a =&gt; Parser a -&gt; Parser a
@@ -168,13 +168,13 @@ forall t. Chunk t =&gt; Parser t ()
 </span><span class="hs-identifier hs-var">A.endOfInput</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679195003"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Bool
-</span><a href="#local-6989586621679195003"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span id="local-6989586621679195002"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679195002"><span class="hs-identifier hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679194930"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String Bool
+</span><a href="#local-6989586621679194930"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span id="local-6989586621679194929"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194929"><span class="hs-identifier hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
 forall s. FoldCase s =&gt; s -&gt; CI s
 </span><span class="hs-identifier hs-var">CI.mk</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679195002"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-keyword">of</span><span>
+</span><a href="#local-6989586621679194929"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-keyword">of</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">CI Text
 </span><span class="hs-string">&quot;true&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Either String Bool
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
@@ -185,8 +185,8 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">False</span></span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679195001"><span class="annot"><span class="annottext">CI Text
-</span><a href="#local-6989586621679195001"><span class="hs-identifier hs-var">other</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">String -&gt; Either String Bool
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679194928"><span class="annot"><span class="annottext">CI Text
+</span><a href="#local-6989586621679194928"><span class="hs-identifier hs-var">other</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">String -&gt; Either String Bool
 forall a b. a -&gt; Either a b
 </span><span class="hs-identifier hs-var">Left</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Failure parsing Bool from &quot;</span></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; String
@@ -194,32 +194,32 @@ forall a. [a] -&gt; [a] -&gt; [a]
 </span><span class="hs-operator hs-var">++</span></span><span> </span><span class="annot"><span class="annottext">CI Text -&gt; String
 forall a. Show a =&gt; a -&gt; String
 </span><span class="hs-identifier hs-var">show</span></span><span> </span><span class="annot"><span class="annottext">CI Text
-</span><a href="#local-6989586621679195001"><span class="hs-identifier hs-var">other</span></a></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; String
+</span><a href="#local-6989586621679194928"><span class="hs-identifier hs-var">other</span></a></span><span> </span><span class="annot"><span class="annottext">String -&gt; String -&gt; String
 forall a. [a] -&gt; [a] -&gt; [a]
 </span><span class="hs-operator hs-var">++</span></span><span> </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;.&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#FromText"><span class="hs-identifier hs-type">FromText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.StdMethod</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679194998"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String StdMethod
-</span><a href="#local-6989586621679194998"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span id="local-6989586621679194997"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194997"><span class="hs-identifier hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679194925"><span class="annot"><span class="annottext">fromText :: Text -&gt; Either String StdMethod
+</span><a href="#local-6989586621679194925"><span class="hs-identifier hs-var hs-var hs-var hs-var">fromText</span></a></span></span><span> </span><span id="local-6989586621679194924"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194924"><span class="hs-identifier hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Either ByteString StdMethod
 </span><span class="hs-identifier hs-var">HTTP.parseMethod</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; ByteString
 </span><span class="hs-identifier hs-var">Text.encodeUtf8</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194997"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span id="local-6989586621679194995"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679194995"><span class="hs-identifier hs-var">err</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">String -&gt; Either String StdMethod
+</span><a href="#local-6989586621679194924"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">of</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Left</span></span><span> </span><span id="local-6989586621679194922"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679194922"><span class="hs-identifier hs-var">err</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">String -&gt; Either String StdMethod
 forall a b. a -&gt; Either a b
 </span><span class="hs-identifier hs-var">Left</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; String
 </span><span class="hs-identifier hs-var">BS8.unpack</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679194995"><span class="hs-identifier hs-var">err</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679194993"><span class="annot"><span class="annottext">StdMethod
-</span><a href="#local-6989586621679194993"><span class="hs-identifier hs-var">ok</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StdMethod -&gt; Either String StdMethod
+</span><a href="#local-6989586621679194922"><span class="hs-identifier hs-var">err</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Right</span></span><span> </span><span id="local-6989586621679194920"><span class="annot"><span class="annottext">StdMethod
+</span><a href="#local-6989586621679194920"><span class="hs-identifier hs-var">ok</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StdMethod -&gt; Either String StdMethod
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">pure</span></span><span> </span><span class="annot"><span class="annottext">StdMethod
-</span><a href="#local-6989586621679194993"><span class="hs-identifier hs-var">ok</span></a></span><span>
+</span><a href="#local-6989586621679194920"><span class="hs-identifier hs-var">ok</span></a></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span id="local-6989586621679194992"><span class="annot"><a href="Network.AWS.Data.Text.html#showText"><span class="hs-identifier hs-type">showText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679194992"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194992"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span></span><span>
+</span><span id="line-85"></span><span id="local-6989586621679194919"><span class="annot"><a href="Network.AWS.Data.Text.html#showText"><span class="hs-identifier hs-type">showText</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679194919"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194919"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span></span><span>
 </span><span id="line-86"></span><span id="showText"><span class="annot"><span class="annottext">showText :: a -&gt; String
 </span><a href="Network.AWS.Data.Text.html#showText"><span class="hs-identifier hs-var hs-var">showText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; String
 </span><span class="hs-identifier hs-var">Text.unpack</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; String) -&gt; (a -&gt; Text) -&gt; a -&gt; String
@@ -228,12 +228,12 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToText a =&gt; a -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">class</span><span> </span><span id="ToText"><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-var">ToText</span></a></span></span><span> </span><span id="local-6989586621679195061"><span class="annot"><a href="#local-6989586621679195061"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="toText"><span class="annot"><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-type">toText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679195061"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">class</span><span> </span><span id="ToText"><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-var">ToText</span></a></span></span><span> </span><span id="local-6989586621679194988"><span class="annot"><a href="#local-6989586621679194988"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="toText"><span class="annot"><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-type">toText</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679194988"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span id="local-6989586621679194990"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679194990"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><a href="#local-6989586621679194990"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679194987"><span class="annot"><span class="annottext">toText :: CI a -&gt; Text
-</span><a href="#local-6989586621679194987"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; Text
+</span><span id="line-91"></span><span id="local-6989586621679194917"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679194917"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><a href="#local-6989586621679194917"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679194914"><span class="annot"><span class="annottext">toText :: CI a -&gt; Text
+</span><a href="#local-6989586621679194914"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; Text
 forall a. ToText a =&gt; a -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span> </span><span class="annot"><span class="annottext">(a -&gt; Text) -&gt; (CI a -&gt; a) -&gt; CI a -&gt; Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -242,29 +242,29 @@ forall s. CI s -&gt; s
 </span><span class="hs-identifier hs-var hs-var">CI.original</span></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679194984"><span class="annot"><span class="annottext">toText :: Text -&gt; Text
-</span><a href="#local-6989586621679194984"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679194911"><span class="annot"><span class="annottext">toText :: Text -&gt; Text
+</span><a href="#local-6989586621679194911"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text
 forall a. a -&gt; a
 </span><span class="hs-identifier hs-var">id</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679194981"><span class="annot"><span class="annottext">toText :: ByteString -&gt; Text
-</span><a href="#local-6989586621679194981"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679194908"><span class="annot"><span class="annottext">toText :: ByteString -&gt; Text
+</span><a href="#local-6989586621679194908"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
 </span><span class="hs-identifier hs-var">Text.decodeUtf8</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Char</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679194978"><span class="annot"><span class="annottext">toText :: Char -&gt; Text
-</span><a href="#local-6989586621679194978"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Char -&gt; Text
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679194905"><span class="annot"><span class="annottext">toText :: Char -&gt; Text
+</span><a href="#local-6989586621679194905"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Char -&gt; Text
 </span><span class="hs-identifier hs-var">Text.singleton</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679194975"><span class="annot"><span class="annottext">toText :: String -&gt; Text
-</span><a href="#local-6989586621679194975"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679194902"><span class="annot"><span class="annottext">toText :: String -&gt; Text
+</span><a href="#local-6989586621679194902"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Text
 </span><span class="hs-identifier hs-var">Text.pack</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679194972"><span class="annot"><span class="annottext">toText :: Int -&gt; Text
-</span><a href="#local-6989586621679194972"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679194899"><span class="annot"><span class="annottext">toText :: Int -&gt; Text
+</span><a href="#local-6989586621679194899"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#shortText"><span class="hs-identifier hs-var">shortText</span></a></span><span> </span><span class="annot"><span class="annottext">(TextBuilder -&gt; Text) -&gt; (Int -&gt; TextBuilder) -&gt; Int -&gt; Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; TextBuilder
@@ -272,8 +272,8 @@ forall a. Integral a =&gt; a -&gt; TextBuilder
 </span><span class="hs-identifier hs-var">Build.decimal</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int64</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679194968"><span class="annot"><span class="annottext">toText :: Int64 -&gt; Text
-</span><a href="#local-6989586621679194968"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679194895"><span class="annot"><span class="annottext">toText :: Int64 -&gt; Text
+</span><a href="#local-6989586621679194895"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#shortText"><span class="hs-identifier hs-var">shortText</span></a></span><span> </span><span class="annot"><span class="annottext">(TextBuilder -&gt; Text) -&gt; (Int64 -&gt; TextBuilder) -&gt; Int64 -&gt; Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Int64 -&gt; TextBuilder
@@ -281,8 +281,8 @@ forall a. Integral a =&gt; a -&gt; TextBuilder
 </span><span class="hs-identifier hs-var">Build.decimal</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679194966"><span class="annot"><span class="annottext">toText :: Integer -&gt; Text
-</span><a href="#local-6989586621679194966"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679194893"><span class="annot"><span class="annottext">toText :: Integer -&gt; Text
+</span><a href="#local-6989586621679194893"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#shortText"><span class="hs-identifier hs-var">shortText</span></a></span><span> </span><span class="annot"><span class="annottext">(TextBuilder -&gt; Text)
 -&gt; (Integer -&gt; TextBuilder) -&gt; Integer -&gt; Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -291,8 +291,8 @@ forall a. Integral a =&gt; a -&gt; TextBuilder
 </span><span class="hs-identifier hs-var">Build.decimal</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Natural</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679194964"><span class="annot"><span class="annottext">toText :: Natural -&gt; Text
-</span><a href="#local-6989586621679194964"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679194891"><span class="annot"><span class="annottext">toText :: Natural -&gt; Text
+</span><a href="#local-6989586621679194891"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#shortText"><span class="hs-identifier hs-var">shortText</span></a></span><span> </span><span class="annot"><span class="annottext">(TextBuilder -&gt; Text)
 -&gt; (Natural -&gt; TextBuilder) -&gt; Natural -&gt; Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -301,8 +301,8 @@ forall a. Integral a =&gt; a -&gt; TextBuilder
 </span><span class="hs-identifier hs-var">Build.decimal</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Scientific</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679194962"><span class="annot"><span class="annottext">toText :: Scientific -&gt; Text
-</span><a href="#local-6989586621679194962"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679194889"><span class="annot"><span class="annottext">toText :: Scientific -&gt; Text
+</span><a href="#local-6989586621679194889"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TextBuilder -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#shortText"><span class="hs-identifier hs-var">shortText</span></a></span><span> </span><span class="annot"><span class="annottext">(TextBuilder -&gt; Text)
 -&gt; (Scientific -&gt; TextBuilder) -&gt; Scientific -&gt; Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -310,8 +310,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">Build.scientificBuilder</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679194959"><span class="annot"><span class="annottext">toText :: Double -&gt; Text
-</span><a href="#local-6989586621679194959"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679194886"><span class="annot"><span class="annottext">toText :: Double -&gt; Text
+</span><a href="#local-6989586621679194886"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; Text
 forall a. ToText a =&gt; a -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span> </span><span class="annot"><span class="annottext">(String -&gt; Text) -&gt; (Double -&gt; String) -&gt; Double -&gt; Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -328,8 +328,8 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Nothing</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.StdMethod</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679194956"><span class="annot"><span class="annottext">toText :: StdMethod -&gt; Text
-</span><a href="#local-6989586621679194956"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679194883"><span class="annot"><span class="annottext">toText :: StdMethod -&gt; Text
+</span><a href="#local-6989586621679194883"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
 forall a. ToText a =&gt; a -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Text)
 -&gt; (StdMethod -&gt; ByteString) -&gt; StdMethod -&gt; Text
@@ -337,9 +337,9 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">StdMethod -&gt; ByteString
 </span><span class="hs-identifier hs-var">HTTP.renderStdMethod</span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span id="local-6989586621679194954"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Crypto.Digest</span></span><span> </span><span class="annot"><a href="#local-6989586621679194954"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679194952"><span class="annot"><span class="annottext">toText :: Digest a -&gt; Text
-</span><a href="#local-6989586621679194952"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
+</span><span id="line-127"></span><span id="local-6989586621679194881"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Crypto.Digest</span></span><span> </span><span class="annot"><a href="#local-6989586621679194881"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679194879"><span class="annot"><span class="annottext">toText :: Digest a -&gt; Text
+</span><a href="#local-6989586621679194879"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text
 forall a. ToText a =&gt; a -&gt; Text
 </span><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Text)
 -&gt; (Digest a -&gt; ByteString) -&gt; Digest a -&gt; Text
@@ -349,8 +349,8 @@ forall a. ByteArrayAccess a =&gt; a -&gt; ByteString
 </span><a href="Network.AWS.Bytes.html#encodeBase16"><span class="hs-identifier hs-var">Bytes.encodeBase16</span></a></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679194949"><span class="annot"><span class="annottext">toText :: Bool -&gt; Text
-</span><a href="#local-6989586621679194949"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679194876"><span class="annot"><span class="annottext">toText :: Bool -&gt; Text
+</span><a href="#local-6989586621679194876"><span class="hs-identifier hs-var hs-var hs-var hs-var">toText</span></a></span></span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;true&quot;</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span><span> </span><span class="annot"><span class="annottext">Bool
@@ -366,7 +366,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-identifier hs-var">Build.toLazyTextWith</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">32</span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span id="local-6989586621679194946"><span class="annot"><a href="Network.AWS.Data.Text.html#toTextCI"><span class="hs-identifier hs-type">toTextCI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679194946"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194946"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679194873"><span class="annot"><a href="Network.AWS.Data.Text.html#toTextCI"><span class="hs-identifier hs-type">toTextCI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679194873"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679194873"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span></span><span>
 </span><span id="line-138"></span><span id="toTextCI"><span class="annot"><span class="annottext">toTextCI :: a -&gt; CI Text
 </span><a href="Network.AWS.Data.Text.html#toTextCI"><span class="hs-identifier hs-var hs-var">toTextCI</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; CI Text
 forall s. FoldCase s =&gt; s -&gt; CI s

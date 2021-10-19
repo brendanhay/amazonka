@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#newListInputDevicesResponse"><span class="hs-identifier">newListInputDevicesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_nextToken"><span class="hs-identifier">listInputDevicesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_inputDevices"><span class="hs-identifier">listInputDevicesResponse_inputDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_inputDevices"><span class="hs-identifier">listInputDevicesResponse_inputDevices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_nextToken"><span class="hs-identifier">listInputDevicesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_httpStatus"><span class="hs-identifier">listInputDevicesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Placeholder documentation for ListInputDevicesRequest</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListInputDevices' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679934084"><span id="local-6989586621679934085"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputDevices"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-var">ListInputDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputDevices%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-var">ListInputDevices'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679941668"><span id="local-6989586621679941669"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputDevices"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-var">ListInputDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputDevices%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-var">ListInputDevices'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListInputDevices%27"><span class="annot"><span class="annottext">ListInputDevices -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevices%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListInputDevices%27"><span class="annot"><span class="annottext">ListInputDevices -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AmaxResults%3AListInputDevices%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679934077"><span id="local-6989586621679934079"><span class="annot"><span class="annottext">ListInputDevices -&gt; ListInputDevices -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679941661"><span id="local-6989586621679941663"><span class="annot"><span class="annottext">ListInputDevices -&gt; ListInputDevices -&gt; Bool
 (ListInputDevices -&gt; ListInputDevices -&gt; Bool)
 -&gt; (ListInputDevices -&gt; ListInputDevices -&gt; Bool)
 -&gt; Eq ListInputDevices
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListInputDevices -&gt; ListInputDevices -&gt; Bool
 == :: ListInputDevices -&gt; ListInputDevices -&gt; Bool
 $c== :: ListInputDevices -&gt; ListInputDevices -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934068"><span id="local-6989586621679934070"><span id="local-6989586621679934072"><span id="local-6989586621679934074"><span class="annot"><span class="annottext">ReadPrec [ListInputDevices]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941652"><span id="local-6989586621679941654"><span id="local-6989586621679941656"><span id="local-6989586621679941658"><span class="annot"><span class="annottext">ReadPrec [ListInputDevices]
 ReadPrec ListInputDevices
 Int -&gt; ReadS ListInputDevices
 ReadS [ListInputDevices]
@@ -88,7 +88,7 @@ readList :: ReadS [ListInputDevices]
 $creadList :: ReadS [ListInputDevices]
 readsPrec :: Int -&gt; ReadS ListInputDevices
 $creadsPrec :: Int -&gt; ReadS ListInputDevices
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934061"><span id="local-6989586621679934063"><span id="local-6989586621679934065"><span class="annot"><span class="annottext">Int -&gt; ListInputDevices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941645"><span id="local-6989586621679941647"><span id="local-6989586621679941649"><span class="annot"><span class="annottext">Int -&gt; ListInputDevices -&gt; ShowS
 [ListInputDevices] -&gt; ShowS
 ListInputDevices -&gt; String
 (Int -&gt; ListInputDevices -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
 -&gt; (ListInputDevices -&gt; Maybe Text -&gt; ListInputDevices)
 -&gt; Lens ListInputDevices ListInputDevices (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934055"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941639"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListInputDevices' :: ListInputDevices -&gt; Maybe Text
-</span><a href="#local-6989586621679934055"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934055"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934054"><span class="annot"><span class="annottext">s :: ListInputDevices
-</span><a href="#local-6989586621679934054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934053"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevices
-</span><a href="#local-6989586621679934054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputDevices' :: Maybe Text
+</span><a href="#local-6989586621679941639"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941639"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941638"><span class="annot"><span class="annottext">s :: ListInputDevices
+</span><a href="#local-6989586621679941638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevices
+</span><a href="#local-6989586621679941638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputDevices' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevices%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevices_maxResults"><span class="hs-identifier hs-type">listInputDevices_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -169,29 +169,29 @@ $sel:nextToken:ListInputDevices' :: ListInputDevices -&gt; Maybe Text
 -&gt; Lens
      ListInputDevices ListInputDevices (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934052"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941636"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListInputDevices' :: ListInputDevices -&gt; Maybe Natural
-</span><a href="#local-6989586621679934052"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679934052"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934051"><span class="annot"><span class="annottext">s :: ListInputDevices
-</span><a href="#local-6989586621679934051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934050"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679934050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevices
-</span><a href="#local-6989586621679934051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInputDevices' :: Maybe Natural
+</span><a href="#local-6989586621679941636"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679941636"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941635"><span class="annot"><span class="annottext">s :: ListInputDevices
+</span><a href="#local-6989586621679941635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941634"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679941634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevices
+</span><a href="#local-6989586621679941635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInputDevices' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AmaxResults%3AListInputDevices%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679934050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679934046"><span class="annot"><span class="annottext">page :: ListInputDevices
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679941630"><span class="annot"><span class="annottext">page :: ListInputDevices
 -&gt; AWSResponse ListInputDevices -&gt; Maybe ListInputDevices
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679934044"><span class="annot"><span class="annottext">ListInputDevices
-</span><a href="#local-6989586621679934044"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679934043"><span class="annot"><span class="annottext">AWSResponse ListInputDevices
-</span><a href="#local-6989586621679934043"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679941628"><span class="annot"><span class="annottext">ListInputDevices
+</span><a href="#local-6989586621679941628"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679941627"><span class="annot"><span class="annottext">AWSResponse ListInputDevices
+</span><a href="#local-6989586621679941627"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-92"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInputDevices
 ListInputDevicesResponse
-</span><a href="#local-6989586621679934043"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679941627"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">ListInputDevicesResponse
 -&gt; Getting (First Text) ListInputDevicesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -220,7 +220,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInputDevices
 ListInputDevicesResponse
-</span><a href="#local-6989586621679934043"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679941627"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListInputDevicesResponse
 -&gt; Getting
      (First [InputDeviceSummary])
@@ -266,7 +266,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">ListInputDevices
-</span><a href="#local-6989586621679934044"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679941628"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">ListInputDevices
 -&gt; (ListInputDevices -&gt; ListInputDevices) -&gt; ListInputDevices
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -280,7 +280,7 @@ Lens ListInputDevices ListInputDevices (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInputDevices
 ListInputDevicesResponse
-</span><a href="#local-6989586621679934043"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679941627"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">ListInputDevicesResponse
 -&gt; Getting (First Text) ListInputDevicesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -305,12 +305,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679934033"><span class="annot"><span class="annottext">request :: ListInputDevices -&gt; Request ListInputDevices
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679941617"><span class="annot"><span class="annottext">request :: ListInputDevices -&gt; Request ListInputDevices
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListInputDevices -&gt; Request ListInputDevices
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679934029"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679941613"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListInputDevices
 -&gt; ClientResponse ClientBody
@@ -334,33 +334,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679934026"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934026"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679934025"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679934025"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679934024"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679934024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [InputDeviceSummary] -&gt; Int -&gt; ListInputDevicesResponse
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679941610"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941610"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679941609"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679941609"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679941608"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679941608"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListInputDevicesResponse
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-var">ListInputDevicesResponse'</span></a></span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [InputDeviceSummary] -&gt; Int -&gt; ListInputDevicesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [InputDeviceSummary] -&gt; Int -&gt; ListInputDevicesResponse)
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [InputDeviceSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListInputDevicesResponse)
+-&gt; Either String (Maybe [InputDeviceSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListInputDevicesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679934024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [InputDeviceSummary] -&gt; Int -&gt; ListInputDevicesResponse)
--&gt; Either String (Maybe [InputDeviceSummary])
--&gt; Either String (Int -&gt; ListInputDevicesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679934024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679941608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [InputDeviceSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -371,6 +358,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListInputDevicesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListInputDevicesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679941608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListInputDevicesResponse)
 -&gt; Either String Int -&gt; Either String ListInputDevicesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -379,15 +375,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934026"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941610"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934015"><span id="local-6989586621679934017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941599"><span id="local-6989586621679941601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679934008"><span class="annot"><span class="annottext">toHeaders :: ListInputDevices -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679941592"><span class="annot"><span class="annottext">toHeaders :: ListInputDevices -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListInputDevices -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -407,21 +403,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679934002"><span class="annot"><span class="annottext">toPath :: ListInputDevices -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679941586"><span class="annot"><span class="annottext">toPath :: ListInputDevices -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListInputDevices -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/prod/inputDevices&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices"><span class="hs-identifier hs-type">ListInputDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679933998"><span class="annot"><span class="annottext">toQuery :: ListInputDevices -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933995"><span id="local-6989586621679933996"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679941582"><span class="annot"><span class="annottext">toQuery :: ListInputDevices -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevices%27"><span class="hs-identifier hs-type">ListInputDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941579"><span id="local-6989586621679941580"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListInputDevices' :: ListInputDevices -&gt; Maybe Natural
 $sel:nextToken:ListInputDevices' :: ListInputDevices -&gt; Maybe Text
-</span><a href="#local-6989586621679933995"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679941579"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -429,29 +425,29 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933996"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679941580"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679933995"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679941579"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Placeholder documentation for ListInputDevicesResponse</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- /See:/ 'newListInputDevicesResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679933992"><span id="local-6989586621679933993"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputDevicesResponse"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-var">ListInputDevicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputDevicesResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-var">ListInputDevicesResponse'</span></a></span></span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to get additional list results.</span><span>
-</span><span id="line-155"></span><span>    </span><span id="%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="annot"><span class="annottext">ListInputDevicesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The list of input devices.</span><span>
-</span><span id="line-157"></span><span>    </span><span id="%24sel%3AinputDevices%3AListInputDevicesResponse%27"><span class="annot"><span class="annottext">ListInputDevicesResponse -&gt; Maybe [InputDeviceSummary]
+</span><span id="line-153"></span><span id="local-6989586621679941576"><span id="local-6989586621679941577"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInputDevicesResponse"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-var">ListInputDevicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInputDevicesResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-var">ListInputDevicesResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of input devices.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AinputDevices%3AListInputDevicesResponse%27"><span class="annot"><span class="annottext">ListInputDevicesResponse -&gt; Maybe [InputDeviceSummary]
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AinputDevices%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var hs-var">inputDevices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | A token to get additional list results.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="annot"><span class="annottext">ListInputDevicesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListInputDevicesResponse%27"><span class="annot"><span class="annottext">ListInputDevicesResponse -&gt; Int
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AhttpStatus%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679933985"><span id="local-6989586621679933987"><span class="annot"><span class="annottext">ListInputDevicesResponse -&gt; ListInputDevicesResponse -&gt; Bool
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679941569"><span id="local-6989586621679941571"><span class="annot"><span class="annottext">ListInputDevicesResponse -&gt; ListInputDevicesResponse -&gt; Bool
 (ListInputDevicesResponse -&gt; ListInputDevicesResponse -&gt; Bool)
 -&gt; (ListInputDevicesResponse -&gt; ListInputDevicesResponse -&gt; Bool)
 -&gt; Eq ListInputDevicesResponse
@@ -460,7 +456,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListInputDevicesResponse -&gt; ListInputDevicesResponse -&gt; Bool
 == :: ListInputDevicesResponse -&gt; ListInputDevicesResponse -&gt; Bool
 $c== :: ListInputDevicesResponse -&gt; ListInputDevicesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679933977"><span id="local-6989586621679933979"><span id="local-6989586621679933981"><span id="local-6989586621679933983"><span class="annot"><span class="annottext">ReadPrec [ListInputDevicesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941561"><span id="local-6989586621679941563"><span id="local-6989586621679941565"><span id="local-6989586621679941567"><span class="annot"><span class="annottext">ReadPrec [ListInputDevicesResponse]
 ReadPrec ListInputDevicesResponse
 Int -&gt; ReadS ListInputDevicesResponse
 ReadS [ListInputDevicesResponse]
@@ -480,7 +476,7 @@ readList :: ReadS [ListInputDevicesResponse]
 $creadList :: ReadS [ListInputDevicesResponse]
 readsPrec :: Int -&gt; ReadS ListInputDevicesResponse
 $creadsPrec :: Int -&gt; ReadS ListInputDevicesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679933971"><span id="local-6989586621679933973"><span id="local-6989586621679933975"><span class="annot"><span class="annottext">Int -&gt; ListInputDevicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679941555"><span id="local-6989586621679941557"><span id="local-6989586621679941559"><span class="annot"><span class="annottext">Int -&gt; ListInputDevicesResponse -&gt; ShowS
 [ListInputDevicesResponse] -&gt; ShowS
 ListInputDevicesResponse -&gt; String
 (Int -&gt; ListInputDevicesResponse -&gt; ShowS)
@@ -520,9 +516,9 @@ ListInputDevicesResponse -&gt; Rep ListInputDevicesResponse x
 </span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- 'nextToken', 'listInputDevicesResponse_nextToken' - A token to get additional list results.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'inputDevices', 'listInputDevicesResponse_inputDevices' - The list of input devices.</span><span>
 </span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- 'inputDevices', 'listInputDevicesResponse_inputDevices' - The list of input devices.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'nextToken', 'listInputDevicesResponse_nextToken' - A token to get additional list results.</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'listInputDevicesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#newListInputDevicesResponse"><span class="hs-identifier hs-type">newListInputDevicesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -530,64 +526,44 @@ ListInputDevicesResponse -&gt; Rep ListInputDevicesResponse x
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newListInputDevicesResponse"><span class="annot"><span class="annottext">newListInputDevicesResponse :: Int -&gt; ListInputDevicesResponse
-</span><a href="Network.AWS.MediaLive.ListInputDevices.html#newListInputDevicesResponse"><span class="hs-identifier hs-var hs-var">newListInputDevicesResponse</span></a></span></span><span> </span><span id="local-6989586621679933968"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">ListInputDevicesResponse' :: Maybe Text
--&gt; Maybe [InputDeviceSummary] -&gt; Int -&gt; ListInputDevicesResponse
+</span><a href="Network.AWS.MediaLive.ListInputDevices.html#newListInputDevicesResponse"><span class="hs-identifier hs-var hs-var">newListInputDevicesResponse</span></a></span></span><span> </span><span id="local-6989586621679941552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">ListInputDevicesResponse' :: Maybe [InputDeviceSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListInputDevicesResponse
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInputDevicesResponse' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputDevices:ListInputDevicesResponse' :: Maybe [InputDeviceSummary]
+</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AinputDevices%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">inputDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputDevices:ListInputDevicesResponse' :: Maybe [InputDeviceSummary]
-</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AinputDevices%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">inputDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListInputDevicesResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListInputDevicesResponse' :: Int
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AhttpStatus%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933968"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679941552"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | A token to get additional list results.</span><span>
-</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_nextToken"><span class="hs-identifier hs-type">listInputDevicesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span id="listInputDevicesResponse_nextToken"><span class="annot"><span class="annottext">listInputDevicesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListInputDevicesResponse -&gt; f ListInputDevicesResponse
-</span><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInputDevicesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInputDevicesResponse -&gt; Maybe Text)
--&gt; (ListInputDevicesResponse
-    -&gt; Maybe Text -&gt; ListInputDevicesResponse)
--&gt; Lens' ListInputDevicesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933967"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListInputDevicesResponse' :: ListInputDevicesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679933967"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933967"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933966"><span class="annot"><span class="annottext">s :: ListInputDevicesResponse
-</span><a href="#local-6989586621679933966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933965"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevicesResponse
-</span><a href="#local-6989586621679933966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputDevicesResponse' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679933965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- | The list of input devices.</span><span>
-</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_inputDevices"><span class="hs-identifier hs-type">listInputDevicesResponse_inputDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span id="listInputDevicesResponse_inputDevices"><span class="annot"><span class="annottext">listInputDevicesResponse_inputDevices :: (Maybe [InputDeviceSummary] -&gt; f (Maybe [InputDeviceSummary]))
+</span><span id="line-188"></span><span class="hs-comment">-- | The list of input devices.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_inputDevices"><span class="hs-identifier hs-type">listInputDevicesResponse_inputDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceSummary.html#InputDeviceSummary"><span class="hs-identifier hs-type">InputDeviceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listInputDevicesResponse_inputDevices"><span class="annot"><span class="annottext">listInputDevicesResponse_inputDevices :: (Maybe [InputDeviceSummary] -&gt; f (Maybe [InputDeviceSummary]))
 -&gt; ListInputDevicesResponse -&gt; f ListInputDevicesResponse
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_inputDevices"><span class="hs-identifier hs-var hs-var">listInputDevicesResponse_inputDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInputDevicesResponse -&gt; Maybe [InputDeviceSummary])
 -&gt; (ListInputDevicesResponse
     -&gt; Maybe [InputDeviceSummary] -&gt; ListInputDevicesResponse)
 -&gt; Lens' ListInputDevicesResponse (Maybe [InputDeviceSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933964"><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941551"><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
 inputDevices :: Maybe [InputDeviceSummary]
 $sel:inputDevices:ListInputDevicesResponse' :: ListInputDevicesResponse -&gt; Maybe [InputDeviceSummary]
-</span><a href="#local-6989586621679933964"><span class="hs-identifier hs-var hs-var">inputDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
-</span><a href="#local-6989586621679933964"><span class="hs-identifier hs-var">inputDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933963"><span class="annot"><span class="annottext">s :: ListInputDevicesResponse
-</span><a href="#local-6989586621679933963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933962"><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
-</span><a href="#local-6989586621679933962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevicesResponse
-</span><a href="#local-6989586621679933963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDevices:ListInputDevicesResponse' :: Maybe [InputDeviceSummary]
+</span><a href="#local-6989586621679941551"><span class="hs-identifier hs-var hs-var">inputDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
+</span><a href="#local-6989586621679941551"><span class="hs-identifier hs-var">inputDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941550"><span class="annot"><span class="annottext">s :: ListInputDevicesResponse
+</span><a href="#local-6989586621679941550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941549"><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
+</span><a href="#local-6989586621679941549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevicesResponse
+</span><a href="#local-6989586621679941550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDevices:ListInputDevicesResponse' :: Maybe [InputDeviceSummary]
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AinputDevices%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">inputDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDeviceSummary]
-</span><a href="#local-6989586621679933962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputDeviceSummary] -&gt; f (Maybe [InputDeviceSummary]))
+</span><a href="#local-6989586621679941549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputDeviceSummary] -&gt; f (Maybe [InputDeviceSummary]))
  -&gt; ListInputDevicesResponse -&gt; f ListInputDevicesResponse)
 -&gt; ((Maybe [InputDeviceSummary] -&gt; f (Maybe [InputDeviceSummary]))
     -&gt; Maybe [InputDeviceSummary] -&gt; f (Maybe [InputDeviceSummary]))
@@ -613,8 +589,28 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InputDeviceSummary]
   [InputDeviceSummary]
   [InputDeviceSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A token to get additional list results.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_nextToken"><span class="hs-identifier hs-type">listInputDevicesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="listInputDevicesResponse_nextToken"><span class="annot"><span class="annottext">listInputDevicesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInputDevicesResponse -&gt; f ListInputDevicesResponse
+</span><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInputDevicesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInputDevicesResponse -&gt; Maybe Text)
+-&gt; (ListInputDevicesResponse
+    -&gt; Maybe Text -&gt; ListInputDevicesResponse)
+-&gt; Lens' ListInputDevicesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941546"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInputDevicesResponse' :: ListInputDevicesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679941546"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941546"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941545"><span class="annot"><span class="annottext">s :: ListInputDevicesResponse
+</span><a href="#local-6989586621679941545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941544"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevicesResponse
+</span><a href="#local-6989586621679941545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInputDevicesResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AnextToken%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679941544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#listInputDevicesResponse_httpStatus"><span class="hs-identifier hs-type">listInputDevicesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -624,16 +620,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListInputDevicesResponse -&gt; Int -&gt; ListInputDevicesResponse)
 -&gt; Lens ListInputDevicesResponse ListInputDevicesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679933959"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679941543"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListInputDevicesResponse' :: ListInputDevicesResponse -&gt; Int
-</span><a href="#local-6989586621679933959"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933959"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679933958"><span class="annot"><span class="annottext">s :: ListInputDevicesResponse
-</span><a href="#local-6989586621679933958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679933957"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevicesResponse
-</span><a href="#local-6989586621679933958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInputDevicesResponse' :: Int
+</span><a href="#local-6989586621679941543"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941543"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679941542"><span class="annot"><span class="annottext">s :: ListInputDevicesResponse
+</span><a href="#local-6989586621679941542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse%27"><span class="hs-identifier hs-type">ListInputDevicesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679941541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679941541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInputDevicesResponse
+</span><a href="#local-6989586621679941542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInputDevicesResponse' :: Int
 </span><a href="Network.AWS.MediaLive.ListInputDevices.html#%24sel%3AhttpStatus%3AListInputDevicesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679933957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679941541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679933955"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679941539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListInputDevices.html#ListInputDevicesResponse"><span class="hs-identifier hs-type">ListInputDevicesResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

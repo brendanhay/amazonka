@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a storage location in Amazon S3.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStorageLocation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681119507"><span id="local-6989586621681119508"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageLocation"><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-var">StorageLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageLocation%27"><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-var">StorageLocation'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3AStorageLocation%27"><span class="annot"><span class="annottext">StorageLocation -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Akey%3AStorageLocation%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Abucket%3AStorageLocation%27"><span class="annot"><span class="annottext">StorageLocation -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Abucket%3AStorageLocation%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681154353"><span id="local-6989586621681154354"></span></span><span class="hs-keyword">data</span><span> </span><span id="StorageLocation"><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-var">StorageLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageLocation%27"><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-var">StorageLocation'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Abucket%3AStorageLocation%27"><span class="annot"><span class="annottext">StorageLocation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Abucket%3AStorageLocation%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The key.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Akey%3AStorageLocation%27"><span class="annot"><span class="annottext">StorageLocation -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Akey%3AStorageLocation%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681119500"><span id="local-6989586621681119502"><span class="annot"><span class="annottext">StorageLocation -&gt; StorageLocation -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681154346"><span id="local-6989586621681154348"><span class="annot"><span class="annottext">StorageLocation -&gt; StorageLocation -&gt; Bool
 (StorageLocation -&gt; StorageLocation -&gt; Bool)
 -&gt; (StorageLocation -&gt; StorageLocation -&gt; Bool)
 -&gt; Eq StorageLocation
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StorageLocation -&gt; StorageLocation -&gt; Bool
 == :: StorageLocation -&gt; StorageLocation -&gt; Bool
 $c== :: StorageLocation -&gt; StorageLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119491"><span id="local-6989586621681119493"><span id="local-6989586621681119495"><span id="local-6989586621681119497"><span class="annot"><span class="annottext">ReadPrec [StorageLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154337"><span id="local-6989586621681154339"><span id="local-6989586621681154341"><span id="local-6989586621681154343"><span class="annot"><span class="annottext">ReadPrec [StorageLocation]
 ReadPrec StorageLocation
 Int -&gt; ReadS StorageLocation
 ReadS [StorageLocation]
@@ -64,7 +64,7 @@ readList :: ReadS [StorageLocation]
 $creadList :: ReadS [StorageLocation]
 readsPrec :: Int -&gt; ReadS StorageLocation
 $creadsPrec :: Int -&gt; ReadS StorageLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119484"><span id="local-6989586621681119486"><span id="local-6989586621681119488"><span class="annot"><span class="annottext">Int -&gt; StorageLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154330"><span id="local-6989586621681154332"><span id="local-6989586621681154334"><span class="annot"><span class="annottext">Int -&gt; StorageLocation -&gt; ShowS
 [StorageLocation] -&gt; ShowS
 StorageLocation -&gt; String
 (Int -&gt; StorageLocation -&gt; ShowS)
@@ -98,85 +98,85 @@ $cfrom :: forall x. StorageLocation -&gt; Rep StorageLocation x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'key', 'storageLocation_key' - The key.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'bucket', 'storageLocation_bucket' - The name of the S3 bucket.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'bucket', 'storageLocation_bucket' - The name of the S3 bucket.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'key', 'storageLocation_key' - The key.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#newStorageLocation"><span class="hs-identifier hs-type">newStorageLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span>
 </span><span id="line-51"></span><span id="newStorageLocation"><span class="annot"><span class="annottext">newStorageLocation :: StorageLocation
 </span><a href="Network.AWS.EC2.Types.StorageLocation.html#newStorageLocation"><span class="hs-identifier hs-var hs-var">newStorageLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">StorageLocation' :: Maybe Text -&gt; Maybe Text -&gt; StorageLocation
 </span><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:StorageLocation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Akey%3AStorageLocation%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucket:StorageLocation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Abucket%3AStorageLocation%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:StorageLocation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Abucket%3AStorageLocation%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:StorageLocation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Akey%3AStorageLocation%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The key.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#storageLocation_key"><span class="hs-identifier hs-type">storageLocation_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="storageLocation_key"><span class="annot"><span class="annottext">storageLocation_key :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StorageLocation -&gt; f StorageLocation
-</span><a href="Network.AWS.EC2.Types.StorageLocation.html#storageLocation_key"><span class="hs-identifier hs-var hs-var">storageLocation_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StorageLocation -&gt; Maybe Text)
--&gt; (StorageLocation -&gt; Maybe Text -&gt; StorageLocation)
--&gt; Lens StorageLocation StorageLocation (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119475"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:StorageLocation' :: StorageLocation -&gt; Maybe Text
-</span><a href="#local-6989586621681119475"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119475"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119474"><span class="annot"><span class="annottext">s :: StorageLocation
-</span><a href="#local-6989586621681119474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119473"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageLocation
-</span><a href="#local-6989586621681119474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:StorageLocation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Akey%3AStorageLocation%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#storageLocation_bucket"><span class="hs-identifier hs-type">storageLocation_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="storageLocation_bucket"><span class="annot"><span class="annottext">storageLocation_bucket :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-57"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#storageLocation_bucket"><span class="hs-identifier hs-type">storageLocation_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="storageLocation_bucket"><span class="annot"><span class="annottext">storageLocation_bucket :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StorageLocation -&gt; f StorageLocation
 </span><a href="Network.AWS.EC2.Types.StorageLocation.html#storageLocation_bucket"><span class="hs-identifier hs-var hs-var">storageLocation_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StorageLocation -&gt; Maybe Text)
 -&gt; (StorageLocation -&gt; Maybe Text -&gt; StorageLocation)
 -&gt; Lens StorageLocation StorageLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119471"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154321"><span class="annot"><span class="annottext">Maybe Text
 bucket :: Maybe Text
 $sel:bucket:StorageLocation' :: StorageLocation -&gt; Maybe Text
-</span><a href="#local-6989586621681119471"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119471"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119470"><span class="annot"><span class="annottext">s :: StorageLocation
-</span><a href="#local-6989586621681119470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119469"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageLocation
-</span><a href="#local-6989586621681119470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:StorageLocation' :: Maybe Text
+</span><a href="#local-6989586621681154321"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154321"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154320"><span class="annot"><span class="annottext">s :: StorageLocation
+</span><a href="#local-6989586621681154320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageLocation
+</span><a href="#local-6989586621681154320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:StorageLocation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Abucket%3AStorageLocation%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681154319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The key.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#storageLocation_key"><span class="hs-identifier hs-type">storageLocation_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="storageLocation_key"><span class="annot"><span class="annottext">storageLocation_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StorageLocation -&gt; f StorageLocation
+</span><a href="Network.AWS.EC2.Types.StorageLocation.html#storageLocation_key"><span class="hs-identifier hs-var hs-var">storageLocation_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StorageLocation -&gt; Maybe Text)
+-&gt; (StorageLocation -&gt; Maybe Text -&gt; StorageLocation)
+-&gt; Lens StorageLocation StorageLocation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154317"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:StorageLocation' :: StorageLocation -&gt; Maybe Text
+</span><a href="#local-6989586621681154317"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154317"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154316"><span class="annot"><span class="annottext">s :: StorageLocation
+</span><a href="#local-6989586621681154316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154315"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StorageLocation
+</span><a href="#local-6989586621681154316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:StorageLocation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.StorageLocation.html#%24sel%3Akey%3AStorageLocation%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119465"><span id="local-6989586621681119467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154311"><span id="local-6989586621681154313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation"><span class="hs-identifier hs-type">StorageLocation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681119458"><span class="annot"><span class="annottext">toQuery :: StorageLocation -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119455"><span id="local-6989586621681119456"><span class="annot"><span class="annottext">Maybe Text
-bucket :: Maybe Text
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681154304"><span class="annot"><span class="annottext">toQuery :: StorageLocation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.StorageLocation.html#StorageLocation%27"><span class="hs-identifier hs-type">StorageLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154301"><span id="local-6989586621681154302"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
-$sel:bucket:StorageLocation' :: StorageLocation -&gt; Maybe Text
+bucket :: Maybe Text
 $sel:key:StorageLocation' :: StorageLocation -&gt; Maybe Text
-</span><a href="#local-6989586621681119455"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:bucket:StorageLocation' :: StorageLocation -&gt; Maybe Text
+</span><a href="#local-6989586621681154301"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119456"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119455"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681154302"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154301"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span></pre></body></html>

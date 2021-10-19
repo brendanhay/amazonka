@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681111394"><span id="local-6989586621681111395"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleAction"><span class="annot"><a href="Network.AWS.EC2.Types.RuleAction.html#RuleAction"><span class="hs-identifier hs-var">RuleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleAction%27"><span class="annot"><a href="Network.AWS.EC2.Types.RuleAction.html#RuleAction%27"><span class="hs-identifier hs-var">RuleAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681146234"><span id="local-6989586621681146235"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RuleAction"><span class="annot"><a href="Network.AWS.EC2.Types.RuleAction.html#RuleAction"><span class="hs-identifier hs-var">RuleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleAction%27"><span class="annot"><a href="Network.AWS.EC2.Types.RuleAction.html#RuleAction%27"><span class="hs-identifier hs-var">RuleAction'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRuleAction"><span class="annot"><span class="annottext">RuleAction -&gt; Text
 </span><a href="Network.AWS.EC2.Types.RuleAction.html#fromRuleAction"><span class="hs-identifier hs-var hs-var">fromRuleAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681111386"><span id="local-6989586621681111388"><span id="local-6989586621681111390"><span class="annot"><span class="annottext">Int -&gt; RuleAction -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681146226"><span id="local-6989586621681146228"><span id="local-6989586621681146230"><span class="annot"><span class="annottext">Int -&gt; RuleAction -&gt; ShowS
 [RuleAction] -&gt; ShowS
 RuleAction -&gt; String
 (Int -&gt; RuleAction -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: RuleAction -&gt; String
 showsPrec :: Int -&gt; RuleAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; RuleAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681111377"><span id="local-6989586621681111379"><span id="local-6989586621681111381"><span id="local-6989586621681111383"><span class="annot"><span class="annottext">ReadPrec [RuleAction]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681146217"><span id="local-6989586621681146219"><span id="local-6989586621681146221"><span id="local-6989586621681146223"><span class="annot"><span class="annottext">ReadPrec [RuleAction]
 ReadPrec RuleAction
 Int -&gt; ReadS RuleAction
 ReadS [RuleAction]
@@ -73,7 +73,7 @@ $creadList :: ReadS [RuleAction]
 readsPrec :: Int -&gt; ReadS RuleAction
 $creadsPrec :: Int -&gt; ReadS RuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681111372"><span id="local-6989586621681111374"><span class="annot"><span class="annottext">RuleAction -&gt; RuleAction -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681146212"><span id="local-6989586621681146214"><span class="annot"><span class="annottext">RuleAction -&gt; RuleAction -&gt; Bool
 (RuleAction -&gt; RuleAction -&gt; Bool)
 -&gt; (RuleAction -&gt; RuleAction -&gt; Bool) -&gt; Eq RuleAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: RuleAction -&gt; RuleAction -&gt; Bool
 == :: RuleAction -&gt; RuleAction -&gt; Bool
 $c== :: RuleAction -&gt; RuleAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681111356"><span id="local-6989586621681111358"><span id="local-6989586621681111360"><span id="local-6989586621681111362"><span id="local-6989586621681111364"><span id="local-6989586621681111366"><span id="local-6989586621681111368"><span class="annot"><span class="annottext">Eq RuleAction
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681146196"><span id="local-6989586621681146198"><span id="local-6989586621681146200"><span id="local-6989586621681146202"><span id="local-6989586621681146204"><span id="local-6989586621681146206"><span id="local-6989586621681146208"><span class="annot"><span class="annottext">Eq RuleAction
 Eq RuleAction
 -&gt; (RuleAction -&gt; RuleAction -&gt; Ordering)
 -&gt; (RuleAction -&gt; RuleAction -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. RuleAction -&gt; Rep RuleAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681111348"><span id="local-6989586621681111350"><span class="annot"><span class="annottext">Int -&gt; RuleAction -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681146188"><span id="local-6989586621681146190"><span class="annot"><span class="annottext">Int -&gt; RuleAction -&gt; Int
 RuleAction -&gt; Int
 (Int -&gt; RuleAction -&gt; Int)
 -&gt; (RuleAction -&gt; Int) -&gt; Hashable RuleAction
@@ -142,49 +142,49 @@ $chash :: RuleAction -&gt; Int
 hashWithSalt :: Int -&gt; RuleAction -&gt; Int
 $chashWithSalt :: Int -&gt; RuleAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681111345"><span class="annot"><span class="annottext">RuleAction -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681146185"><span class="annot"><span class="annottext">RuleAction -&gt; ()
 (RuleAction -&gt; ()) -&gt; NFData RuleAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RuleAction -&gt; ()
 $crnf :: RuleAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681111342"><span class="annot"><span class="annottext">Text -&gt; Either String RuleAction
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681146182"><span class="annot"><span class="annottext">Text -&gt; Either String RuleAction
 (Text -&gt; Either String RuleAction) -&gt; FromText RuleAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RuleAction
 $cfromText :: Text -&gt; Either String RuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681111339"><span class="annot"><span class="annottext">RuleAction -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681146179"><span class="annot"><span class="annottext">RuleAction -&gt; Text
 (RuleAction -&gt; Text) -&gt; ToText RuleAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RuleAction -&gt; Text
 $ctoText :: RuleAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681111336"><span class="annot"><span class="annottext">RuleAction -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681146176"><span class="annot"><span class="annottext">RuleAction -&gt; ByteString
 (RuleAction -&gt; ByteString) -&gt; ToByteString RuleAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RuleAction -&gt; ByteString
 $ctoBS :: RuleAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681111333"><span class="annot"><span class="annottext">RuleAction -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681146173"><span class="annot"><span class="annottext">RuleAction -&gt; ByteStringBuilder
 (RuleAction -&gt; ByteStringBuilder) -&gt; ToLog RuleAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RuleAction -&gt; ByteStringBuilder
 $cbuild :: RuleAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681111330"><span class="annot"><span class="annottext">HeaderName -&gt; RuleAction -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681146170"><span class="annot"><span class="annottext">HeaderName -&gt; RuleAction -&gt; [Header]
 (HeaderName -&gt; RuleAction -&gt; [Header]) -&gt; ToHeader RuleAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RuleAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RuleAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681111327"><span class="annot"><span class="annottext">RuleAction -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681146167"><span class="annot"><span class="annottext">RuleAction -&gt; QueryString
 (RuleAction -&gt; QueryString) -&gt; ToQuery RuleAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RuleAction -&gt; QueryString
 $ctoQuery :: RuleAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681111322"><span id="local-6989586621681111324"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681146162"><span id="local-6989586621681146164"><span class="annot"><span class="annottext">Value -&gt; Parser [RuleAction]
 Value -&gt; Parser RuleAction
 (Value -&gt; Parser RuleAction)
 -&gt; (Value -&gt; Parser [RuleAction]) -&gt; FromJSON RuleAction
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [RuleAction]
 parseJSON :: Value -&gt; Parser RuleAction
 $cparseJSON :: Value -&gt; Parser RuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681111317"><span id="local-6989586621681111319"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681146157"><span id="local-6989586621681146159"><span class="annot"><span class="annottext">FromJSONKeyFunction [RuleAction]
 FromJSONKeyFunction RuleAction
 FromJSONKeyFunction RuleAction
 -&gt; FromJSONKeyFunction [RuleAction] -&gt; FromJSONKey RuleAction
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RuleAction]
 fromJSONKey :: FromJSONKeyFunction RuleAction
 $cfromJSONKey :: FromJSONKeyFunction RuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681111308"><span id="local-6989586621681111310"><span id="local-6989586621681111312"><span id="local-6989586621681111314"><span class="annot"><span class="annottext">[RuleAction] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681146148"><span id="local-6989586621681146150"><span id="local-6989586621681146152"><span id="local-6989586621681146154"><span class="annot"><span class="annottext">[RuleAction] -&gt; Encoding
 [RuleAction] -&gt; Value
 RuleAction -&gt; Encoding
 RuleAction -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: RuleAction -&gt; Encoding
 toJSON :: RuleAction -&gt; Value
 $ctoJSON :: RuleAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681111303"><span id="local-6989586621681111305"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleAction]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681146143"><span id="local-6989586621681146145"><span class="annot"><span class="annottext">ToJSONKeyFunction [RuleAction]
 ToJSONKeyFunction RuleAction
 ToJSONKeyFunction RuleAction
 -&gt; ToJSONKeyFunction [RuleAction] -&gt; ToJSONKey RuleAction
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RuleAction]
 toJSONKey :: ToJSONKeyFunction RuleAction
 $ctoJSONKey :: ToJSONKeyFunction RuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681111300"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleAction
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681146140"><span class="annot"><span class="annottext">[Node] -&gt; Either String RuleAction
 ([Node] -&gt; Either String RuleAction) -&gt; FromXML RuleAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RuleAction
 $cparseXML :: [Node] -&gt; Either String RuleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681111297"><span class="annot"><span class="annottext">RuleAction -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681146137"><span class="annot"><span class="annottext">RuleAction -&gt; XML
 (RuleAction -&gt; XML) -&gt; ToXML RuleAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RuleAction -&gt; XML

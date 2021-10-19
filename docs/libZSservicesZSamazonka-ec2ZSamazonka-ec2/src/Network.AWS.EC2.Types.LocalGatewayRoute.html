@@ -29,30 +29,31 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a route for a local gateway route table.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLocalGatewayRoute' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681091666"><span id="local-6989586621681091667"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalGatewayRoute"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-var">LocalGatewayRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalGatewayRoute%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-var">LocalGatewayRoute'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account ID that owns the local gateway route.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface group.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the local gateway route table.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlocalGatewayRouteTableArn%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableArn%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the local gateway route table.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlocalGatewayRouteTableId%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The state of the route.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Astate%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe LocalGatewayRouteState
+</span><span id="line-32"></span><span id="local-6989586621681126358"><span id="local-6989586621681126359"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalGatewayRoute"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-var">LocalGatewayRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalGatewayRoute%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-var">LocalGatewayRoute'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the route.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe LocalGatewayRouteState
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Astate%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#LocalGatewayRouteState"><span class="hs-identifier hs-type">LocalGatewayRouteState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The CIDR block used for destination matches.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The route type.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atype%27%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe LocalGatewayRouteType
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Atype%27%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteType.html#LocalGatewayRouteType"><span class="hs-identifier hs-type">LocalGatewayRouteType</span></a></span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681091654"><span id="local-6989586621681091656"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; LocalGatewayRoute -&gt; Bool
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the local gateway route table.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlocalGatewayRouteTableArn%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableArn%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the local gateway</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- route.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the local gateway route table.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlocalGatewayRouteTableId%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The route type.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe LocalGatewayRouteType
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Atype%27%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteType.html#LocalGatewayRouteType"><span class="hs-identifier hs-type">LocalGatewayRouteType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of the virtual interface group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The CIDR block used for destination matches.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681126346"><span id="local-6989586621681126348"><span class="annot"><span class="annottext">LocalGatewayRoute -&gt; LocalGatewayRoute -&gt; Bool
 (LocalGatewayRoute -&gt; LocalGatewayRoute -&gt; Bool)
 -&gt; (LocalGatewayRoute -&gt; LocalGatewayRoute -&gt; Bool)
 -&gt; Eq LocalGatewayRoute
@@ -61,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LocalGatewayRoute -&gt; LocalGatewayRoute -&gt; Bool
 == :: LocalGatewayRoute -&gt; LocalGatewayRoute -&gt; Bool
 $c== :: LocalGatewayRoute -&gt; LocalGatewayRoute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681091645"><span id="local-6989586621681091647"><span id="local-6989586621681091649"><span id="local-6989586621681091651"><span class="annot"><span class="annottext">ReadPrec [LocalGatewayRoute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681126337"><span id="local-6989586621681126339"><span id="local-6989586621681126341"><span id="local-6989586621681126343"><span class="annot"><span class="annottext">ReadPrec [LocalGatewayRoute]
 ReadPrec LocalGatewayRoute
 Int -&gt; ReadS LocalGatewayRoute
 ReadS [LocalGatewayRoute]
@@ -81,7 +82,7 @@ readList :: ReadS [LocalGatewayRoute]
 $creadList :: ReadS [LocalGatewayRoute]
 readsPrec :: Int -&gt; ReadS LocalGatewayRoute
 $creadsPrec :: Int -&gt; ReadS LocalGatewayRoute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681091638"><span id="local-6989586621681091640"><span id="local-6989586621681091642"><span class="annot"><span class="annottext">Int -&gt; LocalGatewayRoute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681126330"><span id="local-6989586621681126332"><span id="local-6989586621681126334"><span class="annot"><span class="annottext">Int -&gt; LocalGatewayRoute -&gt; ShowS
 [LocalGatewayRoute] -&gt; ShowS
 LocalGatewayRoute -&gt; String
 (Int -&gt; LocalGatewayRoute -&gt; ShowS)
@@ -106,155 +107,76 @@ forall a.
 $cto :: forall x. Rep LocalGatewayRoute x -&gt; LocalGatewayRoute
 $cfrom :: forall x. LocalGatewayRoute -&gt; Rep LocalGatewayRoute x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-49"></span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'LocalGatewayRoute' with all optional fields omitted.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'ownerId', 'localGatewayRoute_ownerId' - The AWS account ID that owns the local gateway route.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'localGatewayVirtualInterfaceGroupId', 'localGatewayRoute_localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'localGatewayRouteTableArn', 'localGatewayRoute_localGatewayRouteTableArn' - The Amazon Resource Name (ARN) of the local gateway route table.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'localGatewayRouteTableId', 'localGatewayRoute_localGatewayRouteTableId' - The ID of the local gateway route table.</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'LocalGatewayRoute' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'state', 'localGatewayRoute_state' - The state of the route.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'localGatewayRouteTableArn', 'localGatewayRoute_localGatewayRouteTableArn' - The Amazon Resource Name (ARN) of the local gateway route table.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ownerId', 'localGatewayRoute_ownerId' - The ID of the Amazon Web Services account that owns the local gateway</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- route.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'state', 'localGatewayRoute_state' - The state of the route.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'localGatewayRouteTableId', 'localGatewayRoute_localGatewayRouteTableId' - The ID of the local gateway route table.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'destinationCidrBlock', 'localGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'type'', 'localGatewayRoute_type' - The route type.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'type'', 'localGatewayRoute_type' - The route type.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#newLocalGatewayRoute"><span class="hs-identifier hs-type">newLocalGatewayRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span>
-</span><span id="line-73"></span><span id="newLocalGatewayRoute"><span class="annot"><span class="annottext">newLocalGatewayRoute :: LocalGatewayRoute
+</span><span id="line-70"></span><span class="hs-comment">-- 'localGatewayVirtualInterfaceGroupId', 'localGatewayRoute_localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'destinationCidrBlock', 'localGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#newLocalGatewayRoute"><span class="hs-identifier hs-type">newLocalGatewayRoute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span>
+</span><span id="line-75"></span><span id="newLocalGatewayRoute"><span class="annot"><span class="annottext">newLocalGatewayRoute :: LocalGatewayRoute
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#newLocalGatewayRoute"><span class="hs-identifier hs-var hs-var">newLocalGatewayRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">LocalGatewayRoute' :: Maybe Text
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">LocalGatewayRoute' :: Maybe LocalGatewayRouteState
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe LocalGatewayRouteState
 -&gt; Maybe Text
 -&gt; Maybe LocalGatewayRouteType
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; LocalGatewayRoute
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupId:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:LocalGatewayRoute' :: Maybe LocalGatewayRouteState
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Astate%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayRouteTableArn:LocalGatewayRoute' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableArn%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayRouteTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayRouteTableId:LocalGatewayRoute' :: Maybe Text
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayRouteTableId:LocalGatewayRoute' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:LocalGatewayRoute' :: Maybe LocalGatewayRouteState
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Astate%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':LocalGatewayRoute' :: Maybe LocalGatewayRouteType
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':LocalGatewayRoute' :: Maybe LocalGatewayRouteType
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Atype%27%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupId:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The AWS account ID that owns the local gateway route.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_ownerId"><span class="hs-identifier hs-type">localGatewayRoute_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="localGatewayRoute_ownerId"><span class="annot"><span class="annottext">localGatewayRoute_ownerId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_ownerId"><span class="hs-identifier hs-var hs-var">localGatewayRoute_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
--&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
--&gt; Lens
-     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091629"><span class="annot"><span class="annottext">Maybe Text
-ownerId :: Maybe Text
-$sel:ownerId:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
-</span><a href="#local-6989586621681091629"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091629"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091628"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
-</span><a href="#local-6989586621681091628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091627"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
-</span><a href="#local-6989586621681091628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The ID of the virtual interface group.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayVirtualInterfaceGroupId"><span class="hs-identifier hs-type">localGatewayRoute_localGatewayVirtualInterfaceGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="localGatewayRoute_localGatewayVirtualInterfaceGroupId"><span class="annot"><span class="annottext">localGatewayRoute_localGatewayVirtualInterfaceGroupId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayVirtualInterfaceGroupId"><span class="hs-identifier hs-var hs-var">localGatewayRoute_localGatewayVirtualInterfaceGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
--&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
--&gt; Lens
-     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091625"><span class="annot"><span class="annottext">Maybe Text
-localGatewayVirtualInterfaceGroupId :: Maybe Text
-$sel:localGatewayVirtualInterfaceGroupId:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
-</span><a href="#local-6989586621681091625"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091625"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091624"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
-</span><a href="#local-6989586621681091624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091623"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
-</span><a href="#local-6989586621681091624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupId:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the local gateway route table.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableArn"><span class="hs-identifier hs-type">localGatewayRoute_localGatewayRouteTableArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="localGatewayRoute_localGatewayRouteTableArn"><span class="annot"><span class="annottext">localGatewayRoute_localGatewayRouteTableArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableArn"><span class="hs-identifier hs-var hs-var">localGatewayRoute_localGatewayRouteTableArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
--&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
--&gt; Lens
-     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091621"><span class="annot"><span class="annottext">Maybe Text
-localGatewayRouteTableArn :: Maybe Text
-$sel:localGatewayRouteTableArn:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
-</span><a href="#local-6989586621681091621"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091621"><span class="hs-identifier hs-var">localGatewayRouteTableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091620"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
-</span><a href="#local-6989586621681091620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091619"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
-</span><a href="#local-6989586621681091620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayRouteTableArn:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableArn%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayRouteTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the local gateway route table.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableId"><span class="hs-identifier hs-type">localGatewayRoute_localGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="localGatewayRoute_localGatewayRouteTableId"><span class="annot"><span class="annottext">localGatewayRoute_localGatewayRouteTableId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableId"><span class="hs-identifier hs-var hs-var">localGatewayRoute_localGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
--&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
--&gt; Lens
-     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091617"><span class="annot"><span class="annottext">Maybe Text
-localGatewayRouteTableId :: Maybe Text
-$sel:localGatewayRouteTableId:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
-</span><a href="#local-6989586621681091617"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091617"><span class="hs-identifier hs-var">localGatewayRouteTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091616"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
-</span><a href="#local-6989586621681091616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091615"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
-</span><a href="#local-6989586621681091616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayRouteTableId:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The state of the route.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_state"><span class="hs-identifier hs-type">localGatewayRoute_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#LocalGatewayRouteState"><span class="hs-identifier hs-type">LocalGatewayRouteState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="localGatewayRoute_state"><span class="annot"><span class="annottext">localGatewayRoute_state :: (Maybe LocalGatewayRouteState -&gt; f (Maybe LocalGatewayRouteState))
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The state of the route.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_state"><span class="hs-identifier hs-type">localGatewayRoute_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#LocalGatewayRouteState"><span class="hs-identifier hs-type">LocalGatewayRouteState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="localGatewayRoute_state"><span class="annot"><span class="annottext">localGatewayRoute_state :: (Maybe LocalGatewayRouteState -&gt; f (Maybe LocalGatewayRouteState))
 -&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_state"><span class="hs-identifier hs-var hs-var">localGatewayRoute_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe LocalGatewayRouteState)
 -&gt; (LocalGatewayRoute
@@ -265,40 +187,81 @@ $sel:localGatewayRouteTableId:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Mayb
      (Maybe LocalGatewayRouteState)
      (Maybe LocalGatewayRouteState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091613"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681126321"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
 state :: Maybe LocalGatewayRouteState
 $sel:state:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe LocalGatewayRouteState
-</span><a href="#local-6989586621681091613"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
-</span><a href="#local-6989586621681091613"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091612"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
-</span><a href="#local-6989586621681091612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091611"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
-</span><a href="#local-6989586621681091611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
-</span><a href="#local-6989586621681091612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:LocalGatewayRoute' :: Maybe LocalGatewayRouteState
+</span><a href="#local-6989586621681126321"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
+</span><a href="#local-6989586621681126321"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681126320"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
+</span><a href="#local-6989586621681126320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681126319"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
+</span><a href="#local-6989586621681126319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
+</span><a href="#local-6989586621681126320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:LocalGatewayRoute' :: Maybe LocalGatewayRouteState
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Astate%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
-</span><a href="#local-6989586621681091611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The CIDR block used for destination matches.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_destinationCidrBlock"><span class="hs-identifier hs-type">localGatewayRoute_destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="localGatewayRoute_destinationCidrBlock"><span class="annot"><span class="annottext">localGatewayRoute_destinationCidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681126319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the local gateway route table.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableArn"><span class="hs-identifier hs-type">localGatewayRoute_localGatewayRouteTableArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="localGatewayRoute_localGatewayRouteTableArn"><span class="annot"><span class="annottext">localGatewayRoute_localGatewayRouteTableArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_destinationCidrBlock"><span class="hs-identifier hs-var hs-var">localGatewayRoute_destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableArn"><span class="hs-identifier hs-var hs-var">localGatewayRoute_localGatewayRouteTableArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
 -&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
 -&gt; Lens
      LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091609"><span class="annot"><span class="annottext">Maybe Text
-destinationCidrBlock :: Maybe Text
-$sel:destinationCidrBlock:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
-</span><a href="#local-6989586621681091609"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091609"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091608"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
-</span><a href="#local-6989586621681091608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
-</span><a href="#local-6989586621681091608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:LocalGatewayRoute' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681091607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The route type.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_type"><span class="hs-identifier hs-type">localGatewayRoute_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteType.html#LocalGatewayRouteType"><span class="hs-identifier hs-type">LocalGatewayRouteType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="localGatewayRoute_type"><span class="annot"><span class="annottext">localGatewayRoute_type :: (Maybe LocalGatewayRouteType -&gt; f (Maybe LocalGatewayRouteType))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681126317"><span class="annot"><span class="annottext">Maybe Text
+localGatewayRouteTableArn :: Maybe Text
+$sel:localGatewayRouteTableArn:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681126317"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126317"><span class="hs-identifier hs-var">localGatewayRouteTableArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681126316"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
+</span><a href="#local-6989586621681126316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681126315"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
+</span><a href="#local-6989586621681126316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayRouteTableArn:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableArn%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayRouteTableArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the local gateway</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- route.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_ownerId"><span class="hs-identifier hs-type">localGatewayRoute_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="localGatewayRoute_ownerId"><span class="annot"><span class="annottext">localGatewayRoute_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_ownerId"><span class="hs-identifier hs-var hs-var">localGatewayRoute_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
+-&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
+-&gt; Lens
+     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681126313"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681126313"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126313"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681126312"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
+</span><a href="#local-6989586621681126312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681126311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
+</span><a href="#local-6989586621681126312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AownerId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the local gateway route table.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableId"><span class="hs-identifier hs-type">localGatewayRoute_localGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="localGatewayRoute_localGatewayRouteTableId"><span class="annot"><span class="annottext">localGatewayRoute_localGatewayRouteTableId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayRouteTableId"><span class="hs-identifier hs-var hs-var">localGatewayRoute_localGatewayRouteTableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
+-&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
+-&gt; Lens
+     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681126309"><span class="annot"><span class="annottext">Maybe Text
+localGatewayRouteTableId :: Maybe Text
+$sel:localGatewayRouteTableId:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681126309"><span class="hs-identifier hs-var hs-var">localGatewayRouteTableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126309"><span class="hs-identifier hs-var">localGatewayRouteTableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681126308"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
+</span><a href="#local-6989586621681126308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681126307"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
+</span><a href="#local-6989586621681126308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayRouteTableId:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayRouteTableId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayRouteTableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The route type.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_type"><span class="hs-identifier hs-type">localGatewayRoute_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteType.html#LocalGatewayRouteType"><span class="hs-identifier hs-type">LocalGatewayRouteType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="localGatewayRoute_type"><span class="annot"><span class="annottext">localGatewayRoute_type :: (Maybe LocalGatewayRouteType -&gt; f (Maybe LocalGatewayRouteType))
 -&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_type"><span class="hs-identifier hs-var hs-var">localGatewayRoute_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe LocalGatewayRouteType)
 -&gt; (LocalGatewayRoute
@@ -309,154 +272,189 @@ $sel:destinationCidrBlock:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Te
      (Maybe LocalGatewayRouteType)
      (Maybe LocalGatewayRouteType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091605"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681126305"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
 type' :: Maybe LocalGatewayRouteType
 $sel:type':LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe LocalGatewayRouteType
-</span><a href="#local-6989586621681091605"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
-</span><a href="#local-6989586621681091605"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091604"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
-</span><a href="#local-6989586621681091604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091603"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
-</span><a href="#local-6989586621681091603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
-</span><a href="#local-6989586621681091604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':LocalGatewayRoute' :: Maybe LocalGatewayRouteType
+</span><a href="#local-6989586621681126305"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
+</span><a href="#local-6989586621681126305"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681126304"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
+</span><a href="#local-6989586621681126304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681126303"><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
+</span><a href="#local-6989586621681126303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
+</span><a href="#local-6989586621681126304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':LocalGatewayRoute' :: Maybe LocalGatewayRouteType
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3Atype%27%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteType
-</span><a href="#local-6989586621681091603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621681091600"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LocalGatewayRoute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681091598"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the virtual interface group.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayVirtualInterfaceGroupId"><span class="hs-identifier hs-type">localGatewayRoute_localGatewayVirtualInterfaceGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="localGatewayRoute_localGatewayVirtualInterfaceGroupId"><span class="annot"><span class="annottext">localGatewayRoute_localGatewayVirtualInterfaceGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_localGatewayVirtualInterfaceGroupId"><span class="hs-identifier hs-var hs-var">localGatewayRoute_localGatewayVirtualInterfaceGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
+-&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
+-&gt; Lens
+     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681126301"><span class="annot"><span class="annottext">Maybe Text
+localGatewayVirtualInterfaceGroupId :: Maybe Text
+$sel:localGatewayVirtualInterfaceGroupId:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681126301"><span class="hs-identifier hs-var hs-var">localGatewayVirtualInterfaceGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126301"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681126300"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
+</span><a href="#local-6989586621681126300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681126299"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
+</span><a href="#local-6989586621681126300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayVirtualInterfaceGroupId:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AlocalGatewayVirtualInterfaceGroupId%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">localGatewayVirtualInterfaceGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The CIDR block used for destination matches.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_destinationCidrBlock"><span class="hs-identifier hs-type">localGatewayRoute_destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="localGatewayRoute_destinationCidrBlock"><span class="annot"><span class="annottext">localGatewayRoute_destinationCidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LocalGatewayRoute -&gt; f LocalGatewayRoute
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#localGatewayRoute_destinationCidrBlock"><span class="hs-identifier hs-var hs-var">localGatewayRoute_destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGatewayRoute -&gt; Maybe Text)
+-&gt; (LocalGatewayRoute -&gt; Maybe Text -&gt; LocalGatewayRoute)
+-&gt; Lens
+     LocalGatewayRoute LocalGatewayRoute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681126297"><span class="annot"><span class="annottext">Maybe Text
+destinationCidrBlock :: Maybe Text
+$sel:destinationCidrBlock:LocalGatewayRoute' :: LocalGatewayRoute -&gt; Maybe Text
+</span><a href="#local-6989586621681126297"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126297"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681126296"><span class="annot"><span class="annottext">s :: LocalGatewayRoute
+</span><a href="#local-6989586621681126296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-type">LocalGatewayRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681126295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGatewayRoute
+</span><a href="#local-6989586621681126296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:LocalGatewayRoute' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#%24sel%3AdestinationCidrBlock%3ALocalGatewayRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681126295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681126292"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LocalGatewayRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681126290"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">Maybe LocalGatewayRouteState
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe LocalGatewayRouteState
 -&gt; Maybe Text
 -&gt; Maybe LocalGatewayRouteType
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; LocalGatewayRoute
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute%27"><span class="hs-identifier hs-var">LocalGatewayRoute'</span></a></span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">(Maybe LocalGatewayRouteState
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe LocalGatewayRouteState
  -&gt; Maybe Text
  -&gt; Maybe LocalGatewayRouteType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; LocalGatewayRoute)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe LocalGatewayRouteState
-      -&gt; Maybe Text
-      -&gt; Maybe LocalGatewayRouteType
-      -&gt; LocalGatewayRoute)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe LocalGatewayRouteState
-   -&gt; Maybe Text
-   -&gt; Maybe LocalGatewayRouteType
-   -&gt; LocalGatewayRoute)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe LocalGatewayRouteState
-      -&gt; Maybe Text
-      -&gt; Maybe LocalGatewayRouteType
-      -&gt; LocalGatewayRoute)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;localGatewayVirtualInterfaceGroupId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe LocalGatewayRouteState
-   -&gt; Maybe Text
-   -&gt; Maybe LocalGatewayRouteType
-   -&gt; LocalGatewayRoute)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe LocalGatewayRouteState
-      -&gt; Maybe Text
-      -&gt; Maybe LocalGatewayRouteType
-      -&gt; LocalGatewayRoute)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;localGatewayRouteTableArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe LocalGatewayRouteState
-   -&gt; Maybe Text
-   -&gt; Maybe LocalGatewayRouteType
-   -&gt; LocalGatewayRoute)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe LocalGatewayRouteState
-      -&gt; Maybe Text -&gt; Maybe LocalGatewayRouteType -&gt; LocalGatewayRoute)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;localGatewayRouteTableId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe LocalGatewayRouteState
-   -&gt; Maybe Text -&gt; Maybe LocalGatewayRouteType -&gt; LocalGatewayRoute)
 -&gt; Either String (Maybe LocalGatewayRouteState)
 -&gt; Either
      String
-     (Maybe Text -&gt; Maybe LocalGatewayRouteType -&gt; LocalGatewayRoute)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LocalGatewayRouteState)
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe LocalGatewayRouteType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LocalGatewayRoute)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LocalGatewayRouteState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text -&gt; Maybe LocalGatewayRouteType -&gt; LocalGatewayRoute)
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe LocalGatewayRouteType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LocalGatewayRoute)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Maybe LocalGatewayRouteType -&gt; LocalGatewayRoute)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe LocalGatewayRouteType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LocalGatewayRoute)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;destinationCidrBlock&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe LocalGatewayRouteType -&gt; LocalGatewayRoute)
--&gt; Either String (Maybe LocalGatewayRouteType)
--&gt; Either String LocalGatewayRoute
+</span><span class="hs-string">&quot;localGatewayRouteTableArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe LocalGatewayRouteType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LocalGatewayRoute)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe LocalGatewayRouteType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; LocalGatewayRoute)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LocalGatewayRouteType)
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe LocalGatewayRouteType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; LocalGatewayRoute)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe LocalGatewayRouteType
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; LocalGatewayRoute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;localGatewayRouteTableId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LocalGatewayRouteType
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; LocalGatewayRoute)
+-&gt; Either String (Maybe LocalGatewayRouteType)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; LocalGatewayRoute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LocalGatewayRouteType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681091592"><span id="local-6989586621681091594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span></span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681091589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span></span><span>
-</span><span id="line-127"></span></pre></body></html>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; LocalGatewayRoute)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; LocalGatewayRoute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;localGatewayVirtualInterfaceGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; LocalGatewayRoute)
+-&gt; Either String (Maybe Text) -&gt; Either String LocalGatewayRoute
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681126290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationCidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681126284"><span id="local-6989586621681126286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681126281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRoute.html#LocalGatewayRoute"><span class="hs-identifier hs-type">LocalGatewayRoute</span></a></span></span><span>
+</span><span id="line-130"></span></pre></body></html>

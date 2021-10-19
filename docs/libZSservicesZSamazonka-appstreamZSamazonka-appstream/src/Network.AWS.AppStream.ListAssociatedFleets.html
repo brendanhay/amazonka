@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#newListAssociatedFleetsResponse"><span class="hs-identifier">newListAssociatedFleetsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_names"><span class="hs-identifier">listAssociatedFleetsResponse_names</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_nextToken"><span class="hs-identifier">listAssociatedFleetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_nextToken"><span class="hs-identifier">listAssociatedFleetsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_names"><span class="hs-identifier">listAssociatedFleetsResponse_names</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_httpStatus"><span class="hs-identifier">listAssociatedFleetsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedFleets' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679294692"><span id="local-6989586621679294693"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedFleets"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-var">ListAssociatedFleets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedFleets%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-var">ListAssociatedFleets'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679294958"><span id="local-6989586621679294959"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedFleets"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-var">ListAssociatedFleets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedFleets%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-var">ListAssociatedFleets'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedFleets%27"><span class="annot"><span class="annottext">ListAssociatedFleets -&gt; Maybe Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AstackName%3AListAssociatedFleets%27"><span class="annot"><span class="annottext">ListAssociatedFleets -&gt; Text
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AstackName%3AListAssociatedFleets%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294685"><span id="local-6989586621679294687"><span class="annot"><span class="annottext">ListAssociatedFleets -&gt; ListAssociatedFleets -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294951"><span id="local-6989586621679294953"><span class="annot"><span class="annottext">ListAssociatedFleets -&gt; ListAssociatedFleets -&gt; Bool
 (ListAssociatedFleets -&gt; ListAssociatedFleets -&gt; Bool)
 -&gt; (ListAssociatedFleets -&gt; ListAssociatedFleets -&gt; Bool)
 -&gt; Eq ListAssociatedFleets
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAssociatedFleets -&gt; ListAssociatedFleets -&gt; Bool
 == :: ListAssociatedFleets -&gt; ListAssociatedFleets -&gt; Bool
 $c== :: ListAssociatedFleets -&gt; ListAssociatedFleets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294676"><span id="local-6989586621679294678"><span id="local-6989586621679294680"><span id="local-6989586621679294682"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedFleets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294942"><span id="local-6989586621679294944"><span id="local-6989586621679294946"><span id="local-6989586621679294948"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedFleets]
 ReadPrec ListAssociatedFleets
 Int -&gt; ReadS ListAssociatedFleets
 ReadS [ListAssociatedFleets]
@@ -90,7 +90,7 @@ readList :: ReadS [ListAssociatedFleets]
 $creadList :: ReadS [ListAssociatedFleets]
 readsPrec :: Int -&gt; ReadS ListAssociatedFleets
 $creadsPrec :: Int -&gt; ReadS ListAssociatedFleets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294669"><span id="local-6989586621679294671"><span id="local-6989586621679294673"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedFleets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294935"><span id="local-6989586621679294937"><span id="local-6989586621679294939"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedFleets -&gt; ShowS
 [ListAssociatedFleets] -&gt; ShowS
 ListAssociatedFleets -&gt; String
 (Int -&gt; ListAssociatedFleets -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. ListAssociatedFleets -&gt; Rep ListAssociatedFleets x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span>
 </span><span id="line-80"></span><span id="newListAssociatedFleets"><span class="annot"><span class="annottext">newListAssociatedFleets :: Text -&gt; ListAssociatedFleets
-</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#newListAssociatedFleets"><span class="hs-identifier hs-var hs-var">newListAssociatedFleets</span></a></span></span><span> </span><span id="local-6989586621679294664"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294664"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#newListAssociatedFleets"><span class="hs-identifier hs-var hs-var">newListAssociatedFleets</span></a></span></span><span> </span><span id="local-6989586621679294930"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294930"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedFleets' :: Maybe Text -&gt; Text -&gt; ListAssociatedFleets
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedFleets' :: Maybe Text
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:ListAssociatedFleets' :: Text
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AstackName%3AListAssociatedFleets%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294664"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
+</span><a href="#local-6989586621679294930"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; Lens
      ListAssociatedFleets ListAssociatedFleets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294662"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294928"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAssociatedFleets' :: ListAssociatedFleets -&gt; Maybe Text
-</span><a href="#local-6989586621679294662"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294662"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294661"><span class="annot"><span class="annottext">s :: ListAssociatedFleets
-</span><a href="#local-6989586621679294661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294660"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleets
-</span><a href="#local-6989586621679294661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedFleets' :: Maybe Text
+</span><a href="#local-6989586621679294928"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294928"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294927"><span class="annot"><span class="annottext">s :: ListAssociatedFleets
+</span><a href="#local-6989586621679294927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294926"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleets
+</span><a href="#local-6989586621679294927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedFleets' :: Maybe Text
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AnextToken%3AListAssociatedFleets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The name of the stack.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleets_stackName"><span class="hs-identifier hs-type">listAssociatedFleets_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,29 +174,29 @@ $sel:nextToken:ListAssociatedFleets' :: ListAssociatedFleets -&gt; Maybe Text
 -&gt; (ListAssociatedFleets -&gt; Text -&gt; ListAssociatedFleets)
 -&gt; Lens ListAssociatedFleets ListAssociatedFleets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294659"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294925"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:ListAssociatedFleets' :: ListAssociatedFleets -&gt; Text
-</span><a href="#local-6989586621679294659"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294659"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294658"><span class="annot"><span class="annottext">s :: ListAssociatedFleets
-</span><a href="#local-6989586621679294658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294657"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleets
-</span><a href="#local-6989586621679294658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ListAssociatedFleets' :: Text
+</span><a href="#local-6989586621679294925"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294925"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294924"><span class="annot"><span class="annottext">s :: ListAssociatedFleets
+</span><a href="#local-6989586621679294924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleets
+</span><a href="#local-6989586621679294924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ListAssociatedFleets' :: Text
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AstackName%3AListAssociatedFleets%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679294653"><span class="annot"><span class="annottext">page :: ListAssociatedFleets
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679294919"><span class="annot"><span class="annottext">page :: ListAssociatedFleets
 -&gt; AWSResponse ListAssociatedFleets -&gt; Maybe ListAssociatedFleets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679294651"><span class="annot"><span class="annottext">ListAssociatedFleets
-</span><a href="#local-6989586621679294651"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679294650"><span class="annot"><span class="annottext">AWSResponse ListAssociatedFleets
-</span><a href="#local-6989586621679294650"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679294917"><span class="annot"><span class="annottext">ListAssociatedFleets
+</span><a href="#local-6989586621679294917"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679294916"><span class="annot"><span class="annottext">AWSResponse ListAssociatedFleets
+</span><a href="#local-6989586621679294916"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedFleets
 ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294650"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679294916"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
 -&gt; Getting (First Text) ListAssociatedFleetsResponse Text
 -&gt; Maybe Text
@@ -226,7 +226,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedFleets
 ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294650"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679294916"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
 -&gt; Getting (First [Text]) ListAssociatedFleetsResponse [Text]
 -&gt; Maybe [Text]
@@ -260,7 +260,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListAssociatedFleets
-</span><a href="#local-6989586621679294651"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679294917"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedFleets
 -&gt; (ListAssociatedFleets -&gt; ListAssociatedFleets)
 -&gt; ListAssociatedFleets
@@ -276,7 +276,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedFleets
 ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294650"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679294916"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
 -&gt; Getting (First Text) ListAssociatedFleetsResponse Text
 -&gt; Maybe Text
@@ -302,12 +302,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679294640"><span class="annot"><span class="annottext">request :: ListAssociatedFleets -&gt; Request ListAssociatedFleets
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679294906"><span class="annot"><span class="annottext">request :: ListAssociatedFleets -&gt; Request ListAssociatedFleets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAssociatedFleets -&gt; Request ListAssociatedFleets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679294636"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679294902"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAssociatedFleets
 -&gt; ClientResponse ClientBody
@@ -333,19 +333,28 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294633"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294632"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679294632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294631"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedFleetsResponse
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294899"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294898"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679294898"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294897"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListAssociatedFleetsResponse
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">ListAssociatedFleetsResponse'</span></a></span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedFleetsResponse)
--&gt; Either String (Maybe [Text])
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListAssociatedFleetsResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ListAssociatedFleetsResponse)
+     String (Maybe [Text] -&gt; Int -&gt; ListAssociatedFleetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679294897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Int -&gt; ListAssociatedFleetsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; ListAssociatedFleetsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -354,15 +363,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListAssociatedFleetsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListAssociatedFleetsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAssociatedFleetsResponse)
 -&gt; Either String Int -&gt; Either String ListAssociatedFleetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -371,15 +371,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294633"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294899"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294622"><span id="local-6989586621679294624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294888"><span id="local-6989586621679294890"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679294615"><span class="annot"><span class="annottext">toHeaders :: ListAssociatedFleets -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679294881"><span class="annot"><span class="annottext">toHeaders :: ListAssociatedFleets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssociatedFleets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -406,15 +406,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294605"><span id="local-6989586621679294607"><span id="local-6989586621679294609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679294603"><span class="annot"><span class="annottext">toJSON :: ListAssociatedFleets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294600"><span id="local-6989586621679294601"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294871"><span id="local-6989586621679294873"><span id="local-6989586621679294875"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679294869"><span class="annot"><span class="annottext">toJSON :: ListAssociatedFleets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets%27"><span class="hs-identifier hs-type">ListAssociatedFleets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294866"><span id="local-6989586621679294867"><span class="annot"><span class="annottext">Maybe Text
 Text
 stackName :: Text
 nextToken :: Maybe Text
 $sel:stackName:ListAssociatedFleets' :: ListAssociatedFleets -&gt; Text
 $sel:nextToken:ListAssociatedFleets' :: ListAssociatedFleets -&gt; Maybe Text
-</span><a href="#local-6989586621679294600"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294866"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -426,26 +426,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294601"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294867"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294600"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294866"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679294594"><span class="annot"><span class="annottext">toPath :: ListAssociatedFleets -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679294860"><span class="annot"><span class="annottext">toPath :: ListAssociatedFleets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAssociatedFleets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleets"><span class="hs-identifier hs-type">ListAssociatedFleets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679294590"><span class="annot"><span class="annottext">toQuery :: ListAssociatedFleets -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679294856"><span class="annot"><span class="annottext">toQuery :: ListAssociatedFleets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAssociatedFleets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -453,19 +453,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedFleetsResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679294587"><span id="local-6989586621679294588"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedFleetsResponse"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-var">ListAssociatedFleetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedFleetsResponse%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">ListAssociatedFleetsResponse'</span></a></span></span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the fleet.</span><span>
-</span><span id="line-168"></span><span>    </span><span id="%24sel%3Anames%3AListAssociatedFleetsResponse%27"><span class="annot"><span class="annottext">ListAssociatedFleetsResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3Anames%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
-</span><span id="line-171"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedFleetsResponse%27"><span class="annot"><span class="annottext">ListAssociatedFleetsResponse -&gt; Maybe Text
+</span><span id="line-166"></span><span id="local-6989586621679294853"><span id="local-6989586621679294854"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedFleetsResponse"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-var">ListAssociatedFleetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedFleetsResponse%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">ListAssociatedFleetsResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedFleetsResponse%27"><span class="annot"><span class="annottext">ListAssociatedFleetsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AnextToken%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Anames%3AListAssociatedFleetsResponse%27"><span class="annot"><span class="annottext">ListAssociatedFleetsResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3Anames%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAssociatedFleetsResponse%27"><span class="annot"><span class="annottext">ListAssociatedFleetsResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AhttpStatus%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294580"><span id="local-6989586621679294582"><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294846"><span id="local-6989586621679294848"><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
 -&gt; ListAssociatedFleetsResponse -&gt; Bool
 (ListAssociatedFleetsResponse
  -&gt; ListAssociatedFleetsResponse -&gt; Bool)
@@ -481,7 +481,7 @@ $c/= :: ListAssociatedFleetsResponse
 -&gt; ListAssociatedFleetsResponse -&gt; Bool
 $c== :: ListAssociatedFleetsResponse
 -&gt; ListAssociatedFleetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294572"><span id="local-6989586621679294574"><span id="local-6989586621679294576"><span id="local-6989586621679294578"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedFleetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294838"><span id="local-6989586621679294840"><span id="local-6989586621679294842"><span id="local-6989586621679294844"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedFleetsResponse]
 ReadPrec ListAssociatedFleetsResponse
 Int -&gt; ReadS ListAssociatedFleetsResponse
 ReadS [ListAssociatedFleetsResponse]
@@ -501,7 +501,7 @@ readList :: ReadS [ListAssociatedFleetsResponse]
 $creadList :: ReadS [ListAssociatedFleetsResponse]
 readsPrec :: Int -&gt; ReadS ListAssociatedFleetsResponse
 $creadsPrec :: Int -&gt; ReadS ListAssociatedFleetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294566"><span id="local-6989586621679294568"><span id="local-6989586621679294570"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedFleetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294832"><span id="local-6989586621679294834"><span id="local-6989586621679294836"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedFleetsResponse -&gt; ShowS
 [ListAssociatedFleetsResponse] -&gt; ShowS
 ListAssociatedFleetsResponse -&gt; String
 (Int -&gt; ListAssociatedFleetsResponse -&gt; ShowS)
@@ -541,10 +541,10 @@ ListAssociatedFleetsResponse -&gt; Rep ListAssociatedFleetsResponse x
 </span><span id="line-182"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- 'names', 'listAssociatedFleetsResponse_names' - The name of the fleet.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedFleetsResponse_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedFleetsResponse_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'names', 'listAssociatedFleetsResponse_names' - The name of the fleet.</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'listAssociatedFleetsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#newListAssociatedFleetsResponse"><span class="hs-identifier hs-type">newListAssociatedFleetsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -552,43 +552,64 @@ ListAssociatedFleetsResponse -&gt; Rep ListAssociatedFleetsResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newListAssociatedFleetsResponse"><span class="annot"><span class="annottext">newListAssociatedFleetsResponse :: Int -&gt; ListAssociatedFleetsResponse
-</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#newListAssociatedFleetsResponse"><span class="hs-identifier hs-var hs-var">newListAssociatedFleetsResponse</span></a></span></span><span> </span><span id="local-6989586621679294563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedFleetsResponse
+</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#newListAssociatedFleetsResponse"><span class="hs-identifier hs-var hs-var">newListAssociatedFleetsResponse</span></a></span></span><span> </span><span id="local-6989586621679294829"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListAssociatedFleetsResponse
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:names:ListAssociatedFleetsResponse' :: Maybe [Text]
-</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3Anames%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedFleetsResponse' :: Maybe Text
+</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AnextToken%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedFleetsResponse' :: Maybe Text
-</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AnextToken%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:ListAssociatedFleetsResponse' :: Maybe [Text]
+</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3Anames%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedFleetsResponse' :: Int
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AhttpStatus%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679294829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_names"><span class="hs-identifier hs-type">listAssociatedFleetsResponse_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="listAssociatedFleetsResponse_names"><span class="annot"><span class="annottext">listAssociatedFleetsResponse_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-203"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_nextToken"><span class="hs-identifier hs-type">listAssociatedFleetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="listAssociatedFleetsResponse_nextToken"><span class="annot"><span class="annottext">listAssociatedFleetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssociatedFleetsResponse -&gt; f ListAssociatedFleetsResponse
+</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedFleetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedFleetsResponse -&gt; Maybe Text)
+-&gt; (ListAssociatedFleetsResponse
+    -&gt; Maybe Text -&gt; ListAssociatedFleetsResponse)
+-&gt; Lens' ListAssociatedFleetsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294828"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssociatedFleetsResponse' :: ListAssociatedFleetsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679294828"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294828"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294827"><span class="annot"><span class="annottext">s :: ListAssociatedFleetsResponse
+</span><a href="#local-6989586621679294827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
+</span><a href="#local-6989586621679294827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedFleetsResponse' :: Maybe Text
+</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AnextToken%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_names"><span class="hs-identifier hs-type">listAssociatedFleetsResponse_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listAssociatedFleetsResponse_names"><span class="annot"><span class="annottext">listAssociatedFleetsResponse_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ListAssociatedFleetsResponse -&gt; f ListAssociatedFleetsResponse
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_names"><span class="hs-identifier hs-var hs-var">listAssociatedFleetsResponse_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedFleetsResponse -&gt; Maybe [Text])
 -&gt; (ListAssociatedFleetsResponse
     -&gt; Maybe [Text] -&gt; ListAssociatedFleetsResponse)
 -&gt; Lens' ListAssociatedFleetsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294562"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294825"><span class="annot"><span class="annottext">Maybe [Text]
 names :: Maybe [Text]
 $sel:names:ListAssociatedFleetsResponse' :: ListAssociatedFleetsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679294562"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294562"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294561"><span class="annot"><span class="annottext">s :: ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294560"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:ListAssociatedFleetsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679294825"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294825"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294824"><span class="annot"><span class="annottext">s :: ListAssociatedFleetsResponse
+</span><a href="#local-6989586621679294824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294823"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
+</span><a href="#local-6989586621679294824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:ListAssociatedFleetsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3Anames%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679294823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListAssociatedFleetsResponse -&gt; f ListAssociatedFleetsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -602,29 +623,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
-</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_nextToken"><span class="hs-identifier hs-type">listAssociatedFleetsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span id="listAssociatedFleetsResponse_nextToken"><span class="annot"><span class="annottext">listAssociatedFleetsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListAssociatedFleetsResponse -&gt; f ListAssociatedFleetsResponse
-</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedFleetsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedFleetsResponse -&gt; Maybe Text)
--&gt; (ListAssociatedFleetsResponse
-    -&gt; Maybe Text -&gt; ListAssociatedFleetsResponse)
--&gt; Lens' ListAssociatedFleetsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294557"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListAssociatedFleetsResponse' :: ListAssociatedFleetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679294557"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294557"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294556"><span class="annot"><span class="annottext">s :: ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedFleetsResponse' :: Maybe Text
-</span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AnextToken%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#listAssociatedFleetsResponse_httpStatus"><span class="hs-identifier hs-type">listAssociatedFleetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -636,16 +636,16 @@ $sel:nextToken:ListAssociatedFleetsResponse' :: ListAssociatedFleetsResponse -&g
 -&gt; Lens
      ListAssociatedFleetsResponse ListAssociatedFleetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294554"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294820"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAssociatedFleetsResponse' :: ListAssociatedFleetsResponse -&gt; Int
-</span><a href="#local-6989586621679294554"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294554"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294553"><span class="annot"><span class="annottext">s :: ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294552"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
-</span><a href="#local-6989586621679294553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedFleetsResponse' :: Int
+</span><a href="#local-6989586621679294820"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294820"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294819"><span class="annot"><span class="annottext">s :: ListAssociatedFleetsResponse
+</span><a href="#local-6989586621679294819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse%27"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294818"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedFleetsResponse
+</span><a href="#local-6989586621679294819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedFleetsResponse' :: Int
 </span><a href="Network.AWS.AppStream.ListAssociatedFleets.html#%24sel%3AhttpStatus%3AListAssociatedFleetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedFleets.html#ListAssociatedFleetsResponse"><span class="hs-identifier hs-type">ListAssociatedFleetsResponse</span></a></span></span><span>
 </span><span id="line-217"></span></pre></body></html>

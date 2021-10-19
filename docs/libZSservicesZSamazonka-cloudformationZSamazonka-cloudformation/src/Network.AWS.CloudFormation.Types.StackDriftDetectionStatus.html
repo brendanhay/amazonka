@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679421062"><span id="local-6989586621679421063"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackDriftDetectionStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftDetectionStatus.html#StackDriftDetectionStatus"><span class="hs-identifier hs-var">StackDriftDetectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackDriftDetectionStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftDetectionStatus.html#StackDriftDetectionStatus%27"><span class="hs-identifier hs-var">StackDriftDetectionStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679421469"><span id="local-6989586621679421470"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackDriftDetectionStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftDetectionStatus.html#StackDriftDetectionStatus"><span class="hs-identifier hs-var">StackDriftDetectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackDriftDetectionStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackDriftDetectionStatus.html#StackDriftDetectionStatus%27"><span class="hs-identifier hs-var">StackDriftDetectionStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackDriftDetectionStatus"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.StackDriftDetectionStatus.html#fromStackDriftDetectionStatus"><span class="hs-identifier hs-var hs-var">fromStackDriftDetectionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679421054"><span id="local-6989586621679421056"><span id="local-6989586621679421058"><span class="annot"><span class="annottext">Int -&gt; StackDriftDetectionStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679421461"><span id="local-6989586621679421463"><span id="local-6989586621679421465"><span class="annot"><span class="annottext">Int -&gt; StackDriftDetectionStatus -&gt; ShowS
 [StackDriftDetectionStatus] -&gt; ShowS
 StackDriftDetectionStatus -&gt; String
 (Int -&gt; StackDriftDetectionStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: StackDriftDetectionStatus -&gt; String
 showsPrec :: Int -&gt; StackDriftDetectionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; StackDriftDetectionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679421045"><span id="local-6989586621679421047"><span id="local-6989586621679421049"><span id="local-6989586621679421051"><span class="annot"><span class="annottext">ReadPrec [StackDriftDetectionStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679421452"><span id="local-6989586621679421454"><span id="local-6989586621679421456"><span id="local-6989586621679421458"><span class="annot"><span class="annottext">ReadPrec [StackDriftDetectionStatus]
 ReadPrec StackDriftDetectionStatus
 Int -&gt; ReadS StackDriftDetectionStatus
 ReadS [StackDriftDetectionStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [StackDriftDetectionStatus]
 readsPrec :: Int -&gt; ReadS StackDriftDetectionStatus
 $creadsPrec :: Int -&gt; ReadS StackDriftDetectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679421040"><span id="local-6989586621679421042"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; StackDriftDetectionStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679421447"><span id="local-6989586621679421449"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; StackDriftDetectionStatus -&gt; Bool
 (StackDriftDetectionStatus -&gt; StackDriftDetectionStatus -&gt; Bool)
 -&gt; (StackDriftDetectionStatus -&gt; StackDriftDetectionStatus -&gt; Bool)
 -&gt; Eq StackDriftDetectionStatus
@@ -83,7 +83,7 @@ $c/= :: StackDriftDetectionStatus -&gt; StackDriftDetectionStatus -&gt; Bool
 == :: StackDriftDetectionStatus -&gt; StackDriftDetectionStatus -&gt; Bool
 $c== :: StackDriftDetectionStatus -&gt; StackDriftDetectionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679421024"><span id="local-6989586621679421026"><span id="local-6989586621679421028"><span id="local-6989586621679421030"><span id="local-6989586621679421032"><span id="local-6989586621679421034"><span id="local-6989586621679421036"><span class="annot"><span class="annottext">Eq StackDriftDetectionStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679421431"><span id="local-6989586621679421433"><span id="local-6989586621679421435"><span id="local-6989586621679421437"><span id="local-6989586621679421439"><span id="local-6989586621679421441"><span id="local-6989586621679421443"><span class="annot"><span class="annottext">Eq StackDriftDetectionStatus
 Eq StackDriftDetectionStatus
 -&gt; (StackDriftDetectionStatus
     -&gt; StackDriftDetectionStatus -&gt; Ordering)
@@ -148,7 +148,7 @@ StackDriftDetectionStatus -&gt; Rep StackDriftDetectionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679421016"><span id="local-6989586621679421018"><span class="annot"><span class="annottext">Int -&gt; StackDriftDetectionStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679421423"><span id="local-6989586621679421425"><span class="annot"><span class="annottext">Int -&gt; StackDriftDetectionStatus -&gt; Int
 StackDriftDetectionStatus -&gt; Int
 (Int -&gt; StackDriftDetectionStatus -&gt; Int)
 -&gt; (StackDriftDetectionStatus -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: StackDriftDetectionStatus -&gt; Int
 hashWithSalt :: Int -&gt; StackDriftDetectionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; StackDriftDetectionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679421013"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679421420"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; ()
 (StackDriftDetectionStatus -&gt; ())
 -&gt; NFData StackDriftDetectionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StackDriftDetectionStatus -&gt; ()
 $crnf :: StackDriftDetectionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679421010"><span class="annot"><span class="annottext">Text -&gt; Either String StackDriftDetectionStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679421417"><span class="annot"><span class="annottext">Text -&gt; Either String StackDriftDetectionStatus
 (Text -&gt; Either String StackDriftDetectionStatus)
 -&gt; FromText StackDriftDetectionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StackDriftDetectionStatus
 $cfromText :: Text -&gt; Either String StackDriftDetectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679421007"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679421414"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; Text
 (StackDriftDetectionStatus -&gt; Text)
 -&gt; ToText StackDriftDetectionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StackDriftDetectionStatus -&gt; Text
 $ctoText :: StackDriftDetectionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679421004"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679421411"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; ByteString
 (StackDriftDetectionStatus -&gt; ByteString)
 -&gt; ToByteString StackDriftDetectionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StackDriftDetectionStatus -&gt; ByteString
 $ctoBS :: StackDriftDetectionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679421001"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679421408"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; ByteStringBuilder
 (StackDriftDetectionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog StackDriftDetectionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StackDriftDetectionStatus -&gt; ByteStringBuilder
 $cbuild :: StackDriftDetectionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679420998"><span class="annot"><span class="annottext">HeaderName -&gt; StackDriftDetectionStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679421405"><span class="annot"><span class="annottext">HeaderName -&gt; StackDriftDetectionStatus -&gt; [Header]
 (HeaderName -&gt; StackDriftDetectionStatus -&gt; [Header])
 -&gt; ToHeader StackDriftDetectionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StackDriftDetectionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StackDriftDetectionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679420995"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679421402"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; QueryString
 (StackDriftDetectionStatus -&gt; QueryString)
 -&gt; ToQuery StackDriftDetectionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StackDriftDetectionStatus -&gt; QueryString
 $ctoQuery :: StackDriftDetectionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679420990"><span id="local-6989586621679420992"><span class="annot"><span class="annottext">Value -&gt; Parser [StackDriftDetectionStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679421397"><span id="local-6989586621679421399"><span class="annot"><span class="annottext">Value -&gt; Parser [StackDriftDetectionStatus]
 Value -&gt; Parser StackDriftDetectionStatus
 (Value -&gt; Parser StackDriftDetectionStatus)
 -&gt; (Value -&gt; Parser [StackDriftDetectionStatus])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [StackDriftDetectionStatus]
 parseJSON :: Value -&gt; Parser StackDriftDetectionStatus
 $cparseJSON :: Value -&gt; Parser StackDriftDetectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679420985"><span id="local-6989586621679420987"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackDriftDetectionStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679421392"><span id="local-6989586621679421394"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackDriftDetectionStatus]
 FromJSONKeyFunction StackDriftDetectionStatus
 FromJSONKeyFunction StackDriftDetectionStatus
 -&gt; FromJSONKeyFunction [StackDriftDetectionStatus]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StackDriftDetectionStatus]
 fromJSONKey :: FromJSONKeyFunction StackDriftDetectionStatus
 $cfromJSONKey :: FromJSONKeyFunction StackDriftDetectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679420976"><span id="local-6989586621679420978"><span id="local-6989586621679420980"><span id="local-6989586621679420982"><span class="annot"><span class="annottext">[StackDriftDetectionStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679421383"><span id="local-6989586621679421385"><span id="local-6989586621679421387"><span id="local-6989586621679421389"><span class="annot"><span class="annottext">[StackDriftDetectionStatus] -&gt; Encoding
 [StackDriftDetectionStatus] -&gt; Value
 StackDriftDetectionStatus -&gt; Encoding
 StackDriftDetectionStatus -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: StackDriftDetectionStatus -&gt; Encoding
 toJSON :: StackDriftDetectionStatus -&gt; Value
 $ctoJSON :: StackDriftDetectionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679420971"><span id="local-6989586621679420973"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackDriftDetectionStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679421378"><span id="local-6989586621679421380"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackDriftDetectionStatus]
 ToJSONKeyFunction StackDriftDetectionStatus
 ToJSONKeyFunction StackDriftDetectionStatus
 -&gt; ToJSONKeyFunction [StackDriftDetectionStatus]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StackDriftDetectionStatus]
 toJSONKey :: ToJSONKeyFunction StackDriftDetectionStatus
 $ctoJSONKey :: ToJSONKeyFunction StackDriftDetectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679420968"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackDriftDetectionStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679421375"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackDriftDetectionStatus
 ([Node] -&gt; Either String StackDriftDetectionStatus)
 -&gt; FromXML StackDriftDetectionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StackDriftDetectionStatus
 $cparseXML :: [Node] -&gt; Either String StackDriftDetectionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679420965"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679421372"><span class="annot"><span class="annottext">StackDriftDetectionStatus -&gt; XML
 (StackDriftDetectionStatus -&gt; XML)
 -&gt; ToXML StackDriftDetectionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

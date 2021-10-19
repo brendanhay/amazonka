@@ -29,40 +29,40 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Details of a reserved Elasticsearch instance offering.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReservedElasticsearchInstanceOffering' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679299664"><span id="local-6989586621679299665"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedElasticsearchInstanceOffering"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedElasticsearchInstanceOffering%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Payment option for the reserved Elasticsearch instance offering</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
--&gt; Maybe ReservedElasticsearchInstancePaymentOption
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption.html#ReservedElasticsearchInstancePaymentOption"><span class="hs-identifier hs-type">ReservedElasticsearchInstancePaymentOption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Elasticsearch instance.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Int
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The currency code for the reserved Elasticsearch instance offering.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679299870"><span id="local-6989586621679299871"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedElasticsearchInstanceOffering"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedElasticsearchInstanceOffering%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The currency code for the reserved Elasticsearch instance offering.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch instance type offered by the reserved instance</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- offering.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch reserved instance offering identifier.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOfferingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch instance type offered by the reserved instance</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- offering.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
 -&gt; Maybe ESPartitionInstanceType
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">elasticsearchInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Double
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch reserved instance offering identifier.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOfferingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The rate you are charged for each hour the domain that is using the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- offering is running.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- domains using the instance offering.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe [RecurringCharge]
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The rate you are charged for each hour the domain that is using the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Double
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- domains using the instance offering.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe [RecurringCharge]
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Elasticsearch instance.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Int
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Payment option for the reserved Elasticsearch instance offering</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption.html#ReservedElasticsearchInstancePaymentOption"><span class="hs-identifier hs-type">ReservedElasticsearchInstancePaymentOption</span></a></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299651"><span id="local-6989586621679299653"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299857"><span id="local-6989586621679299859"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
 -&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
 (ReservedElasticsearchInstanceOffering
  -&gt; ReservedElasticsearchInstanceOffering -&gt; Bool)
@@ -78,7 +78,7 @@ $c/= :: ReservedElasticsearchInstanceOffering
 -&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
 $c== :: ReservedElasticsearchInstanceOffering
 -&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299642"><span id="local-6989586621679299644"><span id="local-6989586621679299646"><span id="local-6989586621679299648"><span class="annot"><span class="annottext">ReadPrec [ReservedElasticsearchInstanceOffering]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299848"><span id="local-6989586621679299850"><span id="local-6989586621679299852"><span id="local-6989586621679299854"><span class="annot"><span class="annottext">ReadPrec [ReservedElasticsearchInstanceOffering]
 ReadPrec ReservedElasticsearchInstanceOffering
 Int -&gt; ReadS ReservedElasticsearchInstanceOffering
 ReadS [ReservedElasticsearchInstanceOffering]
@@ -98,7 +98,7 @@ readList :: ReadS [ReservedElasticsearchInstanceOffering]
 $creadList :: ReadS [ReservedElasticsearchInstanceOffering]
 readsPrec :: Int -&gt; ReadS ReservedElasticsearchInstanceOffering
 $creadsPrec :: Int -&gt; ReadS ReservedElasticsearchInstanceOffering
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299635"><span id="local-6989586621679299637"><span id="local-6989586621679299639"><span class="annot"><span class="annottext">Int -&gt; ReservedElasticsearchInstanceOffering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299841"><span id="local-6989586621679299843"><span id="local-6989586621679299845"><span class="annot"><span class="annottext">Int -&gt; ReservedElasticsearchInstanceOffering -&gt; ShowS
 [ReservedElasticsearchInstanceOffering] -&gt; ShowS
 ReservedElasticsearchInstanceOffering -&gt; String
 (Int -&gt; ReservedElasticsearchInstanceOffering -&gt; ShowS)
@@ -144,51 +144,48 @@ ReservedElasticsearchInstanceOffering
 </span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'paymentOption', 'reservedElasticsearchInstanceOffering_paymentOption' - Payment option for the reserved Elasticsearch instance offering</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'currencyCode', 'reservedElasticsearchInstanceOffering_currencyCode' - The currency code for the reserved Elasticsearch instance offering.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'duration', 'reservedElasticsearchInstanceOffering_duration' - The duration, in seconds, for which the offering will reserve the</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- Elasticsearch instance.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'currencyCode', 'reservedElasticsearchInstanceOffering_currencyCode' - The currency code for the reserved Elasticsearch instance offering.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'reservedElasticsearchInstanceOfferingId', 'reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId' - The Elasticsearch reserved instance offering identifier.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'elasticsearchInstanceType', 'reservedElasticsearchInstanceOffering_elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- offering.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'elasticsearchInstanceType', 'reservedElasticsearchInstanceOffering_elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- offering.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'recurringCharges', 'reservedElasticsearchInstanceOffering_recurringCharges' - The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- domains using the instance offering.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'fixedPrice', 'reservedElasticsearchInstanceOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'usagePrice', 'reservedElasticsearchInstanceOffering_usagePrice' - The rate you are charged for each hour the domain that is using the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- offering is running.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'reservedElasticsearchInstanceOfferingId', 'reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId' - The Elasticsearch reserved instance offering identifier.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'usagePrice', 'reservedElasticsearchInstanceOffering_usagePrice' - The rate you are charged for each hour the domain that is using the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- offering is running.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'recurringCharges', 'reservedElasticsearchInstanceOffering_recurringCharges' - The charge to your account regardless of whether you are creating any</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- domains using the instance offering.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'fixedPrice', 'reservedElasticsearchInstanceOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'duration', 'reservedElasticsearchInstanceOffering_duration' - The duration, in seconds, for which the offering will reserve the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Elasticsearch instance.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'paymentOption', 'reservedElasticsearchInstanceOffering_paymentOption' - Payment option for the reserved Elasticsearch instance offering</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#newReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">newReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span>
 </span><span id="line-87"></span><span id="newReservedElasticsearchInstanceOffering"><span class="annot"><span class="annottext">newReservedElasticsearchInstanceOffering :: ReservedElasticsearchInstanceOffering
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#newReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-var hs-var">newReservedElasticsearchInstanceOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering' :: Maybe ReservedElasticsearchInstancePaymentOption
--&gt; Maybe Int
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ESPartitionInstanceType
--&gt; Maybe Double
--&gt; Maybe Text
--&gt; Maybe Double
 -&gt; Maybe [RecurringCharge]
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
 -&gt; ReservedElasticsearchInstanceOffering
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: Maybe ReservedElasticsearchInstancePaymentOption
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:ReservedElasticsearchInstanceOffering' :: Maybe Int
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedElasticsearchInstanceOffering' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:elasticsearchInstanceType:ReservedElasticsearchInstanceOffering' :: Maybe ESPartitionInstanceType
@@ -196,83 +193,31 @@ forall a. Maybe a
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: Maybe [RecurringCharge]
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: Maybe [RecurringCharge]
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:ReservedElasticsearchInstanceOffering' :: Maybe Int
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | Payment option for the reserved Elasticsearch instance offering</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_paymentOption"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption.html#ReservedElasticsearchInstancePaymentOption"><span class="hs-identifier hs-type">ReservedElasticsearchInstancePaymentOption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="reservedElasticsearchInstanceOffering_paymentOption"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_paymentOption :: (Maybe ReservedElasticsearchInstancePaymentOption
- -&gt; f (Maybe ReservedElasticsearchInstancePaymentOption))
--&gt; ReservedElasticsearchInstanceOffering
--&gt; f ReservedElasticsearchInstanceOffering
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_paymentOption"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_paymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering
- -&gt; Maybe ReservedElasticsearchInstancePaymentOption)
--&gt; (ReservedElasticsearchInstanceOffering
-    -&gt; Maybe ReservedElasticsearchInstancePaymentOption
-    -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Lens
-     ReservedElasticsearchInstanceOffering
-     ReservedElasticsearchInstanceOffering
-     (Maybe ReservedElasticsearchInstancePaymentOption)
-     (Maybe ReservedElasticsearchInstancePaymentOption)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299626"><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
-paymentOption :: Maybe ReservedElasticsearchInstancePaymentOption
-$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering
--&gt; Maybe ReservedElasticsearchInstancePaymentOption
-</span><a href="#local-6989586621679299626"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
-</span><a href="#local-6989586621679299626"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299625"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299624"><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
-</span><a href="#local-6989586621679299624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: Maybe ReservedElasticsearchInstancePaymentOption
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
-</span><a href="#local-6989586621679299624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- Elasticsearch instance.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_duration"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="reservedElasticsearchInstanceOffering_duration"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_duration :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ReservedElasticsearchInstanceOffering
--&gt; f ReservedElasticsearchInstanceOffering
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_duration"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Int)
--&gt; (ReservedElasticsearchInstanceOffering
-    -&gt; Maybe Int -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Lens
-     ReservedElasticsearchInstanceOffering
-     ReservedElasticsearchInstanceOffering
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299622"><span class="annot"><span class="annottext">Maybe Int
-duration :: Maybe Int
-$sel:duration:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Int
-</span><a href="#local-6989586621679299622"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299622"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299621"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299620"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:ReservedElasticsearchInstanceOffering' :: Maybe Int
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The currency code for the reserved Elasticsearch instance offering.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_currencyCode"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="reservedElasticsearchInstanceOffering_currencyCode"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-102"></span><span class="hs-comment">-- | The currency code for the reserved Elasticsearch instance offering.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_currencyCode"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="reservedElasticsearchInstanceOffering_currencyCode"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReservedElasticsearchInstanceOffering
 -&gt; f ReservedElasticsearchInstanceOffering
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_currencyCode"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_currencyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Text)
@@ -284,21 +229,46 @@ $sel:duration:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchIns
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299618"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299832"><span class="annot"><span class="annottext">Maybe Text
 currencyCode :: Maybe Text
 $sel:currencyCode:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Text
-</span><a href="#local-6989586621679299618"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299618"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299617"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299616"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="#local-6989586621679299832"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299832"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299831"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299830"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedElasticsearchInstanceOffering' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The Elasticsearch instance type offered by the reserved instance</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- offering.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_elasticsearchInstanceType"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_elasticsearchInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="reservedElasticsearchInstanceOffering_elasticsearchInstanceType"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_elasticsearchInstanceType :: (Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The Elasticsearch reserved instance offering identifier.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Text)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Text -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299828"><span class="annot"><span class="annottext">Maybe Text
+reservedElasticsearchInstanceOfferingId :: Maybe Text
+$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Text
+</span><a href="#local-6989586621679299828"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299828"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299827"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The Elasticsearch instance type offered by the reserved instance</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- offering.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_elasticsearchInstanceType"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_elasticsearchInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="reservedElasticsearchInstanceOffering_elasticsearchInstanceType"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_elasticsearchInstanceType :: (Maybe ESPartitionInstanceType
  -&gt; f (Maybe ESPartitionInstanceType))
 -&gt; ReservedElasticsearchInstanceOffering
 -&gt; f ReservedElasticsearchInstanceOffering
@@ -313,99 +283,22 @@ $sel:currencyCode:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearc
      (Maybe ESPartitionInstanceType)
      (Maybe ESPartitionInstanceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299614"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299824"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
 elasticsearchInstanceType :: Maybe ESPartitionInstanceType
 $sel:elasticsearchInstanceType:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering
 -&gt; Maybe ESPartitionInstanceType
-</span><a href="#local-6989586621679299614"><span class="hs-identifier hs-var hs-var">elasticsearchInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
-</span><a href="#local-6989586621679299614"><span class="hs-identifier hs-var">elasticsearchInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299613"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299612"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
-</span><a href="#local-6989586621679299612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearchInstanceType:ReservedElasticsearchInstanceOffering' :: Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299824"><span class="hs-identifier hs-var hs-var">elasticsearchInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299824"><span class="hs-identifier hs-var">elasticsearchInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299823"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299822"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearchInstanceType:ReservedElasticsearchInstanceOffering' :: Maybe ESPartitionInstanceType
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">elasticsearchInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
-</span><a href="#local-6989586621679299612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_fixedPrice"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_fixedPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="reservedElasticsearchInstanceOffering_fixedPrice"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_fixedPrice :: (Maybe Double -&gt; f (Maybe Double))
--&gt; ReservedElasticsearchInstanceOffering
--&gt; f ReservedElasticsearchInstanceOffering
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_fixedPrice"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Double)
--&gt; (ReservedElasticsearchInstanceOffering
-    -&gt; Maybe Double -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Lens
-     ReservedElasticsearchInstanceOffering
-     ReservedElasticsearchInstanceOffering
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299610"><span class="annot"><span class="annottext">Maybe Double
-fixedPrice :: Maybe Double
-$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Double
-</span><a href="#local-6989586621679299610"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299610"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299609"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299608"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The Elasticsearch reserved instance offering identifier.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReservedElasticsearchInstanceOffering
--&gt; f ReservedElasticsearchInstanceOffering
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Text)
--&gt; (ReservedElasticsearchInstanceOffering
-    -&gt; Maybe Text -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Lens
-     ReservedElasticsearchInstanceOffering
-     ReservedElasticsearchInstanceOffering
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299606"><span class="annot"><span class="annottext">Maybe Text
-reservedElasticsearchInstanceOfferingId :: Maybe Text
-$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Text
-</span><a href="#local-6989586621679299606"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299606"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299605"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299604"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The rate you are charged for each hour the domain that is using the</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- offering is running.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_usagePrice"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_usagePrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="reservedElasticsearchInstanceOffering_usagePrice"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_usagePrice :: (Maybe Double -&gt; f (Maybe Double))
--&gt; ReservedElasticsearchInstanceOffering
--&gt; f ReservedElasticsearchInstanceOffering
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_usagePrice"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_usagePrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Double)
--&gt; (ReservedElasticsearchInstanceOffering
-    -&gt; Maybe Double -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Lens
-     ReservedElasticsearchInstanceOffering
-     ReservedElasticsearchInstanceOffering
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299602"><span class="annot"><span class="annottext">Maybe Double
-usagePrice :: Maybe Double
-$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Double
-</span><a href="#local-6989586621679299602"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299602"><span class="hs-identifier hs-var">usagePrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299601"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299600"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
-</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679299600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- domains using the instance offering.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_recurringCharges"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_recurringCharges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="reservedElasticsearchInstanceOffering_recurringCharges"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_recurringCharges :: (Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+</span><a href="#local-6989586621679299822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- domains using the instance offering.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_recurringCharges"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_recurringCharges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="reservedElasticsearchInstanceOffering_recurringCharges"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_recurringCharges :: (Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
 -&gt; ReservedElasticsearchInstanceOffering
 -&gt; f ReservedElasticsearchInstanceOffering
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_recurringCharges"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe [RecurringCharge])
@@ -418,16 +311,16 @@ $sel:usagePrice:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchI
      (Maybe [RecurringCharge])
      (Maybe [RecurringCharge])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299598"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299820"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
 recurringCharges :: Maybe [RecurringCharge]
 $sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe [RecurringCharge]
-</span><a href="#local-6989586621679299598"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
-</span><a href="#local-6989586621679299598"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299597"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299596"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
-</span><a href="#local-6989586621679299596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
-</span><a href="#local-6989586621679299597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: Maybe [RecurringCharge]
+</span><a href="#local-6989586621679299820"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><a href="#local-6989586621679299820"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299819"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299818"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><a href="#local-6989586621679299818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: Maybe [RecurringCharge]
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
-</span><a href="#local-6989586621679299596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+</span><a href="#local-6989586621679299818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
  -&gt; ReservedElasticsearchInstanceOffering
  -&gt; f ReservedElasticsearchInstanceOffering)
 -&gt; ((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
@@ -454,14 +347,121 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RecurringCharge]
   [RecurringCharge]
   [RecurringCharge]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The rate you are charged for each hour the domain that is using the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_usagePrice"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_usagePrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="reservedElasticsearchInstanceOffering_usagePrice"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_usagePrice :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_usagePrice"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_usagePrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Double)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Double -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299813"><span class="annot"><span class="annottext">Maybe Double
+usagePrice :: Maybe Double
+$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><a href="#local-6989586621679299813"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299813"><span class="hs-identifier hs-var">usagePrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299812"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299811"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_fixedPrice"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_fixedPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="reservedElasticsearchInstanceOffering_fixedPrice"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_fixedPrice :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_fixedPrice"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Double)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Double -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299809"><span class="annot"><span class="annottext">Maybe Double
+fixedPrice :: Maybe Double
+$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><a href="#local-6989586621679299809"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299809"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299808"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299807"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Elasticsearch instance.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_duration"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="reservedElasticsearchInstanceOffering_duration"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_duration :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_duration"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Int)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Int -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299805"><span class="annot"><span class="annottext">Maybe Int
+duration :: Maybe Int
+$sel:duration:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Int
+</span><a href="#local-6989586621679299805"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299805"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299804"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299803"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:ReservedElasticsearchInstanceOffering' :: Maybe Int
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Payment option for the reserved Elasticsearch instance offering</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_paymentOption"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption.html#ReservedElasticsearchInstancePaymentOption"><span class="hs-identifier hs-type">ReservedElasticsearchInstancePaymentOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="reservedElasticsearchInstanceOffering_paymentOption"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_paymentOption :: (Maybe ReservedElasticsearchInstancePaymentOption
+ -&gt; f (Maybe ReservedElasticsearchInstancePaymentOption))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_paymentOption"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_paymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering
+ -&gt; Maybe ReservedElasticsearchInstancePaymentOption)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+    -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe ReservedElasticsearchInstancePaymentOption)
+     (Maybe ReservedElasticsearchInstancePaymentOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299801"><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+paymentOption :: Maybe ReservedElasticsearchInstancePaymentOption
+$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299801"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299801"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299800"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299799"><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679299590"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679299796"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679299588"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservedElasticsearchInstanceOffering
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679299794"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservedElasticsearchInstanceOffering
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReservedElasticsearchInstanceOffering)
@@ -471,184 +471,186 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReservedElasticsearchInstanceOffering&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299585"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
--&gt; Maybe Int
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299791"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ESPartitionInstanceType
--&gt; Maybe Double
--&gt; Maybe Text
--&gt; Maybe Double
 -&gt; Maybe [RecurringCharge]
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
 -&gt; ReservedElasticsearchInstanceOffering
 </span><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering'</span></a></span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReservedElasticsearchInstancePaymentOption
- -&gt; Maybe Int
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe ESPartitionInstanceType
- -&gt; Maybe Double
- -&gt; Maybe Text
- -&gt; Maybe Double
  -&gt; Maybe [RecurringCharge]
+ -&gt; Maybe Double
+ -&gt; Maybe Double
+ -&gt; Maybe Int
+ -&gt; Maybe ReservedElasticsearchInstancePaymentOption
  -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Parser (Maybe ReservedElasticsearchInstancePaymentOption)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe ESPartitionInstanceType
-      -&gt; Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe Double
-      -&gt; Maybe [RecurringCharge]
-      -&gt; ReservedElasticsearchInstanceOffering)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
--&gt; Text
--&gt; Parser (Maybe ReservedElasticsearchInstancePaymentOption)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PaymentOption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe ESPartitionInstanceType
-   -&gt; Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Double
-   -&gt; Maybe [RecurringCharge]
-   -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe ESPartitionInstanceType
-      -&gt; Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe Double
       -&gt; Maybe [RecurringCharge]
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
       -&gt; ReservedElasticsearchInstanceOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;CurrencyCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe ESPartitionInstanceType
-   -&gt; Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Double
    -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
    -&gt; ReservedElasticsearchInstanceOffering)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe ESPartitionInstanceType
-      -&gt; Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe Double
       -&gt; Maybe [RecurringCharge]
-      -&gt; ReservedElasticsearchInstanceOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CurrencyCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ESPartitionInstanceType
-   -&gt; Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Double
-   -&gt; Maybe [RecurringCharge]
-   -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Parser (Maybe ESPartitionInstanceType)
--&gt; Parser
-     (Maybe Double
-      -&gt; Maybe Text
       -&gt; Maybe Double
-      -&gt; Maybe [RecurringCharge]
-      -&gt; ReservedElasticsearchInstanceOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ESPartitionInstanceType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ElasticsearchInstanceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Double
-   -&gt; Maybe [RecurringCharge]
-   -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Parser (Maybe Double)
--&gt; Parser
-     (Maybe Text
       -&gt; Maybe Double
-      -&gt; Maybe [RecurringCharge]
-      -&gt; ReservedElasticsearchInstanceOffering)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FixedPrice&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Double
-   -&gt; Maybe [RecurringCharge]
-   -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Double
-      -&gt; Maybe [RecurringCharge]
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
       -&gt; ReservedElasticsearchInstanceOffering)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-154"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-150"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReservedElasticsearchInstanceOfferingId&quot;</span></span><span>
-</span><span id="line-155"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double
+</span><span id="line-151"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ESPartitionInstanceType
    -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
    -&gt; ReservedElasticsearchInstanceOffering)
--&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe ESPartitionInstanceType)
 -&gt; Parser
-     (Maybe [RecurringCharge] -&gt; ReservedElasticsearchInstanceOffering)
+     (Maybe [RecurringCharge]
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ESPartitionInstanceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UsagePrice&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [RecurringCharge] -&gt; ReservedElasticsearchInstanceOffering)
+</span><span class="hs-string">&quot;ElasticsearchInstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
 -&gt; Parser (Maybe [RecurringCharge])
--&gt; Parser ReservedElasticsearchInstanceOffering
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299585"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RecurringCharge]))
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RecurringCharge]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecurringCharges&quot;</span></span><span>
-</span><span id="line-158"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RecurringCharge]))
+</span><span id="line-154"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RecurringCharge]))
 -&gt; Maybe [RecurringCharge] -&gt; Parser (Maybe [RecurringCharge])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-159"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsagePrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FixedPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe ReservedElasticsearchInstancePaymentOption)
+-&gt; Parser ReservedElasticsearchInstanceOffering
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe ReservedElasticsearchInstancePaymentOption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaymentOption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679299578"><span id="local-6989586621679299580"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679299784"><span id="local-6989586621679299786"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679299575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679299781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

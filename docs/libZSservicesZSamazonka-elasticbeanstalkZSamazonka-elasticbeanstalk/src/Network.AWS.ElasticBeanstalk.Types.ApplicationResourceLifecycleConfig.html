@@ -31,26 +31,26 @@
 </span><span id="line-31"></span><span class="hs-comment">-- lifecycle settings for application versions.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newApplicationResourceLifecycleConfig' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679304219"><span id="local-6989586621679304220"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationResourceLifecycleConfig"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-var">ApplicationResourceLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationResourceLifecycleConfig%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">ApplicationResourceLifecycleConfig'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of an IAM service role that Elastic Beanstalk has permission to</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- assume.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- The @ServiceRole@ property is required the first time that you provide a</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @VersionLifecycleConfig@ for the application in one of the supporting</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@).</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- After you provide it once, in either one of the calls, Elastic Beanstalk</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- persists the Service Role with the application, and you don\'t need to</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- specify it again in subsequent @UpdateApplicationResourceLifecycle@</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- calls. You can, however, specify it in subsequent calls to change the</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Service Role to another value.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Defines lifecycle settings for application versions.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AversionLifecycleConfig%3AApplicationResourceLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
+</span><span id="line-34"></span><span id="local-6989586621679304502"><span id="local-6989586621679304503"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationResourceLifecycleConfig"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-var">ApplicationResourceLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationResourceLifecycleConfig%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">ApplicationResourceLifecycleConfig'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines lifecycle settings for application versions.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AversionLifecycleConfig%3AApplicationResourceLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
 -&gt; Maybe ApplicationVersionLifecycleConfig
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AversionLifecycleConfig%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">versionLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span>
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AversionLifecycleConfig%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">versionLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ARN of an IAM service role that Elastic Beanstalk has permission to</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- assume.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The @ServiceRole@ property is required the first time that you provide a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @VersionLifecycleConfig@ for the application in one of the supporting</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@).</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- After you provide it once, in either one of the calls, Elastic Beanstalk</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- persists the Service Role with the application, and you don\'t need to</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- specify it again in subsequent @UpdateApplicationResourceLifecycle@</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- calls. You can, however, specify it in subsequent calls to change the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Service Role to another value.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304212"><span id="local-6989586621679304214"><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304495"><span id="local-6989586621679304497"><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
 -&gt; ApplicationResourceLifecycleConfig -&gt; Bool
 (ApplicationResourceLifecycleConfig
  -&gt; ApplicationResourceLifecycleConfig -&gt; Bool)
@@ -66,7 +66,7 @@ $c/= :: ApplicationResourceLifecycleConfig
 -&gt; ApplicationResourceLifecycleConfig -&gt; Bool
 $c== :: ApplicationResourceLifecycleConfig
 -&gt; ApplicationResourceLifecycleConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304203"><span id="local-6989586621679304205"><span id="local-6989586621679304207"><span id="local-6989586621679304209"><span class="annot"><span class="annottext">ReadPrec [ApplicationResourceLifecycleConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304486"><span id="local-6989586621679304488"><span id="local-6989586621679304490"><span id="local-6989586621679304492"><span class="annot"><span class="annottext">ReadPrec [ApplicationResourceLifecycleConfig]
 ReadPrec ApplicationResourceLifecycleConfig
 Int -&gt; ReadS ApplicationResourceLifecycleConfig
 ReadS [ApplicationResourceLifecycleConfig]
@@ -86,7 +86,7 @@ readList :: ReadS [ApplicationResourceLifecycleConfig]
 $creadList :: ReadS [ApplicationResourceLifecycleConfig]
 readsPrec :: Int -&gt; ReadS ApplicationResourceLifecycleConfig
 $creadsPrec :: Int -&gt; ReadS ApplicationResourceLifecycleConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304196"><span id="local-6989586621679304198"><span id="local-6989586621679304200"><span class="annot"><span class="annottext">Int -&gt; ApplicationResourceLifecycleConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304479"><span id="local-6989586621679304481"><span id="local-6989586621679304483"><span class="annot"><span class="annottext">Int -&gt; ApplicationResourceLifecycleConfig -&gt; ShowS
 [ApplicationResourceLifecycleConfig] -&gt; ShowS
 ApplicationResourceLifecycleConfig -&gt; String
 (Int -&gt; ApplicationResourceLifecycleConfig -&gt; ShowS)
@@ -132,77 +132,40 @@ ApplicationResourceLifecycleConfig
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'serviceRole', 'applicationResourceLifecycleConfig_serviceRole' - The ARN of an IAM service role that Elastic Beanstalk has permission to</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- assume.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- The @ServiceRole@ property is required the first time that you provide a</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- @VersionLifecycleConfig@ for the application in one of the supporting</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@).</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- After you provide it once, in either one of the calls, Elastic Beanstalk</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- persists the Service Role with the application, and you don\'t need to</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- specify it again in subsequent @UpdateApplicationResourceLifecycle@</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- calls. You can, however, specify it in subsequent calls to change the</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- Service Role to another value.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'versionLifecycleConfig', 'applicationResourceLifecycleConfig_versionLifecycleConfig' - Defines lifecycle settings for application versions.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'versionLifecycleConfig', 'applicationResourceLifecycleConfig_versionLifecycleConfig' - Defines lifecycle settings for application versions.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'serviceRole', 'applicationResourceLifecycleConfig_serviceRole' - The ARN of an IAM service role that Elastic Beanstalk has permission to</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- assume.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The @ServiceRole@ property is required the first time that you provide a</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @VersionLifecycleConfig@ for the application in one of the supporting</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@).</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- After you provide it once, in either one of the calls, Elastic Beanstalk</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- persists the Service Role with the application, and you don\'t need to</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- specify it again in subsequent @UpdateApplicationResourceLifecycle@</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- calls. You can, however, specify it in subsequent calls to change the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Service Role to another value.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#newApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">newApplicationResourceLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span>
 </span><span id="line-75"></span><span id="newApplicationResourceLifecycleConfig"><span class="annot"><span class="annottext">newApplicationResourceLifecycleConfig :: ApplicationResourceLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#newApplicationResourceLifecycleConfig"><span class="hs-identifier hs-var hs-var">newApplicationResourceLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig' :: Maybe Text
--&gt; Maybe ApplicationVersionLifecycleConfig
--&gt; ApplicationResourceLifecycleConfig
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig' :: Maybe ApplicationVersionLifecycleConfig
+-&gt; Maybe Text -&gt; ApplicationResourceLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceRole:ApplicationResourceLifecycleConfig' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionLifecycleConfig:ApplicationResourceLifecycleConfig' :: Maybe ApplicationVersionLifecycleConfig
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AversionLifecycleConfig%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">versionLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionLifecycleConfig:ApplicationResourceLifecycleConfig' :: Maybe ApplicationVersionLifecycleConfig
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AversionLifecycleConfig%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">versionLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceRole:ApplicationResourceLifecycleConfig' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The ARN of an IAM service role that Elastic Beanstalk has permission to</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- assume.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- The @ServiceRole@ property is required the first time that you provide a</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- @VersionLifecycleConfig@ for the application in one of the supporting</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@).</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- After you provide it once, in either one of the calls, Elastic Beanstalk</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- persists the Service Role with the application, and you don\'t need to</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- specify it again in subsequent @UpdateApplicationResourceLifecycle@</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- calls. You can, however, specify it in subsequent calls to change the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- Service Role to another value.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#applicationResourceLifecycleConfig_serviceRole"><span class="hs-identifier hs-type">applicationResourceLifecycleConfig_serviceRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="applicationResourceLifecycleConfig_serviceRole"><span class="annot"><span class="annottext">applicationResourceLifecycleConfig_serviceRole :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ApplicationResourceLifecycleConfig
--&gt; f ApplicationResourceLifecycleConfig
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#applicationResourceLifecycleConfig_serviceRole"><span class="hs-identifier hs-var hs-var">applicationResourceLifecycleConfig_serviceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationResourceLifecycleConfig -&gt; Maybe Text)
--&gt; (ApplicationResourceLifecycleConfig
-    -&gt; Maybe Text -&gt; ApplicationResourceLifecycleConfig)
--&gt; Lens
-     ApplicationResourceLifecycleConfig
-     ApplicationResourceLifecycleConfig
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304187"><span class="annot"><span class="annottext">Maybe Text
-serviceRole :: Maybe Text
-$sel:serviceRole:ApplicationResourceLifecycleConfig' :: ApplicationResourceLifecycleConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679304187"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304187"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304186"><span class="annot"><span class="annottext">s :: ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679304186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304185"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679304186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:ApplicationResourceLifecycleConfig' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | Defines lifecycle settings for application versions.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#applicationResourceLifecycleConfig_versionLifecycleConfig"><span class="hs-identifier hs-type">applicationResourceLifecycleConfig_versionLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="applicationResourceLifecycleConfig_versionLifecycleConfig"><span class="annot"><span class="annottext">applicationResourceLifecycleConfig_versionLifecycleConfig :: (Maybe ApplicationVersionLifecycleConfig
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Defines lifecycle settings for application versions.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#applicationResourceLifecycleConfig_versionLifecycleConfig"><span class="hs-identifier hs-type">applicationResourceLifecycleConfig_versionLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="applicationResourceLifecycleConfig_versionLifecycleConfig"><span class="annot"><span class="annottext">applicationResourceLifecycleConfig_versionLifecycleConfig :: (Maybe ApplicationVersionLifecycleConfig
  -&gt; f (Maybe ApplicationVersionLifecycleConfig))
 -&gt; ApplicationResourceLifecycleConfig
 -&gt; f ApplicationResourceLifecycleConfig
@@ -217,92 +180,119 @@ $sel:serviceRole:ApplicationResourceLifecycleConfig' :: ApplicationResourceLifec
      (Maybe ApplicationVersionLifecycleConfig)
      (Maybe ApplicationVersionLifecycleConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304183"><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304470"><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
 versionLifecycleConfig :: Maybe ApplicationVersionLifecycleConfig
 $sel:versionLifecycleConfig:ApplicationResourceLifecycleConfig' :: ApplicationResourceLifecycleConfig
 -&gt; Maybe ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304183"><span class="hs-identifier hs-var hs-var">versionLifecycleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304183"><span class="hs-identifier hs-var">versionLifecycleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304182"><span class="annot"><span class="annottext">s :: ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679304182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304181"><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
-</span><a href="#local-6989586621679304182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLifecycleConfig:ApplicationResourceLifecycleConfig' :: Maybe ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304470"><span class="hs-identifier hs-var hs-var">versionLifecycleConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304470"><span class="hs-identifier hs-var">versionLifecycleConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304469"><span class="annot"><span class="annottext">s :: ApplicationResourceLifecycleConfig
+</span><a href="#local-6989586621679304469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304468"><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
+</span><a href="#local-6989586621679304469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionLifecycleConfig:ApplicationResourceLifecycleConfig' :: Maybe ApplicationVersionLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AversionLifecycleConfig%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">versionLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
-</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679304178"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationResourceLifecycleConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679304176"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ARN of an IAM service role that Elastic Beanstalk has permission to</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- assume.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The @ServiceRole@ property is required the first time that you provide a</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- @VersionLifecycleConfig@ for the application in one of the supporting</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- calls (@CreateApplication@ or @UpdateApplicationResourceLifecycle@).</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- After you provide it once, in either one of the calls, Elastic Beanstalk</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- persists the Service Role with the application, and you don\'t need to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- specify it again in subsequent @UpdateApplicationResourceLifecycle@</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- calls. You can, however, specify it in subsequent calls to change the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Service Role to another value.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#applicationResourceLifecycleConfig_serviceRole"><span class="hs-identifier hs-type">applicationResourceLifecycleConfig_serviceRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="applicationResourceLifecycleConfig_serviceRole"><span class="annot"><span class="annottext">applicationResourceLifecycleConfig_serviceRole :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ApplicationResourceLifecycleConfig
+-&gt; f ApplicationResourceLifecycleConfig
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#applicationResourceLifecycleConfig_serviceRole"><span class="hs-identifier hs-var hs-var">applicationResourceLifecycleConfig_serviceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationResourceLifecycleConfig -&gt; Maybe Text)
+-&gt; (ApplicationResourceLifecycleConfig
+    -&gt; Maybe Text -&gt; ApplicationResourceLifecycleConfig)
+-&gt; Lens
+     ApplicationResourceLifecycleConfig
+     ApplicationResourceLifecycleConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304466"><span class="annot"><span class="annottext">Maybe Text
+serviceRole :: Maybe Text
+$sel:serviceRole:ApplicationResourceLifecycleConfig' :: ApplicationResourceLifecycleConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679304466"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304466"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304465"><span class="annot"><span class="annottext">s :: ApplicationResourceLifecycleConfig
+</span><a href="#local-6989586621679304465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304464"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResourceLifecycleConfig
+</span><a href="#local-6989586621679304465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:ApplicationResourceLifecycleConfig' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#%24sel%3AserviceRole%3AApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679304461"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationResourceLifecycleConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679304459"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
+-&gt; Maybe Text -&gt; ApplicationResourceLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-var">ApplicationResourceLifecycleConfig'</span></a></span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ApplicationVersionLifecycleConfig
- -&gt; ApplicationResourceLifecycleConfig)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ApplicationVersionLifecycleConfig
-      -&gt; ApplicationResourceLifecycleConfig)
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ApplicationVersionLifecycleConfig
+ -&gt; Maybe Text -&gt; ApplicationResourceLifecycleConfig)
+-&gt; Either String (Maybe ApplicationVersionLifecycleConfig)
+-&gt; Either String (Maybe Text -&gt; ApplicationResourceLifecycleConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ServiceRole&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ApplicationVersionLifecycleConfig
-   -&gt; ApplicationResourceLifecycleConfig)
--&gt; Either String (Maybe ApplicationVersionLifecycleConfig)
--&gt; Either String ApplicationResourceLifecycleConfig
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe ApplicationVersionLifecycleConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VersionLifecycleConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679304170"><span id="local-6989586621679304172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span></span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679304167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span></span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
-</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679304163"><span class="annot"><span class="annottext">toQuery :: ApplicationResourceLifecycleConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304160"><span id="local-6989586621679304161"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ApplicationResourceLifecycleConfig)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ApplicationResourceLifecycleConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679304453"><span id="local-6989586621679304455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679304450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679304446"><span class="annot"><span class="annottext">toQuery :: ApplicationResourceLifecycleConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig.html#ApplicationResourceLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationResourceLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304443"><span id="local-6989586621679304444"><span class="annot"><span class="annottext">Maybe Text
 Maybe ApplicationVersionLifecycleConfig
-versionLifecycleConfig :: Maybe ApplicationVersionLifecycleConfig
 serviceRole :: Maybe Text
+versionLifecycleConfig :: Maybe ApplicationVersionLifecycleConfig
+$sel:serviceRole:ApplicationResourceLifecycleConfig' :: ApplicationResourceLifecycleConfig -&gt; Maybe Text
 $sel:versionLifecycleConfig:ApplicationResourceLifecycleConfig' :: ApplicationResourceLifecycleConfig
 -&gt; Maybe ApplicationVersionLifecycleConfig
-$sel:serviceRole:ApplicationResourceLifecycleConfig' :: ApplicationResourceLifecycleConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679304160"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><a href="#local-6989586621679304443"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ServiceRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304161"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VersionLifecycleConfig&quot;</span></span><span>
-</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 -&gt; Maybe ApplicationVersionLifecycleConfig -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304160"><span class="hs-identifier hs-var">versionLifecycleConfig</span></a></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-128"></span></pre></body></html>
+</span><a href="#local-6989586621679304444"><span class="hs-identifier hs-var">versionLifecycleConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304443"><span class="hs-identifier hs-var">serviceRole</span></a></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span></pre></body></html>

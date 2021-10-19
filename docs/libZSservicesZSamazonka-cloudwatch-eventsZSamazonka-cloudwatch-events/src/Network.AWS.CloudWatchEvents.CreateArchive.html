@@ -33,8 +33,8 @@
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_eventPattern"><span class="hs-identifier">createArchive_eventPattern</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_description"><span class="hs-identifier">createArchive_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_retentionDays"><span class="hs-identifier">createArchive_retentionDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_retentionDays"><span class="hs-identifier">createArchive_retentionDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_description"><span class="hs-identifier">createArchive_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_archiveName"><span class="hs-identifier">createArchive_archiveName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_eventSourceArn"><span class="hs-identifier">createArchive_eventSourceArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
@@ -44,9 +44,9 @@
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_creationTime"><span class="hs-identifier">createArchiveResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_stateReason"><span class="hs-identifier">createArchiveResponse_stateReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_state"><span class="hs-identifier">createArchiveResponse_state</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_archiveArn"><span class="hs-identifier">createArchiveResponse_archiveArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_state"><span class="hs-identifier">createArchiveResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_stateReason"><span class="hs-identifier">createArchiveResponse_stateReason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_httpStatus"><span class="hs-identifier">createArchiveResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span class="hs-keyword">where</span><span>
@@ -59,17 +59,17 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateArchive' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679318996"><span id="local-6989586621679318997"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateArchive"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-var">CreateArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateArchive%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-var">CreateArchive'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679319209"><span id="local-6989586621679319210"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateArchive"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-var">CreateArchive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateArchive%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-var">CreateArchive'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An event pattern to use to filter events sent to the archive.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AeventPattern%3ACreateArchive%27"><span class="annot"><span class="annottext">CreateArchive -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AeventPattern%3ACreateArchive%27"><span class="hs-identifier hs-var hs-var">eventPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A description for the archive.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3Adescription%3ACreateArchive%27"><span class="annot"><span class="annottext">CreateArchive -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Adescription%3ACreateArchive%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The number of days to retain events for. Default value is 0. If set to</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- 0, events are retained indefinitely</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AretentionDays%3ACreateArchive%27"><span class="annot"><span class="annottext">CreateArchive -&gt; Maybe Natural
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The number of days to retain events for. Default value is 0. If set to</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- 0, events are retained indefinitely</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AretentionDays%3ACreateArchive%27"><span class="annot"><span class="annottext">CreateArchive -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AretentionDays%3ACreateArchive%27"><span class="hs-identifier hs-var hs-var">retentionDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | A description for the archive.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Adescription%3ACreateArchive%27"><span class="annot"><span class="annottext">CreateArchive -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Adescription%3ACreateArchive%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name for the archive to create.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AarchiveName%3ACreateArchive%27"><span class="annot"><span class="annottext">CreateArchive -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AarchiveName%3ACreateArchive%27"><span class="hs-identifier hs-var hs-var">archiveName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AeventSourceArn%3ACreateArchive%27"><span class="annot"><span class="annottext">CreateArchive -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AeventSourceArn%3ACreateArchive%27"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318986"><span id="local-6989586621679318988"><span class="annot"><span class="annottext">CreateArchive -&gt; CreateArchive -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319199"><span id="local-6989586621679319201"><span class="annot"><span class="annottext">CreateArchive -&gt; CreateArchive -&gt; Bool
 (CreateArchive -&gt; CreateArchive -&gt; Bool)
 -&gt; (CreateArchive -&gt; CreateArchive -&gt; Bool) -&gt; Eq CreateArchive
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateArchive -&gt; CreateArchive -&gt; Bool
 == :: CreateArchive -&gt; CreateArchive -&gt; Bool
 $c== :: CreateArchive -&gt; CreateArchive -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318977"><span id="local-6989586621679318979"><span id="local-6989586621679318981"><span id="local-6989586621679318983"><span class="annot"><span class="annottext">ReadPrec [CreateArchive]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319190"><span id="local-6989586621679319192"><span id="local-6989586621679319194"><span id="local-6989586621679319196"><span class="annot"><span class="annottext">ReadPrec [CreateArchive]
 ReadPrec CreateArchive
 Int -&gt; ReadS CreateArchive
 ReadS [CreateArchive]
@@ -105,7 +105,7 @@ readList :: ReadS [CreateArchive]
 $creadList :: ReadS [CreateArchive]
 readsPrec :: Int -&gt; ReadS CreateArchive
 $creadsPrec :: Int -&gt; ReadS CreateArchive
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318970"><span id="local-6989586621679318972"><span id="local-6989586621679318974"><span class="annot"><span class="annottext">Int -&gt; CreateArchive -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319183"><span id="local-6989586621679319185"><span id="local-6989586621679319187"><span class="annot"><span class="annottext">Int -&gt; CreateArchive -&gt; ShowS
 [CreateArchive] -&gt; ShowS
 CreateArchive -&gt; String
 (Int -&gt; CreateArchive -&gt; ShowS)
@@ -141,10 +141,10 @@ $cfrom :: forall x. CreateArchive -&gt; Rep CreateArchive x
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- 'eventPattern', 'createArchive_eventPattern' - An event pattern to use to filter events sent to the archive.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'description', 'createArchive_description' - A description for the archive.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'retentionDays', 'createArchive_retentionDays' - The number of days to retain events for. Default value is 0. If set to</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 0, events are retained indefinitely</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'retentionDays', 'createArchive_retentionDays' - The number of days to retain events for. Default value is 0. If set to</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 0, events are retained indefinitely</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'description', 'createArchive_description' - A description for the archive.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 'archiveName', 'createArchive_archiveName' - The name for the archive to create.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
@@ -156,30 +156,30 @@ $cfrom :: forall x. CreateArchive -&gt; Rep CreateArchive x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span>
 </span><span id="line-101"></span><span id="newCreateArchive"><span class="annot"><span class="annottext">newCreateArchive :: Text -&gt; Text -&gt; CreateArchive
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#newCreateArchive"><span class="hs-identifier hs-var hs-var">newCreateArchive</span></a></span></span><span> </span><span id="local-6989586621679318965"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318965"><span class="hs-identifier hs-var">pArchiveName_</span></a></span></span><span> </span><span id="local-6989586621679318964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318964"><span class="hs-identifier hs-var">pEventSourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#newCreateArchive"><span class="hs-identifier hs-var hs-var">newCreateArchive</span></a></span></span><span> </span><span id="local-6989586621679319178"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319178"><span class="hs-identifier hs-var">pArchiveName_</span></a></span></span><span> </span><span id="local-6989586621679319177"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319177"><span class="hs-identifier hs-var">pEventSourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">CreateArchive' :: Maybe Text
--&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; CreateArchive
+-&gt; Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; CreateArchive
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventPattern:CreateArchive' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AeventPattern%3ACreateArchive%27"><span class="hs-identifier hs-var">eventPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateArchive' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Adescription%3ACreateArchive%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:retentionDays:CreateArchive' :: Maybe Natural
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AretentionDays%3ACreateArchive%27"><span class="hs-identifier hs-var">retentionDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:retentionDays:CreateArchive' :: Maybe Natural
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AretentionDays%3ACreateArchive%27"><span class="hs-identifier hs-var">retentionDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateArchive' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Adescription%3ACreateArchive%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:archiveName:CreateArchive' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AarchiveName%3ACreateArchive%27"><span class="hs-identifier hs-var">archiveName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318965"><span class="hs-identifier hs-var">pArchiveName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319178"><span class="hs-identifier hs-var">pArchiveName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventSourceArn:CreateArchive' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AeventSourceArn%3ACreateArchive%27"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318964"><span class="hs-identifier hs-var">pEventSourceArn_</span></a></span><span>
+</span><a href="#local-6989586621679319177"><span class="hs-identifier hs-var">pEventSourceArn_</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | An event pattern to use to filter events sent to the archive.</span><span>
@@ -189,54 +189,54 @@ forall a. Maybe a
 -&gt; (CreateArchive -&gt; Maybe Text -&gt; CreateArchive)
 -&gt; Lens CreateArchive CreateArchive (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318961"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319174"><span class="annot"><span class="annottext">Maybe Text
 eventPattern :: Maybe Text
 $sel:eventPattern:CreateArchive' :: CreateArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679318961"><span class="hs-identifier hs-var hs-var">eventPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318961"><span class="hs-identifier hs-var">eventPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318960"><span class="annot"><span class="annottext">s :: CreateArchive
-</span><a href="#local-6989586621679318960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318959"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
-</span><a href="#local-6989586621679318960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventPattern:CreateArchive' :: Maybe Text
+</span><a href="#local-6989586621679319174"><span class="hs-identifier hs-var hs-var">eventPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319174"><span class="hs-identifier hs-var">eventPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319173"><span class="annot"><span class="annottext">s :: CreateArchive
+</span><a href="#local-6989586621679319173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
+</span><a href="#local-6989586621679319173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventPattern:CreateArchive' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AeventPattern%3ACreateArchive%27"><span class="hs-identifier hs-var">eventPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | A description for the archive.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_description"><span class="hs-identifier hs-type">createArchive_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="createArchive_description"><span class="annot"><span class="annottext">createArchive_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateArchive -&gt; f CreateArchive
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_description"><span class="hs-identifier hs-var hs-var">createArchive_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArchive -&gt; Maybe Text)
--&gt; (CreateArchive -&gt; Maybe Text -&gt; CreateArchive)
--&gt; Lens CreateArchive CreateArchive (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318958"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreateArchive' :: CreateArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679318958"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318958"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318957"><span class="annot"><span class="annottext">s :: CreateArchive
-</span><a href="#local-6989586621679318957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
-</span><a href="#local-6989586621679318957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateArchive' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Adescription%3ACreateArchive%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The number of days to retain events for. Default value is 0. If set to</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 0, events are retained indefinitely</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_retentionDays"><span class="hs-identifier hs-type">createArchive_retentionDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="createArchive_retentionDays"><span class="annot"><span class="annottext">createArchive_retentionDays :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-114"></span><span class="hs-comment">-- | The number of days to retain events for. Default value is 0. If set to</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 0, events are retained indefinitely</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_retentionDays"><span class="hs-identifier hs-type">createArchive_retentionDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="createArchive_retentionDays"><span class="annot"><span class="annottext">createArchive_retentionDays :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; CreateArchive -&gt; f CreateArchive
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_retentionDays"><span class="hs-identifier hs-var hs-var">createArchive_retentionDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArchive -&gt; Maybe Natural)
 -&gt; (CreateArchive -&gt; Maybe Natural -&gt; CreateArchive)
 -&gt; Lens CreateArchive CreateArchive (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318955"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319171"><span class="annot"><span class="annottext">Maybe Natural
 retentionDays :: Maybe Natural
 $sel:retentionDays:CreateArchive' :: CreateArchive -&gt; Maybe Natural
-</span><a href="#local-6989586621679318955"><span class="hs-identifier hs-var hs-var">retentionDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679318955"><span class="hs-identifier hs-var">retentionDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318954"><span class="annot"><span class="annottext">s :: CreateArchive
-</span><a href="#local-6989586621679318954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318953"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679318953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
-</span><a href="#local-6989586621679318954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionDays:CreateArchive' :: Maybe Natural
+</span><a href="#local-6989586621679319171"><span class="hs-identifier hs-var hs-var">retentionDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679319171"><span class="hs-identifier hs-var">retentionDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319170"><span class="annot"><span class="annottext">s :: CreateArchive
+</span><a href="#local-6989586621679319170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319169"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679319169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
+</span><a href="#local-6989586621679319170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionDays:CreateArchive' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AretentionDays%3ACreateArchive%27"><span class="hs-identifier hs-var">retentionDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679318953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | A description for the archive.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_description"><span class="hs-identifier hs-type">createArchive_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="createArchive_description"><span class="annot"><span class="annottext">createArchive_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateArchive -&gt; f CreateArchive
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_description"><span class="hs-identifier hs-var hs-var">createArchive_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArchive -&gt; Maybe Text)
+-&gt; (CreateArchive -&gt; Maybe Text -&gt; CreateArchive)
+-&gt; Lens CreateArchive CreateArchive (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319168"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateArchive' :: CreateArchive -&gt; Maybe Text
+</span><a href="#local-6989586621679319168"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319168"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319167"><span class="annot"><span class="annottext">s :: CreateArchive
+</span><a href="#local-6989586621679319167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
+</span><a href="#local-6989586621679319167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateArchive' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Adescription%3ACreateArchive%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The name for the archive to create.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_archiveName"><span class="hs-identifier hs-type">createArchive_archiveName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,16 +245,16 @@ $sel:retentionDays:CreateArchive' :: CreateArchive -&gt; Maybe Natural
 -&gt; (CreateArchive -&gt; Text -&gt; CreateArchive)
 -&gt; Lens CreateArchive CreateArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318952"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319165"><span class="annot"><span class="annottext">Text
 archiveName :: Text
 $sel:archiveName:CreateArchive' :: CreateArchive -&gt; Text
-</span><a href="#local-6989586621679318952"><span class="hs-identifier hs-var hs-var">archiveName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318952"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318951"><span class="annot"><span class="annottext">s :: CreateArchive
-</span><a href="#local-6989586621679318951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
-</span><a href="#local-6989586621679318951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveName:CreateArchive' :: Text
+</span><a href="#local-6989586621679319165"><span class="hs-identifier hs-var hs-var">archiveName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319165"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319164"><span class="annot"><span class="annottext">s :: CreateArchive
+</span><a href="#local-6989586621679319164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
+</span><a href="#local-6989586621679319164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveName:CreateArchive' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AarchiveName%3ACreateArchive%27"><span class="hs-identifier hs-var">archiveName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The ARN of the event bus that sends events to the archive.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchive_eventSourceArn"><span class="hs-identifier hs-type">createArchive_eventSourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -263,27 +263,27 @@ $sel:archiveName:CreateArchive' :: CreateArchive -&gt; Text
 -&gt; (CreateArchive -&gt; Text -&gt; CreateArchive)
 -&gt; Lens CreateArchive CreateArchive Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318949"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319162"><span class="annot"><span class="annottext">Text
 eventSourceArn :: Text
 $sel:eventSourceArn:CreateArchive' :: CreateArchive -&gt; Text
-</span><a href="#local-6989586621679318949"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318949"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318948"><span class="annot"><span class="annottext">s :: CreateArchive
-</span><a href="#local-6989586621679318948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318947"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
-</span><a href="#local-6989586621679318948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSourceArn:CreateArchive' :: Text
+</span><a href="#local-6989586621679319162"><span class="hs-identifier hs-var hs-var">eventSourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319162"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319161"><span class="annot"><span class="annottext">s :: CreateArchive
+</span><a href="#local-6989586621679319161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchive
+</span><a href="#local-6989586621679319161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSourceArn:CreateArchive' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AeventSourceArn%3ACreateArchive%27"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679318943"><span class="annot"><span class="annottext">request :: CreateArchive -&gt; Request CreateArchive
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679319156"><span class="annot"><span class="annottext">request :: CreateArchive -&gt; Request CreateArchive
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateArchive -&gt; Request CreateArchive
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679318939"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679319152"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateArchive
 -&gt; ClientResponse ClientBody
@@ -307,75 +307,66 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318936"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318936"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679318935"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679318935"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679318934"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318934"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319149"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319149"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679319148"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679319148"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679319147"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ArchiveState
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; CreateArchiveResponse
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-var">CreateArchiveResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ArchiveState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; CreateArchiveResponse)
 -&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ArchiveState
-      -&gt; Int
-      -&gt; CreateArchiveResponse)
+     (Maybe ArchiveState
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateArchiveResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679319147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ArchiveState
-   -&gt; Int
-   -&gt; CreateArchiveResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text -&gt; Maybe ArchiveState -&gt; Int -&gt; CreateArchiveResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StateReason&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe ArchiveState -&gt; Int -&gt; CreateArchiveResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe ArchiveState -&gt; Int -&gt; CreateArchiveResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ArchiveArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe ArchiveState -&gt; Int -&gt; CreateArchiveResponse)
+  (Maybe ArchiveState
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateArchiveResponse)
 -&gt; Either String (Maybe ArchiveState)
--&gt; Either String (Int -&gt; CreateArchiveResponse)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateArchiveResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ArchiveState)
+</span><a href="#local-6989586621679319147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ArchiveState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateArchiveResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateArchiveResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArchiveArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateArchiveResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateArchiveResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StateReason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateArchiveResponse)
 -&gt; Either String Int -&gt; Either String CreateArchiveResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -384,15 +375,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318936"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319149"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318926"><span id="local-6989586621679318928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319139"><span id="local-6989586621679319141"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679318919"><span class="annot"><span class="annottext">toHeaders :: CreateArchive -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679319132"><span class="annot"><span class="annottext">toHeaders :: CreateArchive -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateArchive -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -417,22 +408,22 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318909"><span id="local-6989586621679318911"><span id="local-6989586621679318913"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679318907"><span class="annot"><span class="annottext">toJSON :: CreateArchive -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318901"><span id="local-6989586621679318902"><span id="local-6989586621679318903"><span id="local-6989586621679318904"><span id="local-6989586621679318905"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319122"><span id="local-6989586621679319124"><span id="local-6989586621679319126"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679319120"><span class="annot"><span class="annottext">toJSON :: CreateArchive -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive%27"><span class="hs-identifier hs-type">CreateArchive'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319114"><span id="local-6989586621679319115"><span id="local-6989586621679319116"><span id="local-6989586621679319117"><span id="local-6989586621679319118"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 eventSourceArn :: Text
 archiveName :: Text
-retentionDays :: Maybe Natural
 description :: Maybe Text
+retentionDays :: Maybe Natural
 eventPattern :: Maybe Text
 $sel:eventSourceArn:CreateArchive' :: CreateArchive -&gt; Text
 $sel:archiveName:CreateArchive' :: CreateArchive -&gt; Text
-$sel:retentionDays:CreateArchive' :: CreateArchive -&gt; Maybe Natural
 $sel:description:CreateArchive' :: CreateArchive -&gt; Maybe Text
+$sel:retentionDays:CreateArchive' :: CreateArchive -&gt; Maybe Natural
 $sel:eventPattern:CreateArchive' :: CreateArchive -&gt; Maybe Text
-</span><a href="#local-6989586621679318901"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679319114"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -444,28 +435,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318905"><span class="hs-identifier hs-var">eventPattern</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319118"><span class="hs-identifier hs-var">eventPattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318904"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetentionDays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679318903"><span class="hs-identifier hs-var">retentionDays</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319117"><span class="hs-identifier hs-var">retentionDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319116"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ArchiveName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318902"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319115"><span class="hs-identifier hs-var">archiveName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -473,19 +464,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EventSourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318901"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319114"><span class="hs-identifier hs-var">eventSourceArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679318895"><span class="annot"><span class="annottext">toPath :: CreateArchive -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679319108"><span class="annot"><span class="annottext">toPath :: CreateArchive -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateArchive -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchive"><span class="hs-identifier hs-type">CreateArchive</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679318891"><span class="annot"><span class="annottext">toQuery :: CreateArchive -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679319104"><span class="annot"><span class="annottext">toQuery :: CreateArchive -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateArchive -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -493,24 +484,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newCreateArchiveResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679318888"><span id="local-6989586621679318889"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateArchiveResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-var">CreateArchiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateArchiveResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-var">CreateArchiveResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679319101"><span id="local-6989586621679319102"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateArchiveResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-var">CreateArchiveResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateArchiveResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-var">CreateArchiveResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which the archive was created.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AcreationTime%3ACreateArchiveResponse%27"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AcreationTime%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The reason that the archive is in the state.</span><span>
-</span><span id="line-188"></span><span>    </span><span id="%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | The state of the archive that was created.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3Astate%3ACreateArchiveResponse%27"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; Maybe ArchiveState
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Astate%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ArchiveState.html#ArchiveState"><span class="hs-identifier hs-type">ArchiveState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The ARN of the archive that was created.</span><span>
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AarchiveArn%3ACreateArchiveResponse%27"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AarchiveArn%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var hs-var">archiveArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The state of the archive that was created.</span><span>
-</span><span id="line-192"></span><span>    </span><span id="%24sel%3Astate%3ACreateArchiveResponse%27"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; Maybe ArchiveState
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Astate%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ArchiveState.html#ArchiveState"><span class="hs-identifier hs-type">ArchiveState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The reason that the archive is in the state.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateArchiveResponse%27"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AhttpStatus%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318879"><span id="local-6989586621679318881"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; CreateArchiveResponse -&gt; Bool
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319092"><span id="local-6989586621679319094"><span class="annot"><span class="annottext">CreateArchiveResponse -&gt; CreateArchiveResponse -&gt; Bool
 (CreateArchiveResponse -&gt; CreateArchiveResponse -&gt; Bool)
 -&gt; (CreateArchiveResponse -&gt; CreateArchiveResponse -&gt; Bool)
 -&gt; Eq CreateArchiveResponse
@@ -519,7 +510,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateArchiveResponse -&gt; CreateArchiveResponse -&gt; Bool
 == :: CreateArchiveResponse -&gt; CreateArchiveResponse -&gt; Bool
 $c== :: CreateArchiveResponse -&gt; CreateArchiveResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318871"><span id="local-6989586621679318873"><span id="local-6989586621679318875"><span id="local-6989586621679318877"><span class="annot"><span class="annottext">ReadPrec [CreateArchiveResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319084"><span id="local-6989586621679319086"><span id="local-6989586621679319088"><span id="local-6989586621679319090"><span class="annot"><span class="annottext">ReadPrec [CreateArchiveResponse]
 ReadPrec CreateArchiveResponse
 Int -&gt; ReadS CreateArchiveResponse
 ReadS [CreateArchiveResponse]
@@ -539,7 +530,7 @@ readList :: ReadS [CreateArchiveResponse]
 $creadList :: ReadS [CreateArchiveResponse]
 readsPrec :: Int -&gt; ReadS CreateArchiveResponse
 $creadsPrec :: Int -&gt; ReadS CreateArchiveResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318865"><span id="local-6989586621679318867"><span id="local-6989586621679318869"><span class="annot"><span class="annottext">Int -&gt; CreateArchiveResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319078"><span id="local-6989586621679319080"><span id="local-6989586621679319082"><span class="annot"><span class="annottext">Int -&gt; CreateArchiveResponse -&gt; ShowS
 [CreateArchiveResponse] -&gt; ShowS
 CreateArchiveResponse -&gt; String
 (Int -&gt; CreateArchiveResponse -&gt; ShowS)
@@ -575,11 +566,11 @@ $cfrom :: forall x. CreateArchiveResponse -&gt; Rep CreateArchiveResponse x
 </span><span id="line-205"></span><span class="hs-comment">--</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- 'creationTime', 'createArchiveResponse_creationTime' - The time at which the archive was created.</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'stateReason', 'createArchiveResponse_stateReason' - The reason that the archive is in the state.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'state', 'createArchiveResponse_state' - The state of the archive that was created.</span><span>
 </span><span id="line-209"></span><span class="hs-comment">--</span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- 'archiveArn', 'createArchiveResponse_archiveArn' - The ARN of the archive that was created.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- 'state', 'createArchiveResponse_state' - The state of the archive that was created.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'stateReason', 'createArchiveResponse_stateReason' - The reason that the archive is in the state.</span><span>
 </span><span id="line-213"></span><span class="hs-comment">--</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- 'httpStatus', 'createArchiveResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#newCreateArchiveResponse"><span class="hs-identifier hs-type">newCreateArchiveResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -587,12 +578,12 @@ $cfrom :: forall x. CreateArchiveResponse -&gt; Rep CreateArchiveResponse x
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newCreateArchiveResponse"><span class="annot"><span class="annottext">newCreateArchiveResponse :: Int -&gt; CreateArchiveResponse
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#newCreateArchiveResponse"><span class="hs-identifier hs-var hs-var">newCreateArchiveResponse</span></a></span></span><span> </span><span id="local-6989586621679318862"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#newCreateArchiveResponse"><span class="hs-identifier hs-var hs-var">newCreateArchiveResponse</span></a></span></span><span> </span><span id="local-6989586621679319075"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">CreateArchiveResponse' :: Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ArchiveState
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Int
 -&gt; CreateArchiveResponse
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span>
@@ -601,21 +592,21 @@ $cfrom :: forall x. CreateArchiveResponse -&gt; Rep CreateArchiveResponse x
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateReason:CreateArchiveResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:CreateArchiveResponse' :: Maybe ArchiveState
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Astate%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:archiveArn:CreateArchiveResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AarchiveArn%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">archiveArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:CreateArchiveResponse' :: Maybe ArchiveState
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Astate%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateReason:CreateArchiveResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateArchiveResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AhttpStatus%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679319075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The time at which the archive was created.</span><span>
@@ -630,16 +621,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318861"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319074"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679318861"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679318861"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318860"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
-</span><a href="#local-6989586621679318860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318859"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679318859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
-</span><a href="#local-6989586621679318860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CreateArchiveResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679319074"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679319074"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319073"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
+</span><a href="#local-6989586621679319073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319072"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679319072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
+</span><a href="#local-6989586621679319073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CreateArchiveResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AcreationTime%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679318859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679319072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CreateArchiveResponse -&gt; f CreateArchiveResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -656,28 +647,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The reason that the archive is in the state.</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_stateReason"><span class="hs-identifier hs-type">createArchiveResponse_stateReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="createArchiveResponse_stateReason"><span class="annot"><span class="annottext">createArchiveResponse_stateReason :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-233"></span><span class="hs-comment">-- | The state of the archive that was created.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_state"><span class="hs-identifier hs-type">createArchiveResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ArchiveState.html#ArchiveState"><span class="hs-identifier hs-type">ArchiveState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="createArchiveResponse_state"><span class="annot"><span class="annottext">createArchiveResponse_state :: (Maybe ArchiveState -&gt; f (Maybe ArchiveState))
 -&gt; CreateArchiveResponse -&gt; f CreateArchiveResponse
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_stateReason"><span class="hs-identifier hs-var hs-var">createArchiveResponse_stateReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArchiveResponse -&gt; Maybe Text)
--&gt; (CreateArchiveResponse -&gt; Maybe Text -&gt; CreateArchiveResponse)
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_state"><span class="hs-identifier hs-var hs-var">createArchiveResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArchiveResponse -&gt; Maybe ArchiveState)
+-&gt; (CreateArchiveResponse
+    -&gt; Maybe ArchiveState -&gt; CreateArchiveResponse)
 -&gt; Lens
      CreateArchiveResponse
      CreateArchiveResponse
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ArchiveState)
+     (Maybe ArchiveState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318855"><span class="annot"><span class="annottext">Maybe Text
-stateReason :: Maybe Text
-$sel:stateReason:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679318855"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318855"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318854"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
-</span><a href="#local-6989586621679318854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318853"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
-</span><a href="#local-6989586621679318854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:CreateArchiveResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319068"><span class="annot"><span class="annottext">Maybe ArchiveState
+state :: Maybe ArchiveState
+$sel:state:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe ArchiveState
+</span><a href="#local-6989586621679319068"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
+</span><a href="#local-6989586621679319068"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319067"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
+</span><a href="#local-6989586621679319067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319066"><span class="annot"><span class="annottext">Maybe ArchiveState
+</span><a href="#local-6989586621679319066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
+</span><a href="#local-6989586621679319067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CreateArchiveResponse' :: Maybe ArchiveState
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Astate%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
+</span><a href="#local-6989586621679319066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The ARN of the archive that was created.</span><span>
 </span><span id="line-238"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_archiveArn"><span class="hs-identifier hs-type">createArchiveResponse_archiveArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -691,40 +683,39 @@ $sel:stateReason:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe Tex
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318852"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319065"><span class="annot"><span class="annottext">Maybe Text
 archiveArn :: Maybe Text
 $sel:archiveArn:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679318852"><span class="hs-identifier hs-var hs-var">archiveArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318852"><span class="hs-identifier hs-var">archiveArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318851"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
-</span><a href="#local-6989586621679318851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318850"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
-</span><a href="#local-6989586621679318851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveArn:CreateArchiveResponse' :: Maybe Text
+</span><a href="#local-6989586621679319065"><span class="hs-identifier hs-var hs-var">archiveArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319065"><span class="hs-identifier hs-var">archiveArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319064"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
+</span><a href="#local-6989586621679319064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319063"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
+</span><a href="#local-6989586621679319064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveArn:CreateArchiveResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AarchiveArn%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">archiveArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- | The state of the archive that was created.</span><span>
-</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_state"><span class="hs-identifier hs-type">createArchiveResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ArchiveState.html#ArchiveState"><span class="hs-identifier hs-type">ArchiveState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span id="createArchiveResponse_state"><span class="annot"><span class="annottext">createArchiveResponse_state :: (Maybe ArchiveState -&gt; f (Maybe ArchiveState))
+</span><span id="line-241"></span><span class="hs-comment">-- | The reason that the archive is in the state.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_stateReason"><span class="hs-identifier hs-type">createArchiveResponse_stateReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="createArchiveResponse_stateReason"><span class="annot"><span class="annottext">createArchiveResponse_stateReason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateArchiveResponse -&gt; f CreateArchiveResponse
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_state"><span class="hs-identifier hs-var hs-var">createArchiveResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArchiveResponse -&gt; Maybe ArchiveState)
--&gt; (CreateArchiveResponse
-    -&gt; Maybe ArchiveState -&gt; CreateArchiveResponse)
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_stateReason"><span class="hs-identifier hs-var hs-var">createArchiveResponse_stateReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateArchiveResponse -&gt; Maybe Text)
+-&gt; (CreateArchiveResponse -&gt; Maybe Text -&gt; CreateArchiveResponse)
 -&gt; Lens
      CreateArchiveResponse
      CreateArchiveResponse
-     (Maybe ArchiveState)
-     (Maybe ArchiveState)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318849"><span class="annot"><span class="annottext">Maybe ArchiveState
-state :: Maybe ArchiveState
-$sel:state:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe ArchiveState
-</span><a href="#local-6989586621679318849"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
-</span><a href="#local-6989586621679318849"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318848"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
-</span><a href="#local-6989586621679318848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318847"><span class="annot"><span class="annottext">Maybe ArchiveState
-</span><a href="#local-6989586621679318847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
-</span><a href="#local-6989586621679318848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:CreateArchiveResponse' :: Maybe ArchiveState
-</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3Astate%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveState
-</span><a href="#local-6989586621679318847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319062"><span class="annot"><span class="annottext">Maybe Text
+stateReason :: Maybe Text
+$sel:stateReason:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679319062"><span class="hs-identifier hs-var hs-var">stateReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319062"><span class="hs-identifier hs-var">stateReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319061"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
+</span><a href="#local-6989586621679319061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319060"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
+</span><a href="#local-6989586621679319061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateReason:CreateArchiveResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AstateReason%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">stateReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#createArchiveResponse_httpStatus"><span class="hs-identifier hs-type">createArchiveResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -733,16 +724,16 @@ $sel:state:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Maybe ArchiveSt
 -&gt; (CreateArchiveResponse -&gt; Int -&gt; CreateArchiveResponse)
 -&gt; Lens CreateArchiveResponse CreateArchiveResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318846"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319059"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateArchiveResponse' :: CreateArchiveResponse -&gt; Int
-</span><a href="#local-6989586621679318846"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318846"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318845"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
-</span><a href="#local-6989586621679318845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
-</span><a href="#local-6989586621679318845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateArchiveResponse' :: Int
+</span><a href="#local-6989586621679319059"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319059"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319058"><span class="annot"><span class="annottext">s :: CreateArchiveResponse
+</span><a href="#local-6989586621679319058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse%27"><span class="hs-identifier hs-type">CreateArchiveResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateArchiveResponse
+</span><a href="#local-6989586621679319058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateArchiveResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#%24sel%3AhttpStatus%3ACreateArchiveResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateArchive.html#CreateArchiveResponse"><span class="hs-identifier hs-type">CreateArchiveResponse</span></a></span></span><span>
 </span><span id="line-250"></span></pre></body></html>

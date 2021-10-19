@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details about the fields such as name of the field.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFieldInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679400276"><span id="local-6989586621679400277"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldInfo"><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-var">FieldInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldInfo%27"><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo%27"><span class="hs-identifier hs-var">FieldInfo'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679400859"><span id="local-6989586621679400860"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldInfo"><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-var">FieldInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldInfo%27"><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo%27"><span class="hs-identifier hs-var">FieldInfo'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the field.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AFieldInfo%27"><span class="annot"><span class="annottext">FieldInfo -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.FieldInfo.html#%24sel%3Aname%3AFieldInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400270"><span id="local-6989586621679400272"><span class="annot"><span class="annottext">FieldInfo -&gt; FieldInfo -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400853"><span id="local-6989586621679400855"><span class="annot"><span class="annottext">FieldInfo -&gt; FieldInfo -&gt; Bool
 (FieldInfo -&gt; FieldInfo -&gt; Bool)
 -&gt; (FieldInfo -&gt; FieldInfo -&gt; Bool) -&gt; Eq FieldInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FieldInfo -&gt; FieldInfo -&gt; Bool
 == :: FieldInfo -&gt; FieldInfo -&gt; Bool
 $c== :: FieldInfo -&gt; FieldInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400261"><span id="local-6989586621679400263"><span id="local-6989586621679400265"><span id="local-6989586621679400267"><span class="annot"><span class="annottext">ReadPrec [FieldInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400844"><span id="local-6989586621679400846"><span id="local-6989586621679400848"><span id="local-6989586621679400850"><span class="annot"><span class="annottext">ReadPrec [FieldInfo]
 ReadPrec FieldInfo
 Int -&gt; ReadS FieldInfo
 ReadS [FieldInfo]
@@ -59,7 +59,7 @@ readList :: ReadS [FieldInfo]
 $creadList :: ReadS [FieldInfo]
 readsPrec :: Int -&gt; ReadS FieldInfo
 $creadsPrec :: Int -&gt; ReadS FieldInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400254"><span id="local-6989586621679400256"><span id="local-6989586621679400258"><span class="annot"><span class="annottext">Int -&gt; FieldInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400837"><span id="local-6989586621679400839"><span id="local-6989586621679400841"><span class="annot"><span class="annottext">Int -&gt; FieldInfo -&gt; ShowS
 [FieldInfo] -&gt; ShowS
 FieldInfo -&gt; String
 (Int -&gt; FieldInfo -&gt; ShowS)
@@ -109,37 +109,37 @@ forall a. Maybe a
 -&gt; (FieldInfo -&gt; Maybe Text -&gt; FieldInfo)
 -&gt; Lens FieldInfo FieldInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo%27"><span class="hs-identifier hs-type">FieldInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400245"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo%27"><span class="hs-identifier hs-type">FieldInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400828"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:FieldInfo' :: FieldInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679400245"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400245"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400244"><span class="annot"><span class="annottext">s :: FieldInfo
-</span><a href="#local-6989586621679400244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo%27"><span class="hs-identifier hs-type">FieldInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400243"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldInfo
-</span><a href="#local-6989586621679400244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:FieldInfo' :: Maybe Text
+</span><a href="#local-6989586621679400828"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400828"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400827"><span class="annot"><span class="annottext">s :: FieldInfo
+</span><a href="#local-6989586621679400827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo%27"><span class="hs-identifier hs-type">FieldInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldInfo
+</span><a href="#local-6989586621679400827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:FieldInfo' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.FieldInfo.html#%24sel%3Aname%3AFieldInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400240"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679400238"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FieldInfo
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679400821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FieldInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser FieldInfo) -&gt; Value -&gt; Parser FieldInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FieldInfo&quot;</span></span><span>
-</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400235"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679400235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; FieldInfo
+</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400818"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; FieldInfo
 </span><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo%27"><span class="hs-identifier hs-var">FieldInfo'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; FieldInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser FieldInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679400235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679400818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400229"><span id="local-6989586621679400231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400812"><span id="local-6989586621679400814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FieldInfo.html#FieldInfo"><span class="hs-identifier hs-type">FieldInfo</span></a></span></span><span>
 </span><span id="line-61"></span></pre></body></html>

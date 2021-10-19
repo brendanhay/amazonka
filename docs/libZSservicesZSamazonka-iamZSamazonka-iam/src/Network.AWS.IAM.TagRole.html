@@ -82,7 +82,7 @@
 </span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | /See:/ 'newTagRole' smart constructor.</span><span>
-</span><span id="line-85"></span><span id="local-6989586621679434900"><span id="local-6989586621679434901"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagRole"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-var">TagRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagRole%27"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-var">TagRole'</span></a></span></span><span>
+</span><span id="line-85"></span><span id="local-6989586621679435438"><span id="local-6989586621679435439"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagRole"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-var">TagRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagRole%27"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-var">TagRole'</span></a></span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM role to which you want to add tags.</span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- This parameter accepts (through its</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-95"></span><span>    </span><span id="%24sel%3Atags%3ATagRole%27"><span class="annot"><span class="annottext">TagRole -&gt; [Tag]
 </span><a href="Network.AWS.IAM.TagRole.html#%24sel%3Atags%3ATagRole%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434893"><span id="local-6989586621679434895"><span class="annot"><span class="annottext">TagRole -&gt; TagRole -&gt; Bool
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435431"><span id="local-6989586621679435433"><span class="annot"><span class="annottext">TagRole -&gt; TagRole -&gt; Bool
 (TagRole -&gt; TagRole -&gt; Bool)
 -&gt; (TagRole -&gt; TagRole -&gt; Bool) -&gt; Eq TagRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -104,7 +104,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagRole -&gt; TagRole -&gt; Bool
 == :: TagRole -&gt; TagRole -&gt; Bool
 $c== :: TagRole -&gt; TagRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434884"><span id="local-6989586621679434886"><span id="local-6989586621679434888"><span id="local-6989586621679434890"><span class="annot"><span class="annottext">ReadPrec [TagRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435422"><span id="local-6989586621679435424"><span id="local-6989586621679435426"><span id="local-6989586621679435428"><span class="annot"><span class="annottext">ReadPrec [TagRole]
 ReadPrec TagRole
 Int -&gt; ReadS TagRole
 ReadS [TagRole]
@@ -124,7 +124,7 @@ readList :: ReadS [TagRole]
 $creadList :: ReadS [TagRole]
 readsPrec :: Int -&gt; ReadS TagRole
 $creadsPrec :: Int -&gt; ReadS TagRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434877"><span id="local-6989586621679434879"><span id="local-6989586621679434881"><span class="annot"><span class="annottext">Int -&gt; TagRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435415"><span id="local-6989586621679435417"><span id="local-6989586621679435419"><span class="annot"><span class="annottext">Int -&gt; TagRole -&gt; ShowS
 [TagRole] -&gt; ShowS
 TagRole -&gt; String
 (Int -&gt; TagRole -&gt; ShowS)
@@ -169,13 +169,13 @@ $cfrom :: forall x. TagRole -&gt; Rep TagRole x
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span>
 </span><span id="line-120"></span><span id="newTagRole"><span class="annot"><span class="annottext">newTagRole :: Text -&gt; TagRole
-</span><a href="Network.AWS.IAM.TagRole.html#newTagRole"><span class="hs-identifier hs-var hs-var">newTagRole</span></a></span></span><span> </span><span id="local-6989586621679434872"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434872"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.TagRole.html#newTagRole"><span class="hs-identifier hs-var hs-var">newTagRole</span></a></span></span><span> </span><span id="local-6989586621679435410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435410"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">TagRole' :: Text -&gt; [Tag] -&gt; TagRole
 </span><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleName:TagRole' :: Text
 </span><a href="Network.AWS.IAM.TagRole.html#%24sel%3AroleName%3ATagRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434872"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435410"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagRole' :: [Tag]
 </span><a href="Network.AWS.IAM.TagRole.html#%24sel%3Atags%3ATagRole%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -193,16 +193,16 @@ forall a. Monoid a =&gt; a
 </span><a href="Network.AWS.IAM.TagRole.html#tagRole_roleName"><span class="hs-identifier hs-var hs-var">tagRole_roleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagRole -&gt; Text)
 -&gt; (TagRole -&gt; Text -&gt; TagRole) -&gt; Lens TagRole TagRole Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434869"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435407"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:TagRole' :: TagRole -&gt; Text
-</span><a href="#local-6989586621679434869"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434869"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434868"><span class="annot"><span class="annottext">s :: TagRole
-</span><a href="#local-6989586621679434868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434867"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagRole
-</span><a href="#local-6989586621679434868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:TagRole' :: Text
+</span><a href="#local-6989586621679435407"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435407"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435406"><span class="annot"><span class="annottext">s :: TagRole
+</span><a href="#local-6989586621679435406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagRole
+</span><a href="#local-6989586621679435406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:TagRole' :: Text
 </span><a href="Network.AWS.IAM.TagRole.html#%24sel%3AroleName%3ATagRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The list of tags that you want to attach to the IAM role. Each tag</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- consists of a key name and an associated value.</span><span>
@@ -212,33 +212,33 @@ $sel:roleName:TagRole' :: TagRole -&gt; Text
 -&gt; (TagRole -&gt; [Tag] -&gt; TagRole)
 -&gt; Lens TagRole TagRole [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434866"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435404"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:TagRole' :: TagRole -&gt; [Tag]
-</span><a href="#local-6989586621679434866"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434866"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434865"><span class="annot"><span class="annottext">s :: TagRole
-</span><a href="#local-6989586621679434865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434864"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagRole
-</span><a href="#local-6989586621679434865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagRole' :: [Tag]
+</span><a href="#local-6989586621679435404"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435404"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435403"><span class="annot"><span class="annottext">s :: TagRole
+</span><a href="#local-6989586621679435403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435402"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagRole
+</span><a href="#local-6989586621679435403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagRole' :: [Tag]
 </span><a href="Network.AWS.IAM.TagRole.html#%24sel%3Atags%3ATagRole%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagRole -&gt; f TagRole)
+</span><a href="#local-6989586621679435402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; TagRole -&gt; f TagRole)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; TagRole
 -&gt; f TagRole
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse"><span class="hs-identifier hs-type">TagRoleResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679434858"><span class="annot"><span class="annottext">request :: TagRole -&gt; Request TagRole
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679435396"><span class="annot"><span class="annottext">request :: TagRole -&gt; Request TagRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagRole -&gt; Request TagRole
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679434854"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679435392"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagRole
 -&gt; ClientResponse ClientBody
@@ -261,12 +261,12 @@ AWSResponse a
 TagRoleResponse
 </span><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse%27"><span class="hs-identifier hs-var">TagRoleResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434847"><span id="local-6989586621679434849"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435385"><span id="local-6989586621679435387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434844"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679434840"><span class="annot"><span class="annottext">toHeaders :: TagRole -&gt; [Header]
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679435378"><span class="annot"><span class="annottext">toHeaders :: TagRole -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; TagRole -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -274,21 +274,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679434835"><span class="annot"><span class="annottext">toPath :: TagRole -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679435373"><span class="annot"><span class="annottext">toPath :: TagRole -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagRole -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole"><span class="hs-identifier hs-type">TagRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679434831"><span class="annot"><span class="annottext">toQuery :: TagRole -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434828"><span id="local-6989586621679434829"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679435369"><span class="annot"><span class="annottext">toQuery :: TagRole -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRole%27"><span class="hs-identifier hs-type">TagRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435366"><span id="local-6989586621679435367"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 roleName :: Text
 $sel:tags:TagRole' :: TagRole -&gt; [Tag]
 $sel:roleName:TagRole' :: TagRole -&gt; Text
-</span><a href="#local-6989586621679434828"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679435366"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -307,7 +307,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434829"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435367"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -317,14 +317,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679434828"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679435366"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newTagRoleResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679434824"><span id="local-6989586621679434825"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagRoleResponse"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse"><span class="hs-identifier hs-var">TagRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse%27"><span class="hs-identifier hs-var">TagRoleResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679435362"><span id="local-6989586621679435363"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagRoleResponse"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse"><span class="hs-identifier hs-var">TagRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse%27"><span class="hs-identifier hs-var">TagRoleResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434820"><span id="local-6989586621679434822"><span class="annot"><span class="annottext">TagRoleResponse -&gt; TagRoleResponse -&gt; Bool
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435358"><span id="local-6989586621679435360"><span class="annot"><span class="annottext">TagRoleResponse -&gt; TagRoleResponse -&gt; Bool
 (TagRoleResponse -&gt; TagRoleResponse -&gt; Bool)
 -&gt; (TagRoleResponse -&gt; TagRoleResponse -&gt; Bool)
 -&gt; Eq TagRoleResponse
@@ -333,7 +333,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagRoleResponse -&gt; TagRoleResponse -&gt; Bool
 == :: TagRoleResponse -&gt; TagRoleResponse -&gt; Bool
 $c== :: TagRoleResponse -&gt; TagRoleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434812"><span id="local-6989586621679434814"><span id="local-6989586621679434816"><span id="local-6989586621679434818"><span class="annot"><span class="annottext">ReadPrec [TagRoleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435350"><span id="local-6989586621679435352"><span id="local-6989586621679435354"><span id="local-6989586621679435356"><span class="annot"><span class="annottext">ReadPrec [TagRoleResponse]
 ReadPrec TagRoleResponse
 Int -&gt; ReadS TagRoleResponse
 ReadS [TagRoleResponse]
@@ -353,7 +353,7 @@ readList :: ReadS [TagRoleResponse]
 $creadList :: ReadS [TagRoleResponse]
 readsPrec :: Int -&gt; ReadS TagRoleResponse
 $creadsPrec :: Int -&gt; ReadS TagRoleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434806"><span id="local-6989586621679434808"><span id="local-6989586621679434810"><span class="annot"><span class="annottext">Int -&gt; TagRoleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435344"><span id="local-6989586621679435346"><span id="local-6989586621679435348"><span class="annot"><span class="annottext">Int -&gt; TagRoleResponse -&gt; ShowS
 [TagRoleResponse] -&gt; ShowS
 TagRoleResponse -&gt; String
 (Int -&gt; TagRoleResponse -&gt; ShowS)
@@ -389,5 +389,5 @@ $cfrom :: forall x. TagRoleResponse -&gt; Rep TagRoleResponse x
 </span><a href="Network.AWS.IAM.TagRole.html#newTagRoleResponse"><span class="hs-identifier hs-var hs-var">newTagRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TagRoleResponse
 </span><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse%27"><span class="hs-identifier hs-var">TagRoleResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse"><span class="hs-identifier hs-type">TagRoleResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435340"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.TagRole.html#TagRoleResponse"><span class="hs-identifier hs-type">TagRoleResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Settings for content redaction within a transcription job.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContentRedaction' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679274061"><span id="local-6989586621679274062"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContentRedaction"><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-var">ContentRedaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentRedaction%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-var">ContentRedaction'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679274224"><span id="local-6989586621679274225"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContentRedaction"><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-var">ContentRedaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentRedaction%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-var">ContentRedaction'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Request parameter that defines the entities to be redacted. The only</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- accepted value is @PII@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AredactionType%3AContentRedaction%27"><span class="annot"><span class="annottext">ContentRedaction -&gt; RedactionType
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AredactionOutput%3AContentRedaction%27"><span class="annot"><span class="annottext">ContentRedaction -&gt; RedactionOutput
 </span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#%24sel%3AredactionOutput%3AContentRedaction%27"><span class="hs-identifier hs-var hs-var">redactionOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionOutput.html#RedactionOutput"><span class="hs-identifier hs-type">RedactionOutput</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274054"><span id="local-6989586621679274056"><span class="annot"><span class="annottext">ContentRedaction -&gt; ContentRedaction -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274217"><span id="local-6989586621679274219"><span class="annot"><span class="annottext">ContentRedaction -&gt; ContentRedaction -&gt; Bool
 (ContentRedaction -&gt; ContentRedaction -&gt; Bool)
 -&gt; (ContentRedaction -&gt; ContentRedaction -&gt; Bool)
 -&gt; Eq ContentRedaction
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContentRedaction -&gt; ContentRedaction -&gt; Bool
 == :: ContentRedaction -&gt; ContentRedaction -&gt; Bool
 $c== :: ContentRedaction -&gt; ContentRedaction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274045"><span id="local-6989586621679274047"><span id="local-6989586621679274049"><span id="local-6989586621679274051"><span class="annot"><span class="annottext">ReadPrec [ContentRedaction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274208"><span id="local-6989586621679274210"><span id="local-6989586621679274212"><span id="local-6989586621679274214"><span class="annot"><span class="annottext">ReadPrec [ContentRedaction]
 ReadPrec ContentRedaction
 Int -&gt; ReadS ContentRedaction
 ReadS [ContentRedaction]
@@ -73,7 +73,7 @@ readList :: ReadS [ContentRedaction]
 $creadList :: ReadS [ContentRedaction]
 readsPrec :: Int -&gt; ReadS ContentRedaction
 $creadsPrec :: Int -&gt; ReadS ContentRedaction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274038"><span id="local-6989586621679274040"><span id="local-6989586621679274042"><span class="annot"><span class="annottext">Int -&gt; ContentRedaction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274201"><span id="local-6989586621679274203"><span id="local-6989586621679274205"><span class="annot"><span class="annottext">Int -&gt; ContentRedaction -&gt; ShowS
 [ContentRedaction] -&gt; ShowS
 ContentRedaction -&gt; String
 (Int -&gt; ContentRedaction -&gt; ShowS)
@@ -125,17 +125,17 @@ $cfrom :: forall x. ContentRedaction -&gt; Rep ContentRedaction x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionOutput.html#RedactionOutput"><span class="hs-identifier hs-type">RedactionOutput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span><span>
 </span><span id="line-72"></span><span id="newContentRedaction"><span class="annot"><span class="annottext">newContentRedaction :: RedactionType -&gt; RedactionOutput -&gt; ContentRedaction
-</span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#newContentRedaction"><span class="hs-identifier hs-var hs-var">newContentRedaction</span></a></span></span><span> </span><span id="local-6989586621679274032"><span class="annot"><span class="annottext">RedactionType
-</span><a href="#local-6989586621679274032"><span class="hs-identifier hs-var">pRedactionType_</span></a></span></span><span> </span><span id="local-6989586621679274031"><span class="annot"><span class="annottext">RedactionOutput
-</span><a href="#local-6989586621679274031"><span class="hs-identifier hs-var">pRedactionOutput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#newContentRedaction"><span class="hs-identifier hs-var hs-var">newContentRedaction</span></a></span></span><span> </span><span id="local-6989586621679274195"><span class="annot"><span class="annottext">RedactionType
+</span><a href="#local-6989586621679274195"><span class="hs-identifier hs-var">pRedactionType_</span></a></span></span><span> </span><span id="local-6989586621679274194"><span class="annot"><span class="annottext">RedactionOutput
+</span><a href="#local-6989586621679274194"><span class="hs-identifier hs-var">pRedactionOutput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">ContentRedaction' :: RedactionType -&gt; RedactionOutput -&gt; ContentRedaction
 </span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:redactionType:ContentRedaction' :: RedactionType
 </span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#%24sel%3AredactionType%3AContentRedaction%27"><span class="hs-identifier hs-var">redactionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RedactionType
-</span><a href="#local-6989586621679274032"><span class="hs-identifier hs-var">pRedactionType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274195"><span class="hs-identifier hs-var">pRedactionType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:redactionOutput:ContentRedaction' :: RedactionOutput
 </span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#%24sel%3AredactionOutput%3AContentRedaction%27"><span class="hs-identifier hs-var">redactionOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RedactionOutput
-</span><a href="#local-6989586621679274031"><span class="hs-identifier hs-var">pRedactionOutput_</span></a></span><span>
+</span><a href="#local-6989586621679274194"><span class="hs-identifier hs-var">pRedactionOutput_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Request parameter that defines the entities to be redacted. The only</span><span>
@@ -148,16 +148,16 @@ $cfrom :: forall x. ContentRedaction -&gt; Rep ContentRedaction x
 -&gt; Lens
      ContentRedaction ContentRedaction RedactionType RedactionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274027"><span class="annot"><span class="annottext">RedactionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274190"><span class="annot"><span class="annottext">RedactionType
 redactionType :: RedactionType
 $sel:redactionType:ContentRedaction' :: ContentRedaction -&gt; RedactionType
-</span><a href="#local-6989586621679274027"><span class="hs-identifier hs-var hs-var">redactionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionType
-</span><a href="#local-6989586621679274027"><span class="hs-identifier hs-var">redactionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274026"><span class="annot"><span class="annottext">s :: ContentRedaction
-</span><a href="#local-6989586621679274026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274025"><span class="annot"><span class="annottext">RedactionType
-</span><a href="#local-6989586621679274025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentRedaction
-</span><a href="#local-6989586621679274026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redactionType:ContentRedaction' :: RedactionType
+</span><a href="#local-6989586621679274190"><span class="hs-identifier hs-var hs-var">redactionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionType
+</span><a href="#local-6989586621679274190"><span class="hs-identifier hs-var">redactionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274189"><span class="annot"><span class="annottext">s :: ContentRedaction
+</span><a href="#local-6989586621679274189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274188"><span class="annot"><span class="annottext">RedactionType
+</span><a href="#local-6989586621679274188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentRedaction
+</span><a href="#local-6989586621679274189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redactionType:ContentRedaction' :: RedactionType
 </span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#%24sel%3AredactionType%3AContentRedaction%27"><span class="hs-identifier hs-var">redactionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RedactionType
-</span><a href="#local-6989586621679274025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The output transcript file stored in either the default S3 bucket or in</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- a bucket you specify.</span><span>
@@ -175,19 +175,19 @@ $sel:redactionType:ContentRedaction' :: ContentRedaction -&gt; RedactionType
 -&gt; Lens
      ContentRedaction ContentRedaction RedactionOutput RedactionOutput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274023"><span class="annot"><span class="annottext">RedactionOutput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274186"><span class="annot"><span class="annottext">RedactionOutput
 redactionOutput :: RedactionOutput
 $sel:redactionOutput:ContentRedaction' :: ContentRedaction -&gt; RedactionOutput
-</span><a href="#local-6989586621679274023"><span class="hs-identifier hs-var hs-var">redactionOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionOutput
-</span><a href="#local-6989586621679274023"><span class="hs-identifier hs-var">redactionOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274022"><span class="annot"><span class="annottext">s :: ContentRedaction
-</span><a href="#local-6989586621679274022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274021"><span class="annot"><span class="annottext">RedactionOutput
-</span><a href="#local-6989586621679274021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentRedaction
-</span><a href="#local-6989586621679274022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redactionOutput:ContentRedaction' :: RedactionOutput
+</span><a href="#local-6989586621679274186"><span class="hs-identifier hs-var hs-var">redactionOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionOutput
+</span><a href="#local-6989586621679274186"><span class="hs-identifier hs-var">redactionOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274185"><span class="annot"><span class="annottext">s :: ContentRedaction
+</span><a href="#local-6989586621679274185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274184"><span class="annot"><span class="annottext">RedactionOutput
+</span><a href="#local-6989586621679274184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContentRedaction
+</span><a href="#local-6989586621679274185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:redactionOutput:ContentRedaction' :: RedactionOutput
 </span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#%24sel%3AredactionOutput%3AContentRedaction%27"><span class="hs-identifier hs-var">redactionOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RedactionOutput
-</span><a href="#local-6989586621679274021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274018"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679274016"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContentRedaction
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274181"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679274179"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContentRedaction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContentRedaction)
@@ -197,8 +197,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContentRedaction&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274013"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274176"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">RedactionType -&gt; RedactionOutput -&gt; ContentRedaction
 </span><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-var">ContentRedaction'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(RedactionType -&gt; RedactionOutput -&gt; ContentRedaction)
@@ -206,7 +206,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (RedactionOutput -&gt; ContentRedaction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RedactionType
+</span><a href="#local-6989586621679274176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RedactionType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RedactionType&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,25 +214,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RedactionOutput -&gt; Parser ContentRedaction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RedactionOutput
+</span><a href="#local-6989586621679274176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RedactionOutput
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RedactionOutput&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274007"><span id="local-6989586621679274009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274170"><span id="local-6989586621679274172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273996"><span id="local-6989586621679273998"><span id="local-6989586621679274000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679273994"><span class="annot"><span class="annottext">toJSON :: ContentRedaction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273991"><span id="local-6989586621679273992"><span class="annot"><span class="annottext">RedactionOutput
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274159"><span id="local-6989586621679274161"><span id="local-6989586621679274163"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction"><span class="hs-identifier hs-type">ContentRedaction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679274157"><span class="annot"><span class="annottext">toJSON :: ContentRedaction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.ContentRedaction.html#ContentRedaction%27"><span class="hs-identifier hs-type">ContentRedaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274154"><span id="local-6989586621679274155"><span class="annot"><span class="annottext">RedactionOutput
 RedactionType
 redactionOutput :: RedactionOutput
 redactionType :: RedactionType
 $sel:redactionOutput:ContentRedaction' :: ContentRedaction -&gt; RedactionOutput
 $sel:redactionType:ContentRedaction' :: ContentRedaction -&gt; RedactionType
-</span><a href="#local-6989586621679273991"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274154"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,7 +245,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RedactionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RedactionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RedactionType
-</span><a href="#local-6989586621679273992"><span class="hs-identifier hs-var">redactionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274155"><span class="hs-identifier hs-var">redactionType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -253,7 +253,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RedactionOutput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RedactionOutput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RedactionOutput
-</span><a href="#local-6989586621679273991"><span class="hs-identifier hs-var">redactionOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274154"><span class="hs-identifier hs-var">redactionOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

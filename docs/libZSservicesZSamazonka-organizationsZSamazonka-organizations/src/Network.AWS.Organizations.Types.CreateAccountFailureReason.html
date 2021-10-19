@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span id="local-6989586621679235930"><span id="local-6989586621679235931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CreateAccountFailureReason"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-var">CreateAccountFailureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccountFailureReason%27"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-var">CreateAccountFailureReason'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679236049"><span id="local-6989586621679236050"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CreateAccountFailureReason"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason"><span class="hs-identifier hs-var">CreateAccountFailureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccountFailureReason%27"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#CreateAccountFailureReason%27"><span class="hs-identifier hs-var">CreateAccountFailureReason'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCreateAccountFailureReason"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; Text
 </span><a href="Network.AWS.Organizations.Types.CreateAccountFailureReason.html#fromCreateAccountFailureReason"><span class="hs-identifier hs-var hs-var">fromCreateAccountFailureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235922"><span id="local-6989586621679235924"><span id="local-6989586621679235926"><span class="annot"><span class="annottext">Int -&gt; CreateAccountFailureReason -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236041"><span id="local-6989586621679236043"><span id="local-6989586621679236045"><span class="annot"><span class="annottext">Int -&gt; CreateAccountFailureReason -&gt; ShowS
 [CreateAccountFailureReason] -&gt; ShowS
 CreateAccountFailureReason -&gt; String
 (Int -&gt; CreateAccountFailureReason -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: CreateAccountFailureReason -&gt; String
 showsPrec :: Int -&gt; CreateAccountFailureReason -&gt; ShowS
 $cshowsPrec :: Int -&gt; CreateAccountFailureReason -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235913"><span id="local-6989586621679235915"><span id="local-6989586621679235917"><span id="local-6989586621679235919"><span class="annot"><span class="annottext">ReadPrec [CreateAccountFailureReason]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236032"><span id="local-6989586621679236034"><span id="local-6989586621679236036"><span id="local-6989586621679236038"><span class="annot"><span class="annottext">ReadPrec [CreateAccountFailureReason]
 ReadPrec CreateAccountFailureReason
 Int -&gt; ReadS CreateAccountFailureReason
 ReadS [CreateAccountFailureReason]
@@ -83,7 +83,7 @@ $creadList :: ReadS [CreateAccountFailureReason]
 readsPrec :: Int -&gt; ReadS CreateAccountFailureReason
 $creadsPrec :: Int -&gt; ReadS CreateAccountFailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235908"><span id="local-6989586621679235910"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236027"><span id="local-6989586621679236029"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
 (CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool)
 -&gt; (CreateAccountFailureReason
     -&gt; CreateAccountFailureReason -&gt; Bool)
@@ -94,7 +94,7 @@ $c/= :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
 == :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
 $c== :: CreateAccountFailureReason -&gt; CreateAccountFailureReason -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235892"><span id="local-6989586621679235894"><span id="local-6989586621679235896"><span id="local-6989586621679235898"><span id="local-6989586621679235900"><span id="local-6989586621679235902"><span id="local-6989586621679235904"><span class="annot"><span class="annottext">Eq CreateAccountFailureReason
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236011"><span id="local-6989586621679236013"><span id="local-6989586621679236015"><span id="local-6989586621679236017"><span id="local-6989586621679236019"><span id="local-6989586621679236021"><span id="local-6989586621679236023"><span class="annot"><span class="annottext">Eq CreateAccountFailureReason
 Eq CreateAccountFailureReason
 -&gt; (CreateAccountFailureReason
     -&gt; CreateAccountFailureReason -&gt; Ordering)
@@ -166,7 +166,7 @@ CreateAccountFailureReason -&gt; Rep CreateAccountFailureReason x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235884"><span id="local-6989586621679235886"><span class="annot"><span class="annottext">Int -&gt; CreateAccountFailureReason -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236003"><span id="local-6989586621679236005"><span class="annot"><span class="annottext">Int -&gt; CreateAccountFailureReason -&gt; Int
 CreateAccountFailureReason -&gt; Int
 (Int -&gt; CreateAccountFailureReason -&gt; Int)
 -&gt; (CreateAccountFailureReason -&gt; Int)
@@ -177,56 +177,56 @@ $chash :: CreateAccountFailureReason -&gt; Int
 hashWithSalt :: Int -&gt; CreateAccountFailureReason -&gt; Int
 $chashWithSalt :: Int -&gt; CreateAccountFailureReason -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235881"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236000"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ()
 (CreateAccountFailureReason -&gt; ())
 -&gt; NFData CreateAccountFailureReason
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CreateAccountFailureReason -&gt; ()
 $crnf :: CreateAccountFailureReason -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235878"><span class="annot"><span class="annottext">Text -&gt; Either String CreateAccountFailureReason
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235997"><span class="annot"><span class="annottext">Text -&gt; Either String CreateAccountFailureReason
 (Text -&gt; Either String CreateAccountFailureReason)
 -&gt; FromText CreateAccountFailureReason
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CreateAccountFailureReason
 $cfromText :: Text -&gt; Either String CreateAccountFailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235875"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679235994"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; Text
 (CreateAccountFailureReason -&gt; Text)
 -&gt; ToText CreateAccountFailureReason
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CreateAccountFailureReason -&gt; Text
 $ctoText :: CreateAccountFailureReason -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679235872"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679235991"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ByteString
 (CreateAccountFailureReason -&gt; ByteString)
 -&gt; ToByteString CreateAccountFailureReason
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CreateAccountFailureReason -&gt; ByteString
 $ctoBS :: CreateAccountFailureReason -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679235869"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679235988"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; ByteStringBuilder
 (CreateAccountFailureReason -&gt; ByteStringBuilder)
 -&gt; ToLog CreateAccountFailureReason
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CreateAccountFailureReason -&gt; ByteStringBuilder
 $cbuild :: CreateAccountFailureReason -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679235866"><span class="annot"><span class="annottext">HeaderName -&gt; CreateAccountFailureReason -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679235985"><span class="annot"><span class="annottext">HeaderName -&gt; CreateAccountFailureReason -&gt; [Header]
 (HeaderName -&gt; CreateAccountFailureReason -&gt; [Header])
 -&gt; ToHeader CreateAccountFailureReason
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CreateAccountFailureReason -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CreateAccountFailureReason -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679235863"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679235982"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; QueryString
 (CreateAccountFailureReason -&gt; QueryString)
 -&gt; ToQuery CreateAccountFailureReason
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CreateAccountFailureReason -&gt; QueryString
 $ctoQuery :: CreateAccountFailureReason -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679235858"><span id="local-6989586621679235860"><span class="annot"><span class="annottext">Value -&gt; Parser [CreateAccountFailureReason]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679235977"><span id="local-6989586621679235979"><span class="annot"><span class="annottext">Value -&gt; Parser [CreateAccountFailureReason]
 Value -&gt; Parser CreateAccountFailureReason
 (Value -&gt; Parser CreateAccountFailureReason)
 -&gt; (Value -&gt; Parser [CreateAccountFailureReason])
@@ -238,7 +238,7 @@ $cparseJSONList :: Value -&gt; Parser [CreateAccountFailureReason]
 parseJSON :: Value -&gt; Parser CreateAccountFailureReason
 $cparseJSON :: Value -&gt; Parser CreateAccountFailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679235853"><span id="local-6989586621679235855"><span class="annot"><span class="annottext">FromJSONKeyFunction [CreateAccountFailureReason]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679235972"><span id="local-6989586621679235974"><span class="annot"><span class="annottext">FromJSONKeyFunction [CreateAccountFailureReason]
 FromJSONKeyFunction CreateAccountFailureReason
 FromJSONKeyFunction CreateAccountFailureReason
 -&gt; FromJSONKeyFunction [CreateAccountFailureReason]
@@ -250,7 +250,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CreateAccountFailureReason]
 fromJSONKey :: FromJSONKeyFunction CreateAccountFailureReason
 $cfromJSONKey :: FromJSONKeyFunction CreateAccountFailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679235844"><span id="local-6989586621679235846"><span id="local-6989586621679235848"><span id="local-6989586621679235850"><span class="annot"><span class="annottext">[CreateAccountFailureReason] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679235963"><span id="local-6989586621679235965"><span id="local-6989586621679235967"><span id="local-6989586621679235969"><span class="annot"><span class="annottext">[CreateAccountFailureReason] -&gt; Encoding
 [CreateAccountFailureReason] -&gt; Value
 CreateAccountFailureReason -&gt; Encoding
 CreateAccountFailureReason -&gt; Value
@@ -274,7 +274,7 @@ $ctoEncoding :: CreateAccountFailureReason -&gt; Encoding
 toJSON :: CreateAccountFailureReason -&gt; Value
 $ctoJSON :: CreateAccountFailureReason -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679235839"><span id="local-6989586621679235841"><span class="annot"><span class="annottext">ToJSONKeyFunction [CreateAccountFailureReason]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679235958"><span id="local-6989586621679235960"><span class="annot"><span class="annottext">ToJSONKeyFunction [CreateAccountFailureReason]
 ToJSONKeyFunction CreateAccountFailureReason
 ToJSONKeyFunction CreateAccountFailureReason
 -&gt; ToJSONKeyFunction [CreateAccountFailureReason]
@@ -286,14 +286,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CreateAccountFailureReason]
 toJSONKey :: ToJSONKeyFunction CreateAccountFailureReason
 $ctoJSONKey :: ToJSONKeyFunction CreateAccountFailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679235836"><span class="annot"><span class="annottext">[Node] -&gt; Either String CreateAccountFailureReason
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679235955"><span class="annot"><span class="annottext">[Node] -&gt; Either String CreateAccountFailureReason
 ([Node] -&gt; Either String CreateAccountFailureReason)
 -&gt; FromXML CreateAccountFailureReason
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CreateAccountFailureReason
 $cparseXML :: [Node] -&gt; Either String CreateAccountFailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679235833"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679235952"><span class="annot"><span class="annottext">CreateAccountFailureReason -&gt; XML
 (CreateAccountFailureReason -&gt; XML)
 -&gt; ToXML CreateAccountFailureReason
 forall a. (a -&gt; XML) -&gt; ToXML a

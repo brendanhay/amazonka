@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newRevokeToken' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679441096"><span id="local-6989586621679441097"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeToken"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-var">RevokeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeToken%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-var">RevokeToken'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679441572"><span id="local-6989586621679441573"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeToken"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-var">RevokeToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeToken%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-var">RevokeToken'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The secret for the client ID. This is required only if the client ID has</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- a secret.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AclientSecret%3ARevokeToken%27"><span class="annot"><span class="annottext">RevokeToken -&gt; Maybe (Sensitive Text)
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AclientId%3ARevokeToken%27"><span class="annot"><span class="annottext">RevokeToken -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3AclientId%3ARevokeToken%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441088"><span id="local-6989586621679441090"><span class="annot"><span class="annottext">RevokeToken -&gt; RevokeToken -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441564"><span id="local-6989586621679441566"><span class="annot"><span class="annottext">RevokeToken -&gt; RevokeToken -&gt; Bool
 (RevokeToken -&gt; RevokeToken -&gt; Bool)
 -&gt; (RevokeToken -&gt; RevokeToken -&gt; Bool) -&gt; Eq RevokeToken
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RevokeToken -&gt; RevokeToken -&gt; Bool
 == :: RevokeToken -&gt; RevokeToken -&gt; Bool
 $c== :: RevokeToken -&gt; RevokeToken -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441081"><span id="local-6989586621679441083"><span id="local-6989586621679441085"><span class="annot"><span class="annottext">Int -&gt; RevokeToken -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441557"><span id="local-6989586621679441559"><span id="local-6989586621679441561"><span class="annot"><span class="annottext">Int -&gt; RevokeToken -&gt; ShowS
 [RevokeToken] -&gt; ShowS
 RevokeToken -&gt; String
 (Int -&gt; RevokeToken -&gt; ShowS)
@@ -117,9 +117,9 @@ $cfrom :: forall x. RevokeToken -&gt; Rep RevokeToken x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span>
 </span><span id="line-84"></span><span id="newRevokeToken"><span class="annot"><span class="annottext">newRevokeToken :: Text -&gt; Text -&gt; RevokeToken
-</span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#newRevokeToken"><span class="hs-identifier hs-var hs-var">newRevokeToken</span></a></span></span><span> </span><span id="local-6989586621679441076"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441076"><span class="hs-identifier hs-var">pToken_</span></a></span></span><span> </span><span id="local-6989586621679441075"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441075"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#newRevokeToken"><span class="hs-identifier hs-var hs-var">newRevokeToken</span></a></span></span><span> </span><span id="local-6989586621679441552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441552"><span class="hs-identifier hs-var">pToken_</span></a></span></span><span> </span><span id="local-6989586621679441551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441551"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">RevokeToken' :: Maybe (Sensitive Text)
 -&gt; Sensitive Text -&gt; Sensitive Text -&gt; RevokeToken
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span>
@@ -136,7 +136,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441076"><span class="hs-identifier hs-var">pToken_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441552"><span class="hs-identifier hs-var">pToken_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientId:RevokeToken' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3AclientId%3ARevokeToken%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -146,7 +146,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441075"><span class="hs-identifier hs-var">pClientId_</span></a></span><span>
+</span><a href="#local-6989586621679441551"><span class="hs-identifier hs-var">pClientId_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The secret for the client ID. This is required only if the client ID has</span><span>
@@ -161,16 +161,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441070"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441546"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 clientSecret :: Maybe (Sensitive Text)
 $sel:clientSecret:RevokeToken' :: RevokeToken -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679441070"><span class="hs-identifier hs-var hs-var">clientSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679441070"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441069"><span class="annot"><span class="annottext">s :: RevokeToken
-</span><a href="#local-6989586621679441069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441068"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679441068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeToken
-</span><a href="#local-6989586621679441069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSecret:RevokeToken' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679441546"><span class="hs-identifier hs-var hs-var">clientSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679441546"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441545"><span class="annot"><span class="annottext">s :: RevokeToken
+</span><a href="#local-6989586621679441545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441544"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679441544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeToken
+</span><a href="#local-6989586621679441545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSecret:RevokeToken' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3AclientSecret%3ARevokeToken%27"><span class="hs-identifier hs-var">clientSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679441068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679441544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; RevokeToken -&gt; f RevokeToken)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -198,16 +198,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (RevokeToken -&gt; Sensitive Text -&gt; RevokeToken)
 -&gt; Lens RevokeToken RevokeToken (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441065"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441541"><span class="annot"><span class="annottext">Sensitive Text
 token :: Sensitive Text
 $sel:token:RevokeToken' :: RevokeToken -&gt; Sensitive Text
-</span><a href="#local-6989586621679441065"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441065"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441064"><span class="annot"><span class="annottext">s :: RevokeToken
-</span><a href="#local-6989586621679441064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441063"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeToken
-</span><a href="#local-6989586621679441064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:RevokeToken' :: Sensitive Text
+</span><a href="#local-6989586621679441541"><span class="hs-identifier hs-var hs-var">token</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679441541"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441540"><span class="annot"><span class="annottext">s :: RevokeToken
+</span><a href="#local-6989586621679441540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441539"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679441539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeToken
+</span><a href="#local-6989586621679441540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:token:RevokeToken' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3Atoken%3ARevokeToken%27"><span class="hs-identifier hs-var">token</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679441539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; RevokeToken -&gt; f RevokeToken)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -225,16 +225,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (RevokeToken -&gt; Sensitive Text -&gt; RevokeToken)
 -&gt; Lens RevokeToken RevokeToken (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441062"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441538"><span class="annot"><span class="annottext">Sensitive Text
 clientId :: Sensitive Text
 $sel:clientId:RevokeToken' :: RevokeToken -&gt; Sensitive Text
-</span><a href="#local-6989586621679441062"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441062"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441061"><span class="annot"><span class="annottext">s :: RevokeToken
-</span><a href="#local-6989586621679441061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441060"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeToken
-</span><a href="#local-6989586621679441061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:RevokeToken' :: Sensitive Text
+</span><a href="#local-6989586621679441538"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679441538"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441537"><span class="annot"><span class="annottext">s :: RevokeToken
+</span><a href="#local-6989586621679441537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441536"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679441536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeToken
+</span><a href="#local-6989586621679441537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:RevokeToken' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3AclientId%3ARevokeToken%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679441536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; RevokeToken -&gt; f RevokeToken)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -247,12 +247,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-type">RevokeTokenResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679441056"><span class="annot"><span class="annottext">request :: RevokeToken -&gt; Request RevokeToken
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679441532"><span class="annot"><span class="annottext">request :: RevokeToken -&gt; Request RevokeToken
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RevokeToken -&gt; Request RevokeToken
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679441052"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679441528"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RevokeToken
 -&gt; ClientResponse ClientBody
@@ -276,10 +276,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441049"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441049"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679441048"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679441048"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679441047"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679441047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441525"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441525"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679441524"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679441524"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679441523"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679441523"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RevokeTokenResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-var">RevokeTokenResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RevokeTokenResponse)
@@ -290,15 +290,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679441049"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441525"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441040"><span id="local-6989586621679441042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441516"><span id="local-6989586621679441518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679441033"><span class="annot"><span class="annottext">toHeaders :: RevokeToken -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679441509"><span class="annot"><span class="annottext">toHeaders :: RevokeToken -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RevokeToken -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -325,9 +325,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441023"><span id="local-6989586621679441025"><span id="local-6989586621679441027"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679441021"><span class="annot"><span class="annottext">toJSON :: RevokeToken -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441017"><span id="local-6989586621679441018"><span id="local-6989586621679441019"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441499"><span id="local-6989586621679441501"><span id="local-6989586621679441503"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679441497"><span class="annot"><span class="annottext">toJSON :: RevokeToken -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken%27"><span class="hs-identifier hs-type">RevokeToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441493"><span id="local-6989586621679441494"><span id="local-6989586621679441495"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Sensitive Text
 clientId :: Sensitive Text
 token :: Sensitive Text
@@ -335,7 +335,7 @@ clientSecret :: Maybe (Sensitive Text)
 $sel:clientId:RevokeToken' :: RevokeToken -&gt; Sensitive Text
 $sel:token:RevokeToken' :: RevokeToken -&gt; Sensitive Text
 $sel:clientSecret:RevokeToken' :: RevokeToken -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679441017"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679441493"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -347,33 +347,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679441019"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441495"><span class="hs-identifier hs-var">clientSecret</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441018"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441494"><span class="hs-identifier hs-var">token</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679441017"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441493"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679441011"><span class="annot"><span class="annottext">toPath :: RevokeToken -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679441487"><span class="annot"><span class="annottext">toPath :: RevokeToken -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RevokeToken -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeToken"><span class="hs-identifier hs-type">RevokeToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679441007"><span class="annot"><span class="annottext">toQuery :: RevokeToken -&gt; QueryString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679441483"><span class="annot"><span class="annottext">toQuery :: RevokeToken -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RevokeToken -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -381,12 +381,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newRevokeTokenResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679441004"><span id="local-6989586621679441005"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeTokenResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-var">RevokeTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeTokenResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-var">RevokeTokenResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679441480"><span id="local-6989586621679441481"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevokeTokenResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-var">RevokeTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevokeTokenResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-var">RevokeTokenResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARevokeTokenResponse%27"><span class="annot"><span class="annottext">RevokeTokenResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3AhttpStatus%3ARevokeTokenResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440999"><span id="local-6989586621679441001"><span class="annot"><span class="annottext">RevokeTokenResponse -&gt; RevokeTokenResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441475"><span id="local-6989586621679441477"><span class="annot"><span class="annottext">RevokeTokenResponse -&gt; RevokeTokenResponse -&gt; Bool
 (RevokeTokenResponse -&gt; RevokeTokenResponse -&gt; Bool)
 -&gt; (RevokeTokenResponse -&gt; RevokeTokenResponse -&gt; Bool)
 -&gt; Eq RevokeTokenResponse
@@ -395,7 +395,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RevokeTokenResponse -&gt; RevokeTokenResponse -&gt; Bool
 == :: RevokeTokenResponse -&gt; RevokeTokenResponse -&gt; Bool
 $c== :: RevokeTokenResponse -&gt; RevokeTokenResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440991"><span id="local-6989586621679440993"><span id="local-6989586621679440995"><span id="local-6989586621679440997"><span class="annot"><span class="annottext">ReadPrec [RevokeTokenResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441467"><span id="local-6989586621679441469"><span id="local-6989586621679441471"><span id="local-6989586621679441473"><span class="annot"><span class="annottext">ReadPrec [RevokeTokenResponse]
 ReadPrec RevokeTokenResponse
 Int -&gt; ReadS RevokeTokenResponse
 ReadS [RevokeTokenResponse]
@@ -415,7 +415,7 @@ readList :: ReadS [RevokeTokenResponse]
 $creadList :: ReadS [RevokeTokenResponse]
 readsPrec :: Int -&gt; ReadS RevokeTokenResponse
 $creadsPrec :: Int -&gt; ReadS RevokeTokenResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440984"><span id="local-6989586621679440986"><span id="local-6989586621679440988"><span class="annot"><span class="annottext">Int -&gt; RevokeTokenResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441460"><span id="local-6989586621679441462"><span id="local-6989586621679441464"><span class="annot"><span class="annottext">Int -&gt; RevokeTokenResponse -&gt; ShowS
 [RevokeTokenResponse] -&gt; ShowS
 RevokeTokenResponse -&gt; String
 (Int -&gt; RevokeTokenResponse -&gt; ShowS)
@@ -455,12 +455,12 @@ $cfrom :: forall x. RevokeTokenResponse -&gt; Rep RevokeTokenResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-type">RevokeTokenResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newRevokeTokenResponse"><span class="annot"><span class="annottext">newRevokeTokenResponse :: Int -&gt; RevokeTokenResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#newRevokeTokenResponse"><span class="hs-identifier hs-var hs-var">newRevokeTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679440981"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#newRevokeTokenResponse"><span class="hs-identifier hs-var hs-var">newRevokeTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679441457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">RevokeTokenResponse' :: Int -&gt; RevokeTokenResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-type">RevokeTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RevokeTokenResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3AhttpStatus%3ARevokeTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679441457"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#revokeTokenResponse_httpStatus"><span class="hs-identifier hs-type">revokeTokenResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-type">RevokeTokenResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -469,16 +469,16 @@ $cfrom :: forall x. RevokeTokenResponse -&gt; Rep RevokeTokenResponse x
 -&gt; (RevokeTokenResponse -&gt; Int -&gt; RevokeTokenResponse)
 -&gt; Lens RevokeTokenResponse RevokeTokenResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-type">RevokeTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440980"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-type">RevokeTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441456"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RevokeTokenResponse' :: RevokeTokenResponse -&gt; Int
-</span><a href="#local-6989586621679440980"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440980"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440979"><span class="annot"><span class="annottext">s :: RevokeTokenResponse
-</span><a href="#local-6989586621679440979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-type">RevokeTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440978"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeTokenResponse
-</span><a href="#local-6989586621679440979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RevokeTokenResponse' :: Int
+</span><a href="#local-6989586621679441456"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441456"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441455"><span class="annot"><span class="annottext">s :: RevokeTokenResponse
+</span><a href="#local-6989586621679441455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse%27"><span class="hs-identifier hs-type">RevokeTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441454"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679441454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevokeTokenResponse
+</span><a href="#local-6989586621679441455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RevokeTokenResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#%24sel%3AhttpStatus%3ARevokeTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-type">RevokeTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-type">RevokeTokenResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-type">RevokeTokenResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.RevokeToken.html#RevokeTokenResponse"><span class="hs-identifier hs-type">RevokeTokenResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

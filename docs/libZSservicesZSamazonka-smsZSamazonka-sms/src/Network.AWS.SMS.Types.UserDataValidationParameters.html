@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains validation parameters.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUserDataValidationParameters' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679248421"><span id="local-6989586621679248422"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserDataValidationParameters"><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-var">UserDataValidationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserDataValidationParameters%27"><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-var">UserDataValidationParameters'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of the validation script.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asource%3AUserDataValidationParameters%27"><span class="annot"><span class="annottext">UserDataValidationParameters -&gt; Maybe Source
-</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3Asource%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of validation script.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AscriptType%3AUserDataValidationParameters%27"><span class="annot"><span class="annottext">UserDataValidationParameters -&gt; Maybe ScriptType
-</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3AscriptType%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var hs-var">scriptType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType"><span class="hs-identifier hs-type">ScriptType</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679248550"><span id="local-6989586621679248551"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserDataValidationParameters"><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-var">UserDataValidationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserDataValidationParameters%27"><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-var">UserDataValidationParameters'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of validation script.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AscriptType%3AUserDataValidationParameters%27"><span class="annot"><span class="annottext">UserDataValidationParameters -&gt; Maybe ScriptType
+</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3AscriptType%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var hs-var">scriptType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType"><span class="hs-identifier hs-type">ScriptType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The location of the validation script.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asource%3AUserDataValidationParameters%27"><span class="annot"><span class="annottext">UserDataValidationParameters -&gt; Maybe Source
+</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3Asource%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248414"><span id="local-6989586621679248416"><span class="annot"><span class="annottext">UserDataValidationParameters
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248543"><span id="local-6989586621679248545"><span class="annot"><span class="annottext">UserDataValidationParameters
 -&gt; UserDataValidationParameters -&gt; Bool
 (UserDataValidationParameters
  -&gt; UserDataValidationParameters -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: UserDataValidationParameters
 -&gt; UserDataValidationParameters -&gt; Bool
 $c== :: UserDataValidationParameters
 -&gt; UserDataValidationParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248405"><span id="local-6989586621679248407"><span id="local-6989586621679248409"><span id="local-6989586621679248411"><span class="annot"><span class="annottext">ReadPrec [UserDataValidationParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248534"><span id="local-6989586621679248536"><span id="local-6989586621679248538"><span id="local-6989586621679248540"><span class="annot"><span class="annottext">ReadPrec [UserDataValidationParameters]
 ReadPrec UserDataValidationParameters
 Int -&gt; ReadS UserDataValidationParameters
 ReadS [UserDataValidationParameters]
@@ -72,7 +72,7 @@ readList :: ReadS [UserDataValidationParameters]
 $creadList :: ReadS [UserDataValidationParameters]
 readsPrec :: Int -&gt; ReadS UserDataValidationParameters
 $creadsPrec :: Int -&gt; ReadS UserDataValidationParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248398"><span id="local-6989586621679248400"><span id="local-6989586621679248402"><span class="annot"><span class="annottext">Int -&gt; UserDataValidationParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248527"><span id="local-6989586621679248529"><span id="local-6989586621679248531"><span class="annot"><span class="annottext">Int -&gt; UserDataValidationParameters -&gt; ShowS
 [UserDataValidationParameters] -&gt; ShowS
 UserDataValidationParameters -&gt; String
 (Int -&gt; UserDataValidationParameters -&gt; ShowS)
@@ -112,53 +112,29 @@ UserDataValidationParameters -&gt; Rep UserDataValidationParameters x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'source', 'userDataValidationParameters_source' - The location of the validation script.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'scriptType', 'userDataValidationParameters_scriptType' - The type of validation script.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'scriptType', 'userDataValidationParameters_scriptType' - The type of validation script.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'source', 'userDataValidationParameters_source' - The location of the validation script.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#newUserDataValidationParameters"><span class="hs-identifier hs-type">newUserDataValidationParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span>
 </span><span id="line-52"></span><span id="newUserDataValidationParameters"><span class="annot"><span class="annottext">newUserDataValidationParameters :: UserDataValidationParameters
 </span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#newUserDataValidationParameters"><span class="hs-identifier hs-var hs-var">newUserDataValidationParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">UserDataValidationParameters' :: Maybe Source -&gt; Maybe ScriptType -&gt; UserDataValidationParameters
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">UserDataValidationParameters' :: Maybe ScriptType -&gt; Maybe Source -&gt; UserDataValidationParameters
 </span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:source:UserDataValidationParameters' :: Maybe Source
-</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3Asource%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Source
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scriptType:UserDataValidationParameters' :: Maybe ScriptType
+</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3AscriptType%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var">scriptType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe ScriptType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:scriptType:UserDataValidationParameters' :: Maybe ScriptType
-</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3AscriptType%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var">scriptType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScriptType
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:UserDataValidationParameters' :: Maybe Source
+</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3Asource%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Source
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | The location of the validation script.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#userDataValidationParameters_source"><span class="hs-identifier hs-type">userDataValidationParameters_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="userDataValidationParameters_source"><span class="annot"><span class="annottext">userDataValidationParameters_source :: (Maybe Source -&gt; f (Maybe Source))
--&gt; UserDataValidationParameters -&gt; f UserDataValidationParameters
-</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#userDataValidationParameters_source"><span class="hs-identifier hs-var hs-var">userDataValidationParameters_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDataValidationParameters -&gt; Maybe Source)
--&gt; (UserDataValidationParameters
-    -&gt; Maybe Source -&gt; UserDataValidationParameters)
--&gt; Lens
-     UserDataValidationParameters
-     UserDataValidationParameters
-     (Maybe Source)
-     (Maybe Source)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248389"><span class="annot"><span class="annottext">Maybe Source
-source :: Maybe Source
-$sel:source:UserDataValidationParameters' :: UserDataValidationParameters -&gt; Maybe Source
-</span><a href="#local-6989586621679248389"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679248389"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248388"><span class="annot"><span class="annottext">s :: UserDataValidationParameters
-</span><a href="#local-6989586621679248388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248387"><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679248387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDataValidationParameters
-</span><a href="#local-6989586621679248388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:UserDataValidationParameters' :: Maybe Source
-</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3Asource%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679248387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The type of validation script.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#userDataValidationParameters_scriptType"><span class="hs-identifier hs-type">userDataValidationParameters_scriptType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType"><span class="hs-identifier hs-type">ScriptType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="userDataValidationParameters_scriptType"><span class="annot"><span class="annottext">userDataValidationParameters_scriptType :: (Maybe ScriptType -&gt; f (Maybe ScriptType))
+</span><span id="line-59"></span><span class="hs-comment">-- | The type of validation script.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#userDataValidationParameters_scriptType"><span class="hs-identifier hs-type">userDataValidationParameters_scriptType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ScriptType.html#ScriptType"><span class="hs-identifier hs-type">ScriptType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="userDataValidationParameters_scriptType"><span class="annot"><span class="annottext">userDataValidationParameters_scriptType :: (Maybe ScriptType -&gt; f (Maybe ScriptType))
 -&gt; UserDataValidationParameters -&gt; f UserDataValidationParameters
 </span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#userDataValidationParameters_scriptType"><span class="hs-identifier hs-var hs-var">userDataValidationParameters_scriptType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDataValidationParameters -&gt; Maybe ScriptType)
 -&gt; (UserDataValidationParameters
@@ -169,19 +145,43 @@ $sel:source:UserDataValidationParameters' :: UserDataValidationParameters -&gt; 
      (Maybe ScriptType)
      (Maybe ScriptType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248385"><span class="annot"><span class="annottext">Maybe ScriptType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248518"><span class="annot"><span class="annottext">Maybe ScriptType
 scriptType :: Maybe ScriptType
 $sel:scriptType:UserDataValidationParameters' :: UserDataValidationParameters -&gt; Maybe ScriptType
-</span><a href="#local-6989586621679248385"><span class="hs-identifier hs-var hs-var">scriptType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScriptType
-</span><a href="#local-6989586621679248385"><span class="hs-identifier hs-var">scriptType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248384"><span class="annot"><span class="annottext">s :: UserDataValidationParameters
-</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248383"><span class="annot"><span class="annottext">Maybe ScriptType
-</span><a href="#local-6989586621679248383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDataValidationParameters
-</span><a href="#local-6989586621679248384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptType:UserDataValidationParameters' :: Maybe ScriptType
+</span><a href="#local-6989586621679248518"><span class="hs-identifier hs-var hs-var">scriptType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScriptType
+</span><a href="#local-6989586621679248518"><span class="hs-identifier hs-var">scriptType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248517"><span class="annot"><span class="annottext">s :: UserDataValidationParameters
+</span><a href="#local-6989586621679248517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248516"><span class="annot"><span class="annottext">Maybe ScriptType
+</span><a href="#local-6989586621679248516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDataValidationParameters
+</span><a href="#local-6989586621679248517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scriptType:UserDataValidationParameters' :: Maybe ScriptType
 </span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3AscriptType%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var">scriptType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScriptType
-</span><a href="#local-6989586621679248383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The location of the validation script.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#userDataValidationParameters_source"><span class="hs-identifier hs-type">userDataValidationParameters_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="userDataValidationParameters_source"><span class="annot"><span class="annottext">userDataValidationParameters_source :: (Maybe Source -&gt; f (Maybe Source))
+-&gt; UserDataValidationParameters -&gt; f UserDataValidationParameters
+</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#userDataValidationParameters_source"><span class="hs-identifier hs-var hs-var">userDataValidationParameters_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserDataValidationParameters -&gt; Maybe Source)
+-&gt; (UserDataValidationParameters
+    -&gt; Maybe Source -&gt; UserDataValidationParameters)
+-&gt; Lens
+     UserDataValidationParameters
+     UserDataValidationParameters
+     (Maybe Source)
+     (Maybe Source)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248514"><span class="annot"><span class="annottext">Maybe Source
+source :: Maybe Source
+$sel:source:UserDataValidationParameters' :: UserDataValidationParameters -&gt; Maybe Source
+</span><a href="#local-6989586621679248514"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679248514"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248513"><span class="annot"><span class="annottext">s :: UserDataValidationParameters
+</span><a href="#local-6989586621679248513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248512"><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679248512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserDataValidationParameters
+</span><a href="#local-6989586621679248513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:UserDataValidationParameters' :: Maybe Source
+</span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#%24sel%3Asource%3AUserDataValidationParameters%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679248512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248380"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679248378"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserDataValidationParameters
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248509"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679248507"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserDataValidationParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserDataValidationParameters)
@@ -191,63 +191,63 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserDataValidationParameters&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248375"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Source -&gt; Maybe ScriptType -&gt; UserDataValidationParameters
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248504"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe ScriptType -&gt; Maybe Source -&gt; UserDataValidationParameters
 </span><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-var">UserDataValidationParameters'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Source -&gt; Maybe ScriptType -&gt; UserDataValidationParameters)
--&gt; Parser (Maybe Source)
--&gt; Parser (Maybe ScriptType -&gt; UserDataValidationParameters)
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ScriptType -&gt; Maybe Source -&gt; UserDataValidationParameters)
+-&gt; Parser (Maybe ScriptType)
+-&gt; Parser (Maybe Source -&gt; UserDataValidationParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Source)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;source&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ScriptType -&gt; UserDataValidationParameters)
--&gt; Parser (Maybe ScriptType) -&gt; Parser UserDataValidationParameters
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScriptType)
+</span><a href="#local-6989586621679248504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScriptType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scriptType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Source -&gt; UserDataValidationParameters)
+-&gt; Parser (Maybe Source) -&gt; Parser UserDataValidationParameters
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Source)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;source&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679248369"><span id="local-6989586621679248371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679248498"><span id="local-6989586621679248500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248358"><span id="local-6989586621679248360"><span id="local-6989586621679248362"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679248356"><span class="annot"><span class="annottext">toJSON :: UserDataValidationParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248353"><span id="local-6989586621679248354"><span class="annot"><span class="annottext">Maybe ScriptType
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248487"><span id="local-6989586621679248489"><span id="local-6989586621679248491"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters"><span class="hs-identifier hs-type">UserDataValidationParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679248485"><span class="annot"><span class="annottext">toJSON :: UserDataValidationParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserDataValidationParameters.html#UserDataValidationParameters%27"><span class="hs-identifier hs-type">UserDataValidationParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248482"><span id="local-6989586621679248483"><span class="annot"><span class="annottext">Maybe ScriptType
 Maybe Source
-scriptType :: Maybe ScriptType
 source :: Maybe Source
-$sel:scriptType:UserDataValidationParameters' :: UserDataValidationParameters -&gt; Maybe ScriptType
+scriptType :: Maybe ScriptType
 $sel:source:UserDataValidationParameters' :: UserDataValidationParameters -&gt; Maybe Source
-</span><a href="#local-6989586621679248353"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:scriptType:UserDataValidationParameters' :: UserDataValidationParameters -&gt; Maybe ScriptType
+</span><a href="#local-6989586621679248482"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Source -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Source -&gt; Pair) -&gt; Maybe Source -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Source
-</span><a href="#local-6989586621679248354"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scriptType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScriptType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ScriptType -&gt; Pair) -&gt; Maybe ScriptType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScriptType
-</span><a href="#local-6989586621679248353"><span class="hs-identifier hs-var">scriptType</span></a></span><span>
+</span><a href="#local-6989586621679248483"><span class="hs-identifier hs-var">scriptType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Source -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Source -&gt; Pair) -&gt; Maybe Source -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Source
+</span><a href="#local-6989586621679248482"><span class="hs-identifier hs-var">source</span></a></span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

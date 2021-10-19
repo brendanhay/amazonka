@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679365135"><span id="local-6989586621679365136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContentHandlingStrategy"><span class="annot"><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-var">ContentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentHandlingStrategy%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html#ContentHandlingStrategy%27"><span class="hs-identifier hs-var">ContentHandlingStrategy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679365631"><span id="local-6989586621679365632"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContentHandlingStrategy"><span class="annot"><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html#ContentHandlingStrategy"><span class="hs-identifier hs-var">ContentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContentHandlingStrategy%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html#ContentHandlingStrategy%27"><span class="hs-identifier hs-var">ContentHandlingStrategy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContentHandlingStrategy"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.ContentHandlingStrategy.html#fromContentHandlingStrategy"><span class="hs-identifier hs-var hs-var">fromContentHandlingStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365127"><span id="local-6989586621679365129"><span id="local-6989586621679365131"><span class="annot"><span class="annottext">Int -&gt; ContentHandlingStrategy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365623"><span id="local-6989586621679365625"><span id="local-6989586621679365627"><span class="annot"><span class="annottext">Int -&gt; ContentHandlingStrategy -&gt; ShowS
 [ContentHandlingStrategy] -&gt; ShowS
 ContentHandlingStrategy -&gt; String
 (Int -&gt; ContentHandlingStrategy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContentHandlingStrategy -&gt; String
 showsPrec :: Int -&gt; ContentHandlingStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContentHandlingStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679365118"><span id="local-6989586621679365120"><span id="local-6989586621679365122"><span id="local-6989586621679365124"><span class="annot"><span class="annottext">ReadPrec [ContentHandlingStrategy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679365614"><span id="local-6989586621679365616"><span id="local-6989586621679365618"><span id="local-6989586621679365620"><span class="annot"><span class="annottext">ReadPrec [ContentHandlingStrategy]
 ReadPrec ContentHandlingStrategy
 Int -&gt; ReadS ContentHandlingStrategy
 ReadS [ContentHandlingStrategy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContentHandlingStrategy]
 readsPrec :: Int -&gt; ReadS ContentHandlingStrategy
 $creadsPrec :: Int -&gt; ReadS ContentHandlingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365113"><span id="local-6989586621679365115"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365609"><span id="local-6989586621679365611"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool
 (ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool)
 -&gt; (ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool)
 -&gt; Eq ContentHandlingStrategy
@@ -82,7 +82,7 @@ $c/= :: ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool
 == :: ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool
 $c== :: ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679365097"><span id="local-6989586621679365099"><span id="local-6989586621679365101"><span id="local-6989586621679365103"><span id="local-6989586621679365105"><span id="local-6989586621679365107"><span id="local-6989586621679365109"><span class="annot"><span class="annottext">Eq ContentHandlingStrategy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679365593"><span id="local-6989586621679365595"><span id="local-6989586621679365597"><span id="local-6989586621679365599"><span id="local-6989586621679365601"><span id="local-6989586621679365603"><span id="local-6989586621679365605"><span class="annot"><span class="annottext">Eq ContentHandlingStrategy
 Eq ContentHandlingStrategy
 -&gt; (ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Ordering)
 -&gt; (ContentHandlingStrategy -&gt; ContentHandlingStrategy -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ContentHandlingStrategy -&gt; Rep ContentHandlingStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365089"><span id="local-6989586621679365091"><span class="annot"><span class="annottext">Int -&gt; ContentHandlingStrategy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365585"><span id="local-6989586621679365587"><span class="annot"><span class="annottext">Int -&gt; ContentHandlingStrategy -&gt; Int
 ContentHandlingStrategy -&gt; Int
 (Int -&gt; ContentHandlingStrategy -&gt; Int)
 -&gt; (ContentHandlingStrategy -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: ContentHandlingStrategy -&gt; Int
 hashWithSalt :: Int -&gt; ContentHandlingStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; ContentHandlingStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679365086"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679365582"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ()
 (ContentHandlingStrategy -&gt; ()) -&gt; NFData ContentHandlingStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContentHandlingStrategy -&gt; ()
 $crnf :: ContentHandlingStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365083"><span class="annot"><span class="annottext">Text -&gt; Either String ContentHandlingStrategy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365579"><span class="annot"><span class="annottext">Text -&gt; Either String ContentHandlingStrategy
 (Text -&gt; Either String ContentHandlingStrategy)
 -&gt; FromText ContentHandlingStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContentHandlingStrategy
 $cfromText :: Text -&gt; Either String ContentHandlingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365080"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365576"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; Text
 (ContentHandlingStrategy -&gt; Text) -&gt; ToText ContentHandlingStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContentHandlingStrategy -&gt; Text
 $ctoText :: ContentHandlingStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365077"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365573"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ByteString
 (ContentHandlingStrategy -&gt; ByteString)
 -&gt; ToByteString ContentHandlingStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContentHandlingStrategy -&gt; ByteString
 $ctoBS :: ContentHandlingStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365074"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365570"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; ByteStringBuilder
 (ContentHandlingStrategy -&gt; ByteStringBuilder)
 -&gt; ToLog ContentHandlingStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContentHandlingStrategy -&gt; ByteStringBuilder
 $cbuild :: ContentHandlingStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365071"><span class="annot"><span class="annottext">HeaderName -&gt; ContentHandlingStrategy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365567"><span class="annot"><span class="annottext">HeaderName -&gt; ContentHandlingStrategy -&gt; [Header]
 (HeaderName -&gt; ContentHandlingStrategy -&gt; [Header])
 -&gt; ToHeader ContentHandlingStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContentHandlingStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContentHandlingStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365068"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365564"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; QueryString
 (ContentHandlingStrategy -&gt; QueryString)
 -&gt; ToQuery ContentHandlingStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContentHandlingStrategy -&gt; QueryString
 $ctoQuery :: ContentHandlingStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365063"><span id="local-6989586621679365065"><span class="annot"><span class="annottext">Value -&gt; Parser [ContentHandlingStrategy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365559"><span id="local-6989586621679365561"><span class="annot"><span class="annottext">Value -&gt; Parser [ContentHandlingStrategy]
 Value -&gt; Parser ContentHandlingStrategy
 (Value -&gt; Parser ContentHandlingStrategy)
 -&gt; (Value -&gt; Parser [ContentHandlingStrategy])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [ContentHandlingStrategy]
 parseJSON :: Value -&gt; Parser ContentHandlingStrategy
 $cparseJSON :: Value -&gt; Parser ContentHandlingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365058"><span id="local-6989586621679365060"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContentHandlingStrategy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365554"><span id="local-6989586621679365556"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContentHandlingStrategy]
 FromJSONKeyFunction ContentHandlingStrategy
 FromJSONKeyFunction ContentHandlingStrategy
 -&gt; FromJSONKeyFunction [ContentHandlingStrategy]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContentHandlingStrategy]
 fromJSONKey :: FromJSONKeyFunction ContentHandlingStrategy
 $cfromJSONKey :: FromJSONKeyFunction ContentHandlingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365049"><span id="local-6989586621679365051"><span id="local-6989586621679365053"><span id="local-6989586621679365055"><span class="annot"><span class="annottext">[ContentHandlingStrategy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365545"><span id="local-6989586621679365547"><span id="local-6989586621679365549"><span id="local-6989586621679365551"><span class="annot"><span class="annottext">[ContentHandlingStrategy] -&gt; Encoding
 [ContentHandlingStrategy] -&gt; Value
 ContentHandlingStrategy -&gt; Encoding
 ContentHandlingStrategy -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: ContentHandlingStrategy -&gt; Encoding
 toJSON :: ContentHandlingStrategy -&gt; Value
 $ctoJSON :: ContentHandlingStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365044"><span id="local-6989586621679365046"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContentHandlingStrategy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365540"><span id="local-6989586621679365542"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContentHandlingStrategy]
 ToJSONKeyFunction ContentHandlingStrategy
 ToJSONKeyFunction ContentHandlingStrategy
 -&gt; ToJSONKeyFunction [ContentHandlingStrategy]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContentHandlingStrategy]
 toJSONKey :: ToJSONKeyFunction ContentHandlingStrategy
 $ctoJSONKey :: ToJSONKeyFunction ContentHandlingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365041"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContentHandlingStrategy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365537"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContentHandlingStrategy
 ([Node] -&gt; Either String ContentHandlingStrategy)
 -&gt; FromXML ContentHandlingStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContentHandlingStrategy
 $cparseXML :: [Node] -&gt; Either String ContentHandlingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365038"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365534"><span class="annot"><span class="annottext">ContentHandlingStrategy -&gt; XML
 (ContentHandlingStrategy -&gt; XML) -&gt; ToXML ContentHandlingStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContentHandlingStrategy -&gt; XML

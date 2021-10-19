@@ -70,7 +70,7 @@
 </span><span id="line-70"></span><span class="hs-comment">-- -   ListVolumesInput$Marker</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newListVolumes' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679374992"><span id="local-6989586621679374993"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVolumes"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-var">ListVolumes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVolumes%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-var">ListVolumes'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679379505"><span id="local-6989586621679379506"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVolumes"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-var">ListVolumes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVolumes%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-var">ListVolumes'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AListVolumes%27"><span class="annot"><span class="annottext">ListVolumes -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AgatewayARN%3AListVolumes%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A string that indicates the position at which to begin the returned list</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3Alimit%3AListVolumes%27"><span class="annot"><span class="annottext">ListVolumes -&gt; Maybe Natural
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3Alimit%3AListVolumes%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374984"><span id="local-6989586621679374986"><span class="annot"><span class="annottext">ListVolumes -&gt; ListVolumes -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379497"><span id="local-6989586621679379499"><span class="annot"><span class="annottext">ListVolumes -&gt; ListVolumes -&gt; Bool
 (ListVolumes -&gt; ListVolumes -&gt; Bool)
 -&gt; (ListVolumes -&gt; ListVolumes -&gt; Bool) -&gt; Eq ListVolumes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListVolumes -&gt; ListVolumes -&gt; Bool
 == :: ListVolumes -&gt; ListVolumes -&gt; Bool
 $c== :: ListVolumes -&gt; ListVolumes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374975"><span id="local-6989586621679374977"><span id="local-6989586621679374979"><span id="local-6989586621679374981"><span class="annot"><span class="annottext">ReadPrec [ListVolumes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379488"><span id="local-6989586621679379490"><span id="local-6989586621679379492"><span id="local-6989586621679379494"><span class="annot"><span class="annottext">ReadPrec [ListVolumes]
 ReadPrec ListVolumes
 Int -&gt; ReadS ListVolumes
 ReadS [ListVolumes]
@@ -111,7 +111,7 @@ readList :: ReadS [ListVolumes]
 $creadList :: ReadS [ListVolumes]
 readsPrec :: Int -&gt; ReadS ListVolumes
 $creadsPrec :: Int -&gt; ReadS ListVolumes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374968"><span id="local-6989586621679374970"><span id="local-6989586621679374972"><span class="annot"><span class="annottext">Int -&gt; ListVolumes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379481"><span id="local-6989586621679379483"><span id="local-6989586621679379485"><span class="annot"><span class="annottext">Int -&gt; ListVolumes -&gt; ShowS
 [ListVolumes] -&gt; ShowS
 ListVolumes -&gt; String
 (Int -&gt; ListVolumes -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; (ListVolumes -&gt; Maybe Text -&gt; ListVolumes)
 -&gt; Lens ListVolumes ListVolumes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379475"><span class="annot"><span class="annottext">Maybe Text
 gatewayARN :: Maybe Text
 $sel:gatewayARN:ListVolumes' :: ListVolumes -&gt; Maybe Text
-</span><a href="#local-6989586621679374962"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374962"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374961"><span class="annot"><span class="annottext">s :: ListVolumes
-</span><a href="#local-6989586621679374961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumes
-</span><a href="#local-6989586621679374961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ListVolumes' :: Maybe Text
+</span><a href="#local-6989586621679379475"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379475"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379474"><span class="annot"><span class="annottext">s :: ListVolumes
+</span><a href="#local-6989586621679379474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379473"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumes
+</span><a href="#local-6989586621679379474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ListVolumes' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AgatewayARN%3AListVolumes%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | A string that indicates the position at which to begin the returned list</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- of volumes. Obtain the marker from the response of a previous List iSCSI</span><span>
@@ -200,16 +200,16 @@ $sel:gatewayARN:ListVolumes' :: ListVolumes -&gt; Maybe Text
 -&gt; (ListVolumes -&gt; Maybe Text -&gt; ListVolumes)
 -&gt; Lens ListVolumes ListVolumes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374959"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379472"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListVolumes' :: ListVolumes -&gt; Maybe Text
-</span><a href="#local-6989586621679374959"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374959"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374958"><span class="annot"><span class="annottext">s :: ListVolumes
-</span><a href="#local-6989586621679374958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374957"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumes
-</span><a href="#local-6989586621679374958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListVolumes' :: Maybe Text
+</span><a href="#local-6989586621679379472"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379472"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379471"><span class="annot"><span class="annottext">s :: ListVolumes
+</span><a href="#local-6989586621679379471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumes
+</span><a href="#local-6989586621679379471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListVolumes' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3Amarker%3AListVolumes%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Specifies that the list of volumes returned be limited to the specified</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- number of items.</span><span>
@@ -220,28 +220,28 @@ $sel:marker:ListVolumes' :: ListVolumes -&gt; Maybe Text
 -&gt; (ListVolumes -&gt; Maybe Natural -&gt; ListVolumes)
 -&gt; Lens ListVolumes ListVolumes (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374956"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379469"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListVolumes' :: ListVolumes -&gt; Maybe Natural
-</span><a href="#local-6989586621679374956"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679374956"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374955"><span class="annot"><span class="annottext">s :: ListVolumes
-</span><a href="#local-6989586621679374955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374954"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679374954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumes
-</span><a href="#local-6989586621679374955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListVolumes' :: Maybe Natural
+</span><a href="#local-6989586621679379469"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679379469"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379468"><span class="annot"><span class="annottext">s :: ListVolumes
+</span><a href="#local-6989586621679379468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379467"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679379467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumes
+</span><a href="#local-6989586621679379468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListVolumes' :: Maybe Natural
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3Alimit%3AListVolumes%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679374954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679374950"><span class="annot"><span class="annottext">page :: ListVolumes -&gt; AWSResponse ListVolumes -&gt; Maybe ListVolumes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679374948"><span class="annot"><span class="annottext">ListVolumes
-</span><a href="#local-6989586621679374948"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679374947"><span class="annot"><span class="annottext">AWSResponse ListVolumes
-</span><a href="#local-6989586621679374947"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679379463"><span class="annot"><span class="annottext">page :: ListVolumes -&gt; AWSResponse ListVolumes -&gt; Maybe ListVolumes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679379461"><span class="annot"><span class="annottext">ListVolumes
+</span><a href="#local-6989586621679379461"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679379460"><span class="annot"><span class="annottext">AWSResponse ListVolumes
+</span><a href="#local-6989586621679379460"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListVolumes
 ListVolumesResponse
-</span><a href="#local-6989586621679374947"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679379460"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">ListVolumesResponse
 -&gt; Getting (First Text) ListVolumesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -267,7 +267,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListVolumes
 ListVolumesResponse
-</span><a href="#local-6989586621679374947"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679379460"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">ListVolumesResponse
 -&gt; Getting (First [VolumeInfo]) ListVolumesResponse [VolumeInfo]
 -&gt; Maybe [VolumeInfo]
@@ -304,7 +304,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ListVolumes
-</span><a href="#local-6989586621679374948"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679379461"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ListVolumes -&gt; (ListVolumes -&gt; ListVolumes) -&gt; ListVolumes
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -317,7 +317,7 @@ Lens ListVolumes ListVolumes (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListVolumes
 ListVolumesResponse
-</span><a href="#local-6989586621679374947"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679379460"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ListVolumesResponse
 -&gt; Getting (First Text) ListVolumesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -337,12 +337,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679374937"><span class="annot"><span class="annottext">request :: ListVolumes -&gt; Request ListVolumes
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679379450"><span class="annot"><span class="annottext">request :: ListVolumes -&gt; Request ListVolumes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListVolumes -&gt; Request ListVolumes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679374933"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679379446"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListVolumes
 -&gt; ClientResponse ClientBody
@@ -366,10 +366,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374930"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374930"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679374929"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679374929"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679374928"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679379442"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679379442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679379441"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe [VolumeInfo] -&gt; Int -&gt; ListVolumesResponse
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-var">ListVolumesResponse'</span></a></span><span>
@@ -381,7 +381,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe [VolumeInfo] -&gt; Int -&gt; ListVolumesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679379441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -392,7 +392,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [VolumeInfo] -&gt; Int -&gt; ListVolumesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679379441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -401,7 +401,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListVolumesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VolumeInfo]))
+</span><a href="#local-6989586621679379441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VolumeInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeInfos&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [VolumeInfo]))
@@ -418,15 +418,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374930"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374919"><span id="local-6989586621679374921"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379432"><span id="local-6989586621679379434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679374912"><span class="annot"><span class="annottext">toHeaders :: ListVolumes -&gt; ResponseHeaders
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679379425"><span class="annot"><span class="annottext">toHeaders :: ListVolumes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListVolumes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -453,9 +453,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374902"><span id="local-6989586621679374904"><span id="local-6989586621679374906"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679374900"><span class="annot"><span class="annottext">toJSON :: ListVolumes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374896"><span id="local-6989586621679374897"><span id="local-6989586621679374898"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379415"><span id="local-6989586621679379417"><span id="local-6989586621679379419"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679379413"><span class="annot"><span class="annottext">toJSON :: ListVolumes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes%27"><span class="hs-identifier hs-type">ListVolumes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379409"><span id="local-6989586621679379410"><span id="local-6989586621679379411"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 marker :: Maybe Text
@@ -463,7 +463,7 @@ gatewayARN :: Maybe Text
 $sel:limit:ListVolumes' :: ListVolumes -&gt; Maybe Natural
 $sel:marker:ListVolumes' :: ListVolumes -&gt; Maybe Text
 $sel:gatewayARN:ListVolumes' :: ListVolumes -&gt; Maybe Text
-</span><a href="#local-6989586621679374896"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679379409"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -475,33 +475,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374898"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379411"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374897"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379410"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679374896"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679379409"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679374890"><span class="annot"><span class="annottext">toPath :: ListVolumes -&gt; ByteString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679379403"><span class="annot"><span class="annottext">toPath :: ListVolumes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListVolumes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumes"><span class="hs-identifier hs-type">ListVolumes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679374886"><span class="annot"><span class="annottext">toQuery :: ListVolumes -&gt; QueryString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679379399"><span class="annot"><span class="annottext">toQuery :: ListVolumes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListVolumes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -515,7 +515,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-196"></span><span class="hs-comment">-- -   ListVolumesOutput$VolumeInfos</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- /See:/ 'newListVolumesResponse' smart constructor.</span><span>
-</span><span id="line-199"></span><span id="local-6989586621679374883"><span id="local-6989586621679374884"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVolumesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-var">ListVolumesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVolumesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-var">ListVolumesResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span id="local-6989586621679379396"><span id="local-6989586621679379397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListVolumesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-var">ListVolumesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListVolumesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-var">ListVolumesResponse'</span></a></span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AListVolumesResponse%27"><span class="annot"><span class="annottext">ListVolumesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AgatewayARN%3AListVolumesResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | Use the marker in your next request to continue pagination of iSCSI</span><span>
@@ -532,7 +532,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-210"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListVolumesResponse%27"><span class="annot"><span class="annottext">ListVolumesResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AhttpStatus%3AListVolumesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374875"><span id="local-6989586621679374877"><span class="annot"><span class="annottext">ListVolumesResponse -&gt; ListVolumesResponse -&gt; Bool
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379388"><span id="local-6989586621679379390"><span class="annot"><span class="annottext">ListVolumesResponse -&gt; ListVolumesResponse -&gt; Bool
 (ListVolumesResponse -&gt; ListVolumesResponse -&gt; Bool)
 -&gt; (ListVolumesResponse -&gt; ListVolumesResponse -&gt; Bool)
 -&gt; Eq ListVolumesResponse
@@ -541,7 +541,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListVolumesResponse -&gt; ListVolumesResponse -&gt; Bool
 == :: ListVolumesResponse -&gt; ListVolumesResponse -&gt; Bool
 $c== :: ListVolumesResponse -&gt; ListVolumesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374867"><span id="local-6989586621679374869"><span id="local-6989586621679374871"><span id="local-6989586621679374873"><span class="annot"><span class="annottext">ReadPrec [ListVolumesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379380"><span id="local-6989586621679379382"><span id="local-6989586621679379384"><span id="local-6989586621679379386"><span class="annot"><span class="annottext">ReadPrec [ListVolumesResponse]
 ReadPrec ListVolumesResponse
 Int -&gt; ReadS ListVolumesResponse
 ReadS [ListVolumesResponse]
@@ -561,7 +561,7 @@ readList :: ReadS [ListVolumesResponse]
 $creadList :: ReadS [ListVolumesResponse]
 readsPrec :: Int -&gt; ReadS ListVolumesResponse
 $creadsPrec :: Int -&gt; ReadS ListVolumesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374861"><span id="local-6989586621679374863"><span id="local-6989586621679374865"><span class="annot"><span class="annottext">Int -&gt; ListVolumesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379374"><span id="local-6989586621679379376"><span id="local-6989586621679379378"><span class="annot"><span class="annottext">Int -&gt; ListVolumesResponse -&gt; ShowS
 [ListVolumesResponse] -&gt; ShowS
 ListVolumesResponse -&gt; String
 (Int -&gt; ListVolumesResponse -&gt; ShowS)
@@ -611,8 +611,8 @@ $cfrom :: forall x. ListVolumesResponse -&gt; Rep ListVolumesResponse x
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span>
 </span><span id="line-237"></span><span id="newListVolumesResponse"><span class="annot"><span class="annottext">newListVolumesResponse :: Int -&gt; ListVolumesResponse
-</span><a href="Network.AWS.StorageGateway.ListVolumes.html#newListVolumesResponse"><span class="hs-identifier hs-var hs-var">newListVolumesResponse</span></a></span></span><span> </span><span id="local-6989586621679374858"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.ListVolumes.html#newListVolumesResponse"><span class="hs-identifier hs-var hs-var">newListVolumesResponse</span></a></span></span><span> </span><span id="local-6989586621679379371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">ListVolumesResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe [VolumeInfo] -&gt; Int -&gt; ListVolumesResponse
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span>
@@ -630,7 +630,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListVolumesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AhttpStatus%3AListVolumesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374858"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679379371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-243"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -641,16 +641,16 @@ forall a. Maybe a
 -&gt; (ListVolumesResponse -&gt; Maybe Text -&gt; ListVolumesResponse)
 -&gt; Lens' ListVolumesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374857"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379370"><span class="annot"><span class="annottext">Maybe Text
 gatewayARN :: Maybe Text
 $sel:gatewayARN:ListVolumesResponse' :: ListVolumesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679374857"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374857"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374856"><span class="annot"><span class="annottext">s :: ListVolumesResponse
-</span><a href="#local-6989586621679374856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374855"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
-</span><a href="#local-6989586621679374856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ListVolumesResponse' :: Maybe Text
+</span><a href="#local-6989586621679379370"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379370"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379369"><span class="annot"><span class="annottext">s :: ListVolumesResponse
+</span><a href="#local-6989586621679379369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379368"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
+</span><a href="#local-6989586621679379369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ListVolumesResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AgatewayARN%3AListVolumesResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | Use the marker in your next request to continue pagination of iSCSI</span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- volumes. If there are no more volumes to list, this field does not</span><span>
@@ -662,16 +662,16 @@ $sel:gatewayARN:ListVolumesResponse' :: ListVolumesResponse -&gt; Maybe Text
 -&gt; (ListVolumesResponse -&gt; Maybe Text -&gt; ListVolumesResponse)
 -&gt; Lens' ListVolumesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374854"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379367"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListVolumesResponse' :: ListVolumesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679374854"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374854"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374853"><span class="annot"><span class="annottext">s :: ListVolumesResponse
-</span><a href="#local-6989586621679374853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374852"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
-</span><a href="#local-6989586621679374853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListVolumesResponse' :: Maybe Text
+</span><a href="#local-6989586621679379367"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379367"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379366"><span class="annot"><span class="annottext">s :: ListVolumesResponse
+</span><a href="#local-6989586621679379366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
+</span><a href="#local-6989586621679379366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListVolumesResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3Amarker%3AListVolumesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | An array of VolumeInfo objects, where each object describes an iSCSI</span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is</span><span>
@@ -684,16 +684,16 @@ $sel:marker:ListVolumesResponse' :: ListVolumesResponse -&gt; Maybe Text
     -&gt; Maybe [VolumeInfo] -&gt; ListVolumesResponse)
 -&gt; Lens' ListVolumesResponse (Maybe [VolumeInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374851"><span class="annot"><span class="annottext">Maybe [VolumeInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379364"><span class="annot"><span class="annottext">Maybe [VolumeInfo]
 volumeInfos :: Maybe [VolumeInfo]
 $sel:volumeInfos:ListVolumesResponse' :: ListVolumesResponse -&gt; Maybe [VolumeInfo]
-</span><a href="#local-6989586621679374851"><span class="hs-identifier hs-var hs-var">volumeInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeInfo]
-</span><a href="#local-6989586621679374851"><span class="hs-identifier hs-var">volumeInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374850"><span class="annot"><span class="annottext">s :: ListVolumesResponse
-</span><a href="#local-6989586621679374850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374849"><span class="annot"><span class="annottext">Maybe [VolumeInfo]
-</span><a href="#local-6989586621679374849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
-</span><a href="#local-6989586621679374850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeInfos:ListVolumesResponse' :: Maybe [VolumeInfo]
+</span><a href="#local-6989586621679379364"><span class="hs-identifier hs-var hs-var">volumeInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeInfo]
+</span><a href="#local-6989586621679379364"><span class="hs-identifier hs-var">volumeInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379363"><span class="annot"><span class="annottext">s :: ListVolumesResponse
+</span><a href="#local-6989586621679379363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379362"><span class="annot"><span class="annottext">Maybe [VolumeInfo]
+</span><a href="#local-6989586621679379362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
+</span><a href="#local-6989586621679379363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeInfos:ListVolumesResponse' :: Maybe [VolumeInfo]
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AvolumeInfos%3AListVolumesResponse%27"><span class="hs-identifier hs-var">volumeInfos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeInfo]
-</span><a href="#local-6989586621679374849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VolumeInfo] -&gt; f (Maybe [VolumeInfo]))
+</span><a href="#local-6989586621679379362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VolumeInfo] -&gt; f (Maybe [VolumeInfo]))
  -&gt; ListVolumesResponse -&gt; f ListVolumesResponse)
 -&gt; ((Maybe [VolumeInfo] -&gt; f (Maybe [VolumeInfo]))
     -&gt; Maybe [VolumeInfo] -&gt; f (Maybe [VolumeInfo]))
@@ -711,8 +711,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [VolumeInfo] [VolumeInfo] [VolumeInfo] [VolumeInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-262"></span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#listVolumesResponse_httpStatus"><span class="hs-identifier hs-type">listVolumesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -721,16 +721,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListVolumesResponse -&gt; Int -&gt; ListVolumesResponse)
 -&gt; Lens ListVolumesResponse ListVolumesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374846"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379359"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListVolumesResponse' :: ListVolumesResponse -&gt; Int
-</span><a href="#local-6989586621679374846"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374846"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374845"><span class="annot"><span class="annottext">s :: ListVolumesResponse
-</span><a href="#local-6989586621679374845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
-</span><a href="#local-6989586621679374845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListVolumesResponse' :: Int
+</span><a href="#local-6989586621679379359"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379359"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379358"><span class="annot"><span class="annottext">s :: ListVolumesResponse
+</span><a href="#local-6989586621679379358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse%27"><span class="hs-identifier hs-type">ListVolumesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379357"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679379357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListVolumesResponse
+</span><a href="#local-6989586621679379358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListVolumesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ListVolumes.html#%24sel%3AhttpStatus%3AListVolumesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679374844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ListVolumes.html#ListVolumesResponse"><span class="hs-identifier hs-type">ListVolumesResponse</span></a></span></span><span>
 </span><span id="line-266"></span></pre></body></html>

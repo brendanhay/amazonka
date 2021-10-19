@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_nextToken"><span class="hs-identifier">listThingsInThingGroup_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_maxResults"><span class="hs-identifier">listThingsInThingGroup_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_recursive"><span class="hs-identifier">listThingsInThingGroup_recursive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_recursive"><span class="hs-identifier">listThingsInThingGroup_recursive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_maxResults"><span class="hs-identifier">listThingsInThingGroup_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_thingGroupName"><span class="hs-identifier">listThingsInThingGroup_thingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -57,24 +57,24 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListThingsInThingGroup' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679816384"><span id="local-6989586621679816385"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingsInThingGroup"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-var">ListThingsInThingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingsInThingGroup%27"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-var">ListThingsInThingGroup'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679817300"><span id="local-6989586621679817301"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingsInThingGroup"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-var">ListThingsInThingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingsInThingGroup%27"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-var">ListThingsInThingGroup'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListThingsInThingGroup%27"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AnextToken%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3AListThingsInThingGroup%27"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; Maybe Natural
-</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AmaxResults%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | When true, list things in this thing group and in all child groups as</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- well.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3Arecursive%3AListThingsInThingGroup%27"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; Maybe Bool
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | When true, list things in this thing group and in all child groups as</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- well.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Arecursive%3AListThingsInThingGroup%27"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3Arecursive%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var hs-var">recursive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AListThingsInThingGroup%27"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; Maybe Natural
+</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AmaxResults%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The thing group name.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AthingGroupName%3AListThingsInThingGroup%27"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; Text
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AthingGroupName%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816375"><span id="local-6989586621679816377"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; ListThingsInThingGroup -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679817291"><span id="local-6989586621679817293"><span class="annot"><span class="annottext">ListThingsInThingGroup -&gt; ListThingsInThingGroup -&gt; Bool
 (ListThingsInThingGroup -&gt; ListThingsInThingGroup -&gt; Bool)
 -&gt; (ListThingsInThingGroup -&gt; ListThingsInThingGroup -&gt; Bool)
 -&gt; Eq ListThingsInThingGroup
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListThingsInThingGroup -&gt; ListThingsInThingGroup -&gt; Bool
 == :: ListThingsInThingGroup -&gt; ListThingsInThingGroup -&gt; Bool
 $c== :: ListThingsInThingGroup -&gt; ListThingsInThingGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816366"><span id="local-6989586621679816368"><span id="local-6989586621679816370"><span id="local-6989586621679816372"><span class="annot"><span class="annottext">ReadPrec [ListThingsInThingGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679817282"><span id="local-6989586621679817284"><span id="local-6989586621679817286"><span id="local-6989586621679817288"><span class="annot"><span class="annottext">ReadPrec [ListThingsInThingGroup]
 ReadPrec ListThingsInThingGroup
 Int -&gt; ReadS ListThingsInThingGroup
 ReadS [ListThingsInThingGroup]
@@ -103,7 +103,7 @@ readList :: ReadS [ListThingsInThingGroup]
 $creadList :: ReadS [ListThingsInThingGroup]
 readsPrec :: Int -&gt; ReadS ListThingsInThingGroup
 $creadsPrec :: Int -&gt; ReadS ListThingsInThingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816359"><span id="local-6989586621679816361"><span id="local-6989586621679816363"><span class="annot"><span class="annottext">Int -&gt; ListThingsInThingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679817275"><span id="local-6989586621679817277"><span id="local-6989586621679817279"><span class="annot"><span class="annottext">Int -&gt; ListThingsInThingGroup -&gt; ShowS
 [ListThingsInThingGroup] -&gt; ShowS
 ListThingsInThingGroup -&gt; String
 (Int -&gt; ListThingsInThingGroup -&gt; ShowS)
@@ -142,10 +142,10 @@ $cfrom :: forall x. ListThingsInThingGroup -&gt; Rep ListThingsInThingGroup x
 </span><span id="line-84"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'listThingsInThingGroup_maxResults' - The maximum number of results to return at one time.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'recursive', 'listThingsInThingGroup_recursive' - When true, list things in this thing group and in all child groups as</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- well.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'recursive', 'listThingsInThingGroup_recursive' - When true, list things in this thing group and in all child groups as</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- well.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'listThingsInThingGroup_maxResults' - The maximum number of results to return at one time.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 'thingGroupName', 'listThingsInThingGroup_thingGroupName' - The thing group name.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#newListThingsInThingGroup"><span class="hs-identifier hs-type">newListThingsInThingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -153,27 +153,27 @@ $cfrom :: forall x. ListThingsInThingGroup -&gt; Rep ListThingsInThingGroup x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span>
 </span><span id="line-97"></span><span id="newListThingsInThingGroup"><span class="annot"><span class="annottext">newListThingsInThingGroup :: Text -&gt; ListThingsInThingGroup
-</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#newListThingsInThingGroup"><span class="hs-identifier hs-var hs-var">newListThingsInThingGroup</span></a></span></span><span> </span><span id="local-6989586621679816354"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679816354"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#newListThingsInThingGroup"><span class="hs-identifier hs-var hs-var">newListThingsInThingGroup</span></a></span></span><span> </span><span id="local-6989586621679817270"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679817270"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ListThingsInThingGroup' :: Maybe Text
--&gt; Maybe Natural -&gt; Maybe Bool -&gt; Text -&gt; ListThingsInThingGroup
+-&gt; Maybe Bool -&gt; Maybe Natural -&gt; Text -&gt; ListThingsInThingGroup
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListThingsInThingGroup' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AnextToken%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListThingsInThingGroup' :: Maybe Natural
-</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AmaxResults%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:recursive:ListThingsInThingGroup' :: Maybe Bool
+</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3Arecursive%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">recursive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:recursive:ListThingsInThingGroup' :: Maybe Bool
-</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3Arecursive%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">recursive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListThingsInThingGroup' :: Maybe Natural
+</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AmaxResults%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingGroupName:ListThingsInThingGroup' :: Text
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AthingGroupName%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679816354"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679817270"><span class="hs-identifier hs-var">pThingGroupName_</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
@@ -190,20 +190,44 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816352"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817268"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679816352"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816352"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816351"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
-</span><a href="#local-6989586621679816351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816350"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
-</span><a href="#local-6989586621679816351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingsInThingGroup' :: Maybe Text
+</span><a href="#local-6989586621679817268"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817268"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817267"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
+</span><a href="#local-6989586621679817267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817266"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
+</span><a href="#local-6989586621679817267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingsInThingGroup' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AnextToken%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679817266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_maxResults"><span class="hs-identifier hs-type">listThingsInThingGroup_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="listThingsInThingGroup_maxResults"><span class="annot"><span class="annottext">listThingsInThingGroup_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-112"></span><span class="hs-comment">-- | When true, list things in this thing group and in all child groups as</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- well.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_recursive"><span class="hs-identifier hs-type">listThingsInThingGroup_recursive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="listThingsInThingGroup_recursive"><span class="annot"><span class="annottext">listThingsInThingGroup_recursive :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListThingsInThingGroup -&gt; f ListThingsInThingGroup
+</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_recursive"><span class="hs-identifier hs-var hs-var">listThingsInThingGroup_recursive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListThingsInThingGroup -&gt; Maybe Bool)
+-&gt; (ListThingsInThingGroup -&gt; Maybe Bool -&gt; ListThingsInThingGroup)
+-&gt; Lens
+     ListThingsInThingGroup
+     ListThingsInThingGroup
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817265"><span class="annot"><span class="annottext">Maybe Bool
+recursive :: Maybe Bool
+$sel:recursive:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Bool
+</span><a href="#local-6989586621679817265"><span class="hs-identifier hs-var hs-var">recursive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679817265"><span class="hs-identifier hs-var">recursive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817264"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
+</span><a href="#local-6989586621679817264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817263"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679817263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
+</span><a href="#local-6989586621679817264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recursive:ListThingsInThingGroup' :: Maybe Bool
+</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3Arecursive%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">recursive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679817263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_maxResults"><span class="hs-identifier hs-type">listThingsInThingGroup_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listThingsInThingGroup_maxResults"><span class="annot"><span class="annottext">listThingsInThingGroup_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListThingsInThingGroup -&gt; f ListThingsInThingGroup
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_maxResults"><span class="hs-identifier hs-var hs-var">listThingsInThingGroup_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListThingsInThingGroup -&gt; Maybe Natural)
 -&gt; (ListThingsInThingGroup
@@ -214,40 +238,16 @@ $sel:nextToken:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Tex
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816349"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817262"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Natural
-</span><a href="#local-6989586621679816349"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816349"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816348"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
-</span><a href="#local-6989586621679816348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816347"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
-</span><a href="#local-6989586621679816348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListThingsInThingGroup' :: Maybe Natural
+</span><a href="#local-6989586621679817262"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679817262"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817261"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
+</span><a href="#local-6989586621679817261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817260"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679817260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
+</span><a href="#local-6989586621679817261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListThingsInThingGroup' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AmaxResults%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | When true, list things in this thing group and in all child groups as</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- well.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_recursive"><span class="hs-identifier hs-type">listThingsInThingGroup_recursive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="listThingsInThingGroup_recursive"><span class="annot"><span class="annottext">listThingsInThingGroup_recursive :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ListThingsInThingGroup -&gt; f ListThingsInThingGroup
-</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_recursive"><span class="hs-identifier hs-var hs-var">listThingsInThingGroup_recursive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListThingsInThingGroup -&gt; Maybe Bool)
--&gt; (ListThingsInThingGroup -&gt; Maybe Bool -&gt; ListThingsInThingGroup)
--&gt; Lens
-     ListThingsInThingGroup
-     ListThingsInThingGroup
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816346"><span class="annot"><span class="annottext">Maybe Bool
-recursive :: Maybe Bool
-$sel:recursive:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679816346"><span class="hs-identifier hs-var hs-var">recursive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816346"><span class="hs-identifier hs-var">recursive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816345"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
-</span><a href="#local-6989586621679816345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816344"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
-</span><a href="#local-6989586621679816345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recursive:ListThingsInThingGroup' :: Maybe Bool
-</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3Arecursive%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">recursive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679817260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The thing group name.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroup_thingGroupName"><span class="hs-identifier hs-type">listThingsInThingGroup_thingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -257,30 +257,30 @@ $sel:recursive:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Boo
 -&gt; (ListThingsInThingGroup -&gt; Text -&gt; ListThingsInThingGroup)
 -&gt; Lens ListThingsInThingGroup ListThingsInThingGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816343"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817259"><span class="annot"><span class="annottext">Text
 thingGroupName :: Text
 $sel:thingGroupName:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Text
-</span><a href="#local-6989586621679816343"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679816343"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816342"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
-</span><a href="#local-6989586621679816342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816341"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679816341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
-</span><a href="#local-6989586621679816342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupName:ListThingsInThingGroup' :: Text
+</span><a href="#local-6989586621679817259"><span class="hs-identifier hs-var hs-var">thingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679817259"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817258"><span class="annot"><span class="annottext">s :: ListThingsInThingGroup
+</span><a href="#local-6989586621679817258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679817257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroup
+</span><a href="#local-6989586621679817258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroupName:ListThingsInThingGroup' :: Text
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AthingGroupName%3AListThingsInThingGroup%27"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679816341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679817257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679816337"><span class="annot"><span class="annottext">page :: ListThingsInThingGroup
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679817253"><span class="annot"><span class="annottext">page :: ListThingsInThingGroup
 -&gt; AWSResponse ListThingsInThingGroup
 -&gt; Maybe ListThingsInThingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679816335"><span class="annot"><span class="annottext">ListThingsInThingGroup
-</span><a href="#local-6989586621679816335"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679816334"><span class="annot"><span class="annottext">AWSResponse ListThingsInThingGroup
-</span><a href="#local-6989586621679816334"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679817251"><span class="annot"><span class="annottext">ListThingsInThingGroup
+</span><a href="#local-6989586621679817251"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679817250"><span class="annot"><span class="annottext">AWSResponse ListThingsInThingGroup
+</span><a href="#local-6989586621679817250"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThingsInThingGroup
 ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816334"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679817250"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
 -&gt; Getting (First Text) ListThingsInThingGroupResponse Text
 -&gt; Maybe Text
@@ -310,7 +310,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-134"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThingsInThingGroup
 ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816334"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679817250"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
 -&gt; Getting (First [Text]) ListThingsInThingGroupResponse [Text]
 -&gt; Maybe [Text]
@@ -344,7 +344,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ListThingsInThingGroup
-</span><a href="#local-6989586621679816335"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679817251"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ListThingsInThingGroup
 -&gt; (ListThingsInThingGroup -&gt; ListThingsInThingGroup)
 -&gt; ListThingsInThingGroup
@@ -363,7 +363,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListThingsInThingGroup
 ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816334"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679817250"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
 -&gt; Getting (First Text) ListThingsInThingGroupResponse Text
 -&gt; Maybe Text
@@ -389,12 +389,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679816324"><span class="annot"><span class="annottext">request :: ListThingsInThingGroup -&gt; Request ListThingsInThingGroup
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679817240"><span class="annot"><span class="annottext">request :: ListThingsInThingGroup -&gt; Request ListThingsInThingGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListThingsInThingGroup -&gt; Request ListThingsInThingGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679816320"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679817236"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListThingsInThingGroup
 -&gt; ClientResponse ClientBody
@@ -420,10 +420,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679816317"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816317"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679816316"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679816316"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679816315"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816315"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679817233"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679817233"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679817232"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679817232"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679817231"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679817231"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListThingsInThingGroupResponse
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var">ListThingsInThingGroupResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -433,7 +433,7 @@ MonadResource m =&gt;
      String (Maybe [Text] -&gt; Int -&gt; ListThingsInThingGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679817231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -443,7 +443,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListThingsInThingGroupResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816315"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679817231"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;things&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -461,15 +461,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816317"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679817233"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816306"><span id="local-6989586621679816308"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817222"><span id="local-6989586621679817224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679817219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679816299"><span class="annot"><span class="annottext">toHeaders :: ListThingsInThingGroup -&gt; ResponseHeaders
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679817215"><span class="annot"><span class="annottext">toHeaders :: ListThingsInThingGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListThingsInThingGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -477,20 +477,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679816294"><span class="annot"><span class="annottext">toPath :: ListThingsInThingGroup -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816289"><span id="local-6989586621679816290"><span id="local-6989586621679816291"><span id="local-6989586621679816292"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679817210"><span class="annot"><span class="annottext">toPath :: ListThingsInThingGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817205"><span id="local-6989586621679817206"><span id="local-6989586621679817207"><span id="local-6989586621679817208"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 Text
 thingGroupName :: Text
-recursive :: Maybe Bool
 maxResults :: Maybe Natural
+recursive :: Maybe Bool
 nextToken :: Maybe Text
 $sel:thingGroupName:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Text
-$sel:recursive:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Bool
 $sel:maxResults:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Natural
+$sel:recursive:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Bool
 $sel:nextToken:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679816289"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679817205"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -499,26 +499,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679816289"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679817205"><span class="hs-identifier hs-var">thingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/things&quot;</span></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup"><span class="hs-identifier hs-type">ListThingsInThingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679816285"><span class="annot"><span class="annottext">toQuery :: ListThingsInThingGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816280"><span id="local-6989586621679816281"><span id="local-6989586621679816282"><span id="local-6989586621679816283"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679817201"><span class="annot"><span class="annottext">toQuery :: ListThingsInThingGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroup%27"><span class="hs-identifier hs-type">ListThingsInThingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817196"><span id="local-6989586621679817197"><span id="local-6989586621679817198"><span id="local-6989586621679817199"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 Text
 thingGroupName :: Text
-recursive :: Maybe Bool
 maxResults :: Maybe Natural
+recursive :: Maybe Bool
 nextToken :: Maybe Text
 $sel:thingGroupName:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Text
-$sel:recursive:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Bool
 $sel:maxResults:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Natural
+$sel:recursive:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Bool
 $sel:nextToken:ListThingsInThingGroup' :: ListThingsInThingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679816280"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679817196"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -526,21 +526,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816283"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679817199"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679816282"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;recursive&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679816281"><span class="hs-identifier hs-var">recursive</span></a></span><span>
+</span><a href="#local-6989586621679817198"><span class="hs-identifier hs-var">recursive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679817197"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newListThingsInThingGroupResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621679816277"><span id="local-6989586621679816278"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingsInThingGroupResponse"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-var">ListThingsInThingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingsInThingGroupResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var">ListThingsInThingGroupResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621679817193"><span id="local-6989586621679817194"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListThingsInThingGroupResponse"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-var">ListThingsInThingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListThingsInThingGroupResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var">ListThingsInThingGroupResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-comment">-- are no additional results.</span><span>
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AnextToken%3AListThingsInThingGroupResponse%27"><span class="annot"><span class="annottext">ListThingsInThingGroupResponse -&gt; Maybe Text
@@ -552,7 +552,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListThingsInThingGroupResponse%27"><span class="annot"><span class="annottext">ListThingsInThingGroupResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AhttpStatus%3AListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816270"><span id="local-6989586621679816272"><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679817186"><span id="local-6989586621679817188"><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
 -&gt; ListThingsInThingGroupResponse -&gt; Bool
 (ListThingsInThingGroupResponse
  -&gt; ListThingsInThingGroupResponse -&gt; Bool)
@@ -568,7 +568,7 @@ $c/= :: ListThingsInThingGroupResponse
 -&gt; ListThingsInThingGroupResponse -&gt; Bool
 $c== :: ListThingsInThingGroupResponse
 -&gt; ListThingsInThingGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816262"><span id="local-6989586621679816264"><span id="local-6989586621679816266"><span id="local-6989586621679816268"><span class="annot"><span class="annottext">ReadPrec [ListThingsInThingGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679817178"><span id="local-6989586621679817180"><span id="local-6989586621679817182"><span id="local-6989586621679817184"><span class="annot"><span class="annottext">ReadPrec [ListThingsInThingGroupResponse]
 ReadPrec ListThingsInThingGroupResponse
 Int -&gt; ReadS ListThingsInThingGroupResponse
 ReadS [ListThingsInThingGroupResponse]
@@ -588,7 +588,7 @@ readList :: ReadS [ListThingsInThingGroupResponse]
 $creadList :: ReadS [ListThingsInThingGroupResponse]
 readsPrec :: Int -&gt; ReadS ListThingsInThingGroupResponse
 $creadsPrec :: Int -&gt; ReadS ListThingsInThingGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816256"><span id="local-6989586621679816258"><span id="local-6989586621679816260"><span class="annot"><span class="annottext">Int -&gt; ListThingsInThingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679817172"><span id="local-6989586621679817174"><span id="local-6989586621679817176"><span class="annot"><span class="annottext">Int -&gt; ListThingsInThingGroupResponse -&gt; ShowS
 [ListThingsInThingGroupResponse] -&gt; ShowS
 ListThingsInThingGroupResponse -&gt; String
 (Int -&gt; ListThingsInThingGroupResponse -&gt; ShowS)
@@ -645,8 +645,8 @@ ListThingsInThingGroupResponse
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newListThingsInThingGroupResponse"><span class="annot"><span class="annottext">newListThingsInThingGroupResponse :: Int -&gt; ListThingsInThingGroupResponse
-</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#newListThingsInThingGroupResponse"><span class="hs-identifier hs-var hs-var">newListThingsInThingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679816253"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816253"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#newListThingsInThingGroupResponse"><span class="hs-identifier hs-var hs-var">newListThingsInThingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679817169"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679817169"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListThingsInThingGroupResponse
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListThingsInThingGroupResponse' :: Maybe Text
@@ -660,7 +660,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListThingsInThingGroupResponse' :: Int
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AhttpStatus%3AListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816253"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679817169"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
@@ -674,16 +674,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListThingsInThingGroupResponse)
 -&gt; Lens' ListThingsInThingGroupResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816252"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817168"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListThingsInThingGroupResponse' :: ListThingsInThingGroupResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679816252"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816252"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816251"><span class="annot"><span class="annottext">s :: ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816250"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingsInThingGroupResponse' :: Maybe Text
+</span><a href="#local-6989586621679817168"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817168"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817167"><span class="annot"><span class="annottext">s :: ListThingsInThingGroupResponse
+</span><a href="#local-6989586621679817167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679817166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
+</span><a href="#local-6989586621679817167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListThingsInThingGroupResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AnextToken%3AListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679817166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The things in the specified thing group.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroupResponse_things"><span class="hs-identifier hs-type">listThingsInThingGroupResponse_things</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -695,16 +695,16 @@ $sel:nextToken:ListThingsInThingGroupResponse' :: ListThingsInThingGroupResponse
     -&gt; Maybe [Text] -&gt; ListThingsInThingGroupResponse)
 -&gt; Lens' ListThingsInThingGroupResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816249"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817165"><span class="annot"><span class="annottext">Maybe [Text]
 things :: Maybe [Text]
 $sel:things:ListThingsInThingGroupResponse' :: ListThingsInThingGroupResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679816249"><span class="hs-identifier hs-var hs-var">things</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679816249"><span class="hs-identifier hs-var">things</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816248"><span class="annot"><span class="annottext">s :: ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816247"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679816247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:things:ListThingsInThingGroupResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679817165"><span class="hs-identifier hs-var hs-var">things</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679817165"><span class="hs-identifier hs-var">things</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817164"><span class="annot"><span class="annottext">s :: ListThingsInThingGroupResponse
+</span><a href="#local-6989586621679817164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817163"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679817163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
+</span><a href="#local-6989586621679817164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:things:ListThingsInThingGroupResponse' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3Athings%3AListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var">things</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679816247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679817163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListThingsInThingGroupResponse
  -&gt; f ListThingsInThingGroupResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -719,8 +719,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#listThingsInThingGroupResponse_httpStatus"><span class="hs-identifier hs-type">listThingsInThingGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -736,18 +736,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816244"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679817160"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListThingsInThingGroupResponse' :: ListThingsInThingGroupResponse -&gt; Int
-</span><a href="#local-6989586621679816244"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816244"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816243"><span class="annot"><span class="annottext">s :: ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816242"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
-</span><a href="#local-6989586621679816243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListThingsInThingGroupResponse' :: Int
+</span><a href="#local-6989586621679817160"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679817160"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679817159"><span class="annot"><span class="annottext">s :: ListThingsInThingGroupResponse
+</span><a href="#local-6989586621679817159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse%27"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679817158"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679817158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListThingsInThingGroupResponse
+</span><a href="#local-6989586621679817159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListThingsInThingGroupResponse' :: Int
 </span><a href="Network.AWS.IoT.ListThingsInThingGroup.html#%24sel%3AhttpStatus%3AListThingsInThingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679816242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679817158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679816240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679817156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListThingsInThingGroup.html#ListThingsInThingGroupResponse"><span class="hs-identifier hs-type">ListThingsInThingGroupResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

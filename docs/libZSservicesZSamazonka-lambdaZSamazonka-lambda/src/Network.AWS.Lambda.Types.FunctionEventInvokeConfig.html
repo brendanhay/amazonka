@@ -25,36 +25,36 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newFunctionEventInvokeConfig' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679292811"><span id="local-6989586621679292812"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionEventInvokeConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-var">FunctionEventInvokeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionEventInvokeConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">FunctionEventInvokeConfig'</span></a></span></span><span>
-</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum age of a request that Lambda sends to a function for</span><span>
-</span><span id="line-30"></span><span>    </span><span class="hs-comment">-- processing.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe Natural
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">maximumEventAgeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the function.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfunctionArn%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe Text
+</span><span id="line-28"></span><span id="local-6989586621679297654"><span id="local-6989586621679297655"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionEventInvokeConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-var">FunctionEventInvokeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionEventInvokeConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">FunctionEventInvokeConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the function.</span><span>
+</span><span id="line-30"></span><span>    </span><span id="%24sel%3AfunctionArn%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AfunctionArn%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A destination for events after they have been sent to a function for</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- processing.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- __Destinations__</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   __Queue__ - The ARN of an SQS queue.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   __Topic__ - The ARN of an SNS topic.</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe DestinationConfig
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">destinationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The maximum number of times to retry when the function returns an error.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AmaximumRetryAttempts%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe Natural
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- | The maximum age of a request that Lambda sends to a function for</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- processing.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe Natural
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">maximumEventAgeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The maximum number of times to retry when the function returns an error.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmaximumRetryAttempts%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe Natural
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumRetryAttempts%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">maximumRetryAttempts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The date and time that the configuration was last updated.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AlastModified%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe POSIX
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AlastModified%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date and time that the configuration was last updated.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastModified%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe POSIX
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AlastModified%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A destination for events after they have been sent to a function for</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- processing.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- __Destinations__</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   __Queue__ - The ARN of an SQS queue.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   __Topic__ - The ARN of an SNS topic.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; Maybe DestinationConfig
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var hs-var">destinationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292801"><span id="local-6989586621679292803"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; FunctionEventInvokeConfig -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297644"><span id="local-6989586621679297646"><span class="annot"><span class="annottext">FunctionEventInvokeConfig -&gt; FunctionEventInvokeConfig -&gt; Bool
 (FunctionEventInvokeConfig -&gt; FunctionEventInvokeConfig -&gt; Bool)
 -&gt; (FunctionEventInvokeConfig -&gt; FunctionEventInvokeConfig -&gt; Bool)
 -&gt; Eq FunctionEventInvokeConfig
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FunctionEventInvokeConfig -&gt; FunctionEventInvokeConfig -&gt; Bool
 == :: FunctionEventInvokeConfig -&gt; FunctionEventInvokeConfig -&gt; Bool
 $c== :: FunctionEventInvokeConfig -&gt; FunctionEventInvokeConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292792"><span id="local-6989586621679292794"><span id="local-6989586621679292796"><span id="local-6989586621679292798"><span class="annot"><span class="annottext">ReadPrec [FunctionEventInvokeConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297635"><span id="local-6989586621679297637"><span id="local-6989586621679297639"><span id="local-6989586621679297641"><span class="annot"><span class="annottext">ReadPrec [FunctionEventInvokeConfig]
 ReadPrec FunctionEventInvokeConfig
 Int -&gt; ReadS FunctionEventInvokeConfig
 ReadS [FunctionEventInvokeConfig]
@@ -83,7 +83,7 @@ readList :: ReadS [FunctionEventInvokeConfig]
 $creadList :: ReadS [FunctionEventInvokeConfig]
 readsPrec :: Int -&gt; ReadS FunctionEventInvokeConfig
 $creadsPrec :: Int -&gt; ReadS FunctionEventInvokeConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292785"><span id="local-6989586621679292787"><span id="local-6989586621679292789"><span class="annot"><span class="annottext">Int -&gt; FunctionEventInvokeConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297628"><span id="local-6989586621679297630"><span id="local-6989586621679297632"><span class="annot"><span class="annottext">Int -&gt; FunctionEventInvokeConfig -&gt; ShowS
 [FunctionEventInvokeConfig] -&gt; ShowS
 FunctionEventInvokeConfig -&gt; String
 (Int -&gt; FunctionEventInvokeConfig -&gt; ShowS)
@@ -123,89 +123,64 @@ FunctionEventInvokeConfig -&gt; Rep FunctionEventInvokeConfig x
 </span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'maximumEventAgeInSeconds', 'functionEventInvokeConfig_maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- processing.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'functionArn', 'functionEventInvokeConfig_functionArn' - The Amazon Resource Name (ARN) of the function.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'functionArn', 'functionEventInvokeConfig_functionArn' - The Amazon Resource Name (ARN) of the function.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'maximumEventAgeInSeconds', 'functionEventInvokeConfig_maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- processing.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'destinationConfig', 'functionEventInvokeConfig_destinationConfig' - A destination for events after they have been sent to a function for</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- processing.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- __Destinations__</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'maximumRetryAttempts', 'functionEventInvokeConfig_maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'lastModified', 'functionEventInvokeConfig_lastModified' - The date and time that the configuration was last updated.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'destinationConfig', 'functionEventInvokeConfig_destinationConfig' - A destination for events after they have been sent to a function for</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- processing.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- -   __Queue__ - The ARN of an SQS queue.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- __Destinations__</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- -   __Topic__ - The ARN of an SNS topic.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- -   __Queue__ - The ARN of an SQS queue.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'maximumRetryAttempts', 'functionEventInvokeConfig_maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- -   __Topic__ - The ARN of an SNS topic.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'lastModified', 'functionEventInvokeConfig_lastModified' - The date and time that the configuration was last updated.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#newFunctionEventInvokeConfig"><span class="hs-identifier hs-type">newFunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span>
 </span><span id="line-85"></span><span id="newFunctionEventInvokeConfig"><span class="annot"><span class="annottext">newFunctionEventInvokeConfig :: FunctionEventInvokeConfig
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#newFunctionEventInvokeConfig"><span class="hs-identifier hs-var hs-var">newFunctionEventInvokeConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig' :: Maybe Natural
--&gt; Maybe Text
--&gt; Maybe DestinationConfig
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig' :: Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe POSIX
+-&gt; Maybe DestinationConfig
 -&gt; FunctionEventInvokeConfig
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maximumEventAgeInSeconds:FunctionEventInvokeConfig' :: Maybe Natural
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">maximumEventAgeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionArn:FunctionEventInvokeConfig' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AfunctionArn%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">functionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionArn:FunctionEventInvokeConfig' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AfunctionArn%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">functionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumEventAgeInSeconds:FunctionEventInvokeConfig' :: Maybe Natural
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">maximumEventAgeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationConfig:FunctionEventInvokeConfig' :: Maybe DestinationConfig
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">destinationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationConfig
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumRetryAttempts:FunctionEventInvokeConfig' :: Maybe Natural
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumRetryAttempts:FunctionEventInvokeConfig' :: Maybe Natural
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumRetryAttempts%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">maximumRetryAttempts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModified:FunctionEventInvokeConfig' :: Maybe POSIX
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModified:FunctionEventInvokeConfig' :: Maybe POSIX
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AlastModified%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationConfig:FunctionEventInvokeConfig' :: Maybe DestinationConfig
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">destinationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The maximum age of a request that Lambda sends to a function for</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- processing.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_maximumEventAgeInSeconds"><span class="hs-identifier hs-type">functionEventInvokeConfig_maximumEventAgeInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="functionEventInvokeConfig_maximumEventAgeInSeconds"><span class="annot"><span class="annottext">functionEventInvokeConfig_maximumEventAgeInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; FunctionEventInvokeConfig -&gt; f FunctionEventInvokeConfig
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_maximumEventAgeInSeconds"><span class="hs-identifier hs-var hs-var">functionEventInvokeConfig_maximumEventAgeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionEventInvokeConfig -&gt; Maybe Natural)
--&gt; (FunctionEventInvokeConfig
-    -&gt; Maybe Natural -&gt; FunctionEventInvokeConfig)
--&gt; Lens
-     FunctionEventInvokeConfig
-     FunctionEventInvokeConfig
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292776"><span class="annot"><span class="annottext">Maybe Natural
-maximumEventAgeInSeconds :: Maybe Natural
-$sel:maximumEventAgeInSeconds:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679292776"><span class="hs-identifier hs-var hs-var">maximumEventAgeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679292776"><span class="hs-identifier hs-var">maximumEventAgeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292775"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292774"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679292774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumEventAgeInSeconds:FunctionEventInvokeConfig' :: Maybe Natural
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">maximumEventAgeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679292774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the function.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_functionArn"><span class="hs-identifier hs-type">functionEventInvokeConfig_functionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="functionEventInvokeConfig_functionArn"><span class="annot"><span class="annottext">functionEventInvokeConfig_functionArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-95"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the function.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_functionArn"><span class="hs-identifier hs-type">functionEventInvokeConfig_functionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="functionEventInvokeConfig_functionArn"><span class="annot"><span class="annottext">functionEventInvokeConfig_functionArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; FunctionEventInvokeConfig -&gt; f FunctionEventInvokeConfig
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_functionArn"><span class="hs-identifier hs-var hs-var">functionEventInvokeConfig_functionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionEventInvokeConfig -&gt; Maybe Text)
 -&gt; (FunctionEventInvokeConfig
@@ -216,55 +191,45 @@ $sel:maximumEventAgeInSeconds:FunctionEventInvokeConfig' :: FunctionEventInvokeC
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292772"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297619"><span class="annot"><span class="annottext">Maybe Text
 functionArn :: Maybe Text
 $sel:functionArn:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679292772"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292772"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292771"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292770"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArn:FunctionEventInvokeConfig' :: Maybe Text
+</span><a href="#local-6989586621679297619"><span class="hs-identifier hs-var hs-var">functionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297619"><span class="hs-identifier hs-var">functionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297618"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297617"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionArn:FunctionEventInvokeConfig' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AfunctionArn%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">functionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679292770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | A destination for events after they have been sent to a function for</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- processing.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- __Destinations__</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- -   __Queue__ - The ARN of an SQS queue.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- -   __Topic__ - The ARN of an SNS topic.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_destinationConfig"><span class="hs-identifier hs-type">functionEventInvokeConfig_destinationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="functionEventInvokeConfig_destinationConfig"><span class="annot"><span class="annottext">functionEventInvokeConfig_destinationConfig :: (Maybe DestinationConfig -&gt; f (Maybe DestinationConfig))
+</span><a href="#local-6989586621679297617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The maximum age of a request that Lambda sends to a function for</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- processing.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_maximumEventAgeInSeconds"><span class="hs-identifier hs-type">functionEventInvokeConfig_maximumEventAgeInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="functionEventInvokeConfig_maximumEventAgeInSeconds"><span class="annot"><span class="annottext">functionEventInvokeConfig_maximumEventAgeInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; FunctionEventInvokeConfig -&gt; f FunctionEventInvokeConfig
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_destinationConfig"><span class="hs-identifier hs-var hs-var">functionEventInvokeConfig_destinationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionEventInvokeConfig -&gt; Maybe DestinationConfig)
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_maximumEventAgeInSeconds"><span class="hs-identifier hs-var hs-var">functionEventInvokeConfig_maximumEventAgeInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionEventInvokeConfig -&gt; Maybe Natural)
 -&gt; (FunctionEventInvokeConfig
-    -&gt; Maybe DestinationConfig -&gt; FunctionEventInvokeConfig)
+    -&gt; Maybe Natural -&gt; FunctionEventInvokeConfig)
 -&gt; Lens
      FunctionEventInvokeConfig
      FunctionEventInvokeConfig
-     (Maybe DestinationConfig)
-     (Maybe DestinationConfig)
+     (Maybe Natural)
+     (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292768"><span class="annot"><span class="annottext">Maybe DestinationConfig
-destinationConfig :: Maybe DestinationConfig
-$sel:destinationConfig:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -&gt; Maybe DestinationConfig
-</span><a href="#local-6989586621679292768"><span class="hs-identifier hs-var hs-var">destinationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationConfig
-</span><a href="#local-6989586621679292768"><span class="hs-identifier hs-var">destinationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292767"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292766"><span class="annot"><span class="annottext">Maybe DestinationConfig
-</span><a href="#local-6989586621679292766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationConfig:FunctionEventInvokeConfig' :: Maybe DestinationConfig
-</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">destinationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationConfig
-</span><a href="#local-6989586621679292766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The maximum number of times to retry when the function returns an error.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_maximumRetryAttempts"><span class="hs-identifier hs-type">functionEventInvokeConfig_maximumRetryAttempts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="functionEventInvokeConfig_maximumRetryAttempts"><span class="annot"><span class="annottext">functionEventInvokeConfig_maximumRetryAttempts :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297615"><span class="annot"><span class="annottext">Maybe Natural
+maximumEventAgeInSeconds :: Maybe Natural
+$sel:maximumEventAgeInSeconds:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -&gt; Maybe Natural
+</span><a href="#local-6989586621679297615"><span class="hs-identifier hs-var hs-var">maximumEventAgeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679297615"><span class="hs-identifier hs-var">maximumEventAgeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297614"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297613"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679297613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumEventAgeInSeconds:FunctionEventInvokeConfig' :: Maybe Natural
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumEventAgeInSeconds%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">maximumEventAgeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679297613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of times to retry when the function returns an error.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_maximumRetryAttempts"><span class="hs-identifier hs-type">functionEventInvokeConfig_maximumRetryAttempts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="functionEventInvokeConfig_maximumRetryAttempts"><span class="annot"><span class="annottext">functionEventInvokeConfig_maximumRetryAttempts :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; FunctionEventInvokeConfig -&gt; f FunctionEventInvokeConfig
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_maximumRetryAttempts"><span class="hs-identifier hs-var hs-var">functionEventInvokeConfig_maximumRetryAttempts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionEventInvokeConfig -&gt; Maybe Natural)
 -&gt; (FunctionEventInvokeConfig
@@ -275,20 +240,20 @@ $sel:destinationConfig:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292764"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297611"><span class="annot"><span class="annottext">Maybe Natural
 maximumRetryAttempts :: Maybe Natural
 $sel:maximumRetryAttempts:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679292764"><span class="hs-identifier hs-var hs-var">maximumRetryAttempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679292764"><span class="hs-identifier hs-var">maximumRetryAttempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292763"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292762"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679292762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumRetryAttempts:FunctionEventInvokeConfig' :: Maybe Natural
+</span><a href="#local-6989586621679297611"><span class="hs-identifier hs-var hs-var">maximumRetryAttempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679297611"><span class="hs-identifier hs-var">maximumRetryAttempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297610"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297609"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679297609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumRetryAttempts:FunctionEventInvokeConfig' :: Maybe Natural
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AmaximumRetryAttempts%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">maximumRetryAttempts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679292762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The date and time that the configuration was last updated.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_lastModified"><span class="hs-identifier hs-type">functionEventInvokeConfig_lastModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="functionEventInvokeConfig_lastModified"><span class="annot"><span class="annottext">functionEventInvokeConfig_lastModified :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679297609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The date and time that the configuration was last updated.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_lastModified"><span class="hs-identifier hs-type">functionEventInvokeConfig_lastModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="functionEventInvokeConfig_lastModified"><span class="annot"><span class="annottext">functionEventInvokeConfig_lastModified :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; FunctionEventInvokeConfig -&gt; f FunctionEventInvokeConfig
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_lastModified"><span class="hs-identifier hs-var hs-var">functionEventInvokeConfig_lastModified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionEventInvokeConfig -&gt; Maybe POSIX)
 -&gt; (FunctionEventInvokeConfig
@@ -299,16 +264,16 @@ $sel:maximumRetryAttempts:FunctionEventInvokeConfig' :: FunctionEventInvokeConfi
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292760"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297607"><span class="annot"><span class="annottext">Maybe POSIX
 lastModified :: Maybe POSIX
 $sel:lastModified:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -&gt; Maybe POSIX
-</span><a href="#local-6989586621679292760"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679292760"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292759"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292758"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679292758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
-</span><a href="#local-6989586621679292759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:FunctionEventInvokeConfig' :: Maybe POSIX
+</span><a href="#local-6989586621679297607"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297607"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297606"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297605"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679297605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:FunctionEventInvokeConfig' :: Maybe POSIX
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AlastModified%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679292758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679297605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; FunctionEventInvokeConfig -&gt; f FunctionEventInvokeConfig)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -324,9 +289,44 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A destination for events after they have been sent to a function for</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- processing.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- __Destinations__</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   __Function__ - The Amazon Resource Name (ARN) of a Lambda function.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   __Queue__ - The ARN of an SQS queue.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   __Topic__ - The ARN of an SNS topic.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   __Event Bus__ - The ARN of an Amazon EventBridge event bus.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_destinationConfig"><span class="hs-identifier hs-type">functionEventInvokeConfig_destinationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.DestinationConfig.html#DestinationConfig"><span class="hs-identifier hs-type">DestinationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="functionEventInvokeConfig_destinationConfig"><span class="annot"><span class="annottext">functionEventInvokeConfig_destinationConfig :: (Maybe DestinationConfig -&gt; f (Maybe DestinationConfig))
+-&gt; FunctionEventInvokeConfig -&gt; f FunctionEventInvokeConfig
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#functionEventInvokeConfig_destinationConfig"><span class="hs-identifier hs-var hs-var">functionEventInvokeConfig_destinationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FunctionEventInvokeConfig -&gt; Maybe DestinationConfig)
+-&gt; (FunctionEventInvokeConfig
+    -&gt; Maybe DestinationConfig -&gt; FunctionEventInvokeConfig)
+-&gt; Lens
+     FunctionEventInvokeConfig
+     FunctionEventInvokeConfig
+     (Maybe DestinationConfig)
+     (Maybe DestinationConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297600"><span class="annot"><span class="annottext">Maybe DestinationConfig
+destinationConfig :: Maybe DestinationConfig
+$sel:destinationConfig:FunctionEventInvokeConfig' :: FunctionEventInvokeConfig -&gt; Maybe DestinationConfig
+</span><a href="#local-6989586621679297600"><span class="hs-identifier hs-var hs-var">destinationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationConfig
+</span><a href="#local-6989586621679297600"><span class="hs-identifier hs-var">destinationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297599"><span class="annot"><span class="annottext">s :: FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-type">FunctionEventInvokeConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297598"><span class="annot"><span class="annottext">Maybe DestinationConfig
+</span><a href="#local-6989586621679297598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionEventInvokeConfig
+</span><a href="#local-6989586621679297599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationConfig:FunctionEventInvokeConfig' :: Maybe DestinationConfig
+</span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#%24sel%3AdestinationConfig%3AFunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">destinationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationConfig
+</span><a href="#local-6989586621679297598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292752"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679292750"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FunctionEventInvokeConfig
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297595"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679297593"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FunctionEventInvokeConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FunctionEventInvokeConfig)
@@ -336,82 +336,90 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FunctionEventInvokeConfig&quot;</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292747"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe Text
--&gt; Maybe DestinationConfig
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297590"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe POSIX
+-&gt; Maybe DestinationConfig
 -&gt; FunctionEventInvokeConfig
 </span><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig%27"><span class="hs-identifier hs-var">FunctionEventInvokeConfig'</span></a></span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe Text
- -&gt; Maybe DestinationConfig
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Natural
  -&gt; Maybe Natural
  -&gt; Maybe POSIX
+ -&gt; Maybe DestinationConfig
  -&gt; FunctionEventInvokeConfig)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe DestinationConfig
+     (Maybe Natural
       -&gt; Maybe Natural
       -&gt; Maybe POSIX
+      -&gt; Maybe DestinationConfig
       -&gt; FunctionEventInvokeConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaximumEventAgeInSeconds&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe DestinationConfig
-   -&gt; Maybe Natural
-   -&gt; Maybe POSIX
-   -&gt; FunctionEventInvokeConfig)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe DestinationConfig
-      -&gt; Maybe Natural -&gt; Maybe POSIX -&gt; FunctionEventInvokeConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FunctionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DestinationConfig
-   -&gt; Maybe Natural -&gt; Maybe POSIX -&gt; FunctionEventInvokeConfig)
--&gt; Parser (Maybe DestinationConfig)
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe DestinationConfig
+   -&gt; FunctionEventInvokeConfig)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural -&gt; Maybe POSIX -&gt; FunctionEventInvokeConfig)
+     (Maybe Natural
+      -&gt; Maybe POSIX
+      -&gt; Maybe DestinationConfig
+      -&gt; FunctionEventInvokeConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationConfig)
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DestinationConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe POSIX -&gt; FunctionEventInvokeConfig)
+</span><span class="hs-string">&quot;MaximumEventAgeInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe DestinationConfig
+   -&gt; FunctionEventInvokeConfig)
 -&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe POSIX -&gt; FunctionEventInvokeConfig)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe DestinationConfig -&gt; FunctionEventInvokeConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumRetryAttempts&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; FunctionEventInvokeConfig)
--&gt; Parser (Maybe POSIX) -&gt; Parser FunctionEventInvokeConfig
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe DestinationConfig -&gt; FunctionEventInvokeConfig)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe DestinationConfig -&gt; FunctionEventInvokeConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679292747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModified&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DestinationConfig -&gt; FunctionEventInvokeConfig)
+-&gt; Parser (Maybe DestinationConfig)
+-&gt; Parser FunctionEventInvokeConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DestinationConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292741"><span id="local-6989586621679292743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297584"><span id="local-6989586621679297586"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.FunctionEventInvokeConfig.html#FunctionEventInvokeConfig"><span class="hs-identifier hs-type">FunctionEventInvokeConfig</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

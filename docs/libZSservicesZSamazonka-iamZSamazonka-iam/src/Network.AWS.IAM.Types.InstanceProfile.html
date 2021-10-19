@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- -   ListInstanceProfilesForRole</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newInstanceProfile' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679432276"><span id="local-6989586621679432277"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceProfile"><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-var">InstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-var">InstanceProfile'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679432796"><span id="local-6989586621679432797"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceProfile"><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-var">InstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceProfile%27"><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-var">InstanceProfile'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of tags that are attached to the instance profile. For more</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- information about tagging, see</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Aroles%3AInstanceProfile%27"><span class="annot"><span class="annottext">InstanceProfile -&gt; [Role]
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Aroles%3AInstanceProfile%27"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432264"><span id="local-6989586621679432266"><span class="annot"><span class="annottext">InstanceProfile -&gt; InstanceProfile -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432784"><span id="local-6989586621679432786"><span class="annot"><span class="annottext">InstanceProfile -&gt; InstanceProfile -&gt; Bool
 (InstanceProfile -&gt; InstanceProfile -&gt; Bool)
 -&gt; (InstanceProfile -&gt; InstanceProfile -&gt; Bool)
 -&gt; Eq InstanceProfile
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceProfile -&gt; InstanceProfile -&gt; Bool
 == :: InstanceProfile -&gt; InstanceProfile -&gt; Bool
 $c== :: InstanceProfile -&gt; InstanceProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432255"><span id="local-6989586621679432257"><span id="local-6989586621679432259"><span id="local-6989586621679432261"><span class="annot"><span class="annottext">ReadPrec [InstanceProfile]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432775"><span id="local-6989586621679432777"><span id="local-6989586621679432779"><span id="local-6989586621679432781"><span class="annot"><span class="annottext">ReadPrec [InstanceProfile]
 ReadPrec InstanceProfile
 Int -&gt; ReadS InstanceProfile
 ReadS [InstanceProfile]
@@ -102,7 +102,7 @@ readList :: ReadS [InstanceProfile]
 $creadList :: ReadS [InstanceProfile]
 readsPrec :: Int -&gt; ReadS InstanceProfile
 $creadsPrec :: Int -&gt; ReadS InstanceProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432248"><span id="local-6989586621679432250"><span id="local-6989586621679432252"><span class="annot"><span class="annottext">Int -&gt; InstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432768"><span id="local-6989586621679432770"><span id="local-6989586621679432772"><span class="annot"><span class="annottext">Int -&gt; InstanceProfile -&gt; ShowS
 [InstanceProfile] -&gt; ShowS
 InstanceProfile -&gt; String
 (Int -&gt; InstanceProfile -&gt; ShowS)
@@ -174,16 +174,16 @@ $cfrom :: forall x. InstanceProfile -&gt; Rep InstanceProfile x
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span>
 </span><span id="line-115"></span><span id="newInstanceProfile"><span class="annot"><span class="annottext">newInstanceProfile :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; UTCTime -&gt; InstanceProfile
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#newInstanceProfile"><span class="hs-identifier hs-var hs-var">newInstanceProfile</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679432242"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432242"><span class="hs-identifier hs-var">pPath_</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679432241"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432241"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679432240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432240"><span class="hs-identifier hs-var">pInstanceProfileId_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679432239"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432239"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679432238"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679432238"><span class="hs-identifier hs-var">pCreateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679432762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432762"><span class="hs-identifier hs-var">pPath_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679432761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432761"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679432760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432760"><span class="hs-identifier hs-var">pInstanceProfileId_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679432759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432759"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679432758"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679432758"><span class="hs-identifier hs-var">pCreateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">InstanceProfile' :: Maybe [Tag]
 -&gt; Text
 -&gt; Text
@@ -199,16 +199,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:path:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Apath%3AInstanceProfile%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432242"><span class="hs-identifier hs-var">pPath_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432762"><span class="hs-identifier hs-var">pPath_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceProfileName:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3AinstanceProfileName%3AInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432241"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432761"><span class="hs-identifier hs-var">pInstanceProfileName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceProfileId:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3AinstanceProfileId%3AInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432240"><span class="hs-identifier hs-var">pInstanceProfileId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432760"><span class="hs-identifier hs-var">pInstanceProfileId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Aarn%3AInstanceProfile%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432239"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432759"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:createDate:InstanceProfile' :: ISO8601
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3AcreateDate%3AInstanceProfile%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -218,7 +218,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679432238"><span class="hs-identifier hs-var">pCreateDate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679432758"><span class="hs-identifier hs-var">pCreateDate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:roles:InstanceProfile' :: [Role]
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Aroles%3AInstanceProfile%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Role]
 forall a. Monoid a =&gt; a
@@ -236,16 +236,16 @@ forall a. Monoid a =&gt; a
 -&gt; (InstanceProfile -&gt; Maybe [Tag] -&gt; InstanceProfile)
 -&gt; Lens InstanceProfile InstanceProfile (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432232"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432752"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:InstanceProfile' :: InstanceProfile -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679432232"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679432232"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432231"><span class="annot"><span class="annottext">s :: InstanceProfile
-</span><a href="#local-6989586621679432231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432230"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679432230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
-</span><a href="#local-6989586621679432231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:InstanceProfile' :: Maybe [Tag]
+</span><a href="#local-6989586621679432752"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679432752"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432751"><span class="annot"><span class="annottext">s :: InstanceProfile
+</span><a href="#local-6989586621679432751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432750"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679432750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
+</span><a href="#local-6989586621679432751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:InstanceProfile' :: Maybe [Tag]
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Atags%3AInstanceProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679432230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679432750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; InstanceProfile -&gt; f InstanceProfile)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -259,8 +259,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The path to the instance profile. For more information about paths, see</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers&gt;</span><span>
@@ -271,16 +271,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (InstanceProfile -&gt; Text -&gt; InstanceProfile)
 -&gt; Lens InstanceProfile InstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432225"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432745"><span class="annot"><span class="annottext">Text
 path :: Text
 $sel:path:InstanceProfile' :: InstanceProfile -&gt; Text
-</span><a href="#local-6989586621679432225"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432225"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432224"><span class="annot"><span class="annottext">s :: InstanceProfile
-</span><a href="#local-6989586621679432224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432223"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
-</span><a href="#local-6989586621679432224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:InstanceProfile' :: Text
+</span><a href="#local-6989586621679432745"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432745"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432744"><span class="annot"><span class="annottext">s :: InstanceProfile
+</span><a href="#local-6989586621679432744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
+</span><a href="#local-6989586621679432744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Apath%3AInstanceProfile%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The name identifying the instance profile.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#instanceProfile_instanceProfileName"><span class="hs-identifier hs-type">instanceProfile_instanceProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -289,16 +289,16 @@ $sel:path:InstanceProfile' :: InstanceProfile -&gt; Text
 -&gt; (InstanceProfile -&gt; Text -&gt; InstanceProfile)
 -&gt; Lens InstanceProfile InstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432221"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432741"><span class="annot"><span class="annottext">Text
 instanceProfileName :: Text
 $sel:instanceProfileName:InstanceProfile' :: InstanceProfile -&gt; Text
-</span><a href="#local-6989586621679432221"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432221"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432220"><span class="annot"><span class="annottext">s :: InstanceProfile
-</span><a href="#local-6989586621679432220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432219"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
-</span><a href="#local-6989586621679432220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:InstanceProfile' :: Text
+</span><a href="#local-6989586621679432741"><span class="hs-identifier hs-var hs-var">instanceProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432741"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432740"><span class="annot"><span class="annottext">s :: InstanceProfile
+</span><a href="#local-6989586621679432740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432739"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
+</span><a href="#local-6989586621679432740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileName:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3AinstanceProfileName%3AInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The stable and unique string identifying the instance profile. For more</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- information about IDs, see</span><span>
@@ -310,16 +310,16 @@ $sel:instanceProfileName:InstanceProfile' :: InstanceProfile -&gt; Text
 -&gt; (InstanceProfile -&gt; Text -&gt; InstanceProfile)
 -&gt; Lens InstanceProfile InstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432217"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432737"><span class="annot"><span class="annottext">Text
 instanceProfileId :: Text
 $sel:instanceProfileId:InstanceProfile' :: InstanceProfile -&gt; Text
-</span><a href="#local-6989586621679432217"><span class="hs-identifier hs-var hs-var">instanceProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432217"><span class="hs-identifier hs-var">instanceProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432216"><span class="annot"><span class="annottext">s :: InstanceProfile
-</span><a href="#local-6989586621679432216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432215"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
-</span><a href="#local-6989586621679432216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileId:InstanceProfile' :: Text
+</span><a href="#local-6989586621679432737"><span class="hs-identifier hs-var hs-var">instanceProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432737"><span class="hs-identifier hs-var">instanceProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432736"><span class="annot"><span class="annottext">s :: InstanceProfile
+</span><a href="#local-6989586621679432736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
+</span><a href="#local-6989586621679432736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceProfileId:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3AinstanceProfileId%3AInstanceProfile%27"><span class="hs-identifier hs-var">instanceProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) specifying the instance profile. For more</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- information about ARNs and how to use them in policies, see</span><span>
@@ -331,16 +331,16 @@ $sel:instanceProfileId:InstanceProfile' :: InstanceProfile -&gt; Text
 -&gt; (InstanceProfile -&gt; Text -&gt; InstanceProfile)
 -&gt; Lens InstanceProfile InstanceProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432213"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432733"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:InstanceProfile' :: InstanceProfile -&gt; Text
-</span><a href="#local-6989586621679432213"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432213"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432212"><span class="annot"><span class="annottext">s :: InstanceProfile
-</span><a href="#local-6989586621679432212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432211"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
-</span><a href="#local-6989586621679432212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:InstanceProfile' :: Text
+</span><a href="#local-6989586621679432733"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432733"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432732"><span class="annot"><span class="annottext">s :: InstanceProfile
+</span><a href="#local-6989586621679432732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
+</span><a href="#local-6989586621679432732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:InstanceProfile' :: Text
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Aarn%3AInstanceProfile%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The date when the instance profile was created.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#instanceProfile_createDate"><span class="hs-identifier hs-type">instanceProfile_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -349,16 +349,16 @@ $sel:arn:InstanceProfile' :: InstanceProfile -&gt; Text
 -&gt; (InstanceProfile -&gt; ISO8601 -&gt; InstanceProfile)
 -&gt; Lens InstanceProfile InstanceProfile ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432209"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432729"><span class="annot"><span class="annottext">ISO8601
 createDate :: ISO8601
 $sel:createDate:InstanceProfile' :: InstanceProfile -&gt; ISO8601
-</span><a href="#local-6989586621679432209"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679432209"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432208"><span class="annot"><span class="annottext">s :: InstanceProfile
-</span><a href="#local-6989586621679432208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432207"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679432207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
-</span><a href="#local-6989586621679432208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:InstanceProfile' :: ISO8601
+</span><a href="#local-6989586621679432729"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679432729"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432728"><span class="annot"><span class="annottext">s :: InstanceProfile
+</span><a href="#local-6989586621679432728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432727"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679432727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
+</span><a href="#local-6989586621679432728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:InstanceProfile' :: ISO8601
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3AcreateDate%3AInstanceProfile%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679432207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; InstanceProfile -&gt; f InstanceProfile)
+</span><a href="#local-6989586621679432727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; InstanceProfile -&gt; f InstanceProfile)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; InstanceProfile
@@ -375,29 +375,29 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (InstanceProfile -&gt; [Role] -&gt; InstanceProfile)
 -&gt; Lens InstanceProfile InstanceProfile [Role] [Role]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432205"><span class="annot"><span class="annottext">[Role]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432725"><span class="annot"><span class="annottext">[Role]
 roles :: [Role]
 $sel:roles:InstanceProfile' :: InstanceProfile -&gt; [Role]
-</span><a href="#local-6989586621679432205"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Role]
-</span><a href="#local-6989586621679432205"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432204"><span class="annot"><span class="annottext">s :: InstanceProfile
-</span><a href="#local-6989586621679432204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432203"><span class="annot"><span class="annottext">[Role]
-</span><a href="#local-6989586621679432203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
-</span><a href="#local-6989586621679432204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:InstanceProfile' :: [Role]
+</span><a href="#local-6989586621679432725"><span class="hs-identifier hs-var hs-var">roles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Role]
+</span><a href="#local-6989586621679432725"><span class="hs-identifier hs-var">roles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432724"><span class="annot"><span class="annottext">s :: InstanceProfile
+</span><a href="#local-6989586621679432724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile%27"><span class="hs-identifier hs-type">InstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432723"><span class="annot"><span class="annottext">[Role]
+</span><a href="#local-6989586621679432723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceProfile
+</span><a href="#local-6989586621679432724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roles:InstanceProfile' :: [Role]
 </span><a href="Network.AWS.IAM.Types.InstanceProfile.html#%24sel%3Aroles%3AInstanceProfile%27"><span class="hs-identifier hs-var">roles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Role]
-</span><a href="#local-6989586621679432203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Role] -&gt; f [Role]) -&gt; InstanceProfile -&gt; f InstanceProfile)
+</span><a href="#local-6989586621679432723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Role] -&gt; f [Role]) -&gt; InstanceProfile -&gt; f InstanceProfile)
 -&gt; (([Role] -&gt; f [Role]) -&gt; [Role] -&gt; f [Role])
 -&gt; ([Role] -&gt; f [Role])
 -&gt; InstanceProfile
 -&gt; f InstanceProfile
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Role] -&gt; f [Role]) -&gt; [Role] -&gt; f [Role]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679432200"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceProfile
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679432198"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679432720"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679432718"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Tag]
 -&gt; Text
 -&gt; Text
@@ -422,7 +422,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
       -&gt; Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; [Role] -&gt; InstanceProfile)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -454,7 +454,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      (Text -&gt; Text -&gt; Text -&gt; ISO8601 -&gt; [Role] -&gt; InstanceProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
@@ -466,7 +466,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      String (Text -&gt; Text -&gt; ISO8601 -&gt; [Role] -&gt; InstanceProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceProfileName&quot;</span></span><span class="hs-special">)</span><span>
@@ -476,7 +476,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; ISO8601 -&gt; [Role] -&gt; InstanceProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceProfileId&quot;</span></span><span class="hs-special">)</span><span>
@@ -485,7 +485,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (ISO8601 -&gt; [Role] -&gt; InstanceProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -494,7 +494,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ([Role] -&gt; InstanceProfile)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -502,7 +502,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String [Role] -&gt; Either String InstanceProfile
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679432718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Roles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -519,7 +519,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
 </span><span id="line-183"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432188"><span id="local-6989586621679432190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432708"><span id="local-6989586621679432710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span></span></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.InstanceProfile.html#InstanceProfile"><span class="hs-identifier hs-type">InstanceProfile</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

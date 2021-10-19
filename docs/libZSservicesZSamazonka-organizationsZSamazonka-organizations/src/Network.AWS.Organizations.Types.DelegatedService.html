@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- delegated administrator.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDelegatedService' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679236519"><span id="local-6989586621679236520"></span></span><span class="hs-keyword">data</span><span> </span><span id="DelegatedService"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-var">DelegatedService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DelegatedService%27"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-var">DelegatedService'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679236638"><span id="local-6989586621679236639"></span></span><span class="hs-keyword">data</span><span> </span><span id="DelegatedService"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-var">DelegatedService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DelegatedService%27"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-var">DelegatedService'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of an AWS service that can request an operation for the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- specified service. This is typically in the form of a URL, such as:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @ servicename.amazonaws.com@.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AdelegationEnabledDate%3ADelegatedService%27"><span class="annot"><span class="annottext">DelegatedService -&gt; Maybe POSIX
 </span><a href="Network.AWS.Organizations.Types.DelegatedService.html#%24sel%3AdelegationEnabledDate%3ADelegatedService%27"><span class="hs-identifier hs-var hs-var">delegationEnabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236512"><span id="local-6989586621679236514"><span class="annot"><span class="annottext">DelegatedService -&gt; DelegatedService -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236631"><span id="local-6989586621679236633"><span class="annot"><span class="annottext">DelegatedService -&gt; DelegatedService -&gt; Bool
 (DelegatedService -&gt; DelegatedService -&gt; Bool)
 -&gt; (DelegatedService -&gt; DelegatedService -&gt; Bool)
 -&gt; Eq DelegatedService
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DelegatedService -&gt; DelegatedService -&gt; Bool
 == :: DelegatedService -&gt; DelegatedService -&gt; Bool
 $c== :: DelegatedService -&gt; DelegatedService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236503"><span id="local-6989586621679236505"><span id="local-6989586621679236507"><span id="local-6989586621679236509"><span class="annot"><span class="annottext">ReadPrec [DelegatedService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236622"><span id="local-6989586621679236624"><span id="local-6989586621679236626"><span id="local-6989586621679236628"><span class="annot"><span class="annottext">ReadPrec [DelegatedService]
 ReadPrec DelegatedService
 Int -&gt; ReadS DelegatedService
 ReadS [DelegatedService]
@@ -67,7 +67,7 @@ readList :: ReadS [DelegatedService]
 $creadList :: ReadS [DelegatedService]
 readsPrec :: Int -&gt; ReadS DelegatedService
 $creadsPrec :: Int -&gt; ReadS DelegatedService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236496"><span id="local-6989586621679236498"><span id="local-6989586621679236500"><span class="annot"><span class="annottext">Int -&gt; DelegatedService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236615"><span id="local-6989586621679236617"><span id="local-6989586621679236619"><span class="annot"><span class="annottext">Int -&gt; DelegatedService -&gt; ShowS
 [DelegatedService] -&gt; ShowS
 DelegatedService -&gt; String
 (Int -&gt; DelegatedService -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; (DelegatedService -&gt; Maybe Text -&gt; DelegatedService)
 -&gt; Lens DelegatedService DelegatedService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236487"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236606"><span class="annot"><span class="annottext">Maybe Text
 servicePrincipal :: Maybe Text
 $sel:servicePrincipal:DelegatedService' :: DelegatedService -&gt; Maybe Text
-</span><a href="#local-6989586621679236487"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236487"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236486"><span class="annot"><span class="annottext">s :: DelegatedService
-</span><a href="#local-6989586621679236486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236485"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedService
-</span><a href="#local-6989586621679236486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:DelegatedService' :: Maybe Text
+</span><a href="#local-6989586621679236606"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236606"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236605"><span class="annot"><span class="annottext">s :: DelegatedService
+</span><a href="#local-6989586621679236605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedService
+</span><a href="#local-6989586621679236605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:DelegatedService' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.DelegatedService.html#%24sel%3AservicePrincipal%3ADelegatedService%27"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679236604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The date that the account became a delegated administrator for this</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- service.</span><span>
@@ -155,16 +155,16 @@ $sel:servicePrincipal:DelegatedService' :: DelegatedService -&gt; Maybe Text
 -&gt; Lens
      DelegatedService DelegatedService (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236483"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236602"><span class="annot"><span class="annottext">Maybe POSIX
 delegationEnabledDate :: Maybe POSIX
 $sel:delegationEnabledDate:DelegatedService' :: DelegatedService -&gt; Maybe POSIX
-</span><a href="#local-6989586621679236483"><span class="hs-identifier hs-var hs-var">delegationEnabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236483"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236482"><span class="annot"><span class="annottext">s :: DelegatedService
-</span><a href="#local-6989586621679236482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236481"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedService
-</span><a href="#local-6989586621679236482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationEnabledDate:DelegatedService' :: Maybe POSIX
+</span><a href="#local-6989586621679236602"><span class="hs-identifier hs-var hs-var">delegationEnabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236602"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236601"><span class="annot"><span class="annottext">s :: DelegatedService
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-type">DelegatedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236600"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedService
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationEnabledDate:DelegatedService' :: Maybe POSIX
 </span><a href="Network.AWS.Organizations.Types.DelegatedService.html#%24sel%3AdelegationEnabledDate%3ADelegatedService%27"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DelegatedService -&gt; f DelegatedService)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -181,8 +181,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236475"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679236473"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DelegatedService
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236594"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679236592"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DelegatedService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DelegatedService)
@@ -192,15 +192,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DelegatedService&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236470"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236470"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236589"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236589"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; DelegatedService
 </span><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService%27"><span class="hs-identifier hs-var">DelegatedService'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; DelegatedService)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; DelegatedService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679236589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServicePrincipal&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,13 +208,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser DelegatedService
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679236589"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DelegationEnabledDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236464"><span id="local-6989586621679236466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236583"><span id="local-6989586621679236585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedService.html#DelegatedService"><span class="hs-identifier hs-type">DelegatedService</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

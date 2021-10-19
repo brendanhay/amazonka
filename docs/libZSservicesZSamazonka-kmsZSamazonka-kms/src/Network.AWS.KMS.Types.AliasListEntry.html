@@ -26,27 +26,27 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about an alias.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAliasListEntry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679246236"><span id="local-6989586621679246237"></span></span><span class="hs-keyword">data</span><span> </span><span id="AliasListEntry"><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-var">AliasListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AliasListEntry%27"><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-var">AliasListEntry'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Date and time that the alias was most recently associated with a KMS key</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- in the account and Region. Formatted as Unix time.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe POSIX
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Date and time that the alias was most recently created in the account</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- and Region. Formatted as Unix time.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationDate%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe POSIX
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AcreationDate%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | String that contains the alias. This value begins with @alias\/@.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AaliasName%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe Text
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AaliasName%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | String that contains the key identifier of the KMS key associated with</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the alias.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtargetKeyId%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679246433"><span id="local-6989586621679246434"></span></span><span class="hs-keyword">data</span><span> </span><span id="AliasListEntry"><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-var">AliasListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AliasListEntry%27"><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-var">AliasListEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | String that contains the key identifier of the KMS key associated with</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- the alias.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AtargetKeyId%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AtargetKeyId%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">targetKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | String that contains the alias. This value begins with @alias\/@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AaliasName%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe Text
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AaliasName%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Date and time that the alias was most recently created in the account</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- and Region. Formatted as Unix time.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreationDate%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe POSIX
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AcreationDate%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Date and time that the alias was most recently associated with a KMS key</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the account and Region. Formatted as Unix time.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe POSIX
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | String that contains the key ARN.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AaliasArn%3AAliasListEntry%27"><span class="annot"><span class="annottext">AliasListEntry -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AaliasArn%3AAliasListEntry%27"><span class="hs-identifier hs-var hs-var">aliasArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246226"><span id="local-6989586621679246228"><span class="annot"><span class="annottext">AliasListEntry -&gt; AliasListEntry -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246423"><span id="local-6989586621679246425"><span class="annot"><span class="annottext">AliasListEntry -&gt; AliasListEntry -&gt; Bool
 (AliasListEntry -&gt; AliasListEntry -&gt; Bool)
 -&gt; (AliasListEntry -&gt; AliasListEntry -&gt; Bool) -&gt; Eq AliasListEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AliasListEntry -&gt; AliasListEntry -&gt; Bool
 == :: AliasListEntry -&gt; AliasListEntry -&gt; Bool
 $c== :: AliasListEntry -&gt; AliasListEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246217"><span id="local-6989586621679246219"><span id="local-6989586621679246221"><span id="local-6989586621679246223"><span class="annot"><span class="annottext">ReadPrec [AliasListEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246414"><span id="local-6989586621679246416"><span id="local-6989586621679246418"><span id="local-6989586621679246420"><span class="annot"><span class="annottext">ReadPrec [AliasListEntry]
 ReadPrec AliasListEntry
 Int -&gt; ReadS AliasListEntry
 ReadS [AliasListEntry]
@@ -74,7 +74,7 @@ readList :: ReadS [AliasListEntry]
 $creadList :: ReadS [AliasListEntry]
 readsPrec :: Int -&gt; ReadS AliasListEntry
 $creadsPrec :: Int -&gt; ReadS AliasListEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246210"><span id="local-6989586621679246212"><span id="local-6989586621679246214"><span class="annot"><span class="annottext">Int -&gt; AliasListEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246407"><span id="local-6989586621679246409"><span id="local-6989586621679246411"><span class="annot"><span class="annottext">Int -&gt; AliasListEntry -&gt; ShowS
 [AliasListEntry] -&gt; ShowS
 AliasListEntry -&gt; String
 (Int -&gt; AliasListEntry -&gt; ShowS)
@@ -108,43 +108,43 @@ $cfrom :: forall x. AliasListEntry -&gt; Rep AliasListEntry x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'lastUpdatedDate', 'aliasListEntry_lastUpdatedDate' - Date and time that the alias was most recently associated with a KMS key</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- in the account and Region. Formatted as Unix time.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'targetKeyId', 'aliasListEntry_targetKeyId' - String that contains the key identifier of the KMS key associated with</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- the alias.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'creationDate', 'aliasListEntry_creationDate' - Date and time that the alias was most recently created in the account</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- and Region. Formatted as Unix time.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'aliasName', 'aliasListEntry_aliasName' - String that contains the alias. This value begins with @alias\/@.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'aliasName', 'aliasListEntry_aliasName' - String that contains the alias. This value begins with @alias\/@.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'creationDate', 'aliasListEntry_creationDate' - Date and time that the alias was most recently created in the account</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- and Region. Formatted as Unix time.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'targetKeyId', 'aliasListEntry_targetKeyId' - String that contains the key identifier of the KMS key associated with</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- the alias.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lastUpdatedDate', 'aliasListEntry_lastUpdatedDate' - Date and time that the alias was most recently associated with a KMS key</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- in the account and Region. Formatted as Unix time.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'aliasArn', 'aliasListEntry_aliasArn' - String that contains the key ARN.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#newAliasListEntry"><span class="hs-identifier hs-type">newAliasListEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span>
 </span><span id="line-68"></span><span id="newAliasListEntry"><span class="annot"><span class="annottext">newAliasListEntry :: AliasListEntry
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#newAliasListEntry"><span class="hs-identifier hs-var hs-var">newAliasListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">AliasListEntry' :: Maybe POSIX
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">AliasListEntry' :: Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; AliasListEntry
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:AliasListEntry' :: Maybe POSIX
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetKeyId:AliasListEntry' :: Maybe Text
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AtargetKeyId%3AAliasListEntry%27"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:AliasListEntry' :: Maybe POSIX
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AcreationDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:aliasName:AliasListEntry' :: Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:aliasName:AliasListEntry' :: Maybe Text
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AaliasName%3AAliasListEntry%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetKeyId:AliasListEntry' :: Maybe Text
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AtargetKeyId%3AAliasListEntry%27"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:AliasListEntry' :: Maybe POSIX
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AcreationDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:AliasListEntry' :: Maybe POSIX
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:aliasArn:AliasListEntry' :: Maybe Text
@@ -153,114 +153,114 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Date and time that the alias was most recently associated with a KMS key</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- in the account and Region. Formatted as Unix time.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_lastUpdatedDate"><span class="hs-identifier hs-type">aliasListEntry_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="aliasListEntry_lastUpdatedDate"><span class="annot"><span class="annottext">aliasListEntry_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AliasListEntry -&gt; f AliasListEntry
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_lastUpdatedDate"><span class="hs-identifier hs-var hs-var">aliasListEntry_lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AliasListEntry -&gt; Maybe POSIX)
--&gt; (AliasListEntry -&gt; Maybe POSIX -&gt; AliasListEntry)
--&gt; Lens AliasListEntry AliasListEntry (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246201"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdatedDate :: Maybe POSIX
-$sel:lastUpdatedDate:AliasListEntry' :: AliasListEntry -&gt; Maybe POSIX
-</span><a href="#local-6989586621679246201"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246201"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246200"><span class="annot"><span class="annottext">s :: AliasListEntry
-</span><a href="#local-6989586621679246200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246199"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
-</span><a href="#local-6989586621679246200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:AliasListEntry' :: Maybe POSIX
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AliasListEntry -&gt; f AliasListEntry)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AliasListEntry
--&gt; f AliasListEntry
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Date and time that the alias was most recently created in the account</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- and Region. Formatted as Unix time.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_creationDate"><span class="hs-identifier hs-type">aliasListEntry_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="aliasListEntry_creationDate"><span class="annot"><span class="annottext">aliasListEntry_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AliasListEntry -&gt; f AliasListEntry
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_creationDate"><span class="hs-identifier hs-var hs-var">aliasListEntry_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AliasListEntry -&gt; Maybe POSIX)
--&gt; (AliasListEntry -&gt; Maybe POSIX -&gt; AliasListEntry)
--&gt; Lens AliasListEntry AliasListEntry (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246194"><span class="annot"><span class="annottext">Maybe POSIX
-creationDate :: Maybe POSIX
-$sel:creationDate:AliasListEntry' :: AliasListEntry -&gt; Maybe POSIX
-</span><a href="#local-6989586621679246194"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246194"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246193"><span class="annot"><span class="annottext">s :: AliasListEntry
-</span><a href="#local-6989586621679246193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246192"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
-</span><a href="#local-6989586621679246193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:AliasListEntry' :: Maybe POSIX
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AcreationDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679246192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AliasListEntry -&gt; f AliasListEntry)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AliasListEntry
--&gt; f AliasListEntry
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | String that contains the alias. This value begins with @alias\/@.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_aliasName"><span class="hs-identifier hs-type">aliasListEntry_aliasName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="aliasListEntry_aliasName"><span class="annot"><span class="annottext">aliasListEntry_aliasName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AliasListEntry -&gt; f AliasListEntry
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_aliasName"><span class="hs-identifier hs-var hs-var">aliasListEntry_aliasName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AliasListEntry -&gt; Maybe Text)
--&gt; (AliasListEntry -&gt; Maybe Text -&gt; AliasListEntry)
--&gt; Lens AliasListEntry AliasListEntry (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246190"><span class="annot"><span class="annottext">Maybe Text
-aliasName :: Maybe Text
-$sel:aliasName:AliasListEntry' :: AliasListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679246190"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246190"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246189"><span class="annot"><span class="annottext">s :: AliasListEntry
-</span><a href="#local-6989586621679246189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246188"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
-</span><a href="#local-6989586621679246189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:AliasListEntry' :: Maybe Text
-</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AaliasName%3AAliasListEntry%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | String that contains the key identifier of the KMS key associated with</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- the alias.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_targetKeyId"><span class="hs-identifier hs-type">aliasListEntry_targetKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="aliasListEntry_targetKeyId"><span class="annot"><span class="annottext">aliasListEntry_targetKeyId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-77"></span><span class="hs-comment">-- | String that contains the key identifier of the KMS key associated with</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the alias.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_targetKeyId"><span class="hs-identifier hs-type">aliasListEntry_targetKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="aliasListEntry_targetKeyId"><span class="annot"><span class="annottext">aliasListEntry_targetKeyId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AliasListEntry -&gt; f AliasListEntry
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_targetKeyId"><span class="hs-identifier hs-var hs-var">aliasListEntry_targetKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AliasListEntry -&gt; Maybe Text)
 -&gt; (AliasListEntry -&gt; Maybe Text -&gt; AliasListEntry)
 -&gt; Lens AliasListEntry AliasListEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246186"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246398"><span class="annot"><span class="annottext">Maybe Text
 targetKeyId :: Maybe Text
 $sel:targetKeyId:AliasListEntry' :: AliasListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679246186"><span class="hs-identifier hs-var hs-var">targetKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246186"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246185"><span class="annot"><span class="annottext">s :: AliasListEntry
-</span><a href="#local-6989586621679246185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246184"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
-</span><a href="#local-6989586621679246185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetKeyId:AliasListEntry' :: Maybe Text
+</span><a href="#local-6989586621679246398"><span class="hs-identifier hs-var hs-var">targetKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246398"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246397"><span class="annot"><span class="annottext">s :: AliasListEntry
+</span><a href="#local-6989586621679246397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
+</span><a href="#local-6989586621679246397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetKeyId:AliasListEntry' :: Maybe Text
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AtargetKeyId%3AAliasListEntry%27"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679246396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | String that contains the alias. This value begins with @alias\/@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_aliasName"><span class="hs-identifier hs-type">aliasListEntry_aliasName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="aliasListEntry_aliasName"><span class="annot"><span class="annottext">aliasListEntry_aliasName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AliasListEntry -&gt; f AliasListEntry
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_aliasName"><span class="hs-identifier hs-var hs-var">aliasListEntry_aliasName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AliasListEntry -&gt; Maybe Text)
+-&gt; (AliasListEntry -&gt; Maybe Text -&gt; AliasListEntry)
+-&gt; Lens AliasListEntry AliasListEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246394"><span class="annot"><span class="annottext">Maybe Text
+aliasName :: Maybe Text
+$sel:aliasName:AliasListEntry' :: AliasListEntry -&gt; Maybe Text
+</span><a href="#local-6989586621679246394"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246394"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246393"><span class="annot"><span class="annottext">s :: AliasListEntry
+</span><a href="#local-6989586621679246393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
+</span><a href="#local-6989586621679246393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:AliasListEntry' :: Maybe Text
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AaliasName%3AAliasListEntry%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Date and time that the alias was most recently created in the account</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- and Region. Formatted as Unix time.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_creationDate"><span class="hs-identifier hs-type">aliasListEntry_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="aliasListEntry_creationDate"><span class="annot"><span class="annottext">aliasListEntry_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AliasListEntry -&gt; f AliasListEntry
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_creationDate"><span class="hs-identifier hs-var hs-var">aliasListEntry_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AliasListEntry -&gt; Maybe POSIX)
+-&gt; (AliasListEntry -&gt; Maybe POSIX -&gt; AliasListEntry)
+-&gt; Lens AliasListEntry AliasListEntry (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246390"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:AliasListEntry' :: AliasListEntry -&gt; Maybe POSIX
+</span><a href="#local-6989586621679246390"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679246390"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246389"><span class="annot"><span class="annottext">s :: AliasListEntry
+</span><a href="#local-6989586621679246389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246388"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679246388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
+</span><a href="#local-6989586621679246389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:AliasListEntry' :: Maybe POSIX
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AcreationDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679246388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AliasListEntry -&gt; f AliasListEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AliasListEntry
+-&gt; f AliasListEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Date and time that the alias was most recently associated with a KMS key</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- in the account and Region. Formatted as Unix time.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_lastUpdatedDate"><span class="hs-identifier hs-type">aliasListEntry_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="aliasListEntry_lastUpdatedDate"><span class="annot"><span class="annottext">aliasListEntry_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AliasListEntry -&gt; f AliasListEntry
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_lastUpdatedDate"><span class="hs-identifier hs-var hs-var">aliasListEntry_lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AliasListEntry -&gt; Maybe POSIX)
+-&gt; (AliasListEntry -&gt; Maybe POSIX -&gt; AliasListEntry)
+-&gt; Lens AliasListEntry AliasListEntry (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246383"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDate :: Maybe POSIX
+$sel:lastUpdatedDate:AliasListEntry' :: AliasListEntry -&gt; Maybe POSIX
+</span><a href="#local-6989586621679246383"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679246383"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246382"><span class="annot"><span class="annottext">s :: AliasListEntry
+</span><a href="#local-6989586621679246382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246381"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679246381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
+</span><a href="#local-6989586621679246382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:AliasListEntry' :: Maybe POSIX
+</span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AlastUpdatedDate%3AAliasListEntry%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679246381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AliasListEntry -&gt; f AliasListEntry)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AliasListEntry
+-&gt; f AliasListEntry
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | String that contains the key ARN.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#aliasListEntry_aliasArn"><span class="hs-identifier hs-type">aliasListEntry_aliasArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -270,19 +270,19 @@ $sel:targetKeyId:AliasListEntry' :: AliasListEntry -&gt; Maybe Text
 -&gt; (AliasListEntry -&gt; Maybe Text -&gt; AliasListEntry)
 -&gt; Lens AliasListEntry AliasListEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246182"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246379"><span class="annot"><span class="annottext">Maybe Text
 aliasArn :: Maybe Text
 $sel:aliasArn:AliasListEntry' :: AliasListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679246182"><span class="hs-identifier hs-var hs-var">aliasArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246182"><span class="hs-identifier hs-var">aliasArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246181"><span class="annot"><span class="annottext">s :: AliasListEntry
-</span><a href="#local-6989586621679246181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246180"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
-</span><a href="#local-6989586621679246181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasArn:AliasListEntry' :: Maybe Text
+</span><a href="#local-6989586621679246379"><span class="hs-identifier hs-var hs-var">aliasArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246379"><span class="hs-identifier hs-var">aliasArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246378"><span class="annot"><span class="annottext">s :: AliasListEntry
+</span><a href="#local-6989586621679246378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-type">AliasListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679246377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasListEntry
+</span><a href="#local-6989586621679246378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasArn:AliasListEntry' :: Maybe Text
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#%24sel%3AaliasArn%3AAliasListEntry%27"><span class="hs-identifier hs-var">aliasArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679246377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679246175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AliasListEntry
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246374"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679246372"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AliasListEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AliasListEntry)
@@ -292,71 +292,71 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AliasListEntry&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246172"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246369"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; AliasListEntry
 </span><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry%27"><span class="hs-identifier hs-var">AliasListEntry'</span></a></span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; AliasListEntry)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AliasListEntry)
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AliasListEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AliasListEntry)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AliasListEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AliasListEntry)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AliasListEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AliasName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AliasListEntry)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AliasListEntry)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AliasListEntry)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AliasListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AliasName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AliasListEntry)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; AliasListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; AliasListEntry)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; AliasListEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AliasListEntry)
 -&gt; Parser (Maybe Text) -&gt; Parser AliasListEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679246369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AliasArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246166"><span id="local-6989586621679246168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246363"><span id="local-6989586621679246365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.AliasListEntry.html#AliasListEntry"><span class="hs-identifier hs-type">AliasListEntry</span></a></span></span><span>
 </span><span id="line-116"></span></pre></body></html>

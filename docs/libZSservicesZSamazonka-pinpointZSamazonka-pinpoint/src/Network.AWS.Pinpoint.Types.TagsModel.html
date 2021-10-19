@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- message template, or segment.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTagsModel' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679613130"><span id="local-6989586621679613131"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagsModel"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-var">TagsModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagsModel%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-var">TagsModel'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679613626"><span id="local-6989586621679613627"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagsModel"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-var">TagsModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagsModel%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-var">TagsModel'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags for an</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- application, campaign, message template, or segment. Each of these</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- resources can have a maximum of 50 tags.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Atags%3ATagsModel%27"><span class="annot"><span class="annottext">TagsModel -&gt; HashMap Text Text
 </span><a href="Network.AWS.Pinpoint.Types.TagsModel.html#%24sel%3Atags%3ATagsModel%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613124"><span id="local-6989586621679613126"><span class="annot"><span class="annottext">TagsModel -&gt; TagsModel -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613620"><span id="local-6989586621679613622"><span class="annot"><span class="annottext">TagsModel -&gt; TagsModel -&gt; Bool
 (TagsModel -&gt; TagsModel -&gt; Bool)
 -&gt; (TagsModel -&gt; TagsModel -&gt; Bool) -&gt; Eq TagsModel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagsModel -&gt; TagsModel -&gt; Bool
 == :: TagsModel -&gt; TagsModel -&gt; Bool
 $c== :: TagsModel -&gt; TagsModel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613115"><span id="local-6989586621679613117"><span id="local-6989586621679613119"><span id="local-6989586621679613121"><span class="annot"><span class="annottext">ReadPrec [TagsModel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613611"><span id="local-6989586621679613613"><span id="local-6989586621679613615"><span id="local-6989586621679613617"><span class="annot"><span class="annottext">ReadPrec [TagsModel]
 ReadPrec TagsModel
 Int -&gt; ReadS TagsModel
 ReadS [TagsModel]
@@ -66,7 +66,7 @@ readList :: ReadS [TagsModel]
 $creadList :: ReadS [TagsModel]
 readsPrec :: Int -&gt; ReadS TagsModel
 $creadsPrec :: Int -&gt; ReadS TagsModel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613108"><span id="local-6989586621679613110"><span id="local-6989586621679613112"><span class="annot"><span class="annottext">Int -&gt; TagsModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613604"><span id="local-6989586621679613606"><span id="local-6989586621679613608"><span class="annot"><span class="annottext">Int -&gt; TagsModel -&gt; ShowS
 [TagsModel] -&gt; ShowS
 TagsModel -&gt; String
 (Int -&gt; TagsModel -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagsModel -&gt; HashMap Text Text -&gt; TagsModel)
 -&gt; Lens TagsModel TagsModel (HashMap Text Text) (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-type">TagsModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613099"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-type">TagsModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613595"><span class="annot"><span class="annottext">HashMap Text Text
 tags :: HashMap Text Text
 $sel:tags:TagsModel' :: TagsModel -&gt; HashMap Text Text
-</span><a href="#local-6989586621679613099"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679613099"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613098"><span class="annot"><span class="annottext">s :: TagsModel
-</span><a href="#local-6989586621679613098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-type">TagsModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613097"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679613097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagsModel
-</span><a href="#local-6989586621679613098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagsModel' :: HashMap Text Text
+</span><a href="#local-6989586621679613595"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679613595"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613594"><span class="annot"><span class="annottext">s :: TagsModel
+</span><a href="#local-6989586621679613594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-type">TagsModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613593"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679613593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagsModel
+</span><a href="#local-6989586621679613594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagsModel' :: HashMap Text Text
 </span><a href="Network.AWS.Pinpoint.Types.TagsModel.html#%24sel%3Atags%3ATagsModel%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679613097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679613593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; TagsModel -&gt; f TagsModel)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
@@ -148,26 +148,26 @@ $sel:tags:TagsModel' :: TagsModel -&gt; HashMap Text Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613092"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679613090"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagsModel
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613588"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679613586"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagsModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TagsModel) -&gt; Value -&gt; Parser TagsModel
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TagsModel&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613087"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613583"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679613583"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">HashMap Text Text -&gt; TagsModel
 </span><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-var">TagsModel'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; TagsModel)
 -&gt; Parser (HashMap Text Text) -&gt; Parser TagsModel
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
+</span><a href="#local-6989586621679613583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text))
@@ -178,16 +178,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613080"><span id="local-6989586621679613082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613576"><span id="local-6989586621679613578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613069"><span id="local-6989586621679613071"><span id="local-6989586621679613073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679613067"><span class="annot"><span class="annottext">toJSON :: TagsModel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-type">TagsModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613065"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613565"><span id="local-6989586621679613567"><span id="local-6989586621679613569"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel"><span class="hs-identifier hs-type">TagsModel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679613563"><span class="annot"><span class="annottext">toJSON :: TagsModel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TagsModel.html#TagsModel%27"><span class="hs-identifier hs-type">TagsModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613561"><span class="annot"><span class="annottext">HashMap Text Text
 tags :: HashMap Text Text
 $sel:tags:TagsModel' :: TagsModel -&gt; HashMap Text Text
-</span><a href="#local-6989586621679613065"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679613561"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -199,6 +199,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679613065"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679613561"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

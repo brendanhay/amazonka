@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-comment">--     want Amazon Lex to return the intent data to the client.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newFulfillmentActivity' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679310560"><span id="local-6989586621679310561"></span></span><span class="hs-keyword">data</span><span> </span><span id="FulfillmentActivity"><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-var">FulfillmentActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FulfillmentActivity%27"><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-var">FulfillmentActivity'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679310842"><span id="local-6989586621679310843"></span></span><span class="hs-keyword">data</span><span> </span><span id="FulfillmentActivity"><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-var">FulfillmentActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FulfillmentActivity%27"><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-var">FulfillmentActivity'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the Lambda function that is run to fulfill the intent.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AcodeHook%3AFulfillmentActivity%27"><span class="annot"><span class="annottext">FulfillmentActivity -&gt; Maybe CodeHook
 </span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#%24sel%3AcodeHook%3AFulfillmentActivity%27"><span class="hs-identifier hs-var hs-var">codeHook</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.CodeHook.html#CodeHook"><span class="hs-identifier hs-type">CodeHook</span></a></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Atype%27%3AFulfillmentActivity%27"><span class="annot"><span class="annottext">FulfillmentActivity -&gt; FulfillmentActivityType
 </span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#%24sel%3Atype%27%3AFulfillmentActivity%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivityType.html#FulfillmentActivityType"><span class="hs-identifier hs-type">FulfillmentActivityType</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310553"><span id="local-6989586621679310555"><span class="annot"><span class="annottext">FulfillmentActivity -&gt; FulfillmentActivity -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310835"><span id="local-6989586621679310837"><span class="annot"><span class="annottext">FulfillmentActivity -&gt; FulfillmentActivity -&gt; Bool
 (FulfillmentActivity -&gt; FulfillmentActivity -&gt; Bool)
 -&gt; (FulfillmentActivity -&gt; FulfillmentActivity -&gt; Bool)
 -&gt; Eq FulfillmentActivity
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FulfillmentActivity -&gt; FulfillmentActivity -&gt; Bool
 == :: FulfillmentActivity -&gt; FulfillmentActivity -&gt; Bool
 $c== :: FulfillmentActivity -&gt; FulfillmentActivity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310544"><span id="local-6989586621679310546"><span id="local-6989586621679310548"><span id="local-6989586621679310550"><span class="annot"><span class="annottext">ReadPrec [FulfillmentActivity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310826"><span id="local-6989586621679310828"><span id="local-6989586621679310830"><span id="local-6989586621679310832"><span class="annot"><span class="annottext">ReadPrec [FulfillmentActivity]
 ReadPrec FulfillmentActivity
 Int -&gt; ReadS FulfillmentActivity
 ReadS [FulfillmentActivity]
@@ -84,7 +84,7 @@ readList :: ReadS [FulfillmentActivity]
 $creadList :: ReadS [FulfillmentActivity]
 readsPrec :: Int -&gt; ReadS FulfillmentActivity
 $creadsPrec :: Int -&gt; ReadS FulfillmentActivity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310537"><span id="local-6989586621679310539"><span id="local-6989586621679310541"><span class="annot"><span class="annottext">Int -&gt; FulfillmentActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310819"><span id="local-6989586621679310821"><span id="local-6989586621679310823"><span class="annot"><span class="annottext">Int -&gt; FulfillmentActivity -&gt; ShowS
 [FulfillmentActivity] -&gt; ShowS
 FulfillmentActivity -&gt; String
 (Int -&gt; FulfillmentActivity -&gt; ShowS)
@@ -127,8 +127,8 @@ $cfrom :: forall x. FulfillmentActivity -&gt; Rep FulfillmentActivity x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivityType.html#FulfillmentActivityType"><span class="hs-identifier hs-type">FulfillmentActivityType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span><span>
 </span><span id="line-74"></span><span id="newFulfillmentActivity"><span class="annot"><span class="annottext">newFulfillmentActivity :: FulfillmentActivityType -&gt; FulfillmentActivity
-</span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#newFulfillmentActivity"><span class="hs-identifier hs-var hs-var">newFulfillmentActivity</span></a></span></span><span> </span><span id="local-6989586621679310531"><span class="annot"><span class="annottext">FulfillmentActivityType
-</span><a href="#local-6989586621679310531"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#newFulfillmentActivity"><span class="hs-identifier hs-var hs-var">newFulfillmentActivity</span></a></span></span><span> </span><span id="local-6989586621679310813"><span class="annot"><span class="annottext">FulfillmentActivityType
+</span><a href="#local-6989586621679310813"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">FulfillmentActivity' :: Maybe CodeHook -&gt; FulfillmentActivityType -&gt; FulfillmentActivity
 </span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codeHook:FulfillmentActivity' :: Maybe CodeHook
@@ -137,7 +137,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':FulfillmentActivity' :: FulfillmentActivityType
 </span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#%24sel%3Atype%27%3AFulfillmentActivity%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivityType
-</span><a href="#local-6989586621679310531"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679310813"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A description of the Lambda function that is run to fulfill the intent.</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
      (Maybe CodeHook)
      (Maybe CodeHook)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310527"><span class="annot"><span class="annottext">Maybe CodeHook
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310809"><span class="annot"><span class="annottext">Maybe CodeHook
 codeHook :: Maybe CodeHook
 $sel:codeHook:FulfillmentActivity' :: FulfillmentActivity -&gt; Maybe CodeHook
-</span><a href="#local-6989586621679310527"><span class="hs-identifier hs-var hs-var">codeHook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeHook
-</span><a href="#local-6989586621679310527"><span class="hs-identifier hs-var">codeHook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310526"><span class="annot"><span class="annottext">s :: FulfillmentActivity
-</span><a href="#local-6989586621679310526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310525"><span class="annot"><span class="annottext">Maybe CodeHook
-</span><a href="#local-6989586621679310525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivity
-</span><a href="#local-6989586621679310526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeHook:FulfillmentActivity' :: Maybe CodeHook
+</span><a href="#local-6989586621679310809"><span class="hs-identifier hs-var hs-var">codeHook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeHook
+</span><a href="#local-6989586621679310809"><span class="hs-identifier hs-var">codeHook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310808"><span class="annot"><span class="annottext">s :: FulfillmentActivity
+</span><a href="#local-6989586621679310808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310807"><span class="annot"><span class="annottext">Maybe CodeHook
+</span><a href="#local-6989586621679310807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivity
+</span><a href="#local-6989586621679310808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeHook:FulfillmentActivity' :: Maybe CodeHook
 </span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#%24sel%3AcodeHook%3AFulfillmentActivity%27"><span class="hs-identifier hs-var">codeHook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeHook
-</span><a href="#local-6989586621679310525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | How the intent should be fulfilled, either by running a Lambda function</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- or by returning the slot data to the client application.</span><span>
@@ -177,19 +177,19 @@ $sel:codeHook:FulfillmentActivity' :: FulfillmentActivity -&gt; Maybe CodeHook
      FulfillmentActivityType
      FulfillmentActivityType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310523"><span class="annot"><span class="annottext">FulfillmentActivityType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310805"><span class="annot"><span class="annottext">FulfillmentActivityType
 type' :: FulfillmentActivityType
 $sel:type':FulfillmentActivity' :: FulfillmentActivity -&gt; FulfillmentActivityType
-</span><a href="#local-6989586621679310523"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivityType
-</span><a href="#local-6989586621679310523"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310522"><span class="annot"><span class="annottext">s :: FulfillmentActivity
-</span><a href="#local-6989586621679310522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310521"><span class="annot"><span class="annottext">FulfillmentActivityType
-</span><a href="#local-6989586621679310521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivity
-</span><a href="#local-6989586621679310522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':FulfillmentActivity' :: FulfillmentActivityType
+</span><a href="#local-6989586621679310805"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivityType
+</span><a href="#local-6989586621679310805"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310804"><span class="annot"><span class="annottext">s :: FulfillmentActivity
+</span><a href="#local-6989586621679310804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310803"><span class="annot"><span class="annottext">FulfillmentActivityType
+</span><a href="#local-6989586621679310803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivity
+</span><a href="#local-6989586621679310804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':FulfillmentActivity' :: FulfillmentActivityType
 </span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#%24sel%3Atype%27%3AFulfillmentActivity%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FulfillmentActivityType
-</span><a href="#local-6989586621679310521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310518"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679310516"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FulfillmentActivity
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310800"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679310798"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FulfillmentActivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FulfillmentActivity)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FulfillmentActivity&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310513"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310795"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeHook -&gt; FulfillmentActivityType -&gt; FulfillmentActivity
 </span><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-var">FulfillmentActivity'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CodeHook -&gt; FulfillmentActivityType -&gt; FulfillmentActivity)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (FulfillmentActivityType -&gt; FulfillmentActivity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeHook)
+</span><a href="#local-6989586621679310795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeHook)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codeHook&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,25 +216,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser FulfillmentActivityType -&gt; Parser FulfillmentActivity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FulfillmentActivityType
+</span><a href="#local-6989586621679310795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FulfillmentActivityType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310506"><span id="local-6989586621679310508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310788"><span id="local-6989586621679310790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310495"><span id="local-6989586621679310497"><span id="local-6989586621679310499"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679310493"><span class="annot"><span class="annottext">toJSON :: FulfillmentActivity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310490"><span id="local-6989586621679310491"><span class="annot"><span class="annottext">Maybe CodeHook
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310777"><span id="local-6989586621679310779"><span id="local-6989586621679310781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity"><span class="hs-identifier hs-type">FulfillmentActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679310775"><span class="annot"><span class="annottext">toJSON :: FulfillmentActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.FulfillmentActivity.html#FulfillmentActivity%27"><span class="hs-identifier hs-type">FulfillmentActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310772"><span id="local-6989586621679310773"><span class="annot"><span class="annottext">Maybe CodeHook
 FulfillmentActivityType
 type' :: FulfillmentActivityType
 codeHook :: Maybe CodeHook
 $sel:type':FulfillmentActivity' :: FulfillmentActivity -&gt; FulfillmentActivityType
 $sel:codeHook:FulfillmentActivity' :: FulfillmentActivity -&gt; Maybe CodeHook
-</span><a href="#local-6989586621679310490"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310772"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,14 +246,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CodeHook -&gt; Pair) -&gt; Maybe CodeHook -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeHook
-</span><a href="#local-6989586621679310491"><span class="hs-identifier hs-var">codeHook</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310773"><span class="hs-identifier hs-var">codeHook</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FulfillmentActivityType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FulfillmentActivityType
-</span><a href="#local-6989586621679310490"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310772"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

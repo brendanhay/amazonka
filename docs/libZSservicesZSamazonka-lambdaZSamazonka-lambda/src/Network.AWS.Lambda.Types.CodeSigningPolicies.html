@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- specify the validation failure action for signature mismatch or expiry.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCodeSigningPolicies' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679289323"><span id="local-6989586621679289324"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeSigningPolicies"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-var">CodeSigningPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSigningPolicies%27"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-var">CodeSigningPolicies'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679294161"><span id="local-6989586621679294162"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeSigningPolicies"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-var">CodeSigningPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSigningPolicies%27"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-var">CodeSigningPolicies'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Code signing configuration policy for deployment validation failure. If</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- you set the policy to @Enforce@, Lambda blocks the deployment request if</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- signature validation checks fail. If you set the policy to @Warn@,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AuntrustedArtifactOnDeployment%3ACodeSigningPolicies%27"><span class="annot"><span class="annottext">CodeSigningPolicies -&gt; Maybe CodeSigningPolicy
 </span><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#%24sel%3AuntrustedArtifactOnDeployment%3ACodeSigningPolicies%27"><span class="hs-identifier hs-var hs-var">untrustedArtifactOnDeployment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicy.html#CodeSigningPolicy"><span class="hs-identifier hs-type">CodeSigningPolicy</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289317"><span id="local-6989586621679289319"><span class="annot"><span class="annottext">CodeSigningPolicies -&gt; CodeSigningPolicies -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294155"><span id="local-6989586621679294157"><span class="annot"><span class="annottext">CodeSigningPolicies -&gt; CodeSigningPolicies -&gt; Bool
 (CodeSigningPolicies -&gt; CodeSigningPolicies -&gt; Bool)
 -&gt; (CodeSigningPolicies -&gt; CodeSigningPolicies -&gt; Bool)
 -&gt; Eq CodeSigningPolicies
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CodeSigningPolicies -&gt; CodeSigningPolicies -&gt; Bool
 == :: CodeSigningPolicies -&gt; CodeSigningPolicies -&gt; Bool
 $c== :: CodeSigningPolicies -&gt; CodeSigningPolicies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289308"><span id="local-6989586621679289310"><span id="local-6989586621679289312"><span id="local-6989586621679289314"><span class="annot"><span class="annottext">ReadPrec [CodeSigningPolicies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294146"><span id="local-6989586621679294148"><span id="local-6989586621679294150"><span id="local-6989586621679294152"><span class="annot"><span class="annottext">ReadPrec [CodeSigningPolicies]
 ReadPrec CodeSigningPolicies
 Int -&gt; ReadS CodeSigningPolicies
 ReadS [CodeSigningPolicies]
@@ -68,7 +68,7 @@ readList :: ReadS [CodeSigningPolicies]
 $creadList :: ReadS [CodeSigningPolicies]
 readsPrec :: Int -&gt; ReadS CodeSigningPolicies
 $creadsPrec :: Int -&gt; ReadS CodeSigningPolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289301"><span id="local-6989586621679289303"><span id="local-6989586621679289305"><span class="annot"><span class="annottext">Int -&gt; CodeSigningPolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294139"><span id="local-6989586621679294141"><span id="local-6989586621679294143"><span class="annot"><span class="annottext">Int -&gt; CodeSigningPolicies -&gt; ShowS
 [CodeSigningPolicies] -&gt; ShowS
 CodeSigningPolicies -&gt; String
 (Int -&gt; CodeSigningPolicies -&gt; ShowS)
@@ -139,19 +139,19 @@ forall a. Maybe a
      (Maybe CodeSigningPolicy)
      (Maybe CodeSigningPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-type">CodeSigningPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289292"><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-type">CodeSigningPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294130"><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
 untrustedArtifactOnDeployment :: Maybe CodeSigningPolicy
 $sel:untrustedArtifactOnDeployment:CodeSigningPolicies' :: CodeSigningPolicies -&gt; Maybe CodeSigningPolicy
-</span><a href="#local-6989586621679289292"><span class="hs-identifier hs-var hs-var">untrustedArtifactOnDeployment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
-</span><a href="#local-6989586621679289292"><span class="hs-identifier hs-var">untrustedArtifactOnDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289291"><span class="annot"><span class="annottext">s :: CodeSigningPolicies
-</span><a href="#local-6989586621679289291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-type">CodeSigningPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289290"><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
-</span><a href="#local-6989586621679289290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningPolicies
-</span><a href="#local-6989586621679289291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:untrustedArtifactOnDeployment:CodeSigningPolicies' :: Maybe CodeSigningPolicy
+</span><a href="#local-6989586621679294130"><span class="hs-identifier hs-var hs-var">untrustedArtifactOnDeployment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
+</span><a href="#local-6989586621679294130"><span class="hs-identifier hs-var">untrustedArtifactOnDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294129"><span class="annot"><span class="annottext">s :: CodeSigningPolicies
+</span><a href="#local-6989586621679294129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-type">CodeSigningPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294128"><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
+</span><a href="#local-6989586621679294128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningPolicies
+</span><a href="#local-6989586621679294129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:untrustedArtifactOnDeployment:CodeSigningPolicies' :: Maybe CodeSigningPolicy
 </span><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#%24sel%3AuntrustedArtifactOnDeployment%3ACodeSigningPolicies%27"><span class="hs-identifier hs-var">untrustedArtifactOnDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
-</span><a href="#local-6989586621679289290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289287"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679289285"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeSigningPolicies
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294125"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679294123"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeSigningPolicies
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CodeSigningPolicies)
@@ -161,30 +161,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CodeSigningPolicies&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289282"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicy -&gt; CodeSigningPolicies
 </span><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-var">CodeSigningPolicies'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CodeSigningPolicy -&gt; CodeSigningPolicies)
 -&gt; Parser (Maybe CodeSigningPolicy) -&gt; Parser CodeSigningPolicies
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeSigningPolicy)
+</span><a href="#local-6989586621679294120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CodeSigningPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UntrustedArtifactOnDeployment&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289276"><span id="local-6989586621679289278"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294114"><span id="local-6989586621679294116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289265"><span id="local-6989586621679289267"><span id="local-6989586621679289269"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679289263"><span class="annot"><span class="annottext">toJSON :: CodeSigningPolicies -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-type">CodeSigningPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289261"><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294103"><span id="local-6989586621679294105"><span id="local-6989586621679294107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies"><span class="hs-identifier hs-type">CodeSigningPolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679294101"><span class="annot"><span class="annottext">toJSON :: CodeSigningPolicies -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningPolicies.html#CodeSigningPolicies%27"><span class="hs-identifier hs-type">CodeSigningPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294099"><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
 untrustedArtifactOnDeployment :: Maybe CodeSigningPolicy
 $sel:untrustedArtifactOnDeployment:CodeSigningPolicies' :: CodeSigningPolicies -&gt; Maybe CodeSigningPolicy
-</span><a href="#local-6989586621679289261"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294099"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -198,7 +198,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CodeSigningPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CodeSigningPolicy
-</span><a href="#local-6989586621679289261"><span class="hs-identifier hs-var">untrustedArtifactOnDeployment</span></a></span><span>
+</span><a href="#local-6989586621679294099"><span class="hs-identifier hs-var">untrustedArtifactOnDeployment</span></a></span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

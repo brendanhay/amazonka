@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the Amazon S3 bucket for the disk image.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUserBucket' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681141994"><span id="local-6989586621681141995"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserBucket"><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-var">UserBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserBucket%27"><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-var">UserBucket'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon S3 bucket where the disk image is located.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3As3Bucket%3AUserBucket%27"><span class="annot"><span class="annottext">UserBucket -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Bucket%3AUserBucket%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The file name of the disk image.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3As3Key%3AUserBucket%27"><span class="annot"><span class="annottext">UserBucket -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Key%3AUserBucket%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681177146"><span id="local-6989586621681177147"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserBucket"><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-var">UserBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserBucket%27"><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-var">UserBucket'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The file name of the disk image.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3As3Key%3AUserBucket%27"><span class="annot"><span class="annottext">UserBucket -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Key%3AUserBucket%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon S3 bucket where the disk image is located.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3As3Bucket%3AUserBucket%27"><span class="annot"><span class="annottext">UserBucket -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Bucket%3AUserBucket%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681141987"><span id="local-6989586621681141989"><span class="annot"><span class="annottext">UserBucket -&gt; UserBucket -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681177139"><span id="local-6989586621681177141"><span class="annot"><span class="annottext">UserBucket -&gt; UserBucket -&gt; Bool
 (UserBucket -&gt; UserBucket -&gt; Bool)
 -&gt; (UserBucket -&gt; UserBucket -&gt; Bool) -&gt; Eq UserBucket
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserBucket -&gt; UserBucket -&gt; Bool
 == :: UserBucket -&gt; UserBucket -&gt; Bool
 $c== :: UserBucket -&gt; UserBucket -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141978"><span id="local-6989586621681141980"><span id="local-6989586621681141982"><span id="local-6989586621681141984"><span class="annot"><span class="annottext">ReadPrec [UserBucket]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681177130"><span id="local-6989586621681177132"><span id="local-6989586621681177134"><span id="local-6989586621681177136"><span class="annot"><span class="annottext">ReadPrec [UserBucket]
 ReadPrec UserBucket
 Int -&gt; ReadS UserBucket
 ReadS [UserBucket]
@@ -63,7 +63,7 @@ readList :: ReadS [UserBucket]
 $creadList :: ReadS [UserBucket]
 readsPrec :: Int -&gt; ReadS UserBucket
 $creadsPrec :: Int -&gt; ReadS UserBucket
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141971"><span id="local-6989586621681141973"><span id="local-6989586621681141975"><span class="annot"><span class="annottext">Int -&gt; UserBucket -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681177123"><span id="local-6989586621681177125"><span id="local-6989586621681177127"><span class="annot"><span class="annottext">Int -&gt; UserBucket -&gt; ShowS
 [UserBucket] -&gt; ShowS
 UserBucket -&gt; String
 (Int -&gt; UserBucket -&gt; ShowS)
@@ -96,83 +96,83 @@ $cfrom :: forall x. UserBucket -&gt; Rep UserBucket x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 's3Bucket', 'userBucket_s3Bucket' - The name of the Amazon S3 bucket where the disk image is located.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 's3Key', 'userBucket_s3Key' - The file name of the disk image.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 's3Key', 'userBucket_s3Key' - The file name of the disk image.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 's3Bucket', 'userBucket_s3Bucket' - The name of the Amazon S3 bucket where the disk image is located.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#newUserBucket"><span class="hs-identifier hs-type">newUserBucket</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span>
 </span><span id="line-51"></span><span id="newUserBucket"><span class="annot"><span class="annottext">newUserBucket :: UserBucket
 </span><a href="Network.AWS.EC2.Types.UserBucket.html#newUserBucket"><span class="hs-identifier hs-var hs-var">newUserBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">UserBucket' :: Maybe Text -&gt; Maybe Text -&gt; UserBucket
 </span><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Bucket:UserBucket' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Bucket%3AUserBucket%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Key:UserBucket' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Key%3AUserBucket%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Key:UserBucket' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Key%3AUserBucket%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:UserBucket' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Bucket%3AUserBucket%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where the disk image is located.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#userBucket_s3Bucket"><span class="hs-identifier hs-type">userBucket_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="userBucket_s3Bucket"><span class="annot"><span class="annottext">userBucket_s3Bucket :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserBucket -&gt; f UserBucket
-</span><a href="Network.AWS.EC2.Types.UserBucket.html#userBucket_s3Bucket"><span class="hs-identifier hs-var hs-var">userBucket_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserBucket -&gt; Maybe Text)
--&gt; (UserBucket -&gt; Maybe Text -&gt; UserBucket)
--&gt; Lens UserBucket UserBucket (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141962"><span class="annot"><span class="annottext">Maybe Text
-s3Bucket :: Maybe Text
-$sel:s3Bucket:UserBucket' :: UserBucket -&gt; Maybe Text
-</span><a href="#local-6989586621681141962"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141962"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141961"><span class="annot"><span class="annottext">s :: UserBucket
-</span><a href="#local-6989586621681141961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserBucket
-</span><a href="#local-6989586621681141961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:UserBucket' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Bucket%3AUserBucket%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The file name of the disk image.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#userBucket_s3Key"><span class="hs-identifier hs-type">userBucket_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="userBucket_s3Key"><span class="annot"><span class="annottext">userBucket_s3Key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserBucket -&gt; f UserBucket
+</span><span id="line-57"></span><span class="hs-comment">-- | The file name of the disk image.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#userBucket_s3Key"><span class="hs-identifier hs-type">userBucket_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="userBucket_s3Key"><span class="annot"><span class="annottext">userBucket_s3Key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserBucket -&gt; f UserBucket
 </span><a href="Network.AWS.EC2.Types.UserBucket.html#userBucket_s3Key"><span class="hs-identifier hs-var hs-var">userBucket_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserBucket -&gt; Maybe Text)
 -&gt; (UserBucket -&gt; Maybe Text -&gt; UserBucket)
 -&gt; Lens UserBucket UserBucket (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141958"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681177114"><span class="annot"><span class="annottext">Maybe Text
 s3Key :: Maybe Text
 $sel:s3Key:UserBucket' :: UserBucket -&gt; Maybe Text
-</span><a href="#local-6989586621681141958"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141958"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141957"><span class="annot"><span class="annottext">s :: UserBucket
-</span><a href="#local-6989586621681141957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserBucket
-</span><a href="#local-6989586621681141957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:UserBucket' :: Maybe Text
+</span><a href="#local-6989586621681177114"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681177114"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681177113"><span class="annot"><span class="annottext">s :: UserBucket
+</span><a href="#local-6989586621681177113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681177112"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681177112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserBucket
+</span><a href="#local-6989586621681177113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:UserBucket' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Key%3AUserBucket%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681177112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket where the disk image is located.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#userBucket_s3Bucket"><span class="hs-identifier hs-type">userBucket_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="userBucket_s3Bucket"><span class="annot"><span class="annottext">userBucket_s3Bucket :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserBucket -&gt; f UserBucket
+</span><a href="Network.AWS.EC2.Types.UserBucket.html#userBucket_s3Bucket"><span class="hs-identifier hs-var hs-var">userBucket_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserBucket -&gt; Maybe Text)
+-&gt; (UserBucket -&gt; Maybe Text -&gt; UserBucket)
+-&gt; Lens UserBucket UserBucket (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681177110"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:UserBucket' :: UserBucket -&gt; Maybe Text
+</span><a href="#local-6989586621681177110"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681177110"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681177109"><span class="annot"><span class="annottext">s :: UserBucket
+</span><a href="#local-6989586621681177109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681177108"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681177108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserBucket
+</span><a href="#local-6989586621681177109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:UserBucket' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.UserBucket.html#%24sel%3As3Bucket%3AUserBucket%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681177108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141952"><span id="local-6989586621681141954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681177104"><span id="local-6989586621681177106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681177101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket"><span class="hs-identifier hs-type">UserBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681141945"><span class="annot"><span class="annottext">toQuery :: UserBucket -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141942"><span id="local-6989586621681141943"><span class="annot"><span class="annottext">Maybe Text
-s3Key :: Maybe Text
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681177097"><span class="annot"><span class="annottext">toQuery :: UserBucket -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.UserBucket.html#UserBucket%27"><span class="hs-identifier hs-type">UserBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681177094"><span id="local-6989586621681177095"><span class="annot"><span class="annottext">Maybe Text
 s3Bucket :: Maybe Text
-$sel:s3Key:UserBucket' :: UserBucket -&gt; Maybe Text
+s3Key :: Maybe Text
 $sel:s3Bucket:UserBucket' :: UserBucket -&gt; Maybe Text
-</span><a href="#local-6989586621681141942"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:s3Key:UserBucket' :: UserBucket -&gt; Maybe Text
+</span><a href="#local-6989586621681177094"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141943"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;S3Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681141942"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681177095"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681177094"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span></pre></body></html>

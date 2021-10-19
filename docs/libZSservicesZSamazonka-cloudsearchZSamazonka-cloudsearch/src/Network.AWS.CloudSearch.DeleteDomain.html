@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-comment">-- the name of the domain you want to delete.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newDeleteDomain' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679214585"><span id="local-6989586621679214586"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomain"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-var">DeleteDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomain%27"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-var">DeleteDomain'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679214645"><span id="local-6989586621679214646"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomain"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-var">DeleteDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomain%27"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-var">DeleteDomain'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain you want to permanently delete.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdomainName%3ADeleteDomain%27"><span class="annot"><span class="annottext">DeleteDomain -&gt; Text
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AdomainName%3ADeleteDomain%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214579"><span id="local-6989586621679214581"><span class="annot"><span class="annottext">DeleteDomain -&gt; DeleteDomain -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214639"><span id="local-6989586621679214641"><span class="annot"><span class="annottext">DeleteDomain -&gt; DeleteDomain -&gt; Bool
 (DeleteDomain -&gt; DeleteDomain -&gt; Bool)
 -&gt; (DeleteDomain -&gt; DeleteDomain -&gt; Bool) -&gt; Eq DeleteDomain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDomain -&gt; DeleteDomain -&gt; Bool
 == :: DeleteDomain -&gt; DeleteDomain -&gt; Bool
 $c== :: DeleteDomain -&gt; DeleteDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214570"><span id="local-6989586621679214572"><span id="local-6989586621679214574"><span id="local-6989586621679214576"><span class="annot"><span class="annottext">ReadPrec [DeleteDomain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214630"><span id="local-6989586621679214632"><span id="local-6989586621679214634"><span id="local-6989586621679214636"><span class="annot"><span class="annottext">ReadPrec [DeleteDomain]
 ReadPrec DeleteDomain
 Int -&gt; ReadS DeleteDomain
 ReadS [DeleteDomain]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteDomain]
 $creadList :: ReadS [DeleteDomain]
 readsPrec :: Int -&gt; ReadS DeleteDomain
 $creadsPrec :: Int -&gt; ReadS DeleteDomain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214563"><span id="local-6989586621679214565"><span id="local-6989586621679214567"><span class="annot"><span class="annottext">Int -&gt; DeleteDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214623"><span id="local-6989586621679214625"><span id="local-6989586621679214627"><span class="annot"><span class="annottext">Int -&gt; DeleteDomain -&gt; ShowS
 [DeleteDomain] -&gt; ShowS
 DeleteDomain -&gt; String
 (Int -&gt; DeleteDomain -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. DeleteDomain -&gt; Rep DeleteDomain x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeleteDomain"><span class="annot"><span class="annottext">newDeleteDomain :: Text -&gt; DeleteDomain
-</span><a href="Network.AWS.CloudSearch.DeleteDomain.html#newDeleteDomain"><span class="hs-identifier hs-var hs-var">newDeleteDomain</span></a></span></span><span> </span><span id="local-6989586621679214558"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214558"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudSearch.DeleteDomain.html#newDeleteDomain"><span class="hs-identifier hs-var hs-var">newDeleteDomain</span></a></span></span><span> </span><span id="local-6989586621679214618"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214618"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteDomain' :: Text -&gt; DeleteDomain
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-type">DeleteDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteDomain' :: Text
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AdomainName%3ADeleteDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214558"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679214618"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the domain you want to permanently delete.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#deleteDomain_domainName"><span class="hs-identifier hs-type">deleteDomain_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,25 +140,25 @@ $cfrom :: forall x. DeleteDomain -&gt; Rep DeleteDomain x
 -&gt; (DeleteDomain -&gt; Text -&gt; DeleteDomain)
 -&gt; Lens DeleteDomain DeleteDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-type">DeleteDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214555"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-type">DeleteDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214615"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:DeleteDomain' :: DeleteDomain -&gt; Text
-</span><a href="#local-6989586621679214555"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214555"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214554"><span class="annot"><span class="annottext">s :: DeleteDomain
-</span><a href="#local-6989586621679214554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-type">DeleteDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214553"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomain
-</span><a href="#local-6989586621679214554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteDomain' :: Text
+</span><a href="#local-6989586621679214615"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214615"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214614"><span class="annot"><span class="annottext">s :: DeleteDomain
+</span><a href="#local-6989586621679214614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-type">DeleteDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679214613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomain
+</span><a href="#local-6989586621679214614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteDomain' :: Text
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AdomainName%3ADeleteDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679214549"><span class="annot"><span class="annottext">request :: DeleteDomain -&gt; Request DeleteDomain
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679214609"><span class="annot"><span class="annottext">request :: DeleteDomain -&gt; Request DeleteDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDomain -&gt; Request DeleteDomain
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679214545"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679214605"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDomain
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteDomainResult&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214542"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214542"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214541"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679214541"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214540"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679214540"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214602"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214602"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214601"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679214601"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214600"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679214600"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe DomainStatus -&gt; Int -&gt; DeleteDomainResponse
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-var">DeleteDomainResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DomainStatus -&gt; Int -&gt; DeleteDomainResponse)
@@ -198,7 +198,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteDomainResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679214540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DomainStatus)
+</span><a href="#local-6989586621679214600"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DomainStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,15 +210,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214542"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214602"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214532"><span id="local-6989586621679214534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214592"><span id="local-6989586621679214594"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679214525"><span class="annot"><span class="annottext">toHeaders :: DeleteDomain -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679214585"><span class="annot"><span class="annottext">toHeaders :: DeleteDomain -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDomain -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -226,18 +226,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679214520"><span class="annot"><span class="annottext">toPath :: DeleteDomain -&gt; ByteString
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679214580"><span class="annot"><span class="annottext">toPath :: DeleteDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain"><span class="hs-identifier hs-type">DeleteDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679214516"><span class="annot"><span class="annottext">toQuery :: DeleteDomain -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-type">DeleteDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214514"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679214576"><span class="annot"><span class="annottext">toQuery :: DeleteDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomain%27"><span class="hs-identifier hs-type">DeleteDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214574"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:DeleteDomain' :: DeleteDomain -&gt; Text
-</span><a href="#local-6989586621679214514"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679214574"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -257,7 +257,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214514"><span class="hs-identifier hs-var">domainName</span></a></span><span>
+</span><a href="#local-6989586621679214574"><span class="hs-identifier hs-var">domainName</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The result of a @DeleteDomain@ request. Contains the status of a newly</span><span>
@@ -265,14 +265,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-116"></span><span class="hs-comment">-- deleted.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- /See:/ 'newDeleteDomainResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679214511"><span id="local-6989586621679214512"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomainResponse"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-var">DeleteDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomainResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-var">DeleteDomainResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679214571"><span id="local-6989586621679214572"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDomainResponse"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-var">DeleteDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDomainResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-var">DeleteDomainResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdomainStatus%3ADeleteDomainResponse%27"><span class="annot"><span class="annottext">DeleteDomainResponse -&gt; Maybe DomainStatus
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AdomainStatus%3ADeleteDomainResponse%27"><span class="hs-identifier hs-var hs-var">domainStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDomainResponse%27"><span class="annot"><span class="annottext">DeleteDomainResponse -&gt; Int
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AhttpStatus%3ADeleteDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214505"><span id="local-6989586621679214507"><span class="annot"><span class="annottext">DeleteDomainResponse -&gt; DeleteDomainResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214565"><span id="local-6989586621679214567"><span class="annot"><span class="annottext">DeleteDomainResponse -&gt; DeleteDomainResponse -&gt; Bool
 (DeleteDomainResponse -&gt; DeleteDomainResponse -&gt; Bool)
 -&gt; (DeleteDomainResponse -&gt; DeleteDomainResponse -&gt; Bool)
 -&gt; Eq DeleteDomainResponse
@@ -281,7 +281,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDomainResponse -&gt; DeleteDomainResponse -&gt; Bool
 == :: DeleteDomainResponse -&gt; DeleteDomainResponse -&gt; Bool
 $c== :: DeleteDomainResponse -&gt; DeleteDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214497"><span id="local-6989586621679214499"><span id="local-6989586621679214501"><span id="local-6989586621679214503"><span class="annot"><span class="annottext">ReadPrec [DeleteDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214557"><span id="local-6989586621679214559"><span id="local-6989586621679214561"><span id="local-6989586621679214563"><span class="annot"><span class="annottext">ReadPrec [DeleteDomainResponse]
 ReadPrec DeleteDomainResponse
 Int -&gt; ReadS DeleteDomainResponse
 ReadS [DeleteDomainResponse]
@@ -301,7 +301,7 @@ readList :: ReadS [DeleteDomainResponse]
 $creadList :: ReadS [DeleteDomainResponse]
 readsPrec :: Int -&gt; ReadS DeleteDomainResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214491"><span id="local-6989586621679214493"><span id="local-6989586621679214495"><span class="annot"><span class="annottext">Int -&gt; DeleteDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214551"><span id="local-6989586621679214553"><span id="local-6989586621679214555"><span class="annot"><span class="annottext">Int -&gt; DeleteDomainResponse -&gt; ShowS
 [DeleteDomainResponse] -&gt; ShowS
 DeleteDomainResponse -&gt; String
 (Int -&gt; DeleteDomainResponse -&gt; ShowS)
@@ -343,8 +343,8 @@ $cfrom :: forall x. DeleteDomainResponse -&gt; Rep DeleteDomainResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span><span>
 </span><span id="line-141"></span><span id="newDeleteDomainResponse"><span class="annot"><span class="annottext">newDeleteDomainResponse :: Int -&gt; DeleteDomainResponse
-</span><a href="Network.AWS.CloudSearch.DeleteDomain.html#newDeleteDomainResponse"><span class="hs-identifier hs-var hs-var">newDeleteDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679214488"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudSearch.DeleteDomain.html#newDeleteDomainResponse"><span class="hs-identifier hs-var hs-var">newDeleteDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679214548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">DeleteDomainResponse' :: Maybe DomainStatus -&gt; Int -&gt; DeleteDomainResponse
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainStatus:DeleteDomainResponse' :: Maybe DomainStatus
@@ -354,7 +354,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDomainResponse' :: Int
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AhttpStatus%3ADeleteDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679214548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -370,16 +370,16 @@ forall a. Maybe a
      (Maybe DomainStatus)
      (Maybe DomainStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214487"><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214547"><span class="annot"><span class="annottext">Maybe DomainStatus
 domainStatus :: Maybe DomainStatus
 $sel:domainStatus:DeleteDomainResponse' :: DeleteDomainResponse -&gt; Maybe DomainStatus
-</span><a href="#local-6989586621679214487"><span class="hs-identifier hs-var hs-var">domainStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
-</span><a href="#local-6989586621679214487"><span class="hs-identifier hs-var">domainStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214486"><span class="annot"><span class="annottext">s :: DeleteDomainResponse
-</span><a href="#local-6989586621679214486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214485"><span class="annot"><span class="annottext">Maybe DomainStatus
-</span><a href="#local-6989586621679214485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainResponse
-</span><a href="#local-6989586621679214486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainStatus:DeleteDomainResponse' :: Maybe DomainStatus
+</span><a href="#local-6989586621679214547"><span class="hs-identifier hs-var hs-var">domainStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><a href="#local-6989586621679214547"><span class="hs-identifier hs-var">domainStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214546"><span class="annot"><span class="annottext">s :: DeleteDomainResponse
+</span><a href="#local-6989586621679214546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214545"><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><a href="#local-6989586621679214545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainResponse
+</span><a href="#local-6989586621679214546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainStatus:DeleteDomainResponse' :: Maybe DomainStatus
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AdomainStatus%3ADeleteDomainResponse%27"><span class="hs-identifier hs-var">domainStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
-</span><a href="#local-6989586621679214485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#deleteDomainResponse_httpStatus"><span class="hs-identifier hs-type">deleteDomainResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -388,16 +388,16 @@ $sel:domainStatus:DeleteDomainResponse' :: DeleteDomainResponse -&gt; Maybe Doma
 -&gt; (DeleteDomainResponse -&gt; Int -&gt; DeleteDomainResponse)
 -&gt; Lens DeleteDomainResponse DeleteDomainResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214484"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214544"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDomainResponse' :: DeleteDomainResponse -&gt; Int
-</span><a href="#local-6989586621679214484"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214484"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214483"><span class="annot"><span class="annottext">s :: DeleteDomainResponse
-</span><a href="#local-6989586621679214483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214482"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainResponse
-</span><a href="#local-6989586621679214483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDomainResponse' :: Int
+</span><a href="#local-6989586621679214544"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214544"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214543"><span class="annot"><span class="annottext">s :: DeleteDomainResponse
+</span><a href="#local-6989586621679214543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse%27"><span class="hs-identifier hs-type">DeleteDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDomainResponse
+</span><a href="#local-6989586621679214543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDomainResponse' :: Int
 </span><a href="Network.AWS.CloudSearch.DeleteDomain.html#%24sel%3AhttpStatus%3ADeleteDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DeleteDomain.html#DeleteDomainResponse"><span class="hs-identifier hs-type">DeleteDomainResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

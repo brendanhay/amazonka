@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies an item to be retrieved as part of the transaction.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTransactGetItem' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679382875"><span id="local-6989586621679382876"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransactGetItem"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-var">TransactGetItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransactGetItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-var">TransactGetItem'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679383579"><span id="local-6989586621679383580"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransactGetItem"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-var">TransactGetItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransactGetItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-var">TransactGetItem'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the primary key that identifies the item to get, together with</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the name of the table that contains the item, and optionally the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specific attributes of the item to retrieve.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aget%27%3ATransactGetItem%27"><span class="annot"><span class="annottext">TransactGetItem -&gt; Get
 </span><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#%24sel%3Aget%27%3ATransactGetItem%27"><span class="hs-identifier hs-var hs-var">get'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Get.html#Get"><span class="hs-identifier hs-type">Get</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382869"><span id="local-6989586621679382871"><span class="annot"><span class="annottext">TransactGetItem -&gt; TransactGetItem -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383573"><span id="local-6989586621679383575"><span class="annot"><span class="annottext">TransactGetItem -&gt; TransactGetItem -&gt; Bool
 (TransactGetItem -&gt; TransactGetItem -&gt; Bool)
 -&gt; (TransactGetItem -&gt; TransactGetItem -&gt; Bool)
 -&gt; Eq TransactGetItem
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransactGetItem -&gt; TransactGetItem -&gt; Bool
 == :: TransactGetItem -&gt; TransactGetItem -&gt; Bool
 $c== :: TransactGetItem -&gt; TransactGetItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382860"><span id="local-6989586621679382862"><span id="local-6989586621679382864"><span id="local-6989586621679382866"><span class="annot"><span class="annottext">ReadPrec [TransactGetItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383564"><span id="local-6989586621679383566"><span id="local-6989586621679383568"><span id="local-6989586621679383570"><span class="annot"><span class="annottext">ReadPrec [TransactGetItem]
 ReadPrec TransactGetItem
 Int -&gt; ReadS TransactGetItem
 ReadS [TransactGetItem]
@@ -63,7 +63,7 @@ readList :: ReadS [TransactGetItem]
 $creadList :: ReadS [TransactGetItem]
 readsPrec :: Int -&gt; ReadS TransactGetItem
 $creadsPrec :: Int -&gt; ReadS TransactGetItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382853"><span id="local-6989586621679382855"><span id="local-6989586621679382857"><span class="annot"><span class="annottext">Int -&gt; TransactGetItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383557"><span id="local-6989586621679383559"><span id="local-6989586621679383561"><span class="annot"><span class="annottext">Int -&gt; TransactGetItem -&gt; ShowS
 [TransactGetItem] -&gt; ShowS
 TransactGetItem -&gt; String
 (Int -&gt; TransactGetItem -&gt; ShowS)
@@ -105,12 +105,12 @@ $cfrom :: forall x. TransactGetItem -&gt; Rep TransactGetItem x
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Get.html#Get"><span class="hs-identifier hs-type">Get</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span><span>
 </span><span id="line-53"></span><span id="newTransactGetItem"><span class="annot"><span class="annottext">newTransactGetItem :: Get -&gt; TransactGetItem
-</span><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#newTransactGetItem"><span class="hs-identifier hs-var hs-var">newTransactGetItem</span></a></span></span><span> </span><span id="local-6989586621679382847"><span class="annot"><span class="annottext">Get
-</span><a href="#local-6989586621679382847"><span class="hs-identifier hs-var">pGet_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#newTransactGetItem"><span class="hs-identifier hs-var hs-var">newTransactGetItem</span></a></span></span><span> </span><span id="local-6989586621679383551"><span class="annot"><span class="annottext">Get
+</span><a href="#local-6989586621679383551"><span class="hs-identifier hs-var">pGet_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">TransactGetItem' :: Get -&gt; TransactGetItem
 </span><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-type">TransactGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:get':TransactGetItem' :: Get
 </span><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#%24sel%3Aget%27%3ATransactGetItem%27"><span class="hs-identifier hs-var">get'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Get
-</span><a href="#local-6989586621679382847"><span class="hs-identifier hs-var">pGet_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679383551"><span class="hs-identifier hs-var">pGet_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | Contains the primary key that identifies the item to get, together with</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- the name of the table that contains the item, and optionally the</span><span>
@@ -121,27 +121,27 @@ $cfrom :: forall x. TransactGetItem -&gt; Rep TransactGetItem x
 -&gt; (TransactGetItem -&gt; Get -&gt; TransactGetItem)
 -&gt; Lens TransactGetItem TransactGetItem Get Get
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-type">TransactGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382843"><span class="annot"><span class="annottext">Get
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-type">TransactGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383547"><span class="annot"><span class="annottext">Get
 get' :: Get
 $sel:get':TransactGetItem' :: TransactGetItem -&gt; Get
-</span><a href="#local-6989586621679382843"><span class="hs-identifier hs-var hs-var">get'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Get
-</span><a href="#local-6989586621679382843"><span class="hs-identifier hs-var">get'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382842"><span class="annot"><span class="annottext">s :: TransactGetItem
-</span><a href="#local-6989586621679382842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-type">TransactGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382841"><span class="annot"><span class="annottext">Get
-</span><a href="#local-6989586621679382841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItem
-</span><a href="#local-6989586621679382842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:get':TransactGetItem' :: Get
+</span><a href="#local-6989586621679383547"><span class="hs-identifier hs-var hs-var">get'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Get
+</span><a href="#local-6989586621679383547"><span class="hs-identifier hs-var">get'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383546"><span class="annot"><span class="annottext">s :: TransactGetItem
+</span><a href="#local-6989586621679383546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-type">TransactGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383545"><span class="annot"><span class="annottext">Get
+</span><a href="#local-6989586621679383545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransactGetItem
+</span><a href="#local-6989586621679383546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:get':TransactGetItem' :: Get
 </span><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#%24sel%3Aget%27%3ATransactGetItem%27"><span class="hs-identifier hs-var">get'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Get
-</span><a href="#local-6989586621679382841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382837"><span id="local-6989586621679382839"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383541"><span id="local-6989586621679383543"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382826"><span id="local-6989586621679382828"><span id="local-6989586621679382830"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679382824"><span class="annot"><span class="annottext">toJSON :: TransactGetItem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-type">TransactGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382822"><span class="annot"><span class="annottext">Get
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383530"><span id="local-6989586621679383532"><span id="local-6989586621679383534"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem"><span class="hs-identifier hs-type">TransactGetItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679383528"><span class="annot"><span class="annottext">toJSON :: TransactGetItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TransactGetItem.html#TransactGetItem%27"><span class="hs-identifier hs-type">TransactGetItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383526"><span class="annot"><span class="annottext">Get
 get' :: Get
 $sel:get':TransactGetItem' :: TransactGetItem -&gt; Get
-</span><a href="#local-6989586621679382822"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383526"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -153,6 +153,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Get&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Get -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Get
-</span><a href="#local-6989586621679382822"><span class="hs-identifier hs-var">get'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679383526"><span class="hs-identifier hs-var">get'</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

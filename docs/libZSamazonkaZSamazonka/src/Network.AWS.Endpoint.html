@@ -32,26 +32,26 @@
 </span><span id="line-32"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-33"></span><span>  </span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span>
 </span><span id="line-34"></span><span id="setEndpoint"><span class="annot"><span class="annottext">setEndpoint :: Bool -&gt; ByteString -&gt; Int -&gt; Service -&gt; Service
-</span><a href="Network.AWS.Endpoint.html#setEndpoint"><span class="hs-identifier hs-var hs-var">setEndpoint</span></a></span></span><span> </span><span id="local-6989586621679199977"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199977"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199976"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199976"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199975"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199975"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Identity Endpoint) -&gt; Service -&gt; Identity Service
+</span><a href="Network.AWS.Endpoint.html#setEndpoint"><span class="hs-identifier hs-var hs-var">setEndpoint</span></a></span></span><span> </span><span id="local-6989586621679199904"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679199904"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679199903"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199903"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679199902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199902"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Endpoint -&gt; Identity Endpoint) -&gt; Service -&gt; Identity Service
 Setter' Service Endpoint
 </span><a href="Network.AWS.Types.html#serviceEndpoint"><span class="hs-identifier hs-var">serviceEndpoint</span></a></span><span> </span><span class="annot"><span class="annottext">((Endpoint -&gt; Identity Endpoint) -&gt; Service -&gt; Identity Service)
 -&gt; (Endpoint -&gt; Endpoint) -&gt; Service -&gt; Service
 forall s t a b. ASetter s t a b -&gt; (a -&gt; b) -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">%~</span></span><span> </span><span class="annot"><span class="annottext">Endpoint -&gt; Endpoint
-</span><a href="#local-6989586621679199973"><span class="hs-identifier hs-var">addr</span></a></span><span>
+</span><a href="#local-6989586621679199900"><span class="hs-identifier hs-var">addr</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-36"></span><span>    </span><span id="local-6989586621679199973"><span class="annot"><span class="annottext">addr :: Endpoint -&gt; Endpoint
-</span><a href="#local-6989586621679199973"><span class="hs-identifier hs-var hs-var">addr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-36"></span><span>    </span><span id="local-6989586621679199900"><span class="annot"><span class="annottext">addr :: Endpoint -&gt; Endpoint
+</span><a href="#local-6989586621679199900"><span class="hs-identifier hs-var hs-var">addr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-37"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Bool -&gt; Identity Bool) -&gt; Endpoint -&gt; Identity Endpoint
 Lens' Endpoint Bool
 </span><a href="Network.AWS.Types.html#endpointSecure"><span class="hs-identifier hs-var">endpointSecure</span></a></span><span> </span><span class="annot"><span class="annottext">((Bool -&gt; Identity Bool) -&gt; Endpoint -&gt; Identity Endpoint)
 -&gt; Bool -&gt; Endpoint -&gt; Endpoint
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">.~</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199977"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199904"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-38"></span><span>        </span><span class="annot"><span class="annottext">(Endpoint -&gt; Endpoint)
 -&gt; (Endpoint -&gt; Endpoint) -&gt; Endpoint -&gt; Endpoint
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -63,7 +63,7 @@ Lens' Endpoint ByteString
 -&gt; ByteString -&gt; Endpoint -&gt; Endpoint
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">.~</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199976"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199903"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-39"></span><span>        </span><span class="annot"><span class="annottext">(Endpoint -&gt; Endpoint)
 -&gt; (Endpoint -&gt; Endpoint) -&gt; Endpoint -&gt; Endpoint
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -73,107 +73,107 @@ Lens' Endpoint Int
 -&gt; Int -&gt; Endpoint -&gt; Endpoint
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">.~</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199975"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199902"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- | Determine the full host address and credential scope</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- within the specified 'Region'.</span><span>
 </span><span id="line-43"></span><span class="annot"><a href="Network.AWS.Endpoint.html#defaultEndpoint"><span class="hs-identifier hs-type">defaultEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Region"><span class="hs-identifier hs-type">Region</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Network.AWS.Types.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span>
 </span><span id="line-44"></span><span id="defaultEndpoint"><span class="annot"><span class="annottext">defaultEndpoint :: Service -&gt; Region -&gt; Endpoint
 </span><a href="Network.AWS.Endpoint.html#defaultEndpoint"><span class="hs-identifier hs-var hs-var">defaultEndpoint</span></a></span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; ByteString
-</span><a href="Network.AWS.Types.html#%24sel%3A_serviceEndpointPrefix%3AService"><span class="hs-identifier hs-var hs-var">_serviceEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679199967"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199967"><span class="hs-identifier hs-var">p</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679199966"><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679199966"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199965"><span class="hs-identifier hs-var">go</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; CI ByteString
+</span><a href="Network.AWS.Types.html#%24sel%3A_serviceEndpointPrefix%3AService"><span class="hs-identifier hs-var hs-var">_serviceEndpointPrefix</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679199894"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199894"><span class="hs-identifier hs-var">p</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679199893"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CI ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199892"><span class="hs-identifier hs-var">go</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; CI ByteString
 forall s. FoldCase s =&gt; s -&gt; CI s
 </span><span class="hs-identifier hs-var">CI.mk</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199967"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199894"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-46"></span><span>    </span><span id="local-6989586621679199965"><span class="annot"><span class="annottext">go :: CI ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199965"><span class="hs-identifier hs-var hs-var">go</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-46"></span><span>    </span><span id="local-6989586621679199892"><span class="annot"><span class="annottext">go :: CI ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199892"><span class="hs-identifier hs-var hs-var">go</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;iam&quot;</span></span><span>
 </span><span id="line-48"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;iam.cn-north-1.amazonaws.com.cn&quot;</span></span><span>
 </span><span id="line-49"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199961"><span class="hs-identifier hs-var">govcloud</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199888"><span class="hs-identifier hs-var">govcloud</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;iam.us-gov.amazonaws.com&quot;</span></span><span>
 </span><span id="line-50"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;iam.amazonaws.com&quot;</span></span><span>
 </span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;sdb&quot;</span></span><span>
 </span><span id="line-52"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199959"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199886"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;sdb.amazonaws.com&quot;</span></span><span>
 </span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;sts&quot;</span></span><span>
 </span><span id="line-54"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;sts.cn-north-1.amazonaws.com.cn&quot;</span></span><span>
 </span><span id="line-55"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199961"><span class="hs-identifier hs-var">govcloud</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199888"><span class="hs-identifier hs-var">govcloud</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;sts.&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679199885"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.amazonaws.com&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;sts.amazonaws.com&quot;</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;rds&quot;</span></span><span>
 </span><span id="line-58"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199959"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199886"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;rds.amazonaws.com&quot;</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;route53&quot;</span></span><span>
 </span><span id="line-60"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool
 </span><span class="hs-identifier hs-var">not</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;route53.amazonaws.com&quot;</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;emr&quot;</span></span><span>
 </span><span id="line-62"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199959"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199886"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;elasticmapreduce.us-east-1.amazonaws.com&quot;</span></span><span>
 </span><span id="line-63"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;elasticmapreduce.cn-north-1.amazonaws.com.cn&quot;</span></span><span>
 </span><span id="line-64"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199956"><span class="hs-identifier hs-var">frankfurt</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199883"><span class="hs-identifier hs-var">frankfurt</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;elasticmapreduce.eu-central-1.amazonaws.com&quot;</span></span><span>
 </span><span id="line-65"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199885"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.elasticmapreduce.amazonaws.com&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;sqs&quot;</span></span><span>
 </span><span id="line-67"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199959"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199886"><span class="hs-identifier hs-var">virginia</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;queue.amazonaws.com&quot;</span></span><span>
 </span><span id="line-68"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199885"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.queue.amazonaws.com.cn&quot;</span></span><span class="hs-special">)</span><span>
@@ -181,90 +181,90 @@ forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-string">&quot;importexport&quot;</span></span><span>
 </span><span id="line-70"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool
 </span><span class="hs-identifier hs-var">not</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;importexport.amazonaws.com&quot;</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;cloudfront&quot;</span></span><span>
 </span><span id="line-72"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool
 </span><span class="hs-identifier hs-var">not</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;cloudfront.amazonaws.com&quot;</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">CI ByteString
 </span><span class="hs-string">&quot;waf&quot;</span></span><span>
 </span><span id="line-74"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool
 </span><span class="hs-identifier hs-var">not</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;waf.amazonaws.com&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679199955"><span class="annot"><span class="annottext">CI ByteString
-</span><a href="#local-6989586621679199955"><span class="hs-identifier hs-var">_other</span></a></span></span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679199882"><span class="annot"><span class="annottext">CI ByteString
+</span><a href="#local-6989586621679199882"><span class="hs-identifier hs-var">_other</span></a></span></span><span>
 </span><span id="line-76"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199967"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var">china</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199894"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679199885"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.amazonaws.com.cn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199967"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199894"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="#local-6989586621679199885"><span class="hs-identifier hs-var">reg</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
 forall a. Semigroup a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;.amazonaws.com&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span>    </span><span id="local-6989586621679199959"><span class="annot"><span class="annottext">virginia :: Bool
-</span><a href="#local-6989586621679199959"><span class="hs-identifier hs-var hs-var">virginia</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679199966"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
+</span><span id="line-79"></span><span>    </span><span id="local-6989586621679199886"><span class="annot"><span class="annottext">virginia :: Bool
+</span><a href="#local-6989586621679199886"><span class="hs-identifier hs-var hs-var">virginia</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Region
 </span><a href="Network.AWS.Types.html#NorthVirginia"><span class="hs-identifier hs-var">NorthVirginia</span></a></span><span>
-</span><span id="line-80"></span><span>    </span><span id="local-6989586621679199956"><span class="annot"><span class="annottext">frankfurt :: Bool
-</span><a href="#local-6989586621679199956"><span class="hs-identifier hs-var hs-var">frankfurt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679199966"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
+</span><span id="line-80"></span><span>    </span><span id="local-6989586621679199883"><span class="annot"><span class="annottext">frankfurt :: Bool
+</span><a href="#local-6989586621679199883"><span class="hs-identifier hs-var hs-var">frankfurt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Region
 </span><a href="Network.AWS.Types.html#Frankfurt"><span class="hs-identifier hs-var">Frankfurt</span></a></span><span>
-</span><span id="line-81"></span><span>    </span><span id="local-6989586621679199963"><span class="annot"><span class="annottext">china :: Bool
-</span><a href="#local-6989586621679199963"><span class="hs-identifier hs-var hs-var">china</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679199966"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
+</span><span id="line-81"></span><span>    </span><span id="local-6989586621679199890"><span class="annot"><span class="annottext">china :: Bool
+</span><a href="#local-6989586621679199890"><span class="hs-identifier hs-var hs-var">china</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Region
 </span><a href="Network.AWS.Types.html#Beijing"><span class="hs-identifier hs-var">Beijing</span></a></span><span>
-</span><span id="line-82"></span><span>    </span><span id="local-6989586621679199961"><span class="annot"><span class="annottext">govcloud :: Bool
-</span><a href="#local-6989586621679199961"><span class="hs-identifier hs-var hs-var">govcloud</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679199966"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
+</span><span id="line-82"></span><span>    </span><span id="local-6989586621679199888"><span class="annot"><span class="annottext">govcloud :: Bool
+</span><a href="#local-6989586621679199888"><span class="hs-identifier hs-var hs-var">govcloud</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Region
 </span><a href="Network.AWS.Types.html#GovCloudEast"><span class="hs-identifier hs-var">GovCloudEast</span></a></span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool -&gt; Bool
 </span><span class="hs-operator hs-var">||</span></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679199966"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">r</span></a></span><span> </span><span class="annot"><span class="annottext">Region -&gt; Region -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Region
 </span><a href="Network.AWS.Types.html#GovCloudWest"><span class="hs-identifier hs-var">GovCloudWest</span></a></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span>    </span><span id="local-6989586621679199962"><span class="annot"><span class="annottext">region :: ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199962"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span id="local-6989586621679199948"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199948"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span id="local-6989586621679199889"><span class="annot"><span class="annottext">region :: ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199889"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span id="local-6989586621679199875"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199875"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">Endpoint :: ByteString -&gt; Bool -&gt; Int -&gt; ByteString -&gt; Endpoint
 </span><a href="Network.AWS.Types.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span>
 </span><span id="line-86"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_endpointHost:Endpoint :: ByteString
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var">_endpointHost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199948"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199875"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">$sel:_endpointSecure:Endpoint :: Bool
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointSecure%3AEndpoint"><span class="hs-identifier hs-var">_endpointSecure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span class="hs-special">,</span><span>
@@ -273,17 +273,17 @@ forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-number">443</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">$sel:_endpointScope:Endpoint :: ByteString
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointScope%3AEndpoint"><span class="hs-identifier hs-var">_endpointScope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var">reg</span></a></span><span>
+</span><a href="#local-6989586621679199885"><span class="hs-identifier hs-var">reg</span></a></span><span>
 </span><span id="line-90"></span><span>        </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span>    </span><span id="local-6989586621679199960"><span class="annot"><span class="annottext">global :: ByteString -&gt; Endpoint
-</span><a href="#local-6989586621679199960"><span class="hs-identifier hs-var hs-var">global</span></a></span></span><span> </span><span id="local-6989586621679199942"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199942"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span id="local-6989586621679199887"><span class="annot"><span class="annottext">global :: ByteString -&gt; Endpoint
+</span><a href="#local-6989586621679199887"><span class="hs-identifier hs-var hs-var">global</span></a></span></span><span> </span><span id="local-6989586621679199869"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679199869"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Endpoint :: ByteString -&gt; Bool -&gt; Int -&gt; ByteString -&gt; Endpoint
 </span><a href="Network.AWS.Types.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span>
 </span><span id="line-94"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_endpointHost:Endpoint :: ByteString
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var">_endpointHost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679199942"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199869"><span class="hs-identifier hs-var">h</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">$sel:_endpointSecure:Endpoint :: Bool
 </span><a href="Network.AWS.Types.html#%24sel%3A_endpointSecure%3AEndpoint"><span class="hs-identifier hs-var">_endpointSecure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">True</span></span><span class="hs-special">,</span><span>
@@ -295,9 +295,9 @@ forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-string">&quot;us-east-1&quot;</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span>    </span><span id="local-6989586621679199958"><span class="annot"><span class="annottext">reg :: ByteString
-</span><a href="#local-6989586621679199958"><span class="hs-identifier hs-var hs-var">reg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region -&gt; ByteString
+</span><span id="line-100"></span><span>    </span><span id="local-6989586621679199885"><span class="annot"><span class="annottext">reg :: ByteString
+</span><a href="#local-6989586621679199885"><span class="hs-identifier hs-var hs-var">reg</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><a href="Network.AWS.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Region
-</span><a href="#local-6989586621679199966"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><a href="#local-6989586621679199893"><span class="hs-identifier hs-var">r</span></a></span><span>
 </span><span id="line-101"></span></pre></body></html>

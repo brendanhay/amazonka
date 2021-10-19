@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-comment">-- | Represents a request to the delete upload operation.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newDeleteUpload' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679385357"><span id="local-6989586621679385358"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUpload"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-var">DeleteUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUpload%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-var">DeleteUpload'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679385638"><span id="local-6989586621679385639"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUpload"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-var">DeleteUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUpload%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-var">DeleteUpload'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm upload to</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3ADeleteUpload%27"><span class="annot"><span class="annottext">DeleteUpload -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#%24sel%3Aarn%3ADeleteUpload%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385351"><span id="local-6989586621679385353"><span class="annot"><span class="annottext">DeleteUpload -&gt; DeleteUpload -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385632"><span id="local-6989586621679385634"><span class="annot"><span class="annottext">DeleteUpload -&gt; DeleteUpload -&gt; Bool
 (DeleteUpload -&gt; DeleteUpload -&gt; Bool)
 -&gt; (DeleteUpload -&gt; DeleteUpload -&gt; Bool) -&gt; Eq DeleteUpload
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUpload -&gt; DeleteUpload -&gt; Bool
 == :: DeleteUpload -&gt; DeleteUpload -&gt; Bool
 $c== :: DeleteUpload -&gt; DeleteUpload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385342"><span id="local-6989586621679385344"><span id="local-6989586621679385346"><span id="local-6989586621679385348"><span class="annot"><span class="annottext">ReadPrec [DeleteUpload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385623"><span id="local-6989586621679385625"><span id="local-6989586621679385627"><span id="local-6989586621679385629"><span class="annot"><span class="annottext">ReadPrec [DeleteUpload]
 ReadPrec DeleteUpload
 Int -&gt; ReadS DeleteUpload
 ReadS [DeleteUpload]
@@ -82,7 +82,7 @@ readList :: ReadS [DeleteUpload]
 $creadList :: ReadS [DeleteUpload]
 readsPrec :: Int -&gt; ReadS DeleteUpload
 $creadsPrec :: Int -&gt; ReadS DeleteUpload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385335"><span id="local-6989586621679385337"><span id="local-6989586621679385339"><span class="annot"><span class="annottext">Int -&gt; DeleteUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385616"><span id="local-6989586621679385618"><span id="local-6989586621679385620"><span class="annot"><span class="annottext">Int -&gt; DeleteUpload -&gt; ShowS
 [DeleteUpload] -&gt; ShowS
 DeleteUpload -&gt; String
 (Int -&gt; DeleteUpload -&gt; ShowS)
@@ -123,11 +123,11 @@ $cfrom :: forall x. DeleteUpload -&gt; Rep DeleteUpload x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteUpload"><span class="annot"><span class="annottext">newDeleteUpload :: Text -&gt; DeleteUpload
-</span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#newDeleteUpload"><span class="hs-identifier hs-var hs-var">newDeleteUpload</span></a></span></span><span> </span><span id="local-6989586621679385330"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385330"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteUpload' :: Text -&gt; DeleteUpload
+</span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#newDeleteUpload"><span class="hs-identifier hs-var hs-var">newDeleteUpload</span></a></span></span><span> </span><span id="local-6989586621679385611"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385611"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteUpload' :: Text -&gt; DeleteUpload
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-type">DeleteUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteUpload' :: Text
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#%24sel%3Aarn%3ADeleteUpload%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385330"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679385611"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Represents the Amazon Resource Name (ARN) of the Device Farm upload to</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- delete.</span><span>
@@ -137,25 +137,25 @@ $cfrom :: forall x. DeleteUpload -&gt; Rep DeleteUpload x
 -&gt; (DeleteUpload -&gt; Text -&gt; DeleteUpload)
 -&gt; Lens DeleteUpload DeleteUpload Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-type">DeleteUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385327"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-type">DeleteUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385608"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:DeleteUpload' :: DeleteUpload -&gt; Text
-</span><a href="#local-6989586621679385327"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385327"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385326"><span class="annot"><span class="annottext">s :: DeleteUpload
-</span><a href="#local-6989586621679385326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-type">DeleteUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUpload
-</span><a href="#local-6989586621679385326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteUpload' :: Text
+</span><a href="#local-6989586621679385608"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385608"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385607"><span class="annot"><span class="annottext">s :: DeleteUpload
+</span><a href="#local-6989586621679385607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-type">DeleteUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUpload
+</span><a href="#local-6989586621679385607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DeleteUpload' :: Text
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#%24sel%3Aarn%3ADeleteUpload%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-type">DeleteUploadResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679385321"><span class="annot"><span class="annottext">request :: DeleteUpload -&gt; Request DeleteUpload
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679385602"><span class="annot"><span class="annottext">request :: DeleteUpload -&gt; Request DeleteUpload
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUpload -&gt; Request DeleteUpload
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679385317"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679385598"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUpload
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385314"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385314"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385313"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679385313"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385312"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679385312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385595"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385595"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385594"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385594"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385593"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679385593"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteUploadResponse
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-var">DeleteUploadResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteUploadResponse)
@@ -193,15 +193,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385314"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385595"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385305"><span id="local-6989586621679385307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385586"><span id="local-6989586621679385588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679385298"><span class="annot"><span class="annottext">toHeaders :: DeleteUpload -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679385579"><span class="annot"><span class="annottext">toHeaders :: DeleteUpload -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteUpload -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -228,12 +228,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385288"><span id="local-6989586621679385290"><span id="local-6989586621679385292"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679385286"><span class="annot"><span class="annottext">toJSON :: DeleteUpload -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-type">DeleteUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385284"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385569"><span id="local-6989586621679385571"><span id="local-6989586621679385573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679385567"><span class="annot"><span class="annottext">toJSON :: DeleteUpload -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload%27"><span class="hs-identifier hs-type">DeleteUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385565"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:DeleteUpload' :: DeleteUpload -&gt; Text
-</span><a href="#local-6989586621679385284"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679385565"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,18 +245,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385284"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679385565"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679385278"><span class="annot"><span class="annottext">toPath :: DeleteUpload -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679385559"><span class="annot"><span class="annottext">toPath :: DeleteUpload -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUpload -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUpload"><span class="hs-identifier hs-type">DeleteUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679385274"><span class="annot"><span class="annottext">toQuery :: DeleteUpload -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679385555"><span class="annot"><span class="annottext">toQuery :: DeleteUpload -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUpload -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -266,12 +266,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-121"></span><span class="hs-comment">-- | Represents the result of a delete upload request.</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- /See:/ 'newDeleteUploadResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679385271"><span id="local-6989586621679385272"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUploadResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-var">DeleteUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUploadResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-var">DeleteUploadResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621679385552"><span id="local-6989586621679385553"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUploadResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-var">DeleteUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUploadResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-var">DeleteUploadResponse'</span></a></span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteUploadResponse%27"><span class="annot"><span class="annottext">DeleteUploadResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#%24sel%3AhttpStatus%3ADeleteUploadResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385266"><span id="local-6989586621679385268"><span class="annot"><span class="annottext">DeleteUploadResponse -&gt; DeleteUploadResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385547"><span id="local-6989586621679385549"><span class="annot"><span class="annottext">DeleteUploadResponse -&gt; DeleteUploadResponse -&gt; Bool
 (DeleteUploadResponse -&gt; DeleteUploadResponse -&gt; Bool)
 -&gt; (DeleteUploadResponse -&gt; DeleteUploadResponse -&gt; Bool)
 -&gt; Eq DeleteUploadResponse
@@ -280,7 +280,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUploadResponse -&gt; DeleteUploadResponse -&gt; Bool
 == :: DeleteUploadResponse -&gt; DeleteUploadResponse -&gt; Bool
 $c== :: DeleteUploadResponse -&gt; DeleteUploadResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385258"><span id="local-6989586621679385260"><span id="local-6989586621679385262"><span id="local-6989586621679385264"><span class="annot"><span class="annottext">ReadPrec [DeleteUploadResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385539"><span id="local-6989586621679385541"><span id="local-6989586621679385543"><span id="local-6989586621679385545"><span class="annot"><span class="annottext">ReadPrec [DeleteUploadResponse]
 ReadPrec DeleteUploadResponse
 Int -&gt; ReadS DeleteUploadResponse
 ReadS [DeleteUploadResponse]
@@ -300,7 +300,7 @@ readList :: ReadS [DeleteUploadResponse]
 $creadList :: ReadS [DeleteUploadResponse]
 readsPrec :: Int -&gt; ReadS DeleteUploadResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUploadResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385252"><span id="local-6989586621679385254"><span id="local-6989586621679385256"><span class="annot"><span class="annottext">Int -&gt; DeleteUploadResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385533"><span id="local-6989586621679385535"><span id="local-6989586621679385537"><span class="annot"><span class="annottext">Int -&gt; DeleteUploadResponse -&gt; ShowS
 [DeleteUploadResponse] -&gt; ShowS
 DeleteUploadResponse -&gt; String
 (Int -&gt; DeleteUploadResponse -&gt; ShowS)
@@ -340,12 +340,12 @@ $cfrom :: forall x. DeleteUploadResponse -&gt; Rep DeleteUploadResponse x
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-type">DeleteUploadResponse</span></a></span><span>
 </span><span id="line-143"></span><span id="newDeleteUploadResponse"><span class="annot"><span class="annottext">newDeleteUploadResponse :: Int -&gt; DeleteUploadResponse
-</span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#newDeleteUploadResponse"><span class="hs-identifier hs-var hs-var">newDeleteUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679385249"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385249"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#newDeleteUploadResponse"><span class="hs-identifier hs-var hs-var">newDeleteUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679385530"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385530"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">DeleteUploadResponse' :: Int -&gt; DeleteUploadResponse
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-type">DeleteUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUploadResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#%24sel%3AhttpStatus%3ADeleteUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385249"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679385530"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#deleteUploadResponse_httpStatus"><span class="hs-identifier hs-type">deleteUploadResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-type">DeleteUploadResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -354,16 +354,16 @@ $cfrom :: forall x. DeleteUploadResponse -&gt; Rep DeleteUploadResponse x
 -&gt; (DeleteUploadResponse -&gt; Int -&gt; DeleteUploadResponse)
 -&gt; Lens DeleteUploadResponse DeleteUploadResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-type">DeleteUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385248"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-type">DeleteUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385529"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteUploadResponse' :: DeleteUploadResponse -&gt; Int
-</span><a href="#local-6989586621679385248"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385248"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385247"><span class="annot"><span class="annottext">s :: DeleteUploadResponse
-</span><a href="#local-6989586621679385247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-type">DeleteUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385246"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUploadResponse
-</span><a href="#local-6989586621679385247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUploadResponse' :: Int
+</span><a href="#local-6989586621679385529"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385529"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385528"><span class="annot"><span class="annottext">s :: DeleteUploadResponse
+</span><a href="#local-6989586621679385528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse%27"><span class="hs-identifier hs-type">DeleteUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385527"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUploadResponse
+</span><a href="#local-6989586621679385528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUploadResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.DeleteUpload.html#%24sel%3AhttpStatus%3ADeleteUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-type">DeleteUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-type">DeleteUploadResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-type">DeleteUploadResponse</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.DeleteUpload.html#DeleteUploadResponse"><span class="hs-identifier hs-type">DeleteUploadResponse</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

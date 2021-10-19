@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679275120"><span id="local-6989586621679275121"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubtitleFormat"><span class="annot"><a href="Network.AWS.Transcribe.Types.SubtitleFormat.html#SubtitleFormat"><span class="hs-identifier hs-var">SubtitleFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubtitleFormat%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.SubtitleFormat.html#SubtitleFormat%27"><span class="hs-identifier hs-var">SubtitleFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679275285"><span id="local-6989586621679275286"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubtitleFormat"><span class="annot"><a href="Network.AWS.Transcribe.Types.SubtitleFormat.html#SubtitleFormat"><span class="hs-identifier hs-var">SubtitleFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubtitleFormat%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.SubtitleFormat.html#SubtitleFormat%27"><span class="hs-identifier hs-var">SubtitleFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubtitleFormat"><span class="annot"><span class="annottext">SubtitleFormat -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.SubtitleFormat.html#fromSubtitleFormat"><span class="hs-identifier hs-var hs-var">fromSubtitleFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275112"><span id="local-6989586621679275114"><span id="local-6989586621679275116"><span class="annot"><span class="annottext">Int -&gt; SubtitleFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275277"><span id="local-6989586621679275279"><span id="local-6989586621679275281"><span class="annot"><span class="annottext">Int -&gt; SubtitleFormat -&gt; ShowS
 [SubtitleFormat] -&gt; ShowS
 SubtitleFormat -&gt; String
 (Int -&gt; SubtitleFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SubtitleFormat -&gt; String
 showsPrec :: Int -&gt; SubtitleFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; SubtitleFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275103"><span id="local-6989586621679275105"><span id="local-6989586621679275107"><span id="local-6989586621679275109"><span class="annot"><span class="annottext">ReadPrec [SubtitleFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275268"><span id="local-6989586621679275270"><span id="local-6989586621679275272"><span id="local-6989586621679275274"><span class="annot"><span class="annottext">ReadPrec [SubtitleFormat]
 ReadPrec SubtitleFormat
 Int -&gt; ReadS SubtitleFormat
 ReadS [SubtitleFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SubtitleFormat]
 readsPrec :: Int -&gt; ReadS SubtitleFormat
 $creadsPrec :: Int -&gt; ReadS SubtitleFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275098"><span id="local-6989586621679275100"><span class="annot"><span class="annottext">SubtitleFormat -&gt; SubtitleFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275263"><span id="local-6989586621679275265"><span class="annot"><span class="annottext">SubtitleFormat -&gt; SubtitleFormat -&gt; Bool
 (SubtitleFormat -&gt; SubtitleFormat -&gt; Bool)
 -&gt; (SubtitleFormat -&gt; SubtitleFormat -&gt; Bool) -&gt; Eq SubtitleFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: SubtitleFormat -&gt; SubtitleFormat -&gt; Bool
 == :: SubtitleFormat -&gt; SubtitleFormat -&gt; Bool
 $c== :: SubtitleFormat -&gt; SubtitleFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679275082"><span id="local-6989586621679275084"><span id="local-6989586621679275086"><span id="local-6989586621679275088"><span id="local-6989586621679275090"><span id="local-6989586621679275092"><span id="local-6989586621679275094"><span class="annot"><span class="annottext">Eq SubtitleFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679275247"><span id="local-6989586621679275249"><span id="local-6989586621679275251"><span id="local-6989586621679275253"><span id="local-6989586621679275255"><span id="local-6989586621679275257"><span id="local-6989586621679275259"><span class="annot"><span class="annottext">Eq SubtitleFormat
 Eq SubtitleFormat
 -&gt; (SubtitleFormat -&gt; SubtitleFormat -&gt; Ordering)
 -&gt; (SubtitleFormat -&gt; SubtitleFormat -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. SubtitleFormat -&gt; Rep SubtitleFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275074"><span id="local-6989586621679275076"><span class="annot"><span class="annottext">Int -&gt; SubtitleFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275239"><span id="local-6989586621679275241"><span class="annot"><span class="annottext">Int -&gt; SubtitleFormat -&gt; Int
 SubtitleFormat -&gt; Int
 (Int -&gt; SubtitleFormat -&gt; Int)
 -&gt; (SubtitleFormat -&gt; Int) -&gt; Hashable SubtitleFormat
@@ -142,50 +142,50 @@ $chash :: SubtitleFormat -&gt; Int
 hashWithSalt :: Int -&gt; SubtitleFormat -&gt; Int
 $chashWithSalt :: Int -&gt; SubtitleFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275071"><span class="annot"><span class="annottext">SubtitleFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275236"><span class="annot"><span class="annottext">SubtitleFormat -&gt; ()
 (SubtitleFormat -&gt; ()) -&gt; NFData SubtitleFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SubtitleFormat -&gt; ()
 $crnf :: SubtitleFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275068"><span class="annot"><span class="annottext">Text -&gt; Either String SubtitleFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275233"><span class="annot"><span class="annottext">Text -&gt; Either String SubtitleFormat
 (Text -&gt; Either String SubtitleFormat) -&gt; FromText SubtitleFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SubtitleFormat
 $cfromText :: Text -&gt; Either String SubtitleFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275065"><span class="annot"><span class="annottext">SubtitleFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275230"><span class="annot"><span class="annottext">SubtitleFormat -&gt; Text
 (SubtitleFormat -&gt; Text) -&gt; ToText SubtitleFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SubtitleFormat -&gt; Text
 $ctoText :: SubtitleFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275062"><span class="annot"><span class="annottext">SubtitleFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275227"><span class="annot"><span class="annottext">SubtitleFormat -&gt; ByteString
 (SubtitleFormat -&gt; ByteString) -&gt; ToByteString SubtitleFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SubtitleFormat -&gt; ByteString
 $ctoBS :: SubtitleFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275059"><span class="annot"><span class="annottext">SubtitleFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275224"><span class="annot"><span class="annottext">SubtitleFormat -&gt; ByteStringBuilder
 (SubtitleFormat -&gt; ByteStringBuilder) -&gt; ToLog SubtitleFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SubtitleFormat -&gt; ByteStringBuilder
 $cbuild :: SubtitleFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275056"><span class="annot"><span class="annottext">HeaderName -&gt; SubtitleFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275221"><span class="annot"><span class="annottext">HeaderName -&gt; SubtitleFormat -&gt; [Header]
 (HeaderName -&gt; SubtitleFormat -&gt; [Header])
 -&gt; ToHeader SubtitleFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SubtitleFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SubtitleFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275053"><span class="annot"><span class="annottext">SubtitleFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275218"><span class="annot"><span class="annottext">SubtitleFormat -&gt; QueryString
 (SubtitleFormat -&gt; QueryString) -&gt; ToQuery SubtitleFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SubtitleFormat -&gt; QueryString
 $ctoQuery :: SubtitleFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275048"><span id="local-6989586621679275050"><span class="annot"><span class="annottext">Value -&gt; Parser [SubtitleFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275213"><span id="local-6989586621679275215"><span class="annot"><span class="annottext">Value -&gt; Parser [SubtitleFormat]
 Value -&gt; Parser SubtitleFormat
 (Value -&gt; Parser SubtitleFormat)
 -&gt; (Value -&gt; Parser [SubtitleFormat]) -&gt; FromJSON SubtitleFormat
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [SubtitleFormat]
 parseJSON :: Value -&gt; Parser SubtitleFormat
 $cparseJSON :: Value -&gt; Parser SubtitleFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275043"><span id="local-6989586621679275045"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubtitleFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275208"><span id="local-6989586621679275210"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubtitleFormat]
 FromJSONKeyFunction SubtitleFormat
 FromJSONKeyFunction SubtitleFormat
 -&gt; FromJSONKeyFunction [SubtitleFormat]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SubtitleFormat]
 fromJSONKey :: FromJSONKeyFunction SubtitleFormat
 $cfromJSONKey :: FromJSONKeyFunction SubtitleFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275034"><span id="local-6989586621679275036"><span id="local-6989586621679275038"><span id="local-6989586621679275040"><span class="annot"><span class="annottext">[SubtitleFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275199"><span id="local-6989586621679275201"><span id="local-6989586621679275203"><span id="local-6989586621679275205"><span class="annot"><span class="annottext">[SubtitleFormat] -&gt; Encoding
 [SubtitleFormat] -&gt; Value
 SubtitleFormat -&gt; Encoding
 SubtitleFormat -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: SubtitleFormat -&gt; Encoding
 toJSON :: SubtitleFormat -&gt; Value
 $ctoJSON :: SubtitleFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275029"><span id="local-6989586621679275031"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubtitleFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275194"><span id="local-6989586621679275196"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubtitleFormat]
 ToJSONKeyFunction SubtitleFormat
 ToJSONKeyFunction SubtitleFormat
 -&gt; ToJSONKeyFunction [SubtitleFormat] -&gt; ToJSONKey SubtitleFormat
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SubtitleFormat]
 toJSONKey :: ToJSONKeyFunction SubtitleFormat
 $ctoJSONKey :: ToJSONKeyFunction SubtitleFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275026"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubtitleFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275191"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubtitleFormat
 ([Node] -&gt; Either String SubtitleFormat) -&gt; FromXML SubtitleFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SubtitleFormat
 $cparseXML :: [Node] -&gt; Either String SubtitleFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679275023"><span class="annot"><span class="annottext">SubtitleFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679275188"><span class="annot"><span class="annottext">SubtitleFormat -&gt; XML
 (SubtitleFormat -&gt; XML) -&gt; ToXML SubtitleFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SubtitleFormat -&gt; XML

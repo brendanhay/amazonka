@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- the current status of the @AnomalySubscription@ object.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAnomalySubscription' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679337923"><span id="local-6989586621679337924"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalySubscription"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-var">AnomalySubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalySubscription%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-var">AnomalySubscription'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679338263"><span id="local-6989586621679338264"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalySubscription"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-var">AnomalySubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalySubscription%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-var">AnomalySubscription'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Your unique account identifier.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AaccountId%3AAnomalySubscription%27"><span class="annot"><span class="annottext">AnomalySubscription -&gt; Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3AaccountId%3AAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AsubscriptionName%3AAnomalySubscription%27"><span class="annot"><span class="annottext">AnomalySubscription -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3AsubscriptionName%3AAnomalySubscription%27"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337911"><span id="local-6989586621679337913"><span class="annot"><span class="annottext">AnomalySubscription -&gt; AnomalySubscription -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338251"><span id="local-6989586621679338253"><span class="annot"><span class="annottext">AnomalySubscription -&gt; AnomalySubscription -&gt; Bool
 (AnomalySubscription -&gt; AnomalySubscription -&gt; Bool)
 -&gt; (AnomalySubscription -&gt; AnomalySubscription -&gt; Bool)
 -&gt; Eq AnomalySubscription
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AnomalySubscription -&gt; AnomalySubscription -&gt; Bool
 == :: AnomalySubscription -&gt; AnomalySubscription -&gt; Bool
 $c== :: AnomalySubscription -&gt; AnomalySubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337902"><span id="local-6989586621679337904"><span id="local-6989586621679337906"><span id="local-6989586621679337908"><span class="annot"><span class="annottext">ReadPrec [AnomalySubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338242"><span id="local-6989586621679338244"><span id="local-6989586621679338246"><span id="local-6989586621679338248"><span class="annot"><span class="annottext">ReadPrec [AnomalySubscription]
 ReadPrec AnomalySubscription
 Int -&gt; ReadS AnomalySubscription
 ReadS [AnomalySubscription]
@@ -84,7 +84,7 @@ readList :: ReadS [AnomalySubscription]
 $creadList :: ReadS [AnomalySubscription]
 readsPrec :: Int -&gt; ReadS AnomalySubscription
 $creadsPrec :: Int -&gt; ReadS AnomalySubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337895"><span id="local-6989586621679337897"><span id="local-6989586621679337899"><span class="annot"><span class="annottext">Int -&gt; AnomalySubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338235"><span id="local-6989586621679338237"><span id="local-6989586621679338239"><span class="annot"><span class="annottext">Int -&gt; AnomalySubscription -&gt; ShowS
 [AnomalySubscription] -&gt; ShowS
 AnomalySubscription -&gt; String
 (Int -&gt; AnomalySubscription -&gt; ShowS)
@@ -143,12 +143,12 @@ $cfrom :: forall x. AnomalySubscription -&gt; Rep AnomalySubscription x
 </span><span id="line-83"></span><span id="newAnomalySubscription"><span class="annot"><span class="annottext">newAnomalySubscription :: Double
 -&gt; AnomalySubscriptionFrequency -&gt; Text -&gt; AnomalySubscription
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#newAnomalySubscription"><span class="hs-identifier hs-var hs-var">newAnomalySubscription</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679337889"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679337889"><span class="hs-identifier hs-var">pThreshold_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679337888"><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
-</span><a href="#local-6989586621679337888"><span class="hs-identifier hs-var">pFrequency_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679337887"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337887"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679338229"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679338229"><span class="hs-identifier hs-var">pThreshold_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679338228"><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679338228"><span class="hs-identifier hs-var">pFrequency_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679338227"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338227"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">AnomalySubscription' :: Maybe Text
 -&gt; Maybe Text
 -&gt; [Text]
@@ -176,13 +176,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:threshold:AnomalySubscription' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3Athreshold%3AAnomalySubscription%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679337889"><span class="hs-identifier hs-var">pThreshold_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338229"><span class="hs-identifier hs-var">pThreshold_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:frequency:AnomalySubscription' :: AnomalySubscriptionFrequency
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3Afrequency%3AAnomalySubscription%27"><span class="hs-identifier hs-var">frequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
-</span><a href="#local-6989586621679337888"><span class="hs-identifier hs-var">pFrequency_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338228"><span class="hs-identifier hs-var">pFrequency_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:subscriptionName:AnomalySubscription' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3AsubscriptionName%3AAnomalySubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337887"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span><span>
+</span><a href="#local-6989586621679338227"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Your unique account identifier.</span><span>
@@ -194,16 +194,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      AnomalySubscription AnomalySubscription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337883"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338223"><span class="annot"><span class="annottext">Maybe Text
 accountId :: Maybe Text
 $sel:accountId:AnomalySubscription' :: AnomalySubscription -&gt; Maybe Text
-</span><a href="#local-6989586621679337883"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337883"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337882"><span class="annot"><span class="annottext">s :: AnomalySubscription
-</span><a href="#local-6989586621679337882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337881"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
-</span><a href="#local-6989586621679337882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AnomalySubscription' :: Maybe Text
+</span><a href="#local-6989586621679338223"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338223"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338222"><span class="annot"><span class="annottext">s :: AnomalySubscription
+</span><a href="#local-6989586621679338222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338221"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
+</span><a href="#local-6989586621679338222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AnomalySubscription' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3AaccountId%3AAnomalySubscription%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The @AnomalySubscription@ Amazon Resource Name (ARN).</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#anomalySubscription_subscriptionArn"><span class="hs-identifier hs-type">anomalySubscription_subscriptionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -214,16 +214,16 @@ $sel:accountId:AnomalySubscription' :: AnomalySubscription -&gt; Maybe Text
 -&gt; Lens
      AnomalySubscription AnomalySubscription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337879"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338219"><span class="annot"><span class="annottext">Maybe Text
 subscriptionArn :: Maybe Text
 $sel:subscriptionArn:AnomalySubscription' :: AnomalySubscription -&gt; Maybe Text
-</span><a href="#local-6989586621679337879"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337879"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337878"><span class="annot"><span class="annottext">s :: AnomalySubscription
-</span><a href="#local-6989586621679337878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337877"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
-</span><a href="#local-6989586621679337878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:AnomalySubscription' :: Maybe Text
+</span><a href="#local-6989586621679338219"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338219"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338218"><span class="annot"><span class="annottext">s :: AnomalySubscription
+</span><a href="#local-6989586621679338218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338217"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
+</span><a href="#local-6989586621679338218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:AnomalySubscription' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3AsubscriptionArn%3AAnomalySubscription%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A list of cost anomaly monitors.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#anomalySubscription_monitorArnList"><span class="hs-identifier hs-type">anomalySubscription_monitorArnList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -233,16 +233,16 @@ $sel:subscriptionArn:AnomalySubscription' :: AnomalySubscription -&gt; Maybe Tex
 -&gt; (AnomalySubscription -&gt; [Text] -&gt; AnomalySubscription)
 -&gt; Lens AnomalySubscription AnomalySubscription [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337875"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338215"><span class="annot"><span class="annottext">[Text]
 monitorArnList :: [Text]
 $sel:monitorArnList:AnomalySubscription' :: AnomalySubscription -&gt; [Text]
-</span><a href="#local-6989586621679337875"><span class="hs-identifier hs-var hs-var">monitorArnList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679337875"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337874"><span class="annot"><span class="annottext">s :: AnomalySubscription
-</span><a href="#local-6989586621679337874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337873"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679337873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
-</span><a href="#local-6989586621679337874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitorArnList:AnomalySubscription' :: [Text]
+</span><a href="#local-6989586621679338215"><span class="hs-identifier hs-var hs-var">monitorArnList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679338215"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338214"><span class="annot"><span class="annottext">s :: AnomalySubscription
+</span><a href="#local-6989586621679338214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338213"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679338213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
+</span><a href="#local-6989586621679338214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitorArnList:AnomalySubscription' :: [Text]
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3AmonitorArnList%3AAnomalySubscription%27"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679337873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679338213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; AnomalySubscription -&gt; f AnomalySubscription)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -250,8 +250,8 @@ $sel:monitorArnList:AnomalySubscription' :: AnomalySubscription -&gt; [Text]
 -&gt; f AnomalySubscription
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A list of subscribers to notify.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#anomalySubscription_subscribers"><span class="hs-identifier hs-type">anomalySubscription_subscribers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">]</span><span>
@@ -262,16 +262,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      AnomalySubscription AnomalySubscription [Subscriber] [Subscriber]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337869"><span class="annot"><span class="annottext">[Subscriber]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338209"><span class="annot"><span class="annottext">[Subscriber]
 subscribers :: [Subscriber]
 $sel:subscribers:AnomalySubscription' :: AnomalySubscription -&gt; [Subscriber]
-</span><a href="#local-6989586621679337869"><span class="hs-identifier hs-var hs-var">subscribers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Subscriber]
-</span><a href="#local-6989586621679337869"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337868"><span class="annot"><span class="annottext">s :: AnomalySubscription
-</span><a href="#local-6989586621679337868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337867"><span class="annot"><span class="annottext">[Subscriber]
-</span><a href="#local-6989586621679337867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
-</span><a href="#local-6989586621679337868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscribers:AnomalySubscription' :: [Subscriber]
+</span><a href="#local-6989586621679338209"><span class="hs-identifier hs-var hs-var">subscribers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Subscriber]
+</span><a href="#local-6989586621679338209"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338208"><span class="annot"><span class="annottext">s :: AnomalySubscription
+</span><a href="#local-6989586621679338208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338207"><span class="annot"><span class="annottext">[Subscriber]
+</span><a href="#local-6989586621679338207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
+</span><a href="#local-6989586621679338208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscribers:AnomalySubscription' :: [Subscriber]
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3Asubscribers%3AAnomalySubscription%27"><span class="hs-identifier hs-var">subscribers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Subscriber]
-</span><a href="#local-6989586621679337867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Subscriber] -&gt; f [Subscriber])
+</span><a href="#local-6989586621679338207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Subscriber] -&gt; f [Subscriber])
  -&gt; AnomalySubscription -&gt; f AnomalySubscription)
 -&gt; (([Subscriber] -&gt; f [Subscriber])
     -&gt; [Subscriber] -&gt; f [Subscriber])
@@ -280,8 +280,8 @@ $sel:subscribers:AnomalySubscription' :: AnomalySubscription -&gt; [Subscriber]
 -&gt; f AnomalySubscription
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Subscriber] -&gt; f [Subscriber]) -&gt; [Subscriber] -&gt; f [Subscriber]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The dollar value that triggers a notification if the threshold is</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- exceeded.</span><span>
@@ -292,16 +292,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AnomalySubscription -&gt; Double -&gt; AnomalySubscription)
 -&gt; Lens AnomalySubscription AnomalySubscription Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337865"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338205"><span class="annot"><span class="annottext">Double
 threshold :: Double
 $sel:threshold:AnomalySubscription' :: AnomalySubscription -&gt; Double
-</span><a href="#local-6989586621679337865"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679337865"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337864"><span class="annot"><span class="annottext">s :: AnomalySubscription
-</span><a href="#local-6989586621679337864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337863"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679337863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
-</span><a href="#local-6989586621679337864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:AnomalySubscription' :: Double
+</span><a href="#local-6989586621679338205"><span class="hs-identifier hs-var hs-var">threshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679338205"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338204"><span class="annot"><span class="annottext">s :: AnomalySubscription
+</span><a href="#local-6989586621679338204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338203"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679338203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
+</span><a href="#local-6989586621679338204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threshold:AnomalySubscription' :: Double
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3Athreshold%3AAnomalySubscription%27"><span class="hs-identifier hs-var">threshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679337863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The frequency that anomaly reports are sent over email.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#anomalySubscription_frequency"><span class="hs-identifier hs-type">anomalySubscription_frequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency.html#AnomalySubscriptionFrequency"><span class="hs-identifier hs-type">AnomalySubscriptionFrequency</span></a></span><span>
@@ -316,16 +316,16 @@ $sel:threshold:AnomalySubscription' :: AnomalySubscription -&gt; Double
      AnomalySubscriptionFrequency
      AnomalySubscriptionFrequency
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337861"><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338201"><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
 frequency :: AnomalySubscriptionFrequency
 $sel:frequency:AnomalySubscription' :: AnomalySubscription -&gt; AnomalySubscriptionFrequency
-</span><a href="#local-6989586621679337861"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
-</span><a href="#local-6989586621679337861"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337860"><span class="annot"><span class="annottext">s :: AnomalySubscription
-</span><a href="#local-6989586621679337860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337859"><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
-</span><a href="#local-6989586621679337859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
-</span><a href="#local-6989586621679337860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frequency:AnomalySubscription' :: AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679338201"><span class="hs-identifier hs-var hs-var">frequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679338201"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338200"><span class="annot"><span class="annottext">s :: AnomalySubscription
+</span><a href="#local-6989586621679338200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338199"><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679338199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
+</span><a href="#local-6989586621679338200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frequency:AnomalySubscription' :: AnomalySubscriptionFrequency
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3Afrequency%3AAnomalySubscription%27"><span class="hs-identifier hs-var">frequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
-</span><a href="#local-6989586621679337859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The name for the subscription.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#anomalySubscription_subscriptionName"><span class="hs-identifier hs-type">anomalySubscription_subscriptionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -334,19 +334,19 @@ $sel:frequency:AnomalySubscription' :: AnomalySubscription -&gt; AnomalySubscrip
 -&gt; (AnomalySubscription -&gt; Text -&gt; AnomalySubscription)
 -&gt; Lens AnomalySubscription AnomalySubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337857"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338197"><span class="annot"><span class="annottext">Text
 subscriptionName :: Text
 $sel:subscriptionName:AnomalySubscription' :: AnomalySubscription -&gt; Text
-</span><a href="#local-6989586621679337857"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337857"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337856"><span class="annot"><span class="annottext">s :: AnomalySubscription
-</span><a href="#local-6989586621679337856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337855"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
-</span><a href="#local-6989586621679337856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:AnomalySubscription' :: Text
+</span><a href="#local-6989586621679338197"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338197"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338196"><span class="annot"><span class="annottext">s :: AnomalySubscription
+</span><a href="#local-6989586621679338196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalySubscription
+</span><a href="#local-6989586621679338196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:AnomalySubscription' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#%24sel%3AsubscriptionName%3AAnomalySubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337852"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679337850"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnomalySubscription
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338192"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679338190"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnomalySubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AnomalySubscription)
@@ -356,8 +356,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AnomalySubscription&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337847"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338187"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; [Text]
@@ -386,7 +386,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AnomalySubscription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -408,7 +408,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AnomalySubscription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,7 +428,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AnomalySubscription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitorArnList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -448,7 +448,7 @@ forall a. Monoid a =&gt; a
       -&gt; AnomalySubscriptionFrequency -&gt; Text -&gt; AnomalySubscription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Subscriber])
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Subscriber])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subscribers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Subscriber]) -&gt; [Subscriber] -&gt; Parser [Subscriber]
@@ -464,7 +464,7 @@ forall a. Monoid a =&gt; a
      (AnomalySubscriptionFrequency -&gt; Text -&gt; AnomalySubscription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Threshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -474,7 +474,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; AnomalySubscription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AnomalySubscriptionFrequency
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AnomalySubscriptionFrequency
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Frequency&quot;</span></span><span class="hs-special">)</span><span>
@@ -482,19 +482,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser AnomalySubscription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679337847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679338187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscriptionName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337839"><span id="local-6989586621679337841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338179"><span id="local-6989586621679338181"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338176"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337828"><span id="local-6989586621679337830"><span id="local-6989586621679337832"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679337826"><span class="annot"><span class="annottext">toJSON :: AnomalySubscription -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337818"><span id="local-6989586621679337819"><span id="local-6989586621679337820"><span id="local-6989586621679337821"><span id="local-6989586621679337822"><span id="local-6989586621679337823"><span id="local-6989586621679337824"><span class="annot"><span class="annottext">Double
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338168"><span id="local-6989586621679338170"><span id="local-6989586621679338172"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription"><span class="hs-identifier hs-type">AnomalySubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679338166"><span class="annot"><span class="annottext">toJSON :: AnomalySubscription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalySubscription.html#AnomalySubscription%27"><span class="hs-identifier hs-type">AnomalySubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338158"><span id="local-6989586621679338159"><span id="local-6989586621679338160"><span id="local-6989586621679338161"><span id="local-6989586621679338162"><span id="local-6989586621679338163"><span id="local-6989586621679338164"><span class="annot"><span class="annottext">Double
 [Text]
 [Subscriber]
 Maybe Text
@@ -514,7 +514,7 @@ $sel:subscribers:AnomalySubscription' :: AnomalySubscription -&gt; [Subscriber]
 $sel:monitorArnList:AnomalySubscription' :: AnomalySubscription -&gt; [Text]
 $sel:subscriptionArn:AnomalySubscription' :: AnomalySubscription -&gt; Maybe Text
 $sel:accountId:AnomalySubscription' :: AnomalySubscription -&gt; Maybe Text
-</span><a href="#local-6989586621679337818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679338158"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -526,7 +526,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337824"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338164"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -534,7 +534,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679337823"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338163"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -542,28 +542,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MonitorArnList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679337822"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338162"><span class="hs-identifier hs-var">monitorArnList</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subscribers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Subscriber] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Subscriber]
-</span><a href="#local-6989586621679337821"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338161"><span class="hs-identifier hs-var">subscribers</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Threshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679337820"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338160"><span class="hs-identifier hs-var">threshold</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Frequency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnomalySubscriptionFrequency -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AnomalySubscriptionFrequency
-</span><a href="#local-6989586621679337819"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338159"><span class="hs-identifier hs-var">frequency</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -571,7 +571,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SubscriptionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337818"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338158"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span></pre></body></html>

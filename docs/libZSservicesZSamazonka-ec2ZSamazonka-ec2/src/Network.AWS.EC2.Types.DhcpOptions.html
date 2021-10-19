@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a set of DHCP options.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDhcpOptions' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681127908"><span id="local-6989586621681127909"></span></span><span class="hs-keyword">data</span><span> </span><span id="DhcpOptions"><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-var">DhcpOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DhcpOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-var">DhcpOptions'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681162807"><span id="local-6989586621681162808"></span></span><span class="hs-keyword">data</span><span> </span><span id="DhcpOptions"><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-var">DhcpOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DhcpOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-var">DhcpOptions'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more DHCP options in the set.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdhcpConfigurations%3ADhcpOptions%27"><span class="annot"><span class="annottext">DhcpOptions -&gt; Maybe [DhcpConfiguration]
 </span><a href="Network.AWS.EC2.Types.DhcpOptions.html#%24sel%3AdhcpConfigurations%3ADhcpOptions%27"><span class="hs-identifier hs-var hs-var">dhcpConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpConfiguration.html#DhcpConfiguration"><span class="hs-identifier hs-type">DhcpConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Atags%3ADhcpOptions%27"><span class="annot"><span class="annottext">DhcpOptions -&gt; Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.DhcpOptions.html#%24sel%3Atags%3ADhcpOptions%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681127899"><span id="local-6989586621681127901"><span class="annot"><span class="annottext">DhcpOptions -&gt; DhcpOptions -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681162798"><span id="local-6989586621681162800"><span class="annot"><span class="annottext">DhcpOptions -&gt; DhcpOptions -&gt; Bool
 (DhcpOptions -&gt; DhcpOptions -&gt; Bool)
 -&gt; (DhcpOptions -&gt; DhcpOptions -&gt; Bool) -&gt; Eq DhcpOptions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DhcpOptions -&gt; DhcpOptions -&gt; Bool
 == :: DhcpOptions -&gt; DhcpOptions -&gt; Bool
 $c== :: DhcpOptions -&gt; DhcpOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127890"><span id="local-6989586621681127892"><span id="local-6989586621681127894"><span id="local-6989586621681127896"><span class="annot"><span class="annottext">ReadPrec [DhcpOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162789"><span id="local-6989586621681162791"><span id="local-6989586621681162793"><span id="local-6989586621681162795"><span class="annot"><span class="annottext">ReadPrec [DhcpOptions]
 ReadPrec DhcpOptions
 Int -&gt; ReadS DhcpOptions
 ReadS [DhcpOptions]
@@ -72,7 +72,7 @@ readList :: ReadS [DhcpOptions]
 $creadList :: ReadS [DhcpOptions]
 readsPrec :: Int -&gt; ReadS DhcpOptions
 $creadsPrec :: Int -&gt; ReadS DhcpOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681127883"><span id="local-6989586621681127885"><span id="local-6989586621681127887"><span class="annot"><span class="annottext">Int -&gt; DhcpOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681162782"><span id="local-6989586621681162784"><span id="local-6989586621681162786"><span class="annot"><span class="annottext">Int -&gt; DhcpOptions -&gt; ShowS
 [DhcpOptions] -&gt; ShowS
 DhcpOptions -&gt; String
 (Int -&gt; DhcpOptions -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
      (Maybe [DhcpConfiguration])
      (Maybe [DhcpConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681127874"><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162773"><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
 dhcpConfigurations :: Maybe [DhcpConfiguration]
 $sel:dhcpConfigurations:DhcpOptions' :: DhcpOptions -&gt; Maybe [DhcpConfiguration]
-</span><a href="#local-6989586621681127874"><span class="hs-identifier hs-var hs-var">dhcpConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
-</span><a href="#local-6989586621681127874"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681127873"><span class="annot"><span class="annottext">s :: DhcpOptions
-</span><a href="#local-6989586621681127873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681127872"><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
-</span><a href="#local-6989586621681127872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
-</span><a href="#local-6989586621681127873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpConfigurations:DhcpOptions' :: Maybe [DhcpConfiguration]
+</span><a href="#local-6989586621681162773"><span class="hs-identifier hs-var hs-var">dhcpConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
+</span><a href="#local-6989586621681162773"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162772"><span class="annot"><span class="annottext">s :: DhcpOptions
+</span><a href="#local-6989586621681162772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162771"><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
+</span><a href="#local-6989586621681162771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
+</span><a href="#local-6989586621681162772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpConfigurations:DhcpOptions' :: Maybe [DhcpConfiguration]
 </span><a href="Network.AWS.EC2.Types.DhcpOptions.html#%24sel%3AdhcpConfigurations%3ADhcpOptions%27"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
-</span><a href="#local-6989586621681127872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DhcpConfiguration] -&gt; f (Maybe [DhcpConfiguration]))
+</span><a href="#local-6989586621681162771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DhcpConfiguration] -&gt; f (Maybe [DhcpConfiguration]))
  -&gt; DhcpOptions -&gt; f DhcpOptions)
 -&gt; ((Maybe [DhcpConfiguration] -&gt; f (Maybe [DhcpConfiguration]))
     -&gt; Maybe [DhcpConfiguration] -&gt; f (Maybe [DhcpConfiguration]))
@@ -186,8 +186,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DhcpConfiguration]
   [DhcpConfiguration]
   [DhcpConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the DHCP options</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- set.</span><span>
@@ -197,16 +197,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DhcpOptions -&gt; Maybe Text -&gt; DhcpOptions)
 -&gt; Lens DhcpOptions DhcpOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681127867"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162766"><span class="annot"><span class="annottext">Maybe Text
 ownerId :: Maybe Text
 $sel:ownerId:DhcpOptions' :: DhcpOptions -&gt; Maybe Text
-</span><a href="#local-6989586621681127867"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681127867"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681127866"><span class="annot"><span class="annottext">s :: DhcpOptions
-</span><a href="#local-6989586621681127866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681127865"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681127865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
-</span><a href="#local-6989586621681127866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:DhcpOptions' :: Maybe Text
+</span><a href="#local-6989586621681162766"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162766"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162765"><span class="annot"><span class="annottext">s :: DhcpOptions
+</span><a href="#local-6989586621681162765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162764"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
+</span><a href="#local-6989586621681162765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:DhcpOptions' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.DhcpOptions.html#%24sel%3AownerId%3ADhcpOptions%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681127865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The ID of the set of DHCP options.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#dhcpOptions_dhcpOptionsId"><span class="hs-identifier hs-type">dhcpOptions_dhcpOptionsId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -215,16 +215,16 @@ $sel:ownerId:DhcpOptions' :: DhcpOptions -&gt; Maybe Text
 -&gt; (DhcpOptions -&gt; Maybe Text -&gt; DhcpOptions)
 -&gt; Lens DhcpOptions DhcpOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681127863"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162762"><span class="annot"><span class="annottext">Maybe Text
 dhcpOptionsId :: Maybe Text
 $sel:dhcpOptionsId:DhcpOptions' :: DhcpOptions -&gt; Maybe Text
-</span><a href="#local-6989586621681127863"><span class="hs-identifier hs-var hs-var">dhcpOptionsId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681127863"><span class="hs-identifier hs-var">dhcpOptionsId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681127862"><span class="annot"><span class="annottext">s :: DhcpOptions
-</span><a href="#local-6989586621681127862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681127861"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681127861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
-</span><a href="#local-6989586621681127862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpOptionsId:DhcpOptions' :: Maybe Text
+</span><a href="#local-6989586621681162762"><span class="hs-identifier hs-var hs-var">dhcpOptionsId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162762"><span class="hs-identifier hs-var">dhcpOptionsId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162761"><span class="annot"><span class="annottext">s :: DhcpOptions
+</span><a href="#local-6989586621681162761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162760"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681162760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
+</span><a href="#local-6989586621681162761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpOptionsId:DhcpOptions' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.DhcpOptions.html#%24sel%3AdhcpOptionsId%3ADhcpOptions%27"><span class="hs-identifier hs-var">dhcpOptionsId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681127861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681162760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Any tags assigned to the DHCP options set.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#dhcpOptions_tags"><span class="hs-identifier hs-type">dhcpOptions_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -233,16 +233,16 @@ $sel:dhcpOptionsId:DhcpOptions' :: DhcpOptions -&gt; Maybe Text
 -&gt; (DhcpOptions -&gt; Maybe [Tag] -&gt; DhcpOptions)
 -&gt; Lens DhcpOptions DhcpOptions (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681127859"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681162758"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:DhcpOptions' :: DhcpOptions -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681127859"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681127859"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681127858"><span class="annot"><span class="annottext">s :: DhcpOptions
-</span><a href="#local-6989586621681127858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681127857"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681127857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
-</span><a href="#local-6989586621681127858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DhcpOptions' :: Maybe [Tag]
+</span><a href="#local-6989586621681162758"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681162758"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681162757"><span class="annot"><span class="annottext">s :: DhcpOptions
+</span><a href="#local-6989586621681162757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-type">DhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681162756"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681162756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DhcpOptions
+</span><a href="#local-6989586621681162757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DhcpOptions' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.DhcpOptions.html#%24sel%3Atags%3ADhcpOptions%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681127857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; DhcpOptions -&gt; f DhcpOptions)
+</span><a href="#local-6989586621681162756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; DhcpOptions -&gt; f DhcpOptions)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -255,13 +255,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621681127854"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DhcpOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681127852"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681127852"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621681162753"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DhcpOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681162751"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681162751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe [DhcpConfiguration]
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; DhcpOptions
 </span><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions%27"><span class="hs-identifier hs-var">DhcpOptions'</span></a></span><span>
@@ -272,7 +272,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; DhcpOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681127852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681162751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dhcpConfigurationSet&quot;</span></span><span>
@@ -301,7 +301,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; DhcpOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681127852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681162751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -310,7 +310,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag] -&gt; DhcpOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681127852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681162751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dhcpOptionsId&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,7 +318,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String DhcpOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681127852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681162751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -341,7 +341,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127843"><span id="local-6989586621681127845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162742"><span id="local-6989586621681162744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681127840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681162739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span></span><span>
 </span><span id="line-104"></span></pre></body></html>

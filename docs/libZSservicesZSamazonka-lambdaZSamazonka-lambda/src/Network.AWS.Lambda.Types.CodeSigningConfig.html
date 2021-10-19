@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html Code signing configuration&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newCodeSigningConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679289451"><span id="local-6989586621679289452"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeSigningConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-var">CodeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSigningConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-var">CodeSigningConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679294289"><span id="local-6989586621679294290"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeSigningConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-var">CodeSigningConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeSigningConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-var">CodeSigningConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Code signing configuration description.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Adescription%3ACodeSigningConfig%27"><span class="annot"><span class="annottext">CodeSigningConfig -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3Adescription%3ACodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AlastModified%3ACodeSigningConfig%27"><span class="annot"><span class="annottext">CodeSigningConfig -&gt; Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AlastModified%3ACodeSigningConfig%27"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289440"><span id="local-6989586621679289442"><span class="annot"><span class="annottext">CodeSigningConfig -&gt; CodeSigningConfig -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294278"><span id="local-6989586621679294280"><span class="annot"><span class="annottext">CodeSigningConfig -&gt; CodeSigningConfig -&gt; Bool
 (CodeSigningConfig -&gt; CodeSigningConfig -&gt; Bool)
 -&gt; (CodeSigningConfig -&gt; CodeSigningConfig -&gt; Bool)
 -&gt; Eq CodeSigningConfig
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CodeSigningConfig -&gt; CodeSigningConfig -&gt; Bool
 == :: CodeSigningConfig -&gt; CodeSigningConfig -&gt; Bool
 $c== :: CodeSigningConfig -&gt; CodeSigningConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289431"><span id="local-6989586621679289433"><span id="local-6989586621679289435"><span id="local-6989586621679289437"><span class="annot"><span class="annottext">ReadPrec [CodeSigningConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294269"><span id="local-6989586621679294271"><span id="local-6989586621679294273"><span id="local-6989586621679294275"><span class="annot"><span class="annottext">ReadPrec [CodeSigningConfig]
 ReadPrec CodeSigningConfig
 Int -&gt; ReadS CodeSigningConfig
 ReadS [CodeSigningConfig]
@@ -80,7 +80,7 @@ readList :: ReadS [CodeSigningConfig]
 $creadList :: ReadS [CodeSigningConfig]
 readsPrec :: Int -&gt; ReadS CodeSigningConfig
 $creadsPrec :: Int -&gt; ReadS CodeSigningConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289424"><span id="local-6989586621679289426"><span id="local-6989586621679289428"><span class="annot"><span class="annottext">Int -&gt; CodeSigningConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294262"><span id="local-6989586621679294264"><span id="local-6989586621679294266"><span class="annot"><span class="annottext">Int -&gt; CodeSigningConfig -&gt; ShowS
 [CodeSigningConfig] -&gt; ShowS
 CodeSigningConfig -&gt; String
 (Int -&gt; CodeSigningConfig -&gt; ShowS)
@@ -146,16 +146,16 @@ $cfrom :: forall x. CodeSigningConfig -&gt; Rep CodeSigningConfig x
 -&gt; Text
 -&gt; CodeSigningConfig
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#newCodeSigningConfig"><span class="hs-identifier hs-var hs-var">newCodeSigningConfig</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679289418"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289418"><span class="hs-identifier hs-var">pCodeSigningConfigId_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679289417"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289417"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679289416"><span class="annot"><span class="annottext">AllowedPublishers
-</span><a href="#local-6989586621679289416"><span class="hs-identifier hs-var">pAllowedPublishers_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679289415"><span class="annot"><span class="annottext">CodeSigningPolicies
-</span><a href="#local-6989586621679289415"><span class="hs-identifier hs-var">pCodeSigningPolicies_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679289414"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289414"><span class="hs-identifier hs-var">pLastModified_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679294256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294256"><span class="hs-identifier hs-var">pCodeSigningConfigId_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679294255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294255"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679294254"><span class="annot"><span class="annottext">AllowedPublishers
+</span><a href="#local-6989586621679294254"><span class="hs-identifier hs-var">pAllowedPublishers_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679294253"><span class="annot"><span class="annottext">CodeSigningPolicies
+</span><a href="#local-6989586621679294253"><span class="hs-identifier hs-var">pCodeSigningPolicies_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679294252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294252"><span class="hs-identifier hs-var">pLastModified_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">CodeSigningConfig' :: Maybe Text
 -&gt; Text
 -&gt; Text
@@ -170,19 +170,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeSigningConfigId:CodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AcodeSigningConfigId%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289418"><span class="hs-identifier hs-var">pCodeSigningConfigId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294256"><span class="hs-identifier hs-var">pCodeSigningConfigId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:CodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289417"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294255"><span class="hs-identifier hs-var">pCodeSigningConfigArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:allowedPublishers:CodeSigningConfig' :: AllowedPublishers
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AallowedPublishers%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AllowedPublishers
-</span><a href="#local-6989586621679289416"><span class="hs-identifier hs-var">pAllowedPublishers_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294254"><span class="hs-identifier hs-var">pAllowedPublishers_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:codeSigningPolicies:CodeSigningConfig' :: CodeSigningPolicies
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AcodeSigningPolicies%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CodeSigningPolicies
-</span><a href="#local-6989586621679289415"><span class="hs-identifier hs-var">pCodeSigningPolicies_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294253"><span class="hs-identifier hs-var">pCodeSigningPolicies_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModified:CodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AlastModified%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289414"><span class="hs-identifier hs-var">pLastModified_</span></a></span><span>
+</span><a href="#local-6989586621679294252"><span class="hs-identifier hs-var">pLastModified_</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Code signing configuration description.</span><span>
@@ -194,16 +194,16 @@ forall a. Maybe a
 -&gt; Lens
      CodeSigningConfig CodeSigningConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289410"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294248"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CodeSigningConfig' :: CodeSigningConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679289410"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289410"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289409"><span class="annot"><span class="annottext">s :: CodeSigningConfig
-</span><a href="#local-6989586621679289409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289408"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
-</span><a href="#local-6989586621679289409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CodeSigningConfig' :: Maybe Text
+</span><a href="#local-6989586621679294248"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294248"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294247"><span class="annot"><span class="annottext">s :: CodeSigningConfig
+</span><a href="#local-6989586621679294247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679294247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CodeSigningConfig' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3Adescription%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | Unique identifer for the Code signing configuration.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#codeSigningConfig_codeSigningConfigId"><span class="hs-identifier hs-type">codeSigningConfig_codeSigningConfigId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -212,16 +212,16 @@ $sel:description:CodeSigningConfig' :: CodeSigningConfig -&gt; Maybe Text
 -&gt; (CodeSigningConfig -&gt; Text -&gt; CodeSigningConfig)
 -&gt; Lens CodeSigningConfig CodeSigningConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289406"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294244"><span class="annot"><span class="annottext">Text
 codeSigningConfigId :: Text
 $sel:codeSigningConfigId:CodeSigningConfig' :: CodeSigningConfig -&gt; Text
-</span><a href="#local-6989586621679289406"><span class="hs-identifier hs-var hs-var">codeSigningConfigId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289406"><span class="hs-identifier hs-var">codeSigningConfigId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289405"><span class="annot"><span class="annottext">s :: CodeSigningConfig
-</span><a href="#local-6989586621679289405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
-</span><a href="#local-6989586621679289405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigId:CodeSigningConfig' :: Text
+</span><a href="#local-6989586621679294244"><span class="hs-identifier hs-var hs-var">codeSigningConfigId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294244"><span class="hs-identifier hs-var">codeSigningConfigId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294243"><span class="annot"><span class="annottext">s :: CodeSigningConfig
+</span><a href="#local-6989586621679294243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679294243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigId:CodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AcodeSigningConfigId%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Code signing configuration.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#codeSigningConfig_codeSigningConfigArn"><span class="hs-identifier hs-type">codeSigningConfig_codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -230,16 +230,16 @@ $sel:codeSigningConfigId:CodeSigningConfig' :: CodeSigningConfig -&gt; Text
 -&gt; (CodeSigningConfig -&gt; Text -&gt; CodeSigningConfig)
 -&gt; Lens CodeSigningConfig CodeSigningConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289402"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294240"><span class="annot"><span class="annottext">Text
 codeSigningConfigArn :: Text
 $sel:codeSigningConfigArn:CodeSigningConfig' :: CodeSigningConfig -&gt; Text
-</span><a href="#local-6989586621679289402"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289402"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289401"><span class="annot"><span class="annottext">s :: CodeSigningConfig
-</span><a href="#local-6989586621679289401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289400"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
-</span><a href="#local-6989586621679289401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:CodeSigningConfig' :: Text
+</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var hs-var">codeSigningConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294240"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294239"><span class="annot"><span class="annottext">s :: CodeSigningConfig
+</span><a href="#local-6989586621679294239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294238"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679294239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningConfigArn:CodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AcodeSigningConfigArn%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | List of allowed publishers.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#codeSigningConfig_allowedPublishers"><span class="hs-identifier hs-type">codeSigningConfig_allowedPublishers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.AllowedPublishers.html#AllowedPublishers"><span class="hs-identifier hs-type">AllowedPublishers</span></a></span><span>
@@ -253,16 +253,16 @@ $sel:codeSigningConfigArn:CodeSigningConfig' :: CodeSigningConfig -&gt; Text
      AllowedPublishers
      AllowedPublishers
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289398"><span class="annot"><span class="annottext">AllowedPublishers
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294236"><span class="annot"><span class="annottext">AllowedPublishers
 allowedPublishers :: AllowedPublishers
 $sel:allowedPublishers:CodeSigningConfig' :: CodeSigningConfig -&gt; AllowedPublishers
-</span><a href="#local-6989586621679289398"><span class="hs-identifier hs-var hs-var">allowedPublishers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPublishers
-</span><a href="#local-6989586621679289398"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289397"><span class="annot"><span class="annottext">s :: CodeSigningConfig
-</span><a href="#local-6989586621679289397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289396"><span class="annot"><span class="annottext">AllowedPublishers
-</span><a href="#local-6989586621679289396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
-</span><a href="#local-6989586621679289397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedPublishers:CodeSigningConfig' :: AllowedPublishers
+</span><a href="#local-6989586621679294236"><span class="hs-identifier hs-var hs-var">allowedPublishers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AllowedPublishers
+</span><a href="#local-6989586621679294236"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294235"><span class="annot"><span class="annottext">s :: CodeSigningConfig
+</span><a href="#local-6989586621679294235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294234"><span class="annot"><span class="annottext">AllowedPublishers
+</span><a href="#local-6989586621679294234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679294235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedPublishers:CodeSigningConfig' :: AllowedPublishers
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AallowedPublishers%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">allowedPublishers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AllowedPublishers
-</span><a href="#local-6989586621679289396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The code signing policy controls the validation failure action for</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- signature mismatch or expiry.</span><span>
@@ -277,16 +277,16 @@ $sel:allowedPublishers:CodeSigningConfig' :: CodeSigningConfig -&gt; AllowedPubl
      CodeSigningPolicies
      CodeSigningPolicies
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289394"><span class="annot"><span class="annottext">CodeSigningPolicies
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294232"><span class="annot"><span class="annottext">CodeSigningPolicies
 codeSigningPolicies :: CodeSigningPolicies
 $sel:codeSigningPolicies:CodeSigningConfig' :: CodeSigningConfig -&gt; CodeSigningPolicies
-</span><a href="#local-6989586621679289394"><span class="hs-identifier hs-var hs-var">codeSigningPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningPolicies
-</span><a href="#local-6989586621679289394"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289393"><span class="annot"><span class="annottext">s :: CodeSigningConfig
-</span><a href="#local-6989586621679289393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289392"><span class="annot"><span class="annottext">CodeSigningPolicies
-</span><a href="#local-6989586621679289392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
-</span><a href="#local-6989586621679289393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningPolicies:CodeSigningConfig' :: CodeSigningPolicies
+</span><a href="#local-6989586621679294232"><span class="hs-identifier hs-var hs-var">codeSigningPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningPolicies
+</span><a href="#local-6989586621679294232"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294231"><span class="annot"><span class="annottext">s :: CodeSigningConfig
+</span><a href="#local-6989586621679294231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294230"><span class="annot"><span class="annottext">CodeSigningPolicies
+</span><a href="#local-6989586621679294230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679294231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codeSigningPolicies:CodeSigningConfig' :: CodeSigningPolicies
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AcodeSigningPolicies%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">codeSigningPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CodeSigningPolicies
-</span><a href="#local-6989586621679289392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The date and time that the Code signing configuration was last modified,</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).</span><span>
@@ -296,19 +296,19 @@ $sel:codeSigningPolicies:CodeSigningConfig' :: CodeSigningConfig -&gt; CodeSigni
 -&gt; (CodeSigningConfig -&gt; Text -&gt; CodeSigningConfig)
 -&gt; Lens CodeSigningConfig CodeSigningConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289390"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294228"><span class="annot"><span class="annottext">Text
 lastModified :: Text
 $sel:lastModified:CodeSigningConfig' :: CodeSigningConfig -&gt; Text
-</span><a href="#local-6989586621679289390"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289390"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289389"><span class="annot"><span class="annottext">s :: CodeSigningConfig
-</span><a href="#local-6989586621679289389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289388"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
-</span><a href="#local-6989586621679289389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:CodeSigningConfig' :: Text
+</span><a href="#local-6989586621679294228"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294228"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294227"><span class="annot"><span class="annottext">s :: CodeSigningConfig
+</span><a href="#local-6989586621679294227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig%27"><span class="hs-identifier hs-type">CodeSigningConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeSigningConfig
+</span><a href="#local-6989586621679294227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:CodeSigningConfig' :: Text
 </span><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#%24sel%3AlastModified%3ACodeSigningConfig%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679289388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289385"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679289383"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeSigningConfig
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294223"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679294221"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeSigningConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CodeSigningConfig)
@@ -318,8 +318,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CodeSigningConfig&quot;</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289380"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289380"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294218"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Text
 -&gt; Text
@@ -345,7 +345,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; CodeSigningConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -365,7 +365,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; CodeSigningConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeSigningConfigId&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,7 +381,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; CodeSigningPolicies -&gt; Text -&gt; CodeSigningConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeSigningConfigArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -392,7 +392,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (CodeSigningPolicies -&gt; Text -&gt; CodeSigningConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AllowedPublishers
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AllowedPublishers
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedPublishers&quot;</span></span><span class="hs-special">)</span><span>
@@ -400,7 +400,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser CodeSigningPolicies -&gt; Parser (Text -&gt; CodeSigningConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CodeSigningPolicies
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CodeSigningPolicies
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodeSigningPolicies&quot;</span></span><span class="hs-special">)</span><span>
@@ -408,13 +408,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser CodeSigningConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289380"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679294218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModified&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289373"><span id="local-6989586621679289375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294211"><span id="local-6989586621679294213"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.CodeSigningConfig.html#CodeSigningConfig"><span class="hs-identifier hs-type">CodeSigningConfig</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

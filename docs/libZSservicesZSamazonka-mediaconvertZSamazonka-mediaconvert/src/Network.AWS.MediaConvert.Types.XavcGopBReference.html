@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-comment">-- pictures in the same GOP. Choose Allow (ENABLED) to allow the encoder to</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- use B-frames as reference frames. Choose Don\'t allow (DISABLED) to</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- prevent the encoder from using B-frames as reference frames.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680014576"><span id="local-6989586621680014577"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcGopBReference"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcGopBReference.html#XavcGopBReference"><span class="hs-identifier hs-var">XavcGopBReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcGopBReference%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcGopBReference.html#XavcGopBReference%27"><span class="hs-identifier hs-var">XavcGopBReference'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680019512"><span id="local-6989586621680019513"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcGopBReference"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcGopBReference.html#XavcGopBReference"><span class="hs-identifier hs-var">XavcGopBReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcGopBReference%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcGopBReference.html#XavcGopBReference%27"><span class="hs-identifier hs-var">XavcGopBReference'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcGopBReference"><span class="annot"><span class="annottext">XavcGopBReference -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.XavcGopBReference.html#fromXavcGopBReference"><span class="hs-identifier hs-var hs-var">fromXavcGopBReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014568"><span id="local-6989586621680014570"><span id="local-6989586621680014572"><span class="annot"><span class="annottext">Int -&gt; XavcGopBReference -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019504"><span id="local-6989586621680019506"><span id="local-6989586621680019508"><span class="annot"><span class="annottext">Int -&gt; XavcGopBReference -&gt; ShowS
 [XavcGopBReference] -&gt; ShowS
 XavcGopBReference -&gt; String
 (Int -&gt; XavcGopBReference -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: XavcGopBReference -&gt; String
 showsPrec :: Int -&gt; XavcGopBReference -&gt; ShowS
 $cshowsPrec :: Int -&gt; XavcGopBReference -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680014559"><span id="local-6989586621680014561"><span id="local-6989586621680014563"><span id="local-6989586621680014565"><span class="annot"><span class="annottext">ReadPrec [XavcGopBReference]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680019495"><span id="local-6989586621680019497"><span id="local-6989586621680019499"><span id="local-6989586621680019501"><span class="annot"><span class="annottext">ReadPrec [XavcGopBReference]
 ReadPrec XavcGopBReference
 Int -&gt; ReadS XavcGopBReference
 ReadS [XavcGopBReference]
@@ -76,7 +76,7 @@ $creadList :: ReadS [XavcGopBReference]
 readsPrec :: Int -&gt; ReadS XavcGopBReference
 $creadsPrec :: Int -&gt; ReadS XavcGopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680014554"><span id="local-6989586621680014556"><span class="annot"><span class="annottext">XavcGopBReference -&gt; XavcGopBReference -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680019490"><span id="local-6989586621680019492"><span class="annot"><span class="annottext">XavcGopBReference -&gt; XavcGopBReference -&gt; Bool
 (XavcGopBReference -&gt; XavcGopBReference -&gt; Bool)
 -&gt; (XavcGopBReference -&gt; XavcGopBReference -&gt; Bool)
 -&gt; Eq XavcGopBReference
@@ -86,7 +86,7 @@ $c/= :: XavcGopBReference -&gt; XavcGopBReference -&gt; Bool
 == :: XavcGopBReference -&gt; XavcGopBReference -&gt; Bool
 $c== :: XavcGopBReference -&gt; XavcGopBReference -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680014538"><span id="local-6989586621680014540"><span id="local-6989586621680014542"><span id="local-6989586621680014544"><span id="local-6989586621680014546"><span id="local-6989586621680014548"><span id="local-6989586621680014550"><span class="annot"><span class="annottext">Eq XavcGopBReference
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680019474"><span id="local-6989586621680019476"><span id="local-6989586621680019478"><span id="local-6989586621680019480"><span id="local-6989586621680019482"><span id="local-6989586621680019484"><span id="local-6989586621680019486"><span class="annot"><span class="annottext">Eq XavcGopBReference
 Eq XavcGopBReference
 -&gt; (XavcGopBReference -&gt; XavcGopBReference -&gt; Ordering)
 -&gt; (XavcGopBReference -&gt; XavcGopBReference -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. XavcGopBReference -&gt; Rep XavcGopBReference x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014530"><span id="local-6989586621680014532"><span class="annot"><span class="annottext">Int -&gt; XavcGopBReference -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019466"><span id="local-6989586621680019468"><span class="annot"><span class="annottext">Int -&gt; XavcGopBReference -&gt; Int
 XavcGopBReference -&gt; Int
 (Int -&gt; XavcGopBReference -&gt; Int)
 -&gt; (XavcGopBReference -&gt; Int) -&gt; Hashable XavcGopBReference
@@ -147,51 +147,51 @@ $chash :: XavcGopBReference -&gt; Int
 hashWithSalt :: Int -&gt; XavcGopBReference -&gt; Int
 $chashWithSalt :: Int -&gt; XavcGopBReference -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680014527"><span class="annot"><span class="annottext">XavcGopBReference -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680019463"><span class="annot"><span class="annottext">XavcGopBReference -&gt; ()
 (XavcGopBReference -&gt; ()) -&gt; NFData XavcGopBReference
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: XavcGopBReference -&gt; ()
 $crnf :: XavcGopBReference -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680014524"><span class="annot"><span class="annottext">Text -&gt; Either String XavcGopBReference
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680019460"><span class="annot"><span class="annottext">Text -&gt; Either String XavcGopBReference
 (Text -&gt; Either String XavcGopBReference)
 -&gt; FromText XavcGopBReference
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String XavcGopBReference
 $cfromText :: Text -&gt; Either String XavcGopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680014521"><span class="annot"><span class="annottext">XavcGopBReference -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680019457"><span class="annot"><span class="annottext">XavcGopBReference -&gt; Text
 (XavcGopBReference -&gt; Text) -&gt; ToText XavcGopBReference
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: XavcGopBReference -&gt; Text
 $ctoText :: XavcGopBReference -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680014518"><span class="annot"><span class="annottext">XavcGopBReference -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680019454"><span class="annot"><span class="annottext">XavcGopBReference -&gt; ByteString
 (XavcGopBReference -&gt; ByteString) -&gt; ToByteString XavcGopBReference
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: XavcGopBReference -&gt; ByteString
 $ctoBS :: XavcGopBReference -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680014515"><span class="annot"><span class="annottext">XavcGopBReference -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680019451"><span class="annot"><span class="annottext">XavcGopBReference -&gt; ByteStringBuilder
 (XavcGopBReference -&gt; ByteStringBuilder) -&gt; ToLog XavcGopBReference
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: XavcGopBReference -&gt; ByteStringBuilder
 $cbuild :: XavcGopBReference -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680014512"><span class="annot"><span class="annottext">HeaderName -&gt; XavcGopBReference -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680019448"><span class="annot"><span class="annottext">HeaderName -&gt; XavcGopBReference -&gt; [Header]
 (HeaderName -&gt; XavcGopBReference -&gt; [Header])
 -&gt; ToHeader XavcGopBReference
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; XavcGopBReference -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; XavcGopBReference -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680014509"><span class="annot"><span class="annottext">XavcGopBReference -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680019445"><span class="annot"><span class="annottext">XavcGopBReference -&gt; QueryString
 (XavcGopBReference -&gt; QueryString) -&gt; ToQuery XavcGopBReference
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: XavcGopBReference -&gt; QueryString
 $ctoQuery :: XavcGopBReference -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680014504"><span id="local-6989586621680014506"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcGopBReference]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680019440"><span id="local-6989586621680019442"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcGopBReference]
 Value -&gt; Parser XavcGopBReference
 (Value -&gt; Parser XavcGopBReference)
 -&gt; (Value -&gt; Parser [XavcGopBReference])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [XavcGopBReference]
 parseJSON :: Value -&gt; Parser XavcGopBReference
 $cparseJSON :: Value -&gt; Parser XavcGopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680014499"><span id="local-6989586621680014501"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcGopBReference]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680019435"><span id="local-6989586621680019437"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcGopBReference]
 FromJSONKeyFunction XavcGopBReference
 FromJSONKeyFunction XavcGopBReference
 -&gt; FromJSONKeyFunction [XavcGopBReference]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [XavcGopBReference]
 fromJSONKey :: FromJSONKeyFunction XavcGopBReference
 $cfromJSONKey :: FromJSONKeyFunction XavcGopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680014490"><span id="local-6989586621680014492"><span id="local-6989586621680014494"><span id="local-6989586621680014496"><span class="annot"><span class="annottext">[XavcGopBReference] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680019426"><span id="local-6989586621680019428"><span id="local-6989586621680019430"><span id="local-6989586621680019432"><span class="annot"><span class="annottext">[XavcGopBReference] -&gt; Encoding
 [XavcGopBReference] -&gt; Value
 XavcGopBReference -&gt; Encoding
 XavcGopBReference -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: XavcGopBReference -&gt; Encoding
 toJSON :: XavcGopBReference -&gt; Value
 $ctoJSON :: XavcGopBReference -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680014485"><span id="local-6989586621680014487"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcGopBReference]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680019421"><span id="local-6989586621680019423"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcGopBReference]
 ToJSONKeyFunction XavcGopBReference
 ToJSONKeyFunction XavcGopBReference
 -&gt; ToJSONKeyFunction [XavcGopBReference]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [XavcGopBReference]
 toJSONKey :: ToJSONKeyFunction XavcGopBReference
 $ctoJSONKey :: ToJSONKeyFunction XavcGopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680014482"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcGopBReference
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680019418"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcGopBReference
 ([Node] -&gt; Either String XavcGopBReference)
 -&gt; FromXML XavcGopBReference
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String XavcGopBReference
 $cparseXML :: [Node] -&gt; Either String XavcGopBReference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680014479"><span class="annot"><span class="annottext">XavcGopBReference -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680019415"><span class="annot"><span class="annottext">XavcGopBReference -&gt; XML
 (XavcGopBReference -&gt; XML) -&gt; ToXML XavcGopBReference
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: XavcGopBReference -&gt; XML

@@ -94,7 +94,7 @@
 </span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | /See:/ 'newCreateDhcpOptions' smart constructor.</span><span>
-</span><span id="line-97"></span><span id="local-6989586621681262123"><span id="local-6989586621681262124"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDhcpOptions"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-var">CreateDhcpOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDhcpOptions%27"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-var">CreateDhcpOptions'</span></a></span></span><span>
+</span><span id="line-97"></span><span id="local-6989586621681298262"><span id="local-6989586621681298263"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDhcpOptions"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-var">CreateDhcpOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDhcpOptions%27"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-var">CreateDhcpOptions'</span></a></span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to assign to the DHCP option.</span><span>
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreateDhcpOptions%27"><span class="annot"><span class="annottext">CreateDhcpOptions -&gt; Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AtagSpecifications%3ACreateDhcpOptions%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -108,7 +108,7 @@
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AdhcpConfigurations%3ACreateDhcpOptions%27"><span class="annot"><span class="annottext">CreateDhcpOptions -&gt; [NewDhcpConfiguration]
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AdhcpConfigurations%3ACreateDhcpOptions%27"><span class="hs-identifier hs-var hs-var">dhcpConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.NewDhcpConfiguration.html#NewDhcpConfiguration"><span class="hs-identifier hs-type">NewDhcpConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681262115"><span id="local-6989586621681262117"><span class="annot"><span class="annottext">CreateDhcpOptions -&gt; CreateDhcpOptions -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681298254"><span id="local-6989586621681298256"><span class="annot"><span class="annottext">CreateDhcpOptions -&gt; CreateDhcpOptions -&gt; Bool
 (CreateDhcpOptions -&gt; CreateDhcpOptions -&gt; Bool)
 -&gt; (CreateDhcpOptions -&gt; CreateDhcpOptions -&gt; Bool)
 -&gt; Eq CreateDhcpOptions
@@ -117,7 +117,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDhcpOptions -&gt; CreateDhcpOptions -&gt; Bool
 == :: CreateDhcpOptions -&gt; CreateDhcpOptions -&gt; Bool
 $c== :: CreateDhcpOptions -&gt; CreateDhcpOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262106"><span id="local-6989586621681262108"><span id="local-6989586621681262110"><span id="local-6989586621681262112"><span class="annot"><span class="annottext">ReadPrec [CreateDhcpOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681298245"><span id="local-6989586621681298247"><span id="local-6989586621681298249"><span id="local-6989586621681298251"><span class="annot"><span class="annottext">ReadPrec [CreateDhcpOptions]
 ReadPrec CreateDhcpOptions
 Int -&gt; ReadS CreateDhcpOptions
 ReadS [CreateDhcpOptions]
@@ -137,7 +137,7 @@ readList :: ReadS [CreateDhcpOptions]
 $creadList :: ReadS [CreateDhcpOptions]
 readsPrec :: Int -&gt; ReadS CreateDhcpOptions
 $creadsPrec :: Int -&gt; ReadS CreateDhcpOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262099"><span id="local-6989586621681262101"><span id="local-6989586621681262103"><span class="annot"><span class="annottext">Int -&gt; CreateDhcpOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681298238"><span id="local-6989586621681298240"><span id="local-6989586621681298242"><span class="annot"><span class="annottext">Int -&gt; CreateDhcpOptions -&gt; ShowS
 [CreateDhcpOptions] -&gt; ShowS
 CreateDhcpOptions -&gt; String
 (Int -&gt; CreateDhcpOptions -&gt; ShowS)
@@ -214,16 +214,16 @@ forall a. Monoid a =&gt; a
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262092"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681298231"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:CreateDhcpOptions' :: CreateDhcpOptions -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681262092"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681262092"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262091"><span class="annot"><span class="annottext">s :: CreateDhcpOptions
-</span><a href="#local-6989586621681262091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262090"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681262090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptions
-</span><a href="#local-6989586621681262091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateDhcpOptions' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681298231"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681298231"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681298230"><span class="annot"><span class="annottext">s :: CreateDhcpOptions
+</span><a href="#local-6989586621681298230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681298229"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681298229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptions
+</span><a href="#local-6989586621681298230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateDhcpOptions' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AtagSpecifications%3ACreateDhcpOptions%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681262090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681298229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; CreateDhcpOptions -&gt; f CreateDhcpOptions)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -249,8 +249,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TagSpecification]
   [TagSpecification]
   [TagSpecification]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -264,16 +264,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      CreateDhcpOptions CreateDhcpOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262086"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681298225"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:CreateDhcpOptions' :: CreateDhcpOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681262086"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262086"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262085"><span class="annot"><span class="annottext">s :: CreateDhcpOptions
-</span><a href="#local-6989586621681262085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262084"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptions
-</span><a href="#local-6989586621681262085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateDhcpOptions' :: Maybe Bool
+</span><a href="#local-6989586621681298225"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681298225"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681298224"><span class="annot"><span class="annottext">s :: CreateDhcpOptions
+</span><a href="#local-6989586621681298224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681298223"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681298223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptions
+</span><a href="#local-6989586621681298224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateDhcpOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AdryRun%3ACreateDhcpOptions%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681298223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A DHCP configuration option.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#createDhcpOptions_dhcpConfigurations"><span class="hs-identifier hs-type">createDhcpOptions_dhcpConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.NewDhcpConfiguration.html#NewDhcpConfiguration"><span class="hs-identifier hs-type">NewDhcpConfiguration</span></a></span><span class="hs-special">]</span><span>
@@ -288,16 +288,16 @@ $sel:dryRun:CreateDhcpOptions' :: CreateDhcpOptions -&gt; Maybe Bool
      [NewDhcpConfiguration]
      [NewDhcpConfiguration]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262083"><span class="annot"><span class="annottext">[NewDhcpConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681298222"><span class="annot"><span class="annottext">[NewDhcpConfiguration]
 dhcpConfigurations :: [NewDhcpConfiguration]
 $sel:dhcpConfigurations:CreateDhcpOptions' :: CreateDhcpOptions -&gt; [NewDhcpConfiguration]
-</span><a href="#local-6989586621681262083"><span class="hs-identifier hs-var hs-var">dhcpConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[NewDhcpConfiguration]
-</span><a href="#local-6989586621681262083"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262082"><span class="annot"><span class="annottext">s :: CreateDhcpOptions
-</span><a href="#local-6989586621681262082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262081"><span class="annot"><span class="annottext">[NewDhcpConfiguration]
-</span><a href="#local-6989586621681262081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptions
-</span><a href="#local-6989586621681262082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpConfigurations:CreateDhcpOptions' :: [NewDhcpConfiguration]
+</span><a href="#local-6989586621681298222"><span class="hs-identifier hs-var hs-var">dhcpConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[NewDhcpConfiguration]
+</span><a href="#local-6989586621681298222"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681298221"><span class="annot"><span class="annottext">s :: CreateDhcpOptions
+</span><a href="#local-6989586621681298221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681298220"><span class="annot"><span class="annottext">[NewDhcpConfiguration]
+</span><a href="#local-6989586621681298220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptions
+</span><a href="#local-6989586621681298221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpConfigurations:CreateDhcpOptions' :: [NewDhcpConfiguration]
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AdhcpConfigurations%3ACreateDhcpOptions%27"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[NewDhcpConfiguration]
-</span><a href="#local-6989586621681262081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([NewDhcpConfiguration] -&gt; f [NewDhcpConfiguration])
+</span><a href="#local-6989586621681298220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([NewDhcpConfiguration] -&gt; f [NewDhcpConfiguration])
  -&gt; CreateDhcpOptions -&gt; f CreateDhcpOptions)
 -&gt; (([NewDhcpConfiguration] -&gt; f [NewDhcpConfiguration])
     -&gt; [NewDhcpConfiguration] -&gt; f [NewDhcpConfiguration])
@@ -307,19 +307,19 @@ $sel:dhcpConfigurations:CreateDhcpOptions' :: CreateDhcpOptions -&gt; [NewDhcpCo
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([NewDhcpConfiguration] -&gt; f [NewDhcpConfiguration])
 -&gt; [NewDhcpConfiguration] -&gt; f [NewDhcpConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621681262077"><span class="annot"><span class="annottext">request :: CreateDhcpOptions -&gt; Request CreateDhcpOptions
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681298216"><span class="annot"><span class="annottext">request :: CreateDhcpOptions -&gt; Request CreateDhcpOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDhcpOptions -&gt; Request CreateDhcpOptions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621681262073"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621681298212"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDhcpOptions
 -&gt; ClientResponse ClientBody
@@ -345,10 +345,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681262070"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262070"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681262069"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681262069"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681262068"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681262068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681298209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681298209"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681298208"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681298208"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681298207"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681298207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe DhcpOptions -&gt; Int -&gt; CreateDhcpOptionsResponse
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var">CreateDhcpOptionsResponse'</span></a></span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DhcpOptions -&gt; Int -&gt; CreateDhcpOptionsResponse)
@@ -356,7 +356,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateDhcpOptionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681262068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DhcpOptions)
+</span><a href="#local-6989586621681298207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DhcpOptions)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dhcpOptions&quot;</span></span><span class="hs-special">)</span><span>
@@ -368,15 +368,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262070"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681298209"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262060"><span id="local-6989586621681262062"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681298199"><span id="local-6989586621681298201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681298196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621681262053"><span class="annot"><span class="annottext">toHeaders :: CreateDhcpOptions -&gt; ResponseHeaders
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621681298192"><span class="annot"><span class="annottext">toHeaders :: CreateDhcpOptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDhcpOptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -384,15 +384,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621681262048"><span class="annot"><span class="annottext">toPath :: CreateDhcpOptions -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621681298187"><span class="annot"><span class="annottext">toPath :: CreateDhcpOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDhcpOptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions"><span class="hs-identifier hs-type">CreateDhcpOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621681262044"><span class="annot"><span class="annottext">toQuery :: CreateDhcpOptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262040"><span id="local-6989586621681262041"><span id="local-6989586621681262042"><span class="annot"><span class="annottext">[NewDhcpConfiguration]
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621681298183"><span class="annot"><span class="annottext">toQuery :: CreateDhcpOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptions%27"><span class="hs-identifier hs-type">CreateDhcpOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681298179"><span id="local-6989586621681298180"><span id="local-6989586621681298181"><span class="annot"><span class="annottext">[NewDhcpConfiguration]
 Maybe Bool
 Maybe [TagSpecification]
 dhcpConfigurations :: [NewDhcpConfiguration]
@@ -401,7 +401,7 @@ tagSpecifications :: Maybe [TagSpecification]
 $sel:dhcpConfigurations:CreateDhcpOptions' :: CreateDhcpOptions -&gt; [NewDhcpConfiguration]
 $sel:dryRun:CreateDhcpOptions' :: CreateDhcpOptions -&gt; Maybe Bool
 $sel:tagSpecifications:CreateDhcpOptions' :: CreateDhcpOptions -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681262040"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681298179"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -430,13 +430,13 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681262042"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681298181"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262041"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681298180"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [NewDhcpConfiguration] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
@@ -445,11 +445,11 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DhcpConfiguration&quot;</span></span><span>
 </span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">[NewDhcpConfiguration]
-</span><a href="#local-6989586621681262040"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span>
+</span><a href="#local-6989586621681298179"><span class="hs-identifier hs-var">dhcpConfigurations</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newCreateDhcpOptionsResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621681262036"><span id="local-6989586621681262037"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDhcpOptionsResponse"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-var">CreateDhcpOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDhcpOptionsResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var">CreateDhcpOptionsResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621681298175"><span id="local-6989586621681298176"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDhcpOptionsResponse"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-var">CreateDhcpOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDhcpOptionsResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var">CreateDhcpOptionsResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of DHCP options.</span><span>
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AdhcpOptions%3ACreateDhcpOptionsResponse%27"><span class="annot"><span class="annottext">CreateDhcpOptionsResponse -&gt; Maybe DhcpOptions
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AdhcpOptions%3ACreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var hs-var">dhcpOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DhcpOptions.html#DhcpOptions"><span class="hs-identifier hs-type">DhcpOptions</span></a></span><span class="hs-special">,</span><span>
@@ -457,7 +457,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDhcpOptionsResponse%27"><span class="annot"><span class="annottext">CreateDhcpOptionsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AhttpStatus%3ACreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681262030"><span id="local-6989586621681262032"><span class="annot"><span class="annottext">CreateDhcpOptionsResponse -&gt; CreateDhcpOptionsResponse -&gt; Bool
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681298169"><span id="local-6989586621681298171"><span class="annot"><span class="annottext">CreateDhcpOptionsResponse -&gt; CreateDhcpOptionsResponse -&gt; Bool
 (CreateDhcpOptionsResponse -&gt; CreateDhcpOptionsResponse -&gt; Bool)
 -&gt; (CreateDhcpOptionsResponse -&gt; CreateDhcpOptionsResponse -&gt; Bool)
 -&gt; Eq CreateDhcpOptionsResponse
@@ -466,7 +466,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDhcpOptionsResponse -&gt; CreateDhcpOptionsResponse -&gt; Bool
 == :: CreateDhcpOptionsResponse -&gt; CreateDhcpOptionsResponse -&gt; Bool
 $c== :: CreateDhcpOptionsResponse -&gt; CreateDhcpOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262022"><span id="local-6989586621681262024"><span id="local-6989586621681262026"><span id="local-6989586621681262028"><span class="annot"><span class="annottext">ReadPrec [CreateDhcpOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681298161"><span id="local-6989586621681298163"><span id="local-6989586621681298165"><span id="local-6989586621681298167"><span class="annot"><span class="annottext">ReadPrec [CreateDhcpOptionsResponse]
 ReadPrec CreateDhcpOptionsResponse
 Int -&gt; ReadS CreateDhcpOptionsResponse
 ReadS [CreateDhcpOptionsResponse]
@@ -486,7 +486,7 @@ readList :: ReadS [CreateDhcpOptionsResponse]
 $creadList :: ReadS [CreateDhcpOptionsResponse]
 readsPrec :: Int -&gt; ReadS CreateDhcpOptionsResponse
 $creadsPrec :: Int -&gt; ReadS CreateDhcpOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262016"><span id="local-6989586621681262018"><span id="local-6989586621681262020"><span class="annot"><span class="annottext">Int -&gt; CreateDhcpOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681298155"><span id="local-6989586621681298157"><span id="local-6989586621681298159"><span class="annot"><span class="annottext">Int -&gt; CreateDhcpOptionsResponse -&gt; ShowS
 [CreateDhcpOptionsResponse] -&gt; ShowS
 CreateDhcpOptionsResponse -&gt; String
 (Int -&gt; CreateDhcpOptionsResponse -&gt; ShowS)
@@ -534,8 +534,8 @@ CreateDhcpOptionsResponse -&gt; Rep CreateDhcpOptionsResponse x
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span><span>
 </span><span id="line-215"></span><span id="newCreateDhcpOptionsResponse"><span class="annot"><span class="annottext">newCreateDhcpOptionsResponse :: Int -&gt; CreateDhcpOptionsResponse
-</span><a href="Network.AWS.EC2.CreateDhcpOptions.html#newCreateDhcpOptionsResponse"><span class="hs-identifier hs-var hs-var">newCreateDhcpOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621681262013"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262013"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateDhcpOptions.html#newCreateDhcpOptionsResponse"><span class="hs-identifier hs-var hs-var">newCreateDhcpOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621681298152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681298152"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">CreateDhcpOptionsResponse' :: Maybe DhcpOptions -&gt; Int -&gt; CreateDhcpOptionsResponse
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dhcpOptions:CreateDhcpOptionsResponse' :: Maybe DhcpOptions
@@ -545,7 +545,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDhcpOptionsResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AhttpStatus%3ACreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262013"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681298152"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | A set of DHCP options.</span><span>
@@ -561,16 +561,16 @@ forall a. Maybe a
      (Maybe DhcpOptions)
      (Maybe DhcpOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262012"><span class="annot"><span class="annottext">Maybe DhcpOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681298151"><span class="annot"><span class="annottext">Maybe DhcpOptions
 dhcpOptions :: Maybe DhcpOptions
 $sel:dhcpOptions:CreateDhcpOptionsResponse' :: CreateDhcpOptionsResponse -&gt; Maybe DhcpOptions
-</span><a href="#local-6989586621681262012"><span class="hs-identifier hs-var hs-var">dhcpOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DhcpOptions
-</span><a href="#local-6989586621681262012"><span class="hs-identifier hs-var">dhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262011"><span class="annot"><span class="annottext">s :: CreateDhcpOptionsResponse
-</span><a href="#local-6989586621681262011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262010"><span class="annot"><span class="annottext">Maybe DhcpOptions
-</span><a href="#local-6989586621681262010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptionsResponse
-</span><a href="#local-6989586621681262011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpOptions:CreateDhcpOptionsResponse' :: Maybe DhcpOptions
+</span><a href="#local-6989586621681298151"><span class="hs-identifier hs-var hs-var">dhcpOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DhcpOptions
+</span><a href="#local-6989586621681298151"><span class="hs-identifier hs-var">dhcpOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681298150"><span class="annot"><span class="annottext">s :: CreateDhcpOptionsResponse
+</span><a href="#local-6989586621681298150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681298149"><span class="annot"><span class="annottext">Maybe DhcpOptions
+</span><a href="#local-6989586621681298149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptionsResponse
+</span><a href="#local-6989586621681298150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dhcpOptions:CreateDhcpOptionsResponse' :: Maybe DhcpOptions
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AdhcpOptions%3ACreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var">dhcpOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DhcpOptions
-</span><a href="#local-6989586621681262010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681298149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#createDhcpOptionsResponse_httpStatus"><span class="hs-identifier hs-type">createDhcpOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -580,16 +580,16 @@ $sel:dhcpOptions:CreateDhcpOptionsResponse' :: CreateDhcpOptionsResponse -&gt; M
 -&gt; (CreateDhcpOptionsResponse -&gt; Int -&gt; CreateDhcpOptionsResponse)
 -&gt; Lens CreateDhcpOptionsResponse CreateDhcpOptionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262009"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681298148"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDhcpOptionsResponse' :: CreateDhcpOptionsResponse -&gt; Int
-</span><a href="#local-6989586621681262009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262008"><span class="annot"><span class="annottext">s :: CreateDhcpOptionsResponse
-</span><a href="#local-6989586621681262008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptionsResponse
-</span><a href="#local-6989586621681262008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDhcpOptionsResponse' :: Int
+</span><a href="#local-6989586621681298148"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681298148"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681298147"><span class="annot"><span class="annottext">s :: CreateDhcpOptionsResponse
+</span><a href="#local-6989586621681298147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse%27"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681298146"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681298146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDhcpOptionsResponse
+</span><a href="#local-6989586621681298147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDhcpOptionsResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateDhcpOptions.html#%24sel%3AhttpStatus%3ACreateDhcpOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681298146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681298144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateDhcpOptions.html#CreateDhcpOptionsResponse"><span class="hs-identifier hs-type">CreateDhcpOptionsResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

@@ -61,22 +61,22 @@
 </span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-account.html AWS CLI&gt;</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newAccount' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679370011"><span id="local-6989586621679370012"></span></span><span class="hs-keyword">data</span><span> </span><span id="Account"><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-var">Account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Account%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-var">Account'</span></a></span></span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the API request limits configured for the current Account.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AthrottleSettings%3AAccount%27"><span class="annot"><span class="annottext">Account -&gt; Maybe ThrottleSettings
-</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AthrottleSettings%3AAccount%27"><span class="hs-identifier hs-var hs-var">throttleSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ThrottleSettings.html#ThrottleSettings"><span class="hs-identifier hs-type">ThrottleSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The version of the API keys used for the account.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AapiKeyVersion%3AAccount%27"><span class="annot"><span class="annottext">Account -&gt; Maybe Text
+</span><span id="line-64"></span><span id="local-6989586621679370521"><span id="local-6989586621679370522"></span></span><span class="hs-keyword">data</span><span> </span><span id="Account"><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-var">Account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Account%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-var">Account'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the API keys used for the account.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AapiKeyVersion%3AAccount%27"><span class="annot"><span class="annottext">Account -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AapiKeyVersion%3AAccount%27"><span class="hs-identifier hs-var hs-var">apiKeyVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ARN of an Amazon CloudWatch role for the current Account.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="annot"><span class="annottext">Account -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="hs-identifier hs-var hs-var">cloudwatchRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | A list of features supported for the account. When usage plans are</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- enabled, the features list will include an entry of @\&quot;UsagePlans\&quot;@.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Afeatures%3AAccount%27"><span class="annot"><span class="annottext">Account -&gt; Maybe [Text]
 </span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3Afeatures%3AAccount%27"><span class="hs-identifier hs-var hs-var">features</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The ARN of an Amazon CloudWatch role for the current Account.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="annot"><span class="annottext">Account -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="hs-identifier hs-var hs-var">cloudwatchRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Specifies the API request limits configured for the current Account.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AthrottleSettings%3AAccount%27"><span class="annot"><span class="annottext">Account -&gt; Maybe ThrottleSettings
+</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AthrottleSettings%3AAccount%27"><span class="hs-identifier hs-var hs-var">throttleSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ThrottleSettings.html#ThrottleSettings"><span class="hs-identifier hs-type">ThrottleSettings</span></a></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370002"><span id="local-6989586621679370004"><span class="annot"><span class="annottext">Account -&gt; Account -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370512"><span id="local-6989586621679370514"><span class="annot"><span class="annottext">Account -&gt; Account -&gt; Bool
 (Account -&gt; Account -&gt; Bool)
 -&gt; (Account -&gt; Account -&gt; Bool) -&gt; Eq Account
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Account -&gt; Account -&gt; Bool
 == :: Account -&gt; Account -&gt; Bool
 $c== :: Account -&gt; Account -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369993"><span id="local-6989586621679369995"><span id="local-6989586621679369997"><span id="local-6989586621679369999"><span class="annot"><span class="annottext">ReadPrec [Account]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370503"><span id="local-6989586621679370505"><span id="local-6989586621679370507"><span id="local-6989586621679370509"><span class="annot"><span class="annottext">ReadPrec [Account]
 ReadPrec Account
 Int -&gt; ReadS Account
 ReadS [Account]
@@ -104,7 +104,7 @@ readList :: ReadS [Account]
 $creadList :: ReadS [Account]
 readsPrec :: Int -&gt; ReadS Account
 $creadsPrec :: Int -&gt; ReadS Account
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369986"><span id="local-6989586621679369988"><span id="local-6989586621679369990"><span class="annot"><span class="annottext">Int -&gt; Account -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370496"><span id="local-6989586621679370498"><span id="local-6989586621679370500"><span class="annot"><span class="annottext">Int -&gt; Account -&gt; ShowS
 [Account] -&gt; ShowS
 Account -&gt; String
 (Int -&gt; Account -&gt; ShowS)
@@ -135,76 +135,74 @@ $cfrom :: forall x. Account -&gt; Rep Account x
 </span><span id="line-82"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'throttleSettings', 'account_throttleSettings' - Specifies the API request limits configured for the current Account.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'apiKeyVersion', 'account_apiKeyVersion' - The version of the API keys used for the account.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'apiKeyVersion', 'account_apiKeyVersion' - The version of the API keys used for the account.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'cloudwatchRoleArn', 'account_cloudwatchRoleArn' - The ARN of an Amazon CloudWatch role for the current Account.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'features', 'account_features' - A list of features supported for the account. When usage plans are</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- enabled, the features list will include an entry of @\&quot;UsagePlans\&quot;@.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'cloudwatchRoleArn', 'account_cloudwatchRoleArn' - The ARN of an Amazon CloudWatch role for the current Account.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'throttleSettings', 'account_throttleSettings' - Specifies the API request limits configured for the current Account.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#newAccount"><span class="hs-identifier hs-type">newAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span>
 </span><span id="line-95"></span><span id="newAccount"><span class="annot"><span class="annottext">newAccount :: Account
 </span><a href="Network.AWS.APIGateway.Types.Account.html#newAccount"><span class="hs-identifier hs-var hs-var">newAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">Account' :: Maybe ThrottleSettings
--&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Account
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">Account' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe ThrottleSettings -&gt; Account
 </span><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:throttleSettings:Account' :: Maybe ThrottleSettings
-</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AthrottleSettings%3AAccount%27"><span class="hs-identifier hs-var">throttleSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:apiKeyVersion:Account' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AapiKeyVersion%3AAccount%27"><span class="hs-identifier hs-var">apiKeyVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKeyVersion:Account' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AapiKeyVersion%3AAccount%27"><span class="hs-identifier hs-var">apiKeyVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudwatchRoleArn:Account' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="hs-identifier hs-var">cloudwatchRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:features:Account' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3Afeatures%3AAccount%27"><span class="hs-identifier hs-var">features</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudwatchRoleArn:Account' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="hs-identifier hs-var">cloudwatchRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:throttleSettings:Account' :: Maybe ThrottleSettings
+</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AthrottleSettings%3AAccount%27"><span class="hs-identifier hs-var">throttleSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | Specifies the API request limits configured for the current Account.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#account_throttleSettings"><span class="hs-identifier hs-type">account_throttleSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ThrottleSettings.html#ThrottleSettings"><span class="hs-identifier hs-type">ThrottleSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="account_throttleSettings"><span class="annot"><span class="annottext">account_throttleSettings :: (Maybe ThrottleSettings -&gt; f (Maybe ThrottleSettings))
--&gt; Account -&gt; f Account
-</span><a href="Network.AWS.APIGateway.Types.Account.html#account_throttleSettings"><span class="hs-identifier hs-var hs-var">account_throttleSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Account -&gt; Maybe ThrottleSettings)
--&gt; (Account -&gt; Maybe ThrottleSettings -&gt; Account)
--&gt; Lens
-     Account Account (Maybe ThrottleSettings) (Maybe ThrottleSettings)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369977"><span class="annot"><span class="annottext">Maybe ThrottleSettings
-throttleSettings :: Maybe ThrottleSettings
-$sel:throttleSettings:Account' :: Account -&gt; Maybe ThrottleSettings
-</span><a href="#local-6989586621679369977"><span class="hs-identifier hs-var hs-var">throttleSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
-</span><a href="#local-6989586621679369977"><span class="hs-identifier hs-var">throttleSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369976"><span class="annot"><span class="annottext">s :: Account
-</span><a href="#local-6989586621679369976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369975"><span class="annot"><span class="annottext">Maybe ThrottleSettings
-</span><a href="#local-6989586621679369975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
-</span><a href="#local-6989586621679369976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throttleSettings:Account' :: Maybe ThrottleSettings
-</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AthrottleSettings%3AAccount%27"><span class="hs-identifier hs-var">throttleSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
-</span><a href="#local-6989586621679369975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The version of the API keys used for the account.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#account_apiKeyVersion"><span class="hs-identifier hs-type">account_apiKeyVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="account_apiKeyVersion"><span class="annot"><span class="annottext">account_apiKeyVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Account -&gt; f Account
+</span><span id="line-103"></span><span class="hs-comment">-- | The version of the API keys used for the account.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#account_apiKeyVersion"><span class="hs-identifier hs-type">account_apiKeyVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="account_apiKeyVersion"><span class="annot"><span class="annottext">account_apiKeyVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Account -&gt; f Account
 </span><a href="Network.AWS.APIGateway.Types.Account.html#account_apiKeyVersion"><span class="hs-identifier hs-var hs-var">account_apiKeyVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Account -&gt; Maybe Text)
 -&gt; (Account -&gt; Maybe Text -&gt; Account)
 -&gt; Lens Account Account (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369973"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370487"><span class="annot"><span class="annottext">Maybe Text
 apiKeyVersion :: Maybe Text
 $sel:apiKeyVersion:Account' :: Account -&gt; Maybe Text
-</span><a href="#local-6989586621679369973"><span class="hs-identifier hs-var hs-var">apiKeyVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369973"><span class="hs-identifier hs-var">apiKeyVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369972"><span class="annot"><span class="annottext">s :: Account
-</span><a href="#local-6989586621679369972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369971"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
-</span><a href="#local-6989586621679369972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyVersion:Account' :: Maybe Text
+</span><a href="#local-6989586621679370487"><span class="hs-identifier hs-var hs-var">apiKeyVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370487"><span class="hs-identifier hs-var">apiKeyVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370486"><span class="annot"><span class="annottext">s :: Account
+</span><a href="#local-6989586621679370486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370485"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
+</span><a href="#local-6989586621679370486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyVersion:Account' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AapiKeyVersion%3AAccount%27"><span class="hs-identifier hs-var">apiKeyVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The ARN of an Amazon CloudWatch role for the current Account.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#account_cloudwatchRoleArn"><span class="hs-identifier hs-type">account_cloudwatchRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="account_cloudwatchRoleArn"><span class="annot"><span class="annottext">account_cloudwatchRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Account -&gt; f Account
+</span><a href="Network.AWS.APIGateway.Types.Account.html#account_cloudwatchRoleArn"><span class="hs-identifier hs-var hs-var">account_cloudwatchRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Account -&gt; Maybe Text)
+-&gt; (Account -&gt; Maybe Text -&gt; Account)
+-&gt; Lens Account Account (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370483"><span class="annot"><span class="annottext">Maybe Text
+cloudwatchRoleArn :: Maybe Text
+$sel:cloudwatchRoleArn:Account' :: Account -&gt; Maybe Text
+</span><a href="#local-6989586621679370483"><span class="hs-identifier hs-var hs-var">cloudwatchRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370483"><span class="hs-identifier hs-var">cloudwatchRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370482"><span class="annot"><span class="annottext">s :: Account
+</span><a href="#local-6989586621679370482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370481"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
+</span><a href="#local-6989586621679370482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchRoleArn:Account' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="hs-identifier hs-var">cloudwatchRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679370481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | A list of features supported for the account. When usage plans are</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- enabled, the features list will include an entry of @\&quot;UsagePlans\&quot;@.</span><span>
@@ -214,16 +212,16 @@ $sel:apiKeyVersion:Account' :: Account -&gt; Maybe Text
 -&gt; (Account -&gt; Maybe [Text] -&gt; Account)
 -&gt; Lens Account Account (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369969"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370479"><span class="annot"><span class="annottext">Maybe [Text]
 features :: Maybe [Text]
 $sel:features:Account' :: Account -&gt; Maybe [Text]
-</span><a href="#local-6989586621679369969"><span class="hs-identifier hs-var hs-var">features</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679369969"><span class="hs-identifier hs-var">features</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369968"><span class="annot"><span class="annottext">s :: Account
-</span><a href="#local-6989586621679369968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369967"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679369967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
-</span><a href="#local-6989586621679369968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:features:Account' :: Maybe [Text]
+</span><a href="#local-6989586621679370479"><span class="hs-identifier hs-var hs-var">features</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370479"><span class="hs-identifier hs-var">features</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370478"><span class="annot"><span class="annottext">s :: Account
+</span><a href="#local-6989586621679370478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370477"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
+</span><a href="#local-6989586621679370478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:features:Account' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3Afeatures%3AAccount%27"><span class="hs-identifier hs-var">features</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679369967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Account -&gt; f Account)
+</span><a href="#local-6989586621679370477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Account -&gt; f Account)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -236,64 +234,69 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The ARN of an Amazon CloudWatch role for the current Account.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#account_cloudwatchRoleArn"><span class="hs-identifier hs-type">account_cloudwatchRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="account_cloudwatchRoleArn"><span class="annot"><span class="annottext">account_cloudwatchRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Account -&gt; f Account
-</span><a href="Network.AWS.APIGateway.Types.Account.html#account_cloudwatchRoleArn"><span class="hs-identifier hs-var hs-var">account_cloudwatchRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Account -&gt; Maybe Text)
--&gt; (Account -&gt; Maybe Text -&gt; Account)
--&gt; Lens Account Account (Maybe Text) (Maybe Text)
+</span><span id="line-116"></span><span class="hs-comment">-- | Specifies the API request limits configured for the current Account.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#account_throttleSettings"><span class="hs-identifier hs-type">account_throttleSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ThrottleSettings.html#ThrottleSettings"><span class="hs-identifier hs-type">ThrottleSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="account_throttleSettings"><span class="annot"><span class="annottext">account_throttleSettings :: (Maybe ThrottleSettings -&gt; f (Maybe ThrottleSettings))
+-&gt; Account -&gt; f Account
+</span><a href="Network.AWS.APIGateway.Types.Account.html#account_throttleSettings"><span class="hs-identifier hs-var hs-var">account_throttleSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Account -&gt; Maybe ThrottleSettings)
+-&gt; (Account -&gt; Maybe ThrottleSettings -&gt; Account)
+-&gt; Lens
+     Account Account (Maybe ThrottleSettings) (Maybe ThrottleSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369962"><span class="annot"><span class="annottext">Maybe Text
-cloudwatchRoleArn :: Maybe Text
-$sel:cloudwatchRoleArn:Account' :: Account -&gt; Maybe Text
-</span><a href="#local-6989586621679369962"><span class="hs-identifier hs-var hs-var">cloudwatchRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369962"><span class="hs-identifier hs-var">cloudwatchRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369961"><span class="annot"><span class="annottext">s :: Account
-</span><a href="#local-6989586621679369961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
-</span><a href="#local-6989586621679369961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchRoleArn:Account' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AcloudwatchRoleArn%3AAccount%27"><span class="hs-identifier hs-var">cloudwatchRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679369960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370472"><span class="annot"><span class="annottext">Maybe ThrottleSettings
+throttleSettings :: Maybe ThrottleSettings
+$sel:throttleSettings:Account' :: Account -&gt; Maybe ThrottleSettings
+</span><a href="#local-6989586621679370472"><span class="hs-identifier hs-var hs-var">throttleSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
+</span><a href="#local-6989586621679370472"><span class="hs-identifier hs-var">throttleSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370471"><span class="annot"><span class="annottext">s :: Account
+</span><a href="#local-6989586621679370471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-type">Account'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370470"><span class="annot"><span class="annottext">Maybe ThrottleSettings
+</span><a href="#local-6989586621679370470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Account
+</span><a href="#local-6989586621679370471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:throttleSettings:Account' :: Maybe ThrottleSettings
+</span><a href="Network.AWS.APIGateway.Types.Account.html#%24sel%3AthrottleSettings%3AAccount%27"><span class="hs-identifier hs-var">throttleSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
+</span><a href="#local-6989586621679370470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369957"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679369955"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Account
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370467"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679370465"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Account
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Account) -&gt; Value -&gt; Parser Account
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Account&quot;</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369952"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe ThrottleSettings
--&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Account
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370462"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe ThrottleSettings -&gt; Account
 </span><a href="Network.AWS.APIGateway.Types.Account.html#Account%27"><span class="hs-identifier hs-var">Account'</span></a></span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ThrottleSettings
- -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Account)
--&gt; Parser (Maybe ThrottleSettings)
--&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Account)
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Maybe ThrottleSettings -&gt; Account)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe [Text] -&gt; Maybe ThrottleSettings -&gt; Account)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ThrottleSettings)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;throttleSettings&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Account)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; Account)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;apiKeyVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; Account)
--&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; Account)
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe [Text] -&gt; Maybe ThrottleSettings -&gt; Account)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Text] -&gt; Maybe ThrottleSettings -&gt; Account)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cloudwatchRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe ThrottleSettings -&gt; Account)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe ThrottleSettings -&gt; Account)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;features&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -302,17 +305,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Account)
--&gt; Parser (Maybe Text) -&gt; Parser Account
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ThrottleSettings -&gt; Account)
+-&gt; Parser (Maybe ThrottleSettings) -&gt; Parser Account
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ThrottleSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cloudwatchRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;throttleSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369945"><span id="local-6989586621679369947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370455"><span id="local-6989586621679370457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Account.html#Account"><span class="hs-identifier hs-type">Account</span></a></span></span><span>
 </span><span id="line-135"></span></pre></body></html>

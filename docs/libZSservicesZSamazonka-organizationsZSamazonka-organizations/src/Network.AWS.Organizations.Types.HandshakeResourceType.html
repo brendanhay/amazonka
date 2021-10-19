@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679237498"><span id="local-6989586621679237499"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandshakeResourceType"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResourceType.html#HandshakeResourceType"><span class="hs-identifier hs-var">HandshakeResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeResourceType%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResourceType.html#HandshakeResourceType%27"><span class="hs-identifier hs-var">HandshakeResourceType'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679237617"><span id="local-6989586621679237618"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandshakeResourceType"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResourceType.html#HandshakeResourceType"><span class="hs-identifier hs-var">HandshakeResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeResourceType%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResourceType.html#HandshakeResourceType%27"><span class="hs-identifier hs-var">HandshakeResourceType'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHandshakeResourceType"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; Text
 </span><a href="Network.AWS.Organizations.Types.HandshakeResourceType.html#fromHandshakeResourceType"><span class="hs-identifier hs-var hs-var">fromHandshakeResourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237490"><span id="local-6989586621679237492"><span id="local-6989586621679237494"><span class="annot"><span class="annottext">Int -&gt; HandshakeResourceType -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237609"><span id="local-6989586621679237611"><span id="local-6989586621679237613"><span class="annot"><span class="annottext">Int -&gt; HandshakeResourceType -&gt; ShowS
 [HandshakeResourceType] -&gt; ShowS
 HandshakeResourceType -&gt; String
 (Int -&gt; HandshakeResourceType -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: HandshakeResourceType -&gt; String
 showsPrec :: Int -&gt; HandshakeResourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HandshakeResourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679237481"><span id="local-6989586621679237483"><span id="local-6989586621679237485"><span id="local-6989586621679237487"><span class="annot"><span class="annottext">ReadPrec [HandshakeResourceType]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679237600"><span id="local-6989586621679237602"><span id="local-6989586621679237604"><span id="local-6989586621679237606"><span class="annot"><span class="annottext">ReadPrec [HandshakeResourceType]
 ReadPrec HandshakeResourceType
 Int -&gt; ReadS HandshakeResourceType
 ReadS [HandshakeResourceType]
@@ -78,7 +78,7 @@ $creadList :: ReadS [HandshakeResourceType]
 readsPrec :: Int -&gt; ReadS HandshakeResourceType
 $creadsPrec :: Int -&gt; ReadS HandshakeResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679237476"><span id="local-6989586621679237478"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679237595"><span id="local-6989586621679237597"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool
 (HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool)
 -&gt; (HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool)
 -&gt; Eq HandshakeResourceType
@@ -88,7 +88,7 @@ $c/= :: HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool
 == :: HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool
 $c== :: HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237460"><span id="local-6989586621679237462"><span id="local-6989586621679237464"><span id="local-6989586621679237466"><span id="local-6989586621679237468"><span id="local-6989586621679237470"><span id="local-6989586621679237472"><span class="annot"><span class="annottext">Eq HandshakeResourceType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237579"><span id="local-6989586621679237581"><span id="local-6989586621679237583"><span id="local-6989586621679237585"><span id="local-6989586621679237587"><span id="local-6989586621679237589"><span id="local-6989586621679237591"><span class="annot"><span class="annottext">Eq HandshakeResourceType
 Eq HandshakeResourceType
 -&gt; (HandshakeResourceType -&gt; HandshakeResourceType -&gt; Ordering)
 -&gt; (HandshakeResourceType -&gt; HandshakeResourceType -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. HandshakeResourceType -&gt; Rep HandshakeResourceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237452"><span id="local-6989586621679237454"><span class="annot"><span class="annottext">Int -&gt; HandshakeResourceType -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237571"><span id="local-6989586621679237573"><span class="annot"><span class="annottext">Int -&gt; HandshakeResourceType -&gt; Int
 HandshakeResourceType -&gt; Int
 (Int -&gt; HandshakeResourceType -&gt; Int)
 -&gt; (HandshakeResourceType -&gt; Int) -&gt; Hashable HandshakeResourceType
@@ -156,54 +156,54 @@ $chash :: HandshakeResourceType -&gt; Int
 hashWithSalt :: Int -&gt; HandshakeResourceType -&gt; Int
 $chashWithSalt :: Int -&gt; HandshakeResourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237449"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237568"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; ()
 (HandshakeResourceType -&gt; ()) -&gt; NFData HandshakeResourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HandshakeResourceType -&gt; ()
 $crnf :: HandshakeResourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237446"><span class="annot"><span class="annottext">Text -&gt; Either String HandshakeResourceType
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237565"><span class="annot"><span class="annottext">Text -&gt; Either String HandshakeResourceType
 (Text -&gt; Either String HandshakeResourceType)
 -&gt; FromText HandshakeResourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HandshakeResourceType
 $cfromText :: Text -&gt; Either String HandshakeResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237443"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237562"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; Text
 (HandshakeResourceType -&gt; Text) -&gt; ToText HandshakeResourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HandshakeResourceType -&gt; Text
 $ctoText :: HandshakeResourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237440"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237559"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; ByteString
 (HandshakeResourceType -&gt; ByteString)
 -&gt; ToByteString HandshakeResourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HandshakeResourceType -&gt; ByteString
 $ctoBS :: HandshakeResourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237437"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237556"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; ByteStringBuilder
 (HandshakeResourceType -&gt; ByteStringBuilder)
 -&gt; ToLog HandshakeResourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HandshakeResourceType -&gt; ByteStringBuilder
 $cbuild :: HandshakeResourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237434"><span class="annot"><span class="annottext">HeaderName -&gt; HandshakeResourceType -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237553"><span class="annot"><span class="annottext">HeaderName -&gt; HandshakeResourceType -&gt; [Header]
 (HeaderName -&gt; HandshakeResourceType -&gt; [Header])
 -&gt; ToHeader HandshakeResourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HandshakeResourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HandshakeResourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237431"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237550"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; QueryString
 (HandshakeResourceType -&gt; QueryString)
 -&gt; ToQuery HandshakeResourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HandshakeResourceType -&gt; QueryString
 $ctoQuery :: HandshakeResourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237426"><span id="local-6989586621679237428"><span class="annot"><span class="annottext">Value -&gt; Parser [HandshakeResourceType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237545"><span id="local-6989586621679237547"><span class="annot"><span class="annottext">Value -&gt; Parser [HandshakeResourceType]
 Value -&gt; Parser HandshakeResourceType
 (Value -&gt; Parser HandshakeResourceType)
 -&gt; (Value -&gt; Parser [HandshakeResourceType])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [HandshakeResourceType]
 parseJSON :: Value -&gt; Parser HandshakeResourceType
 $cparseJSON :: Value -&gt; Parser HandshakeResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679237421"><span id="local-6989586621679237423"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandshakeResourceType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679237540"><span id="local-6989586621679237542"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandshakeResourceType]
 FromJSONKeyFunction HandshakeResourceType
 FromJSONKeyFunction HandshakeResourceType
 -&gt; FromJSONKeyFunction [HandshakeResourceType]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HandshakeResourceType]
 fromJSONKey :: FromJSONKeyFunction HandshakeResourceType
 $cfromJSONKey :: FromJSONKeyFunction HandshakeResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679237412"><span id="local-6989586621679237414"><span id="local-6989586621679237416"><span id="local-6989586621679237418"><span class="annot"><span class="annottext">[HandshakeResourceType] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679237531"><span id="local-6989586621679237533"><span id="local-6989586621679237535"><span id="local-6989586621679237537"><span class="annot"><span class="annottext">[HandshakeResourceType] -&gt; Encoding
 [HandshakeResourceType] -&gt; Value
 HandshakeResourceType -&gt; Encoding
 HandshakeResourceType -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: HandshakeResourceType -&gt; Encoding
 toJSON :: HandshakeResourceType -&gt; Value
 $ctoJSON :: HandshakeResourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679237407"><span id="local-6989586621679237409"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandshakeResourceType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679237526"><span id="local-6989586621679237528"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandshakeResourceType]
 ToJSONKeyFunction HandshakeResourceType
 ToJSONKeyFunction HandshakeResourceType
 -&gt; ToJSONKeyFunction [HandshakeResourceType]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HandshakeResourceType]
 toJSONKey :: ToJSONKeyFunction HandshakeResourceType
 $ctoJSONKey :: ToJSONKeyFunction HandshakeResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679237404"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandshakeResourceType
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679237523"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandshakeResourceType
 ([Node] -&gt; Either String HandshakeResourceType)
 -&gt; FromXML HandshakeResourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HandshakeResourceType
 $cparseXML :: [Node] -&gt; Either String HandshakeResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679237401"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679237520"><span class="annot"><span class="annottext">HandshakeResourceType -&gt; XML
 (HandshakeResourceType -&gt; XML) -&gt; ToXML HandshakeResourceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HandshakeResourceType -&gt; XML

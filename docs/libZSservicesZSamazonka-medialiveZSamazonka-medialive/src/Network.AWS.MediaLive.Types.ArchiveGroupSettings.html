@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Archive Group Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newArchiveGroupSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679908997"><span id="local-6989586621679908998"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-var">ArchiveGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-var">ArchiveGroupSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679916497"><span id="local-6989586621679916498"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveGroupSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-var">ArchiveGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveGroupSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-var">ArchiveGroupSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of seconds to write to archive file before closing and starting a</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- new one.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ArolloverInterval%3AArchiveGroupSettings%27"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; Maybe Natural
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679908989"><span id="local-6989586621679908991"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679916489"><span id="local-6989586621679916491"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
 (ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool)
 -&gt; (ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool)
 -&gt; Eq ArchiveGroupSettings
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
 == :: ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
 $c== :: ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908980"><span id="local-6989586621679908982"><span id="local-6989586621679908984"><span id="local-6989586621679908986"><span class="annot"><span class="annottext">ReadPrec [ArchiveGroupSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916480"><span id="local-6989586621679916482"><span id="local-6989586621679916484"><span id="local-6989586621679916486"><span class="annot"><span class="annottext">ReadPrec [ArchiveGroupSettings]
 ReadPrec ArchiveGroupSettings
 Int -&gt; ReadS ArchiveGroupSettings
 ReadS [ArchiveGroupSettings]
@@ -69,7 +69,7 @@ readList :: ReadS [ArchiveGroupSettings]
 $creadList :: ReadS [ArchiveGroupSettings]
 readsPrec :: Int -&gt; ReadS ArchiveGroupSettings
 $creadsPrec :: Int -&gt; ReadS ArchiveGroupSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908973"><span id="local-6989586621679908975"><span id="local-6989586621679908977"><span class="annot"><span class="annottext">Int -&gt; ArchiveGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916473"><span id="local-6989586621679916475"><span id="local-6989586621679916477"><span class="annot"><span class="annottext">Int -&gt; ArchiveGroupSettings -&gt; ShowS
 [ArchiveGroupSettings] -&gt; ShowS
 ArchiveGroupSettings -&gt; String
 (Int -&gt; ArchiveGroupSettings -&gt; ShowS)
@@ -114,8 +114,8 @@ $cfrom :: forall x. ArchiveGroupSettings -&gt; Rep ArchiveGroupSettings x
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span>
 </span><span id="line-60"></span><span id="newArchiveGroupSettings"><span class="annot"><span class="annottext">newArchiveGroupSettings :: OutputLocationRef -&gt; ArchiveGroupSettings
-</span><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#newArchiveGroupSettings"><span class="hs-identifier hs-var hs-var">newArchiveGroupSettings</span></a></span></span><span> </span><span id="local-6989586621679908967"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908967"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#newArchiveGroupSettings"><span class="hs-identifier hs-var hs-var">newArchiveGroupSettings</span></a></span></span><span> </span><span id="local-6989586621679916467"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916467"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ArchiveGroupSettings' :: Maybe Natural
 -&gt; Maybe ArchiveCdnSettings
 -&gt; OutputLocationRef
@@ -132,7 +132,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:ArchiveGroupSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908967"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><a href="#local-6989586621679916467"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Number of seconds to write to archive file before closing and starting a</span><span>
@@ -148,16 +148,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908963"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916463"><span class="annot"><span class="annottext">Maybe Natural
 rolloverInterval :: Maybe Natural
 $sel:rolloverInterval:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679908963"><span class="hs-identifier hs-var hs-var">rolloverInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679908963"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908962"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
-</span><a href="#local-6989586621679908962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908961"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679908961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
-</span><a href="#local-6989586621679908962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rolloverInterval:ArchiveGroupSettings' :: Maybe Natural
+</span><a href="#local-6989586621679916463"><span class="hs-identifier hs-var hs-var">rolloverInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679916463"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916462"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
+</span><a href="#local-6989586621679916462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916461"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679916461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
+</span><a href="#local-6989586621679916462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rolloverInterval:ArchiveGroupSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3ArolloverInterval%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679908961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Parameters that control interactions with the CDN.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_archiveCdnSettings"><span class="hs-identifier hs-type">archiveGroupSettings_archiveCdnSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span><span class="hs-special">)</span><span>
@@ -172,16 +172,16 @@ $sel:rolloverInterval:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe 
      (Maybe ArchiveCdnSettings)
      (Maybe ArchiveCdnSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908959"><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916459"><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
 archiveCdnSettings :: Maybe ArchiveCdnSettings
 $sel:archiveCdnSettings:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe ArchiveCdnSettings
-</span><a href="#local-6989586621679908959"><span class="hs-identifier hs-var hs-var">archiveCdnSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
-</span><a href="#local-6989586621679908959"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908958"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
-</span><a href="#local-6989586621679908958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908957"><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
-</span><a href="#local-6989586621679908957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
-</span><a href="#local-6989586621679908958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveCdnSettings:ArchiveGroupSettings' :: Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916459"><span class="hs-identifier hs-var hs-var">archiveCdnSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916459"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916458"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
+</span><a href="#local-6989586621679916458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916457"><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
+</span><a href="#local-6989586621679916458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveCdnSettings:ArchiveGroupSettings' :: Maybe ArchiveCdnSettings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3AarchiveCdnSettings%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
-</span><a href="#local-6989586621679908957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A directory and base filename where archive files should be written.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_destination"><span class="hs-identifier hs-type">archiveGroupSettings_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
@@ -196,19 +196,19 @@ $sel:archiveCdnSettings:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Mayb
      OutputLocationRef
      OutputLocationRef
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908955"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916455"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679908955"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908955"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908954"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
-</span><a href="#local-6989586621679908954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908953"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
-</span><a href="#local-6989586621679908954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:ArchiveGroupSettings' :: OutputLocationRef
+</span><a href="#local-6989586621679916455"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916455"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916454"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
+</span><a href="#local-6989586621679916454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916453"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
+</span><a href="#local-6989586621679916454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:ArchiveGroupSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908950"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679908948"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveGroupSettings
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916450"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679916448"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveGroupSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArchiveGroupSettings)
@@ -218,8 +218,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArchiveGroupSettings&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679908945"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908945"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679916445"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe ArchiveCdnSettings
 -&gt; OutputLocationRef
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; OutputLocationRef -&gt; ArchiveGroupSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679916445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rolloverInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -246,7 +246,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (OutputLocationRef -&gt; ArchiveGroupSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArchiveCdnSettings)
+</span><a href="#local-6989586621679916445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArchiveCdnSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;archiveCdnSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,19 +254,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser OutputLocationRef -&gt; Parser ArchiveGroupSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
+</span><a href="#local-6989586621679916445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908938"><span id="local-6989586621679908940"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916438"><span id="local-6989586621679916440"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908927"><span id="local-6989586621679908929"><span id="local-6989586621679908931"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679908925"><span class="annot"><span class="annottext">toJSON :: ArchiveGroupSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908921"><span id="local-6989586621679908922"><span id="local-6989586621679908923"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916427"><span id="local-6989586621679916429"><span id="local-6989586621679916431"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679916425"><span class="annot"><span class="annottext">toJSON :: ArchiveGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916421"><span id="local-6989586621679916422"><span id="local-6989586621679916423"><span class="annot"><span class="annottext">Maybe Natural
 Maybe ArchiveCdnSettings
 OutputLocationRef
 destination :: OutputLocationRef
@@ -275,7 +275,7 @@ rolloverInterval :: Maybe Natural
 $sel:destination:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; OutputLocationRef
 $sel:archiveCdnSettings:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe ArchiveCdnSettings
 $sel:rolloverInterval:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679908921"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679916421"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,7 +288,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679908923"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679916423"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;archiveCdnSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArchiveCdnSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -297,14 +297,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ArchiveCdnSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
-</span><a href="#local-6989586621679908922"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679916422"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputLocationRef -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679908921"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916421"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

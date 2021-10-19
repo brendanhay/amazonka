@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | The input for the SignalResource action.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newSignalResource' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679430150"><span id="local-6989586621679430151"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignalResource"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-var">SignalResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalResource%27"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-var">SignalResource'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679430565"><span id="local-6989586621679430566"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignalResource"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-var">SignalResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalResource%27"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-var">SignalResource'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stack name or unique stack ID that includes the resource that you</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- want to signal.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AstackName%3ASignalResource%27"><span class="annot"><span class="annottext">SignalResource -&gt; Text
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Astatus%3ASignalResource%27"><span class="annot"><span class="annottext">SignalResource -&gt; ResourceSignalStatus
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3Astatus%3ASignalResource%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus"><span class="hs-identifier hs-type">ResourceSignalStatus</span></a></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430141"><span id="local-6989586621679430143"><span class="annot"><span class="annottext">SignalResource -&gt; SignalResource -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430556"><span id="local-6989586621679430558"><span class="annot"><span class="annottext">SignalResource -&gt; SignalResource -&gt; Bool
 (SignalResource -&gt; SignalResource -&gt; Bool)
 -&gt; (SignalResource -&gt; SignalResource -&gt; Bool) -&gt; Eq SignalResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SignalResource -&gt; SignalResource -&gt; Bool
 == :: SignalResource -&gt; SignalResource -&gt; Bool
 $c== :: SignalResource -&gt; SignalResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430132"><span id="local-6989586621679430134"><span id="local-6989586621679430136"><span id="local-6989586621679430138"><span class="annot"><span class="annottext">ReadPrec [SignalResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430547"><span id="local-6989586621679430549"><span id="local-6989586621679430551"><span id="local-6989586621679430553"><span class="annot"><span class="annottext">ReadPrec [SignalResource]
 ReadPrec SignalResource
 Int -&gt; ReadS SignalResource
 ReadS [SignalResource]
@@ -103,7 +103,7 @@ readList :: ReadS [SignalResource]
 $creadList :: ReadS [SignalResource]
 readsPrec :: Int -&gt; ReadS SignalResource
 $creadsPrec :: Int -&gt; ReadS SignalResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430125"><span id="local-6989586621679430127"><span id="local-6989586621679430129"><span class="annot"><span class="annottext">Int -&gt; SignalResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430540"><span id="local-6989586621679430542"><span id="local-6989586621679430544"><span class="annot"><span class="annottext">Int -&gt; SignalResource -&gt; ShowS
 [SignalResource] -&gt; ShowS
 SignalResource -&gt; String
 (Int -&gt; SignalResource -&gt; ShowS)
@@ -163,28 +163,28 @@ $cfrom :: forall x. SignalResource -&gt; Rep SignalResource x
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span>
 </span><span id="line-108"></span><span id="newSignalResource"><span class="annot"><span class="annottext">newSignalResource :: Text -&gt; Text -&gt; Text -&gt; ResourceSignalStatus -&gt; SignalResource
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#newSignalResource"><span class="hs-identifier hs-var hs-var">newSignalResource</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679430120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430120"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679430119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430119"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679430118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430118"><span class="hs-identifier hs-var">pUniqueId_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679430117"><span class="annot"><span class="annottext">ResourceSignalStatus
-</span><a href="#local-6989586621679430117"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679430535"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430535"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679430534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430534"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679430533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430533"><span class="hs-identifier hs-var">pUniqueId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679430532"><span class="annot"><span class="annottext">ResourceSignalStatus
+</span><a href="#local-6989586621679430532"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">SignalResource' :: Text -&gt; Text -&gt; Text -&gt; ResourceSignalStatus -&gt; SignalResource
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stackName:SignalResource' :: Text
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3AstackName%3ASignalResource%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430120"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430535"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:logicalResourceId:SignalResource' :: Text
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3AlogicalResourceId%3ASignalResource%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430119"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430534"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:uniqueId:SignalResource' :: Text
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3AuniqueId%3ASignalResource%27"><span class="hs-identifier hs-var">uniqueId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430118"><span class="hs-identifier hs-var">pUniqueId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430533"><span class="hs-identifier hs-var">pUniqueId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:SignalResource' :: ResourceSignalStatus
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3Astatus%3ASignalResource%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceSignalStatus
-</span><a href="#local-6989586621679430117"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679430532"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The stack name or unique stack ID that includes the resource that you</span><span>
@@ -195,16 +195,16 @@ $cfrom :: forall x. SignalResource -&gt; Rep SignalResource x
 -&gt; (SignalResource -&gt; Text -&gt; SignalResource)
 -&gt; Lens SignalResource SignalResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430114"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430529"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:SignalResource' :: SignalResource -&gt; Text
-</span><a href="#local-6989586621679430114"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430114"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430113"><span class="annot"><span class="annottext">s :: SignalResource
-</span><a href="#local-6989586621679430113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430112"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
-</span><a href="#local-6989586621679430113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:SignalResource' :: Text
+</span><a href="#local-6989586621679430529"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430529"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430528"><span class="annot"><span class="annottext">s :: SignalResource
+</span><a href="#local-6989586621679430528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
+</span><a href="#local-6989586621679430528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:SignalResource' :: Text
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3AstackName%3ASignalResource%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The logical ID of the resource that you want to signal. The logical ID</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- is the name of the resource that given in the template.</span><span>
@@ -214,16 +214,16 @@ $sel:stackName:SignalResource' :: SignalResource -&gt; Text
 -&gt; (SignalResource -&gt; Text -&gt; SignalResource)
 -&gt; Lens SignalResource SignalResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430111"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430526"><span class="annot"><span class="annottext">Text
 logicalResourceId :: Text
 $sel:logicalResourceId:SignalResource' :: SignalResource -&gt; Text
-</span><a href="#local-6989586621679430111"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430111"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430110"><span class="annot"><span class="annottext">s :: SignalResource
-</span><a href="#local-6989586621679430110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
-</span><a href="#local-6989586621679430110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:SignalResource' :: Text
+</span><a href="#local-6989586621679430526"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430526"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430525"><span class="annot"><span class="annottext">s :: SignalResource
+</span><a href="#local-6989586621679430525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
+</span><a href="#local-6989586621679430525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:SignalResource' :: Text
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3AlogicalResourceId%3ASignalResource%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- Scaling groups, specify the instance ID that you are signaling as the</span><span>
@@ -235,16 +235,16 @@ $sel:logicalResourceId:SignalResource' :: SignalResource -&gt; Text
 -&gt; (SignalResource -&gt; Text -&gt; SignalResource)
 -&gt; Lens SignalResource SignalResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430108"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430523"><span class="annot"><span class="annottext">Text
 uniqueId :: Text
 $sel:uniqueId:SignalResource' :: SignalResource -&gt; Text
-</span><a href="#local-6989586621679430108"><span class="hs-identifier hs-var hs-var">uniqueId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430108"><span class="hs-identifier hs-var">uniqueId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430107"><span class="annot"><span class="annottext">s :: SignalResource
-</span><a href="#local-6989586621679430107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430106"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
-</span><a href="#local-6989586621679430107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uniqueId:SignalResource' :: Text
+</span><a href="#local-6989586621679430523"><span class="hs-identifier hs-var hs-var">uniqueId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430523"><span class="hs-identifier hs-var">uniqueId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430522"><span class="annot"><span class="annottext">s :: SignalResource
+</span><a href="#local-6989586621679430522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430521"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
+</span><a href="#local-6989586621679430522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uniqueId:SignalResource' :: Text
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3AuniqueId%3ASignalResource%27"><span class="hs-identifier hs-var">uniqueId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The status of the signal, which is either success or failure. A failure</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- signal causes CloudFormation to immediately fail the stack creation or</span><span>
@@ -260,27 +260,27 @@ $sel:uniqueId:SignalResource' :: SignalResource -&gt; Text
      ResourceSignalStatus
      ResourceSignalStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430105"><span class="annot"><span class="annottext">ResourceSignalStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430520"><span class="annot"><span class="annottext">ResourceSignalStatus
 status :: ResourceSignalStatus
 $sel:status:SignalResource' :: SignalResource -&gt; ResourceSignalStatus
-</span><a href="#local-6989586621679430105"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSignalStatus
-</span><a href="#local-6989586621679430105"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430104"><span class="annot"><span class="annottext">s :: SignalResource
-</span><a href="#local-6989586621679430104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430103"><span class="annot"><span class="annottext">ResourceSignalStatus
-</span><a href="#local-6989586621679430103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
-</span><a href="#local-6989586621679430104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SignalResource' :: ResourceSignalStatus
+</span><a href="#local-6989586621679430520"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSignalStatus
+</span><a href="#local-6989586621679430520"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430519"><span class="annot"><span class="annottext">s :: SignalResource
+</span><a href="#local-6989586621679430519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430518"><span class="annot"><span class="annottext">ResourceSignalStatus
+</span><a href="#local-6989586621679430518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalResource
+</span><a href="#local-6989586621679430519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SignalResource' :: ResourceSignalStatus
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#%24sel%3Astatus%3ASignalResource%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceSignalStatus
-</span><a href="#local-6989586621679430103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse"><span class="hs-identifier hs-type">SignalResourceResponse</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679430099"><span class="annot"><span class="annottext">request :: SignalResource -&gt; Request SignalResource
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679430514"><span class="annot"><span class="annottext">request :: SignalResource -&gt; Request SignalResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SignalResource -&gt; Request SignalResource
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679430095"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679430510"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SignalResource
 -&gt; ClientResponse ClientBody
@@ -304,12 +304,12 @@ AWSResponse a
 SignalResourceResponse
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse%27"><span class="hs-identifier hs-var">SignalResourceResponse'</span></a></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430088"><span id="local-6989586621679430090"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430503"><span id="local-6989586621679430505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430085"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679430081"><span class="annot"><span class="annottext">toHeaders :: SignalResource -&gt; [Header]
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679430496"><span class="annot"><span class="annottext">toHeaders :: SignalResource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SignalResource -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -317,15 +317,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679430076"><span class="annot"><span class="annottext">toPath :: SignalResource -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679430491"><span class="annot"><span class="annottext">toPath :: SignalResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SignalResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource"><span class="hs-identifier hs-type">SignalResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679430072"><span class="annot"><span class="annottext">toQuery :: SignalResource -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430067"><span id="local-6989586621679430068"><span id="local-6989586621679430069"><span id="local-6989586621679430070"><span class="annot"><span class="annottext">Text
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679430487"><span class="annot"><span class="annottext">toQuery :: SignalResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResource%27"><span class="hs-identifier hs-type">SignalResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430482"><span id="local-6989586621679430483"><span id="local-6989586621679430484"><span id="local-6989586621679430485"><span class="annot"><span class="annottext">Text
 ResourceSignalStatus
 status :: ResourceSignalStatus
 uniqueId :: Text
@@ -335,7 +335,7 @@ $sel:status:SignalResource' :: SignalResource -&gt; ResourceSignalStatus
 $sel:uniqueId:SignalResource' :: SignalResource -&gt; Text
 $sel:logicalResourceId:SignalResource' :: SignalResource -&gt; Text
 $sel:stackName:SignalResource' :: SignalResource -&gt; Text
-</span><a href="#local-6989586621679430067"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679430482"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -355,29 +355,29 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430070"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430485"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LogicalResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430069"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430484"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UniqueId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430068"><span class="hs-identifier hs-var">uniqueId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430483"><span class="hs-identifier hs-var">uniqueId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResourceSignalStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ResourceSignalStatus
-</span><a href="#local-6989586621679430067"><span class="hs-identifier hs-var">status</span></a></span><span>
+</span><a href="#local-6989586621679430482"><span class="hs-identifier hs-var">status</span></a></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newSignalResourceResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679430064"><span id="local-6989586621679430065"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignalResourceResponse"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse"><span class="hs-identifier hs-var">SignalResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalResourceResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse%27"><span class="hs-identifier hs-var">SignalResourceResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679430479"><span id="local-6989586621679430480"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignalResourceResponse"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse"><span class="hs-identifier hs-var">SignalResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalResourceResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse%27"><span class="hs-identifier hs-var">SignalResourceResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430060"><span id="local-6989586621679430062"><span class="annot"><span class="annottext">SignalResourceResponse -&gt; SignalResourceResponse -&gt; Bool
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430475"><span id="local-6989586621679430477"><span class="annot"><span class="annottext">SignalResourceResponse -&gt; SignalResourceResponse -&gt; Bool
 (SignalResourceResponse -&gt; SignalResourceResponse -&gt; Bool)
 -&gt; (SignalResourceResponse -&gt; SignalResourceResponse -&gt; Bool)
 -&gt; Eq SignalResourceResponse
@@ -386,7 +386,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SignalResourceResponse -&gt; SignalResourceResponse -&gt; Bool
 == :: SignalResourceResponse -&gt; SignalResourceResponse -&gt; Bool
 $c== :: SignalResourceResponse -&gt; SignalResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430052"><span id="local-6989586621679430054"><span id="local-6989586621679430056"><span id="local-6989586621679430058"><span class="annot"><span class="annottext">ReadPrec [SignalResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430467"><span id="local-6989586621679430469"><span id="local-6989586621679430471"><span id="local-6989586621679430473"><span class="annot"><span class="annottext">ReadPrec [SignalResourceResponse]
 ReadPrec SignalResourceResponse
 Int -&gt; ReadS SignalResourceResponse
 ReadS [SignalResourceResponse]
@@ -406,7 +406,7 @@ readList :: ReadS [SignalResourceResponse]
 $creadList :: ReadS [SignalResourceResponse]
 readsPrec :: Int -&gt; ReadS SignalResourceResponse
 $creadsPrec :: Int -&gt; ReadS SignalResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430046"><span id="local-6989586621679430048"><span id="local-6989586621679430050"><span class="annot"><span class="annottext">Int -&gt; SignalResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430461"><span id="local-6989586621679430463"><span id="local-6989586621679430465"><span class="annot"><span class="annottext">Int -&gt; SignalResourceResponse -&gt; ShowS
 [SignalResourceResponse] -&gt; ShowS
 SignalResourceResponse -&gt; String
 (Int -&gt; SignalResourceResponse -&gt; ShowS)
@@ -443,5 +443,5 @@ $cfrom :: forall x. SignalResourceResponse -&gt; Rep SignalResourceResponse x
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#newSignalResourceResponse"><span class="hs-identifier hs-var hs-var">newSignalResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SignalResourceResponse
 </span><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse%27"><span class="hs-identifier hs-var">SignalResourceResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse"><span class="hs-identifier hs-type">SignalResourceResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.SignalResource.html#SignalResourceResponse"><span class="hs-identifier hs-type">SignalResourceResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

@@ -27,16 +27,16 @@
 </span><span id="line-27"></span><span class="hs-comment">-- configuration option value.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOptionRestrictionRegex' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679304564"><span id="local-6989586621679304565"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionRestrictionRegex"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-var">OptionRestrictionRegex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionRestrictionRegex%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-var">OptionRestrictionRegex'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique name representing this regular expression.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="annot"><span class="annottext">OptionRestrictionRegex -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The regular expression pattern that a string configuration option value</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- with this restriction must match.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Apattern%27%3AOptionRestrictionRegex%27"><span class="annot"><span class="annottext">OptionRestrictionRegex -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Apattern%27%3AOptionRestrictionRegex%27"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679304849"><span id="local-6989586621679304850"></span></span><span class="hs-keyword">data</span><span> </span><span id="OptionRestrictionRegex"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-var">OptionRestrictionRegex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OptionRestrictionRegex%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-var">OptionRestrictionRegex'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The regular expression pattern that a string configuration option value</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- with this restriction must match.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apattern%27%3AOptionRestrictionRegex%27"><span class="annot"><span class="annottext">OptionRestrictionRegex -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Apattern%27%3AOptionRestrictionRegex%27"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A unique name representing this regular expression.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="annot"><span class="annottext">OptionRestrictionRegex -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304557"><span id="local-6989586621679304559"><span class="annot"><span class="annottext">OptionRestrictionRegex -&gt; OptionRestrictionRegex -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304842"><span id="local-6989586621679304844"><span class="annot"><span class="annottext">OptionRestrictionRegex -&gt; OptionRestrictionRegex -&gt; Bool
 (OptionRestrictionRegex -&gt; OptionRestrictionRegex -&gt; Bool)
 -&gt; (OptionRestrictionRegex -&gt; OptionRestrictionRegex -&gt; Bool)
 -&gt; Eq OptionRestrictionRegex
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OptionRestrictionRegex -&gt; OptionRestrictionRegex -&gt; Bool
 == :: OptionRestrictionRegex -&gt; OptionRestrictionRegex -&gt; Bool
 $c== :: OptionRestrictionRegex -&gt; OptionRestrictionRegex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304548"><span id="local-6989586621679304550"><span id="local-6989586621679304552"><span id="local-6989586621679304554"><span class="annot"><span class="annottext">ReadPrec [OptionRestrictionRegex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304833"><span id="local-6989586621679304835"><span id="local-6989586621679304837"><span id="local-6989586621679304839"><span class="annot"><span class="annottext">ReadPrec [OptionRestrictionRegex]
 ReadPrec OptionRestrictionRegex
 Int -&gt; ReadS OptionRestrictionRegex
 ReadS [OptionRestrictionRegex]
@@ -65,7 +65,7 @@ readList :: ReadS [OptionRestrictionRegex]
 $creadList :: ReadS [OptionRestrictionRegex]
 readsPrec :: Int -&gt; ReadS OptionRestrictionRegex
 $creadsPrec :: Int -&gt; ReadS OptionRestrictionRegex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304541"><span id="local-6989586621679304543"><span id="local-6989586621679304545"><span class="annot"><span class="annottext">Int -&gt; OptionRestrictionRegex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304826"><span id="local-6989586621679304828"><span id="local-6989586621679304830"><span class="annot"><span class="annottext">Int -&gt; OptionRestrictionRegex -&gt; ShowS
 [OptionRestrictionRegex] -&gt; ShowS
 OptionRestrictionRegex -&gt; String
 (Int -&gt; OptionRestrictionRegex -&gt; ShowS)
@@ -100,53 +100,30 @@ $cfrom :: forall x. OptionRestrictionRegex -&gt; Rep OptionRestrictionRegex x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'label', 'optionRestrictionRegex_label' - A unique name representing this regular expression.</span><span>
-</span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'pattern'', 'optionRestrictionRegex_pattern' - The regular expression pattern that a string configuration option value</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- with this restriction must match.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'pattern'', 'optionRestrictionRegex_pattern' - The regular expression pattern that a string configuration option value</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- with this restriction must match.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'label', 'optionRestrictionRegex_label' - A unique name representing this regular expression.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#newOptionRestrictionRegex"><span class="hs-identifier hs-type">newOptionRestrictionRegex</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span>
 </span><span id="line-53"></span><span id="newOptionRestrictionRegex"><span class="annot"><span class="annottext">newOptionRestrictionRegex :: OptionRestrictionRegex
 </span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#newOptionRestrictionRegex"><span class="hs-identifier hs-var hs-var">newOptionRestrictionRegex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">OptionRestrictionRegex' :: Maybe Text -&gt; Maybe Text -&gt; OptionRestrictionRegex
 </span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:label:OptionRestrictionRegex' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pattern':OptionRestrictionRegex' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Apattern%27%3AOptionRestrictionRegex%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:pattern':OptionRestrictionRegex' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Apattern%27%3AOptionRestrictionRegex%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:label:OptionRestrictionRegex' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | A unique name representing this regular expression.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#optionRestrictionRegex_label"><span class="hs-identifier hs-type">optionRestrictionRegex_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="optionRestrictionRegex_label"><span class="annot"><span class="annottext">optionRestrictionRegex_label :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OptionRestrictionRegex -&gt; f OptionRestrictionRegex
-</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#optionRestrictionRegex_label"><span class="hs-identifier hs-var hs-var">optionRestrictionRegex_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionRestrictionRegex -&gt; Maybe Text)
--&gt; (OptionRestrictionRegex -&gt; Maybe Text -&gt; OptionRestrictionRegex)
--&gt; Lens
-     OptionRestrictionRegex
-     OptionRestrictionRegex
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304532"><span class="annot"><span class="annottext">Maybe Text
-label :: Maybe Text
-$sel:label:OptionRestrictionRegex' :: OptionRestrictionRegex -&gt; Maybe Text
-</span><a href="#local-6989586621679304532"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304532"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304531"><span class="annot"><span class="annottext">s :: OptionRestrictionRegex
-</span><a href="#local-6989586621679304531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionRestrictionRegex
-</span><a href="#local-6989586621679304531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:OptionRestrictionRegex' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The regular expression pattern that a string configuration option value</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- with this restriction must match.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#optionRestrictionRegex_pattern"><span class="hs-identifier hs-type">optionRestrictionRegex_pattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="optionRestrictionRegex_pattern"><span class="annot"><span class="annottext">optionRestrictionRegex_pattern :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-59"></span><span class="hs-comment">-- | The regular expression pattern that a string configuration option value</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- with this restriction must match.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#optionRestrictionRegex_pattern"><span class="hs-identifier hs-type">optionRestrictionRegex_pattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="optionRestrictionRegex_pattern"><span class="annot"><span class="annottext">optionRestrictionRegex_pattern :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; OptionRestrictionRegex -&gt; f OptionRestrictionRegex
 </span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#optionRestrictionRegex_pattern"><span class="hs-identifier hs-var hs-var">optionRestrictionRegex_pattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionRestrictionRegex -&gt; Maybe Text)
 -&gt; (OptionRestrictionRegex -&gt; Maybe Text -&gt; OptionRestrictionRegex)
@@ -156,21 +133,44 @@ $sel:label:OptionRestrictionRegex' :: OptionRestrictionRegex -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304528"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304817"><span class="annot"><span class="annottext">Maybe Text
 pattern' :: Maybe Text
 $sel:pattern':OptionRestrictionRegex' :: OptionRestrictionRegex -&gt; Maybe Text
-</span><a href="#local-6989586621679304528"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304528"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304527"><span class="annot"><span class="annottext">s :: OptionRestrictionRegex
-</span><a href="#local-6989586621679304527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304526"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionRestrictionRegex
-</span><a href="#local-6989586621679304527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':OptionRestrictionRegex' :: Maybe Text
+</span><a href="#local-6989586621679304817"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304817"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304816"><span class="annot"><span class="annottext">s :: OptionRestrictionRegex
+</span><a href="#local-6989586621679304816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304815"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionRestrictionRegex
+</span><a href="#local-6989586621679304816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':OptionRestrictionRegex' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Apattern%27%3AOptionRestrictionRegex%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | A unique name representing this regular expression.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#optionRestrictionRegex_label"><span class="hs-identifier hs-type">optionRestrictionRegex_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="optionRestrictionRegex_label"><span class="annot"><span class="annottext">optionRestrictionRegex_label :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OptionRestrictionRegex -&gt; f OptionRestrictionRegex
+</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#optionRestrictionRegex_label"><span class="hs-identifier hs-var hs-var">optionRestrictionRegex_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OptionRestrictionRegex -&gt; Maybe Text)
+-&gt; (OptionRestrictionRegex -&gt; Maybe Text -&gt; OptionRestrictionRegex)
+-&gt; Lens
+     OptionRestrictionRegex
+     OptionRestrictionRegex
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304813"><span class="annot"><span class="annottext">Maybe Text
+label :: Maybe Text
+$sel:label:OptionRestrictionRegex' :: OptionRestrictionRegex -&gt; Maybe Text
+</span><a href="#local-6989586621679304813"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304813"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304812"><span class="annot"><span class="annottext">s :: OptionRestrictionRegex
+</span><a href="#local-6989586621679304812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-type">OptionRestrictionRegex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304811"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionRestrictionRegex
+</span><a href="#local-6989586621679304812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:OptionRestrictionRegex' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#%24sel%3Alabel%3AOptionRestrictionRegex%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679304523"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OptionRestrictionRegex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679304521"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679304808"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OptionRestrictionRegex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679304806"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; OptionRestrictionRegex
 </span><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex%27"><span class="hs-identifier hs-var">OptionRestrictionRegex'</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; OptionRestrictionRegex)
@@ -178,21 +178,21 @@ $sel:pattern':OptionRestrictionRegex' :: OptionRestrictionRegex -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; OptionRestrictionRegex)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679304806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Label&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Pattern&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; OptionRestrictionRegex)
 -&gt; Either String (Maybe Text)
 -&gt; Either String OptionRestrictionRegex
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679304806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Pattern&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Label&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304515"><span id="local-6989586621679304517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304800"><span id="local-6989586621679304802"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex.html#OptionRestrictionRegex"><span class="hs-identifier hs-type">OptionRestrictionRegex</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

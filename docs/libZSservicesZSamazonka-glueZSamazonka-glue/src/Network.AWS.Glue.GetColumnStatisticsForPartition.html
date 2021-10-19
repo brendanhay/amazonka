@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#newGetColumnStatisticsForPartitionResponse"><span class="hs-identifier">newGetColumnStatisticsForPartitionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_columnStatisticsList"><span class="hs-identifier">getColumnStatisticsForPartitionResponse_columnStatisticsList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_errors"><span class="hs-identifier">getColumnStatisticsForPartitionResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_errors"><span class="hs-identifier">getColumnStatisticsForPartitionResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_columnStatisticsList"><span class="hs-identifier">getColumnStatisticsForPartitionResponse_columnStatisticsList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_httpStatus"><span class="hs-identifier">getColumnStatisticsForPartitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetColumnStatisticsForPartition' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679729579"><span id="local-6989586621679729580"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetColumnStatisticsForPartition"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-var">GetColumnStatisticsForPartition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetColumnStatisticsForPartition%27"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">GetColumnStatisticsForPartition'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679731363"><span id="local-6989586621679731364"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetColumnStatisticsForPartition"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-var">GetColumnStatisticsForPartition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetColumnStatisticsForPartition%27"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">GetColumnStatisticsForPartition'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog where the partitions in question reside. If</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- none is supplied, the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AcatalogId%3AGetColumnStatisticsForPartition%27"><span class="annot"><span class="annottext">GetColumnStatisticsForPartition -&gt; Maybe Text
@@ -73,7 +73,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AcolumnNames%3AGetColumnStatisticsForPartition%27"><span class="annot"><span class="annottext">GetColumnStatisticsForPartition -&gt; [Text]
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AcolumnNames%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var hs-var">columnNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679729569"><span id="local-6989586621679729571"><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731353"><span id="local-6989586621679731355"><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
 -&gt; GetColumnStatisticsForPartition -&gt; Bool
 (GetColumnStatisticsForPartition
  -&gt; GetColumnStatisticsForPartition -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: GetColumnStatisticsForPartition
 -&gt; GetColumnStatisticsForPartition -&gt; Bool
 $c== :: GetColumnStatisticsForPartition
 -&gt; GetColumnStatisticsForPartition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729560"><span id="local-6989586621679729562"><span id="local-6989586621679729564"><span id="local-6989586621679729566"><span class="annot"><span class="annottext">ReadPrec [GetColumnStatisticsForPartition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731344"><span id="local-6989586621679731346"><span id="local-6989586621679731348"><span id="local-6989586621679731350"><span class="annot"><span class="annottext">ReadPrec [GetColumnStatisticsForPartition]
 ReadPrec GetColumnStatisticsForPartition
 Int -&gt; ReadS GetColumnStatisticsForPartition
 ReadS [GetColumnStatisticsForPartition]
@@ -109,7 +109,7 @@ readList :: ReadS [GetColumnStatisticsForPartition]
 $creadList :: ReadS [GetColumnStatisticsForPartition]
 readsPrec :: Int -&gt; ReadS GetColumnStatisticsForPartition
 $creadsPrec :: Int -&gt; ReadS GetColumnStatisticsForPartition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729553"><span id="local-6989586621679729555"><span id="local-6989586621679729557"><span class="annot"><span class="annottext">Int -&gt; GetColumnStatisticsForPartition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731337"><span id="local-6989586621679731339"><span id="local-6989586621679731341"><span class="annot"><span class="annottext">Int -&gt; GetColumnStatisticsForPartition -&gt; ShowS
 [GetColumnStatisticsForPartition] -&gt; ShowS
 GetColumnStatisticsForPartition -&gt; String
 (Int -&gt; GetColumnStatisticsForPartition -&gt; ShowS)
@@ -173,10 +173,10 @@ GetColumnStatisticsForPartition
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span>
 </span><span id="line-97"></span><span id="newGetColumnStatisticsForPartition"><span class="annot"><span class="annottext">newGetColumnStatisticsForPartition :: Text -&gt; Text -&gt; GetColumnStatisticsForPartition
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#newGetColumnStatisticsForPartition"><span class="hs-identifier hs-var hs-var">newGetColumnStatisticsForPartition</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679729548"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729548"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679729547"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729547"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679731332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679731332"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679731331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679731331"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition' :: Maybe Text
 -&gt; Text
 -&gt; Text
@@ -191,10 +191,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:databaseName:GetColumnStatisticsForPartition' :: Text
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AdatabaseName%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729548"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679731332"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:GetColumnStatisticsForPartition' :: Text
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AtableName%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729547"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679731331"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:partitionValues:GetColumnStatisticsForPartition' :: [Text]
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3ApartitionValues%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">partitionValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -220,16 +220,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729544"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731328"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; Maybe Text
-</span><a href="#local-6989586621679729544"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679729544"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729543"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729542"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679729542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetColumnStatisticsForPartition' :: Maybe Text
+</span><a href="#local-6989586621679731328"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679731328"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731327"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731326"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679731326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:GetColumnStatisticsForPartition' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AcatalogId%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679729542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The name of the catalog database where the partitions reside.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartition_databaseName"><span class="hs-identifier hs-type">getColumnStatisticsForPartition_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,16 +245,16 @@ $sel:catalogId:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartiti
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729541"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731325"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; Text
-</span><a href="#local-6989586621679729541"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729541"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729540"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetColumnStatisticsForPartition' :: Text
+</span><a href="#local-6989586621679731325"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679731325"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731324"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731323"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679731323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:GetColumnStatisticsForPartition' :: Text
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AdatabaseName%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The name of the partitions\' table.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartition_tableName"><span class="hs-identifier hs-type">getColumnStatisticsForPartition_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -270,16 +270,16 @@ $sel:databaseName:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPart
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729538"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731322"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; Text
-</span><a href="#local-6989586621679729538"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729538"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729537"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729536"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GetColumnStatisticsForPartition' :: Text
+</span><a href="#local-6989586621679731322"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679731322"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731321"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679731320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:GetColumnStatisticsForPartition' :: Text
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AtableName%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | A list of partition values identifying the partition.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartition_partitionValues"><span class="hs-identifier hs-type">getColumnStatisticsForPartition_partitionValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -295,16 +295,16 @@ $sel:tableName:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartiti
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729535"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731319"><span class="annot"><span class="annottext">[Text]
 partitionValues :: [Text]
 $sel:partitionValues:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; [Text]
-</span><a href="#local-6989586621679729535"><span class="hs-identifier hs-var hs-var">partitionValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729535"><span class="hs-identifier hs-var">partitionValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729534"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729533"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionValues:GetColumnStatisticsForPartition' :: [Text]
+</span><a href="#local-6989586621679731319"><span class="hs-identifier hs-var hs-var">partitionValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679731319"><span class="hs-identifier hs-var">partitionValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731318"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731317"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679731317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionValues:GetColumnStatisticsForPartition' :: [Text]
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3ApartitionValues%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">partitionValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679731317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; GetColumnStatisticsForPartition
  -&gt; f GetColumnStatisticsForPartition)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -313,8 +313,8 @@ $sel:partitionValues:GetColumnStatisticsForPartition' :: GetColumnStatisticsForP
 -&gt; f GetColumnStatisticsForPartition
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | A list of the column names.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartition_columnNames"><span class="hs-identifier hs-type">getColumnStatisticsForPartition_columnNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -330,16 +330,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729530"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731314"><span class="annot"><span class="annottext">[Text]
 columnNames :: [Text]
 $sel:columnNames:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; [Text]
-</span><a href="#local-6989586621679729530"><span class="hs-identifier hs-var hs-var">columnNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729530"><span class="hs-identifier hs-var">columnNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729529"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729528"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
-</span><a href="#local-6989586621679729529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnNames:GetColumnStatisticsForPartition' :: [Text]
+</span><a href="#local-6989586621679731314"><span class="hs-identifier hs-var hs-var">columnNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679731314"><span class="hs-identifier hs-var">columnNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731313"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731312"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679731312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartition
+</span><a href="#local-6989586621679731313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnNames:GetColumnStatisticsForPartition' :: [Text]
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AcolumnNames%3AGetColumnStatisticsForPartition%27"><span class="hs-identifier hs-var">columnNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679731312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; GetColumnStatisticsForPartition
  -&gt; f GetColumnStatisticsForPartition)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -348,8 +348,8 @@ $sel:columnNames:GetColumnStatisticsForPartition' :: GetColumnStatisticsForParti
 -&gt; f GetColumnStatisticsForPartition
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -358,7 +358,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679729524"><span class="annot"><span class="annottext">request :: GetColumnStatisticsForPartition
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679731308"><span class="annot"><span class="annottext">request :: GetColumnStatisticsForPartition
 -&gt; Request GetColumnStatisticsForPartition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetColumnStatisticsForPartition
@@ -366,7 +366,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679729520"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679731304"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetColumnStatisticsForPartition
 -&gt; ClientResponse ClientBody
@@ -394,47 +394,27 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679729517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679729517"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679729516"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679729516"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679729515"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679729515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
--&gt; Maybe [ColumnError]
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679731301"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731301"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679731300"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679731300"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679731299"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679731299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ColumnError]
+-&gt; Maybe [ColumnStatistics]
 -&gt; Int
 -&gt; GetColumnStatisticsForPartitionResponse
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">GetColumnStatisticsForPartitionResponse'</span></a></span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ColumnStatistics]
- -&gt; Maybe [ColumnError]
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ColumnError]
+ -&gt; Maybe [ColumnStatistics]
  -&gt; Int
  -&gt; GetColumnStatisticsForPartitionResponse)
--&gt; Either String (Maybe [ColumnStatistics])
+-&gt; Either String (Maybe [ColumnError])
 -&gt; Either
      String
-     (Maybe [ColumnError]
+     (Maybe [ColumnStatistics]
       -&gt; Int -&gt; GetColumnStatisticsForPartitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679729515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ColumnStatistics]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ColumnStatisticsList&quot;</span></span><span>
-</span><span id="line-143"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ColumnStatistics]))
--&gt; Maybe [ColumnStatistics]
--&gt; Either String (Maybe [ColumnStatistics])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-144"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [ColumnError]
-   -&gt; Int -&gt; GetColumnStatisticsForPartitionResponse)
--&gt; Either String (Maybe [ColumnError])
--&gt; Either String (Int -&gt; GetColumnStatisticsForPartitionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679729515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ColumnError]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679731299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ColumnError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ColumnError]))
@@ -443,6 +423,26 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnError]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ColumnStatistics]
+   -&gt; Int -&gt; GetColumnStatisticsForPartitionResponse)
+-&gt; Either String (Maybe [ColumnStatistics])
+-&gt; Either String (Int -&gt; GetColumnStatisticsForPartitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679731299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ColumnStatistics]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ColumnStatisticsList&quot;</span></span><span>
+</span><span id="line-144"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ColumnStatistics]))
+-&gt; Maybe [ColumnStatistics]
+-&gt; Either String (Maybe [ColumnStatistics])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetColumnStatisticsForPartitionResponse)
 -&gt; Either String Int
 -&gt; Either String GetColumnStatisticsForPartitionResponse
@@ -452,22 +452,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679729517"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731301"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679729506"><span id="local-6989586621679729508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679731290"><span id="local-6989586621679731292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679729503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679731287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679729499"><span class="annot"><span class="annottext">toHeaders :: GetColumnStatisticsForPartition -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679731283"><span class="annot"><span class="annottext">toHeaders :: GetColumnStatisticsForPartition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetColumnStatisticsForPartition -&gt; ResponseHeaders
@@ -495,9 +495,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679729489"><span id="local-6989586621679729491"><span id="local-6989586621679729493"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679729487"><span class="annot"><span class="annottext">toJSON :: GetColumnStatisticsForPartition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729481"><span id="local-6989586621679729482"><span id="local-6989586621679729483"><span id="local-6989586621679729484"><span id="local-6989586621679729485"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731273"><span id="local-6989586621679731275"><span id="local-6989586621679731277"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679731271"><span class="annot"><span class="annottext">toJSON :: GetColumnStatisticsForPartition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731265"><span id="local-6989586621679731266"><span id="local-6989586621679731267"><span id="local-6989586621679731268"><span id="local-6989586621679731269"><span class="annot"><span class="annottext">[Text]
 Maybe Text
 Text
 columnNames :: [Text]
@@ -510,7 +510,7 @@ $sel:partitionValues:GetColumnStatisticsForPartition' :: GetColumnStatisticsForP
 $sel:tableName:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; Text
 $sel:databaseName:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; Text
 $sel:catalogId:GetColumnStatisticsForPartition' :: GetColumnStatisticsForPartition -&gt; Maybe Text
-</span><a href="#local-6989586621679729481"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679731265"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -522,21 +522,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679729485"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679731269"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729484"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679731268"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679729483"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679731267"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -544,26 +544,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PartitionValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729482"><span class="hs-identifier hs-var">partitionValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679731266"><span class="hs-identifier hs-var">partitionValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ColumnNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679729481"><span class="hs-identifier hs-var">columnNames</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731265"><span class="hs-identifier hs-var">columnNames</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679729475"><span class="annot"><span class="annottext">toPath :: GetColumnStatisticsForPartition -&gt; ByteString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679731259"><span class="annot"><span class="annottext">toPath :: GetColumnStatisticsForPartition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetColumnStatisticsForPartition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartition"><span class="hs-identifier hs-type">GetColumnStatisticsForPartition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679729471"><span class="annot"><span class="annottext">toQuery :: GetColumnStatisticsForPartition -&gt; QueryString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679731255"><span class="annot"><span class="annottext">toQuery :: GetColumnStatisticsForPartition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetColumnStatisticsForPartition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -571,18 +571,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newGetColumnStatisticsForPartitionResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679729468"><span id="local-6989586621679729469"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetColumnStatisticsForPartitionResponse"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-var">GetColumnStatisticsForPartitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetColumnStatisticsForPartitionResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">GetColumnStatisticsForPartitionResponse'</span></a></span></span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of ColumnStatistics that failed to be retrieved.</span><span>
-</span><span id="line-197"></span><span>    </span><span id="%24sel%3AcolumnStatisticsList%3AGetColumnStatisticsForPartitionResponse%27"><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnStatistics]
-</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AcolumnStatisticsList%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var hs-var">columnStatisticsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | Error occurred during retrieving column statistics data.</span><span>
-</span><span id="line-199"></span><span>    </span><span id="%24sel%3Aerrors%3AGetColumnStatisticsForPartitionResponse%27"><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnError]
+</span><span id="line-195"></span><span id="local-6989586621679731252"><span id="local-6989586621679731253"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetColumnStatisticsForPartitionResponse"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-var">GetColumnStatisticsForPartitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetColumnStatisticsForPartitionResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">GetColumnStatisticsForPartitionResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Error occurred during retrieving column statistics data.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3Aerrors%3AGetColumnStatisticsForPartitionResponse%27"><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnError]
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3Aerrors%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnError.html#ColumnError"><span class="hs-identifier hs-type">ColumnError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | List of ColumnStatistics that failed to be retrieved.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AcolumnStatisticsList%3AGetColumnStatisticsForPartitionResponse%27"><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnStatistics]
+</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AcolumnStatisticsList%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var hs-var">columnStatisticsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetColumnStatisticsForPartitionResponse%27"><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AhttpStatus%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679729461"><span id="local-6989586621679729463"><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731245"><span id="local-6989586621679731247"><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
 -&gt; GetColumnStatisticsForPartitionResponse -&gt; Bool
 (GetColumnStatisticsForPartitionResponse
  -&gt; GetColumnStatisticsForPartitionResponse -&gt; Bool)
@@ -598,7 +598,7 @@ $c/= :: GetColumnStatisticsForPartitionResponse
 -&gt; GetColumnStatisticsForPartitionResponse -&gt; Bool
 $c== :: GetColumnStatisticsForPartitionResponse
 -&gt; GetColumnStatisticsForPartitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729453"><span id="local-6989586621679729455"><span id="local-6989586621679729457"><span id="local-6989586621679729459"><span class="annot"><span class="annottext">ReadPrec [GetColumnStatisticsForPartitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731237"><span id="local-6989586621679731239"><span id="local-6989586621679731241"><span id="local-6989586621679731243"><span class="annot"><span class="annottext">ReadPrec [GetColumnStatisticsForPartitionResponse]
 ReadPrec GetColumnStatisticsForPartitionResponse
 Int -&gt; ReadS GetColumnStatisticsForPartitionResponse
 ReadS [GetColumnStatisticsForPartitionResponse]
@@ -618,7 +618,7 @@ readList :: ReadS [GetColumnStatisticsForPartitionResponse]
 $creadList :: ReadS [GetColumnStatisticsForPartitionResponse]
 readsPrec :: Int -&gt; ReadS GetColumnStatisticsForPartitionResponse
 $creadsPrec :: Int -&gt; ReadS GetColumnStatisticsForPartitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679729447"><span id="local-6989586621679729449"><span id="local-6989586621679729451"><span class="annot"><span class="annottext">Int -&gt; GetColumnStatisticsForPartitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731231"><span id="local-6989586621679731233"><span id="local-6989586621679731235"><span class="annot"><span class="annottext">Int -&gt; GetColumnStatisticsForPartitionResponse -&gt; ShowS
 [GetColumnStatisticsForPartitionResponse] -&gt; ShowS
 GetColumnStatisticsForPartitionResponse -&gt; String
 (Int -&gt; GetColumnStatisticsForPartitionResponse -&gt; ShowS)
@@ -664,9 +664,9 @@ GetColumnStatisticsForPartitionResponse
 </span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'columnStatisticsList', 'getColumnStatisticsForPartitionResponse_columnStatisticsList' - List of ColumnStatistics that failed to be retrieved.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'errors', 'getColumnStatisticsForPartitionResponse_errors' - Error occurred during retrieving column statistics data.</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- 'errors', 'getColumnStatisticsForPartitionResponse_errors' - Error occurred during retrieving column statistics data.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'columnStatisticsList', 'getColumnStatisticsForPartitionResponse_columnStatisticsList' - List of ColumnStatistics that failed to be retrieved.</span><span>
 </span><span id="line-216"></span><span class="hs-comment">--</span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- 'httpStatus', 'getColumnStatisticsForPartitionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#newGetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">newGetColumnStatisticsForPartitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -675,30 +675,76 @@ GetColumnStatisticsForPartitionResponse
 </span><span id="line-221"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span>
 </span><span id="line-222"></span><span id="newGetColumnStatisticsForPartitionResponse"><span class="annot"><span class="annottext">newGetColumnStatisticsForPartitionResponse :: Int -&gt; GetColumnStatisticsForPartitionResponse
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#newGetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-var hs-var">newGetColumnStatisticsForPartitionResponse</span></a></span></span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679729444"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679729444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnStatistics]
--&gt; Maybe [ColumnError]
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679731228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnError]
+-&gt; Maybe [ColumnStatistics]
 -&gt; Int
 -&gt; GetColumnStatisticsForPartitionResponse
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span>
-</span><span id="line-225"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:columnStatisticsList:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnStatistics]
+</span><span id="line-225"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errors:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnError]
+</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3Aerrors%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ColumnError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:columnStatisticsList:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnStatistics]
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AcolumnStatisticsList%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">columnStatisticsList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
+</span><span id="line-228"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:errors:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnError]
-</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3Aerrors%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnError]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetColumnStatisticsForPartitionResponse' :: Int
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetColumnStatisticsForPartitionResponse' :: Int
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AhttpStatus%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679729444"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-229"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | List of ColumnStatistics that failed to be retrieved.</span><span>
-</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_columnStatisticsList"><span class="hs-identifier hs-type">getColumnStatisticsForPartitionResponse_columnStatisticsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span id="getColumnStatisticsForPartitionResponse_columnStatisticsList"><span class="annot"><span class="annottext">getColumnStatisticsForPartitionResponse_columnStatisticsList :: (Maybe [ColumnStatistics] -&gt; f (Maybe [ColumnStatistics]))
+</span><a href="#local-6989586621679731228"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Error occurred during retrieving column statistics data.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_errors"><span class="hs-identifier hs-type">getColumnStatisticsForPartitionResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnError.html#ColumnError"><span class="hs-identifier hs-type">ColumnError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="getColumnStatisticsForPartitionResponse_errors"><span class="annot"><span class="annottext">getColumnStatisticsForPartitionResponse_errors :: (Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
+-&gt; GetColumnStatisticsForPartitionResponse
+-&gt; f GetColumnStatisticsForPartitionResponse
+</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_errors"><span class="hs-identifier hs-var hs-var">getColumnStatisticsForPartitionResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnError])
+-&gt; (GetColumnStatisticsForPartitionResponse
+    -&gt; Maybe [ColumnError] -&gt; GetColumnStatisticsForPartitionResponse)
+-&gt; Lens
+     GetColumnStatisticsForPartitionResponse
+     GetColumnStatisticsForPartitionResponse
+     (Maybe [ColumnError])
+     (Maybe [ColumnError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731227"><span class="annot"><span class="annottext">Maybe [ColumnError]
+errors :: Maybe [ColumnError]
+$sel:errors:GetColumnStatisticsForPartitionResponse' :: GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnError]
+</span><a href="#local-6989586621679731227"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnError]
+</span><a href="#local-6989586621679731227"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731226"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartitionResponse
+</span><a href="#local-6989586621679731226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731225"><span class="annot"><span class="annottext">Maybe [ColumnError]
+</span><a href="#local-6989586621679731225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
+</span><a href="#local-6989586621679731226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnError]
+</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3Aerrors%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnError]
+</span><a href="#local-6989586621679731225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
+ -&gt; GetColumnStatisticsForPartitionResponse
+ -&gt; f GetColumnStatisticsForPartitionResponse)
+-&gt; ((Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
+    -&gt; Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
+-&gt; (Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
+-&gt; GetColumnStatisticsForPartitionResponse
+-&gt; f GetColumnStatisticsForPartitionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ColumnError] [ColumnError] [ColumnError] [ColumnError]
+-&gt; Iso
+     (Maybe [ColumnError])
+     (Maybe [ColumnError])
+     (Maybe [ColumnError])
+     (Maybe [ColumnError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ColumnError] [ColumnError] [ColumnError] [ColumnError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | List of ColumnStatistics that failed to be retrieved.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_columnStatisticsList"><span class="hs-identifier hs-type">getColumnStatisticsForPartitionResponse_columnStatisticsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="getColumnStatisticsForPartitionResponse_columnStatisticsList"><span class="annot"><span class="annottext">getColumnStatisticsForPartitionResponse_columnStatisticsList :: (Maybe [ColumnStatistics] -&gt; f (Maybe [ColumnStatistics]))
 -&gt; GetColumnStatisticsForPartitionResponse
 -&gt; f GetColumnStatisticsForPartitionResponse
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_columnStatisticsList"><span class="hs-identifier hs-var hs-var">getColumnStatisticsForPartitionResponse_columnStatisticsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetColumnStatisticsForPartitionResponse
@@ -712,16 +758,16 @@ forall a. Maybe a
      (Maybe [ColumnStatistics])
      (Maybe [ColumnStatistics])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729443"><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731223"><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
 columnStatisticsList :: Maybe [ColumnStatistics]
 $sel:columnStatisticsList:GetColumnStatisticsForPartitionResponse' :: GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnStatistics]
-</span><a href="#local-6989586621679729443"><span class="hs-identifier hs-var hs-var">columnStatisticsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
-</span><a href="#local-6989586621679729443"><span class="hs-identifier hs-var">columnStatisticsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729442"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartitionResponse
-</span><a href="#local-6989586621679729442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729441"><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
-</span><a href="#local-6989586621679729441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
-</span><a href="#local-6989586621679729442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnStatisticsList:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnStatistics]
+</span><a href="#local-6989586621679731223"><span class="hs-identifier hs-var hs-var">columnStatisticsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
+</span><a href="#local-6989586621679731223"><span class="hs-identifier hs-var">columnStatisticsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731222"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartitionResponse
+</span><a href="#local-6989586621679731222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731221"><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
+</span><a href="#local-6989586621679731221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
+</span><a href="#local-6989586621679731222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnStatisticsList:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnStatistics]
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AcolumnStatisticsList%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">columnStatisticsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnStatistics]
-</span><a href="#local-6989586621679729441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ColumnStatistics] -&gt; f (Maybe [ColumnStatistics]))
+</span><a href="#local-6989586621679731221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ColumnStatistics] -&gt; f (Maybe [ColumnStatistics]))
  -&gt; GetColumnStatisticsForPartitionResponse
  -&gt; f GetColumnStatisticsForPartitionResponse)
 -&gt; ((Maybe [ColumnStatistics] -&gt; f (Maybe [ColumnStatistics]))
@@ -748,57 +794,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ColumnStatistics]
   [ColumnStatistics]
   [ColumnStatistics]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- | Error occurred during retrieving column statistics data.</span><span>
-</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_errors"><span class="hs-identifier hs-type">getColumnStatisticsForPartitionResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnError.html#ColumnError"><span class="hs-identifier hs-type">ColumnError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span id="getColumnStatisticsForPartitionResponse_errors"><span class="annot"><span class="annottext">getColumnStatisticsForPartitionResponse_errors :: (Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
--&gt; GetColumnStatisticsForPartitionResponse
--&gt; f GetColumnStatisticsForPartitionResponse
-</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_errors"><span class="hs-identifier hs-var hs-var">getColumnStatisticsForPartitionResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnError])
--&gt; (GetColumnStatisticsForPartitionResponse
-    -&gt; Maybe [ColumnError] -&gt; GetColumnStatisticsForPartitionResponse)
--&gt; Lens
-     GetColumnStatisticsForPartitionResponse
-     GetColumnStatisticsForPartitionResponse
-     (Maybe [ColumnError])
-     (Maybe [ColumnError])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729439"><span class="annot"><span class="annottext">Maybe [ColumnError]
-errors :: Maybe [ColumnError]
-$sel:errors:GetColumnStatisticsForPartitionResponse' :: GetColumnStatisticsForPartitionResponse -&gt; Maybe [ColumnError]
-</span><a href="#local-6989586621679729439"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnError]
-</span><a href="#local-6989586621679729439"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729438"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartitionResponse
-</span><a href="#local-6989586621679729438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729437"><span class="annot"><span class="annottext">Maybe [ColumnError]
-</span><a href="#local-6989586621679729437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
-</span><a href="#local-6989586621679729438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:GetColumnStatisticsForPartitionResponse' :: Maybe [ColumnError]
-</span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3Aerrors%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnError]
-</span><a href="#local-6989586621679729437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
- -&gt; GetColumnStatisticsForPartitionResponse
- -&gt; f GetColumnStatisticsForPartitionResponse)
--&gt; ((Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
-    -&gt; Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
--&gt; (Maybe [ColumnError] -&gt; f (Maybe [ColumnError]))
--&gt; GetColumnStatisticsForPartitionResponse
--&gt; f GetColumnStatisticsForPartitionResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ColumnError] [ColumnError] [ColumnError] [ColumnError]
--&gt; Iso
-     (Maybe [ColumnError])
-     (Maybe [ColumnError])
-     (Maybe [ColumnError])
-     (Maybe [ColumnError])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ColumnError] [ColumnError] [ColumnError] [ColumnError]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_httpStatus"><span class="hs-identifier hs-type">getColumnStatisticsForPartitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-241"></span><span id="getColumnStatisticsForPartitionResponse_httpStatus"><span class="annot"><span class="annottext">getColumnStatisticsForPartitionResponse_httpStatus :: (Int -&gt; f Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_httpStatus"><span class="hs-identifier hs-type">getColumnStatisticsForPartitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-242"></span><span id="getColumnStatisticsForPartitionResponse_httpStatus"><span class="annot"><span class="annottext">getColumnStatisticsForPartitionResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; GetColumnStatisticsForPartitionResponse
 -&gt; f GetColumnStatisticsForPartitionResponse
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#getColumnStatisticsForPartitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getColumnStatisticsForPartitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetColumnStatisticsForPartitionResponse -&gt; Int)
@@ -810,18 +811,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679729436"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731220"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetColumnStatisticsForPartitionResponse' :: GetColumnStatisticsForPartitionResponse -&gt; Int
-</span><a href="#local-6989586621679729436"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679729436"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679729435"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartitionResponse
-</span><a href="#local-6989586621679729435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679729434"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679729434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
-</span><a href="#local-6989586621679729435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetColumnStatisticsForPartitionResponse' :: Int
+</span><a href="#local-6989586621679731220"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731220"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731219"><span class="annot"><span class="annottext">s :: GetColumnStatisticsForPartitionResponse
+</span><a href="#local-6989586621679731219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731218"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetColumnStatisticsForPartitionResponse
+</span><a href="#local-6989586621679731219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetColumnStatisticsForPartitionResponse' :: Int
 </span><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#%24sel%3AhttpStatus%3AGetColumnStatisticsForPartitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679729434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679729432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span></span><span>
-</span><span id="line-246"></span></pre></body></html>
+</span><a href="#local-6989586621679731218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679731216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.GetColumnStatisticsForPartition.html#GetColumnStatisticsForPartitionResponse"><span class="hs-identifier hs-type">GetColumnStatisticsForPartitionResponse</span></a></span></span><span>
+</span><span id="line-247"></span></pre></body></html>

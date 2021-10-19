@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains details about the output groups specified in the job settings.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOutputGroupDetail' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680007067"><span id="local-6989586621680007068"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputGroupDetail"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-var">OutputGroupDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputGroupDetail%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail%27"><span class="hs-identifier hs-var">OutputGroupDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680012000"><span id="local-6989586621680012001"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputGroupDetail"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-var">OutputGroupDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputGroupDetail%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail%27"><span class="hs-identifier hs-var">OutputGroupDetail'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the output</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AoutputDetails%3AOutputGroupDetail%27"><span class="annot"><span class="annottext">OutputGroupDetail -&gt; Maybe [OutputDetail]
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#%24sel%3AoutputDetails%3AOutputGroupDetail%27"><span class="hs-identifier hs-var hs-var">outputDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680007061"><span id="local-6989586621680007063"><span class="annot"><span class="annottext">OutputGroupDetail -&gt; OutputGroupDetail -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680011994"><span id="local-6989586621680011996"><span class="annot"><span class="annottext">OutputGroupDetail -&gt; OutputGroupDetail -&gt; Bool
 (OutputGroupDetail -&gt; OutputGroupDetail -&gt; Bool)
 -&gt; (OutputGroupDetail -&gt; OutputGroupDetail -&gt; Bool)
 -&gt; Eq OutputGroupDetail
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputGroupDetail -&gt; OutputGroupDetail -&gt; Bool
 == :: OutputGroupDetail -&gt; OutputGroupDetail -&gt; Bool
 $c== :: OutputGroupDetail -&gt; OutputGroupDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007052"><span id="local-6989586621680007054"><span id="local-6989586621680007056"><span id="local-6989586621680007058"><span class="annot"><span class="annottext">ReadPrec [OutputGroupDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680011985"><span id="local-6989586621680011987"><span id="local-6989586621680011989"><span id="local-6989586621680011991"><span class="annot"><span class="annottext">ReadPrec [OutputGroupDetail]
 ReadPrec OutputGroupDetail
 Int -&gt; ReadS OutputGroupDetail
 ReadS [OutputGroupDetail]
@@ -61,7 +61,7 @@ readList :: ReadS [OutputGroupDetail]
 $creadList :: ReadS [OutputGroupDetail]
 readsPrec :: Int -&gt; ReadS OutputGroupDetail
 $creadsPrec :: Int -&gt; ReadS OutputGroupDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680007045"><span id="local-6989586621680007047"><span id="local-6989586621680007049"><span class="annot"><span class="annottext">Int -&gt; OutputGroupDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680011978"><span id="local-6989586621680011980"><span id="local-6989586621680011982"><span class="annot"><span class="annottext">Int -&gt; OutputGroupDetail -&gt; ShowS
 [OutputGroupDetail] -&gt; ShowS
 OutputGroupDetail -&gt; String
 (Int -&gt; OutputGroupDetail -&gt; ShowS)
@@ -118,16 +118,16 @@ forall a. Maybe a
      (Maybe [OutputDetail])
      (Maybe [OutputDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail%27"><span class="hs-identifier hs-type">OutputGroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680007036"><span class="annot"><span class="annottext">Maybe [OutputDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail%27"><span class="hs-identifier hs-type">OutputGroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011969"><span class="annot"><span class="annottext">Maybe [OutputDetail]
 outputDetails :: Maybe [OutputDetail]
 $sel:outputDetails:OutputGroupDetail' :: OutputGroupDetail -&gt; Maybe [OutputDetail]
-</span><a href="#local-6989586621680007036"><span class="hs-identifier hs-var hs-var">outputDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDetail]
-</span><a href="#local-6989586621680007036"><span class="hs-identifier hs-var">outputDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680007035"><span class="annot"><span class="annottext">s :: OutputGroupDetail
-</span><a href="#local-6989586621680007035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail%27"><span class="hs-identifier hs-type">OutputGroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680007034"><span class="annot"><span class="annottext">Maybe [OutputDetail]
-</span><a href="#local-6989586621680007034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupDetail
-</span><a href="#local-6989586621680007035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDetails:OutputGroupDetail' :: Maybe [OutputDetail]
+</span><a href="#local-6989586621680011969"><span class="hs-identifier hs-var hs-var">outputDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDetail]
+</span><a href="#local-6989586621680011969"><span class="hs-identifier hs-var">outputDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011968"><span class="annot"><span class="annottext">s :: OutputGroupDetail
+</span><a href="#local-6989586621680011968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail%27"><span class="hs-identifier hs-type">OutputGroupDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011967"><span class="annot"><span class="annottext">Maybe [OutputDetail]
+</span><a href="#local-6989586621680011967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputGroupDetail
+</span><a href="#local-6989586621680011968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDetails:OutputGroupDetail' :: Maybe [OutputDetail]
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#%24sel%3AoutputDetails%3AOutputGroupDetail%27"><span class="hs-identifier hs-var">outputDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputDetail]
-</span><a href="#local-6989586621680007034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputDetail] -&gt; f (Maybe [OutputDetail]))
+</span><a href="#local-6989586621680011967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputDetail] -&gt; f (Maybe [OutputDetail]))
  -&gt; OutputGroupDetail -&gt; f OutputGroupDetail)
 -&gt; ((Maybe [OutputDetail] -&gt; f (Maybe [OutputDetail]))
     -&gt; Maybe [OutputDetail] -&gt; f (Maybe [OutputDetail]))
@@ -145,11 +145,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OutputDetail] [OutputDetail] [OutputDetail] [OutputDetail]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007028"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621680007026"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputGroupDetail
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011961"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621680011959"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputGroupDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputGroupDetail)
@@ -159,15 +159,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputGroupDetail&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680007023"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680011956"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680011956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OutputDetail] -&gt; OutputGroupDetail
 </span><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail%27"><span class="hs-identifier hs-var">OutputGroupDetail'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [OutputDetail] -&gt; OutputGroupDetail)
 -&gt; Parser (Maybe [OutputDetail]) -&gt; Parser OutputGroupDetail
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680007023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputDetail]))
+</span><a href="#local-6989586621680011956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [OutputDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;outputDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [OutputDetail]))
@@ -178,7 +178,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007016"><span id="local-6989586621680007018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011949"><span id="local-6989586621680011951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680007013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.OutputGroupDetail.html#OutputGroupDetail"><span class="hs-identifier hs-type">OutputGroupDetail</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679258056"><span id="local-6989586621679258057"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeyType"><span class="annot"><a href="Network.AWS.Firehose.Types.KeyType.html#KeyType"><span class="hs-identifier hs-var">KeyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.KeyType.html#KeyType%27"><span class="hs-identifier hs-var">KeyType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromKeyType"><span class="annot"><span class="annottext">KeyType -&gt; Text
+</span><span id="line-32"></span><span id="local-6989586621679272280"><span id="local-6989586621679272281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="KeyType"><span class="annot"><a href="Network.AWS.Firehose.Types.KeyType.html#KeyType"><span class="hs-identifier hs-var">KeyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyType%27"><span class="annot"><a href="Network.AWS.Firehose.Types.KeyType.html#KeyType%27"><span class="hs-identifier hs-var">KeyType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromKeyType"><span class="annot"><span class="annottext">KeyType -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.KeyType.html#fromKeyType"><span class="hs-identifier hs-var hs-var">fromKeyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258048"><span id="local-6989586621679258050"><span id="local-6989586621679258052"><span class="annot"><span class="annottext">Int -&gt; KeyType -&gt; ShowS
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272272"><span id="local-6989586621679272274"><span id="local-6989586621679272276"><span class="annot"><span class="annottext">Int -&gt; KeyType -&gt; ShowS
 [KeyType] -&gt; ShowS
 KeyType -&gt; String
 (Int -&gt; KeyType -&gt; ShowS)
@@ -46,7 +46,7 @@ $cshow :: KeyType -&gt; String
 showsPrec :: Int -&gt; KeyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; KeyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>      </span><span id="local-6989586621679258039"><span id="local-6989586621679258041"><span id="local-6989586621679258043"><span id="local-6989586621679258045"><span class="annot"><span class="annottext">ReadPrec [KeyType]
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679272263"><span id="local-6989586621679272265"><span id="local-6989586621679272267"><span id="local-6989586621679272269"><span class="annot"><span class="annottext">ReadPrec [KeyType]
 ReadPrec KeyType
 Int -&gt; ReadS KeyType
 ReadS [KeyType]
@@ -67,7 +67,7 @@ $creadList :: ReadS [KeyType]
 readsPrec :: Int -&gt; ReadS KeyType
 $creadsPrec :: Int -&gt; ReadS KeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679258034"><span id="local-6989586621679258036"><span class="annot"><span class="annottext">KeyType -&gt; KeyType -&gt; Bool
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679272258"><span id="local-6989586621679272260"><span class="annot"><span class="annottext">KeyType -&gt; KeyType -&gt; Bool
 (KeyType -&gt; KeyType -&gt; Bool)
 -&gt; (KeyType -&gt; KeyType -&gt; Bool) -&gt; Eq KeyType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ $c/= :: KeyType -&gt; KeyType -&gt; Bool
 == :: KeyType -&gt; KeyType -&gt; Bool
 $c== :: KeyType -&gt; KeyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679258018"><span id="local-6989586621679258020"><span id="local-6989586621679258022"><span id="local-6989586621679258024"><span id="local-6989586621679258026"><span id="local-6989586621679258028"><span id="local-6989586621679258030"><span class="annot"><span class="annottext">Eq KeyType
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679272242"><span id="local-6989586621679272244"><span id="local-6989586621679272246"><span id="local-6989586621679272248"><span id="local-6989586621679272250"><span id="local-6989586621679272252"><span id="local-6989586621679272254"><span class="annot"><span class="annottext">Eq KeyType
 Eq KeyType
 -&gt; (KeyType -&gt; KeyType -&gt; Ordering)
 -&gt; (KeyType -&gt; KeyType -&gt; Bool)
@@ -126,7 +126,7 @@ $cfrom :: forall x. KeyType -&gt; Rep KeyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679258010"><span id="local-6989586621679258012"><span class="annot"><span class="annottext">Int -&gt; KeyType -&gt; Int
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272234"><span id="local-6989586621679272236"><span class="annot"><span class="annottext">Int -&gt; KeyType -&gt; Int
 KeyType -&gt; Int
 (Int -&gt; KeyType -&gt; Int) -&gt; (KeyType -&gt; Int) -&gt; Hashable KeyType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -135,49 +135,49 @@ $chash :: KeyType -&gt; Int
 hashWithSalt :: Int -&gt; KeyType -&gt; Int
 $chashWithSalt :: Int -&gt; KeyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679258007"><span class="annot"><span class="annottext">KeyType -&gt; ()
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679272231"><span class="annot"><span class="annottext">KeyType -&gt; ()
 (KeyType -&gt; ()) -&gt; NFData KeyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: KeyType -&gt; ()
 $crnf :: KeyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679258004"><span class="annot"><span class="annottext">Text -&gt; Either String KeyType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679272228"><span class="annot"><span class="annottext">Text -&gt; Either String KeyType
 (Text -&gt; Either String KeyType) -&gt; FromText KeyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String KeyType
 $cfromText :: Text -&gt; Either String KeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679258001"><span class="annot"><span class="annottext">KeyType -&gt; Text
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679272225"><span class="annot"><span class="annottext">KeyType -&gt; Text
 (KeyType -&gt; Text) -&gt; ToText KeyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: KeyType -&gt; Text
 $ctoText :: KeyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679257998"><span class="annot"><span class="annottext">KeyType -&gt; ByteString
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272222"><span class="annot"><span class="annottext">KeyType -&gt; ByteString
 (KeyType -&gt; ByteString) -&gt; ToByteString KeyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: KeyType -&gt; ByteString
 $ctoBS :: KeyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679257995"><span class="annot"><span class="annottext">KeyType -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679272219"><span class="annot"><span class="annottext">KeyType -&gt; ByteStringBuilder
 (KeyType -&gt; ByteStringBuilder) -&gt; ToLog KeyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: KeyType -&gt; ByteStringBuilder
 $cbuild :: KeyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679257992"><span class="annot"><span class="annottext">HeaderName -&gt; KeyType -&gt; [Header]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679272216"><span class="annot"><span class="annottext">HeaderName -&gt; KeyType -&gt; [Header]
 (HeaderName -&gt; KeyType -&gt; [Header]) -&gt; ToHeader KeyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; KeyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; KeyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679257989"><span class="annot"><span class="annottext">KeyType -&gt; QueryString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272213"><span class="annot"><span class="annottext">KeyType -&gt; QueryString
 (KeyType -&gt; QueryString) -&gt; ToQuery KeyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: KeyType -&gt; QueryString
 $ctoQuery :: KeyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679257984"><span id="local-6989586621679257986"><span class="annot"><span class="annottext">Value -&gt; Parser [KeyType]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272208"><span id="local-6989586621679272210"><span class="annot"><span class="annottext">Value -&gt; Parser [KeyType]
 Value -&gt; Parser KeyType
 (Value -&gt; Parser KeyType)
 -&gt; (Value -&gt; Parser [KeyType]) -&gt; FromJSON KeyType
@@ -188,7 +188,7 @@ $cparseJSONList :: Value -&gt; Parser [KeyType]
 parseJSON :: Value -&gt; Parser KeyType
 $cparseJSON :: Value -&gt; Parser KeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679257979"><span id="local-6989586621679257981"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeyType]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272203"><span id="local-6989586621679272205"><span class="annot"><span class="annottext">FromJSONKeyFunction [KeyType]
 FromJSONKeyFunction KeyType
 FromJSONKeyFunction KeyType
 -&gt; FromJSONKeyFunction [KeyType] -&gt; FromJSONKey KeyType
@@ -199,7 +199,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [KeyType]
 fromJSONKey :: FromJSONKeyFunction KeyType
 $cfromJSONKey :: FromJSONKeyFunction KeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679257970"><span id="local-6989586621679257972"><span id="local-6989586621679257974"><span id="local-6989586621679257976"><span class="annot"><span class="annottext">[KeyType] -&gt; Encoding
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272194"><span id="local-6989586621679272196"><span id="local-6989586621679272198"><span id="local-6989586621679272200"><span class="annot"><span class="annottext">[KeyType] -&gt; Encoding
 [KeyType] -&gt; Value
 KeyType -&gt; Encoding
 KeyType -&gt; Value
@@ -223,7 +223,7 @@ $ctoEncoding :: KeyType -&gt; Encoding
 toJSON :: KeyType -&gt; Value
 $ctoJSON :: KeyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679257965"><span id="local-6989586621679257967"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeyType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272189"><span id="local-6989586621679272191"><span class="annot"><span class="annottext">ToJSONKeyFunction [KeyType]
 ToJSONKeyFunction KeyType
 ToJSONKeyFunction KeyType
 -&gt; ToJSONKeyFunction [KeyType] -&gt; ToJSONKey KeyType
@@ -234,13 +234,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [KeyType]
 toJSONKey :: ToJSONKeyFunction KeyType
 $ctoJSONKey :: ToJSONKeyFunction KeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679257962"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeyType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272186"><span class="annot"><span class="annottext">[Node] -&gt; Either String KeyType
 ([Node] -&gt; Either String KeyType) -&gt; FromXML KeyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String KeyType
 $cparseXML :: [Node] -&gt; Either String KeyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257959"><span class="annot"><span class="annottext">KeyType -&gt; XML
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272183"><span class="annot"><span class="annottext">KeyType -&gt; XML
 (KeyType -&gt; XML) -&gt; ToXML KeyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: KeyType -&gt; XML

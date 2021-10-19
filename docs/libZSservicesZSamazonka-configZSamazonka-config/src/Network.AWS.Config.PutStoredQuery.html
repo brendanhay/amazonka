@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newPutStoredQuery' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679413258"><span id="local-6989586621679413259"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutStoredQuery"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-var">PutStoredQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutStoredQuery%27"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-var">PutStoredQuery'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679413876"><span id="local-6989586621679413877"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutStoredQuery"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-var">PutStoredQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutStoredQuery%27"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-var">PutStoredQuery'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @Tags@ object.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3APutStoredQuery%27"><span class="annot"><span class="annottext">PutStoredQuery -&gt; Maybe [Tag]
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3Atags%3APutStoredQuery%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AstoredQuery%3APutStoredQuery%27"><span class="annot"><span class="annottext">PutStoredQuery -&gt; StoredQuery
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3AstoredQuery%3APutStoredQuery%27"><span class="hs-identifier hs-var hs-var">storedQuery</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQuery.html#StoredQuery"><span class="hs-identifier hs-type">StoredQuery</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413251"><span id="local-6989586621679413253"><span class="annot"><span class="annottext">PutStoredQuery -&gt; PutStoredQuery -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413869"><span id="local-6989586621679413871"><span class="annot"><span class="annottext">PutStoredQuery -&gt; PutStoredQuery -&gt; Bool
 (PutStoredQuery -&gt; PutStoredQuery -&gt; Bool)
 -&gt; (PutStoredQuery -&gt; PutStoredQuery -&gt; Bool) -&gt; Eq PutStoredQuery
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutStoredQuery -&gt; PutStoredQuery -&gt; Bool
 == :: PutStoredQuery -&gt; PutStoredQuery -&gt; Bool
 $c== :: PutStoredQuery -&gt; PutStoredQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413242"><span id="local-6989586621679413244"><span id="local-6989586621679413246"><span id="local-6989586621679413248"><span class="annot"><span class="annottext">ReadPrec [PutStoredQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413860"><span id="local-6989586621679413862"><span id="local-6989586621679413864"><span id="local-6989586621679413866"><span class="annot"><span class="annottext">ReadPrec [PutStoredQuery]
 ReadPrec PutStoredQuery
 Int -&gt; ReadS PutStoredQuery
 ReadS [PutStoredQuery]
@@ -92,7 +92,7 @@ readList :: ReadS [PutStoredQuery]
 $creadList :: ReadS [PutStoredQuery]
 readsPrec :: Int -&gt; ReadS PutStoredQuery
 $creadsPrec :: Int -&gt; ReadS PutStoredQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413235"><span id="local-6989586621679413237"><span id="local-6989586621679413239"><span class="annot"><span class="annottext">Int -&gt; PutStoredQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413853"><span id="local-6989586621679413855"><span id="local-6989586621679413857"><span class="annot"><span class="annottext">Int -&gt; PutStoredQuery -&gt; ShowS
 [PutStoredQuery] -&gt; ShowS
 PutStoredQuery -&gt; String
 (Int -&gt; PutStoredQuery -&gt; ShowS)
@@ -139,8 +139,8 @@ $cfrom :: forall x. PutStoredQuery -&gt; Rep PutStoredQuery x
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.StoredQuery.html#StoredQuery"><span class="hs-identifier hs-type">StoredQuery</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span>
 </span><span id="line-87"></span><span id="newPutStoredQuery"><span class="annot"><span class="annottext">newPutStoredQuery :: StoredQuery -&gt; PutStoredQuery
-</span><a href="Network.AWS.Config.PutStoredQuery.html#newPutStoredQuery"><span class="hs-identifier hs-var hs-var">newPutStoredQuery</span></a></span></span><span> </span><span id="local-6989586621679413230"><span class="annot"><span class="annottext">StoredQuery
-</span><a href="#local-6989586621679413230"><span class="hs-identifier hs-var">pStoredQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.PutStoredQuery.html#newPutStoredQuery"><span class="hs-identifier hs-var hs-var">newPutStoredQuery</span></a></span></span><span> </span><span id="local-6989586621679413848"><span class="annot"><span class="annottext">StoredQuery
+</span><a href="#local-6989586621679413848"><span class="hs-identifier hs-var">pStoredQuery_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">PutStoredQuery' :: Maybe [Tag] -&gt; StoredQuery -&gt; PutStoredQuery
 </span><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:PutStoredQuery' :: Maybe [Tag]
@@ -149,7 +149,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:storedQuery:PutStoredQuery' :: StoredQuery
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3AstoredQuery%3APutStoredQuery%27"><span class="hs-identifier hs-var">storedQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StoredQuery
-</span><a href="#local-6989586621679413230"><span class="hs-identifier hs-var">pStoredQuery_</span></a></span><span>
+</span><a href="#local-6989586621679413848"><span class="hs-identifier hs-var">pStoredQuery_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | A list of @Tags@ object.</span><span>
@@ -160,16 +160,16 @@ forall a. Maybe a
 -&gt; (PutStoredQuery -&gt; Maybe [Tag] -&gt; PutStoredQuery)
 -&gt; Lens PutStoredQuery PutStoredQuery (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413227"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413845"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:PutStoredQuery' :: PutStoredQuery -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679413227"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679413227"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413226"><span class="annot"><span class="annottext">s :: PutStoredQuery
-</span><a href="#local-6989586621679413226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413225"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679413225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQuery
-</span><a href="#local-6989586621679413226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutStoredQuery' :: Maybe [Tag]
+</span><a href="#local-6989586621679413845"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679413845"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413844"><span class="annot"><span class="annottext">s :: PutStoredQuery
+</span><a href="#local-6989586621679413844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413843"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679413843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQuery
+</span><a href="#local-6989586621679413844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutStoredQuery' :: Maybe [Tag]
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3Atags%3APutStoredQuery%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679413225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679413843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; PutStoredQuery -&gt; f PutStoredQuery)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -183,8 +183,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A list of @StoredQuery@ objects. The mandatory fields are @QueryName@</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- and @Expression@.</span><span>
@@ -199,27 +199,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (PutStoredQuery -&gt; StoredQuery -&gt; PutStoredQuery)
 -&gt; Lens PutStoredQuery PutStoredQuery StoredQuery StoredQuery
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413221"><span class="annot"><span class="annottext">StoredQuery
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413839"><span class="annot"><span class="annottext">StoredQuery
 storedQuery :: StoredQuery
 $sel:storedQuery:PutStoredQuery' :: PutStoredQuery -&gt; StoredQuery
-</span><a href="#local-6989586621679413221"><span class="hs-identifier hs-var hs-var">storedQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQuery
-</span><a href="#local-6989586621679413221"><span class="hs-identifier hs-var">storedQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413220"><span class="annot"><span class="annottext">s :: PutStoredQuery
-</span><a href="#local-6989586621679413220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413219"><span class="annot"><span class="annottext">StoredQuery
-</span><a href="#local-6989586621679413219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQuery
-</span><a href="#local-6989586621679413220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storedQuery:PutStoredQuery' :: StoredQuery
+</span><a href="#local-6989586621679413839"><span class="hs-identifier hs-var hs-var">storedQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StoredQuery
+</span><a href="#local-6989586621679413839"><span class="hs-identifier hs-var">storedQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413838"><span class="annot"><span class="annottext">s :: PutStoredQuery
+</span><a href="#local-6989586621679413838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413837"><span class="annot"><span class="annottext">StoredQuery
+</span><a href="#local-6989586621679413837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQuery
+</span><a href="#local-6989586621679413838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storedQuery:PutStoredQuery' :: StoredQuery
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3AstoredQuery%3APutStoredQuery%27"><span class="hs-identifier hs-var">storedQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StoredQuery
-</span><a href="#local-6989586621679413219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679413215"><span class="annot"><span class="annottext">request :: PutStoredQuery -&gt; Request PutStoredQuery
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679413833"><span class="annot"><span class="annottext">request :: PutStoredQuery -&gt; Request PutStoredQuery
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutStoredQuery -&gt; Request PutStoredQuery
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679413211"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679413829"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutStoredQuery
 -&gt; ClientResponse ClientBody
@@ -243,10 +243,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413208"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413208"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413207"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679413207"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413206"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413206"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679413826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679413825"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679413825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679413824"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679413824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PutStoredQueryResponse
 </span><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-var">PutStoredQueryResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PutStoredQueryResponse)
@@ -254,7 +254,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutStoredQueryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679413206"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679413824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -266,15 +266,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413208"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413198"><span id="local-6989586621679413200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413816"><span id="local-6989586621679413818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679413191"><span class="annot"><span class="annottext">toHeaders :: PutStoredQuery -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679413809"><span class="annot"><span class="annottext">toHeaders :: PutStoredQuery -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutStoredQuery -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -301,15 +301,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413181"><span id="local-6989586621679413183"><span id="local-6989586621679413185"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679413179"><span class="annot"><span class="annottext">toJSON :: PutStoredQuery -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413176"><span id="local-6989586621679413177"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413799"><span id="local-6989586621679413801"><span id="local-6989586621679413803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679413797"><span class="annot"><span class="annottext">toJSON :: PutStoredQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery%27"><span class="hs-identifier hs-type">PutStoredQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413794"><span id="local-6989586621679413795"><span class="annot"><span class="annottext">Maybe [Tag]
 StoredQuery
 storedQuery :: StoredQuery
 tags :: Maybe [Tag]
 $sel:storedQuery:PutStoredQuery' :: PutStoredQuery -&gt; StoredQuery
 $sel:tags:PutStoredQuery' :: PutStoredQuery -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679413176"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679413794"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -321,26 +321,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679413177"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679413795"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StoredQuery&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StoredQuery -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StoredQuery
-</span><a href="#local-6989586621679413176"><span class="hs-identifier hs-var">storedQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413794"><span class="hs-identifier hs-var">storedQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679413170"><span class="annot"><span class="annottext">toPath :: PutStoredQuery -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679413788"><span class="annot"><span class="annottext">toPath :: PutStoredQuery -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutStoredQuery -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQuery"><span class="hs-identifier hs-type">PutStoredQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679413166"><span class="annot"><span class="annottext">toQuery :: PutStoredQuery -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679413784"><span class="annot"><span class="annottext">toQuery :: PutStoredQuery -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutStoredQuery -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newPutStoredQueryResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679413163"><span id="local-6989586621679413164"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutStoredQueryResponse"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-var">PutStoredQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutStoredQueryResponse%27"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-var">PutStoredQueryResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679413781"><span id="local-6989586621679413782"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutStoredQueryResponse"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-var">PutStoredQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutStoredQueryResponse%27"><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-var">PutStoredQueryResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the query. For example,</span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-comment">-- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AqueryArn%3APutStoredQueryResponse%27"><span class="annot"><span class="annottext">PutStoredQueryResponse -&gt; Maybe Text
@@ -357,7 +357,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutStoredQueryResponse%27"><span class="annot"><span class="annottext">PutStoredQueryResponse -&gt; Int
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3AhttpStatus%3APutStoredQueryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413157"><span id="local-6989586621679413159"><span class="annot"><span class="annottext">PutStoredQueryResponse -&gt; PutStoredQueryResponse -&gt; Bool
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679413775"><span id="local-6989586621679413777"><span class="annot"><span class="annottext">PutStoredQueryResponse -&gt; PutStoredQueryResponse -&gt; Bool
 (PutStoredQueryResponse -&gt; PutStoredQueryResponse -&gt; Bool)
 -&gt; (PutStoredQueryResponse -&gt; PutStoredQueryResponse -&gt; Bool)
 -&gt; Eq PutStoredQueryResponse
@@ -366,7 +366,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutStoredQueryResponse -&gt; PutStoredQueryResponse -&gt; Bool
 == :: PutStoredQueryResponse -&gt; PutStoredQueryResponse -&gt; Bool
 $c== :: PutStoredQueryResponse -&gt; PutStoredQueryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413149"><span id="local-6989586621679413151"><span id="local-6989586621679413153"><span id="local-6989586621679413155"><span class="annot"><span class="annottext">ReadPrec [PutStoredQueryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413767"><span id="local-6989586621679413769"><span id="local-6989586621679413771"><span id="local-6989586621679413773"><span class="annot"><span class="annottext">ReadPrec [PutStoredQueryResponse]
 ReadPrec PutStoredQueryResponse
 Int -&gt; ReadS PutStoredQueryResponse
 ReadS [PutStoredQueryResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [PutStoredQueryResponse]
 $creadList :: ReadS [PutStoredQueryResponse]
 readsPrec :: Int -&gt; ReadS PutStoredQueryResponse
 $creadsPrec :: Int -&gt; ReadS PutStoredQueryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413143"><span id="local-6989586621679413145"><span id="local-6989586621679413147"><span class="annot"><span class="annottext">Int -&gt; PutStoredQueryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679413761"><span id="local-6989586621679413763"><span id="local-6989586621679413765"><span class="annot"><span class="annottext">Int -&gt; PutStoredQueryResponse -&gt; ShowS
 [PutStoredQueryResponse] -&gt; ShowS
 PutStoredQueryResponse -&gt; String
 (Int -&gt; PutStoredQueryResponse -&gt; ShowS)
@@ -430,8 +430,8 @@ $cfrom :: forall x. PutStoredQueryResponse -&gt; Rep PutStoredQueryResponse x
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newPutStoredQueryResponse"><span class="annot"><span class="annottext">newPutStoredQueryResponse :: Int -&gt; PutStoredQueryResponse
-</span><a href="Network.AWS.Config.PutStoredQuery.html#newPutStoredQueryResponse"><span class="hs-identifier hs-var hs-var">newPutStoredQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679413140"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.PutStoredQuery.html#newPutStoredQueryResponse"><span class="hs-identifier hs-var hs-var">newPutStoredQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679413758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">PutStoredQueryResponse' :: Maybe Text -&gt; Int -&gt; PutStoredQueryResponse
 </span><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryArn:PutStoredQueryResponse' :: Maybe Text
@@ -440,7 +440,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutStoredQueryResponse' :: Int
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3AhttpStatus%3APutStoredQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679413758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the query. For example,</span><span>
@@ -456,16 +456,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413139"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413757"><span class="annot"><span class="annottext">Maybe Text
 queryArn :: Maybe Text
 $sel:queryArn:PutStoredQueryResponse' :: PutStoredQueryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679413139"><span class="hs-identifier hs-var hs-var">queryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413139"><span class="hs-identifier hs-var">queryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413138"><span class="annot"><span class="annottext">s :: PutStoredQueryResponse
-</span><a href="#local-6989586621679413138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413137"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQueryResponse
-</span><a href="#local-6989586621679413138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArn:PutStoredQueryResponse' :: Maybe Text
+</span><a href="#local-6989586621679413757"><span class="hs-identifier hs-var hs-var">queryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413757"><span class="hs-identifier hs-var">queryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413756"><span class="annot"><span class="annottext">s :: PutStoredQueryResponse
+</span><a href="#local-6989586621679413756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413755"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679413755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQueryResponse
+</span><a href="#local-6989586621679413756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryArn:PutStoredQueryResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3AqueryArn%3APutStoredQueryResponse%27"><span class="hs-identifier hs-var">queryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679413137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#putStoredQueryResponse_httpStatus"><span class="hs-identifier hs-type">putStoredQueryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -475,16 +475,16 @@ $sel:queryArn:PutStoredQueryResponse' :: PutStoredQueryResponse -&gt; Maybe Text
 -&gt; (PutStoredQueryResponse -&gt; Int -&gt; PutStoredQueryResponse)
 -&gt; Lens PutStoredQueryResponse PutStoredQueryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413136"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679413754"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutStoredQueryResponse' :: PutStoredQueryResponse -&gt; Int
-</span><a href="#local-6989586621679413136"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413136"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413135"><span class="annot"><span class="annottext">s :: PutStoredQueryResponse
-</span><a href="#local-6989586621679413135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQueryResponse
-</span><a href="#local-6989586621679413135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutStoredQueryResponse' :: Int
+</span><a href="#local-6989586621679413754"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413754"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679413753"><span class="annot"><span class="annottext">s :: PutStoredQueryResponse
+</span><a href="#local-6989586621679413753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse%27"><span class="hs-identifier hs-type">PutStoredQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679413752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679413752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutStoredQueryResponse
+</span><a href="#local-6989586621679413753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutStoredQueryResponse' :: Int
 </span><a href="Network.AWS.Config.PutStoredQuery.html#%24sel%3AhttpStatus%3APutStoredQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679413134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679413752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679413750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutStoredQuery.html#PutStoredQueryResponse"><span class="hs-identifier hs-type">PutStoredQueryResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679329870"><span id="local-6989586621679329871"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SegmentType"><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-var">SegmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentType.html#SegmentType%27"><span class="hs-identifier hs-var">SegmentType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679330157"><span id="local-6989586621679330158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SegmentType"><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-var">SegmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.SegmentType.html#SegmentType%27"><span class="hs-identifier hs-var">SegmentType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSegmentType"><span class="annot"><span class="annottext">SegmentType -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.SegmentType.html#fromSegmentType"><span class="hs-identifier hs-var hs-var">fromSegmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329862"><span id="local-6989586621679329864"><span id="local-6989586621679329866"><span class="annot"><span class="annottext">Int -&gt; SegmentType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330149"><span id="local-6989586621679330151"><span id="local-6989586621679330153"><span class="annot"><span class="annottext">Int -&gt; SegmentType -&gt; ShowS
 [SegmentType] -&gt; ShowS
 SegmentType -&gt; String
 (Int -&gt; SegmentType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SegmentType -&gt; String
 showsPrec :: Int -&gt; SegmentType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SegmentType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679329853"><span id="local-6989586621679329855"><span id="local-6989586621679329857"><span id="local-6989586621679329859"><span class="annot"><span class="annottext">ReadPrec [SegmentType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679330140"><span id="local-6989586621679330142"><span id="local-6989586621679330144"><span id="local-6989586621679330146"><span class="annot"><span class="annottext">ReadPrec [SegmentType]
 ReadPrec SegmentType
 Int -&gt; ReadS SegmentType
 ReadS [SegmentType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SegmentType]
 readsPrec :: Int -&gt; ReadS SegmentType
 $creadsPrec :: Int -&gt; ReadS SegmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679329848"><span id="local-6989586621679329850"><span class="annot"><span class="annottext">SegmentType -&gt; SegmentType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679330135"><span id="local-6989586621679330137"><span class="annot"><span class="annottext">SegmentType -&gt; SegmentType -&gt; Bool
 (SegmentType -&gt; SegmentType -&gt; Bool)
 -&gt; (SegmentType -&gt; SegmentType -&gt; Bool) -&gt; Eq SegmentType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: SegmentType -&gt; SegmentType -&gt; Bool
 == :: SegmentType -&gt; SegmentType -&gt; Bool
 $c== :: SegmentType -&gt; SegmentType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329832"><span id="local-6989586621679329834"><span id="local-6989586621679329836"><span id="local-6989586621679329838"><span id="local-6989586621679329840"><span id="local-6989586621679329842"><span id="local-6989586621679329844"><span class="annot"><span class="annottext">Eq SegmentType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330119"><span id="local-6989586621679330121"><span id="local-6989586621679330123"><span id="local-6989586621679330125"><span id="local-6989586621679330127"><span id="local-6989586621679330129"><span id="local-6989586621679330131"><span class="annot"><span class="annottext">Eq SegmentType
 Eq SegmentType
 -&gt; (SegmentType -&gt; SegmentType -&gt; Ordering)
 -&gt; (SegmentType -&gt; SegmentType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. SegmentType -&gt; Rep SegmentType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329824"><span id="local-6989586621679329826"><span class="annot"><span class="annottext">Int -&gt; SegmentType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330111"><span id="local-6989586621679330113"><span class="annot"><span class="annottext">Int -&gt; SegmentType -&gt; Int
 SegmentType -&gt; Int
 (Int -&gt; SegmentType -&gt; Int)
 -&gt; (SegmentType -&gt; Int) -&gt; Hashable SegmentType
@@ -142,49 +142,49 @@ $chash :: SegmentType -&gt; Int
 hashWithSalt :: Int -&gt; SegmentType -&gt; Int
 $chashWithSalt :: Int -&gt; SegmentType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679329821"><span class="annot"><span class="annottext">SegmentType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679330108"><span class="annot"><span class="annottext">SegmentType -&gt; ()
 (SegmentType -&gt; ()) -&gt; NFData SegmentType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SegmentType -&gt; ()
 $crnf :: SegmentType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679329818"><span class="annot"><span class="annottext">Text -&gt; Either String SegmentType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679330105"><span class="annot"><span class="annottext">Text -&gt; Either String SegmentType
 (Text -&gt; Either String SegmentType) -&gt; FromText SegmentType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SegmentType
 $cfromText :: Text -&gt; Either String SegmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329815"><span class="annot"><span class="annottext">SegmentType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679330102"><span class="annot"><span class="annottext">SegmentType -&gt; Text
 (SegmentType -&gt; Text) -&gt; ToText SegmentType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SegmentType -&gt; Text
 $ctoText :: SegmentType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329812"><span class="annot"><span class="annottext">SegmentType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679330099"><span class="annot"><span class="annottext">SegmentType -&gt; ByteString
 (SegmentType -&gt; ByteString) -&gt; ToByteString SegmentType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SegmentType -&gt; ByteString
 $ctoBS :: SegmentType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329809"><span class="annot"><span class="annottext">SegmentType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679330096"><span class="annot"><span class="annottext">SegmentType -&gt; ByteStringBuilder
 (SegmentType -&gt; ByteStringBuilder) -&gt; ToLog SegmentType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SegmentType -&gt; ByteStringBuilder
 $cbuild :: SegmentType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329806"><span class="annot"><span class="annottext">HeaderName -&gt; SegmentType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679330093"><span class="annot"><span class="annottext">HeaderName -&gt; SegmentType -&gt; [Header]
 (HeaderName -&gt; SegmentType -&gt; [Header]) -&gt; ToHeader SegmentType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SegmentType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SegmentType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329803"><span class="annot"><span class="annottext">SegmentType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679330090"><span class="annot"><span class="annottext">SegmentType -&gt; QueryString
 (SegmentType -&gt; QueryString) -&gt; ToQuery SegmentType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SegmentType -&gt; QueryString
 $ctoQuery :: SegmentType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329798"><span id="local-6989586621679329800"><span class="annot"><span class="annottext">Value -&gt; Parser [SegmentType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679330085"><span id="local-6989586621679330087"><span class="annot"><span class="annottext">Value -&gt; Parser [SegmentType]
 Value -&gt; Parser SegmentType
 (Value -&gt; Parser SegmentType)
 -&gt; (Value -&gt; Parser [SegmentType]) -&gt; FromJSON SegmentType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [SegmentType]
 parseJSON :: Value -&gt; Parser SegmentType
 $cparseJSON :: Value -&gt; Parser SegmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329793"><span id="local-6989586621679329795"><span class="annot"><span class="annottext">FromJSONKeyFunction [SegmentType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679330080"><span id="local-6989586621679330082"><span class="annot"><span class="annottext">FromJSONKeyFunction [SegmentType]
 FromJSONKeyFunction SegmentType
 FromJSONKeyFunction SegmentType
 -&gt; FromJSONKeyFunction [SegmentType] -&gt; FromJSONKey SegmentType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SegmentType]
 fromJSONKey :: FromJSONKeyFunction SegmentType
 $cfromJSONKey :: FromJSONKeyFunction SegmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329784"><span id="local-6989586621679329786"><span id="local-6989586621679329788"><span id="local-6989586621679329790"><span class="annot"><span class="annottext">[SegmentType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679330071"><span id="local-6989586621679330073"><span id="local-6989586621679330075"><span id="local-6989586621679330077"><span class="annot"><span class="annottext">[SegmentType] -&gt; Encoding
 [SegmentType] -&gt; Value
 SegmentType -&gt; Encoding
 SegmentType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: SegmentType -&gt; Encoding
 toJSON :: SegmentType -&gt; Value
 $ctoJSON :: SegmentType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329779"><span id="local-6989586621679329781"><span class="annot"><span class="annottext">ToJSONKeyFunction [SegmentType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679330066"><span id="local-6989586621679330068"><span class="annot"><span class="annottext">ToJSONKeyFunction [SegmentType]
 ToJSONKeyFunction SegmentType
 ToJSONKeyFunction SegmentType
 -&gt; ToJSONKeyFunction [SegmentType] -&gt; ToJSONKey SegmentType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SegmentType]
 toJSONKey :: ToJSONKeyFunction SegmentType
 $ctoJSONKey :: ToJSONKeyFunction SegmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329776"><span class="annot"><span class="annottext">[Node] -&gt; Either String SegmentType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679330063"><span class="annot"><span class="annottext">[Node] -&gt; Either String SegmentType
 ([Node] -&gt; Either String SegmentType) -&gt; FromXML SegmentType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SegmentType
 $cparseXML :: [Node] -&gt; Either String SegmentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329773"><span class="annot"><span class="annottext">SegmentType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679330060"><span class="annot"><span class="annottext">SegmentType -&gt; XML
 (SegmentType -&gt; XML) -&gt; ToXML SegmentType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SegmentType -&gt; XML

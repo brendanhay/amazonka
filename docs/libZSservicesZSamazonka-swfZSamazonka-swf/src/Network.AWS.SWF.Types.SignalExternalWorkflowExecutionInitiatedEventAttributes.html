@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSignalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679350125"><span id="local-6989586621679350126"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @runId@ of the external workflow execution to send the signal to.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
--&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The input provided to the signal.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ainput%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
--&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Ainput%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Data attached to the event that can be used by the decider in subsequent</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- decision tasks.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Acontrol%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><span id="line-30"></span><span id="local-6989586621679350202"><span id="local-6989586621679350203"></span></span><span class="hs-keyword">data</span><span> </span><span id="SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Data attached to the event that can be used by the decider in subsequent</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- decision tasks.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acontrol%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; Maybe Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Acontrol%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The input provided to the signal.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Ainput%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+-&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Ainput%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The @runId@ of the external workflow execution to send the signal to.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+-&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The @workflowId@ of the external workflow execution.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350114"><span id="local-6989586621679350116"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350191"><span id="local-6989586621679350193"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Bool
 (SignalExternalWorkflowExecutionInitiatedEventAttributes
  -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Bool)
@@ -70,7 +70,7 @@ $c/= :: SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Bool
 $c== :: SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350105"><span id="local-6989586621679350107"><span id="local-6989586621679350109"><span id="local-6989586621679350111"><span class="annot"><span class="annottext">ReadPrec [SignalExternalWorkflowExecutionInitiatedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350182"><span id="local-6989586621679350184"><span id="local-6989586621679350186"><span id="local-6989586621679350188"><span class="annot"><span class="annottext">ReadPrec [SignalExternalWorkflowExecutionInitiatedEventAttributes]
 ReadPrec SignalExternalWorkflowExecutionInitiatedEventAttributes
 Int
 -&gt; ReadS SignalExternalWorkflowExecutionInitiatedEventAttributes
@@ -95,7 +95,7 @@ readsPrec :: Int
 -&gt; ReadS SignalExternalWorkflowExecutionInitiatedEventAttributes
 $creadsPrec :: Int
 -&gt; ReadS SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350098"><span id="local-6989586621679350100"><span id="local-6989586621679350102"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350175"><span id="local-6989586621679350177"><span id="local-6989586621679350179"><span class="annot"><span class="annottext">Int
 -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; ShowS
 [SignalExternalWorkflowExecutionInitiatedEventAttributes] -&gt; ShowS
 SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; String
@@ -148,12 +148,12 @@ SignalExternalWorkflowExecutionInitiatedEventAttributes
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'runId', 'signalExternalWorkflowExecutionInitiatedEventAttributes_runId' - The @runId@ of the external workflow execution to send the signal to.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'input', 'signalExternalWorkflowExecutionInitiatedEventAttributes_input' - The input provided to the signal.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'control', 'signalExternalWorkflowExecutionInitiatedEventAttributes_control' - Data attached to the event that can be used by the decider in subsequent</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- decision tasks.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'control', 'signalExternalWorkflowExecutionInitiatedEventAttributes_control' - Data attached to the event that can be used by the decider in subsequent</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- decision tasks.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'input', 'signalExternalWorkflowExecutionInitiatedEventAttributes_input' - The input provided to the signal.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'runId', 'signalExternalWorkflowExecutionInitiatedEventAttributes_runId' - The @runId@ of the external workflow execution to send the signal to.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'workflowId', 'signalExternalWorkflowExecutionInitiatedEventAttributes_workflowId' - The @workflowId@ of the external workflow execution.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
@@ -176,12 +176,12 @@ SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; Integer
 -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#newSignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-var hs-var">newSignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679350092"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350092"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679350091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350091"><span class="hs-identifier hs-var">pSignalName_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679350090"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350090"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679350169"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350169"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679350168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350168"><span class="hs-identifier hs-var">pSignalName_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679350167"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679350167"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -190,8 +190,8 @@ SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; Integer
 -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:control:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Acontrol%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -200,85 +200,29 @@ forall a. Maybe a
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:control:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Acontrol%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:runId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:workflowId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350092"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350169"><span class="hs-identifier hs-var">pWorkflowId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:signalName:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AsignalName%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">signalName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350091"><span class="hs-identifier hs-var">pSignalName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350168"><span class="hs-identifier hs-var">pSignalName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350090"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679350167"><span class="hs-identifier hs-var">pDecisionTaskCompletedEventId_</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The @runId@ of the external workflow execution to send the signal to.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_runId"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="signalExternalWorkflowExecutionInitiatedEventAttributes_runId"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionInitiatedEventAttributes_runId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes
--&gt; f SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_runId"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionInitiatedEventAttributes_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionInitiatedEventAttributes
- -&gt; Maybe Text)
--&gt; (SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -&gt; Maybe Text
-    -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
--&gt; Lens
-     SignalExternalWorkflowExecutionInitiatedEventAttributes
-     SignalExternalWorkflowExecutionInitiatedEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350086"><span class="annot"><span class="annottext">Maybe Text
-runId :: Maybe Text
-$sel:runId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes
--&gt; Maybe Text
-</span><a href="#local-6989586621679350086"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350086"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350085"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350084"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The input provided to the signal.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_input"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="signalExternalWorkflowExecutionInitiatedEventAttributes_input"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionInitiatedEventAttributes_input :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes
--&gt; f SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_input"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionInitiatedEventAttributes_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionInitiatedEventAttributes
- -&gt; Maybe Text)
--&gt; (SignalExternalWorkflowExecutionInitiatedEventAttributes
-    -&gt; Maybe Text
-    -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
--&gt; Lens
-     SignalExternalWorkflowExecutionInitiatedEventAttributes
-     SignalExternalWorkflowExecutionInitiatedEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350082"><span class="annot"><span class="annottext">Maybe Text
-input :: Maybe Text
-$sel:input:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes
--&gt; Maybe Text
-</span><a href="#local-6989586621679350082"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350082"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350081"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350080"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Ainput%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | Data attached to the event that can be used by the decider in subsequent</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- decision tasks.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_control"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_control</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="signalExternalWorkflowExecutionInitiatedEventAttributes_control"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionInitiatedEventAttributes_control :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-100"></span><span class="hs-comment">-- | Data attached to the event that can be used by the decider in subsequent</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- decision tasks.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_control"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_control</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="signalExternalWorkflowExecutionInitiatedEventAttributes_control"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionInitiatedEventAttributes_control :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; f SignalExternalWorkflowExecutionInitiatedEventAttributes
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_control"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionInitiatedEventAttributes_control</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionInitiatedEventAttributes
@@ -292,17 +236,73 @@ $sel:input:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350078"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350163"><span class="annot"><span class="annottext">Maybe Text
 control :: Maybe Text
 $sel:control:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes
 -&gt; Maybe Text
-</span><a href="#local-6989586621679350078"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350078"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350077"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350076"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:control:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
+</span><a href="#local-6989586621679350163"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350163"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350162"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350161"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:control:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Acontrol%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The input provided to the signal.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_input"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="signalExternalWorkflowExecutionInitiatedEventAttributes_input"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionInitiatedEventAttributes_input :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_input"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionInitiatedEventAttributes_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionInitiatedEventAttributes
+ -&gt; Maybe Text)
+-&gt; (SignalExternalWorkflowExecutionInitiatedEventAttributes
+    -&gt; Maybe Text
+    -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionInitiatedEventAttributes
+     SignalExternalWorkflowExecutionInitiatedEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350159"><span class="annot"><span class="annottext">Maybe Text
+input :: Maybe Text
+$sel:input:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+-&gt; Maybe Text
+</span><a href="#local-6989586621679350159"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350159"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350158"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3Ainput%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The @runId@ of the external workflow execution to send the signal to.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_runId"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="signalExternalWorkflowExecutionInitiatedEventAttributes_runId"><span class="annot"><span class="annottext">signalExternalWorkflowExecutionInitiatedEventAttributes_runId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes
+-&gt; f SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_runId"><span class="hs-identifier hs-var hs-var">signalExternalWorkflowExecutionInitiatedEventAttributes_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SignalExternalWorkflowExecutionInitiatedEventAttributes
+ -&gt; Maybe Text)
+-&gt; (SignalExternalWorkflowExecutionInitiatedEventAttributes
+    -&gt; Maybe Text
+    -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
+-&gt; Lens
+     SignalExternalWorkflowExecutionInitiatedEventAttributes
+     SignalExternalWorkflowExecutionInitiatedEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350155"><span class="annot"><span class="annottext">Maybe Text
+runId :: Maybe Text
+$sel:runId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+-&gt; Maybe Text
+</span><a href="#local-6989586621679350155"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350155"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350154"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3ArunId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The @workflowId@ of the external workflow execution.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_workflowId"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_workflowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -318,16 +318,16 @@ $sel:control:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalE
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350074"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350151"><span class="annot"><span class="annottext">Text
 workflowId :: Text
 $sel:workflowId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Text
-</span><a href="#local-6989586621679350074"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350074"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350073"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350072"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Text
+</span><a href="#local-6989586621679350151"><span class="hs-identifier hs-var hs-var">workflowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350151"><span class="hs-identifier hs-var">workflowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350150"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350149"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflowId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AworkflowId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">workflowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The name of the signal.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#signalExternalWorkflowExecutionInitiatedEventAttributes_signalName"><span class="hs-identifier hs-type">signalExternalWorkflowExecutionInitiatedEventAttributes_signalName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -343,16 +343,16 @@ $sel:workflowId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Sign
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350070"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350147"><span class="annot"><span class="annottext">Text
 signalName :: Text
 $sel:signalName:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Text
-</span><a href="#local-6989586621679350070"><span class="hs-identifier hs-var hs-var">signalName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350070"><span class="hs-identifier hs-var">signalName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350069"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350068"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signalName:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Text
+</span><a href="#local-6989586621679350147"><span class="hs-identifier hs-var hs-var">signalName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350147"><span class="hs-identifier hs-var">signalName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350146"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signalName:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AsignalName%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">signalName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679350068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The ID of the @DecisionTaskCompleted@ event corresponding to the</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- decision task that resulted in the @SignalExternalWorkflowExecution@</span><span>
@@ -373,22 +373,22 @@ $sel:signalName:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Sign
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350066"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350143"><span class="annot"><span class="annottext">Integer
 decisionTaskCompletedEventId :: Integer
 $sel:decisionTaskCompletedEventId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: SignalExternalWorkflowExecutionInitiatedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679350066"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350066"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350065"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350064"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
-</span><a href="#local-6989586621679350065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Integer
+</span><a href="#local-6989586621679350143"><span class="hs-identifier hs-var hs-var">decisionTaskCompletedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679350143"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350142"><span class="annot"><span class="annottext">s :: SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350141"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679350141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionInitiatedEventAttributes
+</span><a href="#local-6989586621679350142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decisionTaskCompletedEventId:SignalExternalWorkflowExecutionInitiatedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#%24sel%3AdecisionTaskCompletedEventId%3ASignalExternalWorkflowExecutionInitiatedEventAttributes%27"><span class="hs-identifier hs-var">decisionTaskCompletedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679350064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679350061"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679350138"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679350059"><span class="annot"><span class="annottext">parseJSON :: Value
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679350136"><span class="annot"><span class="annottext">parseJSON :: Value
 -&gt; Parser SignalExternalWorkflowExecutionInitiatedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
@@ -400,8 +400,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SignalExternalWorkflowExecutionInitiatedEventAttributes&quot;</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350056"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350056"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350133"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -427,10 +427,11 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;runId&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;control&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Text
@@ -446,11 +447,11 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;input&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Text
    -&gt; Text
@@ -464,11 +465,11 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;control&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;runId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Text
    -&gt; Text
    -&gt; Integer
@@ -480,11 +481,11 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;workflowId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Text
    -&gt; Integer
    -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
@@ -494,28 +495,28 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;signalName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Integer
    -&gt; SignalExternalWorkflowExecutionInitiatedEventAttributes)
 -&gt; Parser Integer
 -&gt; Parser SignalExternalWorkflowExecutionInitiatedEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679350133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;decisionTaskCompletedEventId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679350049"><span id="local-6989586621679350051"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span></span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679350046"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span><span>
-</span><span id="line-151"></span></pre></body></html>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679350126"><span id="local-6989586621679350128"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679350123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionInitiatedEventAttributes.html#SignalExternalWorkflowExecutionInitiatedEventAttributes"><span class="hs-identifier hs-type">SignalExternalWorkflowExecutionInitiatedEventAttributes</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

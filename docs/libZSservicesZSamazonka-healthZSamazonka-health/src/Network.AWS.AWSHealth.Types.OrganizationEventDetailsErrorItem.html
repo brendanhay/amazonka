@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- operation can\'t find a specified event.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newOrganizationEventDetailsErrorItem' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679188356"><span id="local-6989586621679188357"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationEventDetailsErrorItem"><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-var">OrganizationEventDetailsErrorItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationEventDetailsErrorItem%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">OrganizationEventDetailsErrorItem'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the error.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem -&gt; Maybe Text
-</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var hs-var">errorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Error information returned when a</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization&gt;</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- operation can\'t find a specified event.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AawsAccountId%3AOrganizationEventDetailsErrorItem%27"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679188573"><span id="local-6989586621679188574"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationEventDetailsErrorItem"><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-var">OrganizationEventDetailsErrorItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationEventDetailsErrorItem%27"><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">OrganizationEventDetailsErrorItem'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Error information returned when a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization&gt;</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- operation can\'t find a specified event.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AawsAccountId%3AOrganizationEventDetailsErrorItem%27"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem -&gt; Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AawsAccountId%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AeventArn%3AOrganizationEventDetailsErrorItem%27"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem -&gt; Maybe Text
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AeventArn%3AOrganizationEventDetailsErrorItem%27"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem -&gt; Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AeventArn%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the error.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem -&gt; Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var hs-var">errorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A message that describes the error.</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- If you call the @DescribeEventDetailsForOrganization@ operation and</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AerrorMessage%3AOrganizationEventDetailsErrorItem%27"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem -&gt; Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorMessage%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188347"><span id="local-6989586621679188349"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188564"><span id="local-6989586621679188566"><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
 -&gt; OrganizationEventDetailsErrorItem -&gt; Bool
 (OrganizationEventDetailsErrorItem
  -&gt; OrganizationEventDetailsErrorItem -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: OrganizationEventDetailsErrorItem
 -&gt; OrganizationEventDetailsErrorItem -&gt; Bool
 $c== :: OrganizationEventDetailsErrorItem
 -&gt; OrganizationEventDetailsErrorItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188338"><span id="local-6989586621679188340"><span id="local-6989586621679188342"><span id="local-6989586621679188344"><span class="annot"><span class="annottext">ReadPrec [OrganizationEventDetailsErrorItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188555"><span id="local-6989586621679188557"><span id="local-6989586621679188559"><span id="local-6989586621679188561"><span class="annot"><span class="annottext">ReadPrec [OrganizationEventDetailsErrorItem]
 ReadPrec OrganizationEventDetailsErrorItem
 Int -&gt; ReadS OrganizationEventDetailsErrorItem
 ReadS [OrganizationEventDetailsErrorItem]
@@ -102,7 +102,7 @@ readList :: ReadS [OrganizationEventDetailsErrorItem]
 $creadList :: ReadS [OrganizationEventDetailsErrorItem]
 readsPrec :: Int -&gt; ReadS OrganizationEventDetailsErrorItem
 $creadsPrec :: Int -&gt; ReadS OrganizationEventDetailsErrorItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188331"><span id="local-6989586621679188333"><span id="local-6989586621679188335"><span class="annot"><span class="annottext">Int -&gt; OrganizationEventDetailsErrorItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188548"><span id="local-6989586621679188550"><span id="local-6989586621679188552"><span class="annot"><span class="annottext">Int -&gt; OrganizationEventDetailsErrorItem -&gt; ShowS
 [OrganizationEventDetailsErrorItem] -&gt; ShowS
 OrganizationEventDetailsErrorItem -&gt; String
 (Int -&gt; OrganizationEventDetailsErrorItem -&gt; ShowS)
@@ -148,19 +148,19 @@ OrganizationEventDetailsErrorItem
 </span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'awsAccountId', 'organizationEventDetailsErrorItem_awsAccountId' - Error information returned when a</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization&gt;</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- operation can\'t find a specified event.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'eventArn', 'organizationEventDetailsErrorItem_eventArn' - The unique identifier for the event. The event ARN has the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'awsAccountId', 'organizationEventDetailsErrorItem_awsAccountId' - Error information returned when a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization&gt;</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- operation can\'t find a specified event.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'eventArn', 'organizationEventDetailsErrorItem_eventArn' - The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'errorMessage', 'organizationEventDetailsErrorItem_errorMessage' - A message that describes the error.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
@@ -189,17 +189,17 @@ OrganizationEventDetailsErrorItem
 -&gt; Maybe Text
 -&gt; OrganizationEventDetailsErrorItem
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorName:OrganizationEventDetailsErrorItem' :: Maybe Text
-</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">errorName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:OrganizationEventDetailsErrorItem' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AawsAccountId%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:OrganizationEventDetailsErrorItem' :: Maybe Text
-</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AawsAccountId%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventArn:OrganizationEventDetailsErrorItem' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AeventArn%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventArn:OrganizationEventDetailsErrorItem' :: Maybe Text
-</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AeventArn%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorName:OrganizationEventDetailsErrorItem' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">errorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:OrganizationEventDetailsErrorItem' :: Maybe Text
@@ -208,36 +208,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The name of the error.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_errorName"><span class="hs-identifier hs-type">organizationEventDetailsErrorItem_errorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="organizationEventDetailsErrorItem_errorName"><span class="annot"><span class="annottext">organizationEventDetailsErrorItem_errorName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; OrganizationEventDetailsErrorItem
--&gt; f OrganizationEventDetailsErrorItem
-</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_errorName"><span class="hs-identifier hs-var hs-var">organizationEventDetailsErrorItem_errorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationEventDetailsErrorItem -&gt; Maybe Text)
--&gt; (OrganizationEventDetailsErrorItem
-    -&gt; Maybe Text -&gt; OrganizationEventDetailsErrorItem)
--&gt; Lens
-     OrganizationEventDetailsErrorItem
-     OrganizationEventDetailsErrorItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188322"><span class="annot"><span class="annottext">Maybe Text
-errorName :: Maybe Text
-$sel:errorName:OrganizationEventDetailsErrorItem' :: OrganizationEventDetailsErrorItem -&gt; Maybe Text
-</span><a href="#local-6989586621679188322"><span class="hs-identifier hs-var hs-var">errorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188322"><span class="hs-identifier hs-var">errorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188321"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188320"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorName:OrganizationEventDetailsErrorItem' :: Maybe Text
-</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">errorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | Error information returned when a</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization&gt;</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- operation can\'t find a specified event.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_awsAccountId"><span class="hs-identifier hs-type">organizationEventDetailsErrorItem_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="organizationEventDetailsErrorItem_awsAccountId"><span class="annot"><span class="annottext">organizationEventDetailsErrorItem_awsAccountId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-117"></span><span class="hs-comment">-- | Error information returned when a</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization&gt;</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- operation can\'t find a specified event.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_awsAccountId"><span class="hs-identifier hs-type">organizationEventDetailsErrorItem_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="organizationEventDetailsErrorItem_awsAccountId"><span class="annot"><span class="annottext">organizationEventDetailsErrorItem_awsAccountId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; OrganizationEventDetailsErrorItem
 -&gt; f OrganizationEventDetailsErrorItem
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_awsAccountId"><span class="hs-identifier hs-var hs-var">organizationEventDetailsErrorItem_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationEventDetailsErrorItem -&gt; Maybe Text)
@@ -249,26 +224,26 @@ $sel:errorName:OrganizationEventDetailsErrorItem' :: OrganizationEventDetailsErr
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188318"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188539"><span class="annot"><span class="annottext">Maybe Text
 awsAccountId :: Maybe Text
 $sel:awsAccountId:OrganizationEventDetailsErrorItem' :: OrganizationEventDetailsErrorItem -&gt; Maybe Text
-</span><a href="#local-6989586621679188318"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188318"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188317"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188316"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:OrganizationEventDetailsErrorItem' :: Maybe Text
+</span><a href="#local-6989586621679188539"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188539"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188538"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:OrganizationEventDetailsErrorItem' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AawsAccountId%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- format.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_eventArn"><span class="hs-identifier hs-type">organizationEventDetailsErrorItem_eventArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="organizationEventDetailsErrorItem_eventArn"><span class="annot"><span class="annottext">organizationEventDetailsErrorItem_eventArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679188537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The unique identifier for the event. The event ARN has the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- For example, an event ARN might look like the following:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_eventArn"><span class="hs-identifier hs-type">organizationEventDetailsErrorItem_eventArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="organizationEventDetailsErrorItem_eventArn"><span class="annot"><span class="annottext">organizationEventDetailsErrorItem_eventArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; OrganizationEventDetailsErrorItem
 -&gt; f OrganizationEventDetailsErrorItem
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_eventArn"><span class="hs-identifier hs-var hs-var">organizationEventDetailsErrorItem_eventArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationEventDetailsErrorItem -&gt; Maybe Text)
@@ -280,16 +255,41 @@ $sel:awsAccountId:OrganizationEventDetailsErrorItem' :: OrganizationEventDetails
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188314"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188535"><span class="annot"><span class="annottext">Maybe Text
 eventArn :: Maybe Text
 $sel:eventArn:OrganizationEventDetailsErrorItem' :: OrganizationEventDetailsErrorItem -&gt; Maybe Text
-</span><a href="#local-6989586621679188314"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188314"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188313"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188312"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventArn:OrganizationEventDetailsErrorItem' :: Maybe Text
+</span><a href="#local-6989586621679188535"><span class="hs-identifier hs-var hs-var">eventArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188535"><span class="hs-identifier hs-var">eventArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188534"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188533"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventArn:OrganizationEventDetailsErrorItem' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AeventArn%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">eventArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the error.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_errorName"><span class="hs-identifier hs-type">organizationEventDetailsErrorItem_errorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="organizationEventDetailsErrorItem_errorName"><span class="annot"><span class="annottext">organizationEventDetailsErrorItem_errorName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; OrganizationEventDetailsErrorItem
+-&gt; f OrganizationEventDetailsErrorItem
+</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#organizationEventDetailsErrorItem_errorName"><span class="hs-identifier hs-var hs-var">organizationEventDetailsErrorItem_errorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OrganizationEventDetailsErrorItem -&gt; Maybe Text)
+-&gt; (OrganizationEventDetailsErrorItem
+    -&gt; Maybe Text -&gt; OrganizationEventDetailsErrorItem)
+-&gt; Lens
+     OrganizationEventDetailsErrorItem
+     OrganizationEventDetailsErrorItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188531"><span class="annot"><span class="annottext">Maybe Text
+errorName :: Maybe Text
+$sel:errorName:OrganizationEventDetailsErrorItem' :: OrganizationEventDetailsErrorItem -&gt; Maybe Text
+</span><a href="#local-6989586621679188531"><span class="hs-identifier hs-var hs-var">errorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188531"><span class="hs-identifier hs-var">errorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188530"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188529"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorName:OrganizationEventDetailsErrorItem' :: Maybe Text
+</span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorName%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">errorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | A message that describes the error.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">--</span><span>
@@ -321,22 +321,22 @@ $sel:eventArn:OrganizationEventDetailsErrorItem' :: OrganizationEventDetailsErro
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188310"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188527"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:OrganizationEventDetailsErrorItem' :: OrganizationEventDetailsErrorItem -&gt; Maybe Text
-</span><a href="#local-6989586621679188310"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188310"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188309"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188308"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
-</span><a href="#local-6989586621679188309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:OrganizationEventDetailsErrorItem' :: Maybe Text
+</span><a href="#local-6989586621679188527"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188527"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188526"><span class="annot"><span class="annottext">s :: OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188525"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679188525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationEventDetailsErrorItem
+</span><a href="#local-6989586621679188526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:OrganizationEventDetailsErrorItem' :: Maybe Text
 </span><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#%24sel%3AerrorMessage%3AOrganizationEventDetailsErrorItem%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679188308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679188525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679188305"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679188522"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679188303"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationEventDetailsErrorItem
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679188520"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationEventDetailsErrorItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OrganizationEventDetailsErrorItem)
@@ -346,8 +346,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OrganizationEventDetailsErrorItem&quot;</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188300"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188300"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188517"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188517"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -365,10 +365,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; OrganizationEventDetailsErrorItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679188517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;errorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;awsAccountId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; OrganizationEventDetailsErrorItem)
@@ -377,35 +377,35 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; OrganizationEventDetailsErrorItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679188517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;awsAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;eventArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; OrganizationEventDetailsErrorItem)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; OrganizationEventDetailsErrorItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679188517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;eventArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;errorName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; OrganizationEventDetailsErrorItem)
 -&gt; Parser (Maybe Text) -&gt; Parser OrganizationEventDetailsErrorItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679188517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679188294"><span id="local-6989586621679188296"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679188511"><span id="local-6989586621679188513"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span></span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679188291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679188508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem.html#OrganizationEventDetailsErrorItem"><span class="hs-identifier hs-type">OrganizationEventDetailsErrorItem</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

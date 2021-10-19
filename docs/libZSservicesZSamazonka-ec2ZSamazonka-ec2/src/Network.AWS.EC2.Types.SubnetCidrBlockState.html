@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of a CIDR block.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSubnetCidrBlockState' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681119910"><span id="local-6989586621681119911"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetCidrBlockState"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-var">SubnetCidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetCidrBlockState%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-var">SubnetCidrBlockState'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AstatusMessage%3ASubnetCidrBlockState%27"><span class="annot"><span class="annottext">SubnetCidrBlockState -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3AstatusMessage%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The state of a CIDR block.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3ASubnetCidrBlockState%27"><span class="annot"><span class="annottext">SubnetCidrBlockState -&gt; Maybe SubnetCidrBlockStateCode
-</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3Astate%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681154756"><span id="local-6989586621681154757"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetCidrBlockState"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-var">SubnetCidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetCidrBlockState%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-var">SubnetCidrBlockState'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of a CIDR block.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3ASubnetCidrBlockState%27"><span class="annot"><span class="annottext">SubnetCidrBlockState -&gt; Maybe SubnetCidrBlockStateCode
+</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3Astate%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstatusMessage%3ASubnetCidrBlockState%27"><span class="annot"><span class="annottext">SubnetCidrBlockState -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3AstatusMessage%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681119903"><span id="local-6989586621681119905"><span class="annot"><span class="annottext">SubnetCidrBlockState -&gt; SubnetCidrBlockState -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681154749"><span id="local-6989586621681154751"><span class="annot"><span class="annottext">SubnetCidrBlockState -&gt; SubnetCidrBlockState -&gt; Bool
 (SubnetCidrBlockState -&gt; SubnetCidrBlockState -&gt; Bool)
 -&gt; (SubnetCidrBlockState -&gt; SubnetCidrBlockState -&gt; Bool)
 -&gt; Eq SubnetCidrBlockState
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubnetCidrBlockState -&gt; SubnetCidrBlockState -&gt; Bool
 == :: SubnetCidrBlockState -&gt; SubnetCidrBlockState -&gt; Bool
 $c== :: SubnetCidrBlockState -&gt; SubnetCidrBlockState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119894"><span id="local-6989586621681119896"><span id="local-6989586621681119898"><span id="local-6989586621681119900"><span class="annot"><span class="annottext">ReadPrec [SubnetCidrBlockState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154740"><span id="local-6989586621681154742"><span id="local-6989586621681154744"><span id="local-6989586621681154746"><span class="annot"><span class="annottext">ReadPrec [SubnetCidrBlockState]
 ReadPrec SubnetCidrBlockState
 Int -&gt; ReadS SubnetCidrBlockState
 ReadS [SubnetCidrBlockState]
@@ -65,7 +65,7 @@ readList :: ReadS [SubnetCidrBlockState]
 $creadList :: ReadS [SubnetCidrBlockState]
 readsPrec :: Int -&gt; ReadS SubnetCidrBlockState
 $creadsPrec :: Int -&gt; ReadS SubnetCidrBlockState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681119887"><span id="local-6989586621681119889"><span id="local-6989586621681119891"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrBlockState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154733"><span id="local-6989586621681154735"><span id="local-6989586621681154737"><span class="annot"><span class="annottext">Int -&gt; SubnetCidrBlockState -&gt; ShowS
 [SubnetCidrBlockState] -&gt; ShowS
 SubnetCidrBlockState -&gt; String
 (Int -&gt; SubnetCidrBlockState -&gt; ShowS)
@@ -99,50 +99,29 @@ $cfrom :: forall x. SubnetCidrBlockState -&gt; Rep SubnetCidrBlockState x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'statusMessage', 'subnetCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'state', 'subnetCidrBlockState_state' - The state of a CIDR block.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'state', 'subnetCidrBlockState_state' - The state of a CIDR block.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'statusMessage', 'subnetCidrBlockState_statusMessage' - A message about the status of the CIDR block, if applicable.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#newSubnetCidrBlockState"><span class="hs-identifier hs-type">newSubnetCidrBlockState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span>
 </span><span id="line-52"></span><span id="newSubnetCidrBlockState"><span class="annot"><span class="annottext">newSubnetCidrBlockState :: SubnetCidrBlockState
 </span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#newSubnetCidrBlockState"><span class="hs-identifier hs-var hs-var">newSubnetCidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">SubnetCidrBlockState' :: Maybe Text
--&gt; Maybe SubnetCidrBlockStateCode -&gt; SubnetCidrBlockState
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">SubnetCidrBlockState' :: Maybe SubnetCidrBlockStateCode
+-&gt; Maybe Text -&gt; SubnetCidrBlockState
 </span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:SubnetCidrBlockState' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3AstatusMessage%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:SubnetCidrBlockState' :: Maybe SubnetCidrBlockStateCode
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:SubnetCidrBlockState' :: Maybe SubnetCidrBlockStateCode
 </span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3Astate%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#subnetCidrBlockState_statusMessage"><span class="hs-identifier hs-type">subnetCidrBlockState_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="subnetCidrBlockState_statusMessage"><span class="annot"><span class="annottext">subnetCidrBlockState_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SubnetCidrBlockState -&gt; f SubnetCidrBlockState
-</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#subnetCidrBlockState_statusMessage"><span class="hs-identifier hs-var hs-var">subnetCidrBlockState_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrBlockState -&gt; Maybe Text)
--&gt; (SubnetCidrBlockState -&gt; Maybe Text -&gt; SubnetCidrBlockState)
--&gt; Lens
-     SubnetCidrBlockState SubnetCidrBlockState (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119878"><span class="annot"><span class="annottext">Maybe Text
-statusMessage :: Maybe Text
-$sel:statusMessage:SubnetCidrBlockState' :: SubnetCidrBlockState -&gt; Maybe Text
-</span><a href="#local-6989586621681119878"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119878"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119877"><span class="annot"><span class="annottext">s :: SubnetCidrBlockState
-</span><a href="#local-6989586621681119877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119876"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrBlockState
-</span><a href="#local-6989586621681119877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:SubnetCidrBlockState' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:SubnetCidrBlockState' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3AstatusMessage%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681119876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The state of a CIDR block.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#subnetCidrBlockState_state"><span class="hs-identifier hs-type">subnetCidrBlockState_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="subnetCidrBlockState_state"><span class="annot"><span class="annottext">subnetCidrBlockState_state :: (Maybe SubnetCidrBlockStateCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The state of a CIDR block.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#subnetCidrBlockState_state"><span class="hs-identifier hs-type">subnetCidrBlockState_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockStateCode.html#SubnetCidrBlockStateCode"><span class="hs-identifier hs-type">SubnetCidrBlockStateCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="subnetCidrBlockState_state"><span class="annot"><span class="annottext">subnetCidrBlockState_state :: (Maybe SubnetCidrBlockStateCode
  -&gt; f (Maybe SubnetCidrBlockStateCode))
 -&gt; SubnetCidrBlockState -&gt; f SubnetCidrBlockState
 </span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#subnetCidrBlockState_state"><span class="hs-identifier hs-var hs-var">subnetCidrBlockState_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrBlockState -&gt; Maybe SubnetCidrBlockStateCode)
@@ -154,47 +133,64 @@ $sel:statusMessage:SubnetCidrBlockState' :: SubnetCidrBlockState -&gt; Maybe Tex
      (Maybe SubnetCidrBlockStateCode)
      (Maybe SubnetCidrBlockStateCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681119874"><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154724"><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
 state :: Maybe SubnetCidrBlockStateCode
 $sel:state:SubnetCidrBlockState' :: SubnetCidrBlockState -&gt; Maybe SubnetCidrBlockStateCode
-</span><a href="#local-6989586621681119874"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
-</span><a href="#local-6989586621681119874"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681119873"><span class="annot"><span class="annottext">s :: SubnetCidrBlockState
-</span><a href="#local-6989586621681119873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681119872"><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
-</span><a href="#local-6989586621681119872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrBlockState
-</span><a href="#local-6989586621681119873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:SubnetCidrBlockState' :: Maybe SubnetCidrBlockStateCode
+</span><a href="#local-6989586621681154724"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
+</span><a href="#local-6989586621681154724"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154723"><span class="annot"><span class="annottext">s :: SubnetCidrBlockState
+</span><a href="#local-6989586621681154723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154722"><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
+</span><a href="#local-6989586621681154722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrBlockState
+</span><a href="#local-6989586621681154723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:SubnetCidrBlockState' :: Maybe SubnetCidrBlockStateCode
 </span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3Astate%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
-</span><a href="#local-6989586621681119872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681119869"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetCidrBlockState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681119867"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681119867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe SubnetCidrBlockStateCode -&gt; SubnetCidrBlockState
+</span><a href="#local-6989586621681154722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A message about the status of the CIDR block, if applicable.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#subnetCidrBlockState_statusMessage"><span class="hs-identifier hs-type">subnetCidrBlockState_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="subnetCidrBlockState_statusMessage"><span class="annot"><span class="annottext">subnetCidrBlockState_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SubnetCidrBlockState -&gt; f SubnetCidrBlockState
+</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#subnetCidrBlockState_statusMessage"><span class="hs-identifier hs-var hs-var">subnetCidrBlockState_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubnetCidrBlockState -&gt; Maybe Text)
+-&gt; (SubnetCidrBlockState -&gt; Maybe Text -&gt; SubnetCidrBlockState)
+-&gt; Lens
+     SubnetCidrBlockState SubnetCidrBlockState (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154720"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:SubnetCidrBlockState' :: SubnetCidrBlockState -&gt; Maybe Text
+</span><a href="#local-6989586621681154720"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154720"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154719"><span class="annot"><span class="annottext">s :: SubnetCidrBlockState
+</span><a href="#local-6989586621681154719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-type">SubnetCidrBlockState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetCidrBlockState
+</span><a href="#local-6989586621681154719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:SubnetCidrBlockState' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#%24sel%3AstatusMessage%3ASubnetCidrBlockState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681154718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681154715"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetCidrBlockState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681154713"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681154713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe SubnetCidrBlockStateCode
+-&gt; Maybe Text -&gt; SubnetCidrBlockState
 </span><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState%27"><span class="hs-identifier hs-var">SubnetCidrBlockState'</span></a></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe SubnetCidrBlockStateCode -&gt; SubnetCidrBlockState)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe SubnetCidrBlockStateCode -&gt; SubnetCidrBlockState)
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SubnetCidrBlockStateCode
+ -&gt; Maybe Text -&gt; SubnetCidrBlockState)
+-&gt; Either String (Maybe SubnetCidrBlockStateCode)
+-&gt; Either String (Maybe Text -&gt; SubnetCidrBlockState)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681119867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe SubnetCidrBlockStateCode -&gt; SubnetCidrBlockState)
--&gt; Either String (Maybe SubnetCidrBlockStateCode)
--&gt; Either String SubnetCidrBlockState
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681119867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SubnetCidrBlockStateCode)
+</span><a href="#local-6989586621681154713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SubnetCidrBlockStateCode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119861"><span id="local-6989586621681119863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span></span></span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681119858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span></span><span>
-</span><span id="line-76"></span></pre></body></html>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; SubnetCidrBlockState)
+-&gt; Either String (Maybe Text) -&gt; Either String SubnetCidrBlockState
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681154713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154707"><span id="local-6989586621681154709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetCidrBlockState.html#SubnetCidrBlockState"><span class="hs-identifier hs-type">SubnetCidrBlockState</span></a></span></span><span>
+</span><span id="line-75"></span></pre></body></html>

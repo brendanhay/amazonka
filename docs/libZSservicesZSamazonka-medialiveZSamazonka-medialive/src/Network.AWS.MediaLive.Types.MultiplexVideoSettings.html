@@ -27,17 +27,17 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The video configuration for each program in a multiplex.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMultiplexVideoSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679901472"><span id="local-6989586621679901473"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexVideoSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-var">MultiplexVideoSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexVideoSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-var">MultiplexVideoSettings'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The constant bitrate configuration for the video encode. When this field</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- is defined, StatmuxSettings must be undefined.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="annot"><span class="annottext">MultiplexVideoSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var hs-var">constantBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Statmux rate control settings. When this field is defined,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- ConstantBitrate must be undefined.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstatmuxSettings%3AMultiplexVideoSettings%27"><span class="annot"><span class="annottext">MultiplexVideoSettings -&gt; Maybe MultiplexStatmuxVideoSettings
-</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AstatmuxSettings%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var hs-var">statmuxSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings.html#MultiplexStatmuxVideoSettings"><span class="hs-identifier hs-type">MultiplexStatmuxVideoSettings</span></a></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679908145"><span id="local-6989586621679908146"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiplexVideoSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-var">MultiplexVideoSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiplexVideoSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-var">MultiplexVideoSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Statmux rate control settings. When this field is defined,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- ConstantBitrate must be undefined.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AstatmuxSettings%3AMultiplexVideoSettings%27"><span class="annot"><span class="annottext">MultiplexVideoSettings -&gt; Maybe MultiplexStatmuxVideoSettings
+</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AstatmuxSettings%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var hs-var">statmuxSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings.html#MultiplexStatmuxVideoSettings"><span class="hs-identifier hs-type">MultiplexStatmuxVideoSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The constant bitrate configuration for the video encode. When this field</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- is defined, StatmuxSettings must be undefined.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="annot"><span class="annottext">MultiplexVideoSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var hs-var">constantBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679901465"><span id="local-6989586621679901467"><span class="annot"><span class="annottext">MultiplexVideoSettings -&gt; MultiplexVideoSettings -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679908138"><span id="local-6989586621679908140"><span class="annot"><span class="annottext">MultiplexVideoSettings -&gt; MultiplexVideoSettings -&gt; Bool
 (MultiplexVideoSettings -&gt; MultiplexVideoSettings -&gt; Bool)
 -&gt; (MultiplexVideoSettings -&gt; MultiplexVideoSettings -&gt; Bool)
 -&gt; Eq MultiplexVideoSettings
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MultiplexVideoSettings -&gt; MultiplexVideoSettings -&gt; Bool
 == :: MultiplexVideoSettings -&gt; MultiplexVideoSettings -&gt; Bool
 $c== :: MultiplexVideoSettings -&gt; MultiplexVideoSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679901456"><span id="local-6989586621679901458"><span id="local-6989586621679901460"><span id="local-6989586621679901462"><span class="annot"><span class="annottext">ReadPrec [MultiplexVideoSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908129"><span id="local-6989586621679908131"><span id="local-6989586621679908133"><span id="local-6989586621679908135"><span class="annot"><span class="annottext">ReadPrec [MultiplexVideoSettings]
 ReadPrec MultiplexVideoSettings
 Int -&gt; ReadS MultiplexVideoSettings
 ReadS [MultiplexVideoSettings]
@@ -66,7 +66,7 @@ readList :: ReadS [MultiplexVideoSettings]
 $creadList :: ReadS [MultiplexVideoSettings]
 readsPrec :: Int -&gt; ReadS MultiplexVideoSettings
 $creadsPrec :: Int -&gt; ReadS MultiplexVideoSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679901449"><span id="local-6989586621679901451"><span id="local-6989586621679901453"><span class="annot"><span class="annottext">Int -&gt; MultiplexVideoSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908122"><span id="local-6989586621679908124"><span id="local-6989586621679908126"><span class="annot"><span class="annottext">Int -&gt; MultiplexVideoSettings -&gt; ShowS
 [MultiplexVideoSettings] -&gt; ShowS
 MultiplexVideoSettings -&gt; String
 (Int -&gt; MultiplexVideoSettings -&gt; ShowS)
@@ -101,58 +101,33 @@ $cfrom :: forall x. MultiplexVideoSettings -&gt; Rep MultiplexVideoSettings x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'constantBitrate', 'multiplexVideoSettings_constantBitrate' - The constant bitrate configuration for the video encode. When this field</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- is defined, StatmuxSettings must be undefined.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'statmuxSettings', 'multiplexVideoSettings_statmuxSettings' - Statmux rate control settings. When this field is defined,</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- ConstantBitrate must be undefined.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'statmuxSettings', 'multiplexVideoSettings_statmuxSettings' - Statmux rate control settings. When this field is defined,</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- ConstantBitrate must be undefined.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'constantBitrate', 'multiplexVideoSettings_constantBitrate' - The constant bitrate configuration for the video encode. When this field</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- is defined, StatmuxSettings must be undefined.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#newMultiplexVideoSettings"><span class="hs-identifier hs-type">newMultiplexVideoSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span>
 </span><span id="line-55"></span><span id="newMultiplexVideoSettings"><span class="annot"><span class="annottext">newMultiplexVideoSettings :: MultiplexVideoSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#newMultiplexVideoSettings"><span class="hs-identifier hs-var hs-var">newMultiplexVideoSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">MultiplexVideoSettings' :: Maybe Natural
--&gt; Maybe MultiplexStatmuxVideoSettings -&gt; MultiplexVideoSettings
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">MultiplexVideoSettings' :: Maybe MultiplexStatmuxVideoSettings
+-&gt; Maybe Natural -&gt; MultiplexVideoSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:constantBitrate:MultiplexVideoSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statmuxSettings:MultiplexVideoSettings' :: Maybe MultiplexStatmuxVideoSettings
+</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AstatmuxSettings%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var">statmuxSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:statmuxSettings:MultiplexVideoSettings' :: Maybe MultiplexStatmuxVideoSettings
-</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AstatmuxSettings%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var">statmuxSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:constantBitrate:MultiplexVideoSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The constant bitrate configuration for the video encode. When this field</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- is defined, StatmuxSettings must be undefined.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#multiplexVideoSettings_constantBitrate"><span class="hs-identifier hs-type">multiplexVideoSettings_constantBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="multiplexVideoSettings_constantBitrate"><span class="annot"><span class="annottext">multiplexVideoSettings_constantBitrate :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; MultiplexVideoSettings -&gt; f MultiplexVideoSettings
-</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#multiplexVideoSettings_constantBitrate"><span class="hs-identifier hs-var hs-var">multiplexVideoSettings_constantBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultiplexVideoSettings -&gt; Maybe Natural)
--&gt; (MultiplexVideoSettings
-    -&gt; Maybe Natural -&gt; MultiplexVideoSettings)
--&gt; Lens
-     MultiplexVideoSettings
-     MultiplexVideoSettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679901440"><span class="annot"><span class="annottext">Maybe Natural
-constantBitrate :: Maybe Natural
-$sel:constantBitrate:MultiplexVideoSettings' :: MultiplexVideoSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679901440"><span class="hs-identifier hs-var hs-var">constantBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679901440"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679901439"><span class="annot"><span class="annottext">s :: MultiplexVideoSettings
-</span><a href="#local-6989586621679901439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679901438"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679901438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexVideoSettings
-</span><a href="#local-6989586621679901439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constantBitrate:MultiplexVideoSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679901438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | Statmux rate control settings. When this field is defined,</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- ConstantBitrate must be undefined.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#multiplexVideoSettings_statmuxSettings"><span class="hs-identifier hs-type">multiplexVideoSettings_statmuxSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings.html#MultiplexStatmuxVideoSettings"><span class="hs-identifier hs-type">MultiplexStatmuxVideoSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="multiplexVideoSettings_statmuxSettings"><span class="annot"><span class="annottext">multiplexVideoSettings_statmuxSettings :: (Maybe MultiplexStatmuxVideoSettings
+</span><span id="line-62"></span><span class="hs-comment">-- | Statmux rate control settings. When this field is defined,</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- ConstantBitrate must be undefined.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#multiplexVideoSettings_statmuxSettings"><span class="hs-identifier hs-type">multiplexVideoSettings_statmuxSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings.html#MultiplexStatmuxVideoSettings"><span class="hs-identifier hs-type">MultiplexStatmuxVideoSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="multiplexVideoSettings_statmuxSettings"><span class="annot"><span class="annottext">multiplexVideoSettings_statmuxSettings :: (Maybe MultiplexStatmuxVideoSettings
  -&gt; f (Maybe MultiplexStatmuxVideoSettings))
 -&gt; MultiplexVideoSettings -&gt; f MultiplexVideoSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#multiplexVideoSettings_statmuxSettings"><span class="hs-identifier hs-var hs-var">multiplexVideoSettings_statmuxSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultiplexVideoSettings -&gt; Maybe MultiplexStatmuxVideoSettings)
@@ -164,19 +139,44 @@ $sel:constantBitrate:MultiplexVideoSettings' :: MultiplexVideoSettings -&gt; May
      (Maybe MultiplexStatmuxVideoSettings)
      (Maybe MultiplexStatmuxVideoSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679901436"><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908113"><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
 statmuxSettings :: Maybe MultiplexStatmuxVideoSettings
 $sel:statmuxSettings:MultiplexVideoSettings' :: MultiplexVideoSettings -&gt; Maybe MultiplexStatmuxVideoSettings
-</span><a href="#local-6989586621679901436"><span class="hs-identifier hs-var hs-var">statmuxSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
-</span><a href="#local-6989586621679901436"><span class="hs-identifier hs-var">statmuxSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679901435"><span class="annot"><span class="annottext">s :: MultiplexVideoSettings
-</span><a href="#local-6989586621679901435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679901434"><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
-</span><a href="#local-6989586621679901434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexVideoSettings
-</span><a href="#local-6989586621679901435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statmuxSettings:MultiplexVideoSettings' :: Maybe MultiplexStatmuxVideoSettings
+</span><a href="#local-6989586621679908113"><span class="hs-identifier hs-var hs-var">statmuxSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
+</span><a href="#local-6989586621679908113"><span class="hs-identifier hs-var">statmuxSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908112"><span class="annot"><span class="annottext">s :: MultiplexVideoSettings
+</span><a href="#local-6989586621679908112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908111"><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
+</span><a href="#local-6989586621679908111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexVideoSettings
+</span><a href="#local-6989586621679908112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statmuxSettings:MultiplexVideoSettings' :: Maybe MultiplexStatmuxVideoSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AstatmuxSettings%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var">statmuxSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
-</span><a href="#local-6989586621679901434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679908111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The constant bitrate configuration for the video encode. When this field</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- is defined, StatmuxSettings must be undefined.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#multiplexVideoSettings_constantBitrate"><span class="hs-identifier hs-type">multiplexVideoSettings_constantBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="multiplexVideoSettings_constantBitrate"><span class="annot"><span class="annottext">multiplexVideoSettings_constantBitrate :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MultiplexVideoSettings -&gt; f MultiplexVideoSettings
+</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#multiplexVideoSettings_constantBitrate"><span class="hs-identifier hs-var hs-var">multiplexVideoSettings_constantBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MultiplexVideoSettings -&gt; Maybe Natural)
+-&gt; (MultiplexVideoSettings
+    -&gt; Maybe Natural -&gt; MultiplexVideoSettings)
+-&gt; Lens
+     MultiplexVideoSettings
+     MultiplexVideoSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908109"><span class="annot"><span class="annottext">Maybe Natural
+constantBitrate :: Maybe Natural
+$sel:constantBitrate:MultiplexVideoSettings' :: MultiplexVideoSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679908109"><span class="hs-identifier hs-var hs-var">constantBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679908109"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908108"><span class="annot"><span class="annottext">s :: MultiplexVideoSettings
+</span><a href="#local-6989586621679908108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908107"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679908107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiplexVideoSettings
+</span><a href="#local-6989586621679908108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constantBitrate:MultiplexVideoSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#%24sel%3AconstantBitrate%3AMultiplexVideoSettings%27"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679908107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679901429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexVideoSettings
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908104"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679908102"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiplexVideoSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MultiplexVideoSettings)
@@ -186,69 +186,66 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MultiplexVideoSettings&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679901426"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679901426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe MultiplexStatmuxVideoSettings -&gt; MultiplexVideoSettings
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679908099"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679908099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
+-&gt; Maybe Natural -&gt; MultiplexVideoSettings
 </span><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-var">MultiplexVideoSettings'</span></a></span><span>
-</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe MultiplexStatmuxVideoSettings -&gt; MultiplexVideoSettings)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe MultiplexStatmuxVideoSettings -&gt; MultiplexVideoSettings)
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MultiplexStatmuxVideoSettings
+ -&gt; Maybe Natural -&gt; MultiplexVideoSettings)
+-&gt; Parser (Maybe MultiplexStatmuxVideoSettings)
+-&gt; Parser (Maybe Natural -&gt; MultiplexVideoSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679901426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;constantBitrate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MultiplexStatmuxVideoSettings -&gt; MultiplexVideoSettings)
--&gt; Parser (Maybe MultiplexStatmuxVideoSettings)
--&gt; Parser MultiplexVideoSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679901426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiplexStatmuxVideoSettings)
+</span><a href="#local-6989586621679908099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiplexStatmuxVideoSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statmuxSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; MultiplexVideoSettings)
+-&gt; Parser (Maybe Natural) -&gt; Parser MultiplexVideoSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679908099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;constantBitrate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901420"><span id="local-6989586621679901422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908093"><span id="local-6989586621679908095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679901409"><span id="local-6989586621679901411"><span id="local-6989586621679901413"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679901407"><span class="annot"><span class="annottext">toJSON :: MultiplexVideoSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679901404"><span id="local-6989586621679901405"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908082"><span id="local-6989586621679908084"><span id="local-6989586621679908086"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings"><span class="hs-identifier hs-type">MultiplexVideoSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679908080"><span class="annot"><span class="annottext">toJSON :: MultiplexVideoSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MultiplexVideoSettings.html#MultiplexVideoSettings%27"><span class="hs-identifier hs-type">MultiplexVideoSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908077"><span id="local-6989586621679908078"><span class="annot"><span class="annottext">Maybe Natural
 Maybe MultiplexStatmuxVideoSettings
-statmuxSettings :: Maybe MultiplexStatmuxVideoSettings
 constantBitrate :: Maybe Natural
-$sel:statmuxSettings:MultiplexVideoSettings' :: MultiplexVideoSettings -&gt; Maybe MultiplexStatmuxVideoSettings
+statmuxSettings :: Maybe MultiplexStatmuxVideoSettings
 $sel:constantBitrate:MultiplexVideoSettings' :: MultiplexVideoSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679901404"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:statmuxSettings:MultiplexVideoSettings' :: MultiplexVideoSettings -&gt; Maybe MultiplexStatmuxVideoSettings
+</span><a href="#local-6989586621679908077"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;constantBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679901405"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statmuxSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MultiplexStatmuxVideoSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(MultiplexStatmuxVideoSettings -&gt; Pair)
+</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">(MultiplexStatmuxVideoSettings -&gt; Pair)
 -&gt; Maybe MultiplexStatmuxVideoSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiplexStatmuxVideoSettings
-</span><a href="#local-6989586621679901404"><span class="hs-identifier hs-var">statmuxSettings</span></a></span><span>
+</span><a href="#local-6989586621679908078"><span class="hs-identifier hs-var">statmuxSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;constantBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679908077"><span class="hs-identifier hs-var">constantBitrate</span></a></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

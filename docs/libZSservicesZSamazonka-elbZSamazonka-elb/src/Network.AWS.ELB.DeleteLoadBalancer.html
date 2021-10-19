@@ -57,12 +57,12 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Contains the parameters for DeleteLoadBalancer.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newDeleteLoadBalancer' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679202447"><span id="local-6989586621679202448"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoadBalancer"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-var">DeleteLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoadBalancer%27"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-var">DeleteLoadBalancer'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679202698"><span id="local-6989586621679202699"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoadBalancer"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-var">DeleteLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoadBalancer%27"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-var">DeleteLoadBalancer'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="annot"><span class="annottext">DeleteLoadBalancer -&gt; Text
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202441"><span id="local-6989586621679202443"><span class="annot"><span class="annottext">DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202692"><span id="local-6989586621679202694"><span class="annot"><span class="annottext">DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
 (DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool)
 -&gt; (DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool)
 -&gt; Eq DeleteLoadBalancer
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
 == :: DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
 $c== :: DeleteLoadBalancer -&gt; DeleteLoadBalancer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202432"><span id="local-6989586621679202434"><span id="local-6989586621679202436"><span id="local-6989586621679202438"><span class="annot"><span class="annottext">ReadPrec [DeleteLoadBalancer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202683"><span id="local-6989586621679202685"><span id="local-6989586621679202687"><span id="local-6989586621679202689"><span class="annot"><span class="annottext">ReadPrec [DeleteLoadBalancer]
 ReadPrec DeleteLoadBalancer
 Int -&gt; ReadS DeleteLoadBalancer
 ReadS [DeleteLoadBalancer]
@@ -91,7 +91,7 @@ readList :: ReadS [DeleteLoadBalancer]
 $creadList :: ReadS [DeleteLoadBalancer]
 readsPrec :: Int -&gt; ReadS DeleteLoadBalancer
 $creadsPrec :: Int -&gt; ReadS DeleteLoadBalancer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202425"><span id="local-6989586621679202427"><span id="local-6989586621679202429"><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202676"><span id="local-6989586621679202678"><span id="local-6989586621679202680"><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancer -&gt; ShowS
 [DeleteLoadBalancer] -&gt; ShowS
 DeleteLoadBalancer -&gt; String
 (Int -&gt; DeleteLoadBalancer -&gt; ShowS)
@@ -131,14 +131,14 @@ $cfrom :: forall x. DeleteLoadBalancer -&gt; Rep DeleteLoadBalancer x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span>
 </span><span id="line-79"></span><span id="newDeleteLoadBalancer"><span class="annot"><span class="annottext">newDeleteLoadBalancer :: Text -&gt; DeleteLoadBalancer
-</span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancer"><span class="hs-identifier hs-var hs-var">newDeleteLoadBalancer</span></a></span></span><span> </span><span id="local-6989586621679202420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202420"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancer"><span class="hs-identifier hs-var hs-var">newDeleteLoadBalancer</span></a></span></span><span> </span><span id="local-6989586621679202671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202671"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteLoadBalancer' :: Text -&gt; DeleteLoadBalancer
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeleteLoadBalancer' :: Text
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202420"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span>
+</span><a href="#local-6989586621679202671"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the load balancer.</span><span>
@@ -148,27 +148,27 @@ $cfrom :: forall x. DeleteLoadBalancer -&gt; Rep DeleteLoadBalancer x
 -&gt; (DeleteLoadBalancer -&gt; Text -&gt; DeleteLoadBalancer)
 -&gt; Lens DeleteLoadBalancer DeleteLoadBalancer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202417"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202668"><span class="annot"><span class="annottext">Text
 loadBalancerName :: Text
 $sel:loadBalancerName:DeleteLoadBalancer' :: DeleteLoadBalancer -&gt; Text
-</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202417"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202416"><span class="annot"><span class="annottext">s :: DeleteLoadBalancer
-</span><a href="#local-6989586621679202416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202415"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoadBalancer
-</span><a href="#local-6989586621679202416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeleteLoadBalancer' :: Text
+</span><a href="#local-6989586621679202668"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202668"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202667"><span class="annot"><span class="annottext">s :: DeleteLoadBalancer
+</span><a href="#local-6989586621679202667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202666"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoadBalancer
+</span><a href="#local-6989586621679202667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeleteLoadBalancer' :: Text
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#%24sel%3AloadBalancerName%3ADeleteLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679202411"><span class="annot"><span class="annottext">request :: DeleteLoadBalancer -&gt; Request DeleteLoadBalancer
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679202662"><span class="annot"><span class="annottext">request :: DeleteLoadBalancer -&gt; Request DeleteLoadBalancer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLoadBalancer -&gt; Request DeleteLoadBalancer
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679202407"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679202658"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLoadBalancer
 -&gt; ClientResponse ClientBody
@@ -199,10 +199,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteLoadBalancerResult&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202404"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202404"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202403"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679202403"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202402"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679202402"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202655"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202655"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202654"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202654"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202653"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679202653"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancerResponse
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteLoadBalancerResponse)
@@ -213,15 +213,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202404"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202655"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202395"><span id="local-6989586621679202397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202646"><span id="local-6989586621679202648"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679202388"><span class="annot"><span class="annottext">toHeaders :: DeleteLoadBalancer -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679202639"><span class="annot"><span class="annottext">toHeaders :: DeleteLoadBalancer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteLoadBalancer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -229,18 +229,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679202383"><span class="annot"><span class="annottext">toPath :: DeleteLoadBalancer -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679202634"><span class="annot"><span class="annottext">toPath :: DeleteLoadBalancer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLoadBalancer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer"><span class="hs-identifier hs-type">DeleteLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679202379"><span class="annot"><span class="annottext">toQuery :: DeleteLoadBalancer -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202377"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679202630"><span class="annot"><span class="annottext">toQuery :: DeleteLoadBalancer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancer%27"><span class="hs-identifier hs-type">DeleteLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202628"><span class="annot"><span class="annottext">Text
 loadBalancerName :: Text
 $sel:loadBalancerName:DeleteLoadBalancer' :: DeleteLoadBalancer -&gt; Text
-</span><a href="#local-6989586621679202377"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679202628"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -260,18 +260,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202377"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span>
+</span><a href="#local-6989586621679202628"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | Contains the output of DeleteLoadBalancer.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- /See:/ 'newDeleteLoadBalancerResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679202374"><span id="local-6989586621679202375"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoadBalancerResponse"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoadBalancerResponse%27"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679202625"><span id="local-6989586621679202626"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLoadBalancerResponse"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLoadBalancerResponse%27"><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeleteLoadBalancerResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="annot"><span class="annottext">DeleteLoadBalancerResponse -&gt; Int
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202369"><span id="local-6989586621679202371"><span class="annot"><span class="annottext">DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202620"><span id="local-6989586621679202622"><span class="annot"><span class="annottext">DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
 (DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool)
 -&gt; (DeleteLoadBalancerResponse
     -&gt; DeleteLoadBalancerResponse -&gt; Bool)
@@ -281,7 +281,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
 == :: DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
 $c== :: DeleteLoadBalancerResponse -&gt; DeleteLoadBalancerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202361"><span id="local-6989586621679202363"><span id="local-6989586621679202365"><span id="local-6989586621679202367"><span class="annot"><span class="annottext">ReadPrec [DeleteLoadBalancerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202612"><span id="local-6989586621679202614"><span id="local-6989586621679202616"><span id="local-6989586621679202618"><span class="annot"><span class="annottext">ReadPrec [DeleteLoadBalancerResponse]
 ReadPrec DeleteLoadBalancerResponse
 Int -&gt; ReadS DeleteLoadBalancerResponse
 ReadS [DeleteLoadBalancerResponse]
@@ -301,7 +301,7 @@ readList :: ReadS [DeleteLoadBalancerResponse]
 $creadList :: ReadS [DeleteLoadBalancerResponse]
 readsPrec :: Int -&gt; ReadS DeleteLoadBalancerResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLoadBalancerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202355"><span id="local-6989586621679202357"><span id="local-6989586621679202359"><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202606"><span id="local-6989586621679202608"><span id="local-6989586621679202610"><span class="annot"><span class="annottext">Int -&gt; DeleteLoadBalancerResponse -&gt; ShowS
 [DeleteLoadBalancerResponse] -&gt; ShowS
 DeleteLoadBalancerResponse -&gt; String
 (Int -&gt; DeleteLoadBalancerResponse -&gt; ShowS)
@@ -347,14 +347,14 @@ DeleteLoadBalancerResponse -&gt; Rep DeleteLoadBalancerResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newDeleteLoadBalancerResponse"><span class="annot"><span class="annottext">newDeleteLoadBalancerResponse :: Int -&gt; DeleteLoadBalancerResponse
-</span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newDeleteLoadBalancerResponse</span></a></span></span><span> </span><span id="local-6989586621679202352"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#newDeleteLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newDeleteLoadBalancerResponse</span></a></span></span><span> </span><span id="local-6989586621679202603"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteLoadBalancerResponse' :: Int -&gt; DeleteLoadBalancerResponse
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLoadBalancerResponse' :: Int
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202352"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679202603"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -367,16 +367,16 @@ DeleteLoadBalancerResponse -&gt; Rep DeleteLoadBalancerResponse x
 -&gt; Lens
      DeleteLoadBalancerResponse DeleteLoadBalancerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202351"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202602"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteLoadBalancerResponse' :: DeleteLoadBalancerResponse -&gt; Int
-</span><a href="#local-6989586621679202351"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202351"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202350"><span class="annot"><span class="annottext">s :: DeleteLoadBalancerResponse
-</span><a href="#local-6989586621679202350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202349"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoadBalancerResponse
-</span><a href="#local-6989586621679202350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLoadBalancerResponse' :: Int
+</span><a href="#local-6989586621679202602"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202602"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202601"><span class="annot"><span class="annottext">s :: DeleteLoadBalancerResponse
+</span><a href="#local-6989586621679202601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202600"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLoadBalancerResponse
+</span><a href="#local-6989586621679202601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLoadBalancerResponse' :: Int
 </span><a href="Network.AWS.ELB.DeleteLoadBalancer.html#%24sel%3AhttpStatus%3ADeleteLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeleteLoadBalancer.html#DeleteLoadBalancerResponse"><span class="hs-identifier hs-type">DeleteLoadBalancerResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

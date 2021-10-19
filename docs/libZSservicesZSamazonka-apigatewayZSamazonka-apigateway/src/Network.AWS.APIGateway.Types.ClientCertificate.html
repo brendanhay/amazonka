@@ -33,29 +33,29 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate&gt;</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newClientCertificate' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679364803"><span id="local-6989586621679364804"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientCertificate"><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-var">ClientCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientCertificate%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-var">ClientCertificate'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp when the client certificate was created.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedDate%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe POSIX
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AcreatedDate%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The PEM-encoded public key of the client certificate, which can be used</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- to configure certificate authentication in the integration endpoint .</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApemEncodedCertificate%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe Text
+</span><span id="line-36"></span><span id="local-6989586621679365297"><span id="local-6989586621679365298"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientCertificate"><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-var">ClientCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientCertificate%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-var">ClientCertificate'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The PEM-encoded public key of the client certificate, which can be used</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- to configure certificate authentication in the integration endpoint .</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApemEncodedCertificate%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3ApemEncodedCertificate%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">pemEncodedCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The timestamp when the client certificate will expire.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AexpirationDate%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe POSIX
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AexpirationDate%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The identifier of the client certificate.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AclientCertificateId%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe Text
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The identifier of the client certificate.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AclientCertificateId%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AclientCertificateId%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">clientCertificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The collection of tags. Each tag element is associated with a given</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atags%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Atags%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The description of the client certificate.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3Adescription%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Adescription%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The timestamp when the client certificate was created.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcreatedDate%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe POSIX
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AcreatedDate%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The timestamp when the client certificate will expire.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AexpirationDate%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe POSIX
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AexpirationDate%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The description of the client certificate.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Adescription%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The collection of tags. Each tag element is associated with a given</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Atags%3AClientCertificate%27"><span class="annot"><span class="annottext">ClientCertificate -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Atags%3AClientCertificate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364792"><span id="local-6989586621679364794"><span class="annot"><span class="annottext">ClientCertificate -&gt; ClientCertificate -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679365286"><span id="local-6989586621679365288"><span class="annot"><span class="annottext">ClientCertificate -&gt; ClientCertificate -&gt; Bool
 (ClientCertificate -&gt; ClientCertificate -&gt; Bool)
 -&gt; (ClientCertificate -&gt; ClientCertificate -&gt; Bool)
 -&gt; Eq ClientCertificate
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClientCertificate -&gt; ClientCertificate -&gt; Bool
 == :: ClientCertificate -&gt; ClientCertificate -&gt; Bool
 $c== :: ClientCertificate -&gt; ClientCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364783"><span id="local-6989586621679364785"><span id="local-6989586621679364787"><span id="local-6989586621679364789"><span class="annot"><span class="annottext">ReadPrec [ClientCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365277"><span id="local-6989586621679365279"><span id="local-6989586621679365281"><span id="local-6989586621679365283"><span class="annot"><span class="annottext">ReadPrec [ClientCertificate]
 ReadPrec ClientCertificate
 Int -&gt; ReadS ClientCertificate
 ReadS [ClientCertificate]
@@ -84,7 +84,7 @@ readList :: ReadS [ClientCertificate]
 $creadList :: ReadS [ClientCertificate]
 readsPrec :: Int -&gt; ReadS ClientCertificate
 $creadsPrec :: Int -&gt; ReadS ClientCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364776"><span id="local-6989586621679364778"><span id="local-6989586621679364780"><span class="annot"><span class="annottext">Int -&gt; ClientCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679365270"><span id="local-6989586621679365272"><span id="local-6989586621679365274"><span class="annot"><span class="annottext">Int -&gt; ClientCertificate -&gt; ShowS
 [ClientCertificate] -&gt; ShowS
 ClientCertificate -&gt; String
 (Int -&gt; ClientCertificate -&gt; ShowS)
@@ -118,132 +118,118 @@ $cfrom :: forall x. ClientCertificate -&gt; Rep ClientCertificate x
 </span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'createdDate', 'clientCertificate_createdDate' - The timestamp when the client certificate was created.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'pemEncodedCertificate', 'clientCertificate_pemEncodedCertificate' - The PEM-encoded public key of the client certificate, which can be used</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- to configure certificate authentication in the integration endpoint .</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'pemEncodedCertificate', 'clientCertificate_pemEncodedCertificate' - The PEM-encoded public key of the client certificate, which can be used</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- to configure certificate authentication in the integration endpoint .</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'clientCertificateId', 'clientCertificate_clientCertificateId' - The identifier of the client certificate.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'expirationDate', 'clientCertificate_expirationDate' - The timestamp when the client certificate will expire.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'createdDate', 'clientCertificate_createdDate' - The timestamp when the client certificate was created.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'clientCertificateId', 'clientCertificate_clientCertificateId' - The identifier of the client certificate.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'expirationDate', 'clientCertificate_expirationDate' - The timestamp when the client certificate will expire.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'tags', 'clientCertificate_tags' - The collection of tags. Each tag element is associated with a given</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'clientCertificate_description' - The description of the client certificate.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'description', 'clientCertificate_description' - The description of the client certificate.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'tags', 'clientCertificate_tags' - The collection of tags. Each tag element is associated with a given</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- resource.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#newClientCertificate"><span class="hs-identifier hs-type">newClientCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span>
 </span><span id="line-77"></span><span id="newClientCertificate"><span class="annot"><span class="annottext">newClientCertificate :: ClientCertificate
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#newClientCertificate"><span class="hs-identifier hs-var hs-var">newClientCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ClientCertificate' :: Maybe POSIX
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ClientCertificate' :: Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
--&gt; Maybe Text
 -&gt; ClientCertificate
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdDate:ClientCertificate' :: Maybe POSIX
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AcreatedDate%3AClientCertificate%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pemEncodedCertificate:ClientCertificate' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3ApemEncodedCertificate%3AClientCertificate%27"><span class="hs-identifier hs-var">pemEncodedCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:pemEncodedCertificate:ClientCertificate' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3ApemEncodedCertificate%3AClientCertificate%27"><span class="hs-identifier hs-var">pemEncodedCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:expirationDate:ClientCertificate' :: Maybe POSIX
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AexpirationDate%3AClientCertificate%27"><span class="hs-identifier hs-var">expirationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientCertificateId:ClientCertificate' :: Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientCertificateId:ClientCertificate' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AclientCertificateId%3AClientCertificate%27"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ClientCertificate' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Atags%3AClientCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:ClientCertificate' :: Maybe POSIX
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AcreatedDate%3AClientCertificate%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:expirationDate:ClientCertificate' :: Maybe POSIX
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AexpirationDate%3AClientCertificate%27"><span class="hs-identifier hs-var">expirationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ClientCertificate' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Adescription%3AClientCertificate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ClientCertificate' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Atags%3AClientCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The timestamp when the client certificate was created.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_createdDate"><span class="hs-identifier hs-type">clientCertificate_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="clientCertificate_createdDate"><span class="annot"><span class="annottext">clientCertificate_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ClientCertificate -&gt; f ClientCertificate
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_createdDate"><span class="hs-identifier hs-var hs-var">clientCertificate_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe POSIX)
--&gt; (ClientCertificate -&gt; Maybe POSIX -&gt; ClientCertificate)
--&gt; Lens
-     ClientCertificate ClientCertificate (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364767"><span class="annot"><span class="annottext">Maybe POSIX
-createdDate :: Maybe POSIX
-$sel:createdDate:ClientCertificate' :: ClientCertificate -&gt; Maybe POSIX
-</span><a href="#local-6989586621679364767"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679364767"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364766"><span class="annot"><span class="annottext">s :: ClientCertificate
-</span><a href="#local-6989586621679364766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364765"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679364765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
-</span><a href="#local-6989586621679364766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:ClientCertificate' :: Maybe POSIX
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AcreatedDate%3AClientCertificate%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679364765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ClientCertificate -&gt; f ClientCertificate)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ClientCertificate
--&gt; f ClientCertificate
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The PEM-encoded public key of the client certificate, which can be used</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- to configure certificate authentication in the integration endpoint .</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_pemEncodedCertificate"><span class="hs-identifier hs-type">clientCertificate_pemEncodedCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="clientCertificate_pemEncodedCertificate"><span class="annot"><span class="annottext">clientCertificate_pemEncodedCertificate :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The PEM-encoded public key of the client certificate, which can be used</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- to configure certificate authentication in the integration endpoint .</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_pemEncodedCertificate"><span class="hs-identifier hs-type">clientCertificate_pemEncodedCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="clientCertificate_pemEncodedCertificate"><span class="annot"><span class="annottext">clientCertificate_pemEncodedCertificate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ClientCertificate -&gt; f ClientCertificate
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_pemEncodedCertificate"><span class="hs-identifier hs-var hs-var">clientCertificate_pemEncodedCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe Text)
 -&gt; (ClientCertificate -&gt; Maybe Text -&gt; ClientCertificate)
 -&gt; Lens
      ClientCertificate ClientCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364760"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365261"><span class="annot"><span class="annottext">Maybe Text
 pemEncodedCertificate :: Maybe Text
 $sel:pemEncodedCertificate:ClientCertificate' :: ClientCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679364760"><span class="hs-identifier hs-var hs-var">pemEncodedCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364760"><span class="hs-identifier hs-var">pemEncodedCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364759"><span class="annot"><span class="annottext">s :: ClientCertificate
-</span><a href="#local-6989586621679364759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364758"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
-</span><a href="#local-6989586621679364759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pemEncodedCertificate:ClientCertificate' :: Maybe Text
+</span><a href="#local-6989586621679365261"><span class="hs-identifier hs-var hs-var">pemEncodedCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365261"><span class="hs-identifier hs-var">pemEncodedCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365260"><span class="annot"><span class="annottext">s :: ClientCertificate
+</span><a href="#local-6989586621679365260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365259"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
+</span><a href="#local-6989586621679365260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pemEncodedCertificate:ClientCertificate' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3ApemEncodedCertificate%3AClientCertificate%27"><span class="hs-identifier hs-var">pemEncodedCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The timestamp when the client certificate will expire.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_expirationDate"><span class="hs-identifier hs-type">clientCertificate_expirationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="clientCertificate_expirationDate"><span class="annot"><span class="annottext">clientCertificate_expirationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679365259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The identifier of the client certificate.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_clientCertificateId"><span class="hs-identifier hs-type">clientCertificate_clientCertificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="clientCertificate_clientCertificateId"><span class="annot"><span class="annottext">clientCertificate_clientCertificateId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ClientCertificate -&gt; f ClientCertificate
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_expirationDate"><span class="hs-identifier hs-var hs-var">clientCertificate_expirationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe POSIX)
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_clientCertificateId"><span class="hs-identifier hs-var hs-var">clientCertificate_clientCertificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe Text)
+-&gt; (ClientCertificate -&gt; Maybe Text -&gt; ClientCertificate)
+-&gt; Lens
+     ClientCertificate ClientCertificate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365257"><span class="annot"><span class="annottext">Maybe Text
+clientCertificateId :: Maybe Text
+$sel:clientCertificateId:ClientCertificate' :: ClientCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679365257"><span class="hs-identifier hs-var hs-var">clientCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365257"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365256"><span class="annot"><span class="annottext">s :: ClientCertificate
+</span><a href="#local-6989586621679365256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
+</span><a href="#local-6989586621679365256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientCertificateId:ClientCertificate' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AclientCertificateId%3AClientCertificate%27"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The timestamp when the client certificate was created.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_createdDate"><span class="hs-identifier hs-type">clientCertificate_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="clientCertificate_createdDate"><span class="annot"><span class="annottext">clientCertificate_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClientCertificate -&gt; f ClientCertificate
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_createdDate"><span class="hs-identifier hs-var hs-var">clientCertificate_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe POSIX)
 -&gt; (ClientCertificate -&gt; Maybe POSIX -&gt; ClientCertificate)
 -&gt; Lens
      ClientCertificate ClientCertificate (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364756"><span class="annot"><span class="annottext">Maybe POSIX
-expirationDate :: Maybe POSIX
-$sel:expirationDate:ClientCertificate' :: ClientCertificate -&gt; Maybe POSIX
-</span><a href="#local-6989586621679364756"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679364756"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364755"><span class="annot"><span class="annottext">s :: ClientCertificate
-</span><a href="#local-6989586621679364755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364754"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679364754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
-</span><a href="#local-6989586621679364755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationDate:ClientCertificate' :: Maybe POSIX
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AexpirationDate%3AClientCertificate%27"><span class="hs-identifier hs-var">expirationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679364754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365253"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:ClientCertificate' :: ClientCertificate -&gt; Maybe POSIX
+</span><a href="#local-6989586621679365253"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365253"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365252"><span class="annot"><span class="annottext">s :: ClientCertificate
+</span><a href="#local-6989586621679365252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365251"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
+</span><a href="#local-6989586621679365252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:ClientCertificate' :: Maybe POSIX
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AcreatedDate%3AClientCertificate%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ClientCertificate -&gt; f ClientCertificate)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -259,31 +245,66 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The identifier of the client certificate.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_clientCertificateId"><span class="hs-identifier hs-type">clientCertificate_clientCertificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="clientCertificate_clientCertificateId"><span class="annot"><span class="annottext">clientCertificate_clientCertificateId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The timestamp when the client certificate will expire.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_expirationDate"><span class="hs-identifier hs-type">clientCertificate_expirationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="clientCertificate_expirationDate"><span class="annot"><span class="annottext">clientCertificate_expirationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ClientCertificate -&gt; f ClientCertificate
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_clientCertificateId"><span class="hs-identifier hs-var hs-var">clientCertificate_clientCertificateId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe Text)
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_expirationDate"><span class="hs-identifier hs-var hs-var">clientCertificate_expirationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe POSIX)
+-&gt; (ClientCertificate -&gt; Maybe POSIX -&gt; ClientCertificate)
+-&gt; Lens
+     ClientCertificate ClientCertificate (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365246"><span class="annot"><span class="annottext">Maybe POSIX
+expirationDate :: Maybe POSIX
+$sel:expirationDate:ClientCertificate' :: ClientCertificate -&gt; Maybe POSIX
+</span><a href="#local-6989586621679365246"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365246"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365245"><span class="annot"><span class="annottext">s :: ClientCertificate
+</span><a href="#local-6989586621679365245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365244"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
+</span><a href="#local-6989586621679365245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationDate:ClientCertificate' :: Maybe POSIX
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AexpirationDate%3AClientCertificate%27"><span class="hs-identifier hs-var">expirationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679365244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ClientCertificate -&gt; f ClientCertificate)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClientCertificate
+-&gt; f ClientCertificate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The description of the client certificate.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_description"><span class="hs-identifier hs-type">clientCertificate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="clientCertificate_description"><span class="annot"><span class="annottext">clientCertificate_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClientCertificate -&gt; f ClientCertificate
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_description"><span class="hs-identifier hs-var hs-var">clientCertificate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe Text)
 -&gt; (ClientCertificate -&gt; Maybe Text -&gt; ClientCertificate)
 -&gt; Lens
      ClientCertificate ClientCertificate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364752"><span class="annot"><span class="annottext">Maybe Text
-clientCertificateId :: Maybe Text
-$sel:clientCertificateId:ClientCertificate' :: ClientCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679364752"><span class="hs-identifier hs-var hs-var">clientCertificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364752"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364751"><span class="annot"><span class="annottext">s :: ClientCertificate
-</span><a href="#local-6989586621679364751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364750"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
-</span><a href="#local-6989586621679364751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientCertificateId:ClientCertificate' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3AclientCertificateId%3AClientCertificate%27"><span class="hs-identifier hs-var">clientCertificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The collection of tags. Each tag element is associated with a given</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_tags"><span class="hs-identifier hs-type">clientCertificate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="clientCertificate_tags"><span class="annot"><span class="annottext">clientCertificate_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365242"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ClientCertificate' :: ClientCertificate -&gt; Maybe Text
+</span><a href="#local-6989586621679365242"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365242"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365241"><span class="annot"><span class="annottext">s :: ClientCertificate
+</span><a href="#local-6989586621679365241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365240"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
+</span><a href="#local-6989586621679365241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ClientCertificate' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Adescription%3AClientCertificate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679365240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The collection of tags. Each tag element is associated with a given</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_tags"><span class="hs-identifier hs-type">clientCertificate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="clientCertificate_tags"><span class="annot"><span class="annottext">clientCertificate_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; ClientCertificate -&gt; f ClientCertificate
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_tags"><span class="hs-identifier hs-var hs-var">clientCertificate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe (HashMap Text Text))
 -&gt; (ClientCertificate
@@ -294,16 +315,16 @@ $sel:clientCertificateId:ClientCertificate' :: ClientCertificate -&gt; Maybe Tex
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364748"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679365238"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ClientCertificate' :: ClientCertificate -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679364748"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679364748"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364747"><span class="annot"><span class="annottext">s :: ClientCertificate
-</span><a href="#local-6989586621679364747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364746"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679364746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
-</span><a href="#local-6989586621679364747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ClientCertificate' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365238"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365238"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679365237"><span class="annot"><span class="annottext">s :: ClientCertificate
+</span><a href="#local-6989586621679365237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679365236"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679365236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
+</span><a href="#local-6989586621679365237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ClientCertificate' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Atags%3AClientCertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679364746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679365236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ClientCertificate -&gt; f ClientCertificate)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -329,126 +350,114 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The description of the client certificate.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_description"><span class="hs-identifier hs-type">clientCertificate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="clientCertificate_description"><span class="annot"><span class="annottext">clientCertificate_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ClientCertificate -&gt; f ClientCertificate
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#clientCertificate_description"><span class="hs-identifier hs-var hs-var">clientCertificate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificate -&gt; Maybe Text)
--&gt; (ClientCertificate -&gt; Maybe Text -&gt; ClientCertificate)
--&gt; Lens
-     ClientCertificate ClientCertificate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364743"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:ClientCertificate' :: ClientCertificate -&gt; Maybe Text
-</span><a href="#local-6989586621679364743"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364743"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364742"><span class="annot"><span class="annottext">s :: ClientCertificate
-</span><a href="#local-6989586621679364742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-type">ClientCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364741"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificate
-</span><a href="#local-6989586621679364742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ClientCertificate' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#%24sel%3Adescription%3AClientCertificate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364738"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679364736"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientCertificate
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365232"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679365230"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ClientCertificate)
 -&gt; Value
 -&gt; Parser ClientCertificate
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ClientCertificate&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364733"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679365227"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365227"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
--&gt; Maybe Text
 -&gt; ClientCertificate
 </span><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate%27"><span class="hs-identifier hs-var">ClientCertificate'</span></a></span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe (HashMap Text Text)
- -&gt; Maybe Text
  -&gt; ClientCertificate)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe Text
       -&gt; ClientCertificate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe Text
-   -&gt; ClientCertificate)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe Text
-      -&gt; ClientCertificate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679365227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pemEncodedCertificate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe Text
    -&gt; ClientCertificate)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; ClientCertificate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;expirationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; ClientCertificate)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; ClientCertificate)
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ClientCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679365227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clientCertificateId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; ClientCertificate)
--&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser (Maybe Text -&gt; ClientCertificate)
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ClientCertificate)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ClientCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679365227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ClientCertificate)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ClientCertificate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expirationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ClientCertificate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; ClientCertificate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; ClientCertificate)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser ClientCertificate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679365227"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -457,17 +466,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ClientCertificate)
--&gt; Parser (Maybe Text) -&gt; Parser ClientCertificate
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364726"><span id="local-6989586621679364728"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span></span></span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span></span><span>
-</span><span id="line-130"></span></pre></body></html>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365220"><span id="local-6989586621679365222"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679365217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ClientCertificate.html#ClientCertificate"><span class="hs-identifier hs-type">ClientCertificate</span></a></span></span><span>
+</span><span id="line-131"></span></pre></body></html>

@@ -97,7 +97,7 @@
 </span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.html"><span class="hs-identifier">Network.AWS.WAF.Types</span></a></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newCreateRule' smart constructor.</span><span>
-</span><span id="line-100"></span><span id="local-6989586621679322484"><span id="local-6989586621679322485"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRule"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-var">CreateRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRule%27"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-var">CreateRule'</span></a></span></span><span>
+</span><span id="line-100"></span><span id="local-6989586621679322758"><span id="local-6989586621679322759"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRule"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-var">CreateRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRule%27"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-var">CreateRule'</span></a></span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atags%3ACreateRule%27"><span class="annot"><span class="annottext">CreateRule -&gt; Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3Atags%3ACreateRule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | A friendly name or description of the Rule. You can\'t change the name</span><span>
@@ -116,7 +116,7 @@
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AchangeToken%3ACreateRule%27"><span class="annot"><span class="annottext">CreateRule -&gt; Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AchangeToken%3ACreateRule%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322475"><span id="local-6989586621679322477"><span class="annot"><span class="annottext">CreateRule -&gt; CreateRule -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322749"><span id="local-6989586621679322751"><span class="annot"><span class="annottext">CreateRule -&gt; CreateRule -&gt; Bool
 (CreateRule -&gt; CreateRule -&gt; Bool)
 -&gt; (CreateRule -&gt; CreateRule -&gt; Bool) -&gt; Eq CreateRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -124,7 +124,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRule -&gt; CreateRule -&gt; Bool
 == :: CreateRule -&gt; CreateRule -&gt; Bool
 $c== :: CreateRule -&gt; CreateRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322466"><span id="local-6989586621679322468"><span id="local-6989586621679322470"><span id="local-6989586621679322472"><span class="annot"><span class="annottext">ReadPrec [CreateRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322740"><span id="local-6989586621679322742"><span id="local-6989586621679322744"><span id="local-6989586621679322746"><span class="annot"><span class="annottext">ReadPrec [CreateRule]
 ReadPrec CreateRule
 Int -&gt; ReadS CreateRule
 ReadS [CreateRule]
@@ -144,7 +144,7 @@ readList :: ReadS [CreateRule]
 $creadList :: ReadS [CreateRule]
 readsPrec :: Int -&gt; ReadS CreateRule
 $creadsPrec :: Int -&gt; ReadS CreateRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322459"><span id="local-6989586621679322461"><span id="local-6989586621679322463"><span class="annot"><span class="annottext">Int -&gt; CreateRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322733"><span id="local-6989586621679322735"><span id="local-6989586621679322737"><span class="annot"><span class="annottext">Int -&gt; CreateRule -&gt; ShowS
 [CreateRule] -&gt; ShowS
 CreateRule -&gt; String
 (Int -&gt; CreateRule -&gt; ShowS)
@@ -199,10 +199,10 @@ $cfrom :: forall x. CreateRule -&gt; Rep CreateRule x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span>
 </span><span id="line-146"></span><span id="newCreateRule"><span class="annot"><span class="annottext">newCreateRule :: Text -&gt; Text -&gt; Text -&gt; CreateRule
-</span><a href="Network.AWS.WAF.CreateRule.html#newCreateRule"><span class="hs-identifier hs-var hs-var">newCreateRule</span></a></span></span><span> </span><span id="local-6989586621679322454"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322454"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679322453"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322453"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span id="local-6989586621679322452"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322452"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.CreateRule.html#newCreateRule"><span class="hs-identifier hs-var hs-var">newCreateRule</span></a></span></span><span> </span><span id="local-6989586621679322728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322728"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679322727"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322727"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span id="local-6989586621679322726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322726"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">CreateRule' :: Maybe (NonEmpty Tag) -&gt; Text -&gt; Text -&gt; Text -&gt; CreateRule
 </span><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateRule' :: Maybe (NonEmpty Tag)
@@ -211,13 +211,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateRule' :: Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3Aname%3ACreateRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322454"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322728"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:CreateRule' :: Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AmetricName%3ACreateRule%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322453"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322727"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:CreateRule' :: Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AchangeToken%3ACreateRule%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322452"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
+</span><a href="#local-6989586621679322726"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
@@ -229,16 +229,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateRule CreateRule (Maybe (NonEmpty Tag)) (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322449"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322723"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:CreateRule' :: CreateRule -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679322449"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679322449"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322448"><span class="annot"><span class="annottext">s :: CreateRule
-</span><a href="#local-6989586621679322448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322447"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679322447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
-</span><a href="#local-6989586621679322448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRule' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679322723"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679322723"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322722"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679322722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322721"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679322721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679322722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRule' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3Atags%3ACreateRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679322447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679322721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; CreateRule -&gt; f CreateRule)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -256,8 +256,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | A friendly name or description of the Rule. You can\'t change the name</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- of a @Rule@ after you create it.</span><span>
@@ -267,16 +267,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateRule -&gt; Text -&gt; CreateRule)
 -&gt; Lens CreateRule CreateRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322443"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322717"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateRule' :: CreateRule -&gt; Text
-</span><a href="#local-6989586621679322443"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322443"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322442"><span class="annot"><span class="annottext">s :: CreateRule
-</span><a href="#local-6989586621679322442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
-</span><a href="#local-6989586621679322442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRule' :: Text
+</span><a href="#local-6989586621679322717"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322717"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322716"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679322716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679322716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRule' :: Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3Aname%3ACreateRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | A friendly name or description for the metrics for this @Rule@. The name</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum</span><span>
@@ -290,16 +290,16 @@ $sel:name:CreateRule' :: CreateRule -&gt; Text
 -&gt; (CreateRule -&gt; Text -&gt; CreateRule)
 -&gt; Lens CreateRule CreateRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322440"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322714"><span class="annot"><span class="annottext">Text
 metricName :: Text
 $sel:metricName:CreateRule' :: CreateRule -&gt; Text
-</span><a href="#local-6989586621679322440"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322440"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322439"><span class="annot"><span class="annottext">s :: CreateRule
-</span><a href="#local-6989586621679322439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322438"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
-</span><a href="#local-6989586621679322439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CreateRule' :: Text
+</span><a href="#local-6989586621679322714"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322714"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322713"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679322713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322712"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679322713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CreateRule' :: Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AmetricName%3ACreateRule%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#createRule_changeToken"><span class="hs-identifier hs-type">createRule_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -308,25 +308,25 @@ $sel:metricName:CreateRule' :: CreateRule -&gt; Text
 -&gt; (CreateRule -&gt; Text -&gt; CreateRule)
 -&gt; Lens CreateRule CreateRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322437"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322711"><span class="annot"><span class="annottext">Text
 changeToken :: Text
 $sel:changeToken:CreateRule' :: CreateRule -&gt; Text
-</span><a href="#local-6989586621679322437"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322437"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322436"><span class="annot"><span class="annottext">s :: CreateRule
-</span><a href="#local-6989586621679322436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322435"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
-</span><a href="#local-6989586621679322436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRule' :: Text
+</span><a href="#local-6989586621679322711"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322711"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322710"><span class="annot"><span class="annottext">s :: CreateRule
+</span><a href="#local-6989586621679322710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679322709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRule
+</span><a href="#local-6989586621679322710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRule' :: Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AchangeToken%3ACreateRule%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679322431"><span class="annot"><span class="annottext">request :: CreateRule -&gt; Request CreateRule
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679322705"><span class="annot"><span class="annottext">request :: CreateRule -&gt; Request CreateRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRule -&gt; Request CreateRule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679322427"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679322701"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateRule
 -&gt; ClientResponse ClientBody
@@ -350,10 +350,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322424"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322424"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322423"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679322423"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322422"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322422"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322698"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322697"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679322697"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe Rule -&gt; Maybe Text -&gt; Int -&gt; CreateRuleResponse
 </span><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-var">CreateRuleResponse'</span></a></span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Rule -&gt; Maybe Text -&gt; Int -&gt; CreateRuleResponse)
@@ -361,7 +361,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateRuleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Rule)
+</span><a href="#local-6989586621679322696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Rule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span class="hs-special">)</span><span>
@@ -370,7 +370,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateRuleResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322422"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679322696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,15 +382,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322424"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322698"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322414"><span id="local-6989586621679322416"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322688"><span id="local-6989586621679322690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679322407"><span class="annot"><span class="annottext">toHeaders :: CreateRule -&gt; ResponseHeaders
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679322681"><span class="annot"><span class="annottext">toHeaders :: CreateRule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -415,9 +415,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322397"><span id="local-6989586621679322399"><span id="local-6989586621679322401"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679322395"><span class="annot"><span class="annottext">toJSON :: CreateRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322390"><span id="local-6989586621679322391"><span id="local-6989586621679322392"><span id="local-6989586621679322393"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322671"><span id="local-6989586621679322673"><span id="local-6989586621679322675"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679322669"><span class="annot"><span class="annottext">toJSON :: CreateRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule%27"><span class="hs-identifier hs-type">CreateRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322664"><span id="local-6989586621679322665"><span id="local-6989586621679322666"><span id="local-6989586621679322667"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 Text
 changeToken :: Text
 metricName :: Text
@@ -427,7 +427,7 @@ $sel:changeToken:CreateRule' :: CreateRule -&gt; Text
 $sel:metricName:CreateRule' :: CreateRule -&gt; Text
 $sel:name:CreateRule' :: CreateRule -&gt; Text
 $sel:tags:CreateRule' :: CreateRule -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679322390"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679322664"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -439,40 +439,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679322393"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322667"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322392"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322666"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322391"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322665"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322390"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322664"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679322384"><span class="annot"><span class="annottext">toPath :: CreateRule -&gt; ByteString
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679322658"><span class="annot"><span class="annottext">toPath :: CreateRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRule"><span class="hs-identifier hs-type">CreateRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679322380"><span class="annot"><span class="annottext">toQuery :: CreateRule -&gt; QueryString
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679322654"><span class="annot"><span class="annottext">toQuery :: CreateRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -480,7 +480,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | /See:/ 'newCreateRuleResponse' smart constructor.</span><span>
-</span><span id="line-223"></span><span id="local-6989586621679322377"><span id="local-6989586621679322378"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRuleResponse"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-var">CreateRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRuleResponse%27"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-var">CreateRuleResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span id="local-6989586621679322651"><span id="local-6989586621679322652"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRuleResponse"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-var">CreateRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRuleResponse%27"><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-var">CreateRuleResponse'</span></a></span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Rule returned in the @CreateRule@ response.</span><span>
 </span><span id="line-225"></span><span>    </span><span id="%24sel%3Arule%3ACreateRuleResponse%27"><span class="annot"><span class="annottext">CreateRuleResponse -&gt; Maybe Rule
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3Arule%3ACreateRuleResponse%27"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">,</span><span>
@@ -493,7 +493,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="annot"><span class="annottext">CreateRuleResponse -&gt; Int
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322370"><span id="local-6989586621679322372"><span class="annot"><span class="annottext">CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
+</span><span id="line-233"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322644"><span id="local-6989586621679322646"><span class="annot"><span class="annottext">CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
 (CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool)
 -&gt; (CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool)
 -&gt; Eq CreateRuleResponse
@@ -502,7 +502,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
 == :: CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
 $c== :: CreateRuleResponse -&gt; CreateRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322362"><span id="local-6989586621679322364"><span id="local-6989586621679322366"><span id="local-6989586621679322368"><span class="annot"><span class="annottext">ReadPrec [CreateRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322636"><span id="local-6989586621679322638"><span id="local-6989586621679322640"><span id="local-6989586621679322642"><span class="annot"><span class="annottext">ReadPrec [CreateRuleResponse]
 ReadPrec CreateRuleResponse
 Int -&gt; ReadS CreateRuleResponse
 ReadS [CreateRuleResponse]
@@ -522,7 +522,7 @@ readList :: ReadS [CreateRuleResponse]
 $creadList :: ReadS [CreateRuleResponse]
 readsPrec :: Int -&gt; ReadS CreateRuleResponse
 $creadsPrec :: Int -&gt; ReadS CreateRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322356"><span id="local-6989586621679322358"><span id="local-6989586621679322360"><span class="annot"><span class="annottext">Int -&gt; CreateRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322630"><span id="local-6989586621679322632"><span id="local-6989586621679322634"><span class="annot"><span class="annottext">Int -&gt; CreateRuleResponse -&gt; ShowS
 [CreateRuleResponse] -&gt; ShowS
 CreateRuleResponse -&gt; String
 (Int -&gt; CreateRuleResponse -&gt; ShowS)
@@ -568,8 +568,8 @@ $cfrom :: forall x. CreateRuleResponse -&gt; Rep CreateRuleResponse x
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span>
 </span><span id="line-254"></span><span id="newCreateRuleResponse"><span class="annot"><span class="annottext">newCreateRuleResponse :: Int -&gt; CreateRuleResponse
-</span><a href="Network.AWS.WAF.CreateRule.html#newCreateRuleResponse"><span class="hs-identifier hs-var hs-var">newCreateRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679322353"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.CreateRule.html#newCreateRuleResponse"><span class="hs-identifier hs-var hs-var">newCreateRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679322627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322627"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="annottext">CreateRuleResponse' :: Maybe Rule -&gt; Maybe Text -&gt; Int -&gt; CreateRuleResponse
 </span><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span>
 </span><span id="line-256"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rule:CreateRuleResponse' :: Maybe Rule
@@ -582,7 +582,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleResponse' :: Int
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679322627"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The Rule returned in the @CreateRule@ response.</span><span>
@@ -594,16 +594,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateRuleResponse CreateRuleResponse (Maybe Rule) (Maybe Rule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322352"><span class="annot"><span class="annottext">Maybe Rule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322626"><span class="annot"><span class="annottext">Maybe Rule
 rule :: Maybe Rule
 $sel:rule:CreateRuleResponse' :: CreateRuleResponse -&gt; Maybe Rule
-</span><a href="#local-6989586621679322352"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rule
-</span><a href="#local-6989586621679322352"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322351"><span class="annot"><span class="annottext">s :: CreateRuleResponse
-</span><a href="#local-6989586621679322351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322350"><span class="annot"><span class="annottext">Maybe Rule
-</span><a href="#local-6989586621679322350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
-</span><a href="#local-6989586621679322351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:CreateRuleResponse' :: Maybe Rule
+</span><a href="#local-6989586621679322626"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Rule
+</span><a href="#local-6989586621679322626"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322625"><span class="annot"><span class="annottext">s :: CreateRuleResponse
+</span><a href="#local-6989586621679322625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322624"><span class="annot"><span class="annottext">Maybe Rule
+</span><a href="#local-6989586621679322624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
+</span><a href="#local-6989586621679322625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:CreateRuleResponse' :: Maybe Rule
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3Arule%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Rule
-</span><a href="#local-6989586621679322350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @CreateRule@ request. You</span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- can also use this value to query the status of the request. For more</span><span>
@@ -616,16 +616,16 @@ $sel:rule:CreateRuleResponse' :: CreateRuleResponse -&gt; Maybe Rule
 -&gt; Lens
      CreateRuleResponse CreateRuleResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322349"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322623"><span class="annot"><span class="annottext">Maybe Text
 changeToken :: Maybe Text
 $sel:changeToken:CreateRuleResponse' :: CreateRuleResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679322349"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322349"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322348"><span class="annot"><span class="annottext">s :: CreateRuleResponse
-</span><a href="#local-6989586621679322348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322347"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
-</span><a href="#local-6989586621679322348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleResponse' :: Maybe Text
+</span><a href="#local-6989586621679322623"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322623"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322622"><span class="annot"><span class="annottext">s :: CreateRuleResponse
+</span><a href="#local-6989586621679322622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322621"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
+</span><a href="#local-6989586621679322622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleResponse' :: Maybe Text
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AchangeToken%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-272"></span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#createRuleResponse_httpStatus"><span class="hs-identifier hs-type">createRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -634,16 +634,16 @@ $sel:changeToken:CreateRuleResponse' :: CreateRuleResponse -&gt; Maybe Text
 -&gt; (CreateRuleResponse -&gt; Int -&gt; CreateRuleResponse)
 -&gt; Lens CreateRuleResponse CreateRuleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322346"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322620"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateRuleResponse' :: CreateRuleResponse -&gt; Int
-</span><a href="#local-6989586621679322346"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322346"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322345"><span class="annot"><span class="annottext">s :: CreateRuleResponse
-</span><a href="#local-6989586621679322345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322344"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
-</span><a href="#local-6989586621679322345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleResponse' :: Int
+</span><a href="#local-6989586621679322620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322619"><span class="annot"><span class="annottext">s :: CreateRuleResponse
+</span><a href="#local-6989586621679322619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse%27"><span class="hs-identifier hs-type">CreateRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleResponse
+</span><a href="#local-6989586621679322619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleResponse' :: Int
 </span><a href="Network.AWS.WAF.CreateRule.html#%24sel%3AhttpStatus%3ACreateRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.CreateRule.html#CreateRuleResponse"><span class="hs-identifier hs-type">CreateRuleResponse</span></a></span></span><span>
 </span><span id="line-276"></span></pre></body></html>

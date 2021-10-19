@@ -26,11 +26,11 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The endpoint to which service requests can be submitted.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newServiceEndpoint' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679209484"><span id="local-6989586621679209485"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceEndpoint"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-var">ServiceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceEndpoint%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint%27"><span class="hs-identifier hs-var">ServiceEndpoint'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679209537"><span id="local-6989586621679209538"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceEndpoint"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-var">ServiceEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceEndpoint%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint%27"><span class="hs-identifier hs-var">ServiceEndpoint'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aendpoint%3AServiceEndpoint%27"><span class="annot"><span class="annottext">ServiceEndpoint -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#%24sel%3Aendpoint%3AServiceEndpoint%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209478"><span id="local-6989586621679209480"><span class="annot"><span class="annottext">ServiceEndpoint -&gt; ServiceEndpoint -&gt; Bool
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209531"><span id="local-6989586621679209533"><span class="annot"><span class="annottext">ServiceEndpoint -&gt; ServiceEndpoint -&gt; Bool
 (ServiceEndpoint -&gt; ServiceEndpoint -&gt; Bool)
 -&gt; (ServiceEndpoint -&gt; ServiceEndpoint -&gt; Bool)
 -&gt; Eq ServiceEndpoint
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceEndpoint -&gt; ServiceEndpoint -&gt; Bool
 == :: ServiceEndpoint -&gt; ServiceEndpoint -&gt; Bool
 $c== :: ServiceEndpoint -&gt; ServiceEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209469"><span id="local-6989586621679209471"><span id="local-6989586621679209473"><span id="local-6989586621679209475"><span class="annot"><span class="annottext">ReadPrec [ServiceEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209522"><span id="local-6989586621679209524"><span id="local-6989586621679209526"><span id="local-6989586621679209528"><span class="annot"><span class="annottext">ReadPrec [ServiceEndpoint]
 ReadPrec ServiceEndpoint
 Int -&gt; ReadS ServiceEndpoint
 ReadS [ServiceEndpoint]
@@ -59,7 +59,7 @@ readList :: ReadS [ServiceEndpoint]
 $creadList :: ReadS [ServiceEndpoint]
 readsPrec :: Int -&gt; ReadS ServiceEndpoint
 $creadsPrec :: Int -&gt; ReadS ServiceEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209462"><span id="local-6989586621679209464"><span id="local-6989586621679209466"><span class="annot"><span class="annottext">Int -&gt; ServiceEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209515"><span id="local-6989586621679209517"><span id="local-6989586621679209519"><span class="annot"><span class="annottext">Int -&gt; ServiceEndpoint -&gt; ShowS
 [ServiceEndpoint] -&gt; ShowS
 ServiceEndpoint -&gt; String
 (Int -&gt; ServiceEndpoint -&gt; ShowS)
@@ -112,33 +112,33 @@ forall a. Maybe a
 -&gt; (ServiceEndpoint -&gt; Maybe Text -&gt; ServiceEndpoint)
 -&gt; Lens ServiceEndpoint ServiceEndpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint%27"><span class="hs-identifier hs-type">ServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209453"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint%27"><span class="hs-identifier hs-type">ServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209506"><span class="annot"><span class="annottext">Maybe Text
 endpoint :: Maybe Text
 $sel:endpoint:ServiceEndpoint' :: ServiceEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679209453"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209453"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209452"><span class="annot"><span class="annottext">s :: ServiceEndpoint
-</span><a href="#local-6989586621679209452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint%27"><span class="hs-identifier hs-type">ServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209451"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEndpoint
-</span><a href="#local-6989586621679209452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:ServiceEndpoint' :: Maybe Text
+</span><a href="#local-6989586621679209506"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209506"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209505"><span class="annot"><span class="annottext">s :: ServiceEndpoint
+</span><a href="#local-6989586621679209505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint%27"><span class="hs-identifier hs-type">ServiceEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceEndpoint
+</span><a href="#local-6989586621679209505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:ServiceEndpoint' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#%24sel%3Aendpoint%3AServiceEndpoint%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679209448"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServiceEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679209446"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679209501"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServiceEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679209499"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209499"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; ServiceEndpoint
 </span><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint%27"><span class="hs-identifier hs-var">ServiceEndpoint'</span></a></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ServiceEndpoint)
 -&gt; Either String (Maybe Text) -&gt; Either String ServiceEndpoint
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679209499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209440"><span id="local-6989586621679209442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209493"><span id="local-6989586621679209495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span></span><span>
 </span><span id="line-60"></span></pre></body></html>

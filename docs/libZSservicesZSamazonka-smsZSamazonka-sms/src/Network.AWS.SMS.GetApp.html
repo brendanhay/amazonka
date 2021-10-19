@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetApp' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679256557"><span id="local-6989586621679256558"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApp"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-var">GetApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApp%27"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-var">GetApp'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679256707"><span id="local-6989586621679256708"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApp"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-var">GetApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApp%27"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-var">GetApp'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the application.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AappId%3AGetApp%27"><span class="annot"><span class="annottext">GetApp -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AappId%3AGetApp%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256551"><span id="local-6989586621679256553"><span class="annot"><span class="annottext">GetApp -&gt; GetApp -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256701"><span id="local-6989586621679256703"><span class="annot"><span class="annottext">GetApp -&gt; GetApp -&gt; Bool
 (GetApp -&gt; GetApp -&gt; Bool)
 -&gt; (GetApp -&gt; GetApp -&gt; Bool) -&gt; Eq GetApp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetApp -&gt; GetApp -&gt; Bool
 == :: GetApp -&gt; GetApp -&gt; Bool
 $c== :: GetApp -&gt; GetApp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256542"><span id="local-6989586621679256544"><span id="local-6989586621679256546"><span id="local-6989586621679256548"><span class="annot"><span class="annottext">ReadPrec [GetApp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256692"><span id="local-6989586621679256694"><span id="local-6989586621679256696"><span id="local-6989586621679256698"><span class="annot"><span class="annottext">ReadPrec [GetApp]
 ReadPrec GetApp
 Int -&gt; ReadS GetApp
 ReadS [GetApp]
@@ -82,7 +82,7 @@ readList :: ReadS [GetApp]
 $creadList :: ReadS [GetApp]
 readsPrec :: Int -&gt; ReadS GetApp
 $creadsPrec :: Int -&gt; ReadS GetApp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256535"><span id="local-6989586621679256537"><span id="local-6989586621679256539"><span class="annot"><span class="annottext">Int -&gt; GetApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256685"><span id="local-6989586621679256687"><span id="local-6989586621679256689"><span class="annot"><span class="annottext">Int -&gt; GetApp -&gt; ShowS
 [GetApp] -&gt; ShowS
 GetApp -&gt; String
 (Int -&gt; GetApp -&gt; ShowS)
@@ -130,25 +130,25 @@ forall a. Maybe a
 -&gt; (GetApp -&gt; Maybe Text -&gt; GetApp)
 -&gt; Lens GetApp GetApp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256528"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256678"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:GetApp' :: GetApp -&gt; Maybe Text
-</span><a href="#local-6989586621679256528"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256528"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256527"><span class="annot"><span class="annottext">s :: GetApp
-</span><a href="#local-6989586621679256527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256526"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApp
-</span><a href="#local-6989586621679256527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetApp' :: Maybe Text
+</span><a href="#local-6989586621679256678"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256678"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256677"><span class="annot"><span class="annottext">s :: GetApp
+</span><a href="#local-6989586621679256677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256676"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApp
+</span><a href="#local-6989586621679256677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetApp' :: Maybe Text
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AappId%3AGetApp%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679256522"><span class="annot"><span class="annottext">request :: GetApp -&gt; Request GetApp
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679256672"><span class="annot"><span class="annottext">request :: GetApp -&gt; Request GetApp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApp -&gt; Request GetApp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679256518"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679256668"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetApp
 -&gt; ClientResponse ClientBody
@@ -170,10 +170,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256515"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256515"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256514"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679256514"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256513"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256665"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256664"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256664"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe AppSummary
 -&gt; Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse
 </span><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span><span>
@@ -185,7 +185,7 @@ MonadResource m =&gt;
      (Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppSummary)
+</span><a href="#local-6989586621679256663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;appSummary&quot;</span></span><span class="hs-special">)</span><span>
@@ -196,7 +196,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag] -&gt; Int -&gt; GetAppResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ServerGroup]))
+</span><a href="#local-6989586621679256663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ServerGroup]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ServerGroup]))
@@ -210,7 +210,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetAppResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679256663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
@@ -227,15 +227,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256515"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256665"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256504"><span id="local-6989586621679256506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256654"><span id="local-6989586621679256656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679256497"><span class="annot"><span class="annottext">toHeaders :: GetApp -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679256647"><span class="annot"><span class="annottext">toHeaders :: GetApp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -262,12 +262,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256487"><span id="local-6989586621679256489"><span id="local-6989586621679256491"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679256485"><span class="annot"><span class="annottext">toJSON :: GetApp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256483"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256637"><span id="local-6989586621679256639"><span id="local-6989586621679256641"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679256635"><span class="annot"><span class="annottext">toJSON :: GetApp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256633"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:GetApp' :: GetApp -&gt; Maybe Text
-</span><a href="#local-6989586621679256483"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256633"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -279,18 +279,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256483"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679256633"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679256477"><span class="annot"><span class="annottext">toPath :: GetApp -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679256627"><span class="annot"><span class="annottext">toPath :: GetApp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetApp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679256473"><span class="annot"><span class="annottext">toQuery :: GetApp -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679256623"><span class="annot"><span class="annottext">toQuery :: GetApp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -298,7 +298,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newGetAppResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679256470"><span id="local-6989586621679256471"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppResponse"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-var">GetAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppResponse%27"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679256620"><span id="local-6989586621679256621"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppResponse"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-var">GetAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppResponse%27"><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the application.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AappSummary%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; Maybe AppSummary
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AappSummary%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppSummary.html#AppSummary"><span class="hs-identifier hs-type">AppSummary</span></a></span><span class="hs-special">,</span><span>
@@ -312,7 +312,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; Int
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256462"><span id="local-6989586621679256464"><span class="annot"><span class="annottext">GetAppResponse -&gt; GetAppResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256612"><span id="local-6989586621679256614"><span class="annot"><span class="annottext">GetAppResponse -&gt; GetAppResponse -&gt; Bool
 (GetAppResponse -&gt; GetAppResponse -&gt; Bool)
 -&gt; (GetAppResponse -&gt; GetAppResponse -&gt; Bool) -&gt; Eq GetAppResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -320,7 +320,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
 == :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
 $c== :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256454"><span id="local-6989586621679256456"><span id="local-6989586621679256458"><span id="local-6989586621679256460"><span class="annot"><span class="annottext">ReadPrec [GetAppResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256604"><span id="local-6989586621679256606"><span id="local-6989586621679256608"><span id="local-6989586621679256610"><span class="annot"><span class="annottext">ReadPrec [GetAppResponse]
 ReadPrec GetAppResponse
 Int -&gt; ReadS GetAppResponse
 ReadS [GetAppResponse]
@@ -340,7 +340,7 @@ readList :: ReadS [GetAppResponse]
 $creadList :: ReadS [GetAppResponse]
 readsPrec :: Int -&gt; ReadS GetAppResponse
 $creadsPrec :: Int -&gt; ReadS GetAppResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256448"><span id="local-6989586621679256450"><span id="local-6989586621679256452"><span class="annot"><span class="annottext">Int -&gt; GetAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256598"><span id="local-6989586621679256600"><span id="local-6989586621679256602"><span class="annot"><span class="annottext">Int -&gt; GetAppResponse -&gt; ShowS
 [GetAppResponse] -&gt; ShowS
 GetAppResponse -&gt; String
 (Int -&gt; GetAppResponse -&gt; ShowS)
@@ -386,8 +386,8 @@ $cfrom :: forall x. GetAppResponse -&gt; Rep GetAppResponse x
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span>
 </span><span id="line-152"></span><span id="newGetAppResponse"><span class="annot"><span class="annottext">newGetAppResponse :: Int -&gt; GetAppResponse
-</span><a href="Network.AWS.SMS.GetApp.html#newGetAppResponse"><span class="hs-identifier hs-var hs-var">newGetAppResponse</span></a></span></span><span> </span><span id="local-6989586621679256445"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SMS.GetApp.html#newGetAppResponse"><span class="hs-identifier hs-var hs-var">newGetAppResponse</span></a></span></span><span> </span><span id="local-6989586621679256595"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">GetAppResponse' :: Maybe AppSummary
 -&gt; Maybe [ServerGroup] -&gt; Maybe [Tag] -&gt; Int -&gt; GetAppResponse
 </span><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span>
@@ -405,7 +405,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679256595"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | Information about the application.</span><span>
@@ -417,16 +417,16 @@ forall a. Maybe a
 -&gt; Lens
      GetAppResponse GetAppResponse (Maybe AppSummary) (Maybe AppSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256444"><span class="annot"><span class="annottext">Maybe AppSummary
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256594"><span class="annot"><span class="annottext">Maybe AppSummary
 appSummary :: Maybe AppSummary
 $sel:appSummary:GetAppResponse' :: GetAppResponse -&gt; Maybe AppSummary
-</span><a href="#local-6989586621679256444"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
-</span><a href="#local-6989586621679256444"><span class="hs-identifier hs-var">appSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256443"><span class="annot"><span class="annottext">s :: GetAppResponse
-</span><a href="#local-6989586621679256443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256442"><span class="annot"><span class="annottext">Maybe AppSummary
-</span><a href="#local-6989586621679256442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
-</span><a href="#local-6989586621679256443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSummary:GetAppResponse' :: Maybe AppSummary
+</span><a href="#local-6989586621679256594"><span class="hs-identifier hs-var hs-var">appSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
+</span><a href="#local-6989586621679256594"><span class="hs-identifier hs-var">appSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256593"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256592"><span class="annot"><span class="annottext">Maybe AppSummary
+</span><a href="#local-6989586621679256592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appSummary:GetAppResponse' :: Maybe AppSummary
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AappSummary%3AGetAppResponse%27"><span class="hs-identifier hs-var">appSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppSummary
-</span><a href="#local-6989586621679256442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The server groups that belong to the application.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#getAppResponse_serverGroups"><span class="hs-identifier hs-type">getAppResponse_serverGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroup.html#ServerGroup"><span class="hs-identifier hs-type">ServerGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -440,16 +440,16 @@ $sel:appSummary:GetAppResponse' :: GetAppResponse -&gt; Maybe AppSummary
      (Maybe [ServerGroup])
      (Maybe [ServerGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256441"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256591"><span class="annot"><span class="annottext">Maybe [ServerGroup]
 serverGroups :: Maybe [ServerGroup]
 $sel:serverGroups:GetAppResponse' :: GetAppResponse -&gt; Maybe [ServerGroup]
-</span><a href="#local-6989586621679256441"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679256441"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256440"><span class="annot"><span class="annottext">s :: GetAppResponse
-</span><a href="#local-6989586621679256440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256439"><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679256439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
-</span><a href="#local-6989586621679256440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroups:GetAppResponse' :: Maybe [ServerGroup]
+</span><a href="#local-6989586621679256591"><span class="hs-identifier hs-var hs-var">serverGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679256591"><span class="hs-identifier hs-var">serverGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256590"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256589"><span class="annot"><span class="annottext">Maybe [ServerGroup]
+</span><a href="#local-6989586621679256589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroups:GetAppResponse' :: Maybe [ServerGroup]
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AserverGroups%3AGetAppResponse%27"><span class="hs-identifier hs-var">serverGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroup]
-</span><a href="#local-6989586621679256439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
+</span><a href="#local-6989586621679256589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
  -&gt; GetAppResponse -&gt; f GetAppResponse)
 -&gt; ((Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
     -&gt; Maybe [ServerGroup] -&gt; f (Maybe [ServerGroup]))
@@ -467,8 +467,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ServerGroup] [ServerGroup] [ServerGroup] [ServerGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The tags associated with the application.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#getAppResponse_tags"><span class="hs-identifier hs-type">getAppResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -478,16 +478,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetAppResponse -&gt; Maybe [Tag] -&gt; GetAppResponse)
 -&gt; Lens GetAppResponse GetAppResponse (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256435"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256585"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:GetAppResponse' :: GetAppResponse -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679256435"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679256435"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256434"><span class="annot"><span class="annottext">s :: GetAppResponse
-</span><a href="#local-6989586621679256434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256433"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679256433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
-</span><a href="#local-6989586621679256434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetAppResponse' :: Maybe [Tag]
+</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679256585"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256584"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256583"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetAppResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3Atags%3AGetAppResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679256433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679256583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; GetAppResponse -&gt; f GetAppResponse)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -501,8 +501,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#getAppResponse_httpStatus"><span class="hs-identifier hs-type">getAppResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -511,16 +511,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetAppResponse -&gt; Int -&gt; GetAppResponse)
 -&gt; Lens GetAppResponse GetAppResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256432"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256582"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAppResponse' :: GetAppResponse -&gt; Int
-</span><a href="#local-6989586621679256432"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256432"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256431"><span class="annot"><span class="annottext">s :: GetAppResponse
-</span><a href="#local-6989586621679256431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256430"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
-</span><a href="#local-6989586621679256431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256582"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256581"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256580"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679256581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
 </span><a href="Network.AWS.SMS.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

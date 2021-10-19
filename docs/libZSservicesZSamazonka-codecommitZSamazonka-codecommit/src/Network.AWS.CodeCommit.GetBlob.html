@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a get blob operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newGetBlob' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679366915"><span id="local-6989586621679366916"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlob"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-var">GetBlob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlob%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-var">GetBlob'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679367220"><span id="local-6989586621679367221"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlob"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-var">GetBlob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlob%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-var">GetBlob'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the repository that contains the blob.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3ArepositoryName%3AGetBlob%27"><span class="annot"><span class="annottext">GetBlob -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3ArepositoryName%3AGetBlob%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AblobId%3AGetBlob%27"><span class="annot"><span class="annottext">GetBlob -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3AblobId%3AGetBlob%27"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366908"><span id="local-6989586621679366910"><span class="annot"><span class="annottext">GetBlob -&gt; GetBlob -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367213"><span id="local-6989586621679367215"><span class="annot"><span class="annottext">GetBlob -&gt; GetBlob -&gt; Bool
 (GetBlob -&gt; GetBlob -&gt; Bool)
 -&gt; (GetBlob -&gt; GetBlob -&gt; Bool) -&gt; Eq GetBlob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlob -&gt; GetBlob -&gt; Bool
 == :: GetBlob -&gt; GetBlob -&gt; Bool
 $c== :: GetBlob -&gt; GetBlob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366899"><span id="local-6989586621679366901"><span id="local-6989586621679366903"><span id="local-6989586621679366905"><span class="annot"><span class="annottext">ReadPrec [GetBlob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367204"><span id="local-6989586621679367206"><span id="local-6989586621679367208"><span id="local-6989586621679367210"><span class="annot"><span class="annottext">ReadPrec [GetBlob]
 ReadPrec GetBlob
 Int -&gt; ReadS GetBlob
 ReadS [GetBlob]
@@ -87,7 +87,7 @@ readList :: ReadS [GetBlob]
 $creadList :: ReadS [GetBlob]
 readsPrec :: Int -&gt; ReadS GetBlob
 $creadsPrec :: Int -&gt; ReadS GetBlob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366892"><span id="local-6989586621679366894"><span id="local-6989586621679366896"><span class="annot"><span class="annottext">Int -&gt; GetBlob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367197"><span id="local-6989586621679367199"><span id="local-6989586621679367201"><span class="annot"><span class="annottext">Int -&gt; GetBlob -&gt; ShowS
 [GetBlob] -&gt; ShowS
 GetBlob -&gt; String
 (Int -&gt; GetBlob -&gt; ShowS)
@@ -128,17 +128,17 @@ $cfrom :: forall x. GetBlob -&gt; Rep GetBlob x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetBlob"><span class="annot"><span class="annottext">newGetBlob :: Text -&gt; Text -&gt; GetBlob
-</span><a href="Network.AWS.CodeCommit.GetBlob.html#newGetBlob"><span class="hs-identifier hs-var hs-var">newGetBlob</span></a></span></span><span> </span><span id="local-6989586621679366887"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366887"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679366886"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366886"><span class="hs-identifier hs-var">pBlobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetBlob.html#newGetBlob"><span class="hs-identifier hs-var hs-var">newGetBlob</span></a></span></span><span> </span><span id="local-6989586621679367192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367192"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679367191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367191"><span class="hs-identifier hs-var">pBlobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetBlob' :: Text -&gt; Text -&gt; GetBlob
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryName:GetBlob' :: Text
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3ArepositoryName%3AGetBlob%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366887"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367192"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:blobId:GetBlob' :: Text
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3AblobId%3AGetBlob%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366886"><span class="hs-identifier hs-var">pBlobId_</span></a></span><span>
+</span><a href="#local-6989586621679367191"><span class="hs-identifier hs-var">pBlobId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the repository that contains the blob.</span><span>
@@ -147,16 +147,16 @@ $cfrom :: forall x. GetBlob -&gt; Rep GetBlob x
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#getBlob_repositoryName"><span class="hs-identifier hs-var hs-var">getBlob_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBlob -&gt; Text)
 -&gt; (GetBlob -&gt; Text -&gt; GetBlob) -&gt; Lens GetBlob GetBlob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366883"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367188"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetBlob' :: GetBlob -&gt; Text
-</span><a href="#local-6989586621679366883"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366883"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366882"><span class="annot"><span class="annottext">s :: GetBlob
-</span><a href="#local-6989586621679366882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366881"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlob
-</span><a href="#local-6989586621679366882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetBlob' :: Text
+</span><a href="#local-6989586621679367188"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367188"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367187"><span class="annot"><span class="annottext">s :: GetBlob
+</span><a href="#local-6989586621679367187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlob
+</span><a href="#local-6989586621679367187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetBlob' :: Text
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3ArepositoryName%3AGetBlob%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ID of the blob, which is its SHA-1 pointer.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#getBlob_blobId"><span class="hs-identifier hs-type">getBlob_blobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -164,25 +164,25 @@ $sel:repositoryName:GetBlob' :: GetBlob -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#getBlob_blobId"><span class="hs-identifier hs-var hs-var">getBlob_blobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBlob -&gt; Text)
 -&gt; (GetBlob -&gt; Text -&gt; GetBlob) -&gt; Lens GetBlob GetBlob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366880"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367185"><span class="annot"><span class="annottext">Text
 blobId :: Text
 $sel:blobId:GetBlob' :: GetBlob -&gt; Text
-</span><a href="#local-6989586621679366880"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366880"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366879"><span class="annot"><span class="annottext">s :: GetBlob
-</span><a href="#local-6989586621679366879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366878"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlob
-</span><a href="#local-6989586621679366879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:GetBlob' :: Text
+</span><a href="#local-6989586621679367185"><span class="hs-identifier hs-var hs-var">blobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367185"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367184"><span class="annot"><span class="annottext">s :: GetBlob
+</span><a href="#local-6989586621679367184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367183"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlob
+</span><a href="#local-6989586621679367184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blobId:GetBlob' :: Text
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3AblobId%3AGetBlob%27"><span class="hs-identifier hs-var">blobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679366874"><span class="annot"><span class="annottext">request :: GetBlob -&gt; Request GetBlob
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679367179"><span class="annot"><span class="annottext">request :: GetBlob -&gt; Request GetBlob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetBlob -&gt; Request GetBlob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679366870"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679367175"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetBlob
 -&gt; ClientResponse ClientBody
@@ -206,10 +206,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679366867"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366867"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679366866"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679366866"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679366865"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367172"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367172"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679367171"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679367171"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679367170"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Base64 -&gt; GetBlobResponse
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-var">GetBlobResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Base64 -&gt; GetBlobResponse)
@@ -220,23 +220,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366867"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367172"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Base64 -&gt; GetBlobResponse)
 -&gt; Either String Base64 -&gt; Either String GetBlobResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679366865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Base64
+</span><a href="#local-6989586621679367170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Base64
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;content&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366857"><span id="local-6989586621679366859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367162"><span id="local-6989586621679367164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679366850"><span class="annot"><span class="annottext">toHeaders :: GetBlob -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679367155"><span class="annot"><span class="annottext">toHeaders :: GetBlob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBlob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -263,14 +263,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366840"><span id="local-6989586621679366842"><span id="local-6989586621679366844"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679366838"><span class="annot"><span class="annottext">toJSON :: GetBlob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366835"><span id="local-6989586621679366836"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367145"><span id="local-6989586621679367147"><span id="local-6989586621679367149"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679367143"><span class="annot"><span class="annottext">toJSON :: GetBlob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob%27"><span class="hs-identifier hs-type">GetBlob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367140"><span id="local-6989586621679367141"><span class="annot"><span class="annottext">Text
 blobId :: Text
 repositoryName :: Text
 $sel:blobId:GetBlob' :: GetBlob -&gt; Text
 $sel:repositoryName:GetBlob' :: GetBlob -&gt; Text
-</span><a href="#local-6989586621679366835"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367140"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -283,26 +283,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366836"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367141"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679366835"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367140"><span class="hs-identifier hs-var">blobId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679366829"><span class="annot"><span class="annottext">toPath :: GetBlob -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679367134"><span class="annot"><span class="annottext">toPath :: GetBlob -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetBlob -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlob"><span class="hs-identifier hs-type">GetBlob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679366825"><span class="annot"><span class="annottext">toQuery :: GetBlob -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679367130"><span class="annot"><span class="annottext">toQuery :: GetBlob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBlob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -312,7 +312,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span class="hs-comment">-- | Represents the output of a get blob operation.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /See:/ 'newGetBlobResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679366822"><span id="local-6989586621679366823"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlobResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-var">GetBlobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlobResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-var">GetBlobResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679367127"><span id="local-6989586621679367128"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBlobResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-var">GetBlobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBlobResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-var">GetBlobResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBlobResponse%27"><span class="annot"><span class="annottext">GetBlobResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3AhttpStatus%3AGetBlobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -320,7 +320,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3Acontent%3AGetBlobResponse%27"><span class="annot"><span class="annottext">GetBlobResponse -&gt; Base64
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3Acontent%3AGetBlobResponse%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679366816"><span id="local-6989586621679366818"><span class="annot"><span class="annottext">GetBlobResponse -&gt; GetBlobResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367121"><span id="local-6989586621679367123"><span class="annot"><span class="annottext">GetBlobResponse -&gt; GetBlobResponse -&gt; Bool
 (GetBlobResponse -&gt; GetBlobResponse -&gt; Bool)
 -&gt; (GetBlobResponse -&gt; GetBlobResponse -&gt; Bool)
 -&gt; Eq GetBlobResponse
@@ -329,7 +329,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetBlobResponse -&gt; GetBlobResponse -&gt; Bool
 == :: GetBlobResponse -&gt; GetBlobResponse -&gt; Bool
 $c== :: GetBlobResponse -&gt; GetBlobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366808"><span id="local-6989586621679366810"><span id="local-6989586621679366812"><span id="local-6989586621679366814"><span class="annot"><span class="annottext">ReadPrec [GetBlobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367113"><span id="local-6989586621679367115"><span id="local-6989586621679367117"><span id="local-6989586621679367119"><span class="annot"><span class="annottext">ReadPrec [GetBlobResponse]
 ReadPrec GetBlobResponse
 Int -&gt; ReadS GetBlobResponse
 ReadS [GetBlobResponse]
@@ -349,7 +349,7 @@ readList :: ReadS [GetBlobResponse]
 $creadList :: ReadS [GetBlobResponse]
 readsPrec :: Int -&gt; ReadS GetBlobResponse
 $creadsPrec :: Int -&gt; ReadS GetBlobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679366802"><span id="local-6989586621679366804"><span id="local-6989586621679366806"><span class="annot"><span class="annottext">Int -&gt; GetBlobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367107"><span id="local-6989586621679367109"><span id="local-6989586621679367111"><span class="annot"><span class="annottext">Int -&gt; GetBlobResponse -&gt; ShowS
 [GetBlobResponse] -&gt; ShowS
 GetBlobResponse -&gt; String
 (Int -&gt; GetBlobResponse -&gt; ShowS)
@@ -397,14 +397,14 @@ $cfrom :: forall x. GetBlobResponse -&gt; Rep GetBlobResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newGetBlobResponse"><span class="annot"><span class="annottext">newGetBlobResponse :: Int -&gt; ByteString -&gt; GetBlobResponse
-</span><a href="Network.AWS.CodeCommit.GetBlob.html#newGetBlobResponse"><span class="hs-identifier hs-var hs-var">newGetBlobResponse</span></a></span></span><span> </span><span id="local-6989586621679366799"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679366798"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679366798"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetBlob.html#newGetBlobResponse"><span class="hs-identifier hs-var hs-var">newGetBlobResponse</span></a></span></span><span> </span><span id="local-6989586621679367104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679367103"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679367103"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">GetBlobResponse' :: Int -&gt; Base64 -&gt; GetBlobResponse
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlobResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3AhttpStatus%3AGetBlobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:GetBlobResponse' :: Base64
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3Acontent%3AGetBlobResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -414,7 +414,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679366798"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><a href="#local-6989586621679367103"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -424,16 +424,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (GetBlobResponse -&gt; Int -&gt; GetBlobResponse)
 -&gt; Lens GetBlobResponse GetBlobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366795"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367100"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetBlobResponse' :: GetBlobResponse -&gt; Int
-</span><a href="#local-6989586621679366795"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366795"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366794"><span class="annot"><span class="annottext">s :: GetBlobResponse
-</span><a href="#local-6989586621679366794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlobResponse
-</span><a href="#local-6989586621679366794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlobResponse' :: Int
+</span><a href="#local-6989586621679367100"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367100"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367099"><span class="annot"><span class="annottext">s :: GetBlobResponse
+</span><a href="#local-6989586621679367099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlobResponse
+</span><a href="#local-6989586621679367099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBlobResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3AhttpStatus%3AGetBlobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679366793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The content of the blob, usually a file.--</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -447,16 +447,16 @@ $sel:httpStatus:GetBlobResponse' :: GetBlobResponse -&gt; Int
 -&gt; (GetBlobResponse -&gt; Base64 -&gt; GetBlobResponse)
 -&gt; Lens GetBlobResponse GetBlobResponse Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679366792"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367097"><span class="annot"><span class="annottext">Base64
 content :: Base64
 $sel:content:GetBlobResponse' :: GetBlobResponse -&gt; Base64
-</span><a href="#local-6989586621679366792"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679366792"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679366791"><span class="annot"><span class="annottext">s :: GetBlobResponse
-</span><a href="#local-6989586621679366791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679366790"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679366790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlobResponse
-</span><a href="#local-6989586621679366791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:GetBlobResponse' :: Base64
+</span><a href="#local-6989586621679367097"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679367097"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367096"><span class="annot"><span class="annottext">s :: GetBlobResponse
+</span><a href="#local-6989586621679367096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse%27"><span class="hs-identifier hs-type">GetBlobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367095"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679367095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBlobResponse
+</span><a href="#local-6989586621679367096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:GetBlobResponse' :: Base64
 </span><a href="Network.AWS.CodeCommit.GetBlob.html#%24sel%3Acontent%3AGetBlobResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679366790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; GetBlobResponse -&gt; f GetBlobResponse)
+</span><a href="#local-6989586621679367095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; GetBlobResponse -&gt; f GetBlobResponse)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; GetBlobResponse
@@ -466,5 +466,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679366787"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetBlob.html#GetBlobResponse"><span class="hs-identifier hs-type">GetBlobResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

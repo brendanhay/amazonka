@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679298923"><span id="local-6989586621679298924"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SchemaExtensionStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SchemaExtensionStatus.html#SchemaExtensionStatus"><span class="hs-identifier hs-var">SchemaExtensionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaExtensionStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SchemaExtensionStatus.html#SchemaExtensionStatus%27"><span class="hs-identifier hs-var">SchemaExtensionStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679299121"><span id="local-6989586621679299122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SchemaExtensionStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SchemaExtensionStatus.html#SchemaExtensionStatus"><span class="hs-identifier hs-var">SchemaExtensionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaExtensionStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.SchemaExtensionStatus.html#SchemaExtensionStatus%27"><span class="hs-identifier hs-var">SchemaExtensionStatus'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSchemaExtensionStatus"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.SchemaExtensionStatus.html#fromSchemaExtensionStatus"><span class="hs-identifier hs-var hs-var">fromSchemaExtensionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298915"><span id="local-6989586621679298917"><span id="local-6989586621679298919"><span class="annot"><span class="annottext">Int -&gt; SchemaExtensionStatus -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299113"><span id="local-6989586621679299115"><span id="local-6989586621679299117"><span class="annot"><span class="annottext">Int -&gt; SchemaExtensionStatus -&gt; ShowS
 [SchemaExtensionStatus] -&gt; ShowS
 SchemaExtensionStatus -&gt; String
 (Int -&gt; SchemaExtensionStatus -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: SchemaExtensionStatus -&gt; String
 showsPrec :: Int -&gt; SchemaExtensionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SchemaExtensionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298906"><span id="local-6989586621679298908"><span id="local-6989586621679298910"><span id="local-6989586621679298912"><span class="annot"><span class="annottext">ReadPrec [SchemaExtensionStatus]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299104"><span id="local-6989586621679299106"><span id="local-6989586621679299108"><span id="local-6989586621679299110"><span class="annot"><span class="annottext">ReadPrec [SchemaExtensionStatus]
 ReadPrec SchemaExtensionStatus
 Int -&gt; ReadS SchemaExtensionStatus
 ReadS [SchemaExtensionStatus]
@@ -79,7 +79,7 @@ $creadList :: ReadS [SchemaExtensionStatus]
 readsPrec :: Int -&gt; ReadS SchemaExtensionStatus
 $creadsPrec :: Int -&gt; ReadS SchemaExtensionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298901"><span id="local-6989586621679298903"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299099"><span id="local-6989586621679299101"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool
 (SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool)
 -&gt; (SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool)
 -&gt; Eq SchemaExtensionStatus
@@ -89,7 +89,7 @@ $c/= :: SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool
 == :: SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool
 $c== :: SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298885"><span id="local-6989586621679298887"><span id="local-6989586621679298889"><span id="local-6989586621679298891"><span id="local-6989586621679298893"><span id="local-6989586621679298895"><span id="local-6989586621679298897"><span class="annot"><span class="annottext">Eq SchemaExtensionStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299083"><span id="local-6989586621679299085"><span id="local-6989586621679299087"><span id="local-6989586621679299089"><span id="local-6989586621679299091"><span id="local-6989586621679299093"><span id="local-6989586621679299095"><span class="annot"><span class="annottext">Eq SchemaExtensionStatus
 Eq SchemaExtensionStatus
 -&gt; (SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Ordering)
 -&gt; (SchemaExtensionStatus -&gt; SchemaExtensionStatus -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. SchemaExtensionStatus -&gt; Rep SchemaExtensionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298877"><span id="local-6989586621679298879"><span class="annot"><span class="annottext">Int -&gt; SchemaExtensionStatus -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299075"><span id="local-6989586621679299077"><span class="annot"><span class="annottext">Int -&gt; SchemaExtensionStatus -&gt; Int
 SchemaExtensionStatus -&gt; Int
 (Int -&gt; SchemaExtensionStatus -&gt; Int)
 -&gt; (SchemaExtensionStatus -&gt; Int) -&gt; Hashable SchemaExtensionStatus
@@ -157,54 +157,54 @@ $chash :: SchemaExtensionStatus -&gt; Int
 hashWithSalt :: Int -&gt; SchemaExtensionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SchemaExtensionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298874"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299072"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; ()
 (SchemaExtensionStatus -&gt; ()) -&gt; NFData SchemaExtensionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SchemaExtensionStatus -&gt; ()
 $crnf :: SchemaExtensionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298871"><span class="annot"><span class="annottext">Text -&gt; Either String SchemaExtensionStatus
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299069"><span class="annot"><span class="annottext">Text -&gt; Either String SchemaExtensionStatus
 (Text -&gt; Either String SchemaExtensionStatus)
 -&gt; FromText SchemaExtensionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SchemaExtensionStatus
 $cfromText :: Text -&gt; Either String SchemaExtensionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298868"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299066"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; Text
 (SchemaExtensionStatus -&gt; Text) -&gt; ToText SchemaExtensionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SchemaExtensionStatus -&gt; Text
 $ctoText :: SchemaExtensionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298865"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299063"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; ByteString
 (SchemaExtensionStatus -&gt; ByteString)
 -&gt; ToByteString SchemaExtensionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SchemaExtensionStatus -&gt; ByteString
 $ctoBS :: SchemaExtensionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298862"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299060"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; ByteStringBuilder
 (SchemaExtensionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog SchemaExtensionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SchemaExtensionStatus -&gt; ByteStringBuilder
 $cbuild :: SchemaExtensionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298859"><span class="annot"><span class="annottext">HeaderName -&gt; SchemaExtensionStatus -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299057"><span class="annot"><span class="annottext">HeaderName -&gt; SchemaExtensionStatus -&gt; [Header]
 (HeaderName -&gt; SchemaExtensionStatus -&gt; [Header])
 -&gt; ToHeader SchemaExtensionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SchemaExtensionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SchemaExtensionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298856"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299054"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; QueryString
 (SchemaExtensionStatus -&gt; QueryString)
 -&gt; ToQuery SchemaExtensionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SchemaExtensionStatus -&gt; QueryString
 $ctoQuery :: SchemaExtensionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298851"><span id="local-6989586621679298853"><span class="annot"><span class="annottext">Value -&gt; Parser [SchemaExtensionStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679299049"><span id="local-6989586621679299051"><span class="annot"><span class="annottext">Value -&gt; Parser [SchemaExtensionStatus]
 Value -&gt; Parser SchemaExtensionStatus
 (Value -&gt; Parser SchemaExtensionStatus)
 -&gt; (Value -&gt; Parser [SchemaExtensionStatus])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [SchemaExtensionStatus]
 parseJSON :: Value -&gt; Parser SchemaExtensionStatus
 $cparseJSON :: Value -&gt; Parser SchemaExtensionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679298846"><span id="local-6989586621679298848"><span class="annot"><span class="annottext">FromJSONKeyFunction [SchemaExtensionStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679299044"><span id="local-6989586621679299046"><span class="annot"><span class="annottext">FromJSONKeyFunction [SchemaExtensionStatus]
 FromJSONKeyFunction SchemaExtensionStatus
 FromJSONKeyFunction SchemaExtensionStatus
 -&gt; FromJSONKeyFunction [SchemaExtensionStatus]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SchemaExtensionStatus]
 fromJSONKey :: FromJSONKeyFunction SchemaExtensionStatus
 $cfromJSONKey :: FromJSONKeyFunction SchemaExtensionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679298837"><span id="local-6989586621679298839"><span id="local-6989586621679298841"><span id="local-6989586621679298843"><span class="annot"><span class="annottext">[SchemaExtensionStatus] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679299035"><span id="local-6989586621679299037"><span id="local-6989586621679299039"><span id="local-6989586621679299041"><span class="annot"><span class="annottext">[SchemaExtensionStatus] -&gt; Encoding
 [SchemaExtensionStatus] -&gt; Value
 SchemaExtensionStatus -&gt; Encoding
 SchemaExtensionStatus -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: SchemaExtensionStatus -&gt; Encoding
 toJSON :: SchemaExtensionStatus -&gt; Value
 $ctoJSON :: SchemaExtensionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679298832"><span id="local-6989586621679298834"><span class="annot"><span class="annottext">ToJSONKeyFunction [SchemaExtensionStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679299030"><span id="local-6989586621679299032"><span class="annot"><span class="annottext">ToJSONKeyFunction [SchemaExtensionStatus]
 ToJSONKeyFunction SchemaExtensionStatus
 ToJSONKeyFunction SchemaExtensionStatus
 -&gt; ToJSONKeyFunction [SchemaExtensionStatus]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SchemaExtensionStatus]
 toJSONKey :: ToJSONKeyFunction SchemaExtensionStatus
 $ctoJSONKey :: ToJSONKeyFunction SchemaExtensionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679298829"><span class="annot"><span class="annottext">[Node] -&gt; Either String SchemaExtensionStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679299027"><span class="annot"><span class="annottext">[Node] -&gt; Either String SchemaExtensionStatus
 ([Node] -&gt; Either String SchemaExtensionStatus)
 -&gt; FromXML SchemaExtensionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SchemaExtensionStatus
 $cparseXML :: [Node] -&gt; Either String SchemaExtensionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679298826"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679299024"><span class="annot"><span class="annottext">SchemaExtensionStatus -&gt; XML
 (SchemaExtensionStatus -&gt; XML) -&gt; ToXML SchemaExtensionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SchemaExtensionStatus -&gt; XML

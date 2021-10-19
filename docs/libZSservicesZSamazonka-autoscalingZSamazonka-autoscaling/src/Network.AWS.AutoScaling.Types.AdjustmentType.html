@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a policy adjustment type.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAdjustmentType' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679324739"><span id="local-6989586621679324740"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdjustmentType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-var">AdjustmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdjustmentType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-var">AdjustmentType'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679325388"><span id="local-6989586621679325389"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdjustmentType"><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-var">AdjustmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdjustmentType%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-var">AdjustmentType'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy adjustment type. The valid values are @ChangeInCapacity@,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- @ExactCapacity@, and @PercentChangeInCapacity@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AadjustmentType%3AAdjustmentType%27"><span class="annot"><span class="annottext">AdjustmentType -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#%24sel%3AadjustmentType%3AAdjustmentType%27"><span class="hs-identifier hs-var hs-var">adjustmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324733"><span id="local-6989586621679324735"><span class="annot"><span class="annottext">AdjustmentType -&gt; AdjustmentType -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325382"><span id="local-6989586621679325384"><span class="annot"><span class="annottext">AdjustmentType -&gt; AdjustmentType -&gt; Bool
 (AdjustmentType -&gt; AdjustmentType -&gt; Bool)
 -&gt; (AdjustmentType -&gt; AdjustmentType -&gt; Bool) -&gt; Eq AdjustmentType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
 == :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
 $c== :: AdjustmentType -&gt; AdjustmentType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324724"><span id="local-6989586621679324726"><span id="local-6989586621679324728"><span id="local-6989586621679324730"><span class="annot"><span class="annottext">ReadPrec [AdjustmentType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325373"><span id="local-6989586621679325375"><span id="local-6989586621679325377"><span id="local-6989586621679325379"><span class="annot"><span class="annottext">ReadPrec [AdjustmentType]
 ReadPrec AdjustmentType
 Int -&gt; ReadS AdjustmentType
 ReadS [AdjustmentType]
@@ -60,7 +60,7 @@ readList :: ReadS [AdjustmentType]
 $creadList :: ReadS [AdjustmentType]
 readsPrec :: Int -&gt; ReadS AdjustmentType
 $creadsPrec :: Int -&gt; ReadS AdjustmentType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324717"><span id="local-6989586621679324719"><span id="local-6989586621679324721"><span class="annot"><span class="annottext">Int -&gt; AdjustmentType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325366"><span id="local-6989586621679325368"><span id="local-6989586621679325370"><span class="annot"><span class="annottext">Int -&gt; AdjustmentType -&gt; ShowS
 [AdjustmentType] -&gt; ShowS
 AdjustmentType -&gt; String
 (Int -&gt; AdjustmentType -&gt; ShowS)
@@ -115,33 +115,33 @@ forall a. Maybe a
 -&gt; (AdjustmentType -&gt; Maybe Text -&gt; AdjustmentType)
 -&gt; Lens AdjustmentType AdjustmentType (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-type">AdjustmentType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324708"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-type">AdjustmentType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325357"><span class="annot"><span class="annottext">Maybe Text
 adjustmentType :: Maybe Text
 $sel:adjustmentType:AdjustmentType' :: AdjustmentType -&gt; Maybe Text
-</span><a href="#local-6989586621679324708"><span class="hs-identifier hs-var hs-var">adjustmentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324708"><span class="hs-identifier hs-var">adjustmentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324707"><span class="annot"><span class="annottext">s :: AdjustmentType
-</span><a href="#local-6989586621679324707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-type">AdjustmentType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324706"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdjustmentType
-</span><a href="#local-6989586621679324707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adjustmentType:AdjustmentType' :: Maybe Text
+</span><a href="#local-6989586621679325357"><span class="hs-identifier hs-var hs-var">adjustmentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325357"><span class="hs-identifier hs-var">adjustmentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325356"><span class="annot"><span class="annottext">s :: AdjustmentType
+</span><a href="#local-6989586621679325356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-type">AdjustmentType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679325355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdjustmentType
+</span><a href="#local-6989586621679325356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adjustmentType:AdjustmentType' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#%24sel%3AadjustmentType%3AAdjustmentType%27"><span class="hs-identifier hs-var">adjustmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679324703"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AdjustmentType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679324701"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324701"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679325352"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AdjustmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679325350"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679325350"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; AdjustmentType
 </span><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType%27"><span class="hs-identifier hs-var">AdjustmentType'</span></a></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AdjustmentType)
 -&gt; Either String (Maybe Text) -&gt; Either String AdjustmentType
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679324701"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679325350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdjustmentType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324695"><span id="local-6989586621679324697"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325344"><span id="local-6989586621679325346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>
